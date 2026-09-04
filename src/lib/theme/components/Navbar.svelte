@@ -12,6 +12,8 @@
   const wordmark = options.logoText ?? options.siteTitle
 
   function isActive(to: string) {
+    if (to === '/')
+      return page.url.pathname === '/'
     return page.url.pathname.startsWith(to.replace(/\/$/, ''))
   }
 </script>

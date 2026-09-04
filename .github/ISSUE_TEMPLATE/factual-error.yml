@@ -8,7 +8,7 @@ body:
     attributes:
       label: Page URL
       description: The commonwaysystem.org page this is on.
-      placeholder: https://commonwaysystem.org/guide/local-streets/bicycle-boulevard/
+      placeholder: https://commonwaysystem.org/patterns/local-streets/bicycle-boulevard/
     validations:
       required: true
   - type: textarea

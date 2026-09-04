@@ -1,5 +1,5 @@
 ---
-title: Governance
+title: Project Governance
 description: How decisions about the Commonway System get made and who makes them.
 llms: Explains who has final say on the Commonway System, how classification decisions and evidence disputes are resolved, how project direction is set, and why participation isn't a vote.
 ---
@@ -36,7 +36,7 @@ Two different kinds of changes are held to two different bars:
 
 **Foundational structure** (the Functional Classification system, the pattern ID format, the scale hierarchy, core safety rules like the Local speed cap) requires the maintainer's direct sign-off, regardless of how well a proposed change is cited. These decisions shape everything built on top of them, so they don't move on the strength of a single well-argued case.
 
-**Content within the existing structure** (a new citation, a correction to a stated range, a new pattern proposal that fits into an existing Functional Classification) moves faster and follows the ordinary review process described on the [Contributing](/about/contributing/) page.
+**Content within the existing structure** (a new citation, a correction to a stated range, a new pattern proposal that fits into an existing Functional Classification) moves faster and follows the ordinary review process described on the [Submit a Change](/about/contributing/) page.
 
 ## Participation isn't a vote
 

@@ -1,5 +1,5 @@
 ---
-title: Credits
+title: Acknowledgments
 description: Everyone who has helped correct, source, or build the Commonway System.
 llms: Credits everyone who has helped correct, source, or build the Commonway System, or explains that no contributions have landed yet.
 ---
@@ -40,6 +40,6 @@ llms: Credits everyone who has helped correct, source, or build the Commonway Sy
   }
 </script>
 
-Commonway System is compiled and maintained by Kevin Young. Everyone listed below has helped make it more accurate, more complete, or better built, through a correction, a citation, a new pattern proposal, or a contribution to the site itself. See [Contributing](/about/contributing/) for how to be added to this list.
+Commonway System is compiled and maintained by Kevin Young. Everyone listed below has helped make it more accurate, more complete, or better built, through a correction, a citation, a new pattern proposal, or a contribution to the site itself. See [Submit a Change](/about/contributing/) for how to be added to this list.
 
 {@html creditsListHtml()}

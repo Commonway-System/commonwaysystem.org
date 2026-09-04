@@ -1,7 +1,7 @@
 import { parse } from 'yaml'
 
 export interface PageMeta {
-  /** Always trailing-slashed, e.g. "/guide/introduction/", or "/" for home. */
+  /** Always trailing-slashed, e.g. "/guide/", or "/" for home. */
   routePath: string
   title: string
   description?: string

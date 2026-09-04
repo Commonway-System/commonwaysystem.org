@@ -12,4 +12,4 @@ The Commonway System Guidebook is a pattern language for roads and streets, buil
 This site is running on a fully custom SveltePress theme. Colors, type, and the citation system are wired up as a starting point, not a finished design. See the Pattern Index for a worked example.
 :::
 
-Start with the [guide introduction](/guide/introduction/), or look at a fully worked [example pattern](/guide/local-streets/bicycle-boulevard/) to see how a Pattern ID card, density tiers, and citations render together.
+Start with the [guide introduction](/guide/), or look at a fully worked [example pattern](/patterns/local-streets/bicycle-boulevard/) to see how a Pattern ID card, density tiers, and citations render together.

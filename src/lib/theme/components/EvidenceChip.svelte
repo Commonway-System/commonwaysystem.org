@@ -21,11 +21,14 @@
   .evidence-chip {
     display: inline-flex;
     align-items: center;
-    padding: 0.25rem 0.65rem;
+    padding: 0.1rem 0.45rem;
+    margin-right: 0.4rem;
     border-radius: 999px;
-    font-size: var(--cw-text-sm);
+    font-size: 0.6875rem;
     font-weight: 600;
+    letter-spacing: 0.01em;
     color: var(--cw-evidence-fg);
+    vertical-align: 0.05em;
   }
 
   .evidence-chip[data-tier='legal'] {

@@ -1,3 +1,4 @@
+export { default as BlogIndex } from './BlogIndex.svelte'
 export { default as Button } from './Button.svelte'
 export { default as Citation } from './Citation.svelte'
 export { default as ColorSwatch } from './ColorSwatch.svelte'

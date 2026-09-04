@@ -17,16 +17,16 @@ The full visual and editorial system: colors, typography, voice, illustration ru
 **[Release History & Roadmap](/about/release-history/)**
 How CalVer versioning works, the current version, the changelog, and what's planned but not yet built.
 
-**[Contributing / Volunteering](/about/contributing/)**
+**[Submit a Change](/about/contributing/)**
 How to propose a pattern, suggest a correction, or otherwise help build out the guidebook.
 
-**[Governance](/about/governance/)**
+**[Project Governance](/about/governance/)**
 How decisions about the system get made and who makes them.
 
-**[Reporting](/about/reporting/)**
+**[Report a Problem](/about/reporting/)**
 How to flag an error, an unsourced claim, or a dead citation link.
 
-**[Credits](/about/credits/)**
+**[Acknowledgments](/about/credits/)**
 Everyone who has helped correct, source, or build the Commonway System.
 
 **[Terms and Conditions](/about/terms-and-conditions/)**

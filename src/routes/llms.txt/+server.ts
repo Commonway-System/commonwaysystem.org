@@ -8,6 +8,9 @@ export const prerender = true
 
 const SECTION_LABELS: Record<string, string> = {
   guide: 'Guide',
+  patterns: 'Patterns',
+  references: 'Reference',
+  blog: 'Blog',
   about: 'About',
 }
 

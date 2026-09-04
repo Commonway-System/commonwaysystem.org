@@ -38,3 +38,36 @@ function applyColorScheme(dark: boolean) {
     .querySelector<HTMLLinkElement>('link[rel="icon"]')
     ?.setAttribute('href', dark ? '/favicons/light-favicon.svg' : '/favicons/dark-favicon.svg')
 }
+
+let listeningForResize = false
+
+/**
+ * Shows each table's "scroll for more" hint only when that table actually
+ * overflows its column (see markdown/table-scroll.ts for the wrapper
+ * markup, base.css's .cw-table-wrap--overflowing rule for the hint
+ * itself). Call once on mount and again after every client-side
+ * navigation, since SvelteKit swaps page content without a full reload;
+ * the resize listener is attached once and just re-measures whatever
+ * tables are on the page at the time.
+ */
+export function initTableScrollHints() {
+  updateTableScrollHints()
+  // Fraunces/Inter are variable web fonts; if they finish loading after
+  // this first pass, a table's measured width can shift enough to change
+  // whether it counts as overflowing.
+  document.fonts?.ready.then(updateTableScrollHints)
+  if (!listeningForResize) {
+    window.addEventListener('resize', updateTableScrollHints)
+    listeningForResize = true
+  }
+}
+
+function updateTableScrollHints() {
+  document.querySelectorAll<HTMLElement>('.cw-table-wrap').forEach((wrap) => {
+    const scroller = wrap.querySelector<HTMLElement>('.cw-table-scroll')
+    if (!scroller)
+      return
+    const overflowing = scroller.scrollWidth > scroller.clientWidth + 1
+    wrap.classList.toggle('cw-table-wrap--overflowing', overflowing)
+  })
+}

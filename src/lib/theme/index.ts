@@ -6,6 +6,7 @@ import { admonitions } from './markdown/admonitions.js'
 import { externalLinks } from './markdown/external-links.js'
 import { createHighlighter } from './highlighter.js'
 import { headingAnchors } from './markdown/heading-anchors.js'
+import { tableScroll } from './markdown/table-scroll.js'
 import type { CommonwayThemeOptions } from './config.js'
 
 export type { CommonwayThemeOptions, NavLink, SidebarLink } from './config.js'
@@ -42,6 +43,6 @@ export function commonwayTheme(options: CommonwayThemeOptions) {
     vitePlugins: [optionsPlugin(options)],
     highlighter: createHighlighter,
     remarkPlugins: [remarkGfm, remarkDirective, admonitions],
-    rehypePlugins: [rehypeSlug, headingAnchors, externalLinks],
+    rehypePlugins: [rehypeSlug, headingAnchors, externalLinks, tableScroll],
   }
 }

@@ -30,15 +30,15 @@ To the fullest extent permitted by law, Commonway System and its maintainer are 
 
 ## Brand, trademark, and visual identity
 
-The Commonway System name, logo, wordmark, color system, and overall visual identity are not covered by the site's code license or by the content-contribution terms described on the [Contributing](/about/contributing/) page. They remain the property of the Commonway System project and are reserved. Nothing in this site's code license, content terms, or the act of contributing to the guide grants any right to use, reproduce, modify, or create derivative versions of the Commonway System name, logo, or brand identity without prior written permission.
+The Commonway System name, logo, wordmark, color system, and overall visual identity are not covered by the site's code license or by the content-contribution terms described on the [Submit a Change](/about/contributing/) page. They remain the property of the Commonway System project and are reserved. Nothing in this site's code license, content terms, or the act of contributing to the guide grants any right to use, reproduce, modify, or create derivative versions of the Commonway System name, logo, or brand identity without prior written permission.
 
 ## Code and content licensing
 
-The site's underlying code is open source under the MIT License; see the [LICENSE file](https://github.com/Commonway-System/commonwaysystem.org/blob/main/LICENSE) in the repository. The guide's written content is licensed separately: Commonway System retains the rights to the compiled guide, and contributors grant a license to use their submissions as described on the [Contributing](/about/contributing/) page. These are two different licenses covering two different things, and neither extends to the brand elements described above.
+The site's underlying code is open source under the MIT License; see the [LICENSE file](https://github.com/Commonway-System/commonwaysystem.org/blob/main/LICENSE) in the repository. The guide's written content is licensed separately: Commonway System retains the rights to the compiled guide, and contributors grant a license to use their submissions as described on the [Submit a Change](/about/contributing/) page. These are two different licenses covering two different things, and neither extends to the brand elements described above.
 
 ## Contributions
 
-Submitting a correction, citation, or new pattern proposal through the project's GitHub repository is governed by the terms on the [Contributing](/about/contributing/) page and the repository's [Code of Conduct](https://github.com/Commonway-System/commonwaysystem.org/blob/main/CODE_OF_CONDUCT.md). We reserve the right to decline, edit, or remove any contribution.
+Submitting a correction, citation, or new pattern proposal through the project's GitHub repository is governed by the terms on the [Submit a Change](/about/contributing/) page and the repository's [Code of Conduct](https://github.com/Commonway-System/commonwaysystem.org/blob/main/CODE_OF_CONDUCT.md). We reserve the right to decline, edit, or remove any contribution.
 
 ## External links
 

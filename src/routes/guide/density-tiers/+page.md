@@ -5,7 +5,7 @@ llms: Explains the six Commonway System density tiers (Undeveloped, Rural, Subur
 ---
 
 <script>
-  import { DensityChip, Citation } from '$lib/theme/components'
+  import { DensityChip, Citation, EvidenceChip } from '$lib/theme/components'
 </script>
 
 Every pattern page in this guide notes which density tiers it's typical for, using chips like <DensityChip tier="Suburban" /> shown on the [How to Read a Pattern](/guide/how-to-read-a-pattern/) page. This page explains what those six tiers mean, where the names and numbers come from, and how to read them.
@@ -56,12 +56,12 @@ There's no separate tier for a small town. A small town's Main Street often read
 
 ## How this connects to the rest of the guide
 
-Every Street Typology page in the guide lists which density tiers it's typical for, using the same six tiers and codes described here. A pattern marked typical at Suburban, Compact, and Urban is telling you it shows up as the normal choice in those contexts; a tier marked as an edge case means it happens but isn't the norm; a tier marked unlikely means the pairing rarely occurs in practice. See the [Street Typology Pattern Index](/guide/patterns/) for the full list.
+Every Street Typology page in the guide lists which density tiers it's typical for, using the same six tiers and codes described here. A pattern marked typical at Suburban, Compact, and Urban is telling you it shows up as the normal choice in those contexts; a tier marked as an edge case means it happens but isn't the norm; a tier marked unlikely means the pairing rarely occurs in practice. See the [Street Typology Pattern Index](/patterns/) for the full list.
 
 ## References
 
-1. <span id="ref-1"></span>Institute of Transportation Engineers and Congress for the New Urbanism, *Designing Walkable Urban Thoroughfares: A Context Sensitive Approach*, 2010. Available at: https://19january2017snapshot.epa.gov/smartgrowth/designing-walkable-urban-thoroughfares-context-sensitive-approach
-2. <span id="ref-2"></span>Congress for the New Urbanism, "The Transect," *Public Square: A CNU Journal*, by Robert Steuteville, published June 10, 2009, updated January 22, 2016. Available at: https://www.cnu.org/publicsquare/transect
-3. <span id="ref-3"></span>U.S. Census Bureau, "Urban Area Criteria for the 2020 Census, Final Criteria," *Federal Register*, March 24, 2022. Available at: https://www.federalregister.gov/documents/2022/03/24/2022-06180/urban-area-criteria-for-the-2020-census-final-criteria
-4. <span id="ref-4"></span>Florida Department of Transportation, *Context Classification Guide*, Chapter 2, "Step-by-Step Guide for Determining Context Classification," October 2024. Available at: https://fdotwww.blob.core.windows.net/sitefinity/docs/default-source/roadway/completestreets/files/fdot-context-classification.pdf
-5. <span id="ref-5"></span>City of Miami, *Miami 21 Code*, Article 4, "Standards and Tables," Table 4, "Density, Intensity and Parking," as adopted May 2010. Available at: https://www.miami21.org/PDFs/FinalDocumentsMay2010/FULLDOCUMENT-May2010.pdf
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Institute of Transportation Engineers and Congress for the New Urbanism, *Designing Walkable Urban Thoroughfares: A Context Sensitive Approach*, 2010. Available at: https://19january2017snapshot.epa.gov/smartgrowth/designing-walkable-urban-thoroughfares-context-sensitive-approach
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> Congress for the New Urbanism, "The Transect," *Public Square: A CNU Journal*, by Robert Steuteville, published June 10, 2009, updated January 22, 2016. Available at: https://www.cnu.org/publicsquare/transect
+3. <span id="ref-3"></span><EvidenceChip tier="legal" /> U.S. Census Bureau, "Urban Area Criteria for the 2020 Census, Final Criteria," *Federal Register*, March 24, 2022. Available at: https://www.federalregister.gov/documents/2022/03/24/2022-06180/urban-area-criteria-for-the-2020-census-final-criteria
+4. <span id="ref-4"></span><EvidenceChip tier="legal" /> Florida Department of Transportation, *Context Classification Guide*, Chapter 2, "Step-by-Step Guide for Determining Context Classification," October 2024. Available at: https://fdotwww.blob.core.windows.net/sitefinity/docs/default-source/roadway/completestreets/files/fdot-context-classification.pdf
+5. <span id="ref-5"></span><EvidenceChip tier="legal" /> City of Miami, *Miami 21 Code*, Article 4, "Standards and Tables," Table 4, "Density, Intensity and Parking," as adopted May 2010. Available at: https://www.miami21.org/PDFs/FinalDocumentsMay2010/FULLDOCUMENT-May2010.pdf

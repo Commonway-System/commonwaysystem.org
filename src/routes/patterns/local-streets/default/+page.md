@@ -16,7 +16,7 @@ The baseline Local street. No special access pattern, event use, or dedicated mo
 
 Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
-Rural is an edge case, not the norm. Farm and rural-residential contexts more often produce a [Rural Collector / Farm-to-Market Road](/guide/collectors/rural-collector/) pattern instead, since a genuinely Local-scale street needs enough nearby development to serve. Undeveloped contexts are unlikely to carry a Local street at all, for the same reason.
+Rural is an edge case, not the norm. Farm and rural-residential contexts more often produce a [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) pattern instead, since a genuinely Local-scale street needs enough nearby development to serve. Undeveloped contexts are unlikely to carry a Local street at all, for the same reason.
 
 ## Speed and modal hierarchy
 
@@ -30,7 +30,7 @@ Modal hierarchy follows the Local base order without an override:
 4. Vehicle
 5. Freight
 
-This order follows directly from Local's access-priority role in the Functional Classification system, not from a judgment call specific to this Typology. A named Typology only reorders it when the Typology's whole purpose is a specific mode, for example [Alley](/guide/local-streets/alley/) (Vehicle and Freight first, since the entire point is service and driveway access) or [Bicycle Boulevard / Neighborhood Greenway](/guide/local-streets/bicycle-boulevard/) (Bicycle first, since shared-street bicycle priority is the entire point).
+This order follows directly from Local's access-priority role in the Functional Classification system, not from a judgment call specific to this Typology. A named Typology only reorders it when the Typology's whole purpose is a specific mode, for example [Alley](/patterns/local-streets/alley/) (Vehicle and Freight first, since the entire point is service and driveway access) or [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (Bicycle first, since shared-street bicycle priority is the entire point).
 
 ## Cross-section
 
@@ -42,15 +42,15 @@ No cross-section illustration exists yet for this Typology. Per the Brand Guide,
 
 This entry is the reference point, not one option among equals. Reading the other eleven Local Typologies as departures from this baseline makes the whole set easier to hold in mind:
 
-- **Access-pattern departures:** [Alley](/guide/local-streets/alley/), [Cul-de-sac](/guide/local-streets/cul-de-sac/), [Frontage / Service Road](/guide/local-streets/frontage-service-road/)
-- **Land-use departures:** [Main Street](/guide/local-streets/main-street/)
-- **Traffic-model departures:** [Living Street / Woonerf](/guide/local-streets/living-street-woonerf/), [Yield Street](/guide/local-streets/yield-street/)
-- **Temporary or event-based departures:** [Festival Street](/guide/local-streets/festival-street/), [School Street](/guide/local-streets/school-street/)
-- **Full-time single-mode departures:** [Pedestrian-only Street / Plaza](/guide/local-streets/pedestrian-plaza/), [Local Transit](/guide/local-streets/local-transit/), [Bicycle Boulevard / Neighborhood Greenway](/guide/local-streets/bicycle-boulevard/)
+- **Access-pattern departures:** [Alley](/patterns/local-streets/alley/), [Cul-de-sac](/patterns/local-streets/cul-de-sac/), [Frontage / Service Road](/patterns/local-streets/frontage-service-road/)
+- **Land-use departures:** [Main Street](/patterns/local-streets/main-street/)
+- **Traffic-model departures:** [Living Street / Woonerf](/patterns/local-streets/living-street-woonerf/), [Yield Street](/patterns/local-streets/yield-street/)
+- **Temporary or event-based departures:** [Festival Street](/patterns/local-streets/festival-street/), [School Street](/patterns/local-streets/school-street/)
+- **Full-time single-mode departures:** [Pedestrian-only Street / Plaza](/patterns/local-streets/pedestrian-plaza/), [Local Transit](/patterns/local-streets/local-transit/), [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/)
 
 ## Where a Local street meets a bigger street
 
-The default intersection treatment where this pattern meets a Collector is a [Continuous Sidewalk / Raised Junction](/guide/intersections/continuous-sidewalk/): the sidewalk and bike path stay uninterrupted, and the roadway ramps up to meet them rather than the reverse.
+The default intersection treatment where this pattern meets a Collector is a [Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/): the sidewalk and bike path stay uninterrupted, and the roadway ramps up to meet them rather than the reverse.
 
 ## Design notes
 

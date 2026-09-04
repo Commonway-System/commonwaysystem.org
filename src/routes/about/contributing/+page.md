@@ -1,5 +1,5 @@
 ---
-title: Contributing / Volunteering
+title: Submit a Change
 description: How to propose a pattern, suggest a correction, or help build out the Commonway System guidebook.
 llms: Explains how to contribute to the Commonway System, what counts as a contribution, how a pull request is reviewed, the terms of contributing, and how contributors are credited.
 ---
@@ -10,7 +10,7 @@ llms: Explains how to contribute to the Commonway System, what counts as a contr
 
 Commonway System is public and built in the open on GitHub. If you've noticed something that could be stronger, more accurate, or missing entirely, you can help fix it directly.
 
-This page covers submitting an actual change yourself, a correction, a new citation, or a new pattern proposal. If you've spotted a problem but aren't able to fix it yourself, see [Reporting](/about/reporting/) instead: that's the faster, no-writing-required path for flagging an error, a dead link, or an unsourced claim.
+This page covers submitting an actual change yourself, a correction, a new citation, or a new pattern proposal. If you've spotted a problem but aren't able to fix it yourself, see [Report a Problem](/about/reporting/) instead: that's the faster, no-writing-required path for flagging an error, a dead link, or an unsourced claim.
 
 ## What you can contribute
 
@@ -19,7 +19,7 @@ This page covers submitting an actual change yourself, a correction, a new citat
 - **A new pattern proposal**, when you believe a Street Typology, an intersection treatment, or a related pattern is missing from the guide
 - **General improvements**: clearer wording, a better example, a fix to the site itself
 
-One thing worth knowing before you start on something large: foundational structure, the Functional Classification system, the pattern ID format, core safety rules like the Local speed cap, isn't open to change through a routine pull request. See [Governance](/about/governance/) for how that's decided. If you're proposing something that touches the guide's underlying structure rather than its content, open an issue to discuss it first, before putting in the work on a full pull request.
+One thing worth knowing before you start on something large: foundational structure, the Functional Classification system, the pattern ID format, core safety rules like the Local speed cap, isn't open to change through a routine pull request. See [Project Governance](/about/governance/) for how that's decided. If you're proposing something that touches the guide's underlying structure rather than its content, open an issue to discuss it first, before putting in the work on a full pull request.
 
 ## How a contribution moves through review
 
@@ -27,7 +27,7 @@ Commonway System uses the standard GitHub workflow: fork the [repository](https:
 
 Every contribution is checked against the same standard every existing page is held to:
 
-- **Does it cite a source?** New or changed factual claims need a citation, ranked by evidence tier (legal/regulatory, evidence-based, or precedent-based). A claim without a source gets the unsourced-claim flag rather than getting rejected outright, but citing it yourself gets it merged faster.
+- **Does it cite a source?** New or changed factual claims need a citation, ranked by evidence tier (legal/regulatory, evidence-based, or precedent-based). Every citation's entry in that page's `## References` list needs its evidence-tier chip alongside it, added at the same time as the citation itself, not as a follow-up. A claim without a source gets the unsourced-claim flag rather than getting rejected outright, but citing it yourself gets it merged faster.
 - **Does it match the house style?** Third-person voice for pattern entries, no first-person framing, no words implying certification or guaranteed compliance ("code-approved," "certified"), and no reproduced excerpts from source manuals like MUTCD or CROW, paraphrase and cite instead.
 - **Does it fit the existing structure?** A correction or new pattern within an existing Functional Classification moves through normal review. A change to the structure itself needs the discussion described above before a pull request is the right next step.
 
@@ -41,7 +41,7 @@ The site's underlying code, Svelte components, configuration, and build tooling,
 
 ## Credit
 
-Contributors are credited by name (or GitHub handle, if you'd rather not use your name) on the [Credits](/about/credits/) page. Credit reflects that you helped build this, it isn't authorship of the guide itself, and it isn't a claim on any part of it.
+Contributors are credited by name (or GitHub handle, if you'd rather not use your name) on the [Acknowledgments](/about/credits/) page. Credit reflects that you helped build this, it isn't authorship of the guide itself, and it isn't a claim on any part of it.
 
 ## Code of conduct
 

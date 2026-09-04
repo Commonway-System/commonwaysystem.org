@@ -18,7 +18,7 @@ Claude, built by Anthropic, has been closely involved throughout this project: r
 
 ## Human oversight
 
-AI drafts, researches, and suggests. It doesn't decide. Every pattern's classification, every citation, every structural decision in the guide is reviewed against the same evidence-tier system described on the [Governance](/about/governance/) page, legal or regulatory sources first, then evidence-based research, then documented precedent, before it's published. An AI-drafted paragraph doesn't get special trust for being AI-drafted; it gets checked the same as anything else.
+AI drafts, researches, and suggests. It doesn't decide. Every pattern's classification, every citation, every structural decision in the guide is reviewed against the same evidence-tier system described on the [Project Governance](/about/governance/) page, legal or regulatory sources first, then evidence-based research, then documented precedent, before it's published. An AI-drafted paragraph doesn't get special trust for being AI-drafted; it gets checked the same as anything else.
 
 ## Why this matters for a citation-based project
 

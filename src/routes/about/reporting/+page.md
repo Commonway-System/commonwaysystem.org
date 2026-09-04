@@ -1,5 +1,5 @@
 ---
-title: Reporting
+title: Report a Problem
 description: How to flag an error, an unsourced claim, or a dead citation link in the Commonway System.
 llms: Explains how to report a factual error, an unsourced claim, a dead citation link, or an accessibility issue in the Commonway System, and how a report is handled after it's filed.
 ---
@@ -10,7 +10,7 @@ llms: Explains how to report a factual error, an unsourced claim, a dead citatio
 
 Noticed something wrong but don't want to fix it yourself? This is the fast path: no writing, no pull request, just flag it and someone else takes it from here.
 
-If you'd rather submit the actual fix yourself, correcting the text, adding the missing citation, see [Contributing](/about/contributing/) instead.
+If you'd rather submit the actual fix yourself, correcting the text, adding the missing citation, see [Submit a Change](/about/contributing/) instead.
 
 ## What to report here
 

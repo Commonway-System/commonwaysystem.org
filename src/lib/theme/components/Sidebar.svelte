@@ -16,6 +16,8 @@
   })
 
   function isActiveNavLink(to: string) {
+    if (to === '/')
+      return page.url.pathname === '/'
     return page.url.pathname.replace(/\/$/, '').startsWith(to.replace(/\/$/, ''))
   }
 </script>

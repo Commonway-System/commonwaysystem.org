@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
+  import { onMount, tick } from 'svelte'
   import { afterNavigate } from '$app/navigation'
   import type { Snippet } from 'svelte'
-  import { initColorScheme, sidebarOpen } from '../layout.js'
+  import { initColorScheme, initTableScrollHints, sidebarOpen } from '../layout.js'
   import '../styles/base.css'
   import Backdrop from './Backdrop.svelte'
   import GoogleAnalytics from './GoogleAnalytics.svelte'
@@ -18,10 +18,17 @@
 
   onMount(() => {
     initColorScheme()
+    // tick(), not requestAnimationFrame: rAF is throttled/paused while the
+    // tab is backgrounded, which would leave the scroll hint permanently
+    // hidden on a table that loads in a background tab. tick() just waits
+    // for Svelte's own pending DOM updates to flush, no visibility
+    // dependency, before the table wrapper's real layout width is measured.
+    tick().then(initTableScrollHints)
   })
 
   afterNavigate(() => {
     sidebarOpen.set(false)
+    tick().then(initTableScrollHints)
   })
 </script>
 

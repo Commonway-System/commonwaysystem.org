@@ -101,6 +101,13 @@ svg {
    (navbar, sidebar chrome, etc.) never inherits article defaults.
 ------------------------------------------------------------------------ */
 
+/* A bare long URL (autolinked reference citations, etc.) has no natural
+   break point and will otherwise overflow the content column instead of
+   wrapping, since normal word-wrap only breaks at spaces. */
+.cw-content {
+  overflow-wrap: anywhere;
+}
+
 .cw-content h1,
 .cw-content h2,
 .cw-content h3,
@@ -269,12 +276,96 @@ svg {
   background-color: var(--shiki-dark-bg) !important;
 }
 
-/* ---- Tables ----------------------------------------------------------- */
+/* ---- Tables ------------------------------------------------------------
+   A table wider than the content column needs to scroll rather than
+   overflow the page. table-scroll.ts (a rehype plugin) wraps every
+   <table> in .cw-table-wrap > .cw-table-scroll > table at build time, so
+   this styles that wrapper rather than the table itself: putting
+   `display: block`/`overflow-x` on the <table> element directly (an
+   earlier version of this fix) strips its implicit ARIA table/row/cell
+   roles in some browsers, since they derive table semantics from the
+   element's own computed display. Wrapping in a plain div keeps the
+   table's native display/semantics untouched for assistive tech. ------- */
+
+.cw-table-wrap {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.cw-table-scroll {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cw-hairline-strong) transparent;
+  /* The Lea Verou "scroll shadow" trick: two gradients paint a fixed
+     shadow at each edge (background-attachment: scroll, so they stay put
+     as the box's own background); two more, matching the page background,
+     scroll together with the content (background-attachment: local) and
+     slide over whichever shadow has nothing left to indicate, covering it.
+     No JS: the cover naturally reveals/hides each shadow as the actual
+     scroll position changes. */
+  background:
+    linear-gradient(to right, var(--cw-paper) 40%, transparent) 0 0 / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--cw-paper) 40%, transparent) 100% 0 / 2.5rem 100% no-repeat local,
+    linear-gradient(to right, var(--cw-hairline-strong), transparent) 0 0 / 1.25rem 100% no-repeat scroll,
+    linear-gradient(to left, var(--cw-hairline-strong), transparent) 100% 0 / 1.25rem 100% no-repeat scroll;
+}
+
+.cw-table-scroll:focus-visible {
+  outline: 2px solid var(--cw-primary);
+  outline-offset: -2px;
+  border-radius: var(--cw-radius-sm);
+}
+
+.cw-table-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.cw-table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cw-table-scroll::-webkit-scrollbar-thumb {
+  background: var(--cw-hairline-strong);
+  border-radius: var(--cw-radius-lg);
+}
+.cw-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--cw-ink-faint);
+}
+
+.cw-table-scroll table {
+  margin: 0;
+  /* Table auto-layout needs each column's natural min-content (longest
+     unbreakable word) to size columns; inheriting .cw-content's
+     anywhere-break rule (for long reference URLs, see above) would let
+     columns shrink to near-nothing character-by-character instead of the
+     table overflowing into the scroll box this wrapper provides. */
+  overflow-wrap: normal;
+}
+
+/* Decorative only (aria-hidden in the markup): the accessible affordance
+   is .cw-table-scroll's own tabindex + aria-label below, this is purely
+   the sighted-user cue. Sits above the table (see table-scroll.ts), not
+   below: a table long enough to need this hint is also long enough that a
+   reader never scrolls down far enough to see a footer version of it.
+   Hidden by default, shown only once JS (see layout.ts's
+   initTableScrollHints) confirms the table actually overflows its
+   column, so a table that already fits never grows this hint. */
+.cw-table-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--cw-ink-faint);
+}
+
+.cw-table-wrap--overflowing .cw-table-hint {
+  display: flex;
+}
 
 .cw-content table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
+  margin: 0;
   font-size: var(--cw-text-sm);
 }
 

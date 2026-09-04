@@ -5,15 +5,16 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
 ---
 
 <script>
-  // Counts real Street Typology pattern pages (guide/<classification>/<slug>/),
-  // not the guide's own Introduction/Pattern Index/How-to-read-a-pattern
-  // pages, which sit one path segment shallower. Computed from the routes
-  // themselves so this number can't drift stale the way a hardcoded count
-  // would, the same reasoning src/lib/server/content.ts already applies to
-  // llms.txt.
-  const guideModules = import.meta.glob('/src/routes/guide/**/+page.md')
-  const patternPageCount = Object.keys(guideModules).filter((path) => {
-    const rel = path.replace('/src/routes/guide/', '').replace('/+page.md', '')
+  // Counts real Street Typology pattern pages (patterns/<classification>/<slug>/),
+  // not the Pattern Index itself, which sits one path segment shallower.
+  // Computed from the routes themselves so this number can't drift stale
+  // the way a hardcoded count would, the same reasoning
+  // src/lib/server/content.ts already applies to llms.txt. Points at
+  // patterns/, not guide/, since the sitewide URL restructure moved every
+  // pattern page out of guide/ into its own top-level patterns/ section.
+  const patternModules = import.meta.glob('/src/routes/patterns/**/+page.md')
+  const patternPageCount = Object.keys(patternModules).filter((path) => {
+    const rel = path.replace('/src/routes/patterns/', '').replace('/+page.md', '')
     return rel.split('/').length === 2
   }).length
 
@@ -41,6 +42,12 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
         'Added "Share" buttons (X, Facebook, LinkedIn, Reddit, Bluesky, email, copy-link) to every page: plain outbound links only, no third-party share-button script or tracking, consistent with the Privacy Policy.',
         'The version number in the navbar is now a link to this page.',
         'Fixed a real production-build failure: the Brand Guide’s illustrative citation demo linked to a citation anchor that doesn’t exist, which `adapter-static`’s strict prerendering treats as a hard build error rather than a soft dead link.',
+        'Street Types & Classifications gained 10 real citations (Stroad, Street Typology, Living Street/Woonerf, Yield Street, Turbo-Roundabout, plus the three sources behind the Dutch CROW comparison table), mph conversions alongside every km/h speed figure, and working links from that comparison table straight to each pattern’s real CS equivalent page.',
+        'Wide tables now scroll horizontally in their own box instead of overflowing the page: a themed edge-fade shadow, a thin scrollbar, and a “scroll for more” hint shown only once a table actually overflows. Applied site-wide through a new rehype plugin, not hand-added per table, and built as a wrapper around the table rather than changing the table’s own CSS display, so screen readers keep the table’s native semantics.',
+        'Evidence-tier chips (Legal/regulatory, Evidence-based, Precedent-based) rolled out to every citation on Density Tiers and Street Types & Classifications, and made a standing house rule going forward: every new citation gets one. The Contributing page’s review checklist now says so explicitly.',
+        'Sitewide URL restructure: the navbar is now Home / Guide / Patterns / Reference / Blog / About. All 37 pattern pages and the Pattern Index moved out of Guide into their own Patterns section; Guide now holds only its 4 remaining non-pattern pages. Two new sections launched: Reference (explaining the technical-detail layer planned beneath pattern pages, not yet populated) and Blog (a dynamically generated index, one welcome post so far).',
+        'About’s sidebar split into three groups, About/Development/Terms and Policies, and four of its pages got new display titles without changing their URLs: Governance → Project Governance, Contributing / Volunteering → Submit a Change, Reporting → Report a Problem, Credits → Acknowledgments.',
+        'Fixed this page’s own live pattern-page count, which had silently dropped to 0 after the Patterns move since the script computing it still pointed at the old guide/ path.',
       ],
     },
     {
@@ -113,7 +120,7 @@ Work that's planned but not yet built:
 
 - **Facility and Element ID formats.** Only the Segment and Intersection scale of the pattern ID system is finalized; the finer-grained Facility and Element levels still need their own format.
 - **Process-explainer chapter.** A plain-language guide to how local government actually handles road changes: who authorizes them, how they're funded, how citizens can engage.
-- **Classification-level overview pages.** Local, Collector, Arterial, and Freeway currently jump straight from the Introduction into individual Typology pages, with no landing page explaining the classification itself.
+- **Classification-level overview pages.** Local, Collector, Arterial, and Freeway currently jump straight from the Patterns index into individual Typology pages, with no landing page explaining the classification itself.
 - **Full citation compilation.** Most pattern pages carry an unsourced-claim flag rather than real citations; sourcing is an ongoing background task across the whole guide.
 - **Dutch CROW reference table reconciliation.** A temporary comparison table sits in the internal density-matrix document and needs to be folded into the actual Commonway patterns once they're fully planned.
 - **Entity formation and attorney review**, ahead of treating any part of the guide as a finished publication.

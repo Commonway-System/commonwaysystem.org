@@ -42,12 +42,17 @@ src/
                                wraps this in the theme's GlobalLayout.
     +layout.ts                Turns on prerendering and trailing-slash URLs.
     +page.md                  Home page.
-    guide/introduction/+page.md
+    guide/+page.md             Guide intro (bare root).
     guide/how-to-read-a-pattern/+page.md
-    guide/patterns/+page.md
-    guide/local-streets/bicycle-boulevard/+page.md
-    guide/.../+page.md        Add new pattern pages the same way: a folder
-                               with a +page.md inside it.
+    guide/density-tiers/+page.md
+    guide/street-types/+page.md
+    patterns/+page.md          Pattern Index (bare root).
+    patterns/local-streets/bicycle-boulevard/+page.md
+    patterns/.../+page.md      Add new pattern pages the same way: a folder
+                               with a +page.md inside it, under patterns/.
+    references/+page.md
+    blog/+page.md              Dynamic index, see BlogIndex.svelte.
+    blog/welcome/+page.md
     about/+page.md
     about/brand-guide/+page.md        Live preview of every brand token.
     about/commonway-system/+page.md
