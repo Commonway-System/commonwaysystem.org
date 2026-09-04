@@ -1,0 +1,37 @@
+name: Factual error
+description: A wrong figure, an outdated rule, or a description that no longer matches current guidance.
+title: "[Factual error]: "
+labels: ["factual-error"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page URL
+      description: The commonwaysystem.org page this is on.
+      placeholder: https://commonwaysystem.org/guide/local-streets/bicycle-boulevard/
+    validations:
+      required: true
+  - type: textarea
+    id: what-is-wrong
+    attributes:
+      label: What's wrong
+      description: Quote or describe the incorrect claim.
+    validations:
+      required: true
+  - type: textarea
+    id: correct-info
+    attributes:
+      label: Correct information or a better source
+      description: If you know the right figure or have a source, include it here. Not required, but it gets this merged faster.
+    validations:
+      required: false
+  - type: dropdown
+    id: safety-relevant
+    attributes:
+      label: Could this lead someone to make an unsafe real-world design decision?
+      description: Safety-relevant reports are looked at first.
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true

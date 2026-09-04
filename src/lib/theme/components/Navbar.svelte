@@ -56,11 +56,11 @@
     </nav>
 
     <div class="navbar__end">
-      <span class="navbar__version" title="CalVer, updated on each publish">
+      <a class="navbar__version" href="/about/release-history/" title="CalVer, updated on each publish, see the changelog">
         <span class="navbar__version-label navbar__version-label--full">Version</span>
         <span class="navbar__version-label navbar__version-label--short">V.</span>
         {version}
-      </span>
+      </a>
       {#if options.github}
         <a
           class="navbar__icon-link"
@@ -171,8 +171,13 @@
     font-family: var(--cw-font-mono);
     font-size: 0.75rem;
     color: var(--cw-ink-faint);
+    text-decoration: none;
     padding: 0 0.4rem;
     white-space: nowrap;
+  }
+
+  .navbar__version:hover {
+    color: var(--cw-primary);
   }
 
   .navbar__version-label--short {

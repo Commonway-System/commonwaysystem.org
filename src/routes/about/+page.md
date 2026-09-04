@@ -26,6 +26,14 @@ How decisions about the system get made and who makes them.
 **[Reporting](/about/reporting/)**
 How to flag an error, an unsourced claim, or a dead citation link.
 
-:::note
-Contributing, Governance, and Reporting are placeholder stubs for now. The Commonway System, Brand Guide, and Release History & Roadmap pages have real content.
-:::
+**[Credits](/about/credits/)**
+Everyone who has helped correct, source, or build the Commonway System.
+
+**[Terms and Conditions](/about/terms-and-conditions/)**
+The terms governing use of the Commonway System website and guide.
+
+**[Privacy Policy](/about/privacy-policy/)**
+What data Commonway System collects, why, and how it's used.
+
+**[AI Policy](/about/ai-policy/)**
+How AI was used in building Commonway System, and how human oversight stays in the loop.

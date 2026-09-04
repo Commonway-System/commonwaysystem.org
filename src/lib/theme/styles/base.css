@@ -114,6 +114,11 @@ svg {
   scroll-margin-top: calc(var(--cw-navbar-height) + 1rem);
 }
 
+/* Reference-list anchors, jumped to by Citation badges (see Citation.svelte). */
+.cw-content [id^='ref-'] {
+  scroll-margin-top: calc(var(--cw-navbar-height) + 1rem);
+}
+
 .cw-content h1 {
   font-size: var(--cw-text-4xl);
   line-height: 1.2;

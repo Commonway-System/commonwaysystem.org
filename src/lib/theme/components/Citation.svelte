@@ -4,10 +4,12 @@
     index?: number
     /** Flags a claim that still needs a citation, using the reserved amber. */
     unsourced?: boolean
+    /** Overrides the default `#ref-{index}` anchor, for the rare page whose reference list ids don't follow that pattern. */
     href?: string
   }
 
   const { index, unsourced = false, href }: Props = $props()
+  const resolvedHref = $derived(href ?? (index !== undefined ? `#ref-${index}` : undefined))
 </script>
 
 <!--
@@ -30,7 +32,7 @@
   <sup class="citation citation--unsourced" title="Unsourced claim">&#9888;</sup>
 {:else if index !== undefined}
   <sup class="citation">
-    <a {href}>{index}</a>
+    <a href={resolvedHref}>{index}</a>
   </sup>
 {/if}
 

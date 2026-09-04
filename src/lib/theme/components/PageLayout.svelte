@@ -8,6 +8,7 @@
   import { pageAnchors } from '../layout.js'
   import Icon from './Icon.svelte'
   import PageNav from './PageNav.svelte'
+  import ShareButtons from './ShareButtons.svelte'
 
   interface Props {
     fm: Record<string, any>
@@ -61,8 +62,8 @@
     {/if}
     {@render children?.()}
 
-    {#if editHref}
-      <p class="page__edit">
+    <p class="page__meta">
+      {#if editHref}
         <a href={editHref} {...externalLinkAttrs(editHref)}>
           Suggest changes to this page
           {#if isExternalHref(editHref)}
@@ -72,8 +73,14 @@
             </span>
           {/if}
         </a>
-      </p>
-    {/if}
+        <span aria-hidden="true"> &middot; </span>
+      {/if}
+      {#if page.data.lastModified}
+        <span>Last updated {page.data.lastModified}</span>
+        <span aria-hidden="true"> &middot; </span>
+      {/if}
+      <ShareButtons title={fm.title ?? options.siteTitle} path={page.url.pathname} />
+    </p>
 
     <PageNav />
   </div>
@@ -90,8 +97,9 @@
     margin: 0 auto;
   }
 
-  .page__edit {
+  .page__meta {
     margin-top: 2.5rem;
     font-size: var(--cw-text-sm);
+    color: var(--cw-ink-soft);
   }
 </style>

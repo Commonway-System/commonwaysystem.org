@@ -36,6 +36,6 @@ The specific crash-reduction figure for continuous sidewalks at this intersectio
 
 ## References
 
-1. Placeholder source, FHWA self-enforcing roadway guidance.
-2. Placeholder source, FHWA design speed practice.
-3. Placeholder source, CROW Duurzaam Veilig manual.
+1. <span id="ref-1"></span>Placeholder source, FHWA self-enforcing roadway guidance.
+2. <span id="ref-2"></span>Placeholder source, FHWA design speed practice.
+3. <span id="ref-3"></span>Placeholder source, CROW Duurzaam Veilig manual.

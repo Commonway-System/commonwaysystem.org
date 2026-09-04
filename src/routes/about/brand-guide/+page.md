@@ -186,7 +186,7 @@ The colored left edge always matches the pattern's Functional Classification, us
 ### Citation badge
 
 <ExampleCard>
-Corner radii should not exceed 15 ft (4.6 m) at the crossing edge.<Citation index={14} />
+Corner radii should not exceed 15 ft (4.6 m) at the crossing edge.<Citation index={14} href="#" />
 </ExampleCard>
 
 ### Unsourced-claim flag

@@ -54,6 +54,9 @@ src/
     about/contributing/+page.md
     about/governance/+page.md
     about/reporting/+page.md
+    about/credits/+page.md            Data-driven contributor list, see
+                                       the `contributors` array in its
+                                       own <script> block.
     llms.txt/+server.ts       Generates llms.txt from every +page.md's
                                frontmatter at build time. See below.
     robots.txt/+server.ts     Blanket-allow robots.txt, also build-time.
@@ -218,10 +221,10 @@ SvelteKit endpoints, not static files. `llms.txt` is built from every
 `title`) at build time, via `src/lib/server/content.ts`, so a new page
 appears in it automatically, nothing to hand-maintain. Pages are grouped
 into `##` sections by their top-level route folder (`/guide/` → "Guide",
-etc.); set `llmsOptional: true` on a page's frontmatter (used on the
-Contributing/Governance/Reporting stubs) to list it under the spec's
-reserved `## Optional` heading instead, for lower-priority pages a
-context-constrained reader can skip. `robots.txt` is a blanket allow,
+etc.); set `llmsOptional: true` on a page's frontmatter to list it under
+the spec's reserved `## Optional` heading instead, for lower-priority
+stub/placeholder pages a context-constrained reader can skip. `robots.txt`
+is a blanket allow,
 since the whole guidebook is public.
 
 Because `adapter-static` prerenders everything ahead of time, these compile
@@ -232,6 +235,31 @@ them, so they're listed explicitly in `svelte.config.js`'s
 them. The canonical domain used for the absolute URLs in `llms.txt` lives
 in `src/lib/site.ts` (`SITE_URL`), update it there once the real domain is
 set.
+
+## Contributor-facing files
+
+`.github/PULL_REQUEST_TEMPLATE.md` and `.github/ISSUE_TEMPLATE/*.yml` back
+the checklists and report categories described on `/about/contributing/`
+and `/about/reporting/`; edit those pages and these templates together if
+the process changes. `CODE_OF_CONDUCT.md` at the repo root backs the "Code
+of conduct" sections on `/about/contributing/` and `/about/governance/`.
+
+## License
+
+Two different licenses cover two different things in this repository, since
+GitHub's own license detector only surfaces one license per repo by
+default:
+
+- **Site code** (Svelte components, theme configuration, build tooling,
+  everything except the guide content itself): [MIT](LICENSE), matching
+  SveltePress.
+- **Guide content** (the pattern pages and prose under
+  `src/routes/**/+page.md`, and the compiled Commonway System guidebook):
+  licensed separately, not MIT and not a fully open license like Creative
+  Commons. See the "Terms of contributing" section on
+  `/about/contributing/` for the model, an entity-retains-rights,
+  contributor-grants-a-license arrangement, the same way a publisher
+  retains rights to a book that many people contributed research to.
 
 ## What is not built yet
 

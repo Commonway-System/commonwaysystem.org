@@ -1,0 +1,36 @@
+name: Dead citation link
+description: A source URL that no longer resolves, or redirects somewhere unexpected.
+title: "[Dead link]: "
+labels: ["dead-link"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page URL
+      description: The commonwaysystem.org page this is on.
+      placeholder: https://commonwaysystem.org/guide/local-streets/bicycle-boulevard/
+    validations:
+      required: true
+  - type: input
+    id: source-url
+    attributes:
+      label: The dead or redirected citation URL
+    validations:
+      required: true
+  - type: textarea
+    id: replacement
+    attributes:
+      label: A working replacement or archive snapshot, if you found one
+      description: An archive.org snapshot, or the source's new URL if it moved rather than disappeared.
+    validations:
+      required: false
+  - type: dropdown
+    id: safety-relevant
+    attributes:
+      label: Could this lead someone to make an unsafe real-world design decision?
+      description: Safety-relevant reports are looked at first.
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
