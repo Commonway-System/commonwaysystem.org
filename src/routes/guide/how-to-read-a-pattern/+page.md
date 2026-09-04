@@ -6,36 +6,26 @@ llms: Explains how to read a Commonway System pattern entry, Pattern ID cards, c
 ---
 
 <script>
-  import { DensityChip, Citation } from '$lib/theme/components'
+  import { DensityChip, Citation, ExampleCard, PatternCard } from '$lib/theme/components'
 </script>
 
 Every pattern in this guide is built from the same handful of parts, repeated consistently: a Pattern ID card, density tier chips, admonition blocks, and citations. This page walks through what each one means, so the rest of the guide can be read without re-explaining itself on every page.
 
 ## The Pattern ID card
 
-Each pattern opens with a card naming its ID, title, Functional Classification, and (for most classifications) a status. The colored left edge matches the classification, Local, Collector, Arterial, Freeway, or Intersections & Crossings, so a reader flipping through the guide can tell at a glance what kind of pattern they're looking at, even before reading the title.
+<ExampleCard>
+  <PatternCard id="ART-UMS-09" title="Urban main street" classification="arterial" status="recommended">
+    An Urban main street is an Arterial typology combining retail frontage access with continuous pedestrian priority along both edges.
+  </PatternCard>
+</ExampleCard>
 
-The ID itself follows a fixed format: `[PREFIX]-[CTXCODE]-[##]`, like `LOC-BBG-12`, with an optional trailing `(DENSITY)` suffix once more than one page exists for the same Typology at different density tiers. `CTXCODE` is a short mnemonic for the specific Typology, `BBG` for Bicycle Boulevard / Neighborhood Greenway, for example, with `DEF` reserved for each classification's baseline default entry. The trailing number is assigned once, in the order the pattern was added to the guide, and never changes later even if the pattern's position in the Pattern Index does.
+Each pattern opens with a card naming its ID, title, [Functional Classification](/guide/street-types/), and (for most classifications) a status. The colored left edge matches the classification, Local, Collector, Arterial, Freeway, or Intersections & Crossings, so a reader flipping through the guide can tell at a glance what kind of pattern they're looking at, even before reading the title.
 
-`PREFIX` is where the ID encodes **Scale**, one of nine values:
+The ID itself follows a fixed format, `[PREFIX]-[CTXCODE]-[##]`, like `LOC-BBG-12`, with an optional trailing `(DENSITY)` suffix once more than one page exists for the same Typology at different density tiers.
 
-| Prefix | Meaning | Scale |
-|---|---|---|
-| `NET` | Network | Network |
-| `CDR` | Corridor | Corridor |
-| `LOC` | Local | Segment/Intersection |
-| `COL` | Collector | Segment/Intersection |
-| `ART` | Arterial | Segment/Intersection |
-| `FRE` | Freeway | Segment/Intersection |
-| `INT` | Intersections & Crossings | Segment/Intersection |
-| `FAC` | Facility | Facility |
-| `ELM` | Element | Element |
+The label in the upper right corner shows the pattern's Functional Classification when one applies: Local, Collector, Arterial, Freeway, or Intersections & Crossings. For the four Scales that don't subdivide by classification, Network, Corridor, Facility, and Element, that same corner shows the Scale name itself instead. See [Scale Hierarchy](/guide/scale-hierarchy/) for what each of the nine Scale prefixes covers.
 
-Network, Corridor, Facility, and Element each get exactly one flat prefix, no further subdivision. Segment/Intersection is the one Scale that subdivides, into five prefixes, because Functional Classification carries real design implications, speed, modal hierarchy, that the other four Scales don't yet have an equivalent for. That's also why every pattern page live in the guide today is a Segment/Intersection pattern: `LOC`, `COL`, `ART`, `FRE`, or `INT`. See [Scale Hierarchy](/guide/scale-hierarchy/) for what each of the nine Scale prefixes actually covers, and [Street Types & Classifications](/guide/street-types/) for what each Functional Classification and Typology means in plain language.
-
-Where a status applies, it appears as a small badge next to the classification label. Recommended is the quiet default, no color emphasis, since it's the unremarkable normal case. Situational reuses the amber warning color, meaning the pattern is real but context-dependent. Avoid reuses the rose danger color, meaning the Commonway System actively recommends against it. Status is omitted entirely on Intersections & Crossings entries, since the master Typology reference doesn't track a status for those.
-
-See [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) for a full worked example of a Pattern ID card, and the [Pattern Index](/patterns/) for every pattern currently in the guide.
+Read the [Pattern IDs](/guide/pattern-ids/) page for what each part of the ID means, the full nine-prefix Scale breakdown, and what each status badge means.
 
 ## Density tiers
 

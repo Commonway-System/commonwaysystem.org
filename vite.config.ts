@@ -34,6 +34,7 @@ const theme = commonwayTheme({
         collapsible: false,
         items: [
           { title: 'How to read a pattern', to: '/guide/how-to-read-a-pattern/' },
+          { title: 'Pattern IDs', to: '/guide/pattern-ids/' },
           { title: 'Density Tiers', to: '/guide/density-tiers/' },
           { title: 'Street Types & Classifications', to: '/guide/street-types/' },
           { title: 'Scale Hierarchy', to: '/guide/scale-hierarchy/' },
@@ -50,10 +51,16 @@ const theme = commonwayTheme({
       {
         title: 'Make It Happen',
         collapsible: false,
-        // Same reasoning as Find Your Pattern above: likely splits into
-        // several pages (who decides, how it's funded, how to submit a
-        // request) later, one placeholder page holds the slot for now.
-        items: [{ title: 'Make It Happen', to: '/guide/make-it-happen/' }],
+        // Same reasoning as Find Your Pattern above: this group was built
+        // to hold several pages (who decides, how it's funded, how to
+        // submit a request) as they're written, one placeholder page
+        // originally held the slot. As of 2026.09.01 the slot's real
+        // content has landed: the process-explainer chapter itself, plus
+        // its companion jurisdiction-variants reference page.
+        items: [
+          { title: 'How Road Changes Actually Happen', to: '/guide/make-it-happen/' },
+          { title: "When Jurisdiction Doesn't Follow the Pattern", to: '/guide/make-it-happen/jurisdiction-variants/' },
+        ],
       },
     ],
     '/patterns/': [
