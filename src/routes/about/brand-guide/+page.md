@@ -192,7 +192,7 @@ Clean flat vector illustration, NACTO-inspired, warmed by human figures at true 
 ### Pattern ID card
 
 <ExampleCard>
-  <PatternCard id="ART-UMS-07" title="Urban main street" classification="arterial">
+  <PatternCard id="ART-UMS-09" title="Urban main street" classification="arterial">
     An Urban main street is an Arterial typology combining retail frontage access with continuous pedestrian priority along both edges.
   </PatternCard>
 </ExampleCard>

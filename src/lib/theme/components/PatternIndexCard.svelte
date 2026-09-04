@@ -1,7 +1,7 @@
 <script lang="ts">
   import StatusBadge from './StatusBadge.svelte'
 
-  type Classification = 'local' | 'collector' | 'arterial' | 'freeway' | 'intersections'
+  type Classification = 'network' | 'corridor' | 'local' | 'collector' | 'arterial' | 'freeway' | 'intersections' | 'facility' | 'element'
   type Status = 'situational' | 'avoid'
 
   interface Props {
@@ -84,6 +84,16 @@
   .pic[data-classification='intersections'] {
     --pic-overlay: var(--cw-intersections-suburban);
     --pic-hover-border: var(--cw-intersections-core);
+  }
+  /* PLACEHOLDER: no brand colors defined yet for these four Scales (added
+     2026.08.31); reusing Freeway's own neutral-gray ramp as a stand-in,
+     same reasoning as PatternCard.svelte's own placeholder mapping. */
+  .pic[data-classification='network'],
+  .pic[data-classification='corridor'],
+  .pic[data-classification='facility'],
+  .pic[data-classification='element'] {
+    --pic-overlay: var(--cw-freeway-suburban);
+    --pic-hover-border: var(--cw-freeway-core);
   }
 
   /* Border/radius/shadow/lift treatment matches the homepage feature cards

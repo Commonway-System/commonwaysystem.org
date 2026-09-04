@@ -2,7 +2,7 @@
   import type { Snippet } from 'svelte'
   import StatusBadge from './StatusBadge.svelte'
 
-  type Classification = 'local' | 'collector' | 'arterial' | 'freeway' | 'intersections'
+  type Classification = 'network' | 'corridor' | 'local' | 'collector' | 'arterial' | 'freeway' | 'intersections' | 'facility' | 'element'
   type Status = 'recommended' | 'situational' | 'avoid'
 
   interface Props {
@@ -14,6 +14,8 @@
      * Omit entirely for Intersections & Crossings entries: the master
      * Typology reference only tracks a Recommended/Situational/Avoid status
      * for Local, Collector, Arterial, and Freeway rows, not intersections.
+     * Also omit for a pattern documented descriptively rather than as a
+     * design recommendation (e.g. Organic/Irregular, NET-ORG-04).
      */
     status?: Status
     children?: Snippet
@@ -22,11 +24,15 @@
   const { id, title, classification, status, children }: Props = $props()
 
   const labels: Record<Classification, string> = {
+    network: 'Network',
+    corridor: 'Corridor',
     local: 'Local',
     collector: 'Collector',
     arterial: 'Arterial',
     freeway: 'Freeway',
     intersections: 'Intersections & Crossings',
+    facility: 'Facility',
+    element: 'Element',
   }
 </script>
 
@@ -72,6 +78,17 @@
   }
   .pattern-card[data-classification='intersections'] {
     --cw-classification-color: var(--cw-intersections);
+  }
+  /* PLACEHOLDER: no brand colors are defined yet for these four Scales
+     (Network, Corridor, Facility, Element), added 2026.08.31. Reusing
+     Freeway's own ramp (already a neutral gray, see tokens.css) as a
+     stand-in rather than inventing a new hex value; swap for real colors
+     once assigned. */
+  .pattern-card[data-classification='network'],
+  .pattern-card[data-classification='corridor'],
+  .pattern-card[data-classification='facility'],
+  .pattern-card[data-classification='element'] {
+    --cw-classification-color: var(--cw-freeway);
   }
 
   .pattern-card__head {

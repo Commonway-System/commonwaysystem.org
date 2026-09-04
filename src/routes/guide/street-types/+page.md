@@ -110,7 +110,7 @@ Every classification above describes a stretch of street. Intersections & Crossi
 
 ## Why this matters once you're reading a pattern page
 
-Every pattern's ID starts with its Functional Classification, follows with a code for its specific Typology, and ends with a number, for example `LOC-DEF-01` for the standard Local street. Once you know what those two words mean, that ID stops being a string of letters and starts telling you something: which of the four jobs this street is doing, and which specific version of that job it is. See [How to Read a Pattern](/guide/how-to-read-a-pattern/) for the rest of what a pattern page's ID card tells you, and [Density Tiers](/guide/density-tiers/) for the other axis every pattern page is sorted by, alongside classification and typology.
+Every Segment/Intersection-scale pattern's ID starts with its Functional Classification (`LOC`, `COL`, `ART`, `FRE`, or `INT`), follows with a code for its specific Typology, and ends with a number, for example `LOC-DEF-01` for the standard Local street. These five prefixes apply specifically to the Segment/Intersection scale, alongside four other flat Scale prefixes (`NET`, `CDR`, `FAC`, `ELM`) covering Network, Corridor, Facility, and Element patterns, which don't subdivide by classification. See [How to Read a Pattern](/guide/how-to-read-a-pattern/) for the full nine-prefix ID scheme, [Scale Hierarchy](/guide/scale-hierarchy/) for what each Scale covers, and [Density Tiers](/guide/density-tiers/) for the other axis every pattern page is sorted by, alongside classification and typology.
 
 ## For readers coming from Dutch (CROW) practice
 

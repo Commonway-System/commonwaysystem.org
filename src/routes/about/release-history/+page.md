@@ -1,7 +1,7 @@
 ---
 title: Release History & Roadmap
 description: How Commonway System versioning works, what changed in each release, and what's planned next.
-date: 2026-08-30
+date: 2026-08-31
 llms: Explains the Commonway System's CalVer versioning, the current version, the changelog, and the public roadmap of work not yet built.
 ---
 
@@ -23,6 +23,18 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // can add `items` for a bulleted breakdown instead, per-entry, not a
   // shape every entry is forced into.
   const releases = [
+    {
+      date: '2026.08.31',
+      items: [
+        'Pattern ID scheme corrected sitewide: Segment/Intersection (LOC/COL/ART/FRE/INT) was previously the only Scale documented as encoding Scale in its prefix. The full nine-prefix system is now in place and documented: NET (Network), CDR (Corridor), FAC (Facility), and ELM (Element) as flat, non-subdividing Scale prefixes, alongside the existing five Functional Classification prefixes at Segment/Intersection. How to Read a Pattern, Scale Hierarchy, and Street Types & Classifications all rewritten to describe the corrected scheme.',
+        'Three new live Segment/Intersection pattern pages: Shared-Use Path (LOC-SUP-13), Multi-Use Trail / Greenway (COL-MUT-06), and Protected Intersection (INT-PRI-11, the first new Intersections & Crossings entry since the original ten). Added to the Pattern Index card grid and sidebar; pattern count reached 40.',
+        'A new "On the Horizon" section was briefly added to the Pattern Index listing 63 named-and-scoped-but-not-yet-built patterns as descriptive reference tables; superseded later the same day, see below, once all 63 became real pattern pages.',
+        'Full Network/Corridor/Facility/Element pattern batch built out: all 63 previously-scoped patterns (4 Network, 6 Corridor, 10 Facility, 43 Element) now have real pattern pages, plus 3 more new Segment/Intersection patterns resolving every item on the old "under review" list: Downtown Thoroughfare (COL-DTH-07), Commercial Arterial (ART-CAR-07, a documented anti-pattern), and Parkway (ART-PKY-08). Live pattern count is now 106. Avenue and the Downtown One-Way/Two-Way Street cluster, also once "under review," were deliberately not built: Downtown One-Way is just the existing One-Way Street (ART-OWS-06), and Avenue was dropped from consideration.',
+        'Pattern Index page fully restructured: the old five-classification-plus-two-appendix layout (Local/Collector/Arterial/Freeway/Intersections, "Under review," "On the Horizon") is now nine Scale-ordered sections (Network, Corridor, Local street, Collector street, Arterial street, Freeway, Intersections and crossings, Facility level, Element level), every section a full card grid, no more plain-bullet or table-only appendix sections. Sidebar restructured to match, 9 groups in the same order. JSON-LD Pattern Index ItemList now reflects all 106 patterns automatically, since it derives from the sidebar tree rather than being hand-counted.',
+        'PatternCard and PatternIndexCard gained four new classification values (network, corridor, facility, element), all sharing Freeway’s existing neutral-gray ramp as a placeholder color pending real Brand Guide colors for those Scales, flagged inline in both components. Organic/Irregular (NET-ORG-04) renders without a status badge, a flagged, not-yet-confirmed treatment for its own descriptive (not prescriptive) case, since the site’s Recommended/Situational/Avoid system doesn’t have an equivalent value; see the page’s own note callout and this file’s Known gaps section.',
+        'Brand Guide’s illustrative "Urban main street" PatternCard demo renumbered from ART-UMS-07 to ART-UMS-09: the collision this file had been flagging as a future risk actually happened once Commercial Arterial and Parkway became real 7th/8th Arterial Typologies.',
+      ],
+    },
     {
       date: '2026.08.30',
       items: [
@@ -135,7 +147,8 @@ A build note doesn't need to be long. Cover:
 
 Work that's planned but not yet built:
 
-- **Facility and Element ID formats.** Only the Segment and Intersection scale of the pattern ID system is finalized; the finer-grained Facility and Element levels still need their own format.
+- **Real Brand Guide colors for Network, Corridor, Facility, and Element.** All 106 patterns across all nine Scale prefixes now have live pages, but the four newest classifications still render on a placeholder neutral-gray card color (reused from Freeway's own ramp) pending real per-Scale colors.
+- **Organic/Irregular's status-badge treatment.** Needs a final decision: keep the no-badge treatment used for now, or add a distinct status value for a descriptively-documented (not prescriptively recommended) pattern.
 - **Process-explainer chapter.** A plain-language guide to how local government actually handles road changes: who authorizes them, how they're funded, how citizens can engage.
 - **Classification-level overview pages.** Local, Collector, Arterial, and Freeway currently jump straight from the Patterns index into individual Typology pages, with no landing page explaining the classification itself.
 - **Full citation compilation.** Most pattern pages carry an unsourced-claim flag rather than real citations; sourcing is an ongoing background task across the whole guide.

@@ -15,7 +15,23 @@ Every pattern in this guide is built from the same handful of parts, repeated co
 
 Each pattern opens with a card naming its ID, title, Functional Classification, and (for most classifications) a status. The colored left edge matches the classification, Local, Collector, Arterial, Freeway, or Intersections & Crossings, so a reader flipping through the guide can tell at a glance what kind of pattern they're looking at, even before reading the title.
 
-The ID itself follows a fixed format: `[CLASS]-[CTXCODE]-[##]`, like `LOC-BBG-12`. `CLASS` is the three-letter classification code (`LOC`, `COL`, `ART`, `FRE`, or `INT` for Intersections). `CTXCODE` is a short mnemonic for the specific Typology, `BBG` for Bicycle Boulevard / Neighborhood Greenway, for example, with `DEF` reserved for each classification's baseline default entry. The trailing number is assigned once, in the order the pattern was added to the guide, and never changes later even if the pattern's position in the Pattern Index does. Some patterns also carry a density suffix in parentheses, like `(SUB)`, once more than one page exists for the same Typology at different density tiers. See [Street Types & Classifications](/guide/street-types/) for what each Functional Classification and Typology actually means in plain language.
+The ID itself follows a fixed format: `[PREFIX]-[CTXCODE]-[##]`, like `LOC-BBG-12`, with an optional trailing `(DENSITY)` suffix once more than one page exists for the same Typology at different density tiers. `CTXCODE` is a short mnemonic for the specific Typology, `BBG` for Bicycle Boulevard / Neighborhood Greenway, for example, with `DEF` reserved for each classification's baseline default entry. The trailing number is assigned once, in the order the pattern was added to the guide, and never changes later even if the pattern's position in the Pattern Index does.
+
+`PREFIX` is where the ID encodes **Scale**, one of nine values:
+
+| Prefix | Meaning | Scale |
+|---|---|---|
+| `NET` | Network | Network |
+| `CDR` | Corridor | Corridor |
+| `LOC` | Local | Segment/Intersection |
+| `COL` | Collector | Segment/Intersection |
+| `ART` | Arterial | Segment/Intersection |
+| `FRE` | Freeway | Segment/Intersection |
+| `INT` | Intersections & Crossings | Segment/Intersection |
+| `FAC` | Facility | Facility |
+| `ELM` | Element | Element |
+
+Network, Corridor, Facility, and Element each get exactly one flat prefix, no further subdivision. Segment/Intersection is the one Scale that subdivides, into five prefixes, because Functional Classification carries real design implications, speed, modal hierarchy, that the other four Scales don't yet have an equivalent for. That's also why every pattern page live in the guide today is a Segment/Intersection pattern: `LOC`, `COL`, `ART`, `FRE`, or `INT`. See [Scale Hierarchy](/guide/scale-hierarchy/) for what each of the nine Scale prefixes actually covers, and [Street Types & Classifications](/guide/street-types/) for what each Functional Classification and Typology means in plain language.
 
 Where a status applies, it appears as a small badge next to the classification label. Recommended is the quiet default, no color emphasis, since it's the unremarkable normal case. Situational reuses the amber warning color, meaning the pattern is real but context-dependent. Avoid reuses the rose danger color, meaning the Commonway System actively recommends against it. Status is omitted entirely on Intersections & Crossings entries, since the master Typology reference doesn't track a status for those.
 
