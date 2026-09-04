@@ -10,6 +10,7 @@ const SECTION_LABELS: Record<string, string> = {
   guide: 'Guide',
   patterns: 'Patterns',
   retrofits: 'Retrofits',
+  media: 'Media',
   references: 'Reference',
   blog: 'Blog',
   about: 'About',

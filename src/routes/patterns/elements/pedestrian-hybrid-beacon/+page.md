@@ -7,12 +7,14 @@ llms: "A pedestrian-activated signal, sometimes called a HAWK beacon, that remai
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pedestrian Hybrid Beacon" classification="element" status="situational">
 A pedestrian-activated signal, sometimes called a HAWK beacon, that remains dark until activated, then displays a sequence progressing through flashing and solid indications to stop traffic and allow a pedestrian to cross, before returning to dark.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

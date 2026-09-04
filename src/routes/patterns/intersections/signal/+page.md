@@ -7,12 +7,14 @@ llms: Traffic signal control, available within the Commonway System only as a do
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Signal" classification="intersections" status="situational">
 A signalized intersection, controlling conflicting movements with timed lights.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 

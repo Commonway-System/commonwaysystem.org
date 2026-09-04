@@ -7,12 +7,14 @@ llms: "An at-grade, open-air parking area serving adjacent land uses, ranging fr
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Surface Parking Lot" classification="facility" status="situational">
 An at-grade, open-air parking area serving adjacent land uses, ranging from a small business lot to a large-format shared or municipal lot.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

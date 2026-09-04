@@ -7,12 +7,14 @@ llms: "A fixed or semi-fixed seating element installed along a sidewalk, plaza, 
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bench" classification="element" status="recommended">
 A fixed or semi-fixed seating element installed along a sidewalk, plaza, or transit stop, providing a place to rest independent of any specific transit or commercial function.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

@@ -6,7 +6,7 @@ llms: Catalogs documented exceptions to the general jurisdiction-finding method 
 ---
 
 <script>
-  import { Citation, EvidenceChip } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
 The [How Road Changes Actually Happen chapter](/guide/make-it-happen/) teaches a general method for finding out who has authority over a road and how that government processes a request. That method works for most readers most of the time. It does not work cleanly for everyone, because a small number of documented government structures depart from the ordinary city-county-state stack in ways the general method doesn't anticipate.
@@ -14,6 +14,8 @@ The [How Road Changes Actually Happen chapter](/guide/make-it-happen/) teaches a
 This page catalogs those structures. Each entry is a real, named, documented exception, not a hypothetical edge case. If your situation matches one of these, start here instead of the general method, since it will get you to the right authority faster.
 
 This page does not cover private roads or homeowners' association jurisdiction. That topic is addressed directly in Question 2 of the [How Road Changes Actually Happen chapter](/guide/make-it-happen/), since it's a routine branch of the general method rather than an exception to it.
+
+<RelatedMedia id="/guide/make-it-happen/jurisdiction-variants/" />
 
 ## Consolidated city-county governments
 

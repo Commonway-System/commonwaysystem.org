@@ -7,12 +7,14 @@ llms: The Commonway System's locked default for Local-to-Collector intersections
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Continuous Sidewalk / Raised Junction" classification="intersections" status="recommended">
 A junction where the sidewalk and bike path continue across the intersection at a consistent grade, and the roadway ramps up to meet them rather than the reverse. Dutch terminology;<Citation index={1} /> carries an implicit yield to pedestrians and cyclists crossing.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 

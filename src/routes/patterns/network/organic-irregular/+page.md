@@ -7,12 +7,14 @@ llms: "An unplanned, irregular network shaped incrementally over time by terrain
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Organic / Irregular" classification="network" status="descriptive">
 An unplanned, irregular network shaped incrementally over time by terrain, property lines, and historical settlement patterns rather than a deliberate overall layout, typically found in historic or pre-industrial city cores.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 ## Why this pattern exists
 

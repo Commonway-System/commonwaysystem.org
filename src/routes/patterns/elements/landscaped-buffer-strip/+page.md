@@ -7,12 +7,14 @@ llms: "A planted zone running between the roadway and the sidewalk, providing se
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Landscaped Buffer Strip" classification="element" status="recommended">
 A planted zone running between the roadway and the sidewalk, providing separation, stormwater treatment opportunity, and space for street trees and other plantings, distinct from a hardscaped or paved separation.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

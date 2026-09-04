@@ -7,7 +7,7 @@ llms: "Converts an existing general travel lane or on-street parking lane into a
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Transit priority lane retrofit" scale="corridor">
@@ -17,6 +17,8 @@ Converts an existing general travel lane or on-street parking lane into a lane d
 ## Overview
 
 On a bus route with frequent service and heavy congestion, buses stuck in general traffic lose the reliability advantage that makes transit competitive with driving. Dedicating a lane to buses, marked with red paint and "Bus Only" signage in most U.S. applications, removes that conflict. The lane can run curbside, offset from the curb to preserve a parking or loading lane, or along the center median on a wider corridor.<Citation index={2} />
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

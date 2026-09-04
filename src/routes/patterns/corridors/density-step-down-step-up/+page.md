@@ -7,12 +7,14 @@ llms: "The pattern governing how a road’s cross-section, speed, and character 
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Density Step-Down / Step-Up" classification="corridor" status="recommended">
 The pattern governing how a road’s cross-section, speed, and character adjust where the surrounding density tier changes along its length.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

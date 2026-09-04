@@ -6,12 +6,14 @@ llms: Catalogs eight funding and financing mechanisms, special assessment distri
 ---
 
 <script>
-  import { Citation, EvidenceChip } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
 [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/) answers whether a jurisdiction can control the land or commit to a policy. This page answers a different question: how the money for a retrofit actually gets raised. The two are often confused because a single project uses both, but they're handled by different staff, different processes, and different legislative authority.
 
 Unlike that page, most of these mechanisms are described consistently across their primary sources using the same four attributes, so this page uses a structured format throughout rather than free-form profiles.
+
+<RelatedMedia id="/guide/funding-financing-mechanisms/" />
 
 ## Special assessment district
 

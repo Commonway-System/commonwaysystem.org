@@ -7,7 +7,7 @@ llms: "Converts a one-way street back to two-way operation, typically reducing l
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="One-way to two-way conversion" scale="corridor">
@@ -17,6 +17,8 @@ Converts a one-way street back to two-way operation, typically reducing lane wid
 ## Overview
 
 Many one-way streets were converted from an original two-way configuration in the mid 20th century, aimed at speeding vehicle throughput through downtowns. Converting back to two-way slows traffic (drivers on a one-way street tend to travel faster and pay less attention, since they only need to watch one direction) and restores each direction's visibility to passing traffic, which research links to improved business exposure.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

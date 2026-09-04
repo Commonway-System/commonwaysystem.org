@@ -7,12 +7,14 @@ llms: "An energy-absorbing device installed at the exposed end of a traffic barr
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Crash Cushion / End Terminal" classification="element" status="recommended">
 An energy-absorbing device installed at the exposed end of a traffic barrier or in front of a fixed hazard, designed to decelerate an impacting vehicle gradually rather than presenting a rigid, unshielded end or face.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

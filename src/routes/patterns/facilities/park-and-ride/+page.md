@@ -7,12 +7,14 @@ llms: "A parking facility, surface or structured, designed specifically for comm
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Park-and-Ride" classification="facility" status="situational">
 A parking facility, surface or structured, designed specifically for commuters to leave a personal vehicle and transfer to transit for the remainder of their trip.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

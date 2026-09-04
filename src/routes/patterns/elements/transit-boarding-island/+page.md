@@ -7,12 +7,14 @@ llms: "A raised platform positioned between a bike lane and the vehicle travel l
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Boarding Island" classification="element" status="recommended">
 A raised platform positioned between a bike lane and the vehicle travel lane at a transit stop, allowing bus or streetcar passengers to board and alight without crossing the bike lane at grade, and without the transit vehicle needing to merge across the bike lane to reach the curb.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

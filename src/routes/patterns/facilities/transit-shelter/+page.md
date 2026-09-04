@@ -7,12 +7,14 @@ llms: "A small- or large-format weather shelter installed at a transit stop, pro
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Shelter" classification="facility" status="recommended">
 A small- or large-format weather shelter installed at a transit stop, protecting waiting passengers from sun, rain, and wind, ranging from a simple lean-to canopy to a fully enclosed structure with seating and lighting.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

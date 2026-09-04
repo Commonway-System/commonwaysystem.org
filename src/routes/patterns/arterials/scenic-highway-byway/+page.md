@@ -7,12 +7,14 @@ llms: A low-density, low-development-pressure Arterial street typology, the norm
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Scenic Highway / Byway" classification="arterial" status="recommended">
 An Arterial through a low-development, often scenic landscape, where vehicle movement is prioritized and pedestrian, bicycle, and transit demand are minimal.<Citation index={1} />
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
 

@@ -7,12 +7,14 @@ llms: "A sign conveying a legally enforceable traffic rule, such as a stop sign,
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Regulatory Sign" classification="element" status="recommended">
 A sign conveying a legally enforceable traffic rule, such as a stop sign, yield sign, speed limit sign, or turn restriction, whose message carries the force of law rather than merely advising or informing.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

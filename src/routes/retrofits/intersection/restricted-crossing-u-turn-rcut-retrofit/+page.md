@@ -7,7 +7,7 @@ llms: "Also known as a J-turn or superstreet, reroutes both left-turn and throug
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Restricted Crossing U-Turn (RCUT) retrofit" scale="intersection">
@@ -17,6 +17,8 @@ Reroutes both left-turn and through movements from the minor road, requiring dri
 ## Overview
 
 RCUT goes a step further than a standard median U-turn retrofit: it removes the minor road's direct through movement across the major road entirely, not just its left turn. A driver crossing the major road from the minor approach turns right, merges, then makes a U-turn to continue in the direction they originally needed. This lets the main intersection focus entirely on major-road through movement, since it no longer needs to serve conflicting minor-road crossing traffic at all.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

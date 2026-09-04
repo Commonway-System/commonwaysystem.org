@@ -7,7 +7,7 @@ llms: "Converts a paved roadway to a gravel or unpaved surface on a low-volume r
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Depaving / pavement-to-gravel conversion" scale="corridor">
@@ -17,6 +17,8 @@ Converts a paved roadway to a gravel or unpaved surface, typically on a low-volu
 ## Overview
 
 This is the outlier among Corridor retrofit strategies: its primary driver is usually cost and maintenance burden rather than safety countermeasure evidence, though it carries real traffic-calming and financial benefits on the right road. A paved rural road that sees very low traffic volume can cost more to maintain as pavement than it would as gravel, and a gravel surface naturally discourages high speeds.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

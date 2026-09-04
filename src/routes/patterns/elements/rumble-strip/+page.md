@@ -7,12 +7,14 @@ llms: "A textured roadway surface, typically a series of shallow grooves or rais
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Rumble Strip" classification="element" status="situational">
 A textured roadway surface, typically a series of shallow grooves or raised bars, that alerts drivers through vibration and sound when a vehicle crosses it.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

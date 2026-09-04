@@ -7,12 +7,14 @@ llms: "A designated waiting area positioned in the far corner of an intersection
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Two-Stage Turn Queue Box" classification="element" status="recommended">
 A designated waiting area positioned in the far corner of an intersection, allowing a cyclist making a left turn (or right turn in left-driving contexts) to cross the intersection in two separate straight-through movements rather than merging across vehicle traffic to execute a conventional turn.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

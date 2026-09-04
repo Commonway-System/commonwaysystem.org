@@ -7,12 +7,14 @@ llms: "A fixed rack or set of racks, most commonly an inverted-U or similar desi
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike Parking / Rack" classification="element" status="recommended">
 A fixed rack or set of racks, most commonly an inverted-U or similar design, providing a place to lock a bicycle, typically installed on a sidewalk or in a dedicated on-street corral.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

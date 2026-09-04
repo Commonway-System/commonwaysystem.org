@@ -7,12 +7,14 @@ llms: "A sloped transition cut into a curb, providing an accessible path between
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Curb Ramp" classification="element" status="recommended">
 A sloped transition cut into a curb, providing an accessible path between the sidewalk and street surface for wheelchair users, strollers, and anyone unable to step up or down a vertical curb face.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

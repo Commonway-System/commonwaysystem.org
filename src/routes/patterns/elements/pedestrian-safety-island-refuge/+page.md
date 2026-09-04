@@ -7,12 +7,14 @@ llms: "A protected median space within a roadway allowing a pedestrian to cross 
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pedestrian Safety Island / Refuge" classification="element" status="recommended">
 A protected median space within a roadway allowing a pedestrian to cross in two stages, stopping partway across to wait for a gap in the second direction of traffic rather than crossing the full width in one movement.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

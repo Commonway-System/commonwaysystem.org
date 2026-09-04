@@ -5,7 +5,13 @@ date: 2026-09-01
 llms: Explains the Commonway System Pattern ID format (PREFIX-CTXCODE-##), the nine Scale prefixes, and the Recommended/Situational/Avoid status badges.
 ---
 
+<script>
+  import { RelatedMedia } from '$lib/theme/components'
+</script>
+
 Every pattern in this guide carries a unique ID, shown on its Pattern ID card as described on the [How to Read a Pattern](/guide/how-to-read-a-pattern/) page. This page explains what each part of that ID means, why it's structured the way it is, and what the status badge next to it tells you.
+
+<RelatedMedia id="/guide/pattern-ids/" />
 
 ## The ID format
 

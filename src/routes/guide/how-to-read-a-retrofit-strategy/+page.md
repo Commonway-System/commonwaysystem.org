@@ -6,12 +6,14 @@ llms: Explains how to read a Commonway System Retrofit Strategy entry, the RFT I
 ---
 
 <script>
-  import { EvidenceChip } from '$lib/theme/components'
+  import { EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
 Retrofit Strategies answer a different question than Patterns do. A Pattern describes what a street should be. A Retrofit Strategy describes how to move an existing street toward that destination. This page explains how each part of a Retrofit Strategy entry works.
 
 If you haven't read [How to Read a Pattern](/guide/how-to-read-a-pattern/) yet, start there first. Retrofit Strategies borrow several conventions from Patterns directly, and this page assumes you already know them.
+
+<RelatedMedia id="/guide/how-to-read-a-retrofit-strategy/" />
 
 ## The ID card
 

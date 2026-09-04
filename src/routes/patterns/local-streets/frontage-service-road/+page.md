@@ -7,12 +7,14 @@ llms: A Local street typology running parallel to a faster Arterial or Freeway, 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Frontage / Service Road" classification="local" status="recommended">
 A Local street running alongside a higher-speed Arterial or Freeway, giving property access and slower-mode movement a lane physically separated from the through traffic next to it.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 

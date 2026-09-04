@@ -7,12 +7,14 @@ llms: "A road or trail corridor running alongside an active rail line for some o
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Rail-With-Trail Corridor" classification="corridor" status="situational">
 A road or trail corridor running alongside an active rail line for some or all of its length, addressing crossing frequency, setback distance, and shared right-of-way concerns created by the parallel rail operation.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

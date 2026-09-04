@@ -7,7 +7,7 @@ llms: A Local street typology using traffic calming and diversion to discourage 
 ---
 
 <script>
-  import { PatternCard, DensityChip, Citation, EvidenceChip, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, Illustration, IllustrationCallout, IllustrationCallouts, IllustrationFrame, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bicycle Boulevard / Neighborhood Greenway" classification="local" status="recommended">
@@ -35,6 +35,8 @@ Suburban is an edge case, thinning for the same reason as [Continuous Sidewalk /
 </Illustration>
 
 No supplemental illustration needed.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Speed and modal hierarchy
 

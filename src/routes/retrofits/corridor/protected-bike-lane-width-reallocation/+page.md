@@ -7,7 +7,7 @@ llms: "Installs a physically separated bike lane by narrowing existing travel la
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Protected bike lane retrofit via lane-width reallocation" scale="corridor">
@@ -17,6 +17,8 @@ Installs a physically separated bike lane by narrowing existing travel lanes and
 ## Overview
 
 This is the lightest-touch of the three protected bike lane retrofits. AASHTO's Green Book allows narrower vehicle lanes, down to 10 feet, in many contexts, and a four-lane arterial with turn lanes can often be restriped during routine maintenance to include a buffer and a physically separated bike lane without touching lane count or parking at all.<Citation index={1} />
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

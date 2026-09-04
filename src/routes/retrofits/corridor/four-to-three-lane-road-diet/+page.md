@@ -7,7 +7,7 @@ llms: "Converts a four-lane undivided roadway into three lanes, one through lane
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Four-to-three lane road diet" scale="corridor">
@@ -17,6 +17,8 @@ Converts an existing four-lane undivided roadway (two through lanes each directi
 ## Overview
 
 This is the classic road diet. A road built with more through capacity than its traffic actually needs gets restriped, sometimes with minimal construction, to remove one lane of excess capacity and separate through traffic from left-turning traffic, which today shares a lane and creates rear-end and sideswipe conflicts. The reclaimed width typically becomes a bike lane, wider sidewalk, on-street parking, or landscaping.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

@@ -7,12 +7,14 @@ llms: "The below-grade excavated and engineered soil volume, either an individua
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Tree Pit / Tree Trench" classification="element" status="recommended">
 The below-grade excavated and engineered soil volume, either an individual pit or a shared linear trench connecting multiple planting locations, providing root space and often structural soil to support street tree growth beneath a sidewalk or paved surface.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

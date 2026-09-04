@@ -7,12 +7,14 @@ llms: "A textured ground surface, typically a grid of truncated domes, installed
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Detectable Warning Surface" classification="element" status="recommended">
 A textured ground surface, typically a grid of truncated domes, installed at the edge of a curb ramp or platform to alert pedestrians with vision impairments to an approaching street edge or crossing point through underfoot texture.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

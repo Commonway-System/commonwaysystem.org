@@ -7,12 +7,14 @@ llms: "A corridor that deliberately passes through multiple Movement/Place conte
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Character Transect" classification="corridor" status="recommended">
 A corridor that deliberately passes through multiple Movement/Place contexts by design, for example a route that functions as a Highway at one end and a Main Street at the other, and the practice of sequencing the transitions between those contexts rather than treating the corridor as one uniform typology end to end.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

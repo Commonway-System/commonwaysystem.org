@@ -6,10 +6,12 @@ llms: Explains how to read a Commonway System pattern entry, Pattern ID cards, c
 ---
 
 <script>
-  import { DensityChip, Citation, ExampleCard, PatternCard, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, ExampleCard, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 Every pattern in this guide is built from the same handful of parts, repeated consistently: a Pattern ID card, density tier chips, admonition blocks, and citations. This page walks through what each one means, so the rest of the guide can be read without re-explaining itself on every page.
+
+<RelatedMedia id="/guide/how-to-read-a-pattern/" />
 
 ## The Pattern ID card
 

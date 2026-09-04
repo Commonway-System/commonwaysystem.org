@@ -7,12 +7,14 @@ llms: "A fixed water fountain installed in the public right-of-way or an adjacen
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Drinking Fountain" classification="element" status="situational">
 A fixed water fountain installed in the public right-of-way or an adjacent public space, providing free public access to drinking water, sometimes paired with a lower-height accessible basin or a pet-watering feature.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

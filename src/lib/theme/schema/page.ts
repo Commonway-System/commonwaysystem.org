@@ -11,6 +11,7 @@ import type {
   WebSite,
   WithContext,
 } from 'schema-dts'
+import { getMediaItems } from '$lib/data/media/index.js'
 import { SITE_URL } from '$lib/site.js'
 import type { SidebarLink } from '../config.js'
 import { getBlogPosts } from '../blog.js'
@@ -162,6 +163,27 @@ export function buildPageSchemas({ pathname, fm, dateModifiedISO, sidebar }: Pag
       ...(fm.patternId ? { identifier: fm.patternId } : {}),
       about,
     })]
+  }
+
+  if (pathname === '/media/') {
+    const items = getMediaItems()
+    const itemListElement: ListItem[] = items.map((item, i) => ({
+      '@type': 'ListItem',
+      'position': i + 1,
+      'name': item.title,
+      'url': item.url,
+    }))
+    const collectionPage: WithContext<CollectionPage> = {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      'name': fm.title,
+      ...(fm.description ? { description: fm.description } : {}),
+      'mainEntity': {
+        '@type': 'ItemList',
+        itemListElement,
+      },
+    }
+    return [collectionPage]
   }
 
   if (pathname.startsWith('/guide/') || pathname === '/references/')

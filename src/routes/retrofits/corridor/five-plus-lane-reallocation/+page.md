@@ -7,7 +7,7 @@ llms: "Reduces the through-lane count on a roadway of five or more lanes, applyi
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Five-plus lane reallocation" scale="corridor">
@@ -17,6 +17,8 @@ Reduces the through-lane count on a roadway of five or more lanes, applying road
 ## Overview
 
 Wider roadways, five lanes and up, carry enough volume and turning complexity that a straightforward four-to-three conversion doesn't apply directly. This strategy still removes excess through capacity and adds or widens a center turn lane, but requires more careful traffic analysis and often a phased approach, since five-lane-and-larger corridors typically carry higher volumes and more conflicting turning movements than the classic road diet case.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

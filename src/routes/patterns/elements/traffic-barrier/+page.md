@@ -7,12 +7,14 @@ llms: "A longitudinal barrier (guardrail, concrete barrier, or similar rigid or 
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Traffic Barrier" classification="element" status="situational">
 A longitudinal barrier (guardrail, concrete barrier, or similar rigid or semi-rigid structure) installed to redirect an errant vehicle away from a roadside hazard or opposing traffic, rather than allowing the vehicle to travel further off-course.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

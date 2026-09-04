@@ -7,12 +7,14 @@ llms: "A signal-controlled device using red, yellow, and green indications to as
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Traffic Signal" classification="element" status="situational">
 A signal-controlled device using red, yellow, and green indications to assign right-of-way among conflicting vehicle movements at an intersection.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

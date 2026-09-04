@@ -7,12 +7,14 @@ llms: "A docking location for a shared-bike program, where users check out and r
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike-Share Station" classification="facility" status="situational">
 A docking location for a shared-bike program, where users check out and return bikes from a fixed station, either dock-based (physical docking points) or hybrid/dockless with a designated parking zone.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

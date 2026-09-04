@@ -7,12 +7,14 @@ llms: "A short, sturdy vertical post installed to block or control vehicle acces
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bollard" classification="element" status="recommended">
 A short, sturdy vertical post installed to block or control vehicle access to a specific area, protect pedestrians or infrastructure from vehicle intrusion, or delineate a boundary, ranging from fixed to removable or retractable designs.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

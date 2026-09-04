@@ -7,7 +7,7 @@ llms: "Adds a new pedestrian and bicycle connection, a bridge, tunnel, or path l
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Barrier-crossing / network reconnection retrofit" scale="network">
@@ -17,6 +17,8 @@ Adds a new pedestrian and bicycle connection, a bridge, tunnel, or path linkage,
 ## Overview
 
 A network can be well-connected on paper and still function poorly for anyone not driving, if the connections that exist only work for cars. A limited-access highway, a railroad, or a subdivision built entirely from disconnected cul-de-sacs can each cut a walking or biking trip off at a distance a driver never notices, since a driver's route simply goes around. This retrofit adds the missing link directly, rather than requiring a long detour to the nearest through-street.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

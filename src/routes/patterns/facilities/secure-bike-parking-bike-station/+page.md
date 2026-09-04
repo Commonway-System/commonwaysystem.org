@@ -7,12 +7,14 @@ llms: "An enclosed or attended facility offering higher-security, longer-term bi
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Secure Bike Parking / Bike Station" classification="facility" status="situational">
 An enclosed or attended facility offering higher-security, longer-term bike parking than an open-air rack or corral, ranging from a lockable cage to a staffed bike station with additional services.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

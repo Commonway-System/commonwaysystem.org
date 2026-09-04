@@ -7,12 +7,14 @@ llms: "A signal indication, typically a bicycle-shaped symbol in red, yellow, an
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bicycle Signal" classification="element" status="situational">
 A signal indication, typically a bicycle-shaped symbol in red, yellow, and green, giving cyclists their own dedicated phase or right-of-way instruction distinct from vehicle and pedestrian signals.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

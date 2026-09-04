@@ -7,7 +7,7 @@ llms: The baseline Local street, applying the base modal hierarchy and 20 mph de
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, Illustration, IllustrationCallout, IllustrationCallouts, IllustrationFrame, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Default (Standard Local Street)" classification="local" status="recommended">
@@ -29,6 +29,8 @@ The baseline Local street. No special access pattern, event use, or dedicated mo
     <IllustrationCallout number={3} kind="physical">Travel lane narrowed to self-enforce 20 mph.<Citation index={2} /></IllustrationCallout>
   </IllustrationCallouts>
 </Illustration>
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this pattern applies
 

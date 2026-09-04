@@ -7,12 +7,14 @@ llms: "The specific transition zone where a highway or rural road enters a town,
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Rural-to-Town Gateway" classification="corridor" status="recommended">
 The specific transition zone where a highway or rural road enters a town, village, or settlement edge, marked by deliberate physical cues (narrowing, street trees, lighting change, surface texture) that signal to drivers that the road’s character and behavior expectations have changed.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

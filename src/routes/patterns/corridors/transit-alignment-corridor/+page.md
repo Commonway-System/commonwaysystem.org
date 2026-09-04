@@ -7,12 +7,14 @@ llms: "A corridor built around a fixed transit line (light rail, streetcar, or d
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Alignment Corridor" classification="corridor" status="situational">
 A corridor built around a fixed transit line (light rail, streetcar, or dedicated BRT) running parallel to or within the roadway, addressing how the transit alignment shapes the corridor’s whole cross-section for its full length.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

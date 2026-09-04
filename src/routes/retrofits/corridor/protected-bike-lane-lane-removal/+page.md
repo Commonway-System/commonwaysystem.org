@@ -7,7 +7,7 @@ llms: "Installs a physically separated bike lane by removing an entire travel la
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Protected bike lane retrofit via lane removal" scale="corridor">
@@ -17,6 +17,8 @@ Installs a physically separated bike lane by removing an entire travel lane, the
 ## Overview
 
 Where narrowing lanes alone doesn't recover enough width for a genuine protected facility, removing a full travel lane does. This is effectively a road diet whose primary purpose, rather than a secondary benefit, is the bike lane it creates. AASHTO recommends this approach specifically where a corridor's traffic volume can absorb the reduced through capacity.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

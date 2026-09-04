@@ -7,12 +7,14 @@ llms: An uncontrolled intersection with no assigned right-of-way control, realis
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Uncontrolled" classification="intersections" status="situational">
 An intersection with no stop, yield, signal, or roundabout control, right-of-way resolved informally by the drivers and other road users present.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
 

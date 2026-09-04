@@ -7,7 +7,7 @@ llms: "Installs a physically separated bike lane by removing or reconfiguring on
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Protected bike lane retrofit via parking reduction" scale="corridor">
@@ -17,6 +17,8 @@ Installs a physically separated bike lane by removing or reconfiguring on-street
 ## Overview
 
 This is the parking-specific case of Parking-Lane Reallocation, applied to bike facilities. A common configuration keeps some parking but moves it away from the curb, using the parked cars themselves as part of the physical buffer protecting the bike lane between the parking lane and the sidewalk.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

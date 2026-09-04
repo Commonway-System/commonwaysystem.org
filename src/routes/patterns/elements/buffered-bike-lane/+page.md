@@ -7,12 +7,14 @@ llms: "A striped bike lane with an additional painted buffer zone, typically hat
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Buffered Bike Lane" classification="element" status="recommended">
 A striped bike lane with an additional painted buffer zone, typically hatched or cross-hatched markings, separating it from the adjacent vehicle travel lane or parking lane by more distance than a conventional bike lane alone provides.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

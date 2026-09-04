@@ -7,12 +7,14 @@ llms: "A contained, structured planting box with an engineered soil and drainage
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Flow-Through Planter" classification="element" status="situational">
 A contained, structured planting box with an engineered soil and drainage layer that captures and filters stormwater runoff before releasing it through an underdrain, used where space or soil conditions do not allow for an open bioswale.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

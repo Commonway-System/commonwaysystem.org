@@ -7,7 +7,7 @@ llms: An Arterial anti-pattern marked Avoid, formed by mixing on-street parking 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout, IllustrationInsteadSee, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, Illustration, IllustrationCallout, IllustrationCallouts, IllustrationFrame, IllustrationInsteadSee, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Stroad (Commercial Arterial)" classification="arterial" status="avoid">
@@ -65,6 +65,8 @@ No default modal order is assigned, since the pattern itself is the anti-pattern
     <IllustrationCallout number={3} kind="physical">No parallel frontage/service road to aggregate access points.</IllustrationCallout>
   </IllustrationCallouts>
 </Illustration>
+
+<RelatedMedia id={fm.patternId} />
 
 ## Design notes
 

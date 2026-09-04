@@ -6,7 +6,7 @@ llms: A four-question method for figuring out who has authority over a specific 
 ---
 
 <script>
-  import { Citation, EvidenceChip } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
 Getting a street pattern built is rarely just a design question. It's a process question: who has the authority to approve a change, how that authority typically handles a request like yours, and what actually has to happen before anything gets painted, signed, or poured.
@@ -14,6 +14,8 @@ Getting a street pattern built is rarely just a design question. It's a process 
 That process varies by city, county, and state, sometimes down to the individual road. This page can't give you the phone number to call. What it can give you is a method: four questions that will get you to the right authority and the right kind of request, wherever you are.
 
 This page doesn't cover private roads or homeowners' association jurisdiction beyond a short note under Question 2 below, since that's a routine branch of the method rather than an exception to it. It also doesn't cover Corridor Preservation, a separate, opt-in program for reserving right-of-way for a distant future facility, which has almost nothing to do with the everyday process covered here. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/) for the tools that reserve land and commit a jurisdiction to a policy, including corridor preservation, ahead of a request like the one this page walks through.
+
+<RelatedMedia id="/guide/make-it-happen/" />
 
 ## Question 1: What are you trying to do?
 

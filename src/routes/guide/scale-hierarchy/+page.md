@@ -5,6 +5,10 @@ date: 2026-08-30
 llms: Explains the five-level Commonway System scale hierarchy (Network, Corridor, Segment/Intersection, Facility, Element) and how a pattern's scale relates to its Pattern ID.
 ---
 
+<script>
+  import { RelatedMedia } from '$lib/theme/components'
+</script>
+
 Every pattern in the Commonway System exists at one of five scales:
 
 **Network → Corridor → (Segment / Intersection) → Facility → Element**
@@ -16,3 +20,5 @@ Every pattern in the Commonway System exists at one of five scales:
 - **Element.** The physical components a segment, intersection, or facility is built from: curbs, medians, signage, striping, signals, street trees, lighting.
 
 A pattern's ID starts with a prefix naming its Scale: `NET` for Network, `CDR` for Corridor, `FAC` for Facility, `ELM` for Element, and one of `LOC`/`COL`/`ART`/`FRE`/`INT` for Segment/Intersection, the one Scale that also subdivides by Functional Classification. `LOC-BBG-12`, for example, is a Segment/Intersection-scale pattern, specifically a Local pattern in the back-of-block/alley context. See [Pattern IDs](/guide/pattern-ids/) for the full nine-prefix breakdown. Knowing where a pattern sits on this scale, alongside its classification, is what makes the rest of the Guide, and the diagnostic and process walkthrough still to come, make sense.
+
+<RelatedMedia id="/guide/scale-hierarchy/" />

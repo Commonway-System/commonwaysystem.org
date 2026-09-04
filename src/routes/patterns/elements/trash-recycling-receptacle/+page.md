@@ -7,12 +7,14 @@ llms: "A fixed waste and recycling container installed in the public right-of-wa
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Trash / Recycling Receptacle" classification="element" status="recommended">
 A fixed waste and recycling container installed in the public right-of-way or an adjacent public space, providing a designated disposal point for pedestrians and street users.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

@@ -5,10 +5,16 @@ date: 2026-08-29
 llms: Explains what the Commonway System is, who compiled it, how it relates to NACTO, Complete Streets, and Strong Towns, and how the guidebook is organized.
 ---
 
+<script>
+  import { RelatedMedia } from '$lib/theme/components'
+</script>
+
 The Commonway System (CS) is a pattern language for roads and streets. It organizes established transportation design knowledge, from NACTO's guides to Dutch Sustainable Safety and Vision Zero research, into a single, cross-referenced reference usable by a total beginner or a practicing engineer alike.
 
 **Subtitle:** "A Pattern Language for Roads and Streets"
 **Tagline:** "One system, grounded in what's proven."
+
+<RelatedMedia id="/about/commonway-system/" />
 
 ## How CS relates to other frameworks
 

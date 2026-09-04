@@ -7,7 +7,7 @@ llms: "Also known as a Michigan U-turn, reroutes left-turn and through movements
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Median U-Turn (MUT) retrofit" scale="intersection">
@@ -17,6 +17,8 @@ Reroutes left-turn and through movements from a minor approach away from the mai
 ## Overview
 
 Also known as a Michigan U-turn, this retrofit removes direct and unprotected left turns from the main intersection entirely by relocating them to a signalized or unsignalized median crossover a short distance away. This reduces the conflict points at the primary intersection and shortens the left-turn phase a signal there needs to serve, in exchange for a slightly longer path for the rerouted movement.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

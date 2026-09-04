@@ -7,12 +7,14 @@ llms: "A bike facility physically separated from adjacent vehicle traffic by a b
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Protected Bike Lane / Cycle Track" classification="element" status="recommended">
 A bike facility physically separated from adjacent vehicle traffic by a barrier, curb, parked cars, bollards, or planters, rather than paint markings alone, providing the highest level of separation among on-street bike facility types.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

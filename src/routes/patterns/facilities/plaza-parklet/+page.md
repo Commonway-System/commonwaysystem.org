@@ -7,12 +7,14 @@ llms: "A public gathering space reclaimed from roadway or parking space, ranging
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Plaza / Parklet" classification="facility" status="recommended">
 A public gathering space reclaimed from roadway or parking space, ranging from a single parking-space-sized parklet to a full intersection-corner plaza.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

@@ -6,7 +6,7 @@ llms: Catalogs the right-of-way control tools (official map, option to purchase,
 ---
 
 <script>
-  import { Citation, EvidenceChip } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
 Retrofit Strategies change a street's physical form. That change usually depends on something happening first: land being controlled, a policy being adopted, a classification being changed. This page catalogs the legal and planning tools that make retrofit strategies possible in the first place.
@@ -14,6 +14,8 @@ Retrofit Strategies change a street's physical form. That change usually depends
 These tools don't specify a design. They specify who controls the ground a design would sit on, or what a jurisdiction has committed itself to doing. A road diet is a design decision. A corridor preservation ordinance is what keeps the right-of-way for that road diet from being built over before anyone gets around to it.
 
 This page is a catalog of the existing menu of tools. See [How Road Changes Actually Happen](/guide/make-it-happen/) for how these tools typically enter a project's timeline, and [Funding & Financing Mechanisms](/guide/funding-financing-mechanisms/) for the related question of how a project actually gets paid for.
+
+<RelatedMedia id="/guide/legal-planning-mechanisms/" />
 
 ## Right-of-way control tools
 

@@ -7,12 +7,14 @@ llms: "A lower-mounted luminaire, typically 10-15 feet in height, providing illu
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pedestrian-scale Lighting" classification="element" status="recommended">
 A lower-mounted luminaire, typically 10-15 feet in height, providing illumination calibrated to serve pedestrians on a sidewalk, sized and spaced to support the pedestrian visual task rather than the vehicle-oriented task a standard street light serves.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

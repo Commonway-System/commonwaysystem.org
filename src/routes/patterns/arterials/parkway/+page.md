@@ -7,12 +7,14 @@ llms: "A roadway historically designed as a scenic, landscaped route, typically 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Parkway" classification="arterial" status="situational">
 A roadway historically designed as a scenic, landscaped route, typically featuring a planted median and limited access, whose modern implementations vary widely between two distinct traditions: a limited-access, freeway-like facility, and a slower, arterial-scale boulevard-like facility running through or alongside parkland.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 

@@ -7,7 +7,7 @@ llms: "Also known as a continuous flow intersection, shifts the left-turn lane t
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Displaced Left-Turn (DLT) retrofit" scale="intersection">
@@ -17,6 +17,8 @@ Shifts the left-turn lane to the opposing side of oncoming traffic upstream of t
 ## Overview
 
 Also known as a continuous flow intersection, this retrofit resolves the same unprotected-left-turn conflict that Median U-Turn and RCUT address, but through signalized displacement rather than a median crossover. A driver turning left crosses opposing traffic at a signal well before the main intersection, then proceeds through the main intersection on a green phase running concurrently with through traffic in both directions, since the crossing conflict has already been resolved upstream.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

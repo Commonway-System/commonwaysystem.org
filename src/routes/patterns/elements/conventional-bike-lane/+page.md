@@ -7,12 +7,14 @@ llms: "A striped, dedicated on-street lane for bicycle travel, separated from th
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Conventional Bike Lane" classification="element" status="situational">
 A striped, dedicated on-street lane for bicycle travel, separated from the adjacent vehicle travel lane by paint markings alone, with no physical buffer or barrier.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

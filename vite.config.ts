@@ -13,6 +13,7 @@ const theme = commonwayTheme({
     { title: 'Guide', to: '/guide/' },
     { title: 'Patterns', to: '/patterns/' },
     { title: 'Retrofits', to: '/retrofits/' },
+    { title: 'Media', to: '/media/' },
     { title: 'Reference', to: '/references/' },
     { title: 'Blog', to: '/blog/' },
     { title: 'About', to: '/about/' },

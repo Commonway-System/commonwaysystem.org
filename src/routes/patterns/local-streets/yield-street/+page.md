@@ -7,12 +7,14 @@ llms: A narrow Local street typology where opposing vehicles yield to each other
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Yield Street" classification="local" status="recommended">
 A Local street narrow enough that two vehicles cannot pass without one yielding, using the street's width itself as a traffic-calming device.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
 

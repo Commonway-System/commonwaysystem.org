@@ -7,12 +7,14 @@ llms: "A sign providing wayfinding or informational content, such as destination
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Guide Sign" classification="element" status="recommended">
 A sign providing wayfinding or informational content, such as destination names, distances, route numbers, or facility identification, helping travelers navigate rather than regulating or warning them.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

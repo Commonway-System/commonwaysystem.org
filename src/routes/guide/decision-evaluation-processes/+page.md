@@ -6,12 +6,14 @@ llms: Covers Intersection Control Evaluation (ICE) and the Road Safety Audit (RS
 ---
 
 <script>
-  import { Citation, EvidenceChip } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
 Not every tool in this publication is a design or a piece of legislation. Some are procedures, formal, staged processes a jurisdiction follows to decide which design to build in the first place, or to check a design's safety before or after it's built. This page catalogs two of the most established: Intersection Control Evaluation and the Road Safety Audit.
 
 Both are procedural rather than physical or legal. Neither one is a Retrofit Strategy, and neither is a legal or funding mechanism. They're the process a jurisdiction runs before or alongside using one. See [How Road Changes Actually Happen](/guide/make-it-happen/) for how these processes typically fit into a project's broader timeline.
+
+<RelatedMedia id="/guide/decision-evaluation-processes/" />
 
 ## Intersection Control Evaluation (ICE)
 

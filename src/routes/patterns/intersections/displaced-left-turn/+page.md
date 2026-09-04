@@ -7,12 +7,14 @@ llms: "An intersection, also known as a continuous flow intersection, where the 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Displaced Left-Turn (DLT)" classification="intersections" status="situational">
 An intersection where the left-turn lane is shifted to the opposing side of oncoming traffic at a signalized crossover upstream of the main intersection, letting left-turning and opposing through traffic move on concurrent phases. Also known as a continuous flow intersection.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 

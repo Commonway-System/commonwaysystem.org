@@ -7,12 +7,14 @@ llms: The default intersection control wherever two Collector-or-higher streets 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Roundabout (Single / Multi-Lane)" classification="intersections" status="recommended">
 A circular intersection where entering traffic yields to the circulating flow, sized single or multi-lane to the volume it carries.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 

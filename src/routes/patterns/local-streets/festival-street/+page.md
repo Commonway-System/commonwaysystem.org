@@ -7,12 +7,14 @@ llms: A Local street typology that closes to vehicle traffic during scheduled ev
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Festival Street" classification="local" status="recommended">
 A Local street designed to convert between full vehicle access and a pedestrian-and-bicycle-only event space, on a schedule rather than permanently.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 

@@ -7,12 +7,14 @@ llms: A stop-controlled intersection where every approach stops, tapering off pa
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="All-Way Stop" classification="intersections" status="situational">
 An intersection where every approach carries a stop sign, with right-of-way determined by arrival order.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
 

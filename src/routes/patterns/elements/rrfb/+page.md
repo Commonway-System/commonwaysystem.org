@@ -7,12 +7,14 @@ llms: "A Rectangular Rapid Flashing Beacon, a pedestrian- or cyclist-activated w
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="RRFB" classification="element" status="recommended">
 A Rectangular Rapid Flashing Beacon, a pedestrian- or cyclist-activated warning device using bright, irregularly-flashing LED lights mounted near a crosswalk sign to increase driver yielding at an uncontrolled crossing.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

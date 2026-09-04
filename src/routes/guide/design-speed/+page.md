@@ -6,8 +6,10 @@ llms: Explains the difference between design speed, 85th-percentile operating sp
 ---
 
 <script>
-  import { Citation, EvidenceChip } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
+
+<RelatedMedia id="/guide/design-speed/" />
 
 ## What design speed is
 

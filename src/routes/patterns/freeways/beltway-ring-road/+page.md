@@ -7,12 +7,14 @@ llms: A Freeway street typology circling a city or metro area rather than passin
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Beltway / Ring Road" classification="freeway" status="recommended">
 A limited-access Freeway circling a metro area's outer edge, connecting radial corridors without routing through-traffic into the urban core. Out of the Commonway System's detailed design scope.<Citation index={1} />
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
 

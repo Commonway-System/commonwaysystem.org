@@ -7,12 +7,14 @@ llms: A Collector street typology serving vehicle and freight movement through l
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Rural Collector / Farm-to-Market Road" classification="collector" status="recommended">
 A Collector road connecting low-density or agricultural land to the wider network, prioritizing vehicle and freight movement over pedestrian, bicycle, and transit use, which have little demand at this density.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
 

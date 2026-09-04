@@ -7,12 +7,14 @@ llms: A minor access-point junction connecting a driveway or parking entrance to
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Driveway / Curb Cut" classification="intersections" status="situational">
 A break in the curb and sidewalk giving a driveway or parking entrance access to the street, a minor junction rather than a full intersection.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 

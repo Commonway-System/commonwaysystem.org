@@ -9,6 +9,7 @@
   import Backdrop from './Backdrop.svelte'
   import GoogleAnalytics from './GoogleAnalytics.svelte'
   import JsonLd from './JsonLd.svelte'
+  import MediaFilters from './MediaFilters.svelte'
   import Navbar from './Navbar.svelte'
   import Sidebar from './Sidebar.svelte'
   import Toc from './Toc.svelte'
@@ -34,6 +35,15 @@
   // :global(.sidebar) below): it's still the mobile hamburger drawer.
   const isHome = $derived(page.url.pathname === '/')
 
+  // /media/ has no sidebar entry (single top-level page, same as
+  // /references/ and /blog/) and its own headings give Toc nothing useful
+  // to list either. Rather than the isHome treatment (collapse to one
+  // column, hide both side columns), this route repurposes the toc
+  // column for MediaFilters instead of leaving it empty, and widens the
+  // content column to also cover the sidebar's own width, since sidebar
+  // is hidden here the same way isHome hides it. See .shell--media below.
+  const isMedia = $derived(page.url.pathname === '/media/')
+
   onMount(() => {
     initColorScheme()
     // tick(), not requestAnimationFrame: rAF is throttled/paused while the
@@ -54,11 +64,15 @@
 <JsonLd schemas={siteSchemas} />
 <Navbar />
 
-<div class="shell" class:shell--full={isHome}>
+<div class="shell" class:shell--full={isHome} class:shell--media={isMedia}>
   <Sidebar />
   <Backdrop show={$sidebarOpen} onclose={() => sidebarOpen.set(false)} />
   {@render children?.()}
-  <Toc />
+  {#if isMedia}
+    <MediaFilters />
+  {:else}
+    <Toc />
+  {/if}
 </div>
 
 <style>
@@ -101,6 +115,35 @@
      it needs no help there and stays mounted as the mobile drawer. */
   @media (min-width: 940px) {
     .shell--full :global(.sidebar) {
+      display: none;
+    }
+  }
+
+  /* .shell--media: /media/'s own two-column layout (see isMedia in the
+     script) - content folds in the sidebar's own width since sidebar is
+     hidden here too, and the toc column is repurposed for MediaFilters
+     instead of being left empty. Declared last for the same
+     specificity-tie reasoning as .shell--full above. Kept two columns
+     down through the 1180px breakpoint (unlike the base .shell, which
+     drops its toc column there): MediaFilters is the only way to narrow
+     results, not a nice-to-have nav aid, so it shouldn't disappear before
+     the same 940px mobile edge every other column-hiding decision on this
+     site already uses. Below that, content and filters stack, filters
+     first so a reader can narrow results before scrolling into them. */
+  .shell--media {
+    grid-template-columns: minmax(0, 1fr) var(--cw-toc-width);
+    grid-template-areas: 'content toc';
+  }
+
+  @media (max-width: 940px) {
+    .shell--media {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: 'toc' 'content';
+    }
+  }
+
+  @media (min-width: 940px) {
+    .shell--media :global(.sidebar) {
       display: none;
     }
   }

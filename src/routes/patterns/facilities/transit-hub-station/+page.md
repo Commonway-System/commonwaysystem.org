@@ -7,12 +7,14 @@ llms: "A compound facility where multiple transit patterns (platforms, shelters,
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Hub / Station" classification="facility" status="recommended">
 A compound facility where multiple transit patterns (platforms, shelters, wayfinding, sometimes multiple routes or modes) converge into a single coordinated site, documenting intermodal transfer and placemaking rather than a single boarding point.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

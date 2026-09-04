@@ -7,12 +7,14 @@ llms: "A collector-scale street running through a dense downtown or town-center 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Downtown Thoroughfare" classification="collector" status="situational">
 A collector-scale street running through a dense downtown or town-center context, carrying meaningful through-traffic volume while also serving frequent pedestrian activity, on-street parking, and ground-floor commercial frontage along its length.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 

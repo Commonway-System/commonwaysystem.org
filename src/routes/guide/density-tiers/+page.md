@@ -6,12 +6,14 @@ llms: Explains the six Commonway System density tiers (Undeveloped, Rural, Subur
 ---
 
 <script>
-  import { DensityChip, Citation, EvidenceChip } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
 Every pattern page in this guide notes which density tiers it's typical for, using chips like <DensityChip tier="Suburban" /> shown on the [How to Read a Pattern](/guide/how-to-read-a-pattern/) page. This page explains what those six tiers mean, where the names and numbers come from, and how to read them.
 
 Density here means how much housing and activity sit on the land around a given street, not the street itself. The same Street Typology can look different at different densities, and the tier system exists so the guide can say precisely which context it's describing without a paragraph of throat-clearing every time.
+
+<RelatedMedia id="/guide/density-tiers/" />
 
 ## The six tiers
 

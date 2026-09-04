@@ -7,7 +7,7 @@ llms: "Narrows existing travel lane widths, typically to 10-10.5 feet, without r
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Lane diet" scale="corridor">
@@ -17,6 +17,8 @@ Narrows existing travel lane widths without removing a lane, reclaiming the widt
 ## Overview
 
 Where a road diet removes a whole lane, a lane diet keeps the same lane count but makes each lane narrower, typically down to 10 or 10.5 feet from a wider original width. This is a lighter-touch alternative, useful where traffic volume doesn't support removing a lane but the existing lanes are wider than necessary for safe operation.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

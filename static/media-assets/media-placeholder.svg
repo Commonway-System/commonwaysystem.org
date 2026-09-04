@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-hidden="true">
+  <title>Generic media preview placeholder</title>
+  <rect x="0" y="0" width="400" height="300" fill="#dcdcdc" />
+  <rect x="130" y="95" width="140" height="110" rx="8" fill="#f0f0f0" />
+  <circle cx="200" cy="150" r="26" fill="#adadad" />
+  <polygon points="192,136 192,164 216,150" fill="#f0f0f0" />
+</svg>

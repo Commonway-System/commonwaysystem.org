@@ -7,7 +7,7 @@ llms: "Groups several existing blocks into a single traffic cell, routing throug
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Superblock retrofit" scale="network">
@@ -17,6 +17,8 @@ Groups several existing blocks into a single traffic cell, routing through-traff
 ## Overview
 
 Where modal filtering works point by point, a superblock works by treatment area: an entire multi-block zone is reorganized at once, with clearly designated perimeter streets carrying all through-traffic and interior streets rebuilt for a much lower level of vehicle priority, sometimes fully pedestrianized. Barcelona's and Vienna's programs are the most documented examples, using this as a deliberate top-down planning model rather than an incremental, street-by-street change.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

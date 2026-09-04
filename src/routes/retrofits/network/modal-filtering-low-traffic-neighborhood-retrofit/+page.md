@@ -7,7 +7,7 @@ llms: "Installs a scattered set of point closures across a residential area, res
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Modal filtering / Low Traffic Neighborhood retrofit" scale="network">
@@ -17,6 +17,8 @@ Installs a scattered set of point closures across a residential area, restrictin
 ## Overview
 
 Rather than redesigning any single street, this retrofit changes how an entire area functions by selectively blocking through-driving routes at chosen points. The area's streets remain physically unchanged except at the closures themselves; what changes is which trips are still possible by car. A driver can still reach any address inside the filtered area, but can no longer use it as a shortcut between two points outside it.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

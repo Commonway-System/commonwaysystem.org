@@ -7,12 +7,14 @@ llms: "A sign alerting drivers to an upcoming hazard or changed condition, such 
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Warning Sign" classification="element" status="recommended">
 A sign alerting drivers to an upcoming hazard or changed condition, such as a curve, a crossing, a narrowing roadway, or a stop ahead, advising caution without carrying the direct legal force of a regulatory sign.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

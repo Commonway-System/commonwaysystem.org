@@ -7,12 +7,14 @@ llms: "The raised edge separating the roadway from the sidewalk or shoulder, mar
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Curb" classification="element" status="recommended">
 The raised edge separating the roadway from the sidewalk or shoulder, marking the physical boundary between space allocated to vehicles and space allocated to pedestrians or the roadway edge condition.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

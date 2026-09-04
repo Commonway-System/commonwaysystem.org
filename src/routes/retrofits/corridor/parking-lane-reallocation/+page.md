@@ -7,7 +7,7 @@ llms: "Converts an existing on-street parking lane to another use, a bike lane, 
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Parking-lane reallocation" scale="corridor">
@@ -17,6 +17,8 @@ Converts an existing on-street parking lane to another use: a bike lane, a trans
 ## Overview
 
 A parking lane is curb space, not travel-lane space, so reallocating it changes the curb's function rather than the roadway's through capacity. This makes it a distinct retrofit strategy from a road diet or lane diet, even though it's often executed alongside one. Common outcomes include a painted or protected bike lane, a peak-hour or full-time bus lane, or a parklet occupying what was previously one or two parking spaces.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

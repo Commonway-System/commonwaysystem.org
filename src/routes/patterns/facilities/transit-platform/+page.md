@@ -7,12 +7,14 @@ llms: "The boarding surface at a transit stop where passengers board and alight,
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Platform" classification="facility" status="recommended">
 The boarding surface at a transit stop where passengers board and alight, varying by platform height (level or low), length (accommodating one or multiple vehicles), and configuration (island platform serving two directions, or side platforms serving one direction each).
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

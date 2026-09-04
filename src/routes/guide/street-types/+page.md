@@ -6,10 +6,12 @@ llms: Explains what a Functional Classification and a Street Typology are, why t
 ---
 
 <script>
-  import { Citation, EvidenceChip } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
 Every pattern page in this guide is sorted two ways: by its Functional Classification and by its Street Typology. Those aren't everyday words, so this page explains what they mean, in plain language, before you run into them everywhere else in the guide.
+
+<RelatedMedia id="/guide/street-types/" />
 
 ## The question every street has to answer
 

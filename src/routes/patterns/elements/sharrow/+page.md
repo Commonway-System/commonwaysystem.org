@@ -7,12 +7,14 @@ llms: "A shared-lane marking, a painted symbol combining a bicycle icon and chev
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Sharrow" classification="element" status="avoid">
 A shared-lane marking, a painted symbol combining a bicycle icon and chevron arrows, placed within a shared vehicle travel lane to indicate that cyclists may use the full lane and to suggest proper positioning within it.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

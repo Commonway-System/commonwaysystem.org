@@ -7,7 +7,7 @@ llms: "Replaces an existing signalized intersection with a roundabout, removing 
 ---
 
 <script>
-  import { RetrofitCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Signal-to-roundabout conversion" scale="intersection">
@@ -17,6 +17,8 @@ Replaces an existing signalized intersection with a roundabout, removing signal 
 ## Overview
 
 A signal manages conflict by separating movements in time; a roundabout manages it by separating movements in space, requiring every entering vehicle to yield to circulating traffic rather than wait for a green phase. This retrofit is the most direct route between Signal and the Commonway System's own default intersection control, and is the concrete mechanism behind the System's broader roundabouts-first philosophy.
+
+<RelatedMedia id={fm.patternId} />
 
 ## Where this leads: Target patterns
 

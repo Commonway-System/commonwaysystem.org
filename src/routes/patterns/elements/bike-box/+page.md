@@ -7,12 +7,14 @@ llms: "A designated waiting area marked at the head of a signalized intersection
 ---
 
 <script>
-  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike Box" classification="element" status="recommended">
 A designated waiting area marked at the head of a signalized intersection, positioned ahead of the vehicle stop line, allowing cyclists to position themselves in front of queued vehicles during a red signal for improved visibility and to enable a safer left turn or through movement.
 </PatternCard>
+
+<RelatedMedia id={fm.patternId} />
 
 *Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 

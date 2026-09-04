@@ -6,12 +6,14 @@ llms: Explains the four-stage build spectrum (demonstration, pilot, quick-build,
 ---
 
 <script>
-  import { Citation, EvidenceChip } from '$lib/theme/components'
+  import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
 A Retrofit Strategy can be built in more than one way. The same road diet can appear overnight as cones and paint, or arrive years later as full curb-to-curb reconstruction. Neither is more legitimate than the other. This page locks CS's position on how these approaches relate, when each is appropriate, and why the choice matters as much as the design itself.
 
 This page sits alongside [How Road Changes Actually Happen](/guide/make-it-happen/) because the build method is as much a part of getting something done as the jurisdictional process is. Knowing who can approve a change matters less if you don't also know what kind of change you can ask for first.
+
+<RelatedMedia id="/guide/construction-methodology-spectrum/" />
 
 ## The four stages
 
