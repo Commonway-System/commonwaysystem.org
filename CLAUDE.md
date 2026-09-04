@@ -1,0 +1,73 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Commands
+
+```sh
+pnpm install       # NOT npm install, see below
+pnpm run dev        # dev server, usually http://localhost:5173
+pnpm run build      # static build to build/ (HTML/CSS/JS, no server needed at runtime)
+pnpm run preview    # serve build/ locally to sanity-check the static output
+pnpm run check      # svelte-kit sync && svelte-check --tsconfig ./tsconfig.json
+```
+
+**Package manager is pnpm, not npm**, despite what `README.md` says: `pnpm-lock.yaml` and `pnpm-workspace.yaml` exist, there's no `package-lock.json`. The `npm run <script>` commands above are fine, they just invoke `package.json` scripts against the existing `node_modules`. But running plain `npm install` to add or update a dependency tries to re-resolve the entire tree with npm's own resolver against a pnpm lockfile, which is both wrong and extremely slow (minutes, not seconds, in testing). Use `pnpm install` for any dependency change.
+
+There is no test suite and no lint script configured. `pnpm run check` (svelte-check) is the only automated verification step; run it after any change to `.svelte` files or theme TypeScript. It does not catch visual regressions, always check UI changes in an actual browser (see "Working conventions" below).
+
+## Architecture
+
+This is a [SveltePress](https://sveltepress.site/) site (SvelteKit + a SveltePress theme plugin) with a **fully custom theme** — not the SveltePress default theme reskinned, but built from scratch to keep only its layout shell (sticky navbar, collapsible sidebar, on-this-page rail, prev/next footer) and replace all branding, components, and styles with Commonway System (CS) ones.
+
+**Theme registration flow:** `vite.config.ts` calls `commonwayTheme({...})` (defined in [src/lib/theme/index.ts](src/lib/theme/index.ts)) and passes the result into the `sveltepress()` Vite plugin. `commonwayTheme` is the SveltePress theme contract: it points to `GlobalLayout.svelte` / `PageLayout.svelte` as the layout components, registers the Shiki highlighter, and wires remark/rehype plugins (`remark-gfm`, `remark-directive` for admonitions, `rehype-slug` + a custom heading-anchor plugin). Theme options (site title, nav, sidebar, GitHub link, edit-link template, footer note) are passed through a virtual Vite module (`virtual:commonway/options`, see `optionsPlugin` in `index.ts`) so theme components can import them without prop-drilling.
+
+**`vite.config.ts` is the single source of truth for site content structure** — navbar links, the manual sidebar tree (keyed by route prefix, e.g. everything under `/guide/` uses the `sidebar['/guide/']` entry), GitHub link, edit-link template, site title/description. This is the file to edit for day-to-day content/nav work; `src/lib/theme/` should rarely need touching once the visual direction is set. The sidebar shown for any page is whichever key in `sidebar` the current URL starts with (same model as SveltePress's own default theme). There is no auto-generated sidebar from the routes folder — it's manual by design, since it needs to map onto the Functional Classification / density-tier hierarchy rather than a generic path tree.
+
+**Content pages** live in `src/routes/`, one folder per URL segment, each with a `+page.md` (YAML frontmatter + GitHub-flavored markdown). SveltePress lets Svelte run inside markdown, so pages can `<script>` import theme components directly. Admonition blocks (`:::note`, `:::tip`, `:::warning`, `:::danger`, `:::unsourced`) are implemented in `src/lib/theme/markdown/admonitions.ts` via `remark-directive`; `:::unsourced` always renders in the reserved amber regardless of surrounding content, by design, so unsourced claims stay easy to spot before publication.
+
+**Brand tokens:** `src/lib/theme/styles/tokens.css` is the single place all colors/type/spacing live, as CSS custom properties — components reference tokens, never raw hex values. **Synced to the real Brand Guide palette** (as of this pass), with two documented exceptions still marked PLACEHOLDER in the file: `--cw-intersections` (the guide's ramp only covers Local/Collector/Arterial/Freeway) and `--cw-danger` (the guide doesn't define one; decoupled from `--cw-freeway` since Freeway's real color is a neutral gray, not alarming). Key distinctions, easy to get wrong:
+
+- `--cw-teal` is the raw brand hue (`#00A896`), for self-contained solid fills (buttons, badges, chips) where contrast against the page background doesn't apply. `--cw-primary` is a darkened/lightened variant of the _same_ hue, for text or thin accents sitting directly on the page background (hover states, active nav, focus ring, note admonition) — raw teal only reaches 2.86:1 on paper, under the 4.5:1 text minimum.
+- `--cw-ink-fixed` / `--cw-paper-fixed` are non-theme-varying (defined once, never overridden in `[data-theme='dark']`), for text on a fill that's itself fixed (primary/dark buttons, the unsourced-claim flag, evidence chips). Using `var(--cw-ink)` there instead would flip to near-white in dark mode and go invisible against its own fixed-dark or fixed-colored background — this bit Button.svelte's "dark" variant during the sync, worth remembering.
+- `--cw-link` / `--cw-link-hover` are the Brand Guide's indigo, used only by `base.css`'s global `a` rule for content hyperlinks, distinct from `--cw-primary`/`--cw-teal`.
+- `--cw-amber` is reserved exclusively for the unsourced-claim flag and pattern highlighting per the guide, **never a general UI accent** — the global `:focus-visible` ring and the navbar active-link underline were both moved off amber onto `--cw-primary` for this reason (amber also only reached 1.97:1 against light paper as a focus ring, failing the 3:1 UI-component minimum). The `:::warning` admonition still uses amber and is a known, deliberately unresolved conflict with this rule, flagged in the Brand Guide page rather than silently changed.
+- `--cw-local/-collector/-arterial/-freeway` each have a full 6-tier ramp (`--cw-local-undeveloped` through `--cw-local-core`, etc.) plus a single representative token (`--cw-local`, etc.) used by PatternCard's border accent, mapped to whichever tier clears (or gets closest to) 4.5:1 contrast — this differs by classification and by theme, see the comments in `tokens.css`. `-soft` variants reuse each classification's own lightest (Undeveloped) tier in light mode; dark mode needs hand-picked dark tints instead, since a near-white pastel looks wrong as a "soft" background on a dark page.
+- `PatternCard.svelte`'s Pattern ID text is always `var(--cw-ink)`, never the classification color, per the guide ("a constant identity mark distinct from classification color") — this also happens to be load-bearing: Arterial and Freeway's real ramp colors don't clear 4.5:1 as text on either paper tone.
+  The `[data-theme='dark']` block at the bottom is the dark-mode override for every token above (except the `-fixed` ones). `src/lib/theme/styles/base.css` builds base element and content typography from these tokens.
+
+**CS-specific domain components** (`src/lib/theme/components/`, exported from `index.ts`):
+
+- `PatternCard.svelte` — Pattern ID card; `classification` prop accepts `local | collector | arterial | freeway | intersections` and drives the left-border accent color (not the ID text, see above).
+- `DensityChip.svelte` — Undeveloped → Core density-tier chip. Uses its own independent neutral-tan ramp, not the classification ramps, a deliberate site-only choice per its own comment; note this diverges from the guide's actual design (density tiers live _within_ each classification's own ramp there, not as a separate overlay) — a known, unresolved gap if this component gets revisited.
+- `Citation.svelte` — numbered citation badge, and the unsourced-claim flag. Renders at 12px/semibold with a white text-shadow halo, not the guide's literal `--type-micro` (10px) — a deliberate legibility correction, documented on the Brand Guide page's Accessibility notes.
+- `EvidenceChip.svelte` — Legal / Evidence-based / Precedent-based tier chip.
+- `ColorSwatch.svelte`, `LogoPreview.svelte`, `ExampleCard.svelte`, `Button.svelte`, `FormControlsPreview.svelte` — Brand Guide page previews (`/about/brand-guide/`). All now token-driven, no hardcoded hex.
+
+Layout/UI components in the same directory (`GlobalLayout`, `PageLayout`, `Navbar`, `Sidebar`/`SidebarGroup`, `Toc`, `PageNav`, `Icon`, `ThemeToggle`, `Backdrop`) implement the shell; `src/lib/theme/layout.ts` holds the Svelte stores for sidebar open/closed and dark mode state.
+
+**Adapter:** `@sveltejs/adapter-static`, `strict: true`, output to `build/` — the whole guidebook prerenders to static HTML with every pattern page a real crawlable URL. `src/routes/+layout.ts` turns on prerendering and trailing-slash URLs; `src/routes/+layout.svelte` is deliberately minimal since SveltePress wraps it in `GlobalLayout`.
+
+**`llms.txt` / `robots.txt`:** `src/routes/llms.txt/+server.ts` and `src/routes/robots.txt/+server.ts` are `+server.ts` endpoints, not files under `static/`. `src/lib/server/content.ts` globs every `+page.md` at build time (`import.meta.glob(..., { query: '?raw' })`, parsed with the `yaml` package) and reads each page's `llms` frontmatter field (falls back to `description`, then `title`) to build `llms.txt`, so new pages appear automatically. Because prerendering is on, both compile down to plain static files in `build/` at build time, same as every page, no server needed at runtime, safe for a Netlify/adapter-static deploy. Nothing links to either route, so they're listed explicitly in `svelte.config.js`'s `kit.prerender.entries` or the crawler skips them. `src/lib/site.ts` holds the canonical `SITE_URL` used for `llms.txt`'s absolute links.
+
+## Content model notes
+
+- **`PageLayout.svelte` renders an `<h1>` from the page's frontmatter `title` automatically** (see `{#if fm.title}<h1>{fm.title}</h1>{/if}` in `PageLayout.svelte`). Do not start a `+page.md` body with a `# Heading` that repeats the title, it duplicates the h1. Existing pages (`guide/introduction`, `guide/how-to-read-a-pattern`, etc.) go straight from frontmatter into body text or an `##` subheading; follow that pattern for new pages.
+- A companion brand guide (`../commonway-brand-guide.html`, outside this repo) defines the real, locked CS visual system: base colors (ink `#141414`, paper `#FDFAF3`, teal `#00A896`, indigo `#3D3AAB`, reserved amber `#FF9F1C`), a colorblind-checked 6-step Functional Classification × density ramp, and the Fraunces/Inter type scale. `tokens.css` is synced to it (see above); the guide itself doesn't cover dark mode, so every dark-mode value in `tokens.css` is a site-only extension, reasoned out and documented inline rather than specified by the guide.
+- CS editorial rules that apply to any `+page.md` content written in this repo: no em-dashes anywhere, plain-language term introduced before its formal/technical name, and citations follow a specific numbered/dated agency-reference format (see the brand guide for the full citation and evidence-tier system referenced by `Citation.svelte` and the admonition tiers).
+
+## Known gaps (deliberately unresolved, not bugs to silently fix)
+
+These surfaced during the token-sync pass and are documented here plus inline (in `tokens.css` and on `/about/brand-guide/`) so they don't need rediscovering. Each is a real design/content-semantics call, not a clear-cut fix, raise it with the user rather than deciding unilaterally:
+
+- The `:::warning` admonition (`src/lib/theme/markdown/admonitions.ts`) uses `--cw-amber`, which conflicts with the Brand Guide's explicit "amber is reserved exclusively for the unsourced-claim flag and pattern highlighting, never a general UI accent" rule. Not changed since there's no guide-specified alternative warning color.
+- `DensityChip.svelte` renders density tiers on its own independent neutral-tan ramp. The real Brand Guide design encodes density _within_ each Functional Classification's own 6-step color ramp instead (see `tokens.css`'s `--cw-local-undeveloped` through `--cw-local-core`, etc.), which would mean `DensityChip` taking a `classification` prop too. Not implemented, current behavior is a deliberate site-only choice per the component's own comment.
+- `--cw-intersections` / `--cw-intersections-soft` and `--cw-danger` / `--cw-danger-soft` in `tokens.css` are marked PLACEHOLDER: the guide's documented ramp only covers Local/Collector/Arterial/Freeway, and the guide has no danger-admonition color at all.
+- Homepage (`src/routes/+page.md`) and most of `src/routes/guide/` are still scaffold/placeholder content (explicitly marked as such in their own body text), not final copy.
+
+## Working conventions on this repo
+
+- **Visually verify UI changes in the browser before calling them done**, not just `npm run check` (which won't catch a badge rendering illegibly small, a color barely visible in dark mode, or a hidden character leaking into visible text, all real issues found this way in past sessions). Check both light and dark mode, and at least one narrow viewport width, since this theme has real behavior differences at 940px and 560/480px breakpoints.
+- **Compute contrast ratios rather than eyeballing color choices.** A short Python snippet (WCAG relative luminance formula) is fast and has repeatedly caught real problems eyeballing missed, e.g. the real Brand Guide amber turning out to be only 1.97:1 as a focus ring against light paper.
+- When a fix surfaces an adjacent problem (a token value fix revealing a component that also needs to change, for instance), **fix genuine bugs and contrast failures directly**, but **flag pure design/content-semantics judgment calls** rather than deciding them, see "Known gaps" above for the current list of flagged-not-fixed items.
+- This is a static site (`adapter-static`, deploying to Netlify). Anything touching routing, build output, or server-side code should be checked against that constraint, e.g. a new `+server.ts` endpoint needs `export const prerender = true` and, if nothing links to it, an explicit entry in `svelte.config.js`'s `kit.prerender.entries`, or it silently won't exist in the deployed build.

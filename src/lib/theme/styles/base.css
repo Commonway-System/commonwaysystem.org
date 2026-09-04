@@ -1,0 +1,310 @@
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/inter';
+@import './tokens.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--cw-paper);
+  color: var(--cw-ink);
+  font-family: var(--cw-font-body);
+  font-size: var(--cw-text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Content hyperlinks. Underlined always (never removed, only softened at
+   rest), per the Brand Guide: this is a reference work first, a marketing
+   site second. UI chrome links (navbar, sidebar, PageNav, etc.) each set
+   their own color via a class selector, so they aren't affected by this
+   element selector. */
+a {
+  color: var(--cw-link);
+  text-decoration-color: color-mix(in srgb, var(--cw-link) 40%, transparent);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--cw-link-hover);
+  text-decoration-color: currentColor;
+}
+
+/* Focus visibility is not negotiable: keep it clear on every interactive
+   element, and only for keyboard focus so mouse clicks stay quiet.
+   --cw-primary (teal), not --cw-amber: amber is reserved exclusively for
+   the unsourced-claim flag and pattern highlighting per the Brand Guide,
+   and the guide's own form-control spec already calls for a teal focus
+   ring. The real amber (#FF9F1C) also only reaches 1.97:1 against light
+   paper, well under the 3:1 UI-component minimum; teal reaches 7.3:1. */
+:focus-visible {
+  outline: 2px solid var(--cw-primary);
+  outline-offset: 2px;
+  border-radius: var(--cw-radius-sm);
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* Standard visually-hidden pattern: present for screen readers, removed
+   from visual flow and layout. Used to announce "(opens in new tab)" on
+   every external link without a permanently visible label. */
+.cw-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Wraps the icon + .cw-sr-only text external links append after their
+   visible label (see markdown/external-links.ts and every hardcoded
+   external link in the theme). Inline so it sits on the same line as the
+   link text; the icon inherits link color via currentColor. */
+.cw-external-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.25em;
+  vertical-align: -0.05em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Page content typography. Scoped to .cw-content so the layout shell
+   (navbar, sidebar chrome, etc.) never inherits article defaults.
+------------------------------------------------------------------------ */
+
+.cw-content h1,
+.cw-content h2,
+.cw-content h3,
+.cw-content h4,
+.cw-content h5,
+.cw-content h6 {
+  font-family: var(--cw-font-display);
+  font-weight: 600;
+  color: var(--cw-ink);
+  position: relative;
+  scroll-margin-top: calc(var(--cw-navbar-height) + 1rem);
+}
+
+.cw-content h1 {
+  font-size: var(--cw-text-4xl);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem;
+}
+
+.cw-content h2 {
+  font-size: var(--cw-text-2xl);
+  line-height: 1.3;
+  margin: 3rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--cw-hairline);
+}
+
+.cw-content h3 {
+  font-size: var(--cw-text-xl);
+  margin: 2.25rem 0 0.75rem;
+}
+
+.cw-content h4 {
+  font-size: var(--cw-text-lg);
+  margin: 1.75rem 0 0.5rem;
+}
+
+.cw-content p,
+.cw-content ul,
+.cw-content ol {
+  margin: 0 0 1.1rem;
+}
+
+.cw-content li + li {
+  margin-top: 0.4rem;
+}
+
+.cw-content blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 3px solid var(--cw-hairline-strong);
+  color: var(--cw-ink-soft);
+}
+
+.svp-heading-anchor {
+  position: absolute;
+  left: -1.1em;
+  top: 0.1em;
+  opacity: 0;
+  color: var(--cw-ink-faint);
+  text-decoration: none;
+  font-weight: 400;
+  transition: opacity 0.12s ease;
+}
+
+.cw-content h1:hover .svp-heading-anchor,
+.cw-content h2:hover .svp-heading-anchor,
+.cw-content h3:hover .svp-heading-anchor,
+.cw-content h4:hover .svp-heading-anchor {
+  opacity: 1;
+}
+
+/* ---- Admonitions (:::note / :::tip / :::warning / :::danger / :::unsourced) */
+
+.svp-admonition {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: var(--cw-radius-md);
+  border: 1px solid transparent;
+  background: var(--cw-note-soft);
+  border-color: color-mix(in srgb, var(--cw-note) 35%, transparent);
+}
+
+.svp-admonition__label {
+  margin: 0 0 0.35rem;
+  font-family: var(--cw-font-display);
+  font-weight: 600;
+  font-size: var(--cw-text-sm);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--cw-note);
+}
+
+.svp-admonition p:last-child {
+  margin-bottom: 0;
+}
+
+.svp-admonition--tip {
+  background: var(--cw-tip-soft);
+  border-color: color-mix(in srgb, var(--cw-tip) 35%, transparent);
+}
+.svp-admonition--tip .svp-admonition__label {
+  color: var(--cw-tip);
+}
+
+.svp-admonition--warning {
+  background: var(--cw-warning-soft);
+  border-color: color-mix(in srgb, var(--cw-warning) 45%, transparent);
+}
+.svp-admonition--warning .svp-admonition__label {
+  color: var(--cw-amber-ink);
+}
+
+.svp-admonition--danger {
+  background: var(--cw-danger-soft);
+  border-color: color-mix(in srgb, var(--cw-danger) 40%, transparent);
+}
+.svp-admonition--danger .svp-admonition__label {
+  color: var(--cw-danger);
+}
+
+/* The unsourced-claim flag: always amber, deliberately the only admonition
+   that reuses the reserved highlight color, so it reads as a flag rather
+   than a themed callout. */
+.svp-admonition--unsourced {
+  background: var(--cw-amber-soft);
+  border-color: color-mix(in srgb, var(--cw-amber) 55%, transparent);
+}
+.svp-admonition--unsourced .svp-admonition__label {
+  color: var(--cw-amber-ink);
+}
+.svp-admonition--unsourced .svp-admonition__label::before {
+  content: '\26a0 ';
+}
+
+/* ---- Code blocks ---------------------------------------------------- */
+
+.cw-content pre {
+  margin: 1.5rem 0;
+  padding: 1rem 1.1rem;
+  border-radius: var(--cw-radius-md);
+  overflow-x: auto;
+  font-size: 0.875em;
+  border: 1px solid var(--cw-hairline);
+}
+
+.cw-content :not(pre) > code {
+  font-family: var(--cw-font-mono);
+  font-size: 0.875em;
+  background: var(--cw-primary-soft);
+  color: var(--cw-primary-hover);
+  padding: 0.1em 0.35em;
+  border-radius: var(--cw-radius-sm);
+}
+
+/* Shiki dual-theme output: show the theme matching the current color scheme. */
+[data-theme='dark'] .cw-content pre .shiki,
+[data-theme='dark'] .cw-content pre .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+/* ---- Tables ----------------------------------------------------------- */
+
+.cw-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: var(--cw-text-sm);
+}
+
+.cw-content th,
+.cw-content td {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--cw-hairline);
+}
+
+.cw-content th {
+  font-family: var(--cw-font-display);
+  font-weight: 600;
+  color: var(--cw-ink-soft);
+}
+
+/* ---- Layout utilities for Brand Guide-style previews ------------------ */
+
+.cw-content .swatch-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.cw-content .logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.cw-content .demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}

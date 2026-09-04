@@ -1,0 +1,11 @@
+[build]
+  command = "pnpm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# No custom 404 page exists yet (svelte.config.js has no +error.svelte, and
+# the build produces no 404.html), so unknown routes currently fall through
+# to Netlify's generic default 404. No SPA fallback redirect is added here
+# since every real page is a static file, not client-side-routed.

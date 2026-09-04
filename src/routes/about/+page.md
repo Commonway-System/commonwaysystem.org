@@ -1,0 +1,28 @@
+---
+title: About
+description: What the Commonway System is, who built it, and how the project is run.
+llms: Landing page for the About section, linking to what the Commonway System is, its brand guide, contributing, governance, and reporting.
+---
+
+The Commonway System (CS) is a pattern language for roads and streets. This section covers the project itself: what it is, how it is branded and written, how to get involved, and how it is governed.
+
+## In this section
+
+**[The Commonway System](/about/commonway-system/)**
+What CS is, who compiled it, and how it relates to NACTO, Complete Streets, Strong Towns, and the primary research it cites.
+
+**[Brand Guide](/about/brand-guide/)**
+The full visual and editorial system: colors, typography, voice, illustration rules, citation format, and the Commonway logo.
+
+**[Contributing / Volunteering](/about/contributing/)**
+How to propose a pattern, suggest a correction, or otherwise help build out the guidebook.
+
+**[Governance](/about/governance/)**
+How decisions about the system get made and who makes them.
+
+**[Reporting](/about/reporting/)**
+How to flag an error, an unsourced claim, or a dead citation link.
+
+:::note
+Contributing, Governance, and Reporting are placeholder stubs for now. The Commonway System and Brand Guide pages have real content.
+:::

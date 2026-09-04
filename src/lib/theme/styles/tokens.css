@@ -1,0 +1,283 @@
+/*
+ * Commonway System design tokens.
+ *
+ * Everything a brand pass should ever need to touch lives in this one file,
+ * as CSS custom properties. Components reference tokens, never raw hex
+ * values, so a palette or type change never means hunting through markup.
+ *
+ * Synced to the working Brand Guide (see /about/brand-guide/) as of
+ * CalVer 2026.08.26, with two exceptions still marked PLACEHOLDER below:
+ * --cw-intersections (the guide's documented ramp only covers Local,
+ * Collector, Arterial, and Freeway, not the cross-cutting Intersections
+ * category) and --cw-danger (the guide doesn't define a danger-admonition
+ * color; kept as an independent site-only red rather than reusing Freeway,
+ * since Freeway's real spec color is a neutral gray, not alarming).
+ *
+ * All contrast ratios below are computed against this file's own
+ * --cw-paper / --cw-paper-raised for that theme, per WCAG 2.1 (4.5:1 for
+ * text, 3:1 for UI-component/large-swatch use).
+ */
+
+:root {
+  /* ---- Type ------------------------------------------------------ */
+  --cw-font-display: 'Fraunces Variable', Fraunces, ui-serif, Georgia, serif;
+  --cw-font-body: 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif;
+  --cw-font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --cw-text-sm: 0.875rem;
+  --cw-text-base: 1rem;
+  --cw-text-lg: 1.125rem;
+  --cw-text-xl: 1.375rem;
+  --cw-text-2xl: 1.75rem;
+  --cw-text-3xl: 2.25rem;
+  --cw-text-4xl: 2.875rem;
+
+  /* ---- Neutrals (guide: Ink #141414, Paper #FDFAF3) ----------------- */
+  --cw-ink: #141414;
+  --cw-ink-soft: #4a4a4a;
+  --cw-ink-faint: #6e6e6e;
+  --cw-paper: #fdfaf3;
+  --cw-paper-raised: #ffffff;
+  --cw-hairline: rgba(20, 20, 20, 0.12);
+  --cw-hairline-strong: rgba(20, 20, 20, 0.22);
+
+  /* ---- Brand / interactive -------------------------------------------
+     Commonway teal (#00A896) is the guide's real primary interactive
+     color (buttons, citations, evidence, form-control focus rings), not
+     the old placeholder sapphire. --cw-teal is the raw brand hue, for
+     self-contained solid fills (buttons, badges, chips) where contrast
+     against the page background doesn't apply. --cw-primary is a
+     darkened/lightened variant of the same hue for use as TEXT or a
+     thin accent directly on the page background (hover states, active
+     nav, note admonition, focus ring), since raw #00A896 only reaches
+     2.86:1 on paper, well under the 4.5:1 text minimum. --cw-primary
+     light reuses the guide's own "Legal/regulatory" evidence-tier shade
+     (#005F52), rather than inventing an unrelated darker teal. */
+  --cw-teal: #00a896;
+  /* Fixed hover shade for solid teal fills (citation badge), distinct
+     from --cw-primary-hover below, which is a light/dark theme pair for
+     text hovering on the page background, not a fill darkening in place. */
+  --cw-teal-hover: #00967f;
+  /* Fixed, not theme-varying: ink for text on top of a solid saturated
+     brand fill (primary buttons: ink-on-teal reaches 6.18:1; the
+     unsourced-claim flag: ink-on-amber reaches 8.97:1), distinct from
+     the darker --cw-evidence-fg pairing used for citation badges and
+     the Evidence-based chip (5.01:1, a separate corrected pairing for
+     that smaller/tighter context). Fixed rather than var(--cw-ink)
+     because these fills don't change with theme, so the text pairing
+     documented on /about/brand-guide/ shouldn't either. */
+  --cw-ink-fixed: #141414;
+  /* Fixed light companion to --cw-ink-fixed, for text on a deliberately
+     always-dark surface (the "Dark / high-emphasis" button), so it
+     doesn't go invisible against its own background in dark mode when
+     --cw-paper flips to near-black. */
+  --cw-paper-fixed: #fdfaf3;
+  --cw-primary: #005f52;
+  --cw-primary-hover: #00453d;
+  --cw-primary-soft: #e1f5f1;
+
+  /* Evidence tiers, self-contained fills like --cw-teal above. Text
+     color is the corrected accessible pairing from the guide's own
+     Accessibility notes (originally #003D35 at 4.10:1, failed AA;
+     corrected to #002D27, 5.01:1). */
+  --cw-evidence-legal: #005f52;
+  --cw-evidence-evidence: #00a896;
+  --cw-evidence-precedent: #7fdccf;
+  --cw-evidence-fg: #002d27;
+
+  /* Content hyperlinks specifically, per the Brand Guide: indigo, distinct
+     from --cw-primary/--cw-teal (which cover buttons, citations, and
+     evidence tiers). 8.28:1 contrast on paper. The dark-mode value below
+     is a same-hue-family lighten, not this color, since this exact indigo
+     only reaches 2.1:1 against a dark background. */
+  --cw-link: #3d3aab;
+  --cw-link-hover: #2e2b85;
+
+  /* Reserved: unsourced-claim flag and pattern-illustration highlighting
+     only, never a general UI accent (see Brand Guide). --cw-warning
+     below is a known exception to that rule, flagged rather than
+     silently fixed, see CLAUDE.md. */
+  --cw-amber: #ff9f1c;
+  --cw-amber-soft: #fcead0;
+  --cw-amber-ink: #6b3f0a;
+
+  /* ---- Functional Classification ramps -------------------------------
+     Full 6-step tint/shade ramp per classification, lightest at
+     Undeveloped, darkest at Core, straight from the Brand Guide (already
+     colorblind-checked by the guide against protanopia, deuteranopia,
+     and tritanopia). --cw-local etc. below are single representative
+     colors for simple UI chrome (PatternCard border, sidebar accents)
+     that isn't density-aware; --cw-local-soft etc. reuse each
+     classification's own Undeveloped tier as a light tint, so nothing is
+     invented outside the documented ramp. */
+  --cw-local-undeveloped: #e5cdfe;
+  --cw-local-rural: #ca9cfc;
+  --cw-local-suburban: #ab60fb;
+  --cw-local-compact: #891ff9;
+  --cw-local-urban: #6805d1;
+  --cw-local-core: #4a0495;
+
+  --cw-collector-undeveloped: #d9d8f2;
+  --cw-collector-rural: #b3b1e5;
+  --cw-collector-suburban: #8d8ad8;
+  --cw-collector-compact: #6764c4;
+  --cw-collector-urban: #4a47b8;
+  --cw-collector-core: #302d82;
+
+  --cw-arterial-undeveloped: #eaf5d0;
+  --cw-arterial-rural: #d4eba1;
+  --cw-arterial-suburban: #bee072;
+  --cw-arterial-compact: #a3ce49;
+  --cw-arterial-urban: #8ab92e;
+  --cw-arterial-core: #6b9420;
+
+  --cw-freeway-undeveloped: #edeef0;
+  --cw-freeway-rural: #d6d8dc;
+  --cw-freeway-suburban: #b9bcc2;
+  --cw-freeway-compact: #9ca0a8;
+  --cw-freeway-urban: #7d818a;
+  --cw-freeway-core: #5c6068;
+
+  /* Representative single color per classification: the lightest tier
+     that still clears (or gets closest to) 4.5:1 text contrast on this
+     theme's paper. Local/Collector reach it at Urban; Arterial and
+     Freeway's hues are naturally lighter and only reach ~3.4-6:1 even at
+     Core, so PatternCard uses this color for its left-border accent
+     only (3:1 suffices), never for the ID text, which is always ink,
+     per the guide ("a constant identity mark distinct from
+     classification color"). */
+  --cw-local: var(--cw-local-urban);
+  --cw-collector: var(--cw-collector-urban);
+  --cw-arterial: var(--cw-arterial-core);
+  --cw-freeway: var(--cw-freeway-core);
+
+  --cw-local-soft: var(--cw-local-undeveloped);
+  --cw-collector-soft: var(--cw-collector-undeveloped);
+  --cw-arterial-soft: var(--cw-arterial-undeveloped);
+  --cw-freeway-soft: var(--cw-freeway-undeveloped);
+
+  /* PLACEHOLDER: not part of the guide's documented ramp (Intersections
+     and Crossings is a cross-cutting category without its own color
+     family in the working draft). Left as the original scaffold value. */
+  --cw-intersections: #8a5a12;
+  --cw-intersections-soft: #f4ead4;
+
+  /* ---- Admonitions -------------------------------------------------- */
+  --cw-note: var(--cw-primary);
+  --cw-note-soft: var(--cw-primary-soft);
+  --cw-tip: var(--cw-local);
+  --cw-tip-soft: var(--cw-local-soft);
+  --cw-warning: var(--cw-amber);
+  --cw-warning-soft: var(--cw-amber-soft);
+  /* PLACEHOLDER: independent site-only red, not derived from any guide
+     token. Reusing --cw-freeway here (the old scaffold's shortcut) no
+     longer works: Freeway's real spec color is a neutral gray, which
+     both fails 4.5:1 text contrast and doesn't read as "danger." */
+  --cw-danger: #9c2848;
+  --cw-danger-soft: #f7e1e7;
+
+  /* ---- Layout -------------------------------------------------------- */
+  --cw-navbar-height: 4rem;
+  --cw-sidebar-width: 17rem;
+  --cw-toc-width: 15rem;
+  --cw-content-max-width: 46rem;
+  --cw-radius-sm: 0.25rem;
+  --cw-radius-md: 0.5rem;
+  --cw-radius-lg: 0.875rem;
+  --cw-shadow-drawer: 0 12px 32px rgba(27, 21, 35, 0.18);
+}
+
+[data-theme='dark'] {
+  /* Dark mode isn't part of the guide's working draft; ink and paper are
+     swapped (dark paper reuses the guide's own light-mode ink, #141414)
+     for a coherent, symmetric pairing rather than an invented dark
+     surface color. */
+  --cw-ink: #f5f2ea;
+  --cw-ink-soft: #c9c4b8;
+  --cw-ink-faint: #96917f;
+  --cw-paper: #141414;
+  --cw-paper-raised: #201e1b;
+  --cw-hairline: rgba(245, 242, 234, 0.12);
+  --cw-hairline-strong: rgba(245, 242, 234, 0.22);
+
+  --cw-teal: #00a896;
+  /* Same teal hue lightened for text/accent legibility on dark paper,
+     reusing the guide's own "Precedent-based" evidence-tier shade for
+     the hover state rather than inventing an unrelated one. */
+  --cw-primary: #4ddbc4;
+  --cw-primary-hover: #7fdccf;
+  --cw-primary-soft: #14302b;
+
+  --cw-evidence-legal: #005f52;
+  --cw-evidence-evidence: #00a896;
+  --cw-evidence-precedent: #7fdccf;
+  --cw-evidence-fg: #002d27;
+
+  /* Same indigo/violet hue as the light --cw-link (#3d3aab), lightened for
+     legibility: 7.89:1 contrast on dark paper, vs. 2.1:1 for the light
+     value unchanged. */
+  --cw-link: #a79eff;
+  --cw-link-hover: #c2bbff;
+
+  --cw-amber: #ff9f1c;
+  --cw-amber-soft: #3d2b10;
+  --cw-amber-ink: #f5ce95;
+
+  --cw-local-undeveloped: #e5cdfe;
+  --cw-local-rural: #ca9cfc;
+  --cw-local-suburban: #ab60fb;
+  --cw-local-compact: #891ff9;
+  --cw-local-urban: #6805d1;
+  --cw-local-core: #4a0495;
+
+  --cw-collector-undeveloped: #d9d8f2;
+  --cw-collector-rural: #b3b1e5;
+  --cw-collector-suburban: #8d8ad8;
+  --cw-collector-compact: #6764c4;
+  --cw-collector-urban: #4a47b8;
+  --cw-collector-core: #302d82;
+
+  --cw-arterial-undeveloped: #eaf5d0;
+  --cw-arterial-rural: #d4eba1;
+  --cw-arterial-suburban: #bee072;
+  --cw-arterial-compact: #a3ce49;
+  --cw-arterial-urban: #8ab92e;
+  --cw-arterial-core: #6b9420;
+
+  --cw-freeway-undeveloped: #edeef0;
+  --cw-freeway-rural: #d6d8dc;
+  --cw-freeway-suburban: #b9bcc2;
+  --cw-freeway-compact: #9ca0a8;
+  --cw-freeway-urban: #7d818a;
+  --cw-freeway-core: #5c6068;
+
+  /* Dark mode needs a lighter tier than light mode for the same 4.5:1+
+     legibility reason --cw-link and --cw-primary do above. */
+  --cw-local: var(--cw-local-suburban);
+  --cw-collector: var(--cw-collector-suburban);
+  --cw-arterial: var(--cw-arterial-urban);
+  --cw-freeway: var(--cw-freeway-compact);
+
+  /* Undeveloped (near-white pastel) would look wrong as a "soft"
+     background on a dark page, so dark mode gets its own hand-tuned
+     dark, desaturated tint per hue family instead of reusing a ramp tier
+     directly. */
+  --cw-local-soft: #2a1345;
+  --cw-collector-soft: #211f3d;
+  --cw-arterial-soft: #26330f;
+  --cw-freeway-soft: #2b2d31;
+
+  --cw-intersections: #d6a94f;
+  --cw-intersections-soft: #3a2e15;
+
+  --cw-note: var(--cw-primary);
+  --cw-note-soft: var(--cw-primary-soft);
+  --cw-tip: var(--cw-local);
+  --cw-tip-soft: var(--cw-local-soft);
+  --cw-warning: var(--cw-amber);
+  --cw-warning-soft: var(--cw-amber-soft);
+  --cw-danger: #ef7a93;
+  --cw-danger-soft: #3a1420;
+
+  --cw-shadow-drawer: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
