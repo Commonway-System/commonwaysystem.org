@@ -26,6 +26,10 @@ Bicycle, then Pedestrian, then Transit, then Vehicle, then Freight, an override 
 
 Distinct from Local's Bicycle Boulevard, which shares the roadway with calmed vehicle traffic, this Typology is physically separated infrastructure, closer in function to a linear park path or a rail-trail than to a shared street. It is realistic across nearly the full density range, since a separated path is not dependent on the surrounding street grid the way a shared-roadway Typology is.<Citation index={1} />
 
+## Related patterns
+
+[Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12) (explicitly distinguished on this page: shared calmed roadway vs. this pattern's physical separation), [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06) (a similarly-named Collector-scale pattern this one is specifically distinct from)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> CROW, *Design Manual for Bicycle Traffic*, English ed. (2016), Ch. 4.5 "Bicycle highways."

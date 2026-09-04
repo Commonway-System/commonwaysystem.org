@@ -26,6 +26,10 @@ Alley inverts the Local base order: Vehicle, then Freight, then Pedestrian, then
 
 Because an alley is not a through-route for people walking or biking, its narrow width and service function do not conflict with the 20 mph Local speed cap. The override applies to mode priority, not to the speed rule.
 
+## Related patterns
+
+[Default (Standard Local Street)](/patterns/local-streets/default/) (LOC-DEF-01) (the base modal order this pattern inverts), [Curb Cut / Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) (ELM-CCA-04) (the Element governing the driveway access this Typology exists to serve)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Green Alley" and "Commercial Alley."

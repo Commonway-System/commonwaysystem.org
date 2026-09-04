@@ -26,6 +26,10 @@ During scheduled events: Pedestrian and Bicycle only. Off-hours: reverts to the 
 
 The dual-mode design, full street for events and normal Local operation otherwise, is what distinguishes this from a permanent Pedestrian-only Street or Plaza. It requires enough event demand and foot traffic to justify the conversion, which is why it concentrates at Urban and Core density.<Citation index={1} />
 
+## Related patterns
+
+[Pedestrian-only Street / Plaza](/patterns/local-streets/pedestrian-plaza/) (LOC-PED-09) (the permanent version of what this pattern does on a schedule), [School Street](/patterns/local-streets/school-street/) (LOC-SCH-11) (shares this pattern's schedule-based structure, per both pages' Design notes)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Seattle Municipal Code §11.14.203, "Festival Streets."

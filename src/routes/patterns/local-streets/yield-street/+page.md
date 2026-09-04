@@ -26,6 +26,10 @@ Pedestrian, then Bicycle, then Vehicle, then Transit, then Freight. Marked as ne
 
 This pattern only functions where traffic volume is genuinely low. It thins out toward Urban and Core, where local street volumes typically outgrow what a shared, yield-controlled width can safely absorb.<Citation index={1} />
 
+## Related patterns
+
+[Living Street / Woonerf](/patterns/local-streets/living-street-woonerf/) (LOC-LSW-06) (the reciprocal pattern, sharing width-as-calming-device but going further to treat vehicles as guests)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Yield Street."

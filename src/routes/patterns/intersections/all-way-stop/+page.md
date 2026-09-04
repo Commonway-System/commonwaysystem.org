@@ -22,6 +22,10 @@ Rural and Urban are edge cases. Undeveloped and Core are unlikely pairings.
 
 All-Way Stop tapers off past Compact and Urban density, as intersection volumes exceed what stop control can handle safely. This is the same taper logic that applies to Stop/Yield control, just shifted one tier higher on the density range.<Citation index={1} />
 
+## Related patterns
+
+[Stop / Yield (Two-Way)](/patterns/intersections/stop-yield/) (INT-SYD-05) (explicitly named on this page as sharing the same density-taper logic, one tier lower)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Manual on Uniform Traffic Control Devices, 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2B.13-2B.17.

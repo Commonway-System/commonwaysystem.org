@@ -26,6 +26,10 @@ Transit, then Pedestrian, then Bicycle, then Vehicle, then Freight, an override 
 
 This entry is the Collector-scale sibling of Local Transit and Arterial Transit, following the same override logic across all three Functional Classifications.<Citation index={1} />
 
+## Related patterns
+
+[Local Transit](/patterns/local-streets/local-transit/) (LOC-LTR-10) and [Arterial Transit (BRT/LRT)](/patterns/arterials/arterial-transit/) (ART-ATR-04) (this pattern's siblings across Functional Classification, per this page's own Design notes)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Transit Street Design Guide* (2016).

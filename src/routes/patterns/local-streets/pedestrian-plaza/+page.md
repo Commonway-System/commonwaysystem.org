@@ -30,6 +30,10 @@ Pedestrian, then Bicycle where permitted. All other modes are excluded rather th
 
 Unlike Festival Street, which toggles between full and pedestrian-only operation, this Typology's exclusion of vehicles is permanent. That makes it a heavier commitment, appropriate only where the surrounding block can genuinely support it.<Citation index={1} />
 
+## Related patterns
+
+[Festival Street](/patterns/local-streets/festival-street/) (LOC-FES-08) (the scheduled version of this pattern's permanent vehicle exclusion), [Plaza / Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07) (the Facility-scale pattern for a comparable public-space treatment)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Pedestrian Streets" and "Public Plazas."

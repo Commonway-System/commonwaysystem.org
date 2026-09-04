@@ -22,6 +22,10 @@ Urban is an edge case. Core is an unlikely pairing, marked unlikely rather than 
 
 Freeway entries are listed in the Commonway System for completeness and cross-reference, not as a detailed design guide the way Local, Collector, and Arterial patterns are. CS's scope is street and road design; Freeway-scale interchange and alignment design belongs to a different discipline.
 
+## Related patterns
+
+[Grade-Separated Interchange](/patterns/intersections/grade-separated-interchange/) (INT-GSI-10) (the Intersection pattern governing where this pattern's design guidance resumes), [Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the Arterial pattern a Freeway interchange typically connects into)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, *Highway Functional Classification Concepts, Criteria and Procedures*.

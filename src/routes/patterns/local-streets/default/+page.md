@@ -68,6 +68,10 @@ The default intersection treatment where this pattern meets a Collector is a [Co
 
 This entry is the standard against which every other Local Typology is defined as an override. A Typology only departs from the base modal order when its entire reason for existing is a specific mode.
 
+## Related patterns
+
+[Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/) (INT-CSJ-06) (this pattern's own default intersection treatment where it meets a Collector), [Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) (the equivalent baseline one Functional Classification up)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, "Self-Enforcing Roadways: A Guidance Report," FHWA-HRT-17-098, 2018.

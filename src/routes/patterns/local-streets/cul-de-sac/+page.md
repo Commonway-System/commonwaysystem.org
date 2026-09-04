@@ -30,6 +30,10 @@ Pedestrian, then Bicycle, then Vehicle, then Freight, the Local base order minus
 
 A cul-de-sac trades network connectivity for a quiet, low-through-traffic environment. That trade only holds up at lower densities, where a disconnected street grid does not yet conflict with pedestrian and bicycle route continuity.
 
+## Related patterns
+
+[Grid](/patterns/network/grid/) (NET-GRD-01) (the connected Network topology this pattern structurally departs from, the basis of this page's cited connectivity/safety research), [Default (Standard Local Street)](/patterns/local-streets/default/) (LOC-DEF-01) (the base order this pattern drops Transit from)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Marshall, W.E. and Garrick, N.W. (2011), "Street network types and road safety: A study of 24 California cities," *Urban Design International* 16(2).

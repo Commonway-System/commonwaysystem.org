@@ -22,6 +22,10 @@ Suburban is an edge case. Compact, Urban, and Core are unlikely pairings.
 
 Uncontrolled intersections are only realistic where traffic volume is low enough on every approach that informal right-of-way resolution stays safe, which narrows this pattern to the lowest end of the density range.<Citation index={1} /> Where volume rises past that point, Stop / Yield (Two-Way) is the first applied control tier.
 
+## Related patterns
+
+[Stop / Yield (Two-Way)](/patterns/intersections/stop-yield/) (INT-SYD-05) (the next control tier up as volume exceeds informal right-of-way resolution, made explicit by the sentence added to this page's own Design notes)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> SWOV Institute for Road Safety Research, "Principles for a Safe Road Network."

@@ -26,6 +26,10 @@ Transit, then Pedestrian, then Bicycle, then Vehicle, then Freight. This is an o
 
 This entry is the Local-scale sibling of Collector Transit and Arterial Transit. All three follow the same override logic, moving Transit to the top of their respective base order once a route is designated, rather than treating transit priority as automatic on every street a bus happens to use.<Citation index={1} />
 
+## Related patterns
+
+[Collector Transit](/patterns/collectors/collector-transit/) (COL-CTR-05) and [Arterial Transit (BRT/LRT)](/patterns/arterials/arterial-transit/) (ART-ATR-04) (this pattern's siblings across Functional Classification, following the same override logic per this page's own Design notes)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Transit Street Design Guide*, 2016.

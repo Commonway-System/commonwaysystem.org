@@ -22,6 +22,10 @@ Rural is an edge case. Undeveloped is an unlikely pairing.
 
 This is the mirror image of the other three Freeway entries. Default, Expressway, and Beltway/Ring Road all taper off as density rises, while commuter and heavy rail exist specifically to move volume into dense cores, so this Typology becomes more typical, not less, as density increases.
 
+## Related patterns
+
+[Arterial Transit (BRT/LRT)](/patterns/arterials/arterial-transit/) (ART-ATR-04) (the Arterial-scale equivalent transit pattern), [Transit Hub/Station](/patterns/facilities/transit-hub-station/) (FAC-THS-03) (the Facility pattern where riders interface with this rail scale)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FTA, National Transit Database Glossary.

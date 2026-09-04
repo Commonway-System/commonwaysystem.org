@@ -26,6 +26,10 @@ Pedestrian, then Bicycle, then Vehicle (as guest), then Transit, then Freight.
 
 NACTO's Home Zone is, strictly, an area-wide overlay rather than a distinct street type of its own, but the Commonway System folds it into this single entry rather than tracking it separately, since the on-the-ground design treatment is the same shared, no-separation street.<Citation index={1} />
 
+## Related patterns
+
+[Yield Street](/patterns/local-streets/yield-street/) (LOC-YLD-07) (the other Local pattern using street geometry itself, rather than signage, as the calming mechanism)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Ben-Joseph, E. (1995), "Changing the Residential Street Scene: Adapting the Shared Street (Woonerf) Concept to the Suburban Environment," *Journal of the American Planning Association* 61(4).

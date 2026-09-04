@@ -22,6 +22,10 @@ Undeveloped and Urban are edge cases. Core is an unlikely pairing.
 
 Expressway sits between full Freeway and Arterial in character, partial rather than complete access control, which is why its realistic density range skews slightly narrower than the full Freeway Default entry.
 
+## Related patterns
+
+[Default (Freeway)](/patterns/freeways/default/) (FRE-DEF-01) (the fully grade-separated form this sits just short of), [Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the Arterial-scale end of the spectrum this sits between), [Signal](/patterns/intersections/signal/) (INT-SIG-03) (the control type governing the at-grade intersections this pattern still retains)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, *Highway Functional Classification Concepts, Criteria and Procedures*.

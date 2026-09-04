@@ -26,6 +26,10 @@ During active hours: Pedestrian and Bicycle only. Off-hours: reverts to the Loca
 
 This Typology and Festival Street share the same schedule-based structure, full closure or restriction during a defined window, base operation otherwise. Both were added to the system after a NACTO gap-check identified time-restricted street patterns not otherwise covered by the core Local set.<Citation index={1} />
 
+## Related patterns
+
+[Festival Street](/patterns/local-streets/festival-street/) (LOC-FES-08) (shares this pattern's schedule-based structure, per both pages' Design notes)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Gellatly, R. and Marner, B., "Air Quality Monitoring Study: London School Streets," 2021.

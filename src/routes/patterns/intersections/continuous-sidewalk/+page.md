@@ -22,6 +22,10 @@ Suburban is an edge case, thinning for the same reason as Bicycle Boulevard: a d
 
 This is the Commonway System's locked default treatment for Local-to-Collector intersections, giving priority to people walking and biking at the exact point where a slower Local street meets a faster Collector.
 
+## Related patterns
+
+[Default (Standard Local Street)](/patterns/local-streets/default/) (LOC-DEF-01) (the page that names this pattern as its own locked default Local-to-Collector treatment), [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12) (explicitly named on this page as thinning for the same connectivity reason)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> CROW Platform for Transport, Infrastructure and Public Space, *Road Safety Manual* / *Design Manual for Bicycle Traffic*.

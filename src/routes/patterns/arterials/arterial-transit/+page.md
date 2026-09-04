@@ -26,6 +26,10 @@ Transit, then Pedestrian, then Bicycle, then Vehicle, then Freight. Unlike Local
 
 Arterial is the one Functional Classification where the base modal hierarchy already puts Transit first, ahead of Pedestrian. Dedicated BRT or LRT treatment strengthens that existing priority with physical infrastructure rather than reordering it.<Citation index={1} />
 
+## Related patterns
+
+[Local Transit](/patterns/local-streets/local-transit/) (LOC-LTR-10) and [Collector Transit](/patterns/collectors/collector-transit/) (COL-CTR-05) (explicitly contrasted on this page: those two override their base order for Transit priority, while this pattern reinforces an order where Transit is already first)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Transit Street Design Guide* (2016).

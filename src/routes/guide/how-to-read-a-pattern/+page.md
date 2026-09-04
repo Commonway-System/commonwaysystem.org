@@ -27,6 +27,19 @@ The label in the upper right corner shows the pattern's Functional Classificatio
 
 Read the [Pattern IDs](/guide/pattern-ids/) page for what each part of the ID means, the full nine-prefix Scale breakdown, and what each status badge means.
 
+## Illustrations
+
+Every pattern now opens with an illustration, placed right after the ID card and before the page's main text. Most patterns show a pair: a grayscale "Typical condition" alongside a "Commonway recommendation" with the specific fix highlighted. A few patterns use a different form instead:
+
+- Avoid patterns show a single flagged condition, with an "Instead, see" pointing to the alternative.
+- Network-scale patterns show a plan-view diagram rather than a cross-section.
+- A small number of patterns that document an existing condition without recommending for or against it show one plain illustration with no verdict implied.
+- One or two hard-to-classify patterns use whichever form fits best.
+
+Most patterns need just one illustration. A few carry a second when the main illustration's format can't show something the page depends on, a driveway-spacing claim that only reads clearly from above, for instance, rather than in cross-section.
+
+Illustrations still being drawn show as a placeholder: a bordered box with a caption describing the scene and numbered callouts pointing to what matters, standing in for the finished artwork.
+
 ## Density tiers
 
 Density tiers appear as a small chip next to any guidance that changes by context:
@@ -48,7 +61,7 @@ A tip is a specific, actionable recommendation worth calling out on its own.
 :::
 
 :::warning
-Renders with the label "Caution." Flags a real risk or a rule that's easy to get wrong, like the Stroad avoid-pattern warning on the Bicycle Boulevard page.
+Renders with the label "Caution." Flags a real risk or a rule that's easy to get wrong, like the speeding risk called out on the [One-Way Street](/patterns/arterials/one-way-street/) page.
 :::
 
 :::danger
@@ -63,4 +76,8 @@ Flags a claim that still needs a citation before publication. The amber color is
 
 Citations are numbered, superscript badges that link down to a source list at the end of the page, under a `## References` heading. Clicking a badge jumps straight to its numbered entry. A claim still waiting on a source is flagged inline instead of cited, using the same amber as the `:::unsourced` block above but sized for a single word or number rather than a whole paragraph<Citation unsourced />.
 
-See the [Bicycle Boulevard](/patterns/local-streets/bicycle-boulevard/) page's Design Speed section for numbered citations linking to a real References list in action.
+See the [Bicycle Boulevard](/patterns/local-streets/bicycle-boulevard/) page's Design notes section for numbered citations linking to a real References list in action.
+
+## Related patterns
+
+Every pattern page ends with a short Related Patterns list before its References, pointing to the other patterns most worth reading alongside it: a companion, an override, or a lower or higher tier of the same idea. Not every pattern in the same family is listed, only the ones with something specific to add.

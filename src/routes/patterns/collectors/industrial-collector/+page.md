@@ -26,6 +26,10 @@ Freight, then Vehicle, then Pedestrian, then Bicycle, then Transit, an override 
 
 Industrial land use exists across a wide density range, which is why this Typology's realistic range is broader than most Collector entries, spanning Suburban through Urban with Undeveloped, Rural, and Core all plausible as edge cases rather than clean exclusions.<Citation index={1} />
 
+## Related patterns
+
+[Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) (the base order this pattern overrides for Freight priority), [Alley](/patterns/local-streets/alley/) (LOC-ALY-02) (the other cross-Classification pattern overriding to a Vehicle/Freight-first order for a specific access purpose)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Design Vehicle" (citing AASHTO Green Book §2-1).

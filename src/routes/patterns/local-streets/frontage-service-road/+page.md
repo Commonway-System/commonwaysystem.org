@@ -26,6 +26,10 @@ Follows the Local base order: Pedestrian, then Bicycle, then Transit, then Vehic
 
 The safety rationale is separation, not speed: keeping people walking and biking off a roadway designed for faster through traffic.<Citation index={1} /> This is the Local-scale companion to the Arterial safety rule that access needs are served by a separate road rather than mixed into through lanes.
 
+## Related patterns
+
+[Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the Arterial-scale rule this pattern serves as the Local-scale companion to), [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) (ART-STD-05) (the Avoid pattern that results when this separation isn't provided)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> AASHTO, *A Policy on Geometric Design of Highways and Streets*.

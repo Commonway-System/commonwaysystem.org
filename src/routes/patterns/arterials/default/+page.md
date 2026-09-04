@@ -26,6 +26,10 @@ Design speed always equals posted speed, following FHWA's self-enforcing roadway
 
 The no-parking, no-direct-access rule is the load-bearing distinction between this entry and Stroad. It positions the Commonway System closer to the Dutch functional-homogeneity principle than to conventional NACTO or ITE-CNU practice, where Arterials more commonly do mix through traffic with driveway access and curbside parking.<Citation index={1} />
 
+## Related patterns
+
+[Stroad (Commercial Arterial)](/patterns/arterials/stroad/) (ART-STD-05) (explicitly named on this page as the pattern this rule exists to prevent becoming), [Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) (the equivalent baseline one Functional Classification down)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> SWOV, "Principles for a Safe Road Network" (CROW Sustainable Safety).

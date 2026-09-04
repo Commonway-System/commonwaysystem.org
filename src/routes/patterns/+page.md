@@ -80,7 +80,7 @@ Arterials move higher volumes of through traffic over longer distances, so the c
   <PatternIndexCard href="/patterns/arterials/arterial-transit/" id="ART-ATR-04" title="Arterial Transit (BRT/LRT)" classification="arterial" />
   <PatternIndexCard href="/patterns/arterials/stroad/" id="ART-STD-05" title="Stroad (Commercial Arterial)" classification="arterial" status="avoid" />
   <PatternIndexCard href="/patterns/arterials/one-way-street/" id="ART-OWS-06" title="One-Way Street" classification="arterial" status="situational" />
-  <PatternIndexCard href="/patterns/arterials/parkway/" id="ART-PKY-08" title="Parkway" classification="arterial" status="situational" />
+  <PatternIndexCard href="/patterns/arterials/parkway/" id="ART-PKY-07" title="Parkway" classification="arterial" status="situational" />
 </div>
 
 ## Freeway patterns

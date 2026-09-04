@@ -26,6 +26,10 @@ Pedestrian, then Transit, then Bicycle, then Vehicle, then Freight, a judgment c
 
 Multiway Boulevard is confirmed as a named variant folded into this single entry rather than split into its own Typology, since both share the same underlying logic: separating slower, frontage-facing movement from faster through traffic within one right-of-way.
 
+## Related patterns
+
+[Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the base Arterial rule this pattern applies pedestrian-first frontage to), [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) (ART-STD-05) (named in Stroad's own "Instead, see" list as one of its two replacement patterns)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Jacobs, A., Macdonald, E., and Rofé, Y., *The Boulevard Book* (MIT Press, 2002).

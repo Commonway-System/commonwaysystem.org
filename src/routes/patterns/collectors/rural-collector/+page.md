@@ -26,6 +26,10 @@ Vehicle, then Freight, then Pedestrian, then Bicycle, then Transit, a judgment c
 
 This entry is the mirror image of Main Street: the norm at Undeveloped and Rural density, and effectively disappearing past Suburban as land use shifts away from agricultural or undeveloped character. Dutch research on low-conflict Rural Collectors informs this Typology's design logic.<Citation index={1} />
 
+## Related patterns
+
+[Main Street](/patterns/local-streets/main-street/) (LOC-MST-05) (explicitly named on this page as this pattern's mirror image), [Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) (the base order this pattern overrides)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> SWOV, "Principles for a Safe Road Network" (CROW Sustainable Safety framework).

@@ -22,6 +22,10 @@ Core is an edge case.
 
 Driveways and curb cuts drop off at Core density, not because access needs disappear there, but because dense Core contexts typically consolidate individual curb cuts into shared alley or rear access instead, reducing how often each individual property needs its own street-facing break in the curb.<Citation index={1} />
 
+## Related patterns
+
+[Curb Cut / Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) (ELM-CCA-04) (the Element-scale counterpart to this junction-level pattern), [Alley](/patterns/local-streets/alley/) (LOC-ALY-02) (the Local Typology whose purpose is moving this kind of access to the rear)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> U.S. Access Board, Public Right-of-Way Accessibility Guidelines (PROWAG), Section R302, "Pedestrian Access Routes."

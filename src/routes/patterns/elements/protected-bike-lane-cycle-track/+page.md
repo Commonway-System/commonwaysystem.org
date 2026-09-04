@@ -25,6 +25,7 @@ Physical separation removes the reliance on driver behavior and paint compliance
 - Intersection and driveway conflict points require particular design attention, since physical separation that continues uninterrupted mid-block can create visibility conflicts at any break in that separation
 - Should be the aspirational default treatment on higher-speed or higher-volume corridors where cycling is intended to be a viable, comfortable option for a broad range of riders
 - Maintenance access (snow removal, sweeping) needs to be planned for within a physically separated facility, since standard vehicle-lane equipment may not fit
+- Minimum rideable width is 6.5–7 ft (2–2.1 m) for a one-way facility, with 8–12.5 ft (2.5–3.8 m) preferred where volume supports side-by-side riding or passing.<Citation index={2} /> Buffer width must be at least 3 ft (0.9 m) where adjacent to on-street parking, to clear the door-swing zone, or 2–3 ft (0.6–0.9 m) on streets without parking at 30 mph or below.<Citation index={2} />
 
 ## Related patterns
 

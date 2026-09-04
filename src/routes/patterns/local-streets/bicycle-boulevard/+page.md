@@ -46,8 +46,6 @@ Traffic calming and diverters discourage through car traffic while retaining loc
 
 A comparison of Berkeley's bicycle boulevards to their parallel arterials found bicyclist collision rates two to eight times lower on the boulevards.<Citation index={2} />
 
-Citation badge 1 also appears once more, in Illustration callout 3 above.
-
 ## Related patterns
 
 [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04) — the Collector-scale pattern this one is explicitly distinguished from on that page: physical separation there, a shared, calmed roadway here.

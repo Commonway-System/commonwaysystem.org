@@ -26,6 +26,10 @@ Signal remains available within the Commonway System, but only as a last resort 
 
 Signal's realistic density range overlaps heavily with Roundabout and Turbo-Roundabout, since all three ultimately compete for the same higher-volume intersections. The difference is which one the Commonway System treats as the presumed choice absent a documented reason otherwise.
 
+## Related patterns
+
+[Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) (INT-RAB-01) and [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (explicitly named on this page as competing for the same higher-volume intersections)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Washington State Department of Transportation, *WSDOT Design Manual*, Chapter 1300, "Intersection Control Evaluation."

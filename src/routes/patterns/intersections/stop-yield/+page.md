@@ -22,6 +22,10 @@ Urban is an edge case. Core is an unlikely pairing.
 
 Two-way stop or yield control is the lowest-volume intersection treatment in the Commonway System's set, realistic across the widest density range of any control type before tapering off past Compact, the same taper logic that applies to All-Way Stop one tier higher.<Citation index={1} />
 
+## Related patterns
+
+[All-Way Stop](/patterns/intersections/all-way-stop/) (INT-AWS-04) (the reciprocal pattern, explicitly named on this page as sharing the same taper logic one tier higher)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Manual on Uniform Traffic Control Devices, 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2B.05 and 2B.10.

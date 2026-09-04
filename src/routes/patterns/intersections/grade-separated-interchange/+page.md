@@ -22,6 +22,10 @@ Compact and Urban are edge cases. Core is an unlikely pairing.
 
 This is an acknowledged fallback for genuinely Freeway-scale volume or speed beyond what even a turbo-roundabout can manage, not a general-purpose alternative to the Commonway System's roundabout-first intersection philosophy. It stays confined to the density range where full Freeway-scale roads themselves are realistic.<Citation index={1} />
 
+## Related patterns
+
+[Default (Freeway)](/patterns/freeways/default/) (FRE-DEF-01) (reciprocal link to the Freeway-scale pattern this connects into), [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (explicitly named on this page as the tier just below it)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *A Policy on Geometric Design of Highways and Streets*.

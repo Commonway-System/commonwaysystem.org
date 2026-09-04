@@ -26,6 +26,10 @@ Vehicle, then Bicycle, then Pedestrian, then Transit, then Freight. Whether Frei
 
 This entry follows the same shape as Rural Collector/Farm-to-Market Road: a low-density, low-development-pressure pattern that is the norm where it applies and effectively disappears as density rises.
 
+## Related patterns
+
+[Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) (COL-FTM-02) (explicitly named on this page as following the same shape)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> 23 U.S.C. § 162, National Scenic Byways Program.

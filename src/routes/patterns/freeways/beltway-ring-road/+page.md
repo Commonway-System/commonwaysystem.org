@@ -22,6 +22,10 @@ Undeveloped, Compact, and Urban are edge cases. Core is an unlikely pairing.
 
 A Beltway's purpose, routing traffic around a metro area rather than through its densest core, means it realistically sits at Rural and Suburban density even in large metros, with Compact and Urban only appearing as the ring tightens around a fast-growing edge.
 
+## Related patterns
+
+[Default (Freeway)](/patterns/freeways/default/) (FRE-DEF-01) (the base form this extends), [Radial](/patterns/network/radial/) (NET-RAD-03) (the Network topology a Beltway completes by connecting radial corridors around, rather than through, the core)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, *Highway Functional Classification Concepts, Criteria and Procedures*.

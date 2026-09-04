@@ -22,6 +22,10 @@ Rural is an edge case. Undeveloped is an unlikely pairing.
 
 Roundabout is the default control wherever two Collector-or-higher streets meet within the Commonway System's intersection philosophy. Traffic signals remain available but only as a documented last resort, and turbo-roundabouts take over at the highest-volume Arterial-to-Arterial junctions.<Citation index={1} /><Citation index={2} />
 
+## Related patterns
+
+[Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (the step up for higher-volume Arterial-to-Arterial junctions, per this page), [Signal](/patterns/intersections/signal/) (INT-SIG-03) (the alternative control competing for the same higher-volume intersections, per Signal's own Design notes)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Rodegerdts, L. et al., *Roundabouts: An Informational Guide*, 2nd ed., NCHRP Report 672 (Washington, DC: Transportation Research Board, 2010).

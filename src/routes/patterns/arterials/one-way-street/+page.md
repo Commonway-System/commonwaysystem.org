@@ -26,6 +26,10 @@ One-Way Street carries Situational/Discouraged status. It tends to encourage spe
 
 Discouraged status here does not mean the pattern is banned; it means adopting it requires weighing the speeding tendency against whatever benefit, often traffic flow or signal progression, motivated the one-way conversion in the first place.
 
+## Related patterns
+
+[Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the two-way form this page's own citation, Riggs and Gilderbloom's evidence-based research on two-way conversion's livability gains, supports converting to, rather than the base order this pattern deliberately retains without reassigning)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Riggs, W. and Gilderbloom, J., "Two-Way Street Conversion: Evidence of Increased Livability in Louisville," *Journal of Planning Education and Research* 36(1), 2016.

@@ -26,6 +26,10 @@ Rural is an edge case. Undeveloped is an unlikely pairing.
 
 This entry is the standard against which every other Collector Typology is defined as an override, the same role Default plays within Local.
 
+## Related patterns
+
+[Default (Standard Local Street)](/patterns/local-streets/default/) (LOC-DEF-01) and [Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the equivalent baseline reference point one Functional Classification down and up, completing the three-tier chain)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, *Separated Bike Lane Planning and Design Guide*.
