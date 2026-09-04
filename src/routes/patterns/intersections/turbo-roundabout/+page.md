@@ -10,7 +10,7 @@ llms: A higher-capacity roundabout variant, using spiral lane markings to guide 
   import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Turbo-Roundabout" classification="intersections">
+<PatternCard id={fm.patternId} title="Turbo-Roundabout" classification="intersections" status="recommended">
 A roundabout variant using spiral lane markings and raised lane dividers to guide multi-lane traffic without the weaving conflicts a standard multi-lane roundabout allows.
 </PatternCard>
 

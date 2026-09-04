@@ -10,7 +10,7 @@ llms: Two-way stop or yield intersection control, common from Undeveloped throug
   import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Stop / Yield (Two-Way)" classification="intersections">
+<PatternCard id={fm.patternId} title="Stop / Yield (Two-Way)" classification="intersections" status="situational">
 An intersection where only the minor-street approaches stop or yield, and the major street proceeds without control.
 </PatternCard>
 

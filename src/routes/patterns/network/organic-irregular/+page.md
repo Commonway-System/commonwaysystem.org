@@ -10,13 +10,9 @@ llms: "An unplanned, irregular network shaped incrementally over time by terrain
   import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Organic / Irregular" classification="network">
+<PatternCard id={fm.patternId} title="Organic / Irregular" classification="network" status="descriptive">
 An unplanned, irregular network shaped incrementally over time by terrain, property lines, and historical settlement patterns rather than a deliberate overall layout, typically found in historic or pre-industrial city cores.
 </PatternCard>
-
-:::note
-This pattern is documented descriptively, not as a prescriptive recommendation, situational tradeoff, or discouraged approach: it describes an existing historic condition rather than a design choice being weighed, so it renders without a status badge. **Flagged for confirmation:** whether this treatment (no badge) is correct, or whether a distinct "Descriptive / Historic" badge value should be added to the status system, needs sign-off before this page is considered final.
-:::
 
 ## Why this pattern exists
 

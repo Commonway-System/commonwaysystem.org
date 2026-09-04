@@ -1,0 +1,7 @@
+# Commercial Arterial (ART-CAR-07) was merged into Stroad (ART-STD-05) on
+# 2026.09.02 - the two names described the same anti-pattern. Netlify's own
+# _redirects file gives a real HTTP 301 without needing a server, which a
+# static adapter-static build can't otherwise produce (SvelteKit's own
+# redirect() helper only works from a server load function). ART-CAR-07 is
+# retired and not reassigned; see CLAUDE.md and the release changelog.
+/patterns/arterials/commercial-arterial/ /patterns/arterials/stroad/ 301

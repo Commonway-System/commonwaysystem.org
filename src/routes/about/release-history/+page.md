@@ -24,6 +24,19 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.09.02',
+      items: [
+        'Merged Commercial Arterial (ART-CAR-07) into Stroad (ART-STD-05). Commercial Arterial and Stroad were the same failure mode under two names; Stroad\'s page now covers both, with citations merged from both original pages. ART-CAR-07 is retired and not reassigned. 301 redirect in place.',
+        'All 11 Intersections & Crossings pattern pages gained a Recommended/Situational status badge, applied to both the page\'s own Pattern ID card and its Pattern Index row (Protected Intersection already had Recommended; the other 10 are new). Reverses the site\'s prior documented convention that intersections carry no status; see CLAUDE.md. Uncontrolled\'s Design notes also gained one sentence pointing to Stop / Yield as the next control tier once volume rises past the point Uncontrolled stays safe.',
+        'New "Descriptive" status badge added for patterns documented as an existing condition rather than a design recommendation. Applied to Organic/Irregular (NET-ORG-04), resolving its previously flagged pending-decision callout. No other pattern currently qualifies.',
+        'New `static/_redirects` file added for a real Netlify-level 301 (the Commercial Arterial → Stroad merge above needed one, and `adapter-static` has no server-side way to produce a redirect on its own). CLAUDE.md updated throughout to document all of the above, including a new working-convention note on verifying a written ticket\'s concrete claims (citation markup, token values) against the actual code rather than transcribing them literally.',
+        'Bicycle Boulevard / Neighborhood Greenway (LOC-BBG-12) fully rewritten, dropping its "demonstrates the components" placeholder framing for real content: a Paired illustration, Modal hierarchy, Design notes with 2 real tiered citations, and a Related patterns section. It was the last of the 106 live pattern pages still carrying placeholder content or the "Unsourced claim" flag.',
+        'Four pattern pages converted off a non-standard "Why this pattern exists" / "Key considerations" template onto the site\'s standard Modal hierarchy → Design notes structure: Parkway, Downtown Thoroughfare, Multi-Use Trail / Greenway, and Shared-Use Path. Existing citation numbers and their attachment points were preserved on all four; only the surrounding prose and headings changed.',
+        'New `Illustration` component system built for the Brand Guide\'s illustration spec (a Paired/Single-condition/Diagram/Descriptive/Conditional frame-and-callout renderer, standing in for real vector art until each pattern\'s illustration gets drawn) and applied to Local Default (LOC-DEF-01, replacing its old "no illustration yet" placeholder note, and adding a new NACTO reference) and Stroad (ART-STD-05, a required Single-condition illustration plus a justified plan-view supplemental). This is a sitewide component now available for every pattern page\'s Illustration section, but illustration content has only been authored for these 2 pages plus Bicycle Boulevard above; the other ~103 pattern pages still have none.',
+        'Fixed a cosmetic sidebar bug: the Patterns sidebar showed "Stroad / Commercial Arterial (Avoid)" for the Stroad entry, inconsistent with the page\'s own "Stroad (Commercial Arterial)" title set during the 2026.09.02 merge above. Now matches.',
+      ],
+    },
+    {
       date: '2026.09.01',
       items: [
         'Full citation sourcing completed for the rest of the guide: 93 pattern pages gained real References sections and inline citation badges (46 pages already had References from an earlier session but no inline badges, so those got badges only; 47 pages, mostly Corridor, Local Street, Collector, Arterial, Freeway, and Intersection typologies, got References and badges built from scratch). 105 of the 106 live pattern pages now carry real citations; only Bicycle Boulevard / Neighborhood Greenway remains flagged, a confirmed placeholder page left that way on purpose. Sources include AASHTO, MUTCD (11th Edition with Revision 1), NACTO, PROWAG, FHWA, NCHRP research reports, and CROW/SWOV for the Dutch Sustainable Safety citations, each tagged Legal/regulatory, Evidence-based, or Precedent-based.',
@@ -122,7 +135,7 @@ If more than one push happens on the same calendar day, they share a single vers
 
 **{currentVersion.date}**
 
-The guide currently documents {patternPageCount} Street Typology pattern pages across Local, Collector, Arterial, Freeway, and Intersections & Crossings. None are content stubs, every published pattern page carries real modal-hierarchy, density-applicability, and design-notes content, and all but one now carry real citations rather than the "Unsourced claim" flag (Bicycle Boulevard / Neighborhood Greenway is a confirmed placeholder page, left flagged on purpose). Find Your Pattern is still the one remaining placeholder page in the Guide, pending its own diagnostic sequence. The site is actively expanding, not a finished publication.
+The guide currently documents {patternPageCount} Street Typology pattern pages across Local, Collector, Arterial, Freeway, and Intersections & Crossings. None are content stubs, every published pattern page carries real modal-hierarchy, density-applicability, and design-notes content, and every one now carries real citations rather than the "Unsourced claim" flag. Find Your Pattern is still the one remaining placeholder page in the Guide, pending its own diagnostic sequence. The site is actively expanding, not a finished publication.
 
 ## Changelog
 
@@ -157,7 +170,6 @@ A build note doesn't need to be long. Cover:
 Work that's planned but not yet built:
 
 - **Real Brand Guide colors for Network, Corridor, Facility, and Element.** All 106 patterns across all nine Scale prefixes now have live pages, but the four newest classifications still render on a placeholder neutral-gray card color (reused from Freeway's own ramp) pending real per-Scale colors.
-- **Organic/Irregular's status-badge treatment.** Needs a final decision: keep the no-badge treatment used for now, or add a distinct status value for a descriptively-documented (not prescriptively recommended) pattern.
 - **Classification-level overview pages.** Local, Collector, Arterial, and Freeway currently jump straight from the Patterns index into individual Typology pages, with no landing page explaining the classification itself.
 - **A final verification pass on MUTCD citations.** MUTCD 11th Edition with Revision 1 citations are now in place site-wide, but their section/chapter numbers weren't individually re-checked against the actual Revision 1 PDF (Revision 1 itself was confirmed as editorial/technical corrections only, not a renumbering, but that's not the same as a section-by-section check).
 - **Dutch CROW reference table reconciliation.** A temporary comparison table sits in the internal density-matrix document and needs to be folded into the actual Commonway patterns once they're fully planned.

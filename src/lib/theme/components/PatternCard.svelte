@@ -3,7 +3,7 @@
   import StatusBadge from './StatusBadge.svelte'
 
   type Classification = 'network' | 'corridor' | 'local' | 'collector' | 'arterial' | 'freeway' | 'intersections' | 'facility' | 'element'
-  type Status = 'recommended' | 'situational' | 'avoid'
+  type Status = 'recommended' | 'situational' | 'avoid' | 'descriptive'
 
   interface Props {
     /** e.g. "LOC-BBG-12" */
@@ -11,11 +11,12 @@
     title: string
     classification: Classification
     /**
-     * Omit entirely for Intersections & Crossings entries: the master
-     * Typology reference only tracks a Recommended/Situational/Avoid status
-     * for Local, Collector, Arterial, and Freeway rows, not intersections.
-     * Also omit for a pattern documented descriptively rather than as a
-     * design recommendation (e.g. Organic/Irregular, NET-ORG-04).
+     * Intersections & Crossings entries now carry a status too (added
+     * 2026.09.02, Recommended/Situational only - none are currently
+     * Avoid). Use "descriptive" instead for a pattern documented as an
+     * existing condition rather than a design recommendation (e.g.
+     * Organic/Irregular, NET-ORG-04) - omitting status is no longer the
+     * convention for that case either.
      */
     status?: Status
     children?: Snippet

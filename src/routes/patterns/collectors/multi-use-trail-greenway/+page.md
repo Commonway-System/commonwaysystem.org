@@ -18,13 +18,13 @@ Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <Densit
 
 Undeveloped contexts are an unlikely pairing.
 
+## Modal hierarchy
+
+Pedestrian and Bicycle share top priority under this pattern's own equal-priority definition — no ranking between the two. Transit, Vehicle, and Freight do not apply off-street.
+
 ## Design notes
 
-Should accommodate a broader range of user speeds and behaviors than a Shared-Use Path, given its greater length and mixed trip purposes. Wayfinding and rest amenities become more important at this length.
-
-Distinct from [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04), which is bicycle-priority rather than equal-priority. This pattern is appropriate where the trail itself functions as a recreational or civic destination rather than purely a bicycle through-corridor.
-
-Where this trail runs parallel to a road for a meaningful stretch, see [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) (CDR-RAG-05) for the corridor-scale relationship between the two.<Citation index={1} />
+Distinct from [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04), which is bicycle-priority rather than equal-priority, and longer-distance than [Shared-Use Path](/patterns/local-streets/shared-use-path/) (LOC-SUP-13), with wayfinding and rest amenities mattering more at this length. Appropriate where the trail itself is a recreational or civic destination, not just a through-corridor. Where it runs parallel to a road for a meaningful stretch, see [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) (CDR-RAG-05) for the corridor-scale relationship.<Citation index={1} />
 
 ## Related patterns
 

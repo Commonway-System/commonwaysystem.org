@@ -107,6 +107,15 @@
   --cw-amber-soft: #fcead0;
   --cw-amber-ink: #6b3f0a;
 
+  /* "Descriptive" status badge (an existing condition being documented,
+     not a design choice, e.g. Organic/Irregular NET-ORG-04). Background
+     reuses --cw-primary-soft per the ticket that added this; text is its
+     own theme-aware token rather than a fixed hex, since a fixed slate
+     blue only reaches 1.99:1 against dark mode's teal-tinted
+     --cw-primary-soft (#14302b) - the dark value below is lightened to
+     restore contrast, same reasoning as --cw-amber-ink/--cw-danger above. */
+  --cw-descriptive-ink: #3b5a82;
+
   /* ---- Functional Classification ramps -------------------------------
      Full 6-step tint/shade ramp per classification, lightest at
      Undeveloped, darkest at Core, straight from the Brand Guide (already
@@ -238,6 +247,8 @@
   --cw-amber: #ff9f1c;
   --cw-amber-soft: #3d2b10;
   --cw-amber-ink: #f5ce95;
+
+  --cw-descriptive-ink: #a9c2e0;
 
   --cw-local-undeveloped: #e5cdfe;
   --cw-local-rural: #ca9cfc;

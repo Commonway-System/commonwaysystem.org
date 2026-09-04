@@ -16,15 +16,13 @@ A collector-scale street running through a dense downtown or town-center context
 
 Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
-## Why this pattern exists
+## Modal hierarchy
 
-Distinct from Main Street (a Local-scale pattern built around slow speeds and retail-frontage priority) and from default Collector (which does not assume a downtown context), Downtown Thoroughfare addresses the specific tension of moving a meaningful volume of through-traffic while still supporting the pedestrian activity, frequent crossings, and access needs of a dense commercial core. This is a recognized NACTO street type distinct from both Main Street and a conventional suburban collector.<Citation index={1} />
+Follows the Collector base order without an override: Pedestrian, then Bicycle, then Transit, then Vehicle, then Freight. The downtown context sharpens the pedestrian emphasis in the design treatment without changing which mode ranks first, since Pedestrian is already first in the Collector base order.
 
-## Key considerations
+## Design notes
 
-- Balances through-movement with pedestrian priority differently than either Main Street (slower, retail-first) or default Collector (less pedestrian-dense context)
-- On-street parking is typically retained here (unlike the Arterial no-parking rule), since Collector classification does not carry that restriction
-- Crossing frequency and signal/intersection treatment should prioritize pedestrian activity given the downtown context, even while accommodating through-traffic volume
+Distinct from Main Street (LOC-MST-05), a Local-scale, slower, retail-frontage-first pattern, and from Default Collector (COL-DEF-01), which doesn't assume a downtown context, Downtown Thoroughfare balances meaningful through-traffic volume against the frequent pedestrian activity, crossings, and access needs of a dense commercial core. This is a recognized NACTO street type distinct from both.<Citation index={1} /> On-street parking is typically retained here, unlike the Arterial no-parking rule, since Collector classification carries no such restriction. Crossing frequency and intersection treatment should prioritize pedestrian activity given the downtown context, even while accommodating through-traffic volume.
 
 ## Related patterns
 

@@ -1,43 +1,60 @@
 ---
 title: Bicycle Boulevard / Neighborhood Greenway
-description: A Local Street Typology prioritizing through bicycle and pedestrian movement over through car traffic.
+description: A Local street where traffic calming and diversion discourage through car traffic while prioritizing bicycle through-movement in the shared roadway.
 patternId: LOC-BBG-12
 date: 2026-08-29
-llms: Worked example pattern entry for Bicycle Boulevard / Neighborhood Greenway, a Local street typology prioritizing bicycle and pedestrian through-movement over car traffic.
+llms: A Local street typology using traffic calming and diversion to discourage through car traffic while prioritizing bicycle through-movement in the shared roadway, distinguished from Bike Highway/Greenway's full physical separation.
 ---
 
 <script>
-  import { PatternCard, DensityChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, Citation, EvidenceChip, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bicycle Boulevard / Neighborhood Greenway" classification="local" status="recommended">
-A Local street where through car traffic is discouraged by design, while walking and bicycling are treated as the primary through movements.
+A Local street where traffic calming and diversion discourage through car traffic while prioritizing bicycle through-movement in the shared roadway.
 </PatternCard>
 
-Applies at these density tiers: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
-This is a placeholder pattern page, written to demonstrate how the page components fit together, not the final pattern text.
+Suburban is an edge case, thinning for the same reason as [Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/): a disconnected, cul-de-sac-heavy grid gives it fewer parallel, low-traffic routes to use. Undeveloped and Rural are unlikely pairings.
 
-## Design speed
+## Illustration
 
-Local streets carry a hard 20 mph maximum, with no exceptions.<Citation index={1} /> Design speed is always set equal to the posted speed limit, so the roadway is self-enforcing rather than relying on signage alone.<Citation index={2} />
+<Illustration type="Paired" format="Segment / cross-section (~2.8:1)">
+  <IllustrationFrame label="Typical condition" tone="grayscale">
+    An ordinary Local street cross-section: unrestricted through car traffic, a cyclist taking the lane alongside car volumes, no diverters, no wayfinding.
+  </IllustrationFrame>
+  <IllustrationFrame label="Commonway recommendation" tone="amber">
+    A modal diverter or traffic circle blocks car through-movement while a bicycle-width gap passes through; wayfinding signage marks the route; a calmed, low-volume, low-speed shared roadway.
+  </IllustrationFrame>
+  <IllustrationCallouts>
+    <IllustrationCallout number={1} kind="physical">Modal diverter / traffic circle blocking through car movement; a bicycle-width gap allows continuous bicycle passage.</IllustrationCallout>
+    <IllustrationCallout number={2} kind="physical">Wayfinding signage marking the route as a through bicycle connection.</IllustrationCallout>
+    <IllustrationCallout number={3} kind="control-timing">At crossings of higher-volume streets, a signalized or protected crossing reduces bicyclist delay.<Citation index={1} /></IllustrationCallout>
+  </IllustrationCallouts>
+</Illustration>
 
-:::warning
-Stroads, a street and arterial road hybrid, are an explicit avoid pattern within the Commonway System.
-:::
+No supplemental illustration needed.
 
-## Intersection treatment
+## Modal hierarchy
 
-The default Local-to-Collector intersection treatment is a continuous sidewalk, carrying the pedestrian path across the intersection at a consistent grade and giving priority to people walking.<Citation index={3} />
+Bicycle, then Pedestrian, then Transit, then Vehicle, then Freight, an override justified because shared-street bicycle priority is this Typology's entire reason for existing.
 
-Roundabouts are the default intersection control across road-type pairings; traffic signals are treated as a last resort requiring documented justification.
+## Design notes
 
-:::unsourced
-The specific crash-reduction figure for continuous sidewalks at this intersection type still needs a source before publication.
-:::
+Traffic calming and diverters discourage through car traffic while retaining local access, the reverse of a Collector-scale Bike Highway / Greenway's full physical separation. NACTO's guidance sets the design threshold where the treatment works: daily motor vehicle volume at or below 3,000 and a 95th-percentile speed at or below 25 mph, with heavier calming needed above those figures.<Citation index={1} />
+
+A comparison of Berkeley's bicycle boulevards to their parallel arterials found bicyclist collision rates two to eight times lower on the boulevards.<Citation index={2} />
+
+Citation badge 1 also appears once more, in Illustration callout 3 above.
+
+## Related patterns
+
+[Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04) — the Collector-scale pattern this one is explicitly distinguished from on that page: physical separation there, a shared, calmed roadway here.
+
+[Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/) (INT-CSJ-06) — the Local-to-Collector intersection default, explicitly named alongside this pattern on that page as thinning in Suburban for the same grid-connectivity reason.
 
 ## References
 
-1. <span id="ref-1"></span>Placeholder source, FHWA self-enforcing roadway guidance.
-2. <span id="ref-2"></span>Placeholder source, FHWA design speed practice.
-3. <span id="ref-3"></span>Placeholder source, CROW Duurzaam Veilig manual.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Bikeway Design Guide*, 3rd ed. (2025), "Bike Boulevards," in *Designing Bikeways for All Ages and Abilities*.
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Minikel, E., "Cyclist Safety on Bicycle Boulevards and Parallel Arterial Routes in Berkeley, California," *Accident Analysis & Prevention* 45 (2012): 241–247.

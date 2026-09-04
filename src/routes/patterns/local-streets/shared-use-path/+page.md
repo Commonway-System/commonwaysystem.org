@@ -18,13 +18,13 @@ Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <Dens
 
 Undeveloped and Rural contexts are unlikely to carry a purpose-built shared-use path.
 
+## Modal hierarchy
+
+Pedestrian and Bicycle share top priority under this pattern's own equal-priority definition — no ranking between the two. Transit, Vehicle, and Freight do not apply off-street.
+
 ## Design notes
 
-Width should accommodate two-way pedestrian and bicycle travel without forcing conflict between users. Connections back to the street network should occur at logical, safe, visible points, not incidental gaps.<Citation index={1} />
-
-Distinct from [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12), which uses a shared on-street roadway rather than off-street separation. This pattern provides a fully separated alternative useful for connecting cul-de-sacs, parks, schools, or short gaps in the local street grid where an on-street treatment isn't appropriate or sufficient.
-
-Distinct from [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06): this pattern is local-connector scale, not a longer-distance destination trail.
+Width should accommodate two-way pedestrian and bicycle travel without forcing conflict, with connections back to the street network at logical, safe, visible points rather than incidental gaps.<Citation index={1} /> Distinct from [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12), which shares an on-street roadway rather than separating off-street, and from [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06), which is longer-distance and destination-scale rather than local-connector scale.
 
 ## Related patterns
 

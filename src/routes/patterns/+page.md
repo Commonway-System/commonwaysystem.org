@@ -19,7 +19,7 @@ Network patterns describe the topology of a whole connected system, or a defined
   <PatternIndexCard href="/patterns/network/grid/" id="NET-GRD-01" title="Grid" classification="network" />
   <PatternIndexCard href="/patterns/network/dendritic-hierarchical/" id="NET-DEN-02" title="Dendritic / Hierarchical" classification="network" status="situational" />
   <PatternIndexCard href="/patterns/network/radial/" id="NET-RAD-03" title="Radial" classification="network" status="situational" />
-  <PatternIndexCard href="/patterns/network/organic-irregular/" id="NET-ORG-04" title="Organic / Irregular" classification="network" />
+  <PatternIndexCard href="/patterns/network/organic-irregular/" id="NET-ORG-04" title="Organic / Irregular" classification="network" status="descriptive" />
 </div>
 
 ## Corridor level patterns
@@ -78,9 +78,8 @@ Arterials move higher volumes of through traffic over longer distances, so the c
   <PatternIndexCard href="/patterns/arterials/boulevard/" id="ART-BLV-02" title="Boulevard" classification="arterial" />
   <PatternIndexCard href="/patterns/arterials/scenic-highway-byway/" id="ART-SCB-03" title="Scenic Highway / Byway" classification="arterial" />
   <PatternIndexCard href="/patterns/arterials/arterial-transit/" id="ART-ATR-04" title="Arterial Transit (BRT/LRT)" classification="arterial" />
-  <PatternIndexCard href="/patterns/arterials/stroad/" id="ART-STD-05" title="Stroad" classification="arterial" status="avoid" />
+  <PatternIndexCard href="/patterns/arterials/stroad/" id="ART-STD-05" title="Stroad (Commercial Arterial)" classification="arterial" status="avoid" />
   <PatternIndexCard href="/patterns/arterials/one-way-street/" id="ART-OWS-06" title="One-Way Street" classification="arterial" status="situational" />
-  <PatternIndexCard href="/patterns/arterials/commercial-arterial/" id="ART-CAR-07" title="Commercial Arterial" classification="arterial" status="avoid" />
   <PatternIndexCard href="/patterns/arterials/parkway/" id="ART-PKY-08" title="Parkway" classification="arterial" status="situational" />
 </div>
 
@@ -102,14 +101,14 @@ Intersections aren't tied to one Functional Classification, since any two street
 <div class="pattern-index-grid">
   <PatternIndexCard href="/patterns/intersections/roundabout/" id="INT-RAB-01" title="Roundabout (Single/Multi-Lane)" classification="intersections" image="/patterns/int-rab-01-roundabout.png" />
   <PatternIndexCard href="/patterns/intersections/turbo-roundabout/" id="INT-TRB-02" title="Turbo-Roundabout" classification="intersections" />
-  <PatternIndexCard href="/patterns/intersections/signal/" id="INT-SIG-03" title="Signal" classification="intersections" />
-  <PatternIndexCard href="/patterns/intersections/all-way-stop/" id="INT-AWS-04" title="All-Way Stop" classification="intersections" />
-  <PatternIndexCard href="/patterns/intersections/stop-yield/" id="INT-SYD-05" title="Stop / Yield (Two-Way)" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/signal/" id="INT-SIG-03" title="Signal" classification="intersections" status="situational" />
+  <PatternIndexCard href="/patterns/intersections/all-way-stop/" id="INT-AWS-04" title="All-Way Stop" classification="intersections" status="situational" />
+  <PatternIndexCard href="/patterns/intersections/stop-yield/" id="INT-SYD-05" title="Stop / Yield (Two-Way)" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/continuous-sidewalk/" id="INT-CSJ-06" title="Continuous Sidewalk / Raised Junction" classification="intersections" />
-  <PatternIndexCard href="/patterns/intersections/uncontrolled/" id="INT-UNC-07" title="Uncontrolled" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/uncontrolled/" id="INT-UNC-07" title="Uncontrolled" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/midblock-crossing/" id="INT-MPC-08" title="Midblock Pedestrian Crossing" classification="intersections" />
-  <PatternIndexCard href="/patterns/intersections/driveway-curb-cut/" id="INT-DCC-09" title="Driveway / Curb Cut" classification="intersections" />
-  <PatternIndexCard href="/patterns/intersections/grade-separated-interchange/" id="INT-GSI-10" title="Grade-Separated Interchange" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/driveway-curb-cut/" id="INT-DCC-09" title="Driveway / Curb Cut" classification="intersections" status="situational" />
+  <PatternIndexCard href="/patterns/intersections/grade-separated-interchange/" id="INT-GSI-10" title="Grade-Separated Interchange" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/protected-intersection/" id="INT-PRI-11" title="Protected Intersection" classification="intersections" />
 </div>
 

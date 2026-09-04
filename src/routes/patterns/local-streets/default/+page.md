@@ -7,12 +7,28 @@ llms: The baseline Local street, applying the base modal hierarchy and 20 mph de
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Default (Standard Local Street)" classification="local" status="recommended">
 The baseline Local street. No special access pattern, event use, or dedicated mode gives it a name of its own, so it carries the base Local modal hierarchy and speed rule unmodified. Every other Local Typology is defined as a departure from this one: a Typology earns its own name only when its entire reason for existing is a specific access pattern, a specific event use, or a specific mode.
 </PatternCard>
+
+## Illustration
+
+<Illustration type="Paired" format="Segment / cross-section (~2.8:1)">
+  <IllustrationFrame label="Typical condition" tone="grayscale">
+    Oversized suburban local cross-section: no planting buffer, a narrow or absent sidewalk, and an overly wide travel lane.
+  </IllustrationFrame>
+  <IllustrationFrame label="Commonway recommendation" tone="amber">
+    Sidewalk 5 ft, planting/furnishing zone 5 ft (standard, not optional), shared two-way undivided travel lane 18 ft, sized to self-enforce 20 mph.<Citation index={1} />
+  </IllustrationFrame>
+  <IllustrationCallouts>
+    <IllustrationCallout number={1} kind="physical">Sidewalk sized for comfortable two-way pedestrian travel.</IllustrationCallout>
+    <IllustrationCallout number={2} kind="physical">Planting/furnishing zone buffering pedestrians from the travel lane.</IllustrationCallout>
+    <IllustrationCallout number={3} kind="physical">Travel lane narrowed to self-enforce 20 mph.<Citation index={2} /></IllustrationCallout>
+  </IllustrationCallouts>
+</Illustration>
 
 ## Where this pattern applies
 
@@ -33,12 +49,6 @@ Modal hierarchy follows the Local base order without an override:
 5. Freight
 
 This order follows directly from Local's access-priority role in the Functional Classification system, not from a judgment call specific to this Typology. A named Typology only reorders it when the Typology's whole purpose is a specific mode, for example [Alley](/patterns/local-streets/alley/) (Vehicle and Freight first, since the entire point is service and driveway access) or [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (Bicycle first, since shared-street bicycle priority is the entire point).
-
-## Cross-section
-
-:::note
-No cross-section illustration exists yet for this Typology. Per the Brand Guide, every pattern page should carry a grayscale cross-section with the specific element being described flooded in amber and human figures drawn at true scale. Lane width, sidewalk width, and whether a planting/furnishing zone is part of the Default cross-section (or an optional add-on) are not locked yet, so the illustration is pending those numbers rather than guessed. Placeholder zones only, left to right: sidewalk (width TBD), planting/furnishing zone (presence and width TBD), shared two-way travel lane (width TBD), sidewalk (width TBD).
-:::
 
 ## Relationship to other Local Typologies
 
@@ -61,3 +71,4 @@ This entry is the standard against which every other Local Typology is defined a
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, "Self-Enforcing Roadways: A Guidance Report," FHWA-HRT-17-098, 2018.
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Street Design Guide*, "Street Design Principles: Lane Width."

@@ -2,7 +2,7 @@
   import StatusBadge from './StatusBadge.svelte'
 
   type Classification = 'network' | 'corridor' | 'local' | 'collector' | 'arterial' | 'freeway' | 'intersections' | 'facility' | 'element'
-  type Status = 'situational' | 'avoid'
+  type Status = 'situational' | 'avoid' | 'descriptive'
 
   interface Props {
     href: string
@@ -12,9 +12,10 @@
     classification: Classification
     /**
      * Omit for Recommended (the unremarkable default, no badge at all here,
-     * unlike the Pattern ID card's own quiet "Recommended" pill) and for
-     * every Intersections & Crossings entry (no status is tracked for that
-     * group, see PatternCard.svelte).
+     * unlike the Pattern ID card's own quiet "Recommended" pill). As of
+     * 2026.09.02, Intersections & Crossings entries carry a status too
+     * (see PatternCard.svelte) - this prop applies to them the same as
+     * any other classification now.
      */
     status?: Status
     /**

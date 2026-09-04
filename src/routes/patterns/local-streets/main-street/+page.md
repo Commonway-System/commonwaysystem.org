@@ -24,7 +24,7 @@ Pedestrian, then Transit, then Bicycle, then Vehicle, then Freight. This orderin
 
 ## Design notes
 
-Main Street is the clearest case where a Local street's identity comes from its edge condition, retail frontage, rather than from a special traffic control treatment. It shares its defining density range with Arterial's under-review Avenue/Commercial Arterial cluster, a distinction still being worked out between the two Functional Classifications.<Citation index={1} />
+Main Street is the clearest case where a Local street's identity comes from its edge condition, retail frontage, rather than from a special traffic control treatment. It shares its defining density range with Stroad, the Arterial-scale pattern for commercial frontage done wrong.<Citation index={1} />
 
 ## References
 

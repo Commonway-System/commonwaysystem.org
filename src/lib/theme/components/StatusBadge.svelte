@@ -1,5 +1,5 @@
 <script lang="ts">
-  type Status = 'recommended' | 'situational' | 'avoid'
+  type Status = 'recommended' | 'situational' | 'avoid' | 'descriptive'
 
   interface Props {
     status: Status
@@ -11,6 +11,7 @@
     recommended: 'Recommended',
     situational: 'Situational / Discouraged',
     avoid: 'Avoid',
+    descriptive: 'Descriptive',
   }
 </script>
 
@@ -49,5 +50,15 @@
   .status-badge[data-status='avoid'] {
     background: var(--cw-danger-soft);
     color: var(--cw-danger);
+  }
+
+  /* Descriptive: an existing condition being documented, not a design
+     choice being weighed (e.g. Organic/Irregular, NET-ORG-04). Reuses
+     --cw-primary-soft (cool slate-blue) rather than the warning/danger
+     tokens, since it isn't a caution, just a different badge intent -
+     "this is real and named" instead of "recommended/situational/avoid." */
+  .status-badge[data-status='descriptive'] {
+    background: var(--cw-primary-soft);
+    color: var(--cw-descriptive-ink);
   }
 </style>

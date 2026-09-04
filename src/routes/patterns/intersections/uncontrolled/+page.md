@@ -10,7 +10,7 @@ llms: An uncontrolled intersection with no assigned right-of-way control, realis
   import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Uncontrolled" classification="intersections">
+<PatternCard id={fm.patternId} title="Uncontrolled" classification="intersections" status="situational">
 An intersection with no stop, yield, signal, or roundabout control, right-of-way resolved informally by the drivers and other road users present.
 </PatternCard>
 
@@ -20,7 +20,7 @@ Suburban is an edge case. Compact, Urban, and Core are unlikely pairings.
 
 ## Design notes
 
-Uncontrolled intersections are only realistic where traffic volume is low enough on every approach that informal right-of-way resolution stays safe, which narrows this pattern to the lowest end of the density range.<Citation index={1} />
+Uncontrolled intersections are only realistic where traffic volume is low enough on every approach that informal right-of-way resolution stays safe, which narrows this pattern to the lowest end of the density range.<Citation index={1} /> Where volume rises past that point, Stop / Yield (Two-Way) is the first applied control tier.
 
 ## References
 
