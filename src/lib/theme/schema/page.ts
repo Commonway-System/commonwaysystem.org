@@ -131,6 +131,39 @@ export function buildPageSchemas({ pathname, fm, dateModifiedISO, sidebar }: Pag
     })]
   }
 
+  if (pathname === '/retrofits/') {
+    const links = flattenPatternLinks(sidebar['/retrofits/'] ?? [])
+    const itemListElement: ListItem[] = links.map((link, i) => ({
+      '@type': 'ListItem',
+      'position': i + 1,
+      'name': link.title,
+      'url': `${SITE_URL}${link.to}`,
+    }))
+    const collectionPage: WithContext<CollectionPage> = {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      'name': fm.title,
+      ...(fm.description ? { description: fm.description } : {}),
+      'mainEntity': {
+        '@type': 'ItemList',
+        itemListElement,
+      },
+    }
+    return [collectionPage]
+  }
+
+  if (pathname.startsWith('/retrofits/')) {
+    const about: DefinedTerm = {
+      '@type': 'DefinedTerm',
+      name: fm.title,
+      inDefinedTermSet: `${SITE_URL}/retrofits/`,
+    }
+    return [buildTechArticle(fm, dateModifiedISO, {
+      ...(fm.patternId ? { identifier: fm.patternId } : {}),
+      about,
+    })]
+  }
+
   if (pathname.startsWith('/guide/') || pathname === '/references/')
     return [buildTechArticle(fm, dateModifiedISO)]
 

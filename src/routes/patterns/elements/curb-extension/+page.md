@@ -28,7 +28,7 @@ Narrowing the effective roadway width at a specific point shortens pedestrian cr
 
 ## Related patterns
 
-[Curb](/patterns/elements/curb/) (ELM-CRB-01), [Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (typical pairing at a crossing); [Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07) (Facility pattern this often anchors); [Transit Boarding Island](/patterns/elements/transit-boarding-island/) (ELM-TBI-41) (a related but distinct treatment for transit stops)
+[Curb](/patterns/elements/curb/) (ELM-CRB-01), [Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (typical pairing at a crossing); [Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07) (Facility pattern this often anchors); [Transit Boarding Island](/patterns/elements/transit-boarding-island/) (ELM-TBI-41) (a related but distinct treatment for transit stops); [Modal Filter / Point Closure](/patterns/elements/modal-filter-point-closure/) (ELM-MFP-44) (an alternative geometry for narrowing or partially closing a street), [Median Island](/patterns/elements/median-island/) (ELM-MDI-45) (a center-of-roadway rather than lateral narrowing approach)
 
 ## References
 

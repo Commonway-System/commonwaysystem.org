@@ -38,6 +38,10 @@ Unlike Festival Street, which toggles between full and pedestrian-only operation
 
 [Festival Street](/patterns/local-streets/festival-street/) (LOC-FES-08) (the scheduled version of this pattern's permanent vehicle exclusion), [Plaza / Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07) (the Facility-scale pattern for a comparable public-space treatment)
 
+## Getting there: Retrofit path options
+
+[Superblock retrofit](/retrofits/network/superblock-retrofit/) (RFT-NET-02) applies *within* a multi-block area; this is one of the two typical results for its interior streets.
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Pedestrian Streets" and "Public Plazas."

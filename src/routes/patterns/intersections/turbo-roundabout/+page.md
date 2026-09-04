@@ -26,6 +26,10 @@ Reserved for higher-volume Arterial-to-Arterial junctions, where a standard roun
 
 [Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) (INT-RAB-01) (the base pattern this scales up from), [Signal](/patterns/intersections/signal/) (INT-SIG-03) (explicitly named on this page as the alternative not preferred even at these volumes)
 
+## Getting there: Retrofit path options
+
+[Signal-to-roundabout conversion](/retrofits/intersection/signal-to-roundabout-conversion/) (RFT-INT-01)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Fortuijn, L.G.H., "Turbo Roundabouts: Design Principles and Safety Performance," *Transportation Research Record* 2096 (2009).

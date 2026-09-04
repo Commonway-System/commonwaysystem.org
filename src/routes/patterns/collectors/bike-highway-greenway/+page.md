@@ -34,6 +34,10 @@ Distinct from Local's Bicycle Boulevard, which shares the roadway with calmed ve
 
 [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12) (explicitly distinguished on this page: shared calmed roadway vs. this pattern's physical separation), [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06) (a similarly-named Collector-scale pattern this one is specifically distinct from)
 
+## Getting there: Retrofit path options
+
+[Protected bike lane retrofit via lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) (RFT-CDR-07), via [lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) (RFT-CDR-08), via [parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) (RFT-CDR-09)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> CROW, *Design Manual for Bicycle Traffic*, English ed. (2016), Ch. 4.5 "Bicycle highways."

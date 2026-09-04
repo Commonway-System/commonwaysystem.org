@@ -28,7 +28,7 @@ Signage and paint alone rarely change driver speed on their own; a physical vert
 
 ## Related patterns
 
-[Rumble Strip](/patterns/elements/rumble-strip/) (ELM-RMS-07) (a related but distinct calming treatment using texture rather than vertical deflection); relevant Local and Collector Segment patterns where speed control applies
+[Rumble Strip](/patterns/elements/rumble-strip/) (ELM-RMS-07) (a related but distinct calming treatment using texture rather than vertical deflection); relevant Local and Collector Segment patterns where speed control applies; [Neighborhood Traffic Circle / Mini-Roundabout](/patterns/elements/neighborhood-traffic-circle-mini-roundabout/) (ELM-NTC-46) (an alternative Local-to-Local calming treatment)
 
 ## References
 

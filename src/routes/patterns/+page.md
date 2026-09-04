@@ -110,6 +110,9 @@ Intersections aren't tied to one Functional Classification, since any two street
   <PatternIndexCard href="/patterns/intersections/driveway-curb-cut/" id="INT-DCC-09" title="Driveway / Curb Cut" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/grade-separated-interchange/" id="INT-GSI-10" title="Grade-Separated Interchange" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/protected-intersection/" id="INT-PRI-11" title="Protected Intersection" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/median-u-turn/" id="INT-MUT-12" title="Median U-Turn (MUT)" classification="intersections" status="situational" />
+  <PatternIndexCard href="/patterns/intersections/restricted-crossing-u-turn/" id="INT-RCU-13" title="Restricted Crossing U-Turn (RCUT)" classification="intersections" status="situational" />
+  <PatternIndexCard href="/patterns/intersections/displaced-left-turn/" id="INT-DLT-14" title="Displaced Left-Turn (DLT)" classification="intersections" status="situational" />
 </div>
 
 ## Facility level patterns
@@ -177,4 +180,7 @@ Element patterns describe the physical components a segment, intersection, or fa
   <PatternIndexCard href="/patterns/elements/transit-boarding-island/" id="ELM-TBI-41" title="Transit Boarding Island" classification="element" />
   <PatternIndexCard href="/patterns/elements/bike-box/" id="ELM-BKB-42" title="Bike Box" classification="element" />
   <PatternIndexCard href="/patterns/elements/two-stage-turn-queue-box/" id="ELM-TSQ-43" title="Two-Stage Turn Queue Box" classification="element" />
+  <PatternIndexCard href="/patterns/elements/modal-filter-point-closure/" id="ELM-MFP-44" title="Modal Filter / Point Closure" classification="element" />
+  <PatternIndexCard href="/patterns/elements/median-island/" id="ELM-MDI-45" title="Median Island" classification="element" />
+  <PatternIndexCard href="/patterns/elements/neighborhood-traffic-circle-mini-roundabout/" id="ELM-NTC-46" title="Neighborhood Traffic Circle / Mini-Roundabout" classification="element" />
 </div>

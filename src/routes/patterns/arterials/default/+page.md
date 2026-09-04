@@ -40,6 +40,10 @@ The no-parking, no-direct-access rule is the load-bearing distinction between th
 
 [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) (ART-STD-05) (explicitly named on this page as the pattern this rule exists to prevent becoming), [Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) (the equivalent baseline one Functional Classification down)
 
+## Getting there: Retrofit path options
+
+[Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) (RFT-CDR-01), [Five-plus lane reallocation](/retrofits/corridor/five-plus-lane-reallocation/) (RFT-CDR-02), [Lane diet](/retrofits/corridor/lane-diet/) (RFT-CDR-03), [One-way to two-way conversion](/retrofits/corridor/one-way-to-two-way-conversion/) (RFT-CDR-04), [Protected bike lane retrofit via lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) (RFT-CDR-08)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> SWOV, "Principles for a Safe Road Network" (CROW Sustainable Safety).

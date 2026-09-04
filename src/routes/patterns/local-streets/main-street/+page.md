@@ -40,6 +40,10 @@ Main Street is the clearest case where a Local street's identity comes from its 
 
 [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) (ART-STD-05) (shares this pattern's defining density range), [Downtown Thoroughfare](/patterns/collectors/downtown-thoroughfare/) (COL-DTH-07) (the Collector-scale pattern for a comparable commercial-thoroughfare hybrid)
 
+## Getting there: Retrofit path options
+
+[One-way to two-way conversion](/retrofits/corridor/one-way-to-two-way-conversion/) (RFT-CDR-04)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Neighborhood Main Street."

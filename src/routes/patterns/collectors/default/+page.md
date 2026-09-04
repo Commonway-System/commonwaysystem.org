@@ -40,6 +40,10 @@ This entry is the standard against which every other Collector Typology is defin
 
 [Default (Standard Local Street)](/patterns/local-streets/default/) (LOC-DEF-01) and [Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the equivalent baseline reference point one Functional Classification down and up, completing the three-tier chain)
 
+## Getting there: Retrofit path options
+
+[Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) (RFT-CDR-01), [Lane diet](/retrofits/corridor/lane-diet/) (RFT-CDR-03), [Protected bike lane retrofit via lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) (RFT-CDR-07), [Protected bike lane retrofit via parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) (RFT-CDR-09)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, *Separated Bike Lane Planning and Design Guide*.

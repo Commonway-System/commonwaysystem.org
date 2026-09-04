@@ -102,3 +102,5 @@ See the [Bicycle Boulevard](/patterns/local-streets/bicycle-boulevard/) page's D
 ## Related patterns
 
 Every pattern page ends with a short Related Patterns list before its References, pointing to the other patterns most worth reading alongside it: a companion, an override, or a lower or higher tier of the same idea. Not every pattern in the same family is listed, only the ones with something specific to add.
+
+Patterns describe what a street should be. If you're trying to figure out how to move an existing street toward one, see [How to read a retrofit strategy](/guide/how-to-read-a-retrofit-strategy/).

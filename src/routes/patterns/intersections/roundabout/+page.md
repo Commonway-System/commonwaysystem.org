@@ -24,7 +24,11 @@ Roundabout is the default control wherever two Collector-or-higher streets meet 
 
 ## Related patterns
 
-[Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (the step up for higher-volume Arterial-to-Arterial junctions, per this page), [Signal](/patterns/intersections/signal/) (INT-SIG-03) (the alternative control competing for the same higher-volume intersections, per Signal's own Design notes)
+[Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (the step up for higher-volume Arterial-to-Arterial junctions, per this page), [Signal](/patterns/intersections/signal/) (INT-SIG-03) (the alternative control competing for the same higher-volume intersections, per Signal's own Design notes), [Neighborhood Traffic Circle / Mini-Roundabout](/patterns/elements/neighborhood-traffic-circle-mini-roundabout/) (ELM-NTC-46) (the much smaller, unsized analogue for a Local-to-Local intersection)
+
+## Getting there: Retrofit path options
+
+[Signal-to-roundabout conversion](/retrofits/intersection/signal-to-roundabout-conversion/) (RFT-INT-01)
 
 ## References
 

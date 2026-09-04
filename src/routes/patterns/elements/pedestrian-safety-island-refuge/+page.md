@@ -28,7 +28,7 @@ Wide or multi-lane crossings ask a pedestrian to judge gaps in traffic across th
 
 ## Related patterns
 
-[Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (the crossing this pattern supports); [Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03), [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) (ELM-DWS-10) (companion accessibility elements at the island itself)
+[Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (the crossing this pattern supports); [Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03), [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) (ELM-DWS-10) (companion accessibility elements at the island itself); [Median Island](/patterns/elements/median-island/) (ELM-MDI-45) (a related but distinct treatment built for calming and access management rather than crossing assistance)
 
 ## References
 

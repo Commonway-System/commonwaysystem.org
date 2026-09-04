@@ -28,7 +28,7 @@ Where a full barrier or curb is not warranted but vehicle access still needs to 
 
 ## Related patterns
 
-[Traffic Barrier](/patterns/elements/traffic-barrier/) (ELM-TRB-23), [Crash Cushion/End Terminal](/patterns/elements/crash-cushion-end-terminal/) (ELM-CCT-24) (related but functionally distinct safety hardware); [Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07), [Bike Parking Corral](/patterns/facilities/bike-parking-corral/) (FAC-BPC-08) (Facility patterns commonly protected by bollards)
+[Traffic Barrier](/patterns/elements/traffic-barrier/) (ELM-TRB-23), [Crash Cushion/End Terminal](/patterns/elements/crash-cushion-end-terminal/) (ELM-CCT-24) (related but functionally distinct safety hardware); [Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07), [Bike Parking Corral](/patterns/facilities/bike-parking-corral/) (FAC-BPC-08) (Facility patterns commonly protected by bollards); [Modal Filter / Point Closure](/patterns/elements/modal-filter-point-closure/) (ELM-MFP-44) (the pattern this hardware is most commonly used to build)
 
 ## References
 

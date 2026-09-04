@@ -40,6 +40,10 @@ Arterial is the one Functional Classification where the base modal hierarchy alr
 
 [Local Transit](/patterns/local-streets/local-transit/) (LOC-LTR-10) and [Collector Transit](/patterns/collectors/collector-transit/) (COL-CTR-05) (explicitly contrasted on this page: those two override their base order for Transit priority, while this pattern reinforces an order where Transit is already first)
 
+## Getting there: Retrofit path options
+
+[Transit priority lane retrofit](/retrofits/corridor/transit-priority-lane-retrofit/) (RFT-CDR-06)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Transit Street Design Guide* (2016).

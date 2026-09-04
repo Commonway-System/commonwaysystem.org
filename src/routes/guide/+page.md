@@ -5,7 +5,7 @@ date: 2026-08-28
 llms: Introduces the Commonway System guide and how its three sections (Foundations, Find Your Pattern, Make It Happen) fit together.
 ---
 
-## This Guide section vs. the Patterns section
+## Where to start
 
 The Guide is where you start **when you have a problem**, not a curiosity.
 

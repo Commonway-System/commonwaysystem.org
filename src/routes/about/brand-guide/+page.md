@@ -6,7 +6,7 @@ llms: The Commonway System's full visual and editorial system, colors, typograph
 ---
 
 <script>
-  import { Button, Citation, ColorSwatch, EvidenceChip, ExampleCard, FormControlsPreview, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
+  import { Button, Citation, ColorSwatch, EvidenceChip, ExampleCard, FormControlsPreview, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, RetrofitCard, RetrofitIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
 </script>
 
 The visual and editorial system behind the Commonway System (CS): how it looks, how it's written, and how its evidence is presented. This page transcribes the working brand reference; treat the color values and rules below as the source of truth over anything in the site's theme.
@@ -21,6 +21,10 @@ Intersections & Crossings has no color family in the working draft, which only d
 
 :::note
 The Speed & Modal Hierarchy card and its Modal Hierarchy pills, documented under Components below, are also a site-only addition (added 2026.09.02, not part of the working draft), built to document a real sitewide component rollout rather than a design decision made on this page first.
+:::
+
+:::note
+The Retrofit Strategy card and Retrofit Strategy Index card, documented under Components below, are a fourth site-only addition (added 2026.09.03, not part of the working draft), for the new Retrofit Strategies catalog. Both reuse existing Pattern coloring rather than an invented Retrofit-only palette; see their own entries below for the mapping.
 :::
 
 ## Voice attributes
@@ -215,6 +219,34 @@ The colored left edge always matches the pattern's Functional Classification, us
 </ExampleCard>
 
 Used on the Pattern Index (`/patterns/`) in place of a plain bulleted list, one card per Street Typology. The image area recolors per classification with a `mix-blend-mode: color` overlay (Suburban tier at rest, Core tier as the hover border, same darkest-clears-contrast reasoning as the Pattern ID card's left edge above), including Intersections & Crossings, now that it has its own ramp too. Most patterns still use a single shared placeholder graphic; a handful have a real illustration in already, and swapping the rest in over time only means setting that pattern's own `image` prop, the recolor mechanism keeps working unchanged either way. The number circle restarts at 1 for each Functional Classification group and is always ink-fixed/paper-fixed regardless of theme, the same "constant identity mark" reasoning as the Pattern ID text. The status badge only appears for Situational and Avoid; Recommended (the unremarkable default) gets no badge here at all, unlike its quiet pill on the full pattern page.
+
+### Retrofit Strategy card
+
+<ExampleCard>
+  <RetrofitCard id="RFT-CDR-01" title="Four-to-three lane road diet" scale="corridor">
+    Converts an existing four-lane undivided roadway into three lanes: one through lane each direction plus a center two-way left-turn lane, reclaiming the freed width for other uses.
+  </RetrofitCard>
+</ExampleCard>
+
+<ExampleCard>
+  <RetrofitCard id="RFT-INT-02" title="Median U-Turn (MUT) retrofit" scale="intersection">
+    Reroutes left-turn and through movements from a minor approach away from the main intersection, requiring drivers to turn right first, then complete a U-turn at a median opening downstream.
+  </RetrofitCard>
+</ExampleCard>
+
+Same visual language as the Pattern ID card above, minus the status badge: a Retrofit Strategy is never Recommended, Situational, or Avoid, it's either applicable to a given street or it isn't, and that judgment lives in each entry's own Applicability and thresholds section rather than a badge. In place of a Functional Classification, the right-aligned label shows the strategy's Scale (Corridor, Intersection, or Network, matching the `RFT-SCALE-##` ID's own middle segment), and the left edge color follows whichever Pattern classification is that scale's functional peer rather than an invented Retrofit-only palette: Intersection strategies use the real Intersections & Crossings ramp, since their Pattern peers already have one; Corridor and Network strategies currently reuse the Freeway-gray placeholder, since Patterns' own "corridor" and "network" classifications are themselves still on that same placeholder (see the Functional Classification ramps above). The ID text is always ink, same "constant identity mark" reasoning as the Pattern ID card.
+
+### Retrofit Strategy Index card
+
+<ExampleCard>
+  <div class="pattern-index-grid">
+    <RetrofitIndexCard href="/retrofits/corridor/four-to-three-lane-road-diet/" id="RFT-CDR-01" title="Four-to-three lane road diet" scale="corridor" />
+    <RetrofitIndexCard href="/retrofits/intersection/median-u-turn-mut-retrofit/" id="RFT-INT-02" title="Median U-Turn (MUT) retrofit" scale="intersection" />
+    <RetrofitIndexCard href="/retrofits/network/superblock-retrofit/" id="RFT-NET-02" title="Superblock retrofit" scale="network" />
+  </div>
+</ExampleCard>
+
+Used on the Retrofit Strategy Index (`/retrofits/`), the same card-grid treatment the Pattern Index card gets above, right down to reusing the same `.pattern-index-grid` layout utility and the same shared placeholder graphic (no Retrofit Strategy has a real illustration yet). No status badge appears here either, for the same reason as the card above. The number circle restarts at 1 within each scale group, following the `RFT-SCALE-##` numbering directly, the same "no separate counter prop needed" mechanism the Pattern Index card uses.
 
 ### Citation badge
 

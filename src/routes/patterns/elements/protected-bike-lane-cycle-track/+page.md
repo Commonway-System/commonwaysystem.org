@@ -31,6 +31,10 @@ Physical separation removes the reliance on driver behavior and paint compliance
 
 [Buffered Bike Lane](/patterns/elements/buffered-bike-lane/) (ELM-BBL-35), [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34) (lower-separation alternatives); [Bicycle Signal](/patterns/elements/bicycle-signal/) (ELM-BCS-16) (a common companion treatment at intersections)
 
+## Getting there: Retrofit path options
+
+This Element is the direct product of all three protected bike lane retrofits: via [lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) (RFT-CDR-07), via [lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) (RFT-CDR-08), and via [parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) (RFT-CDR-09).
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Lusk, A.C. et al. (2011), "Risk of injury for bicycling on cycle tracks versus in the street," *Injury Prevention* 17(2). Montreal study: 28% lower injury rate on cycle tracks compared to comparable streets.

@@ -13,7 +13,7 @@ Getting a street pattern built is rarely just a design question. It's a process 
 
 That process varies by city, county, and state, sometimes down to the individual road. This page can't give you the phone number to call. What it can give you is a method: four questions that will get you to the right authority and the right kind of request, wherever you are.
 
-This page doesn't cover private roads or homeowners' association jurisdiction beyond a short note under Question 2 below, since that's a routine branch of the method rather than an exception to it. It also doesn't cover Corridor Preservation, a separate, opt-in program for reserving right-of-way for a distant future facility, which has almost nothing to do with the everyday process covered here.
+This page doesn't cover private roads or homeowners' association jurisdiction beyond a short note under Question 2 below, since that's a routine branch of the method rather than an exception to it. It also doesn't cover Corridor Preservation, a separate, opt-in program for reserving right-of-way for a distant future facility, which has almost nothing to do with the everyday process covered here. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/) for the tools that reserve land and commit a jurisdiction to a policy, including corridor preservation, ahead of a request like the one this page walks through.
 
 ## Question 1: What are you trying to do?
 
@@ -65,7 +65,11 @@ Not everything runs through MUTCD's warrant process, though. Speed humps are the
 
 And a warrant, once required, isn't a formality that agreement among neighbors can skip. Unanimous neighborhood support does not exempt a request from this process. An engineering study can still be required, and a request can still be denied, even when every affected property owner agrees.<Citation index={7} />
 
+At an intersection specifically, this engineering study can take a more formal, staged shape than a warrant lookup, an Intersection Control Evaluation comparing control alternatives, or a Road Safety Audit examining an existing location for safety issues. See [Decision & Evaluation Processes](/guide/decision-evaluation-processes/) for how each one works.
+
 **4c. Capital project.** Needed once a request's cost exceeds routine maintenance authority, whether it's a new addition or a larger fix. Timeline depends heavily on the funding source. Projects using federal funds must go through a Metropolitan Planning Organization (MPO) and appear in that region's Transportation Improvement Program before federal money can be released, which can add years.<Citation index={8} /> Residents cannot approach an MPO directly; a local government has to sponsor the project first.<Citation index={9} />
+
+A capital project also raises two questions this page doesn't answer on its own: where the money actually comes from, beyond a federal grant, and whether "capital project" has to mean full permanent construction from day one. See [Funding & Financing Mechanisms](/guide/funding-financing-mechanisms/) for the first, and [Construction Methodology & The Build Spectrum](/guide/construction-methodology-spectrum/) for the second, since a project can often move through a demonstration, pilot, or quick-build stage before committing to permanent construction.
 
 **4d. Legislative or public-hearing action.** Required when state law or local code treats the change as carrying legal or political weight, independent of its physical scale. Installing or removing a mid-block crosswalk in some cities requires exactly this kind of legislative action, even though physically it's a small change.<Citation index={10} />
 

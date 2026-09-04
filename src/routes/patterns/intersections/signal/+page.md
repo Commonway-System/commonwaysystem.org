@@ -28,7 +28,7 @@ Signal's realistic density range overlaps heavily with Roundabout and Turbo-Roun
 
 ## Related patterns
 
-[Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) (INT-RAB-01) and [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (explicitly named on this page as competing for the same higher-volume intersections)
+[Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) (INT-RAB-01) and [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (explicitly named on this page as competing for the same higher-volume intersections); [Median U-Turn](/patterns/intersections/median-u-turn/) (INT-MUT-12), [Restricted Crossing U-Turn](/patterns/intersections/restricted-crossing-u-turn/) (INT-RCU-13), and [Displaced Left-Turn](/patterns/intersections/displaced-left-turn/) (INT-DLT-14) (unconventional geometries that modify rather than replace this pattern to remove unprotected left turns)
 
 ## References
 

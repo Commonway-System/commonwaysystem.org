@@ -12,6 +12,7 @@ const theme = commonwayTheme({
     { title: 'Home', to: '/' },
     { title: 'Guide', to: '/guide/' },
     { title: 'Patterns', to: '/patterns/' },
+    { title: 'Retrofits', to: '/retrofits/' },
     { title: 'Reference', to: '/references/' },
     { title: 'Blog', to: '/blog/' },
     { title: 'About', to: '/about/' },
@@ -34,6 +35,7 @@ const theme = commonwayTheme({
         collapsible: false,
         items: [
           { title: 'How to read a pattern', to: '/guide/how-to-read-a-pattern/' },
+          { title: 'How to read a retrofit strategy', to: '/guide/how-to-read-a-retrofit-strategy/' },
           { title: 'Pattern IDs', to: '/guide/pattern-ids/' },
           { title: 'Density Tiers', to: '/guide/density-tiers/' },
           { title: 'Street Types & Classifications', to: '/guide/street-types/' },
@@ -57,10 +59,24 @@ const theme = commonwayTheme({
         // submit a request) as they're written, one placeholder page
         // originally held the slot. As of 2026.09.01 the slot's real
         // content has landed: the process-explainer chapter itself, plus
-        // its companion jurisdiction-variants reference page.
+        // its companion jurisdiction-variants reference page. As of
+        // 2026.09.03, four more pages landed as Retrofit Strategies
+        // scaffolding (Batch 1): two tool catalogs and two implementation-
+        // mechanics pages. No Retrofit Strategy entries exist yet, this
+        // batch only builds what they'll cross-link to; Batch 2 adds the
+        // catalog itself. Slugs sit directly under /guide/, not nested
+        // under /guide/make-it-happen/, only the sidebar grouping is
+        // nested. The batch's fifth page, "How to read a retrofit
+        // strategy," lives in Foundations instead, directly under "How to
+        // read a pattern," since it's that page's sibling instructional
+        // page, not a Make It Happen tool.
         items: [
           { title: 'How Road Changes Actually Happen', to: '/guide/make-it-happen/' },
           { title: "When Jurisdiction Doesn't Follow the Pattern", to: '/guide/make-it-happen/jurisdiction-variants/' },
+          { title: 'Legal & Planning Mechanisms', to: '/guide/legal-planning-mechanisms/' },
+          { title: 'Funding & Financing Mechanisms', to: '/guide/funding-financing-mechanisms/' },
+          { title: 'Decision & Evaluation Processes', to: '/guide/decision-evaluation-processes/' },
+          { title: 'Construction Methodology & The Build Spectrum', to: '/guide/construction-methodology-spectrum/' },
         ],
       },
     ],
@@ -157,6 +173,9 @@ const theme = commonwayTheme({
           { title: 'Driveway / Curb Cut', to: '/patterns/intersections/driveway-curb-cut/' },
           { title: 'Grade-Separated Interchange', to: '/patterns/intersections/grade-separated-interchange/' },
           { title: 'Protected Intersection', to: '/patterns/intersections/protected-intersection/' },
+          { title: 'Median U-Turn (MUT)', to: '/patterns/intersections/median-u-turn/' },
+          { title: 'Restricted Crossing U-Turn (RCUT)', to: '/patterns/intersections/restricted-crossing-u-turn/' },
+          { title: 'Displaced Left-Turn (DLT)', to: '/patterns/intersections/displaced-left-turn/' },
         ],
       },
       {
@@ -222,6 +241,47 @@ const theme = commonwayTheme({
           { title: 'Transit Boarding Island', to: '/patterns/elements/transit-boarding-island/' },
           { title: 'Bike Box', to: '/patterns/elements/bike-box/' },
           { title: 'Two-Stage Turn Queue Box', to: '/patterns/elements/two-stage-turn-queue-box/' },
+          { title: 'Modal Filter / Point Closure', to: '/patterns/elements/modal-filter-point-closure/' },
+          { title: 'Median Island', to: '/patterns/elements/median-island/' },
+          { title: 'Neighborhood Traffic Circle / Mini-Roundabout', to: '/patterns/elements/neighborhood-traffic-circle-mini-roundabout/' },
+        ],
+      },
+    ],
+    '/retrofits/': [
+      { title: 'Retrofit Strategy Index', to: '/retrofits/' },
+      {
+        title: 'Corridor',
+        collapsible: true,
+        items: [
+          { title: 'Four-to-three lane road diet', to: '/retrofits/corridor/four-to-three-lane-road-diet/' },
+          { title: 'Five-plus lane reallocation', to: '/retrofits/corridor/five-plus-lane-reallocation/' },
+          { title: 'Lane diet', to: '/retrofits/corridor/lane-diet/' },
+          { title: 'One-way to two-way conversion', to: '/retrofits/corridor/one-way-to-two-way-conversion/' },
+          { title: 'Parking-lane reallocation', to: '/retrofits/corridor/parking-lane-reallocation/' },
+          { title: 'Transit priority lane retrofit', to: '/retrofits/corridor/transit-priority-lane-retrofit/' },
+          { title: 'Protected bike lane retrofit via lane-width reallocation', to: '/retrofits/corridor/protected-bike-lane-width-reallocation/' },
+          { title: 'Protected bike lane retrofit via lane removal', to: '/retrofits/corridor/protected-bike-lane-lane-removal/' },
+          { title: 'Protected bike lane retrofit via parking reduction', to: '/retrofits/corridor/protected-bike-lane-parking-reduction/' },
+          { title: 'Depaving / pavement-to-gravel conversion', to: '/retrofits/corridor/depaving-pavement-to-gravel/' },
+        ],
+      },
+      {
+        title: 'Intersection',
+        collapsible: true,
+        items: [
+          { title: 'Signal-to-roundabout conversion', to: '/retrofits/intersection/signal-to-roundabout-conversion/' },
+          { title: 'Median U-Turn (MUT) retrofit', to: '/retrofits/intersection/median-u-turn-mut-retrofit/' },
+          { title: 'Restricted Crossing U-Turn (RCUT) retrofit', to: '/retrofits/intersection/restricted-crossing-u-turn-rcut-retrofit/' },
+          { title: 'Displaced Left-Turn (DLT) retrofit', to: '/retrofits/intersection/displaced-left-turn-dlt-retrofit/' },
+        ],
+      },
+      {
+        title: 'Network',
+        collapsible: true,
+        items: [
+          { title: 'Modal filtering / Low Traffic Neighborhood retrofit', to: '/retrofits/network/modal-filtering-low-traffic-neighborhood-retrofit/' },
+          { title: 'Superblock retrofit', to: '/retrofits/network/superblock-retrofit/' },
+          { title: 'Barrier-crossing / network reconnection retrofit', to: '/retrofits/network/barrier-crossing-network-reconnection-retrofit/' },
         ],
       },
     ],

@@ -40,6 +40,10 @@ This entry is the mirror image of Main Street: the norm at Undeveloped and Rural
 
 [Main Street](/patterns/local-streets/main-street/) (LOC-MST-05) (explicitly named on this page as this pattern's mirror image), [Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) (the base order this pattern overrides)
 
+## Getting there: Retrofit path options
+
+[Depaving / pavement-to-gravel conversion](/retrofits/corridor/depaving-pavement-to-gravel/) (RFT-CDR-10)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> SWOV, "Principles for a Safe Road Network" (CROW Sustainable Safety framework).

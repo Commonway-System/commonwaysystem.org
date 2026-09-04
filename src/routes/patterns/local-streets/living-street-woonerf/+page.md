@@ -40,6 +40,10 @@ NACTO's Home Zone is, strictly, an area-wide overlay rather than a distinct stre
 
 [Yield Street](/patterns/local-streets/yield-street/) (LOC-YLD-07) (the other Local pattern using street geometry itself, rather than signage, as the calming mechanism)
 
+## Getting there: Retrofit path options
+
+[Superblock retrofit](/retrofits/network/superblock-retrofit/) (RFT-NET-02) applies *within* a multi-block area; this is one of the two typical results for its interior streets.
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Ben-Joseph, E. (1995), "Changing the Residential Street Scene: Adapting the Shared Street (Woonerf) Concept to the Suburban Environment," *Journal of the American Planning Association* 61(4).

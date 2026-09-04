@@ -40,6 +40,10 @@ This entry is the Local-scale sibling of Collector Transit and Arterial Transit.
 
 [Collector Transit](/patterns/collectors/collector-transit/) (COL-CTR-05) and [Arterial Transit (BRT/LRT)](/patterns/arterials/arterial-transit/) (ART-ATR-04) (this pattern's siblings across Functional Classification, following the same override logic per this page's own Design notes)
 
+## Getting there: Retrofit path options
+
+[Parking-lane reallocation](/retrofits/corridor/parking-lane-reallocation/) (RFT-CDR-05), [Transit priority lane retrofit](/retrofits/corridor/transit-priority-lane-retrofit/) (RFT-CDR-06)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Transit Street Design Guide*, 2016.

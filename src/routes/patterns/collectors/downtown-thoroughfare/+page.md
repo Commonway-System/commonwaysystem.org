@@ -38,6 +38,10 @@ Distinct from Main Street (LOC-MST-05), a Local-scale, slower, retail-frontage-f
 
 [Main Street](/patterns/local-streets/main-street/) (LOC-MST-05) (related Local-scale pattern, distinct in speed and priority); [default Collector pattern](/patterns/collectors/default/) (COL-DEF-01); relevant Intersection patterns for frequent pedestrian crossings
 
+## Getting there: Retrofit path options
+
+[Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) (RFT-CDR-01), [One-way to two-way conversion](/retrofits/corridor/one-way-to-two-way-conversion/) (RFT-CDR-04)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Street Design Guide*, "Downtown Thoroughfare."

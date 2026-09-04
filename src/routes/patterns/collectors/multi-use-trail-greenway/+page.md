@@ -36,6 +36,10 @@ Distinct from [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenw
 - [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04)
 - [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) (CDR-RAG-05)
 
+## Getting there: Retrofit path options
+
+[Barrier-crossing / network reconnection retrofit](/retrofits/network/barrier-crossing-network-reconnection-retrofit/) (RFT-NET-03) commonly takes this form where it crosses a highway, rail line, or disconnected cul-de-sac pattern.
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> AASHTO, *Guide for the Development of Bicycle Facilities*, 5th Edition (2024).

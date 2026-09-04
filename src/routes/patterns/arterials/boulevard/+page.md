@@ -38,7 +38,11 @@ Multiway Boulevard is confirmed as a named variant folded into this single entry
 
 ## Related patterns
 
-[Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the base Arterial rule this pattern applies pedestrian-first frontage to), [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) (ART-STD-05) (named in Stroad's own "Instead, see" list as one of its two replacement patterns)
+[Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the base Arterial rule this pattern applies pedestrian-first frontage to), [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) (ART-STD-05) (named in Stroad's own "Instead, see" list as one of its two replacement patterns), [Median Island](/patterns/elements/median-island/) (ELM-MDI-45) (the Element pattern this corridor most often carries)
+
+## Getting there: Retrofit path options
+
+[Five-plus lane reallocation](/retrofits/corridor/five-plus-lane-reallocation/) (RFT-CDR-02)
 
 ## References
 

@@ -24,7 +24,7 @@ This is an acknowledged fallback for genuinely Freeway-scale volume or speed bey
 
 ## Related patterns
 
-[Default (Freeway)](/patterns/freeways/default/) (FRE-DEF-01) (reciprocal link to the Freeway-scale pattern this connects into), [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (explicitly named on this page as the tier just below it)
+[Default (Freeway)](/patterns/freeways/default/) (FRE-DEF-01) (reciprocal link to the Freeway-scale pattern this connects into), [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (explicitly named on this page as the tier just below it), [Displaced Left-Turn](/patterns/intersections/displaced-left-turn/) (INT-DLT-14) (the faster, lower-cost alternative often chosen over this pattern at high-volume urban and suburban intersections)
 
 ## References
 

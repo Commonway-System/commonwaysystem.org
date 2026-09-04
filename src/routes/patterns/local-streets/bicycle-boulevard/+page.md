@@ -62,6 +62,12 @@ A comparison of Berkeley's bicycle boulevards to their parallel arterials found 
 
 [Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/) (INT-CSJ-06) — the Local-to-Collector intersection default, explicitly named alongside this pattern on that page as thinning in Suburban for the same grid-connectivity reason.
 
+[Modal Filter / Point Closure](/patterns/elements/modal-filter-point-closure/) (ELM-MFP-44) — the Element pattern most frequently paired with this one to build the diversion shown above.
+
+## Getting there: Retrofit path options
+
+[Parking-lane reallocation](/retrofits/corridor/parking-lane-reallocation/) (RFT-CDR-05), [Modal filtering / Low Traffic Neighborhood retrofit](/retrofits/network/modal-filtering-low-traffic-neighborhood-retrofit/) (RFT-NET-01, applies *within* this pattern rather than transforming it into something else)
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Bikeway Design Guide*, 3rd ed. (2025), "Bike Boulevards," in *Designing Bikeways for All Ages and Abilities*.

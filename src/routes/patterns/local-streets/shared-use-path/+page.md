@@ -35,6 +35,10 @@ Width should accommodate two-way pedestrian and bicycle travel without forcing c
 - [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12)
 - [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06)
 
+## Getting there: Retrofit path options
+
+[Barrier-crossing / network reconnection retrofit](/retrofits/network/barrier-crossing-network-reconnection-retrofit/) (RFT-NET-03) commonly takes this form where it crosses a highway, rail line, or disconnected cul-de-sac pattern.
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> AASHTO, *Guide for the Development of Bicycle Facilities*, 5th Edition, 2024.

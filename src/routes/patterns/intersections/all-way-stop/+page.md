@@ -24,7 +24,7 @@ All-Way Stop tapers off past Compact and Urban density, as intersection volumes 
 
 ## Related patterns
 
-[Stop / Yield (Two-Way)](/patterns/intersections/stop-yield/) (INT-SYD-05) (explicitly named on this page as sharing the same density-taper logic, one tier lower)
+[Stop / Yield (Two-Way)](/patterns/intersections/stop-yield/) (INT-SYD-05) (explicitly named on this page as sharing the same density-taper logic, one tier lower), [Neighborhood Traffic Circle / Mini-Roundabout](/patterns/elements/neighborhood-traffic-circle-mini-roundabout/) (ELM-NTC-46) (a control type this pattern sometimes replaces at a Local intersection)
 
 ## References
 
