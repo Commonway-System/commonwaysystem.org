@@ -1,6 +1,8 @@
 ---
 title: Arterial Transit (BRT/LRT)
 description: An Arterial Typology with dedicated bus rapid transit or light rail treatment, reinforcing the Arterial base order rather than overriding it.
+patternId: ART-ATR-04
+date: 2026-08-29
 llms: An Arterial street typology with dedicated bus rapid transit or light rail treatment, reinforcing rather than overriding the Arterial base modal hierarchy.
 ---
 
@@ -8,7 +10,7 @@ llms: An Arterial street typology with dedicated bus rapid transit or light rail
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="ART-ATR-04" title="Arterial Transit (BRT/LRT)" classification="arterial" status="recommended">
+<PatternCard id={fm.patternId} title="Arterial Transit (BRT/LRT)" classification="arterial" status="recommended">
 An Arterial with dedicated bus rapid transit or light rail infrastructure, most often a separated running way or exclusive lane.
 </PatternCard>
 

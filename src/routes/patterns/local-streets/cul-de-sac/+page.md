@@ -1,6 +1,8 @@
 ---
 title: Cul-de-sac
 description: A dead-end Local Typology, Situational status, that peaks at Suburban density and thins out toward Urban and Core.
+patternId: LOC-CDS-03
+date: 2026-08-29
 llms: A dead-end Local street typology, marked Situational, that peaks at Suburban density and becomes incompatible with Urban and Core connectivity.
 ---
 
@@ -8,7 +10,7 @@ llms: A dead-end Local street typology, marked Situational, that peaks at Suburb
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-CDS-03" title="Cul-de-sac" classification="local" status="situational">
+<PatternCard id={fm.patternId} title="Cul-de-sac" classification="local" status="situational">
 A dead-end Local street with no through connection for any mode.
 </PatternCard>
 

@@ -1,6 +1,7 @@
 ---
 title: Blog
 description: Research notes, structural decisions, and updates on how the Commonway System gets built, newest first.
+date: 2026-08-29
 llms: Chronological blog covering research notes, structural decisions, and updates on how the Commonway System guide gets built. Separate from the guide's prescriptive content and from the Release History changelog.
 ---
 

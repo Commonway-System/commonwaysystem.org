@@ -1,6 +1,8 @@
 ---
 title: Frontage / Service Road
 description: A Local Typology running parallel to a faster Arterial or Freeway, keeping pedestrians and cyclists separated from that higher-speed traffic.
+patternId: LOC-FSR-04
+date: 2026-08-29
 llms: A Local street typology running parallel to a faster Arterial or Freeway, separating pedestrians and cyclists from the higher-speed roadway.
 ---
 
@@ -8,7 +10,7 @@ llms: A Local street typology running parallel to a faster Arterial or Freeway, 
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-FSR-04" title="Frontage / Service Road" classification="local" status="recommended">
+<PatternCard id={fm.patternId} title="Frontage / Service Road" classification="local" status="recommended">
 A Local street running alongside a higher-speed Arterial or Freeway, giving property access and slower-mode movement a lane physically separated from the through traffic next to it.
 </PatternCard>
 

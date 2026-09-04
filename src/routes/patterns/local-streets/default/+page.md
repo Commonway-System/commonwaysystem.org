@@ -1,6 +1,8 @@
 ---
 title: Default (Standard Local Street)
 description: The baseline Local street typology, carrying the base modal hierarchy and 20 mph speed cap with no named override.
+patternId: LOC-DEF-01
+date: 2026-08-29
 llms: The baseline Local street, applying the base modal hierarchy and 20 mph design speed with no named override.
 ---
 
@@ -8,7 +10,7 @@ llms: The baseline Local street, applying the base modal hierarchy and 20 mph de
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-DEF-01" title="Default (Standard Local Street)" classification="local" status="recommended">
+<PatternCard id={fm.patternId} title="Default (Standard Local Street)" classification="local" status="recommended">
 The baseline Local street. No special access pattern, event use, or dedicated mode gives it a name of its own, so it carries the base Local modal hierarchy and speed rule unmodified. Every other Local Typology is defined as a departure from this one: a Typology earns its own name only when its entire reason for existing is a specific access pattern, a specific event use, or a specific mode.
 </PatternCard>
 

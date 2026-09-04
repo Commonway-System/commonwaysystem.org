@@ -1,6 +1,8 @@
 ---
 title: Driveway / Curb Cut
 description: A minor access-point junction connecting a driveway or parking entrance to the street, realistic across nearly the full density range but dropping at Core.
+patternId: INT-DCC-09
+date: 2026-08-29
 llms: A minor access-point junction connecting a driveway or parking entrance to the street, realistic across nearly the full density range but dropping off at Core density.
 ---
 
@@ -8,7 +10,7 @@ llms: A minor access-point junction connecting a driveway or parking entrance to
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-DCC-09" title="Driveway / Curb Cut" classification="intersections">
+<PatternCard id={fm.patternId} title="Driveway / Curb Cut" classification="intersections">
 A break in the curb and sidewalk giving a driveway or parking entrance access to the street, a minor junction rather than a full intersection.
 </PatternCard>
 

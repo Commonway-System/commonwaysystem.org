@@ -43,9 +43,17 @@ export const load: LayoutServerLoad = ({ route }) => {
       encoding: 'utf-8',
     }).trim()
 
-    return { lastModified: output ? formatCommitDate(output) : null }
+    // lastModifiedISO keeps the raw "YYYY-MM-DD" slice (not the full %cI
+    // offset-bearing timestamp) so it's a plain schema.org-valid date, and
+    // reads from the exact same git call as the human-formatted string
+    // above, one source of truth for both the visible "Last updated" text
+    // and any JSON-LD dateModified field.
+    return {
+      lastModified: output ? formatCommitDate(output) : null,
+      lastModifiedISO: output ? output.slice(0, 10) : null,
+    }
   }
   catch {
-    return { lastModified: null }
+    return { lastModified: null, lastModifiedISO: null }
   }
 }

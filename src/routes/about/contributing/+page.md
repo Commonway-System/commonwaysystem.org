@@ -1,6 +1,7 @@
 ---
 title: Submit a Change
 description: How to propose a pattern, suggest a correction, or help build out the Commonway System guidebook.
+date: 2026-08-30
 llms: Explains how to contribute to the Commonway System, what counts as a contribution, how a pull request is reviewed, the terms of contributing, and how contributors are credited.
 ---
 

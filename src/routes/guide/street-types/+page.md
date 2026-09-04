@@ -1,6 +1,7 @@
 ---
 title: Street Types & Classifications
 description: What a Functional Classification is, what a Street Typology is, and why the Commonway System is organized around both.
+date: 2026-08-29
 llms: Explains what a Functional Classification and a Street Typology are, why the Commonway System is organized around both, and indexes every Street Typology in the guide by classification.
 ---
 

@@ -404,3 +404,28 @@ svg {
   align-items: center;
   gap: 0.75rem;
 }
+
+/* Pattern Index card grid (PatternIndexCard.svelte): same fixed-column
+   breakpoints as the homepage feature cards (FeatureGrid.svelte), for one
+   consistent card-grid behavior sitewide rather than a second grid
+   mechanism. A plain <div>, not <ul>/<li> like FeatureGrid: the cards here
+   sit under markdown ## headings as ordinary flow content, not as a
+   standalone list semantically. */
+.cw-content .pattern-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 1.25rem 0 2rem;
+}
+
+@media (max-width: 820px) {
+  .cw-content .pattern-index-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .cw-content .pattern-index-grid {
+    grid-template-columns: 1fr;
+  }
+}

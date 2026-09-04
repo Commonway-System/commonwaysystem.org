@@ -1,6 +1,8 @@
 ---
 title: One-Way Street
 description: An Arterial Typology, Situational/Discouraged status, retaining the base modal hierarchy despite a design tendency to encourage speeding.
+patternId: ART-OWS-06
+date: 2026-08-29
 llms: An Arterial street typology marked Situational/Discouraged, since one-way operation tends to encourage speeding even though it retains the Arterial base modal hierarchy on paper.
 ---
 
@@ -8,7 +10,7 @@ llms: An Arterial street typology marked Situational/Discouraged, since one-way 
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="ART-OWS-06" title="One-Way Street" classification="arterial" status="situational">
+<PatternCard id={fm.patternId} title="One-Way Street" classification="arterial" status="situational">
 An Arterial operating one direction of travel only, typically paired with a second one-way Arterial carrying the opposite direction nearby.
 </PatternCard>
 

@@ -1,5 +1,7 @@
 ---
 title: Introduction
+description: Where to start in the Commonway System guide, deciding which pattern fits your street and how to move it through the local approval process.
+date: 2026-08-28
 llms: Introduces the Commonway System guide and how its three sections (Foundations, Find Your Pattern, Make It Happen) fit together.
 ---
 

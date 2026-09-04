@@ -1,6 +1,8 @@
 ---
 title: Stop / Yield (Two-Way)
 description: The lowest-volume intersection control, common from Undeveloped through Compact density and tapering off past that as volumes rise.
+patternId: INT-SYD-05
+date: 2026-08-29
 llms: Two-way stop or yield intersection control, common from Undeveloped through Compact density and tapering off past that point as volumes rise.
 ---
 
@@ -8,7 +10,7 @@ llms: Two-way stop or yield intersection control, common from Undeveloped throug
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-SYD-05" title="Stop / Yield (Two-Way)" classification="intersections">
+<PatternCard id={fm.patternId} title="Stop / Yield (Two-Way)" classification="intersections">
 An intersection where only the minor-street approaches stop or yield, and the major street proceeds without control.
 </PatternCard>
 

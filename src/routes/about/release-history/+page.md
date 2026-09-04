@@ -1,6 +1,7 @@
 ---
 title: Release History & Roadmap
 description: How Commonway System versioning works, what changed in each release, and what's planned next.
+date: 2026-08-30
 llms: Explains the Commonway System's CalVer versioning, the current version, the changelog, and the public roadmap of work not yet built.
 ---
 
@@ -31,7 +32,11 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
         'Differentiator strip and feature grid widened to match the navbar’s own 88rem measure, instead of the narrower 46rem prose column every article page uses.',
         '/about/credits/ moved for real to /about/acknowledgments/ (route, not just display title this time), with every cross-link updated to match.',
         'Guide section rebuilt: sidebar regrouped into Foundations, Find Your Pattern, and Make It Happen (the Introduction page now an ungrouped "Start Here" entry at the top, same idea as About’s own Overview item). New Scale Hierarchy page split out of the Introduction page’s old content. Two new placeholder pages, Find Your Pattern and Make It Happen, each with real explanatory copy and the standing "planned but not yet written" callout, one per new sidebar group so nothing has to move once each becomes a real page sequence.',
-        'Known incomplete: the new Scale Hierarchy page’s Network/Corridor/Facility/Element definitions carry over wording from an earlier planning session that was never formally re-confirmed as final; pending a maintainer read-through.',
+        'JSON-LD structured data added site-wide: an Organization and WebSite block on every page, plus a BreadcrumbList and a template-appropriate schema.org type (TechArticle for Guide/Reference/pattern pages, CollectionPage for the Pattern Index, AboutPage/WebPage for About, Blog/BlogPosting for the blog) generated from each page’s own frontmatter, no per-page authoring. Every page’s frontmatter gained a date field (datePublished, backfilled from its existing "last updated" date) and every pattern page gained a patternId field, now the single source for the Pattern ID card’s id instead of a hardcoded literal.',
+        'Pattern Index page (/patterns/) rebuilt from a plain bulleted list into a card grid: a new PatternIndexCard component per Street Typology, with a recolored image area (classification-ramp tint, swappable per-pattern illustration once one exists), a number badge, and a status badge for Situational/Avoid entries. A new shared StatusBadge component now backs both this and the existing Pattern ID card’s own status pill. Real illustrations added for 11 of the 37 patterns so far, all of Local Streets except Bicycle Boulevard, plus Roundabout. Added to the Brand Guide’s component showcase. The classification section intros on this page were also rewritten into plainer-language prose.',
+        'New Intersections & Crossings color ramp (six tiers, built from #8A5A13), resolving the classification’s old single-color placeholder the same way the guide’s other four ramps work; documented on the Brand Guide alongside them. Flagged, not resolved: this hue sits within about a degree of the site’s reserved warning amber.',
+        'Mobile navbar layout fixed: below 940px, the version date, GitHub icon, and theme toggle used to clump on the left with empty space on the right once the primary nav links collapsed into the hamburger drawer. All five elements (logo, hamburger, version, GitHub, toggle) now space evenly edge to edge, with icon tap targets kept at their full size and the wordmark logo shrunk to make room on the narrowest phones.',
+        'Known incomplete: the new Scale Hierarchy page’s Network/Corridor/Facility/Element definitions carry over wording from an earlier planning session that was never formally re-confirmed as final; pending a maintainer read-through. Separately, found but did not fix a pre-existing bug: the mobile hamburger button doesn’t actually open the sidebar drawer on any viewport, confirmed on an unmodified copy of the site, so the drawer’s nav links and page sidebar are currently unreachable on mobile.',
       ],
     },
     {

@@ -1,6 +1,8 @@
 ---
 title: Main Street
 description: A Local Typology built around retail frontage and pedestrian priority, the defining Local pattern at Compact and Urban density.
+patternId: LOC-MST-05
+date: 2026-08-29
 llms: A Local street typology built around retail frontage and pedestrian priority, the small-town pattern at Rural density and the defining Local pattern at Compact and Urban density.
 ---
 
@@ -8,7 +10,7 @@ llms: A Local street typology built around retail frontage and pedestrian priori
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-MST-05" title="Main Street" classification="local" status="recommended">
+<PatternCard id={fm.patternId} title="Main Street" classification="local" status="recommended">
 A Local street lined with retail and commercial frontage, where pedestrian movement and lingering are treated as primary and vehicle movement is subordinate.
 </PatternCard>
 

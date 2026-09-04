@@ -1,6 +1,8 @@
 ---
 title: Festival Street
 description: A Local Typology that closes to vehicle traffic during scheduled events and reverts to the base modal hierarchy off-hours.
+patternId: LOC-FES-08
+date: 2026-08-29
 llms: A Local street typology that closes to vehicle traffic during scheduled events and reverts to the base Local modal hierarchy off-hours.
 ---
 
@@ -8,7 +10,7 @@ llms: A Local street typology that closes to vehicle traffic during scheduled ev
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-FES-08" title="Festival Street" classification="local" status="recommended">
+<PatternCard id={fm.patternId} title="Festival Street" classification="local" status="recommended">
 A Local street designed to convert between full vehicle access and a pedestrian-and-bicycle-only event space, on a schedule rather than permanently.
 </PatternCard>
 

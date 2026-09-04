@@ -1,6 +1,8 @@
 ---
 title: Pedestrian-only Street / Plaza
 description: A Local Typology, Situational status, excluding vehicle traffic entirely in favor of pedestrians and, where permitted, bicycles.
+patternId: LOC-PED-09
+date: 2026-08-29
 llms: A Local street typology, marked Situational, that excludes vehicle traffic entirely in favor of pedestrians and, where permitted, bicycles.
 ---
 
@@ -8,7 +10,7 @@ llms: A Local street typology, marked Situational, that excludes vehicle traffic
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-PED-09" title="Pedestrian-only Street / Plaza" classification="local" status="situational">
+<PatternCard id={fm.patternId} title="Pedestrian-only Street / Plaza" classification="local" status="situational">
 A Local street or plaza space that excludes vehicle traffic permanently, not on an event schedule the way a Festival Street does.
 </PatternCard>
 

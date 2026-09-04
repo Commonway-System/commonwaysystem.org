@@ -1,6 +1,7 @@
 ---
 title: Find Your Pattern
 description: A planned diagnostic that turns a plain description of a street into the Functional Classification and Street Typology that fits it.
+date: 2026-08-30
 llms: Describes the planned Find Your Pattern diagnostic, not yet built, and points readers to Street Types & Classifications and the Pattern Index in the meantime.
 ---
 

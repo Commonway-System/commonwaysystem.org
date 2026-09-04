@@ -1,6 +1,8 @@
 ---
 title: Continuous Sidewalk / Raised Junction
 description: The Commonway System's locked default treatment for Local-to-Collector intersections, keeping the sidewalk and bike path uninterrupted across the junction.
+patternId: INT-CSJ-06
+date: 2026-08-29
 llms: The Commonway System's locked default for Local-to-Collector intersections, where the sidewalk and bike path stay uninterrupted and the roadway ramps up to meet them.
 ---
 
@@ -8,7 +10,7 @@ llms: The Commonway System's locked default for Local-to-Collector intersections
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-CSJ-06" title="Continuous Sidewalk / Raised Junction" classification="intersections">
+<PatternCard id={fm.patternId} title="Continuous Sidewalk / Raised Junction" classification="intersections">
 A junction where the sidewalk and bike path continue across the intersection at a consistent grade, and the roadway ramps up to meet them rather than the reverse. Dutch terminology; carries an implicit yield to pedestrians and cyclists crossing.
 </PatternCard>
 

@@ -1,6 +1,8 @@
 ---
 title: All-Way Stop
 description: A stop-controlled intersection where every approach stops, tapering off past Compact and Urban density as volumes exceed safe stop-control capacity.
+patternId: INT-AWS-04
+date: 2026-08-29
 llms: A stop-controlled intersection where every approach stops, tapering off past Compact and Urban density as intersection volumes exceed what stop control can safely handle.
 ---
 
@@ -8,7 +10,7 @@ llms: A stop-controlled intersection where every approach stops, tapering off pa
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-AWS-04" title="All-Way Stop" classification="intersections">
+<PatternCard id={fm.patternId} title="All-Way Stop" classification="intersections">
 An intersection where every approach carries a stop sign, with right-of-way determined by arrival order.
 </PatternCard>
 

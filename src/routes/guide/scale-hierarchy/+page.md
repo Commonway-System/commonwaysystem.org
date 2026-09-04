@@ -1,6 +1,7 @@
 ---
 title: Scale Hierarchy
 description: The five scales a Commonway System pattern can exist at, from the whole network down to a single physical element.
+date: 2026-08-30
 llms: Explains the five-level Commonway System scale hierarchy (Network, Corridor, Segment/Intersection, Facility, Element) and how a pattern's scale relates to its Pattern ID.
 ---
 

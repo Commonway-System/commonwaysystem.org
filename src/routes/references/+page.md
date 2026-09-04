@@ -1,6 +1,7 @@
 ---
 title: Reference
 description: The technical detail layer beneath a pattern page, exact dimensions, formulas, design criteria, and specification tables, organized by Pattern ID.
+date: 2026-08-29
 llms: Explains the Reference section, the technical detail layer beneath a pattern page's plain-language description, organized by Pattern ID, distinct from a page's numbered citations.
 ---
 

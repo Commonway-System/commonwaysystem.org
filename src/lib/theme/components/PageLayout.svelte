@@ -6,7 +6,10 @@
   import { externalLinkAttrs, isExternalHref } from '$lib/site.js'
   import options from 'virtual:commonway/options'
   import { pageAnchors } from '../layout.js'
+  import { buildBreadcrumbs } from '../schema/breadcrumbs.js'
+  import { buildPageSchemas } from '../schema/page.js'
   import Icon from './Icon.svelte'
+  import JsonLd from './JsonLd.svelte'
   import PageNav from './PageNav.svelte'
   import ShareButtons from './ShareButtons.svelte'
 
@@ -20,6 +23,25 @@
   const editHref = $derived(
     options.editLink ? options.editLink.replace(':route', `${page.route.id ?? ''}`) : undefined,
   )
+
+  // Structured data: BreadcrumbList plus whichever schema.org type fits this
+  // page's template (see schema/breadcrumbs.ts and schema/page.ts). Both are
+  // pure functions of the route and this page's own frontmatter, no
+  // per-page authoring. dateModifiedISO comes from the same git-derived
+  // value already shown as "Last updated" below (+layout.server.ts), one
+  // source of truth for both.
+  const breadcrumbs = $derived(
+    buildBreadcrumbs(page.url.pathname, fm.title ?? options.siteTitle, options.navbar ?? [], options.sidebar ?? {}),
+  )
+  const pageSchemas = $derived(
+    buildPageSchemas({
+      pathname: page.url.pathname,
+      fm,
+      dateModifiedISO: page.data.lastModifiedISO ?? null,
+      sidebar: options.sidebar ?? {},
+    }),
+  )
+  const jsonLdSchemas = $derived([...(breadcrumbs ? [breadcrumbs] : []), ...pageSchemas])
 
   let contentEl: HTMLDivElement | undefined = $state()
 
@@ -54,6 +76,8 @@
     <meta name="description" content={fm.description || options.siteDescription} />
   {/if}
 </svelte:head>
+
+<JsonLd schemas={jsonLdSchemas} />
 
 <div class="page">
   <div class="cw-content" class:cw-content--wide={fm.wide} bind:this={contentEl}>

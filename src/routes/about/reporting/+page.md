@@ -1,6 +1,7 @@
 ---
 title: Report a Problem
 description: How to flag an error, an unsourced claim, or a dead citation link in the Commonway System.
+date: 2026-08-29
 llms: Explains how to report a factual error, an unsourced claim, a dead citation link, or an accessibility issue in the Commonway System, and how a report is handled after it's filed.
 ---
 

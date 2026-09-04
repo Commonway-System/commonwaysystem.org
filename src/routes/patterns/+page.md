@@ -1,71 +1,87 @@
 ---
 title: Pattern Index
+description: Every Street Typology in the Commonway System, grouped by Functional Classification, from Local streets through Freeways and Intersections & Crossings.
+date: 2026-08-28
 llms: Index of every pattern in the Commonway System guidebook, grouped by Functional Classification and Street Typology.
 ---
+
+<script>
+  import { PatternIndexCard } from '$lib/theme/components'
+</script>
 
 Every Street Typology in the current Commonway System working set, grouped by Functional Classification. Scale hierarchy runs Network, Corridor, then Segment and Intersection as siblings, then Facility and Element; every entry below is Segment scale except the Intersections & Crossings group, which is Intersection scale.
 
 ## Local
 
-Speed rule: 20 mph hard maximum, no exceptions. Base modal hierarchy: Pedestrian, Bicycle, Transit, Vehicle, Freight.
+Local streets have many access points and short trips, so keeping speeds under 20 mph, no exceptions, matters more than moving vehicles quickly. Walking and biking come first, then transit, then vehicles and freight.
 
-- [Default (Standard Local Street)](/patterns/local-streets/default/) — LOC-DEF-01
-- [Alley](/patterns/local-streets/alley/) — LOC-ALY-02
-- [Cul-de-sac](/patterns/local-streets/cul-de-sac/) — LOC-CDS-03
-- [Frontage / Service Road](/patterns/local-streets/frontage-service-road/) — LOC-FSR-04
-- [Main Street](/patterns/local-streets/main-street/) — LOC-MST-05
-- [Living Street / Woonerf](/patterns/local-streets/living-street-woonerf/) — LOC-LSW-06
-- [Yield Street](/patterns/local-streets/yield-street/) — LOC-YLD-07
-- [Festival Street](/patterns/local-streets/festival-street/) — LOC-FES-08
-- [Pedestrian-only Street / Plaza](/patterns/local-streets/pedestrian-plaza/) — LOC-PED-09
-- [Local Transit](/patterns/local-streets/local-transit/) — LOC-LTR-10
-- [School Street](/patterns/local-streets/school-street/) — LOC-SCH-11
-- [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) — LOC-BBG-12
+<div class="pattern-index-grid">
+  <PatternIndexCard href="/patterns/local-streets/default/" id="LOC-DEF-01" title="Default (Standard Local Street)" classification="local" />
+  <PatternIndexCard href="/patterns/local-streets/alley/" id="LOC-ALY-02" title="Alley" classification="local" image="/patterns/loc-aly-02-alley.png" />
+  <PatternIndexCard href="/patterns/local-streets/cul-de-sac/" id="LOC-CDS-03" title="Cul-de-sac" classification="local" status="situational" image="/patterns/loc-cds-03-cul-de-sac.png" />
+  <PatternIndexCard href="/patterns/local-streets/frontage-service-road/" id="LOC-FSR-04" title="Frontage / Service Road" classification="local" image="/patterns/loc-fsr-04-frontage-service-road.png" />
+  <PatternIndexCard href="/patterns/local-streets/main-street/" id="LOC-MST-05" title="Main Street" classification="local" image="/patterns/loc-mst-05-main-street.png" />
+  <PatternIndexCard href="/patterns/local-streets/living-street-woonerf/" id="LOC-LSW-06" title="Living Street / Woonerf" classification="local" image="/patterns/loc-lsw-06-living-street-woonerf.png" />
+  <PatternIndexCard href="/patterns/local-streets/yield-street/" id="LOC-YLD-07" title="Yield Street" classification="local" image="/patterns/loc-yld-07-yield-street.png" />
+  <PatternIndexCard href="/patterns/local-streets/festival-street/" id="LOC-FES-08" title="Festival Street" classification="local" image="/patterns/loc-fes-08-festival-street.png" />
+  <PatternIndexCard href="/patterns/local-streets/pedestrian-plaza/" id="LOC-PED-09" title="Pedestrian-only Street / Plaza" classification="local" status="situational" image="/patterns/loc-ped-09-pedestrian-only-street-plaza.png" />
+  <PatternIndexCard href="/patterns/local-streets/local-transit/" id="LOC-LTR-10" title="Local Transit" classification="local" image="/patterns/loc-ltr-10-local-transit.png" />
+  <PatternIndexCard href="/patterns/local-streets/school-street/" id="LOC-SCH-11" title="School Street" classification="local" image="/patterns/loc-sch-11-school-street.png" />
+  <PatternIndexCard href="/patterns/local-streets/bicycle-boulevard/" id="LOC-BBG-12" title="Bicycle Boulevard / Neighborhood Greenway" classification="local" />
+</div>
 
 ## Collector
 
-Speed rule: 30 mph standard, 35 mph permitted only with rigid crash-protective separation. Base modal hierarchy: Pedestrian, Bicycle, Transit, Vehicle, Freight.
+Collectors link local streets to the arterial network, carrying more through traffic while still running past homes and storefronts. Speeds top out at 30 mph, 35 only behind rigid crash-protective separation, with walking, biking, and transit still taking priority.
 
-- [Default (Standard Collector)](/patterns/collectors/default/) — COL-DEF-01
-- [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) — COL-FTM-02
-- [Industrial Collector](/patterns/collectors/industrial-collector/) — COL-IND-03
-- [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) — COL-BHG-04
-- [Collector Transit](/patterns/collectors/collector-transit/) — COL-CTR-05
+<div class="pattern-index-grid">
+  <PatternIndexCard href="/patterns/collectors/default/" id="COL-DEF-01" title="Default (Standard Collector)" classification="collector" />
+  <PatternIndexCard href="/patterns/collectors/rural-collector/" id="COL-FTM-02" title="Rural Collector / Farm-to-Market Road" classification="collector" />
+  <PatternIndexCard href="/patterns/collectors/industrial-collector/" id="COL-IND-03" title="Industrial Collector" classification="collector" />
+  <PatternIndexCard href="/patterns/collectors/bike-highway-greenway/" id="COL-BHG-04" title="Bike Highway / Greenway" classification="collector" />
+  <PatternIndexCard href="/patterns/collectors/collector-transit/" id="COL-CTR-05" title="Collector Transit" classification="collector" />
+</div>
 
 ## Arterial
 
-Speed rule: design speed always equals posted speed. Base modal hierarchy: Transit, Pedestrian, Bicycle, Vehicle, Freight. Core safety rule: never mixes on-street parking or direct property access with through traffic.
+Arterials move higher volumes of through traffic over longer distances, so the core rule is separation: no on-street parking or driveway access competing with through movement. Posted speed always matches the road's actual design speed. Transit takes priority here, ahead of people walking and biking.
 
-- [Default (No Parking, No Direct Access)](/patterns/arterials/default/) — ART-DEF-01
-- [Boulevard](/patterns/arterials/boulevard/) — ART-BLV-02
-- [Scenic Highway / Byway](/patterns/arterials/scenic-highway-byway/) — ART-SCB-03
-- [Arterial Transit (BRT/LRT)](/patterns/arterials/arterial-transit/) — ART-ATR-04
-- [Stroad](/patterns/arterials/stroad/) — ART-STD-05 · **Avoid**
-- [One-Way Street](/patterns/arterials/one-way-street/) — ART-OWS-06 · Situational/Discouraged
+<div class="pattern-index-grid">
+  <PatternIndexCard href="/patterns/arterials/default/" id="ART-DEF-01" title="Default (No Parking, No Direct Access)" classification="arterial" />
+  <PatternIndexCard href="/patterns/arterials/boulevard/" id="ART-BLV-02" title="Boulevard" classification="arterial" />
+  <PatternIndexCard href="/patterns/arterials/scenic-highway-byway/" id="ART-SCB-03" title="Scenic Highway / Byway" classification="arterial" />
+  <PatternIndexCard href="/patterns/arterials/arterial-transit/" id="ART-ATR-04" title="Arterial Transit (BRT/LRT)" classification="arterial" />
+  <PatternIndexCard href="/patterns/arterials/stroad/" id="ART-STD-05" title="Stroad" classification="arterial" status="avoid" />
+  <PatternIndexCard href="/patterns/arterials/one-way-street/" id="ART-OWS-06" title="One-Way Street" classification="arterial" status="situational" />
+</div>
 
 ## Freeway
 
-Intentionally out of the Commonway System's detailed design scope. Listed for completeness; no modal hierarchy or speed regulation applies.
+Freeways sit outside the Commonway System's detailed design scope entirely. They're listed here for completeness, not because the system sets rules for them: no modal hierarchy, no speed regulation.
 
-- [Default (Freeway)](/patterns/freeways/default/) — FRE-DEF-01
-- [Expressway](/patterns/freeways/expressway/) — FRE-EXP-02
-- [Beltway / Ring Road](/patterns/freeways/beltway-ring-road/) — FRE-BLT-03
-- [Freeway-scale Transit (Commuter / Heavy Rail)](/patterns/freeways/freeway-transit/) — FRE-FTR-04
+<div class="pattern-index-grid">
+  <PatternIndexCard href="/patterns/freeways/default/" id="FRE-DEF-01" title="Default (Freeway)" classification="freeway" />
+  <PatternIndexCard href="/patterns/freeways/expressway/" id="FRE-EXP-02" title="Expressway" classification="freeway" />
+  <PatternIndexCard href="/patterns/freeways/beltway-ring-road/" id="FRE-BLT-03" title="Beltway / Ring Road" classification="freeway" />
+  <PatternIndexCard href="/patterns/freeways/freeway-transit/" id="FRE-FTR-04" title="Freeway-scale Transit (Commuter / Heavy Rail)" classification="freeway" />
+</div>
 
 ## Intersections & Crossings
 
-Cuts across all four Functional Classifications rather than nesting under one. Intersection philosophy: roundabout default wherever two Collector-or-higher streets meet, turbo-roundabout at high-volume Arterial-to-Arterial junctions, signal as a documented last resort, continuous sidewalk as the Local-to-Collector default.
+Intersections aren't tied to one Functional Classification, since any two street types can meet at a corner. The default is a roundabout wherever a Collector-or-larger street is involved, stepping up to a turbo-roundabout at busy Arterial-to-Arterial junctions. Signals are a documented last resort, and a continuous sidewalk is the default where a Local street meets a Collector.
 
-- [Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) — INT-RAB-01
-- [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) — INT-TRB-02
-- [Signal](/patterns/intersections/signal/) — INT-SIG-03
-- [All-Way Stop](/patterns/intersections/all-way-stop/) — INT-AWS-04
-- [Stop / Yield (Two-Way)](/patterns/intersections/stop-yield/) — INT-SYD-05
-- [Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/) — INT-CSJ-06
-- [Uncontrolled](/patterns/intersections/uncontrolled/) — INT-UNC-07
-- [Midblock Pedestrian Crossing](/patterns/intersections/midblock-crossing/) — INT-MPC-08
-- [Driveway / Curb Cut](/patterns/intersections/driveway-curb-cut/) — INT-DCC-09
-- [Grade-Separated Interchange](/patterns/intersections/grade-separated-interchange/) — INT-GSI-10
+<div class="pattern-index-grid">
+  <PatternIndexCard href="/patterns/intersections/roundabout/" id="INT-RAB-01" title="Roundabout (Single/Multi-Lane)" classification="intersections" image="/patterns/int-rab-01-roundabout.png" />
+  <PatternIndexCard href="/patterns/intersections/turbo-roundabout/" id="INT-TRB-02" title="Turbo-Roundabout" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/signal/" id="INT-SIG-03" title="Signal" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/all-way-stop/" id="INT-AWS-04" title="All-Way Stop" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/stop-yield/" id="INT-SYD-05" title="Stop / Yield (Two-Way)" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/continuous-sidewalk/" id="INT-CSJ-06" title="Continuous Sidewalk / Raised Junction" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/uncontrolled/" id="INT-UNC-07" title="Uncontrolled" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/midblock-crossing/" id="INT-MPC-08" title="Midblock Pedestrian Crossing" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/driveway-curb-cut/" id="INT-DCC-09" title="Driveway / Curb Cut" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/grade-separated-interchange/" id="INT-GSI-10" title="Grade-Separated Interchange" classification="intersections" />
+</div>
 
 ## Under review, no confirmed Functional Classification
 

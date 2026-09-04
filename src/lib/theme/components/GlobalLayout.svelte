@@ -4,9 +4,11 @@
   import { page } from '$app/state'
   import type { Snippet } from 'svelte'
   import { initColorScheme, initTableScrollHints, sidebarOpen } from '../layout.js'
+  import { buildOrganization, buildWebSite } from '../schema/organization.js'
   import '../styles/base.css'
   import Backdrop from './Backdrop.svelte'
   import GoogleAnalytics from './GoogleAnalytics.svelte'
+  import JsonLd from './JsonLd.svelte'
   import Navbar from './Navbar.svelte'
   import Sidebar from './Sidebar.svelte'
   import Toc from './Toc.svelte'
@@ -16,6 +18,13 @@
   }
 
   const { children }: Props = $props()
+
+  // Sitewide singletons: exactly one Organization and one WebSite block on
+  // every page, computed once since neither varies per route (see
+  // src/lib/theme/schema/organization.ts). Per-page schema (breadcrumbs,
+  // TechArticle/WebPage/etc.) lives in PageLayout.svelte instead, since
+  // that's the layout that actually receives each page's frontmatter.
+  const siteSchemas = [buildOrganization(), buildWebSite()]
 
   // The homepage has no sidebar entry (see vite.config.ts's `sidebar` map)
   // and no page anchors for Toc to list, so both columns are always empty
@@ -42,6 +51,7 @@
 </script>
 
 <GoogleAnalytics />
+<JsonLd schemas={siteSchemas} />
 <Navbar />
 
 <div class="shell" class:shell--full={isHome}>

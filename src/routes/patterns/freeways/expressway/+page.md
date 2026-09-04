@@ -1,6 +1,8 @@
 ---
 title: Expressway
 description: A Freeway Typology with partial access control, sitting between a full Freeway and an Arterial. Out of the Commonway System's detailed design scope.
+patternId: FRE-EXP-02
+date: 2026-08-29
 llms: A Freeway street typology with partial access control, between a full Freeway and an Arterial in character. Out of the Commonway System's detailed design scope.
 ---
 
@@ -8,7 +10,7 @@ llms: A Freeway street typology with partial access control, between a full Free
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="FRE-EXP-02" title="Expressway" classification="freeway" status="recommended">
+<PatternCard id={fm.patternId} title="Expressway" classification="freeway" status="recommended">
 A high-speed road with partial access control, some at-grade intersections remain, unlike a fully grade-separated Freeway. Out of the Commonway System's detailed design scope.
 </PatternCard>
 

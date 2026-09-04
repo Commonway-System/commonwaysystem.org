@@ -1,6 +1,7 @@
 ---
 title: Density Tiers
 description: The six density tiers the Commonway System uses to classify a street's surrounding context, from Undeveloped to Core.
+date: 2026-08-29
 llms: Explains the six Commonway System density tiers (Undeveloped, Rural, Suburban, Compact, Urban, Core), their ITE/CNU transect equivalents, units-per-acre ranges, and how they're used across pattern pages.
 ---
 

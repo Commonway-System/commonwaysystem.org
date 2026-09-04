@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
+  import StatusBadge from './StatusBadge.svelte'
 
   type Classification = 'local' | 'collector' | 'arterial' | 'freeway' | 'intersections'
   type Status = 'recommended' | 'situational' | 'avoid'
@@ -27,12 +28,6 @@
     freeway: 'Freeway',
     intersections: 'Intersections & Crossings',
   }
-
-  const statusLabels: Record<Status, string> = {
-    recommended: 'Recommended',
-    situational: 'Situational / Discouraged',
-    avoid: 'Avoid',
-  }
 </script>
 
 <div class="pattern-card" data-classification={classification}>
@@ -40,7 +35,7 @@
     <code class="pattern-card__id">{id}</code>
     <div class="pattern-card__head-end">
       {#if status}
-        <span class="pattern-card__status" data-status={status}>{statusLabels[status]}</span>
+        <StatusBadge {status} />
       {/if}
       <span class="pattern-card__classification">{labels[classification]}</span>
     </div>
@@ -111,36 +106,6 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--cw-ink-faint);
-  }
-
-  .pattern-card__status {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.15rem 0.55rem;
-    border-radius: 999px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-  }
-
-  /* Quiet by design, per the Brand Guide's status-badge intent: Recommended
-     is the unremarkable default, so it gets no color emphasis, just a
-     neutral pill, while Situational and Avoid reuse the same warning/danger
-     tokens the :::warning and :::danger admonitions already use. */
-  .pattern-card__status[data-status='recommended'] {
-    background: var(--cw-paper);
-    color: var(--cw-ink-soft);
-    border: 1px solid var(--cw-hairline-strong);
-  }
-
-  .pattern-card__status[data-status='situational'] {
-    background: var(--cw-warning-soft);
-    color: var(--cw-amber-ink);
-  }
-
-  .pattern-card__status[data-status='avoid'] {
-    background: var(--cw-danger-soft);
-    color: var(--cw-danger);
   }
 
   .pattern-card__title {

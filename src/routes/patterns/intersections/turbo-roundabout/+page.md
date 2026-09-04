@@ -1,6 +1,8 @@
 ---
 title: Turbo-Roundabout
 description: A higher-capacity roundabout variant reserved for the highest-volume Arterial-to-Arterial junctions.
+patternId: INT-TRB-02
+date: 2026-08-29
 llms: A higher-capacity roundabout variant, using spiral lane markings to guide traffic, reserved for the highest-volume Arterial-to-Arterial junctions.
 ---
 
@@ -8,7 +10,7 @@ llms: A higher-capacity roundabout variant, using spiral lane markings to guide 
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-TRB-02" title="Turbo-Roundabout" classification="intersections">
+<PatternCard id={fm.patternId} title="Turbo-Roundabout" classification="intersections">
 A roundabout variant using spiral lane markings and raised lane dividers to guide multi-lane traffic without the weaving conflicts a standard multi-lane roundabout allows.
 </PatternCard>
 

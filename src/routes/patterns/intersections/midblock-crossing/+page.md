@@ -1,6 +1,8 @@
 ---
 title: Midblock Pedestrian Crossing
 description: A dedicated pedestrian crossing placed between intersections, used where block length or destination demand makes waiting for the corner impractical.
+patternId: INT-MPC-08
+date: 2026-08-29
 llms: A dedicated pedestrian crossing placed between intersections, used where block length or destination demand makes waiting for the corner impractical.
 ---
 
@@ -8,7 +10,7 @@ llms: A dedicated pedestrian crossing placed between intersections, used where b
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-MPC-08" title="Midblock Pedestrian Crossing" classification="intersections">
+<PatternCard id={fm.patternId} title="Midblock Pedestrian Crossing" classification="intersections">
 A marked, and typically signalized or raised, pedestrian crossing placed mid-block rather than at a corner, serving a specific crossing demand between intersections.
 </PatternCard>
 

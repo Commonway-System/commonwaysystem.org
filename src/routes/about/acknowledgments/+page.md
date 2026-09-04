@@ -1,6 +1,7 @@
 ---
 title: Acknowledgments
 description: Everyone who has helped correct, source, or build the Commonway System.
+date: 2026-08-30
 llms: Credits everyone who has helped correct, source, or build the Commonway System, or explains that no contributions have landed yet.
 ---
 

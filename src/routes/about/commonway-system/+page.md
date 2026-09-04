@@ -1,6 +1,7 @@
 ---
 title: The Commonway System
 description: What the Commonway System is, who compiled it, and how it relates to NACTO, Complete Streets, and Strong Towns.
+date: 2026-08-29
 llms: Explains what the Commonway System is, who compiled it, how it relates to NACTO, Complete Streets, and Strong Towns, and how the guidebook is organized.
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: Boulevard
 description: An Arterial Typology combining through traffic with a pedestrian-first frontage, including the Multiway Boulevard variant with medians separating frontage from through lanes.
+patternId: ART-BLV-02
+date: 2026-08-29
 llms: An Arterial street typology combining through traffic with a pedestrian-first frontage, including the Multiway Boulevard variant, which separates frontage roads from through lanes with planted medians.
 ---
 
@@ -8,7 +10,7 @@ llms: An Arterial street typology combining through traffic with a pedestrian-fi
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="ART-BLV-02" title="Boulevard" classification="arterial" status="recommended">
+<PatternCard id={fm.patternId} title="Boulevard" classification="arterial" status="recommended">
 An Arterial with a wide, pedestrian-first frontage alongside through traffic lanes, typically featuring a planted median or landscaped buffer. Includes the Multiway Boulevard variant, where frontage roads are separated from through lanes by planted medians, such as Octavia Boulevard.
 </PatternCard>
 

@@ -1,6 +1,7 @@
 ---
 title: AI Policy
 description: How AI was used in building Commonway System, and how human oversight stays in the loop.
+date: 2026-08-29
 llms: Explains how AI tools were used in building the Commonway System, how human review stays in the loop for every classification and citation, and what AI does not do on the site.
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: School Street
 description: A Local Typology that closes or restricts vehicle traffic during active school hours, protecting pedestrian and bicycle arrival and dismissal.
+patternId: LOC-SCH-11
+date: 2026-08-29
 llms: A Local street typology that closes or restricts vehicle traffic during active school hours to protect pedestrian and bicycle arrival and dismissal.
 ---
 
@@ -8,7 +10,7 @@ llms: A Local street typology that closes or restricts vehicle traffic during ac
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-SCH-11" title="School Street" classification="local" status="recommended">
+<PatternCard id={fm.patternId} title="School Street" classification="local" status="recommended">
 A Local street adjacent to a school that restricts or excludes vehicle traffic during arrival and dismissal, then reverts to normal Local operation the rest of the day.
 </PatternCard>
 

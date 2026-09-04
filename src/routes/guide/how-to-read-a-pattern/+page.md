@@ -1,5 +1,7 @@
 ---
 title: How to Read a Pattern
+description: How to read a Commonway System pattern entry, Pattern ID cards, classification colors, status badges, density tier chips, and the citation system.
+date: 2026-08-29
 llms: Explains how to read a Commonway System pattern entry, Pattern ID cards, classification colors and status badges, density tier chips, admonitions, and the citation and unsourced-claim system.
 ---
 

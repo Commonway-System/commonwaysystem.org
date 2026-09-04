@@ -1,6 +1,8 @@
 ---
 title: Industrial Collector
 description: A Collector Typology serving industrial land use, where freight movement outranks vehicle, pedestrian, bicycle, and transit priority.
+patternId: COL-IND-03
+date: 2026-08-29
 llms: A Collector street typology serving industrial land use, where freight movement is prioritized above vehicle, pedestrian, bicycle, and transit use.
 ---
 
@@ -8,7 +10,7 @@ llms: A Collector street typology serving industrial land use, where freight mov
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="COL-IND-03" title="Industrial Collector" classification="collector" status="recommended">
+<PatternCard id={fm.patternId} title="Industrial Collector" classification="collector" status="recommended">
 A Collector road serving warehouses, freight yards, or manufacturing land use, designed around truck movement and loading rather than the base Collector priority order.
 </PatternCard>
 

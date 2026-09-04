@@ -1,6 +1,8 @@
 ---
 title: Beltway / Ring Road
 description: A Freeway Typology circling a city or metro area rather than passing through its core. Out of the Commonway System's detailed design scope.
+patternId: FRE-BLT-03
+date: 2026-08-29
 llms: A Freeway street typology circling a city or metro area rather than passing through its core. Out of the Commonway System's detailed design scope.
 ---
 
@@ -8,7 +10,7 @@ llms: A Freeway street typology circling a city or metro area rather than passin
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="FRE-BLT-03" title="Beltway / Ring Road" classification="freeway" status="recommended">
+<PatternCard id={fm.patternId} title="Beltway / Ring Road" classification="freeway" status="recommended">
 A limited-access Freeway circling a metro area's outer edge, connecting radial corridors without routing through-traffic into the urban core. Out of the Commonway System's detailed design scope.
 </PatternCard>
 

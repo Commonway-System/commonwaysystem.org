@@ -1,6 +1,8 @@
 ---
 title: Default (Standard Collector)
 description: The baseline Collector street typology, carrying the base modal hierarchy and 30 mph standard speed with no named override.
+patternId: COL-DEF-01
+date: 2026-08-29
 llms: The baseline Collector street, applying the base modal hierarchy and 30 mph standard speed with no named override.
 ---
 
@@ -8,7 +10,7 @@ llms: The baseline Collector street, applying the base modal hierarchy and 30 mp
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="COL-DEF-01" title="Default (Standard Collector)" classification="collector" status="recommended">
+<PatternCard id={fm.patternId} title="Default (Standard Collector)" classification="collector" status="recommended">
 The baseline Collector street. No special land use, freight function, or dedicated mode gives it a name of its own, so it carries the base Collector modal hierarchy and speed rule unmodified.
 </PatternCard>
 

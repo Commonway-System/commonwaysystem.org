@@ -1,30 +1,35 @@
 ---
 title: Brand Guide
 description: The Commonway System's visual and editorial system, colors, typography, voice, illustration rules, citation format, and logo usage.
+date: 2026-08-29
 llms: The Commonway System's full visual and editorial system, colors, typography, voice and editorial rules, illustration rules, citation format, and logo usage.
 ---
 
 <script>
-  import { Button, Citation, ColorSwatch, EvidenceChip, ExampleCard, FormControlsPreview, LogoPreview, PatternCard, TypeSample } from '$lib/theme/components'
+  import { Button, Citation, ColorSwatch, EvidenceChip, ExampleCard, FormControlsPreview, LogoPreview, PatternCard, PatternIndexCard, TypeSample } from '$lib/theme/components'
 </script>
 
 The visual and editorial system behind the Commonway System (CS): how it looks, how it's written, and how its evidence is presented. This page transcribes the working brand reference; treat the color values and rules below as the source of truth over anything in the site's theme.
 
 :::note
-This is a working draft (CalVer 2026.08.26), maintained as an internal reference. The site's color tokens (`src/lib/theme/styles/tokens.css`) are synced to the palette documented here, with two exceptions: `--cw-intersections` (the guide's ramp only covers Local, Collector, Arterial, and Freeway, not the cross-cutting Intersections category) and `--cw-danger` (the guide doesn't define a danger-admonition color; kept independent rather than reusing Freeway, since Freeway's real color is a neutral gray). The `:::warning` admonition still uses amber, which is a known conflict with the reservation rule below, flagged rather than silently changed since it's a content-semantics call, not a color-value one.
+This is a working draft (CalVer 2026.08.26), maintained as an internal reference. The site's color tokens (`src/lib/theme/styles/tokens.css`) are synced to the palette documented here, with one exception: `--cw-danger` (the guide doesn't define a danger-admonition color; kept independent rather than reusing Freeway, since Freeway's real color is a neutral gray). The `:::warning` admonition still uses amber, which is a known conflict with the reservation rule below, flagged rather than silently changed since it's a content-semantics call, not a color-value one.
+:::
+
+:::note
+Intersections & Crossings has no color family in the working draft, which only documents Local, Collector, Arterial, and Freeway. The ramp shown below for it is a site-only addition (added 2026.08.30, not part of the guide), built the same way the guide's own four ramps were, from a single base color rather than an invented palette.
 :::
 
 ## Voice attributes
 
-| CS voice is... | CS voice is not... |
-|---|---|
-| Encyclopedic | Conversational or chatty |
-| Evidence-led (claims trace to citations) | Opinion-led or persuasive |
-| Layered (plain language first, technical depth beneath) | Dumbed-down, or gatekept behind jargon |
-| Precise (specific numbers, named sources) | Vague or hand-wavy |
-| Confident through sourcing | Confident through authority or credential-claiming |
-| Neutral and descriptive | Salesy, urgent, or marketing-toned |
-| Inclusive of total beginners | Exclusionary of experts who already know the material |
+| CS voice is...                                          | CS voice is not...                                    |
+| ------------------------------------------------------- | ----------------------------------------------------- |
+| Encyclopedic                                            | Conversational or chatty                              |
+| Evidence-led (claims trace to citations)                | Opinion-led or persuasive                             |
+| Layered (plain language first, technical depth beneath) | Dumbed-down, or gatekept behind jargon                |
+| Precise (specific numbers, named sources)               | Vague or hand-wavy                                    |
+| Confident through sourcing                              | Confident through authority or credential-claiming    |
+| Neutral and descriptive                                 | Salesy, urgent, or marketing-toned                    |
+| Inclusive of total beginners                            | Exclusionary of experts who already know the material |
 
 ### The disagreement-phrasing pattern
 
@@ -135,6 +140,17 @@ Each Functional Classification gets a 6-step tint/shade ramp across density tier
   <ColorSwatch hex="#5C6068" label="Core" />
 </div>
 
+**Intersections & Crossings**
+
+<div class="swatch-grid">
+  <ColorSwatch hex="#F9E9D2" label="Undeveloped" />
+  <ColorSwatch hex="#F2CF9D" label="Rural" />
+  <ColorSwatch hex="#EAB668" label="Suburban" />
+  <ColorSwatch hex="#E39C33" label="Compact" />
+  <ColorSwatch hex="#BF7D1A" label="Urban" />
+  <ColorSwatch hex="#8A5A13" label="Core" />
+</div>
+
 Color is for fast scanning; a text label is what makes classification colorblind-safe. Never color alone.
 
 ## Typography
@@ -162,12 +178,12 @@ Clean flat vector illustration, NACTO-inspired, warmed by human figures at true 
 
 **Sizing and aspect ratio by scale**
 
-| Scale level | Format |
-|---|---|
-| Network / Corridor | Wide format (16:9 or wider) |
-| Segment | Cross-section format (about 2.8:1) |
-| Intersection | Near-square or 4:3, plan-view |
-| Facility / Element | Smaller square detail insets |
+| Scale level        | Format                             |
+| ------------------ | ---------------------------------- |
+| Network / Corridor | Wide format (16:9 or wider)        |
+| Segment            | Cross-section format (about 2.8:1) |
+| Intersection       | Near-square or 4:3, plan-view      |
+| Facility / Element | Smaller square detail insets       |
 
 **Photography** is reserved for case-study and precedent documentation only (before/after material for a real corridor), never for core pattern definitions, which stay flat vector illustration.
 
@@ -181,7 +197,20 @@ Clean flat vector illustration, NACTO-inspired, warmed by human figures at true 
   </PatternCard>
 </ExampleCard>
 
-The colored left edge always matches the pattern's Functional Classification, using each classification's real ramp color now that `tokens.css` is synced (Arterial and Freeway's real hues are naturally light, so the left border uses their darkest tier, Core, to clear the 3:1 UI-component contrast minimum). The ID text itself is always ink, per the guide: "a constant identity mark distinct from classification color." Intersections is the one classification without a documented ramp in the working draft, so its color is still a placeholder.
+The colored left edge always matches the pattern's Functional Classification, using each classification's real ramp color now that `tokens.css` is synced (Arterial, Freeway, and Intersections' real hues are naturally light, so the left border uses their darkest tier, Core, to clear the 3:1 UI-component contrast minimum). The ID text itself is always ink, per the guide: "a constant identity mark distinct from classification color."
+
+### Pattern Index card
+
+<ExampleCard>
+  <div class="pattern-index-grid">
+    <PatternIndexCard href="/patterns/local-streets/default/" id="LOC-DEF-01" title="Default (Standard Local Street)" classification="local" />
+    <PatternIndexCard href="/patterns/arterials/stroad/" id="ART-STD-05" title="Stroad" classification="arterial" status="avoid" />
+    <PatternIndexCard href="/patterns/arterials/one-way-street/" id="ART-OWS-06" title="One-Way Street" classification="arterial" status="situational" />
+    <PatternIndexCard href="/patterns/intersections/roundabout/" id="INT-RAB-01" title="Roundabout (Single/Multi-Lane)" classification="intersections" image="/patterns/int-rab-01-roundabout.png" />
+  </div>
+</ExampleCard>
+
+Used on the Pattern Index (`/patterns/`) in place of a plain bulleted list, one card per Street Typology. The image area recolors per classification with a `mix-blend-mode: color` overlay (Suburban tier at rest, Core tier as the hover border, same darkest-clears-contrast reasoning as the Pattern ID card's left edge above), including Intersections & Crossings, now that it has its own ramp too. Most patterns still use a single shared placeholder graphic; a handful have a real illustration in already, and swapping the rest in over time only means setting that pattern's own `image` prop, the recolor mechanism keeps working unchanged either way. The number circle restarts at 1 for each Functional Classification group and is always ink-fixed/paper-fixed regardless of theme, the same "constant identity mark" reasoning as the Pattern ID text. The status badge only appears for Situational and Avoid; Recommended (the unremarkable default) gets no badge here at all, unlike its quiet pill on the full pattern page.
 
 ### Citation badge
 
@@ -241,11 +270,11 @@ The house citation format is modeled on agency-reference conventions: source nam
 
 **Link maintenance**
 
-| Link state | Handling |
-|---|---|
-| Live | URL shown as-is, with a last-checked date in the metadata line |
-| Redirected | Updated to the new URL, original URL noted, with the date the redirect was found |
-| Dead | Original URL retained, paired with an archive.org snapshot link, dated to when the page was last known live |
+| Link state | Handling                                                                                                    |
+| ---------- | ----------------------------------------------------------------------------------------------------------- |
+| Live       | URL shown as-is, with a last-checked date in the metadata line                                              |
+| Redirected | Updated to the new URL, original URL noted, with the date the redirect was found                            |
+| Dead       | Original URL retained, paired with an archive.org snapshot link, dated to when the page was last known live |
 
 One citation, one purpose.
 
@@ -268,14 +297,14 @@ Google's own guidance treats generative AI search optimization as fundamentally 
 
 A contrast issue was caught and fixed during design: the citation badge and Evidence-based chip originally used `#003D35` text on `#00A896`, a 4.10:1 contrast ratio, below the 4.5:1 WCAG AA requirement for text at that size. Corrected to `#002D27`, reaching 5.01:1 (the value used by the evidence chips above).
 
-| Pairing | Ratio | Status |
-|---|---|---|
-| Citation badge (corrected) | 5.01:1 | Pass |
-| Precedent-based chip | 7.59:1 | Pass |
-| Legal/regulatory chip | 6.41:1 | Pass |
-| Pattern ID / metadata label | 5.04:1 | Pass |
-| Unsourced-claim flag | 8.97:1 | Pass |
-| Body text on paper | 17.67:1 | Pass |
+| Pairing                     | Ratio   | Status |
+| --------------------------- | ------- | ------ |
+| Citation badge (corrected)  | 5.01:1  | Pass   |
+| Precedent-based chip        | 7.59:1  | Pass   |
+| Legal/regulatory chip       | 6.41:1  | Pass   |
+| Pattern ID / metadata label | 5.04:1  | Pass   |
+| Unsourced-claim flag        | 8.97:1  | Pass   |
+| Body text on paper          | 17.67:1 | Pass   |
 
 The full palette is simulated against protanopia, deuteranopia, and tritanopia using the Machado-Oliveira-Fairchild model. Local's hue was moved from an initial muted rose, which collapsed toward Freeway's gray under deuteranopia, to a saturated violet-purple, chosen via a hue and saturation sweep maximizing worst-case separation while staying outside the red, orange, and yellow range reserved for the warning system.
 

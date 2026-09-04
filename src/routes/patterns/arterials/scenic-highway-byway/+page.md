@@ -1,6 +1,8 @@
 ---
 title: Scenic Highway / Byway
 description: A low-density, low-development-pressure Arterial Typology, the norm at Undeveloped and Rural density and an unlikely pairing past Compact.
+patternId: ART-SCB-03
+date: 2026-08-29
 llms: A low-density, low-development-pressure Arterial street typology, the norm at Undeveloped and Rural density, an unlikely pairing past Compact density.
 ---
 
@@ -8,7 +10,7 @@ llms: A low-density, low-development-pressure Arterial street typology, the norm
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="ART-SCB-03" title="Scenic Highway / Byway" classification="arterial" status="recommended">
+<PatternCard id={fm.patternId} title="Scenic Highway / Byway" classification="arterial" status="recommended">
 An Arterial through a low-development, often scenic landscape, where vehicle movement is prioritized and pedestrian, bicycle, and transit demand are minimal.
 </PatternCard>
 

@@ -1,6 +1,8 @@
 ---
 title: Yield Street
 description: A Local Typology narrow enough that opposing vehicles yield to each other, viable only where traffic volume genuinely stays low.
+patternId: LOC-YLD-07
+date: 2026-08-29
 llms: A narrow Local street typology where opposing vehicles yield to each other by design, viable only at genuinely low traffic volumes.
 ---
 
@@ -8,7 +10,7 @@ llms: A narrow Local street typology where opposing vehicles yield to each other
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-YLD-07" title="Yield Street" classification="local" status="recommended">
+<PatternCard id={fm.patternId} title="Yield Street" classification="local" status="recommended">
 A Local street narrow enough that two vehicles cannot pass without one yielding, using the street's width itself as a traffic-calming device.
 </PatternCard>
 

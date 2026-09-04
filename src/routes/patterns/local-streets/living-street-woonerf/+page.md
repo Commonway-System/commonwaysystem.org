@@ -1,6 +1,8 @@
 ---
 title: Living Street / Woonerf
 description: A Local Typology where pedestrians and cyclists share the full street width with vehicles, who move at walking pace as guests. Includes NACTO's Home Zone.
+patternId: LOC-LSW-06
+date: 2026-08-29
 llms: A Local street typology, including NACTO's Home Zone, where pedestrians and cyclists share the full street width and vehicles move as guests at walking pace.
 ---
 
@@ -8,7 +10,7 @@ llms: A Local street typology, including NACTO's Home Zone, where pedestrians an
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-LSW-06" title="Living Street / Woonerf" classification="local" status="recommended">
+<PatternCard id={fm.patternId} title="Living Street / Woonerf" classification="local" status="recommended">
 A Local street with no separation between the pedestrian, bicycle, and vehicle space. Vehicles are guests, moving at walking pace and yielding to people on foot or bike by design, not by signage alone.
 </PatternCard>
 

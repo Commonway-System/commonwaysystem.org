@@ -1,6 +1,8 @@
 ---
 title: Signal
 description: Traffic signal control, available within the Commonway System only as a documented last resort, never the presumed choice.
+patternId: INT-SIG-03
+date: 2026-08-29
 llms: Traffic signal control, available within the Commonway System only as a documented last resort against the safer roundabout default, never the presumed choice.
 ---
 
@@ -8,7 +10,7 @@ llms: Traffic signal control, available within the Commonway System only as a do
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-SIG-03" title="Signal" classification="intersections">
+<PatternCard id={fm.patternId} title="Signal" classification="intersections">
 A signalized intersection, controlling conflicting movements with timed lights.
 </PatternCard>
 

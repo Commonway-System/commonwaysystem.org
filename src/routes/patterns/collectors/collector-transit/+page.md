@@ -1,6 +1,8 @@
 ---
 title: Collector Transit
 description: A Collector Typology with a dedicated transit route, where transit is elevated above the rest of the Collector base order.
+patternId: COL-CTR-05
+date: 2026-08-29
 llms: A Collector street typology carrying a dedicated transit route, with transit elevated above the rest of the Collector base modal hierarchy.
 ---
 
@@ -8,7 +10,7 @@ llms: A Collector street typology carrying a dedicated transit route, with trans
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="COL-CTR-05" title="Collector Transit" classification="collector" status="recommended">
+<PatternCard id={fm.patternId} title="Collector Transit" classification="collector" status="recommended">
 A Collector street carrying a fixed transit route, where transit priority is layered onto the base pedestrian and bicycle priority rather than replacing it.
 </PatternCard>
 

@@ -1,6 +1,8 @@
 ---
 title: Local Transit
 description: A Local Typology with a dedicated transit route, where transit is elevated above the rest of the Local base order.
+patternId: LOC-LTR-10
+date: 2026-08-29
 llms: A Local street typology carrying a dedicated transit route, with transit elevated above the rest of the Local base modal hierarchy.
 ---
 
@@ -8,7 +10,7 @@ llms: A Local street typology carrying a dedicated transit route, with transit e
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-LTR-10" title="Local Transit" classification="local" status="recommended">
+<PatternCard id={fm.patternId} title="Local Transit" classification="local" status="recommended">
 A Local street carrying a fixed transit route, most often a local bus line, where transit priority is layered onto the base pedestrian and bicycle priority rather than replacing it.
 </PatternCard>
 

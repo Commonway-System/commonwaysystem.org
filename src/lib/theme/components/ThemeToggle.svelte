@@ -20,6 +20,7 @@
     justify-content: center;
     width: 2.25rem;
     height: 2.25rem;
+    flex-shrink: 0;
     border-radius: var(--cw-radius-md);
     border: 1px solid transparent;
     background: transparent;

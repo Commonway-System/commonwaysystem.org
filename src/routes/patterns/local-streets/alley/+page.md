@@ -1,6 +1,8 @@
 ---
 title: Alley
 description: A narrow Local Typology carrying service and driveway access, with vehicle and freight movement prioritized over through pedestrian and bicycle traffic.
+patternId: LOC-ALY-02
+date: 2026-08-29
 llms: A narrow Local street typology for service and driveway access, where vehicle and freight movement outrank pedestrian and bicycle through-traffic.
 ---
 
@@ -8,7 +10,7 @@ llms: A narrow Local street typology for service and driveway access, where vehi
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-ALY-02" title="Alley" classification="local" status="recommended">
+<PatternCard id={fm.patternId} title="Alley" classification="local" status="recommended">
 A narrow Local street serving rear or side property access, service vehicles, and utility placement rather than through movement of any mode.
 </PatternCard>
 

@@ -1,6 +1,7 @@
 ---
 title: About
 description: What the Commonway System is, who built it, and how the project is run.
+date: 2026-08-28
 llms: Landing page for the About section, linking to what the Commonway System is, its brand guide, contributing, governance, and reporting.
 ---
 

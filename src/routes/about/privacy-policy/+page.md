@@ -1,6 +1,7 @@
 ---
 title: Privacy Policy
 description: What data Commonway System collects, why, and how it's used.
+date: 2026-08-29
 llms: Explains what data the Commonway System website collects through Google Analytics, GitHub, and Netlify hosting logs, and what choices visitors have.
 ---
 

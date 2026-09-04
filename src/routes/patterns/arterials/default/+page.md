@@ -1,6 +1,8 @@
 ---
 title: Default (No Parking, No Direct Property Access)
 description: The baseline Arterial typology, where the core safety rule against mixing on-street parking or direct property access with through traffic is what defines it.
+patternId: ART-DEF-01
+date: 2026-08-29
 llms: The baseline Arterial street typology, defined by never mixing on-street parking or direct property access with through traffic, the rule that distinguishes it from a Stroad.
 ---
 
@@ -8,7 +10,7 @@ llms: The baseline Arterial street typology, defined by never mixing on-street p
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="ART-DEF-01" title="Default (No Parking, No Direct Property Access)" classification="arterial" status="recommended">
+<PatternCard id={fm.patternId} title="Default (No Parking, No Direct Property Access)" classification="arterial" status="recommended">
 The baseline Arterial: a through-movement road that never mixes on-street parking or direct property access with through traffic. Any access need along the corridor is served by a separate Local or Frontage/Service Road instead.
 </PatternCard>
 

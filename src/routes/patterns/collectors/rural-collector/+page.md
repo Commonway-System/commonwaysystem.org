@@ -1,6 +1,8 @@
 ---
 title: Rural Collector / Farm-to-Market Road
 description: A Collector Typology moving vehicle and freight traffic through low-density agricultural or undeveloped land, the norm at Undeveloped and Rural density.
+patternId: COL-FTM-02
+date: 2026-08-29
 llms: A Collector street typology serving vehicle and freight movement through low-density agricultural or undeveloped land, the norm at Undeveloped and Rural density and effectively absent past Suburban.
 ---
 
@@ -8,7 +10,7 @@ llms: A Collector street typology serving vehicle and freight movement through l
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="COL-FTM-02" title="Rural Collector / Farm-to-Market Road" classification="collector" status="recommended">
+<PatternCard id={fm.patternId} title="Rural Collector / Farm-to-Market Road" classification="collector" status="recommended">
 A Collector road connecting low-density or agricultural land to the wider network, prioritizing vehicle and freight movement over pedestrian, bicycle, and transit use, which have little demand at this density.
 </PatternCard>
 

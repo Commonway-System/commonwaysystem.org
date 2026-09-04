@@ -3,6 +3,7 @@ title: Commonway System
 hideTitle: true
 wide: true
 description: A Pattern Language for Roads and Streets
+date: 2026-08-28
 llms: Home page for the Commonway System Guidebook, a cross-referenced pattern language for road and street design grounded in cited evidence.
 ---
 

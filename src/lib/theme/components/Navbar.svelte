@@ -96,6 +96,7 @@
     padding: 0 1.25rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1.5rem;
   }
 
@@ -112,6 +113,7 @@
     justify-content: center;
     width: 2.25rem;
     height: 2.25rem;
+    flex-shrink: 0;
     border: none;
     background: transparent;
     color: var(--cw-ink);
@@ -122,6 +124,7 @@
   .navbar__brand {
     display: inline-flex;
     align-items: center;
+    flex-shrink: 0;
     text-decoration: none;
     white-space: nowrap;
   }
@@ -176,6 +179,7 @@
     text-decoration: none;
     padding: 0 0.4rem;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .navbar__version:hover {
@@ -195,8 +199,16 @@
     }
   }
 
+  /* Below 560px the version link drops its "V." label too, leaving just
+     the bare date (the un-wrapped {version} text after both label spans)
+     rather than disappearing outright: see the @media (max-width: 940px)
+     block below, which also unwraps navbar__start/navbar__end into flat
+     flex children of navbar__inner so all 5 elements (logo, hamburger,
+     version, GitHub, theme toggle) space evenly edge-to-edge instead of
+     clumping on the left once the hamburger drawer hides the primary nav
+     links that used to fill the middle. */
   @media (max-width: 560px) {
-    .navbar__version {
+    .navbar__version-label--short {
       display: none;
     }
   }
@@ -207,6 +219,7 @@
     justify-content: center;
     width: 2.25rem;
     height: 2.25rem;
+    flex-shrink: 0;
     border-radius: var(--cw-radius-md);
     color: var(--cw-ink-soft);
   }
@@ -217,11 +230,43 @@
   }
 
   @media (max-width: 940px) {
+    /* The full "Commonway System" wordmark measures ~147px wide at its
+       desktop 2.5rem height, the single biggest element in the bar, wider
+       than all 4 icons/buttons combined, real overflow at 375px once
+       flex-shrink is disabled below (see navbar__brand/menu-btn/icon-link/
+       toggle flex-shrink: 0). Shrinking it here is what actually made room
+       for 5 evenly-spaced elements, not the version-text shortening alone. */
+    .navbar__brand-mark {
+      height: 1.75rem;
+    }
     .navbar__menu-btn {
       display: inline-flex;
     }
     .navbar__links {
       display: none;
+    }
+    /* display: contents removes navbar__start/navbar__end's own box (and
+       the gap between the two-groups-worth of items it used to enforce)
+       without touching the DOM, so their children (logo, hamburger button,
+       version link, GitHub icon, theme toggle) become direct flex items of
+       navbar__inner and its justify-content: space-between spreads all 5
+       evenly across the full width instead of leaving them clumped on the
+       left with an empty gap on the right. */
+    .navbar__start,
+    .navbar__end {
+      display: contents;
+    }
+    /* navbar__inner's 1.5rem gap is sized for the desktop 3-group layout
+       (brand block / nav links / icon block); once navbar__start and
+       navbar__end unwrap into 5 flat children above, that same gap would
+       apply 4 times over (~96px) on top of whatever justify-content:
+       space-between already distributes, real overflow at 375px. A small
+       floor here just stops items from visually touching if space-between
+       ever compresses all the way down; it isn't doing the primary
+       spacing job on mobile the way it does on desktop.
+    */
+    .navbar__inner {
+      gap: 0.5rem;
     }
   }
 </style>

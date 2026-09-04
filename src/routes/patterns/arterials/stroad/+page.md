@@ -1,6 +1,8 @@
 ---
 title: Stroad
 description: An Arterial anti-pattern, Avoid status, mixing on-street parking or direct property access with through traffic. This page exists to help identify and replace it.
+patternId: ART-STD-05
+date: 2026-08-29
 llms: An Arterial anti-pattern marked Avoid, formed by mixing on-street parking or direct property access with through traffic. This page exists to help identify and replace it with Boulevard or Default Arterial.
 ---
 
@@ -8,7 +10,7 @@ llms: An Arterial anti-pattern marked Avoid, formed by mixing on-street parking 
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="ART-STD-05" title="Stroad" classification="arterial" status="avoid">
+<PatternCard id={fm.patternId} title="Stroad" classification="arterial" status="avoid">
 A street and Arterial hybrid: through traffic mixed with on-street parking and direct property access along the same corridor. This is the exact combination the Arterial core safety rule prohibits.
 </PatternCard>
 

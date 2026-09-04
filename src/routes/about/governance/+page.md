@@ -1,6 +1,7 @@
 ---
 title: Project Governance
 description: How decisions about the Commonway System get made and who makes them.
+date: 2026-08-29
 llms: Explains who has final say on the Commonway System, how classification decisions and evidence disputes are resolved, how project direction is set, and why participation isn't a vote.
 ---
 

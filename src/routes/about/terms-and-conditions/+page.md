@@ -1,6 +1,7 @@
 ---
 title: Terms and Conditions
 description: The terms governing use of the Commonway System website and guide.
+date: 2026-08-29
 llms: The terms governing use of the Commonway System website and guide, covering professional-advice disclaimers, warranty and liability limits, brand and licensing terms, and governing law.
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: Bike Highway / Greenway
 description: A Collector-scale Typology providing a dedicated, physically separated bicycle path, distinct from Local's shared-roadway Bicycle Boulevard.
+patternId: COL-BHG-04
+date: 2026-08-29
 llms: A Collector-scale street typology providing a dedicated, physically separated bicycle path, distinct from Local's shared-roadway Bicycle Boulevard.
 ---
 
@@ -8,7 +10,7 @@ llms: A Collector-scale street typology providing a dedicated, physically separa
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="COL-BHG-04" title="Bike Highway / Greenway" classification="collector" status="recommended">
+<PatternCard id={fm.patternId} title="Bike Highway / Greenway" classification="collector" status="recommended">
 A dedicated, physically separated bicycle path operating at Collector scale, prioritizing continuous, higher-speed bicycle through-movement over other modes.
 </PatternCard>
 

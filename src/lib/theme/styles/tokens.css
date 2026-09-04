@@ -6,12 +6,18 @@
  * values, so a palette or type change never means hunting through markup.
  *
  * Synced to the working Brand Guide (see /about/brand-guide/) as of
- * CalVer 2026.08.26, with two exceptions still marked PLACEHOLDER below:
- * --cw-intersections (the guide's documented ramp only covers Local,
- * Collector, Arterial, and Freeway, not the cross-cutting Intersections
- * category) and --cw-danger (the guide doesn't define a danger-admonition
- * color; kept as an independent site-only red rather than reusing Freeway,
- * since Freeway's real spec color is a neutral gray, not alarming).
+ * CalVer 2026.08.26, with one exception still marked PLACEHOLDER below:
+ * --cw-danger (the guide doesn't define a danger-admonition color; kept
+ * as an independent site-only red rather than reusing Freeway, since
+ * Freeway's real spec color is a neutral gray, not alarming).
+ *
+ * The Intersections & Crossings ramp (--cw-intersections-*) is a
+ * site-only addition, not from the working Brand Guide draft (which has
+ * no color family for that cross-cutting category): built 2026.08.30
+ * from a single base color (#8a5a13, the exact value the scaffold's own
+ * --cw-intersections placeholder already used) with the same
+ * constant-hue/constant-saturation, evenly-stepped-lightness method the
+ * guide's own four ramps use (see the comment above the ramp itself).
  *
  * All contrast ratios below are computed against this file's own
  * --cw-paper / --cw-paper-raised for that theme, per WCAG 2.1 (4.5:1 for
@@ -138,29 +144,39 @@
   --cw-freeway-urban: #7d818a;
   --cw-freeway-core: #5c6068;
 
+  /* Site-only ramp (see file-header comment), same 6-step shape as the
+     four guide ramps above: constant hue (~36°) and saturation (~76%),
+     lightness stepped evenly from Undeveloped down to Core. Core
+     (#8a5a13) is the exact base color the request specified, which is
+     also the scaffold's old placeholder value verbatim, so nothing that
+     already referenced --cw-intersections shifts color, it's now backed
+     by a real ramp instead of a single hardcoded hex. */
+  --cw-intersections-undeveloped: #f9e9d2;
+  --cw-intersections-rural: #f2cf9d;
+  --cw-intersections-suburban: #eab668;
+  --cw-intersections-compact: #e39c33;
+  --cw-intersections-urban: #bf7d1a;
+  --cw-intersections-core: #8a5a13;
+
   /* Representative single color per classification: the lightest tier
      that still clears (or gets closest to) 4.5:1 text contrast on this
-     theme's paper. Local/Collector reach it at Urban; Arterial and
-     Freeway's hues are naturally lighter and only reach ~3.4-6:1 even at
-     Core, so PatternCard uses this color for its left-border accent
-     only (3:1 suffices), never for the ID text, which is always ink,
-     per the guide ("a constant identity mark distinct from
-     classification color"). */
+     theme's paper. Local/Collector reach it at Urban; Arterial, Freeway,
+     and Intersections' hues are naturally lighter and only reach
+     ~3.3-5.7:1 even at Core, so PatternCard/PatternIndexCard use this
+     color for a border accent only (3:1 suffices), never for the ID
+     text, which is always ink, per the guide ("a constant identity mark
+     distinct from classification color"). */
   --cw-local: var(--cw-local-urban);
   --cw-collector: var(--cw-collector-urban);
   --cw-arterial: var(--cw-arterial-core);
   --cw-freeway: var(--cw-freeway-core);
+  --cw-intersections: var(--cw-intersections-core);
 
   --cw-local-soft: var(--cw-local-undeveloped);
   --cw-collector-soft: var(--cw-collector-undeveloped);
   --cw-arterial-soft: var(--cw-arterial-undeveloped);
   --cw-freeway-soft: var(--cw-freeway-undeveloped);
-
-  /* PLACEHOLDER: not part of the guide's documented ramp (Intersections
-     and Crossings is a cross-cutting category without its own color
-     family in the working draft). Left as the original scaffold value. */
-  --cw-intersections: #8a5a12;
-  --cw-intersections-soft: #f4ead4;
+  --cw-intersections-soft: var(--cw-intersections-undeveloped);
 
   /* ---- Admonitions -------------------------------------------------- */
   --cw-note: var(--cw-primary);
@@ -251,12 +267,26 @@
   --cw-freeway-urban: #7d818a;
   --cw-freeway-core: #5c6068;
 
+  /* Same hex values as the light-mode :root ramp above, see that block's
+     comment for how this was built from the #8a5a13 base. */
+  --cw-intersections-undeveloped: #f9e9d2;
+  --cw-intersections-rural: #f2cf9d;
+  --cw-intersections-suburban: #eab668;
+  --cw-intersections-compact: #e39c33;
+  --cw-intersections-urban: #bf7d1a;
+  --cw-intersections-core: #8a5a13;
+
   /* Dark mode needs a lighter tier than light mode for the same 4.5:1+
-     legibility reason --cw-link and --cw-primary do above. */
+     legibility reason --cw-link and --cw-primary do above. Compact is
+     the closest match to the old hardcoded dark placeholder (#d6a94f,
+     ~57% lightness) this replaces, so the representative color barely
+     shifts even though it's now a real ramp tier instead of an ad-hoc
+     hex. */
   --cw-local: var(--cw-local-suburban);
   --cw-collector: var(--cw-collector-suburban);
   --cw-arterial: var(--cw-arterial-urban);
   --cw-freeway: var(--cw-freeway-compact);
+  --cw-intersections: var(--cw-intersections-compact);
 
   /* Undeveloped (near-white pastel) would look wrong as a "soft"
      background on a dark page, so dark mode gets its own hand-tuned
@@ -266,9 +296,7 @@
   --cw-collector-soft: #211f3d;
   --cw-arterial-soft: #26330f;
   --cw-freeway-soft: #2b2d31;
-
-  --cw-intersections: #d6a94f;
-  --cw-intersections-soft: #3a2e15;
+  --cw-intersections-soft: #432c09;
 
   --cw-note: var(--cw-primary);
   --cw-note-soft: var(--cw-primary-soft);

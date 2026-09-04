@@ -1,6 +1,8 @@
 ---
 title: Roundabout (Single / Multi-Lane)
 description: The default intersection control wherever two Collector-or-higher streets meet, per the Commonway System's locked intersection philosophy.
+patternId: INT-RAB-01
+date: 2026-08-29
 llms: The default intersection control wherever two Collector-or-higher streets meet, single or multi-lane, per the Commonway System's locked intersection philosophy.
 ---
 
@@ -8,7 +10,7 @@ llms: The default intersection control wherever two Collector-or-higher streets 
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-RAB-01" title="Roundabout (Single / Multi-Lane)" classification="intersections">
+<PatternCard id={fm.patternId} title="Roundabout (Single / Multi-Lane)" classification="intersections">
 A circular intersection where entering traffic yields to the circulating flow, sized single or multi-lane to the volume it carries.
 </PatternCard>
 

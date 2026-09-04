@@ -1,6 +1,8 @@
 ---
 title: Bicycle Boulevard / Neighborhood Greenway
 description: A Local Street Typology prioritizing through bicycle and pedestrian movement over through car traffic.
+patternId: LOC-BBG-12
+date: 2026-08-29
 llms: Worked example pattern entry for Bicycle Boulevard / Neighborhood Greenway, a Local street typology prioritizing bicycle and pedestrian through-movement over car traffic.
 ---
 
@@ -8,7 +10,7 @@ llms: Worked example pattern entry for Bicycle Boulevard / Neighborhood Greenway
   import { PatternCard, DensityChip, Citation } from '$lib/theme/components'
 </script>
 
-<PatternCard id="LOC-BBG-12" title="Bicycle Boulevard / Neighborhood Greenway" classification="local" status="recommended">
+<PatternCard id={fm.patternId} title="Bicycle Boulevard / Neighborhood Greenway" classification="local" status="recommended">
 A Local street where through car traffic is discouraged by design, while walking and bicycling are treated as the primary through movements.
 </PatternCard>
 
