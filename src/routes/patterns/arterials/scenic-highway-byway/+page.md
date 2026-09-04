@@ -7,7 +7,7 @@ llms: A low-density, low-development-pressure Arterial street typology, the norm
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Scenic Highway / Byway" classification="arterial" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
 
 Suburban is an edge case. Compact, Urban, and Core are unlikely pairings.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Vehicle, then Bicycle, then Pedestrian, then Transit, then Freight. Whether Freight should be excluded outright rather than simply ranked last is an open call.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[55]} stacked>
+Follows the Arterial density-tiered baseline for its typical Undeveloped/Rural context.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="arterial" rows={[{ tiers: ['vehicle', 'bicycle', 'pedestrian', 'transit', 'freight'] }]}>
+Whether Freight should be excluded outright rather than simply ranked last is an open call.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

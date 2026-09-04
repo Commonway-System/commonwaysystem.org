@@ -7,7 +7,7 @@ llms: An Arterial street typology with dedicated bus rapid transit or light rail
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Arterial Transit (BRT/LRT)" classification="arterial" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <Density
 
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Transit, then Pedestrian, then Bicycle, then Vehicle, then Freight. Unlike Local Transit and Collector Transit, this ordering reinforces the Arterial base order rather than overriding it, since Transit already sits at the top of the Arterial base hierarchy.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[40, 35, 30]} stacked>
+Follows the Arterial density-tiered baseline for its typical Compact, Urban, and Core contexts. Transit priority in the modal hierarchy below does not change the vehicle speed cap.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="arterial" rows={[{ tiers: ['transit', 'pedestrian', 'bicycle', 'vehicle', 'freight'] }]}>
+Unlike Local Transit and Collector Transit, this ordering reinforces the Arterial base order rather than overriding it, since Transit already sits at the top of the Arterial base hierarchy.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

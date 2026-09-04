@@ -7,7 +7,7 @@ llms: A Local street typology that closes or restricts vehicle traffic during ac
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="School Street" classification="local" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <Density
 
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings, where schools are typically set back with dedicated drop-off lots rather than fronting a closable street.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-During active hours: Pedestrian and Bicycle only. Off-hours: reverts to the Local base order.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Vehicle access is restricted or excluded during arrival and dismissal. Outside of active hours, the Local default applies: 20 mph hard maximum, no exceptions.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ label: 'During active hours:', tiers: ['pedestrian', 'bicycle'] }, { label: 'Off-hours:', tiers: ['pedestrian', 'bicycle', 'transit', 'vehicle', 'freight'] }]}>
+This pattern carries two separate modal hierarchies depending on time of day, not one: full pedestrian/bicycle exclusivity during arrival and dismissal, the Local base order the rest of the time.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

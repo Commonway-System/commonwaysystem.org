@@ -7,7 +7,7 @@ llms: A Collector street typology carrying a dedicated transit route, with trans
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Collector Transit" classification="collector" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <Dens
 
 Rural is an edge case. Undeveloped is an unlikely pairing.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Transit, then Pedestrian, then Bicycle, then Vehicle, then Freight, an override of the Collector base order justified by the Typology's stated purpose, a designated transit route.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[30]}>
+Follows the Collector default: 30 mph standard. Transit priority in the modal hierarchy below does not change the vehicle speed cap.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="collector" rows={[{ tiers: ['transit', 'pedestrian', 'bicycle', 'vehicle', 'freight'] }]}>
+An override of the Collector base order justified by the Typology's stated purpose, a designated transit route.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

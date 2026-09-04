@@ -7,7 +7,7 @@ llms: A narrow Local street typology where opposing vehicles yield to each other
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Yield Street" classification="local" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
 
 Rural and Urban are edge cases. Undeveloped and Core are unlikely pairings, since local street volumes at Core density typically exceed what yield control can handle safely.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Pedestrian, then Bicycle, then Vehicle, then Transit, then Freight. Marked as needing confirmation rather than fully locked.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Follows the Local default: 20 mph hard maximum, no exceptions.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['pedestrian', 'bicycle', 'vehicle', 'transit', 'freight'] }]}>
+Marked as needing confirmation rather than fully locked.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

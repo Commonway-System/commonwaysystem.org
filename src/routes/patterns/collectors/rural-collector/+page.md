@@ -7,7 +7,7 @@ llms: A Collector street typology serving vehicle and freight movement through l
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Rural Collector / Farm-to-Market Road" classification="collector" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
 
 Suburban is an edge case. Compact, Urban, and Core are unlikely pairings.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Vehicle, then Freight, then Pedestrian, then Bicycle, then Transit, a judgment call reasoned from the Typology's purpose rather than derived cleanly from a listed override trigger, and open for correction.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[30]}>
+Follows the Collector default: 30 mph standard.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="collector" rows={[{ tiers: ['vehicle', 'freight', 'pedestrian', 'bicycle', 'transit'] }]}>
+A judgment call reasoned from the Typology's purpose rather than derived cleanly from a listed override trigger, and open for correction.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

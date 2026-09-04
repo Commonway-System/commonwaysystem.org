@@ -187,6 +187,24 @@
   --cw-freeway-soft: var(--cw-freeway-undeveloped);
   --cw-intersections-soft: var(--cw-intersections-undeveloped);
 
+  /* Modal Hierarchy pill text/icon color. Local and Collector: computed
+     WCAG contrast of #FFFFFF vs #000000 against each classification's
+     own --cw-local/-collector representative fill above, whichever wins
+     by the larger margin (ModalHierarchyPill.svelte) — not a single
+     fixed choice, since the representative token's own value flips
+     between light and dark mode, and the contrast winner flips
+     independently right along with it (white wins on light mode's
+     purple/indigo, black wins on dark mode's lighter tint of the same
+     hue). Arterial is the deliberate exception: its yellow-green only
+     clears ~2.3-3.6:1 against either black or white (short of the
+     4.5:1 text minimum both ways), and white reads far more legibly
+     there than the "technically closer" black, so it's fixed white in
+     both themes with a dark text-shadow/icon-drop-shadow glow standing
+     in for contrast instead (the user's own call, not a WCAG pass). */
+  --cw-local-pill-fg: #ffffff;
+  --cw-collector-pill-fg: #ffffff;
+  --cw-arterial-pill-fg: #ffffff;
+
   /* ---- Admonitions -------------------------------------------------- */
   --cw-note: var(--cw-primary);
   --cw-note-soft: var(--cw-primary-soft);
@@ -308,6 +326,15 @@
   --cw-arterial-soft: #26330f;
   --cw-freeway-soft: #2b2d31;
   --cw-intersections-soft: #432c09;
+
+  /* Local and Collector flip to black text here: dark mode's lighter
+     tint of the same hue (--cw-local-suburban / --cw-collector-suburban)
+     passes white at only ~3:1 but black at ~6-7:1. Arterial stays fixed
+     white with the glow treatment in both modes, see the light-mode
+     block's comment. */
+  --cw-local-pill-fg: #000000;
+  --cw-collector-pill-fg: #000000;
+  --cw-arterial-pill-fg: #ffffff;
 
   --cw-note: var(--cw-primary);
   --cw-note-soft: var(--cw-primary-soft);

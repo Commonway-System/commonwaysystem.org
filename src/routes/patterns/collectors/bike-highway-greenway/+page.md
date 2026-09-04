@@ -7,7 +7,7 @@ llms: A Collector-scale street typology providing a dedicated, physically separa
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike Highway / Greenway" classification="collector" status="recommended">
@@ -20,7 +20,11 @@ Core is an edge case, since a dedicated separated path competes for limited righ
 
 ## Modal hierarchy
 
-Bicycle, then Pedestrian, then Transit, then Vehicle, then Freight, an override justified because the Typology's stated purpose is dedicated bicycle through-movement.
+<SpeedModalHierarchyCard>
+<ModalHierarchySection classification="collector" rows={[{ tiers: ['bicycle', 'pedestrian', 'transit', 'vehicle', 'freight'] }]}>
+An override justified because the Typology's stated purpose is dedicated bicycle through-movement. Design Speed & Speed Limits doesn't apply here, since this pattern excludes automobiles entirely.
+</ModalHierarchySection>
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

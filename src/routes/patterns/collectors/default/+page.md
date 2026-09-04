@@ -7,7 +7,7 @@ llms: The baseline Collector street, applying the base modal hierarchy and 30 mp
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Default (Standard Collector)" classification="collector" status="recommended">
@@ -20,7 +20,17 @@ Rural is an edge case. Undeveloped is an unlikely pairing.
 
 ## Speed and modal hierarchy
 
-30 mph standard. 35 mph is permitted only with rigid crash-protective separation, a concrete barrier rather than delineator posts, following FHWA's own distinction between the two.<Citation index={1} /> Modal hierarchy follows the Collector base order: Pedestrian, then Bicycle, then Transit, then Vehicle, then Freight, the same shape as Local. The higher speed tier loosens the practical design treatment, crossing spacing and separation, without changing the rank order.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[30, 35]} guideLink={false}>
+30 mph standard. 35 mph is permitted only with rigid crash-protective separation, a concrete barrier rather than delineator posts, following FHWA's own distinction between the two.<Citation index={1} />
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="collector" rows={[{ tiers: ['pedestrian', 'bicycle', 'transit', 'vehicle', 'freight'] }]}>
+Modal hierarchy follows the Collector base order, the same shape as Local. The higher speed tier loosens the practical design treatment, crossing spacing and separation, without changing the rank order.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

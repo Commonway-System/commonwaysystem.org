@@ -7,7 +7,7 @@ llms: An Arterial street typology marked Situational/Discouraged, since one-way 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="One-Way Street" classification="arterial" status="situational">
@@ -19,8 +19,22 @@ Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <Density
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings.
 
 :::warning
-One-Way Street carries Situational/Discouraged status. It tends to encourage speeding, since drivers no longer need to watch for oncoming traffic.<Citation index={1} /> The modal hierarchy is retained at the Arterial base order rather than reassigned, a deliberate choice that signals the conflict between the pattern's real-world speeding effect and its nominal priority order, rather than papering over it with a different hierarchy.
+One-Way Street carries Situational/Discouraged status. It tends to encourage speeding, since drivers no longer need to watch for oncoming traffic.<Citation index={1} />
 :::
+
+## Speed and modal hierarchy
+
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[40, 35, 30]} stacked>
+Follows the Arterial density-tiered baseline for its typical Compact, Urban, and Core contexts.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="arterial" rows={[{ tiers: ['transit', 'pedestrian', 'bicycle', 'vehicle', 'freight'] }]}>
+The modal hierarchy is retained at the Arterial base order rather than reassigned, a deliberate choice that signals the conflict between the pattern's real-world speeding effect and its nominal priority order, rather than papering over it with a different hierarchy.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

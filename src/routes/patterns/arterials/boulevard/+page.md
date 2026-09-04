@@ -7,7 +7,7 @@ llms: An Arterial street typology combining through traffic with a pedestrian-fi
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Boulevard" classification="arterial" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <Density
 
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Pedestrian, then Transit, then Bicycle, then Vehicle, then Freight, a judgment call reasoned from the Typology's purpose rather than derived cleanly from a listed override trigger, and open for correction.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[40, 35, 30]} stacked>
+Follows the Arterial density-tiered baseline for its typical Compact, Urban, and Core contexts.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="arterial" rows={[{ tiers: ['pedestrian', 'transit', 'bicycle', 'vehicle', 'freight'] }]}>
+A judgment call reasoned from the Typology's purpose rather than derived cleanly from a listed override trigger, and open for correction.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

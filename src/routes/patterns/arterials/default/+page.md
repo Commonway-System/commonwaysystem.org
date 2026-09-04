@@ -7,7 +7,7 @@ llms: The baseline Arterial street typology, defined by never mixing on-street p
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Default (No Parking, No Direct Property Access)" classification="arterial" status="recommended">
@@ -20,7 +20,17 @@ Undeveloped is an edge case.
 
 ## Speed and modal hierarchy
 
-Design speed always equals posted speed, following FHWA's self-enforcing roadway framework.<Citation index={2} /><Citation index={3} /> The baseline is density-tiered with noise and access-proximity modifiers in principle, though exact per-tier figures are not yet locked. Modal hierarchy follows the Arterial base order: Transit, then Pedestrian, then Bicycle, then Vehicle, then Freight. This gives vehicles and freight movement-priority, but Vision Zero evidence keeps pedestrians and cyclists from dropping to the bottom on account of traffic volume alone. Freight moves above Vehicle only where a Typology's whole purpose is freight-specific.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[55, 45, 40, 35, 30]} guideLink={false} stacked>
+Design speed always equals posted speed, following FHWA's self-enforcing roadway framework.<Citation index={2} /> The baseline is set by density tier, running from 55 mph at Undeveloped and Rural down to 30 mph at Core, matching Collector's own ceiling at that tier. Two modifiers can each subtract 5 mph from the baseline where they apply: adjacency to noise-sensitive land uses within a lane-count-based distance, and local-street access more frequent than a defined spacing threshold, the same access-density logic behind why frequent driveway cuts raise crash risk.<Citation index={3} /> The two modifiers do not stack: where both apply, only the single larger reduction is used, not both added together. The result never falls below a 30 mph floor except through a documented exception.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="arterial" rows={[{ tiers: ['transit', 'pedestrian', 'bicycle', 'vehicle', 'freight'] }]}>
+Modal hierarchy follows the Arterial base order. This gives vehicles and freight movement-priority, but Vision Zero evidence keeps pedestrians and cyclists from dropping to the bottom on account of traffic volume alone. Freight moves above Vehicle only where a Typology's whole purpose is freight-specific.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

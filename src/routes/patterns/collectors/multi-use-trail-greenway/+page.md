@@ -7,7 +7,7 @@ llms: A Collector street typology for an off-street path shared by pedestrians a
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Multi-Use Trail / Greenway" classification="collector" status="recommended">
@@ -20,7 +20,11 @@ Undeveloped contexts are an unlikely pairing.
 
 ## Modal hierarchy
 
-Pedestrian and Bicycle share top priority under this pattern's own equal-priority definition — no ranking between the two. Transit, Vehicle, and Freight do not apply off-street.
+<SpeedModalHierarchyCard>
+<ModalHierarchySection classification="collector" rows={[{ tiers: [['pedestrian', 'bicycle']] }]}>
+Pedestrian and Bicycle share top priority under this pattern's own equal-priority definition, no ranking between the two. Transit, Vehicle, and Freight do not apply off-street; Design Speed & Speed Limits doesn't apply here, since this pattern excludes automobiles entirely.
+</ModalHierarchySection>
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

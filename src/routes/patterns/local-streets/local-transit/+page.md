@@ -7,7 +7,7 @@ llms: A Local street typology carrying a dedicated transit route, with transit e
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Local Transit" classification="local" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <Dens
 
 Undeveloped and Rural are unlikely pairings, since Local Transit assumes a rider base a low-density area typically cannot support.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Transit, then Pedestrian, then Bicycle, then Vehicle, then Freight. This is an override of the Local base order, justified by the Typology's stated purpose: a designated transit route.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Follows the Local default: 20 mph hard maximum, no exceptions. Transit priority in the modal hierarchy below does not change the vehicle speed cap.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['transit', 'pedestrian', 'bicycle', 'vehicle', 'freight'] }]}>
+This is an override of the Local base order, justified by the Typology's stated purpose: a designated transit route.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

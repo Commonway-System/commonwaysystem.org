@@ -35,7 +35,7 @@ The Commonway System name, logo, wordmark, color system, and overall visual iden
 
 ## Code and content licensing
 
-The site's underlying code is open source under the MIT License; see the [LICENSE file](https://github.com/Commonway-System/commonwaysystem.org/blob/main/LICENSE) in the repository. The guide's written content is licensed separately: Commonway System retains the rights to the compiled guide, and contributors grant a license to use their submissions as described on the [Submit a Change](/about/contributing/) page. These are two different licenses covering two different things, and neither extends to the brand elements described above.
+The site's underlying code is open source under the MIT License; see the [LICENSE file](https://github.com/Commonway-System/commonwaysystem.org/blob/main/LICENSE) in the repository. A small number of icons are reproduced from the third-party [Lucide](https://lucide.dev/) icon set under its own license; see [THIRD-PARTY-NOTICES](https://github.com/Commonway-System/commonwaysystem.org/blob/main/THIRD-PARTY-NOTICES). The guide's written content is licensed separately: Commonway System retains the rights to the compiled guide, and contributors grant a license to use their submissions as described on the [Submit a Change](/about/contributing/) page. These are two different licenses covering two different things, and neither extends to the brand elements described above.
 
 ## Contributions
 

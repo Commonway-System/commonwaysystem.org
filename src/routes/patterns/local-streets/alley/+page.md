@@ -7,7 +7,7 @@ llms: A narrow Local street typology for service and driveway access, where vehi
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Alley" classification="local" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <Density
 
 Suburban is an edge case. Undeveloped and Rural contexts are unlikely to carry a purpose-built alley.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Alley inverts the Local base order: Vehicle, then Freight, then Pedestrian, then Bicycle, then Transit. The override is justified because the Typology's stated purpose is service and driveway access, not through movement, one of the closed set of triggers that permits a departure from the base order.<Citation index={1} />
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Follows the Local default: 20 mph hard maximum, no exceptions.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['vehicle', 'freight', 'pedestrian', 'bicycle', 'transit'] }]}>
+Alley inverts the Local base order. The override is justified because the Typology's stated purpose is service and driveway access, not through movement, one of the closed set of triggers that permits a departure from the base order.<Citation index={1} />
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

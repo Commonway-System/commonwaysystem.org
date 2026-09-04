@@ -7,7 +7,7 @@ llms: A Collector street typology serving industrial land use, where freight mov
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Industrial Collector" classification="collector" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <Dens
 
 Undeveloped, Rural, and Core are edge cases.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Freight, then Vehicle, then Pedestrian, then Bicycle, then Transit, an override justified because the Typology's stated purpose is freight movement to and from industrial land use.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[30]}>
+Follows the Collector default: 30 mph standard. Freight priority in the modal hierarchy below does not change the vehicle speed cap.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="collector" rows={[{ tiers: ['freight', 'vehicle', 'pedestrian', 'bicycle', 'transit'] }]}>
+An override justified because the Typology's stated purpose is freight movement to and from industrial land use.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

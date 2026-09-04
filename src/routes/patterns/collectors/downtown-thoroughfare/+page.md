@@ -7,7 +7,7 @@ llms: "A collector-scale street running through a dense downtown or town-center 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Downtown Thoroughfare" classification="collector" status="situational">
@@ -16,9 +16,19 @@ A collector-scale street running through a dense downtown or town-center context
 
 Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Follows the Collector base order without an override: Pedestrian, then Bicycle, then Transit, then Vehicle, then Freight. The downtown context sharpens the pedestrian emphasis in the design treatment without changing which mode ranks first, since Pedestrian is already first in the Collector base order.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[30]}>
+Follows the Collector default: 30 mph standard.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="collector" rows={[{ tiers: ['pedestrian', 'bicycle', 'transit', 'vehicle', 'freight'] }]}>
+Follows the Collector base order without an override. The downtown context sharpens the pedestrian emphasis in the design treatment without changing which mode ranks first, since Pedestrian is already first in the Collector base order.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

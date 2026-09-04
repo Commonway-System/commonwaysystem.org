@@ -7,7 +7,7 @@ llms: The baseline Local street, applying the base modal hierarchy and 20 mph de
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Default (Standard Local Street)" classification="local" status="recommended">
@@ -38,17 +38,17 @@ Rural is an edge case, not the norm. Farm and rural-residential contexts more of
 
 ## Speed and modal hierarchy
 
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]} guideLink={false}>
 20 mph hard maximum, no exceptions. This is not a target or an aspirational limit: under CS's self-enforcing roadway principle, design speed always equals posted speed, so the street's geometry itself has to make 20 mph the comfortable driving speed, not just the posted number.<Citation index={1} />
 
-Modal hierarchy follows the Local base order without an override:
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['pedestrian', 'bicycle', 'transit', 'vehicle', 'freight'] }]}>
+Modal hierarchy follows the Local base order without an override. This order follows directly from Local's access-priority role in the Functional Classification system, not from a judgment call specific to this Typology. A named Typology only reorders it when the Typology's whole purpose is a specific mode, for example <a href="/patterns/local-streets/alley/">Alley</a> (Vehicle and Freight first, since the entire point is service and driveway access) or <a href="/patterns/local-streets/bicycle-boulevard/">Bicycle Boulevard / Neighborhood Greenway</a> (Bicycle first, since shared-street bicycle priority is the entire point).
 
-1. Pedestrian
-2. Bicycle
-3. Transit
-4. Vehicle
-5. Freight
+</ModalHierarchySection>
 
-This order follows directly from Local's access-priority role in the Functional Classification system, not from a judgment call specific to this Typology. A named Typology only reorders it when the Typology's whole purpose is a specific mode, for example [Alley](/patterns/local-streets/alley/) (Vehicle and Freight first, since the entire point is service and driveway access) or [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (Bicycle first, since shared-street bicycle priority is the entire point).
+</SpeedModalHierarchyCard>
 
 ## Relationship to other Local Typologies
 

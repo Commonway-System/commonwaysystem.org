@@ -6,7 +6,7 @@ llms: The Commonway System's full visual and editorial system, colors, typograph
 ---
 
 <script>
-  import { Button, Citation, ColorSwatch, EvidenceChip, ExampleCard, FormControlsPreview, LogoPreview, PatternCard, PatternIndexCard, TypeSample } from '$lib/theme/components'
+  import { Button, Citation, ColorSwatch, EvidenceChip, ExampleCard, FormControlsPreview, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
 </script>
 
 The visual and editorial system behind the Commonway System (CS): how it looks, how it's written, and how its evidence is presented. This page transcribes the working brand reference; treat the color values and rules below as the source of truth over anything in the site's theme.
@@ -17,6 +17,10 @@ This is a working draft (CalVer 2026.08.26), maintained as an internal reference
 
 :::note
 Intersections & Crossings has no color family in the working draft, which only documents Local, Collector, Arterial, and Freeway. The ramp shown below for it is a site-only addition (added 2026.08.30, not part of the guide), built the same way the guide's own four ramps were, from a single base color rather than an invented palette.
+:::
+
+:::note
+The Speed & Modal Hierarchy card and its Modal Hierarchy pills, documented under Components below, are also a site-only addition (added 2026.09.02, not part of the working draft), built to document a real sitewide component rollout rather than a design decision made on this page first.
 :::
 
 ## Voice attributes
@@ -224,6 +228,53 @@ Corner radii should not exceed 15 ft (4.6 m) at the crossing edge.<Citation inde
 This sentence is a placeholder for a claim that has not been sourced yet.<Citation unsourced />
 </ExampleCard>
 
+### Speed & Modal Hierarchy card
+
+<ExampleCard>
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]} guideLink={false}>
+Follows the Local Character Type's rule: 20 mph hard maximum, no exceptions.
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['pedestrian', 'bicycle', 'transit', 'vehicle', 'freight'] }]}>
+No override: this Typology follows the Local base order.
+</ModalHierarchySection>
+</SpeedModalHierarchyCard>
+</ExampleCard>
+
+<ExampleCard>
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[40, 35, 30]} stacked guideLink={false}>
+Follows the Arterial density-tiered baseline for its typical Compact, Urban, and Core contexts.
+</SpeedLimitSection>
+<ModalHierarchySection classification="arterial" rows={[{ tiers: ['transit', 'pedestrian', 'bicycle', 'vehicle', 'freight'] }]}>
+Follows the Arterial base order without an override.
+</ModalHierarchySection>
+</SpeedModalHierarchyCard>
+</ExampleCard>
+
+Every Local, Collector, and Arterial pattern that allows automobiles carries this card, split into Section A (Design Speed & Speed Limit) and Section B (Modal Hierarchy). Section A shows one MUTCD-style speed-limit sign per applicable speed, paired with a line stating whether the pattern inherits its Character Type's rule as written or carries a documented override, and a link to [Design Speed & Speed Limits](/guide/design-speed/). Section B shows a row of [Modal Hierarchy pills](#modal-hierarchy-pills), described in its own entry below.
+
+Five named layout variations:
+
+- **Local / Collector.** Signs and description run side by side, as in the first example above.
+- **Arterial.** Signs stack above the description instead, as in the second example above, needed once a pattern can carry more than two signs at once (up to five, one per density tier).
+- **Speed-only** ([Stroad](/patterns/arterials/stroad/)). Section A's signs with no Section B pill row at all, since Stroad is an explicit Avoid pattern with no ranked hierarchy to show.
+- **Modal-Hierarchy-only** (patterns that exclude automobiles entirely, [Shared-Use Path](/patterns/local-streets/shared-use-path/) and [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) among them). Section B with no Section A at all, since Design Speed & Speed Limits has nothing to say about a street with no cars on it.
+- **Time-conditional** ([Festival Street](/patterns/local-streets/festival-street/), [School Street](/patterns/local-streets/school-street/)). Two labeled pill rows inside one Section B, since each pattern's modal hierarchy changes by time of day.
+
+### Modal hierarchy pills
+
+<ExampleCard>
+<ModalHierarchyRow tiers={['pedestrian', 'bicycle', 'transit', 'vehicle', 'freight']} classification="local"></ModalHierarchyRow>
+<ModalHierarchyRow tiers={[['pedestrian', 'bicycle']]} classification="collector"></ModalHierarchyRow>
+</ExampleCard>
+
+A reusable component in its own right, not just a piece of the card above. Each pill pairs a small icon with the mode's name, one pill per mode across five modes: Pedestrian, Bicycle, Transit, Vehicle, and Freight.
+
+Background color is the pattern's own Functional Classification color, the same token the Pattern ID card's left edge uses above, not a fixed "Core tier" value: it's whichever tier of that classification's ramp the site's `--cw-local`/`--cw-collector`/`--cw-arterial` tokens already point to (see the Pattern ID card entry above and `tokens.css`'s own comments), which differs by classification and shifts again between light and dark mode. Text and icon color is whichever of `#FFFFFF` or `#000000` clears contrast against that background by the larger margin, computed per classification and per theme rather than fixed to one value across all three, with one documented exception for Arterial; see Accessibility notes below.
+
+Two pills separated by a ">" means the left one strictly outranks the right, the first example row above. Two pills separated by an "=" means they're explicitly tied at the same rank, the second example row above, a real case on [Shared-Use Path](/patterns/local-streets/shared-use-path/) and [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/), where Pedestrian and Bicycle share top priority with no ranking between them.
+
 ## Buttons, links & forms
 
 The interactive-site build needs these regardless of how sparingly the book itself uses them, since search, filtering, and the eventual interactive Guide diagnostic tool all depend on real form controls. The site does not have production `<button>`/`<select>` styling wired up as reusable components yet, but these previews use the same `tokens.css` values everything else on the site does.
@@ -297,16 +348,24 @@ Google's own guidance treats generative AI search optimization as fundamentally 
 
 A contrast issue was caught and fixed during design: the citation badge and Evidence-based chip originally used `#003D35` text on `#00A896`, a 4.10:1 contrast ratio, below the 4.5:1 WCAG AA requirement for text at that size. Corrected to `#002D27`, reaching 5.01:1 (the value used by the evidence chips above).
 
-| Pairing                     | Ratio   | Status |
-| --------------------------- | ------- | ------ |
-| Citation badge (corrected)  | 5.01:1  | Pass   |
-| Precedent-based chip        | 7.59:1  | Pass   |
-| Legal/regulatory chip       | 6.41:1  | Pass   |
-| Pattern ID / metadata label | 5.04:1  | Pass   |
-| Unsourced-claim flag        | 8.97:1  | Pass   |
-| Body text on paper          | 17.67:1 | Pass   |
+| Pairing                                   | Ratio   | Status |
+| ------------------------------------------ | ------- | ------ |
+| Citation badge (corrected)                | 5.01:1  | Pass   |
+| Precedent-based chip                      | 7.59:1  | Pass   |
+| Legal/regulatory chip                     | 6.41:1  | Pass   |
+| Pattern ID / metadata label               | 5.04:1  | Pass   |
+| Unsourced-claim flag                      | 8.97:1  | Pass   |
+| Body text on paper                        | 17.67:1 | Pass   |
+| Modal hierarchy pill, Local (light mode)  | 8.30:1  | Pass   |
+| Modal hierarchy pill, Local (dark mode)   | 5.80:1  | Pass   |
+| Modal hierarchy pill, Collector (light mode) | 7.28:1 | Pass |
+| Modal hierarchy pill, Collector (dark mode)  | 6.76:1 | Pass |
+| Modal hierarchy pill, Arterial (light mode)  | 3.57:1 | Fail (mitigated) |
+| Modal hierarchy pill, Arterial (dark mode)   | 2.32:1 | Fail (mitigated) |
 
 The full palette is simulated against protanopia, deuteranopia, and tritanopia using the Machado-Oliveira-Fairchild model. Local's hue was moved from an initial muted rose, which collapsed toward Freeway's gray under deuteranopia, to a saturated violet-purple, chosen via a hue and saturation sweep maximizing worst-case separation while staying outside the red, orange, and yellow range reserved for the warning system.
+
+**Arterial's pill is a documented exception, not a silent pass.** Black actually wins the contrast math against Arterial's yellow-green in both modes (5.88:1 light, 9.06:1 dark, both clearing 4.5:1), but reads far less legibly against that saturated hue than white does in practice. White was chosen anyway, at 3.57:1 (light) and 2.32:1 (dark), below the 4.5:1 text minimum and, in dark mode, below even the 3:1 UI-component minimum. A dark text-shadow behind the pill's text and icon (a glow, not a color change) stands in for the missing contrast margin. This mirrors how this page already treats other known gaps, the `--cw-danger` placeholder and the `:::warning` admonition's amber conflict, flagged plainly rather than quietly rounded up to "close enough."
 
 A separate legibility issue surfaced after the contrast fix above: the citation badge and unsourced-claim flag pass their contrast ratios at the working draft's `--type-micro` size (10px), but a numeral at 10px in a tight colored pill was hard to actually read, a real-world legibility problem the contrast ratio alone doesn't catch. Both now render at 12px, semibold, independent of the type scale documented above. Contrast is unaffected, this is a size correction, not a color one.
 

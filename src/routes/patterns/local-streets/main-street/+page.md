@@ -7,7 +7,7 @@ llms: A Local street typology built around retail frontage and pedestrian priori
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Main Street" classification="local" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 
 Rural, Suburban, and Core are edge cases: a small-town pattern at Rural, less common at Suburban, and tapering at Core where retail frontage folds into larger mixed-use blocks. Undeveloped is an unlikely pairing.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Pedestrian, then Transit, then Bicycle, then Vehicle, then Freight. This ordering is a judgment call, reasoned from the Typology's purpose rather than derived cleanly from a listed override trigger, and is open for correction.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Follows the Local default: 20 mph hard maximum, no exceptions.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['pedestrian', 'transit', 'bicycle', 'vehicle', 'freight'] }]}>
+This ordering is a judgment call, reasoned from the Typology's purpose rather than derived cleanly from a listed override trigger, and is open for correction.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

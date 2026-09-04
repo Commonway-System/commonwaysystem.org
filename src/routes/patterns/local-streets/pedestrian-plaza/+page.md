@@ -7,7 +7,7 @@ llms: A Local street typology, marked Situational, that excludes vehicle traffic
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pedestrian-only Street / Plaza" classification="local" status="situational">
@@ -24,7 +24,11 @@ Pedestrian-only Street / Plaza carries Situational status. Full vehicle exclusio
 
 ## Modal hierarchy
 
-Pedestrian, then Bicycle where permitted. All other modes are excluded rather than ranked.
+<SpeedModalHierarchyCard>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['pedestrian', 'bicycle'] }]}>
+Where permitted, Bicycle ranks second. All other modes are excluded rather than ranked; Design Speed & Speed Limits doesn't apply here, since this pattern excludes automobiles entirely.
+</ModalHierarchySection>
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

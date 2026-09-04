@@ -7,7 +7,7 @@ llms: A Local street typology, including NACTO's Home Zone, where pedestrians an
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Living Street / Woonerf" classification="local" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <Density
 
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Pedestrian, then Bicycle, then Vehicle (as guest), then Transit, then Freight.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Follows the Local default: 20 mph hard maximum, no exceptions. In practice, the shared-surface design typically produces actual speeds well below this ceiling.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['pedestrian', 'bicycle', 'vehicle', 'transit', 'freight'] }]}>
+Vehicle ranks third as a guest in this order, not a peer road user: it moves at walking pace and yields to people on foot or bike by design.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

@@ -7,7 +7,7 @@ llms: An Arterial anti-pattern marked Avoid, formed by mixing on-street parking 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout, IllustrationInsteadSee } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout, IllustrationInsteadSee, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Stroad (Commercial Arterial)" classification="arterial" status="avoid">
@@ -21,6 +21,21 @@ Undeveloped and Urban are edge cases. Core is an unlikely pairing.
 :::danger
 Stroad is an explicit **Avoid** pattern within the Commonway System, not a Typology to design toward. No default modal order is assigned, since the pattern itself is the anti-pattern being flagged.
 :::
+
+## Speed and modal hierarchy
+
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[55, 45, 40]} stacked>
+Stroad mixes through traffic with on-street parking and direct driveway access, the exact combination the Arterial core safety rule prohibits. No single design speed is safe for this mismatch; the signs above show the density-tiered baseline this pattern violates, not a speed to design toward.
+
+</SpeedLimitSection>
+
+<ModalHierarchySection>
+No default modal order is assigned, since the pattern itself is the anti-pattern being flagged.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Illustration
 

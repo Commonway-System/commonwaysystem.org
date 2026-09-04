@@ -38,6 +38,7 @@ const theme = commonwayTheme({
           { title: 'Density Tiers', to: '/guide/density-tiers/' },
           { title: 'Street Types & Classifications', to: '/guide/street-types/' },
           { title: 'Scale Hierarchy', to: '/guide/scale-hierarchy/' },
+          { title: 'Design Speed & Speed Limits', to: '/guide/design-speed/' },
         ],
       },
       {

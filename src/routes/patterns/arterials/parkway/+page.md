@@ -7,7 +7,7 @@ llms: "A roadway historically designed as a scenic, landscaped route, typically 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Parkway" classification="arterial" status="situational">
@@ -16,9 +16,19 @@ A roadway historically designed as a scenic, landscaped route, typically featuri
 
 Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Follows the Arterial base order without an override: Transit, then Pedestrian, then Bicycle, then Vehicle, then Freight. A Parkway meeting genuine freeway design standards should be read as a Freeway pattern instead, which carries no modal hierarchy at all.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[55, 45, 40, 35]} stacked>
+Follows the Arterial density-tiered baseline for its typical Rural, Suburban, Compact, and Urban contexts. A Parkway meeting genuine freeway design standards should be read as a Freeway pattern instead, which carries no speed rule at all.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="arterial" rows={[{ tiers: ['transit', 'pedestrian', 'bicycle', 'vehicle', 'freight'] }]}>
+Follows the Arterial base order without an override. A Parkway meeting genuine freeway design standards should be read as a Freeway pattern instead, which carries no modal hierarchy at all.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

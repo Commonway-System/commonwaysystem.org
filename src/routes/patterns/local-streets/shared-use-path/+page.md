@@ -7,7 +7,7 @@ llms: A Local street typology for an off-street path physically separated from t
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Shared-Use Path" classification="local" status="recommended">
@@ -20,7 +20,11 @@ Undeveloped and Rural contexts are unlikely to carry a purpose-built shared-use 
 
 ## Modal hierarchy
 
-Pedestrian and Bicycle share top priority under this pattern's own equal-priority definition — no ranking between the two. Transit, Vehicle, and Freight do not apply off-street.
+<SpeedModalHierarchyCard>
+<ModalHierarchySection classification="local" rows={[{ tiers: [['pedestrian', 'bicycle']] }]}>
+Pedestrian and Bicycle share top priority under this pattern's own equal-priority definition, no ranking between the two. Transit, Vehicle, and Freight do not apply off-street; Design Speed & Speed Limits doesn't apply here, since this pattern excludes automobiles entirely.
+</ModalHierarchySection>
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

@@ -7,7 +7,7 @@ llms: A Local street typology using traffic calming and diversion to discourage 
 ---
 
 <script>
-  import { PatternCard, DensityChip, Citation, EvidenceChip, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout } from '$lib/theme/components'
+  import { PatternCard, DensityChip, Citation, EvidenceChip, Illustration, IllustrationFrame, IllustrationCallouts, IllustrationCallout, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bicycle Boulevard / Neighborhood Greenway" classification="local" status="recommended">
@@ -36,9 +36,19 @@ Suburban is an edge case, thinning for the same reason as [Continuous Sidewalk /
 
 No supplemental illustration needed.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Bicycle, then Pedestrian, then Transit, then Vehicle, then Freight, an override justified because shared-street bicycle priority is this Typology's entire reason for existing.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Follows the Local default: 20 mph hard maximum, no exceptions. A separate 85th/95th-percentile operating-speed threshold of 25 mph is used as a trigger for additional traffic calming, not as a substitute design speed.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['bicycle', 'pedestrian', 'transit', 'vehicle', 'freight'] }]}>
+An override justified because shared-street bicycle priority is this Typology's entire reason for existing.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

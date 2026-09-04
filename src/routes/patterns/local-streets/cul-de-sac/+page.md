@@ -7,7 +7,7 @@ llms: A dead-end Local street typology, marked Situational, that peaks at Suburb
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Cul-de-sac" classification="local" status="situational">
@@ -22,9 +22,19 @@ Compact is an edge case. Undeveloped, Rural, Urban, and Core are unlikely pairin
 Cul-de-sac carries Situational status. The connectivity and walkability expectations that define Urban and Core density are close to incompatible with a dead-end street pattern, so this Typology's realistic range is narrow, peaking at Suburban.<Citation index={1} />
 :::
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Pedestrian, then Bicycle, then Vehicle, then Freight, the Local base order minus Transit, since a dead-end street rarely carries a transit route.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Follows the Local default: 20 mph hard maximum, no exceptions.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['pedestrian', 'bicycle', 'vehicle', 'freight'] }]}>
+The Local base order minus Transit, since a dead-end street rarely carries a transit route.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

@@ -1,12 +1,12 @@
 ---
 title: How to Read a Pattern
-description: How to read a Commonway System pattern entry, Pattern ID cards, classification colors, status badges, density tier chips, and the citation system.
+description: How to read a Commonway System pattern entry, Pattern ID cards, classification colors, status badges, density tier chips, the Speed & Modal Hierarchy card, and the citation system.
 date: 2026-08-29
-llms: Explains how to read a Commonway System pattern entry, Pattern ID cards, classification colors and status badges, density tier chips, admonitions, and the citation and unsourced-claim system.
+llms: Explains how to read a Commonway System pattern entry, Pattern ID cards, classification colors and status badges, density tier chips, the Speed & Modal Hierarchy card, admonitions, and the citation and unsourced-claim system.
 ---
 
 <script>
-  import { DensityChip, Citation, ExampleCard, PatternCard } from '$lib/theme/components'
+  import { DensityChip, Citation, ExampleCard, PatternCard, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 Every pattern in this guide is built from the same handful of parts, repeated consistently: a Pattern ID card, density tier chips, admonition blocks, and citations. This page walks through what each one means, so the rest of the guide can be read without re-explaining itself on every page.
@@ -47,6 +47,27 @@ Density tiers appear as a small chip next to any guidance that changes by contex
 <DensityChip tier="Suburban" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Six tiers run from Undeveloped to Core, describing how much housing and activity sit on the land around a street, not the street itself. Read the [Density Tiers](/guide/density-tiers/) page for what each tier means, where the names and unit-per-acre ranges come from, and how to handle a segment that falls between two tiers.
+
+## The Speed & Modal Hierarchy card
+
+Every Local, Collector, and Arterial pattern that allows automobiles carries a second card, split into two parts: Section A, Design Speed & Speed Limit, and Section B, Modal Hierarchy. A handful of patterns exclude automobiles entirely, Shared-Use Path and Bike Highway / Greenway among them, and show Section B on its own, with no speed section at all, since [Design Speed & Speed Limits](/guide/design-speed/) has nothing to say about a street with no cars on it.
+
+<ExampleCard>
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Follows the Local Character Type's rule: 20 mph hard maximum, no exceptions.
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['pedestrian', 'bicycle', 'transit', 'vehicle', 'freight'] }]}>
+No override: this Typology follows the Local base order.
+</ModalHierarchySection>
+</SpeedModalHierarchyCard>
+</ExampleCard>
+
+**Section A, Design Speed & Speed Limit,** shows one MUTCD-style speed-limit sign per applicable speed, paired with a short line stating whether the pattern inherits its Character Type's rule as written or carries a documented override, and a link to [Design Speed & Speed Limits](/guide/design-speed/) for the full rule and its citations. Arterial cards stack the sign(s) above that text instead of running them side by side, since an Arterial pattern can carry up to five signs, one per density tier, where Local always shows one and Collector shows at most two.
+
+**Section B, Modal Hierarchy,** shows a row of pills, one per mode, each pairing a small icon with the mode's name, left to right in ranked order. A ">" between two pills means the left one outranks the right; an "=" means the two are explicitly tied, [Shared-Use Path](/patterns/local-streets/shared-use-path/)'s Pedestrian = Bicycle pairing is a real example. Pill color follows the pattern's own Functional Classification, the same color family as the Pattern ID card's left edge above.
+
+Two patterns bend this format further. [Stroad](/patterns/arterials/stroad/) shows Section A's signs with no pill row underneath at all, since it's an explicit Avoid pattern with no ranked hierarchy to show. [Festival Street](/patterns/local-streets/festival-street/) and [School Street](/patterns/local-streets/school-street/) each show two labeled pill rows instead of one, since their modal hierarchy changes by time of day.
 
 ## Admonitions
 

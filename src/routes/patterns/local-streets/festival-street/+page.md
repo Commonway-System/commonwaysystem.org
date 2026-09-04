@@ -7,7 +7,7 @@ llms: A Local street typology that closes to vehicle traffic during scheduled ev
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Festival Street" classification="local" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Compact is an edge case. Undeveloped, Rural, and Suburban are unlikely pairings.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-During scheduled events: Pedestrian and Bicycle only. Off-hours: reverts to the Local base order.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Vehicle access is excluded entirely during scheduled events. Outside of events, the Local default applies: 20 mph hard maximum, no exceptions.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ label: 'During events:', tiers: ['pedestrian', 'bicycle'] }, { label: 'Off-hours:', tiers: ['pedestrian', 'bicycle', 'transit', 'vehicle', 'freight'] }]}>
+This pattern carries two separate modal hierarchies depending on time of day, not one: full pedestrian/bicycle exclusivity during scheduled events, the Local base order the rest of the time.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 

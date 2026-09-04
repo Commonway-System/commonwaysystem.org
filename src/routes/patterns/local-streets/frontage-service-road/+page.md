@@ -7,7 +7,7 @@ llms: A Local street typology running parallel to a faster Arterial or Freeway, 
 ---
 
 <script>
-  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation, SpeedModalHierarchyCard, SpeedLimitSection, ModalHierarchySection } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Frontage / Service Road" classification="local" status="recommended">
@@ -18,9 +18,19 @@ Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <Densit
 
 Undeveloped and Core are edge cases.
 
-## Modal hierarchy
+## Speed and modal hierarchy
 
-Follows the Local base order: Pedestrian, then Bicycle, then Transit, then Vehicle, then Freight. Flagged for confirmation rather than fully locked.
+<SpeedModalHierarchyCard>
+<SpeedLimitSection speeds={[20]}>
+Follows the Local default: 20 mph hard maximum, no exceptions, even where this road runs alongside a higher-speed Arterial or Freeway.
+
+</SpeedLimitSection>
+<ModalHierarchySection classification="local" rows={[{ tiers: ['pedestrian', 'bicycle', 'transit', 'vehicle', 'freight'] }]}>
+Follows the Local base order. Flagged for confirmation rather than fully locked.
+
+</ModalHierarchySection>
+
+</SpeedModalHierarchyCard>
 
 ## Design notes
 
