@@ -23,6 +23,18 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.08.30',
+      items: [
+        'Homepage rebuilt from scaffold placeholder text into a real Hero / differentiator-strip / features-grid page, with three new components (Hero, EvidenceStrip, FeatureGrid) and two new PageLayout frontmatter flags (hideTitle, wide) for pages that need their own custom-placed h1 or a wider-than-prose content column.',
+        'Homepage hero redesigned to be full-bleed edge to edge and permanently dark regardless of the site’s own light/dark toggle, with a subtle animated lane-line texture and a teal glow behind the logomark (both respecting prefers-reduced-motion), and a 60vh minimum height. New GlobalLayout mechanism (isHome) collapses the sidebar/toc grid to a single full-width column on the homepage only, since neither ever has content there.',
+        'Differentiator strip (the "why this guide is different" evidence-tier callout) redesigned from an amber box, which read as a warning notice, to a teal feature-highlight treatment matching the evidence chips’ own palette; its "learn more" link now uses the site’s standard hyperlink styling instead of a custom color.',
+        'Differentiator strip and feature grid widened to match the navbar’s own 88rem measure, instead of the narrower 46rem prose column every article page uses.',
+        '/about/credits/ moved for real to /about/acknowledgments/ (route, not just display title this time), with every cross-link updated to match.',
+        'Guide section rebuilt: sidebar regrouped into Foundations, Find Your Pattern, and Make It Happen (the Introduction page now an ungrouped "Start Here" entry at the top, same idea as About’s own Overview item). New Scale Hierarchy page split out of the Introduction page’s old content. Two new placeholder pages, Find Your Pattern and Make It Happen, each with real explanatory copy and the standing "planned but not yet written" callout, one per new sidebar group so nothing has to move once each becomes a real page sequence.',
+        'Known incomplete: the new Scale Hierarchy page’s Network/Corridor/Facility/Element definitions carry over wording from an earlier planning session that was never formally re-confirmed as final; pending a maintainer read-through.',
+      ],
+    },
+    {
       date: '2026.08.29',
       items: [
         'Pattern ID format finalized as CLASS-CTXCODE-## (e.g. LOC-BBG-12), replacing the old SCALE-CTXCODE-### scheme. Applied across every pattern page, the Pattern Index, and every illustrative example, confirmed with a full-repo search for zero remaining old-format IDs.',

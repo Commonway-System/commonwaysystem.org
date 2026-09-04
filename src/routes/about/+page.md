@@ -26,7 +26,7 @@ How decisions about the system get made and who makes them.
 **[Report a Problem](/about/reporting/)**
 How to flag an error, an unsourced claim, or a dead citation link.
 
-**[Acknowledgments](/about/credits/)**
+**[Acknowledgments](/about/acknowledgments/)**
 Everyone who has helped correct, source, or build the Commonway System.
 
 **[Terms and Conditions](/about/terms-and-conditions/)**

@@ -1,15 +1,61 @@
 ---
 title: Commonway System
+hideTitle: true
+wide: true
 description: A Pattern Language for Roads and Streets
 llms: Home page for the Commonway System Guidebook, a cross-referenced pattern language for road and street design grounded in cited evidence.
 ---
 
-## What is the Commonway System?
+<script>
+  import { EvidenceStrip, FeatureGrid, Hero } from '$lib/theme/components'
 
-The Commonway System Guidebook is a pattern language for roads and streets, built for readers from total beginners to professional engineers. This page is a scaffold placeholder; replace it with the real introduction once the book's opening is drafted.
+  const features = [
+    {
+      href: '/guide/',
+      title: 'Guide',
+      description: "Start here. How the system is put together, how patterns are classified, and how to read one.",
+    },
+    {
+      href: '/patterns/',
+      title: 'Patterns',
+      description: 'Every Street Typology in the system, organized from Local to Freeway.',
+    },
+    {
+      href: '/references/',
+      title: 'Reference',
+      description: 'The technical layer beneath each pattern: dimensions, criteria, specifications.',
+    },
+    {
+      href: '/blog/',
+      title: 'Blog',
+      description: 'Process notes and research as the guide grows.',
+    },
+    {
+      href: '/about/',
+      title: 'About',
+      description: 'What this is, who maintains it, how decisions get made.',
+    },
+    {
+      href: '/about/release-history/',
+      title: "What's New",
+      description: "See what's changed recently, and what's coming next.",
+    },
+  ]
+</script>
 
-:::note
-This site is running on a fully custom SveltePress theme. Colors, type, and the citation system are wired up as a starting point, not a finished design. See the Pattern Index for a worked example.
-:::
+<Hero
+  title="Commonway System"
+  tagline="One system, grounded in what's proven."
+  description="A pattern language for roads and streets, built on Vision Zero and Dutch Sustainable Safety evidence, layered on NACTO's foundation."
+  primaryHref="/guide/"
+  primaryLabel="Start with the Guide"
+  secondaryHref="/patterns/"
+  secondaryLabel="Browse Patterns"
+/>
 
-Start with the [guide introduction](/guide/), or look at a fully worked [example pattern](/patterns/local-streets/bicycle-boulevard/) to see how a Pattern ID card, density tiers, and citations render together.
+<EvidenceStrip
+  text="Every prescriptive claim in this guide traces to a cited source, and every source carries an evidence tier, so you can see how strong the backing is before you decide whether to trust it."
+  learnMoreHref="/about/governance/#how-disputes-over-evidence-are-resolved"
+/>
+
+<FeatureGrid features={features} />

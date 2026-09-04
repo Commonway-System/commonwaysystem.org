@@ -56,8 +56,11 @@
 </svelte:head>
 
 <div class="page">
-  <div class="cw-content" bind:this={contentEl}>
-    {#if fm.title}
+  <div class="cw-content" class:cw-content--wide={fm.wide} bind:this={contentEl}>
+    <!-- hideTitle: for pages (currently only the homepage) whose own body
+         markup renders the h1 itself, inside a custom section like Hero,
+         instead of as a bare heading floating above the content. -->
+    {#if fm.title && !fm.hideTitle}
       <h1>{fm.title}</h1>
     {/if}
     {@render children?.()}
@@ -95,6 +98,16 @@
   .cw-content {
     max-width: var(--cw-content-max-width);
     margin: 0 auto;
+  }
+
+  /* Opt-in via frontmatter (fm.wide), same mechanism as hideTitle above:
+     for pages (currently only the homepage) whose sections want the same
+     88rem measure as the navbar's own .navbar__inner, not the 46rem prose
+     column every article-style page uses. Declared after .cw-content so
+     it wins the specificity tie (both single-class, same scope) without
+     needing :global(). */
+  .cw-content--wide {
+    max-width: 88rem;
   }
 
   .page__meta {

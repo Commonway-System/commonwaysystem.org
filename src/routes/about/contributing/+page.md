@@ -41,7 +41,7 @@ The site's underlying code, Svelte components, configuration, and build tooling,
 
 ## Credit
 
-Contributors are credited by name (or GitHub handle, if you'd rather not use your name) on the [Acknowledgments](/about/credits/) page. Credit reflects that you helped build this, it isn't authorship of the guide itself, and it isn't a claim on any part of it.
+Contributors are credited by name (or GitHub handle, if you'd rather not use your name) on the [Acknowledgments](/about/acknowledgments/) page. Credit reflects that you helped build this, it isn't authorship of the guide itself, and it isn't a claim on any part of it.
 
 ## Code of conduct
 

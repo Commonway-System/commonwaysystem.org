@@ -25,15 +25,35 @@ const theme = commonwayTheme({
   // Functional Classification / Street Typology tree as it firms up.
   sidebar: {
     '/guide/': [
+      // Ungrouped landing-page entry, same idea as '/about/''s own Overview
+      // item: the section's front page listed first, not buried a level
+      // down inside one of the named groups below it.
+      { title: 'Start Here', to: '/guide/' },
       {
-        title: 'Guide',
+        title: 'Foundations',
         collapsible: false,
         items: [
-          { title: 'What is the Commonway System', to: '/guide/' },
           { title: 'How to read a pattern', to: '/guide/how-to-read-a-pattern/' },
           { title: 'Density Tiers', to: '/guide/density-tiers/' },
           { title: 'Street Types & Classifications', to: '/guide/street-types/' },
+          { title: 'Scale Hierarchy', to: '/guide/scale-hierarchy/' },
         ],
+      },
+      {
+        title: 'Find Your Pattern',
+        collapsible: false,
+        // One page for now, a placeholder for what will eventually be a
+        // short diagnostic sequence; built as its own group already so
+        // nothing has to move once that sequence exists.
+        items: [{ title: 'Find Your Pattern', to: '/guide/find-your-pattern/' }],
+      },
+      {
+        title: 'Make It Happen',
+        collapsible: false,
+        // Same reasoning as Find Your Pattern above: likely splits into
+        // several pages (who decides, how it's funded, how to submit a
+        // request) later, one placeholder page holds the slot for now.
+        items: [{ title: 'Make It Happen', to: '/guide/make-it-happen/' }],
       },
     ],
     '/patterns/': [
@@ -123,7 +143,7 @@ const theme = commonwayTheme({
           { title: 'Project Governance', to: '/about/governance/' },
           { title: 'Submit a Change', to: '/about/contributing/' },
           { title: 'Report a Problem', to: '/about/reporting/' },
-          { title: 'Acknowledgments', to: '/about/credits/' },
+          { title: 'Acknowledgments', to: '/about/acknowledgments/' },
         ],
       },
       {

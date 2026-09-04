@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte'
   import { afterNavigate } from '$app/navigation'
+  import { page } from '$app/state'
   import type { Snippet } from 'svelte'
   import { initColorScheme, initTableScrollHints, sidebarOpen } from '../layout.js'
   import '../styles/base.css'
@@ -15,6 +16,14 @@
   }
 
   const { children }: Props = $props()
+
+  // The homepage has no sidebar entry (see vite.config.ts's `sidebar` map)
+  // and no page anchors for Toc to list, so both columns are always empty
+  // there anyway; collapsing the grid to a single full-width column lets
+  // its hero go edge-to-edge instead of sitting in the narrower middle
+  // track. Sidebar itself stays mounted regardless (see .shell--full
+  // :global(.sidebar) below): it's still the mobile hamburger drawer.
+  const isHome = $derived(page.url.pathname === '/')
 
   onMount(() => {
     initColorScheme()
@@ -35,7 +44,7 @@
 <GoogleAnalytics />
 <Navbar />
 
-<div class="shell">
+<div class="shell" class:shell--full={isHome}>
   <Sidebar />
   <Backdrop show={$sidebarOpen} onclose={() => sidebarOpen.set(false)} />
   {@render children?.()}
@@ -63,6 +72,26 @@
     .shell {
       grid-template-columns: minmax(0, 1fr);
       grid-template-areas: 'content';
+    }
+  }
+
+  /* .shell--full declared last so it wins the specificity tie against the
+     two max-width rules above at every viewport, not just where it's
+     declared: same class-count (0,1,0) as .shell, source order decides. */
+  .shell--full {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'content';
+  }
+
+  /* Sidebar is position: sticky (in normal grid flow) at >=940px, so once
+     'sidebar' drops out of grid-template-areas above it would otherwise
+     auto-place into the single remaining 'content' cell and overlap the
+     real content. Below 940px Sidebar switches to position: fixed (see
+     Sidebar.svelte), which already takes it out of grid flow entirely, so
+     it needs no help there and stays mounted as the mobile drawer. */
+  @media (min-width: 940px) {
+    .shell--full :global(.sidebar) {
+      display: none;
     }
   }
 </style>

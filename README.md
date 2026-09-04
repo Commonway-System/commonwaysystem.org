@@ -59,7 +59,7 @@ src/
     about/contributing/+page.md
     about/governance/+page.md
     about/reporting/+page.md
-    about/credits/+page.md            Data-driven contributor list, see
+    about/acknowledgments/+page.md    Data-driven contributor list, see
                                        the `contributors` array in its
                                        own <script> block.
     llms.txt/+server.ts       Generates llms.txt from every +page.md's
