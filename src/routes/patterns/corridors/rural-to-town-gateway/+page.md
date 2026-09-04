@@ -7,7 +7,7 @@ llms: "The specific transition zone where a highway or rural road enters a town,
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Rural-to-Town Gateway" classification="corridor" status="recommended">
@@ -18,7 +18,7 @@ The specific transition zone where a highway or rural road enters a town, villag
 
 ## Why this pattern exists
 
-Drivers respond to the road they perceive, not the posted number. A speed limit sign alone at a town line does little if the road geometry on both sides looks identical; self-explaining roadway research supports pairing regulatory changes with a visible physical change at the same point. This pattern is the specific, high-stakes case of Density Step-Down/Step-Up that occurs at a settlement’s edge, where the mismatch between rural approach speeds and in-town conditions (pedestrians, driveways, cross traffic) has real safety consequences.
+Drivers respond to the road they perceive, not the posted number.<Citation index={1} /> A speed limit sign alone at a town line does little if the road geometry on both sides looks identical; self-explaining roadway research supports pairing regulatory changes with a visible physical change at the same point. This pattern is the specific, high-stakes case of Density Step-Down/Step-Up that occurs at a settlement’s edge, where the mismatch between rural approach speeds and in-town conditions (pedestrians, driveways, cross traffic) has real safety consequences.<Citation index={2} />
 
 ## Key considerations
 
@@ -30,6 +30,7 @@ Drivers respond to the road they perceive, not the posted number. A speed limit 
 
 [Density Step-Down/Step-Up](/patterns/corridors/density-step-down-step-up/) (CDR-DSD-01) (parent pattern; this is the settlement-edge special case); relevant Local/Collector Segment patterns on the town side
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Theeuwes, J. and Godthelp, H. (1995), "Self-explaining roads," and Theeuwes, J. (2021), "Self-explaining roads: What does visual cognition tell us about designing safer roads?", *Cognitive Research: Principles and Implications* 6(1).
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Hallmark, S., Knickerbocker, S., and Hawkins, N., "Evaluation of Low Cost Traffic Calming for Rural Communities," Iowa DOT / FHWA-SA-16-079.

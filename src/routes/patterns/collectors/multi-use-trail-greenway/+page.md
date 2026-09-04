@@ -7,7 +7,7 @@ llms: A Collector street typology for an off-street path shared by pedestrians a
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Multi-Use Trail / Greenway" classification="collector" status="recommended">
@@ -24,7 +24,7 @@ Should accommodate a broader range of user speeds and behaviors than a Shared-Us
 
 Distinct from [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04), which is bicycle-priority rather than equal-priority. This pattern is appropriate where the trail itself functions as a recreational or civic destination rather than purely a bicycle through-corridor.
 
-Where this trail runs parallel to a road for a meaningful stretch, see [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) (CDR-RAG-05) for the corridor-scale relationship between the two.
+Where this trail runs parallel to a road for a meaningful stretch, see [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) (CDR-RAG-05) for the corridor-scale relationship between the two.<Citation index={1} />
 
 ## Related patterns
 
@@ -32,6 +32,6 @@ Where this trail runs parallel to a road for a meaningful stretch, see [Road-Adj
 - [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04)
 - [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) (CDR-RAG-05)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> AASHTO, *Guide for the Development of Bicycle Facilities*, 5th Edition (2024).

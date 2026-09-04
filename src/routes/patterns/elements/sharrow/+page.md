@@ -7,7 +7,7 @@ llms: "A shared-lane marking, a painted symbol combining a bicycle icon and chev
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Sharrow" classification="element" status="avoid">
@@ -22,7 +22,7 @@ On a roadway too narrow to provide any dedicated bike space, a sharrow at least 
 
 ## Key considerations
 
-- Provides no physical or even painted separation from vehicle traffic, and research has generally found it does little to improve comfort or safety for cyclists
+- Provides no physical or even painted separation from vehicle traffic, and research has generally found it does little to improve comfort or safety for cyclists<Citation index={1} />
 - Should be treated as a last-resort or interim treatment rather than a target outcome; a corridor relying on sharrows is a candidate for future upgrade to a dedicated facility
 - May still hold value narrowly for wayfinding continuity between two stronger-facility segments where a short interruption cannot otherwise be avoided
 
@@ -30,6 +30,6 @@ On a roadway too narrow to provide any dedicated bike space, a sharrow at least 
 
 [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34), [Advisory Bike Lane](/patterns/elements/advisory-bike-lane/) (ELM-ABL-36) (facilities this pattern should generally be upgraded toward); [Stroad](/patterns/arterials/stroad/) (ART-STD-05) (the explicit Avoid-status pattern this shares status logic with)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Ferenchak, N.N. and Marshall, W.E. (2019), "Advancing Healthy Cities Through Safer Cycling: An Examination of Shared Lane Markings," *International Journal of Transportation Science and Technology* 8(2). Chicago before/after study: sharrows produced no statistically significant safety improvement, underperforming both bike lanes and no treatment on injury reduction.

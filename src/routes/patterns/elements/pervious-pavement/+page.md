@@ -7,7 +7,7 @@ llms: "A load-bearing paving surface (permeable concrete, porous asphalt, or per
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pervious Pavement" classification="element" status="situational">
@@ -18,18 +18,21 @@ A load-bearing paving surface (permeable concrete, porous asphalt, or permeable 
 
 ## Why this pattern exists
 
-Applied across a full-width surface (a parking lot, a full travel lane, a plaza), pervious pavement addresses runoff at a larger scale than a pervious strip while still functioning as a normal load-bearing driving or walking surface. This pattern exists to document its own structural and maintenance requirements, which differ meaningfully from conventional pavement.
+Applied across a full-width surface (a parking lot, a full travel lane, a plaza), pervious pavement addresses runoff at a larger scale than a pervious strip while still functioning as a normal load-bearing driving or walking surface. This pattern exists to document its own structural and maintenance requirements, which differ meaningfully from conventional pavement.<Citation index={1} />
 
 ## Key considerations
 
 - Requires periodic vacuum-sweeping or similar maintenance to prevent surface clogging from sediment, without which infiltration capacity degrades over time
 - Structural design (reservoir base depth, subgrade condition) must be engineered for the expected load, not treated as a simple material swap over standard pavement
-- Not appropriate in all climates or soil conditions; freeze-thaw cycles and poor native drainage both affect performance and should be evaluated before specifying
+- Not appropriate in all climates or soil conditions; freeze-thaw cycles and poor native drainage both affect performance and should be evaluated before specifying<Citation index={2} />
 
 ## Related patterns
 
 [Pervious Strip](/patterns/elements/pervious-strip/) (ELM-PVS-21) (a related, lower-scale treatment); [Surface Parking Lot](/patterns/facilities/surface-parking-lot/) (FAC-SPL-04) (Facility pattern where this often applies)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> U.S. Environmental Protection Agency, National Menu of Best Management Practices, "Permeable Pavements" fact sheet.
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Street Stormwater Guide*, "Pervious Pavement."
+
+*"Legal / regulatory" here refers to the EPA guidance that municipal NPDES stormwater permits are legally built around, not a single mandatory design spec like MUTCD or PROWAG.*

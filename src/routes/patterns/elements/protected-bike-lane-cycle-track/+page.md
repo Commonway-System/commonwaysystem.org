@@ -7,7 +7,7 @@ llms: "A bike facility physically separated from adjacent vehicle traffic by a b
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Protected Bike Lane / Cycle Track" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A bike facility physically separated from adjacent vehicle traffic by a barrier,
 
 ## Why this pattern exists
 
-Physical separation removes the reliance on driver behavior and paint compliance that lower-tier bike facilities depend on, making cycling comfortable and accessible to a much broader range of riders, including children and less-confident adults, the core goal of an all-ages-and-abilities bike network. This pattern exists to document the design considerations specific to physical separation.
+Physical separation removes the reliance on driver behavior and paint compliance that lower-tier bike facilities depend on, making cycling comfortable and accessible to a much broader range of riders, including children and less-confident adults, the core goal of an all-ages-and-abilities bike network.<Citation index={1} /> This pattern exists to document the design considerations specific to physical separation.
 
 ## Key considerations
 
@@ -30,6 +30,7 @@ Physical separation removes the reliance on driver behavior and paint compliance
 
 [Buffered Bike Lane](/patterns/elements/buffered-bike-lane/) (ELM-BBL-35), [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34) (lower-separation alternatives); [Bicycle Signal](/patterns/elements/bicycle-signal/) (ELM-BCS-16) (a common companion treatment at intersections)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Lusk, A.C. et al. (2011), "Risk of injury for bicycling on cycle tracks versus in the street," *Injury Prevention* 17(2). Montreal study: 28% lower injury rate on cycle tracks compared to comparable streets.
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Bikeway Design Guide*, 3rd Ed., "Protected Bike Lanes." Design specifications.

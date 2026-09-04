@@ -7,7 +7,7 @@ llms: Two-way stop or yield intersection control, common from Undeveloped throug
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Stop / Yield (Two-Way)" classification="intersections">
@@ -20,8 +20,8 @@ Urban is an edge case. Core is an unlikely pairing.
 
 ## Design notes
 
-Two-way stop or yield control is the lowest-volume intersection treatment in the Commonway System's set, realistic across the widest density range of any control type before tapering off past Compact, the same taper logic that applies to All-Way Stop one tier higher.
+Two-way stop or yield control is the lowest-volume intersection treatment in the Commonway System's set, realistic across the widest density range of any control type before tapering off past Compact, the same taper logic that applies to All-Way Stop one tier higher.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Manual on Uniform Traffic Control Devices, 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2B.05 and 2B.10.

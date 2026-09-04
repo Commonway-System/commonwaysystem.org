@@ -7,7 +7,7 @@ llms: "An on-street, curbside cluster of bike racks, typically installed in plac
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike Parking Corral" classification="facility" status="recommended">
@@ -18,7 +18,7 @@ An on-street, curbside cluster of bike racks, typically installed in place of a 
 
 ## Why this pattern exists
 
-Sidewalk-mounted bike racks compete with pedestrian clear-path space and other furnishings, and demand at popular destinations often exceeds what a sidewalk can hold; converting curbside vehicle space to bike parking solves both problems at once, at a much lower space cost per bike than a car per space. This pattern exists to document that specific curbside conversion, distinct from sidewalk-mounted racks documented at the Element scale.
+Sidewalk-mounted bike racks compete with pedestrian clear-path space and other furnishings, and demand at popular destinations often exceeds what a sidewalk can hold; converting curbside vehicle space to bike parking solves both problems at once, at a much lower space cost per bike than a car per space. This pattern exists to document that specific curbside conversion, distinct from sidewalk-mounted racks documented at the Element scale.<Citation index={1} /><Citation index={2} />
 
 ## Key considerations
 
@@ -30,6 +30,7 @@ Sidewalk-mounted bike racks compete with pedestrian clear-path space and other f
 
 [Bike Parking / Rack](/patterns/elements/bike-parking-rack/) (ELM-BPR-40) (the Element-scale fixture used within the corral); [Curb Extension](/patterns/elements/curb-extension/) (ELM-CBE-02) (a related on-street space conversion)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Association of Pedestrian and Bicycle Professionals (APBP), *Bicycle Parking Guidelines*, 2nd Ed. On-street/in-lane parking siting.
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> NACTO, "Bike and Scooter Parking." Corral-specific design guidance.

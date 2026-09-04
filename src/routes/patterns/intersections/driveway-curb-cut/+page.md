@@ -7,7 +7,7 @@ llms: A minor access-point junction connecting a driveway or parking entrance to
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Driveway / Curb Cut" classification="intersections">
@@ -20,8 +20,8 @@ Core is an edge case.
 
 ## Design notes
 
-Driveways and curb cuts drop off at Core density, not because access needs disappear there, but because dense Core contexts typically consolidate individual curb cuts into shared alley or rear access instead, reducing how often each individual property needs its own street-facing break in the curb.
+Driveways and curb cuts drop off at Core density, not because access needs disappear there, but because dense Core contexts typically consolidate individual curb cuts into shared alley or rear access instead, reducing how often each individual property needs its own street-facing break in the curb.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> U.S. Access Board, Public Right-of-Way Accessibility Guidelines (PROWAG), Section R302, "Pedestrian Access Routes."

@@ -7,7 +7,7 @@ llms: "A pedestrian-activated signal, sometimes called a HAWK beacon, that remai
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pedestrian Hybrid Beacon" classification="element" status="situational">
@@ -18,7 +18,7 @@ A pedestrian-activated signal, sometimes called a HAWK beacon, that remains dark
 
 ## Why this pattern exists
 
-A pedestrian hybrid beacon provides stronger, legally binding stop control than an RRFB while avoiding the ongoing delay a full traffic signal would impose on a corridor at a location that does not have enough pedestrian volume to justify constant signal timing. This pattern exists to document this middle-tier crossing treatment between an RRFB and a full signal.
+A pedestrian hybrid beacon provides stronger, legally binding stop control than an RRFB while avoiding the ongoing delay a full traffic signal would impose on a corridor at a location that does not have enough pedestrian volume to justify constant signal timing. This pattern exists to document this middle-tier crossing treatment between an RRFB and a full signal.<Citation index={1} /><Citation index={2} />
 
 ## Key considerations
 
@@ -30,6 +30,7 @@ A pedestrian hybrid beacon provides stronger, legally binding stop control than 
 
 [RRFB](/patterns/elements/rrfb/) (ELM-RRF-17) (the lighter-control alternative this pattern exceeds); [Traffic Signal](/patterns/elements/traffic-signal/) (ELM-TFS-14) (the heavier-control alternative this pattern avoids); [Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08), [Pedestrian Safety Island/Refuge](/patterns/elements/pedestrian-safety-island-refuge/) (ELM-PSI-09) (companion crossing elements)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 4J, "Pedestrian Hybrid Beacons" (renumbered from the 2009 edition's Chapter 4F). Warrant conditions.
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Fitzpatrick, K. and Park, E.S., "Safety Effectiveness of the HAWK Pedestrian Crossing Treatment," FHWA-HRT-10-042 (2010). Tucson before/after study of 21 treatment sites versus 102 reference intersections: a 29% reduction in total crashes and a 69% reduction in pedestrian crashes.

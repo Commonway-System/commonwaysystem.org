@@ -7,7 +7,7 @@ llms: "A widened curb that narrows the roadway at a crossing or parking zone, ta
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Curb Extension" classification="element" status="recommended">
@@ -18,11 +18,11 @@ A widened curb that narrows the roadway at a crossing or parking zone, taking ga
 
 ## Why this pattern exists
 
-Narrowing the effective roadway width at a specific point shortens pedestrian crossing distance, slows turning and through vehicles, and can reclaim space for other uses (a bus stop, plantings, a parklet), addressing several distinct problems (crossing safety, traffic calming, space reclamation) with one flexible physical treatment.
+Narrowing the effective roadway width at a specific point shortens pedestrian crossing distance, slows turning and through vehicles, and can reclaim space for other uses (a bus stop, plantings, a parklet), addressing several distinct problems (crossing safety, traffic calming, space reclamation) with one flexible physical treatment.<Citation index={1} />
 
 ## Key considerations
 
-- Form should match purpose: a bus bulb needs a different length and clearance than a corner pinchpoint or a mid-block chicane
+- Form should match purpose: a bus bulb needs a different length and clearance than a corner pinchpoint or a mid-block chicane<Citation index={2} />
 - Drainage design at the extension point needs attention, since it interrupts the normal curb and gutter line
 - Sightlines for both drivers and pedestrians should be checked at the extension, especially near a crossing, since the extension changes sightline geometry
 
@@ -30,6 +30,7 @@ Narrowing the effective roadway width at a specific point shortens pedestrian cr
 
 [Curb](/patterns/elements/curb/) (ELM-CRB-01), [Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (typical pairing at a crossing); [Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07) (Facility pattern this often anchors); [Transit Boarding Island](/patterns/elements/transit-boarding-island/) (ELM-TBI-41) (a related but distinct treatment for transit stops)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO Urban Street Design Guide, "Curb Extensions." Crossing-distance reduction and sizing guidance (length at least the crosswalk width, 1-2 ft narrower than the parking lane).
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Federal Highway Administration, "Install Curb Extensions at the Crosswalk" (Uncontrolled Pedestrian Crossing Treatment sheet). Identifies crash history, vehicle/pedestrian conflict, and speeding as the conditions this treatment addresses.

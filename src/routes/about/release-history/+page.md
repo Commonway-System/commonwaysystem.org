@@ -24,6 +24,13 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.09.01',
+      items: [
+        'Full citation sourcing completed for the rest of the guide: 93 pattern pages gained real References sections and inline citation badges (46 pages already had References from an earlier session but no inline badges, so those got badges only; 47 pages, mostly Corridor, Local Street, Collector, Arterial, Freeway, and Intersection typologies, got References and badges built from scratch). 105 of the 106 live pattern pages now carry real citations; only Bicycle Boulevard / Neighborhood Greenway remains flagged, a confirmed placeholder page left that way on purpose. Sources include AASHTO, MUTCD (11th Edition with Revision 1), NACTO, PROWAG, FHWA, NCHRP research reports, and CROW/SWOV for the Dutch Sustainable Safety citations, each tagged Legal/regulatory, Evidence-based, or Precedent-based.',
+        'Fixed a real bug in the navbar’s CalVer version number: it was computed from the build machine’s wall clock at build time, which isn’t always the same moment as the last real push, so re-running a Netlify build against an already-published commit (a manual redeploy, a cache-clear-and-rebuild, an automatic retry) silently advanced the version past the date anything was actually published, confirmed live when the navbar read one day ahead of every page’s own "Last updated" text. The version is now computed from the last commit’s own date instead (`src/routes/+layout.server.ts`), so it only changes when new content is actually pushed, and stays correct no matter how many times the same commit gets rebuilt. The development server is unaffected and still shows the live current date while editing.',
+      ],
+    },
+    {
       date: '2026.08.31',
       items: [
         'Pattern ID scheme corrected sitewide: Segment/Intersection (LOC/COL/ART/FRE/INT) was previously the only Scale documented as encoding Scale in its prefix. The full nine-prefix system is now in place and documented: NET (Network), CDR (Corridor), FAC (Facility), and ELM (Element) as flat, non-subdividing Scale prefixes, alongside the existing five Functional Classification prefixes at Segment/Intersection. How to Read a Pattern, Scale Hierarchy, and Street Types & Classifications all rewritten to describe the corrected scheme.',
@@ -113,7 +120,7 @@ If more than one push happens on the same calendar day, they share a single vers
 
 **{currentVersion.date}**
 
-The guide currently documents {patternPageCount} Street Typology pattern pages across Local, Collector, Arterial, Freeway, and Intersections & Crossings. None are content stubs, every published pattern page carries real modal-hierarchy, density-applicability, and design-notes content, but all of them still carry an "Unsourced claim" flag pending real citations, and most of the homepage and the Guide's own introductory pages remain placeholder text. The site is actively expanding, not a finished publication.
+The guide currently documents {patternPageCount} Street Typology pattern pages across Local, Collector, Arterial, Freeway, and Intersections & Crossings. None are content stubs, every published pattern page carries real modal-hierarchy, density-applicability, and design-notes content, and all but one now carry real citations rather than the "Unsourced claim" flag (Bicycle Boulevard / Neighborhood Greenway is a confirmed placeholder page, left flagged on purpose). Most of the homepage and the Guide's own introductory pages remain placeholder text. The site is actively expanding, not a finished publication.
 
 ## Changelog
 
@@ -151,7 +158,7 @@ Work that's planned but not yet built:
 - **Organic/Irregular's status-badge treatment.** Needs a final decision: keep the no-badge treatment used for now, or add a distinct status value for a descriptively-documented (not prescriptively recommended) pattern.
 - **Process-explainer chapter.** A plain-language guide to how local government actually handles road changes: who authorizes them, how they're funded, how citizens can engage.
 - **Classification-level overview pages.** Local, Collector, Arterial, and Freeway currently jump straight from the Patterns index into individual Typology pages, with no landing page explaining the classification itself.
-- **Full citation compilation.** Most pattern pages carry an unsourced-claim flag rather than real citations; sourcing is an ongoing background task across the whole guide.
+- **A final verification pass on MUTCD citations.** MUTCD 11th Edition with Revision 1 citations are now in place site-wide, but their section/chapter numbers weren't individually re-checked against the actual Revision 1 PDF (Revision 1 itself was confirmed as editorial/technical corrections only, not a renumbering, but that's not the same as a section-by-section check).
 - **Dutch CROW reference table reconciliation.** A temporary comparison table sits in the internal density-matrix document and needs to be folded into the actual Commonway patterns once they're fully planned.
 - **Entity formation and attorney review**, ahead of treating any part of the guide as a finished publication.
 - **Arterial speed baseline figures.** The density-tiered principle is locked; the specific mph figures per density tier are not.

@@ -7,7 +7,7 @@ llms: A Local street typology that closes to vehicle traffic during scheduled ev
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Festival Street" classification="local" status="recommended">
@@ -24,8 +24,8 @@ During scheduled events: Pedestrian and Bicycle only. Off-hours: reverts to the 
 
 ## Design notes
 
-The dual-mode design, full street for events and normal Local operation otherwise, is what distinguishes this from a permanent Pedestrian-only Street or Plaza. It requires enough event demand and foot traffic to justify the conversion, which is why it concentrates at Urban and Core density.
+The dual-mode design, full street for events and normal Local operation otherwise, is what distinguishes this from a permanent Pedestrian-only Street or Plaza. It requires enough event demand and foot traffic to justify the conversion, which is why it concentrates at Urban and Core density.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Seattle Municipal Code §11.14.203, "Festival Streets."

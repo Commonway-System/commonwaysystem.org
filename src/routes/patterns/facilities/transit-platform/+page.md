@@ -7,7 +7,7 @@ llms: "The boarding surface at a transit stop where passengers board and alight,
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Platform" classification="facility" status="recommended">
@@ -22,7 +22,7 @@ Boarding is where accessibility, dwell time, and safety concerns concentrate mos
 
 ## Key considerations
 
-- Platform height should match the boarding vehicle’s floor height wherever feasible, to enable level boarding
+- Platform height should match the boarding vehicle’s floor height wherever feasible, to enable level boarding<Citation index={1} />
 - Island platforms require special attention to the intersection or roadway crossing needed to reach them safely
 - Length must accommodate the longest vehicle expected to serve the stop, including multi-unit or articulated vehicles
 
@@ -30,6 +30,6 @@ Boarding is where accessibility, dwell time, and safety concerns concentrate mos
 
 [Transit Shelter](/patterns/facilities/transit-shelter/) (FAC-TSH-01) (typically paired amenity); [Transit Hub/Station](/patterns/facilities/transit-hub-station/) (FAC-THS-03) (compound facility); [Pedestrian Safety Island/Refuge](/patterns/elements/pedestrian-safety-island-refuge/) (ELM-PSI-09) (related Element pattern for reaching island platforms)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG, Section R309.1, "Boarding and Alighting Areas," and Section R309.1.2, "Platform and Vehicle Floor Coordination." Direct basis for platform height and vehicle floor coordination, and the 8 ft x 5 ft minimum boarding area.

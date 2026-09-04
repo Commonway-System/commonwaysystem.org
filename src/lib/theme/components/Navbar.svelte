@@ -1,12 +1,15 @@
 <script lang="ts">
   import { page } from '$app/state'
-  import { calVerToday, externalLinkAttrs, isExternalHref } from '$lib/site.js'
+  import { externalLinkAttrs, isExternalHref } from '$lib/site.js'
   import options from 'virtual:commonway/options'
   import { isDark, sidebarOpen } from '../layout.js'
   import Icon from './Icon.svelte'
   import ThemeToggle from './ThemeToggle.svelte'
 
-  const version = calVerToday()
+  // Sourced from the root +layout.server.ts's siteVersion(), not computed
+  // here: see that file's comment for why this can't be a plain wall-clock
+  // read at build time.
+  const version = $derived(page.data.siteVersion)
 
   const navLinks = options.navbar ?? []
   const wordmark = options.logoText ?? options.siteTitle

@@ -7,7 +7,7 @@ llms: A Dutch-style intersection treatment using corner refuge islands and setba
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Protected Intersection" classification="intersections" status="recommended">
@@ -20,7 +20,7 @@ Suburban is an edge case. Undeveloped and Rural contexts are an unlikely pairing
 
 ## Design notes
 
-The first addition to Intersections & Crossings since the original ten. Addresses a specific, well-documented failure mode of conventional intersections, insufficient separation between turning vehicles and through bicycle/pedestrian traffic, that no other pattern in the set directly solves.
+The first addition to Intersections & Crossings since the original ten. Addresses a specific, well-documented failure mode of conventional intersections, insufficient separation between turning vehicles and through bicycle/pedestrian traffic, that no other pattern in the set directly solves.<Citation index={1} />
 
 Corner islands should provide genuine physical refuge, not a painted buffer alone. Crossing setback distance should give turning drivers a clear sightline and adequate reaction distance to pedestrians and cyclists.
 
@@ -30,6 +30,6 @@ Compatible with, and often paired with, [Roundabout](/patterns/intersections/rou
 
 - [Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) (INT-RAB-01)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Falbo, Nick, "Protected Intersections for Bicyclists," ProtectedIntersection.com (2014).

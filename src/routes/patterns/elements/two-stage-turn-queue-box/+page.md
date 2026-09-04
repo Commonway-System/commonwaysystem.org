@@ -7,7 +7,7 @@ llms: "A designated waiting area positioned in the far corner of an intersection
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Two-Stage Turn Queue Box" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A designated waiting area positioned in the far corner of an intersection, allow
 
 ## Why this pattern exists
 
-A conventional vehicle-style left turn asks a cyclist to merge across one or more lanes of traffic to reach a turn position, a maneuver that becomes increasingly stressful and dangerous as traffic volume, speed, or lane count increases; a two-stage turn queue box removes that merge entirely by breaking the turn into two straight crossings. This pattern exists to document this specific, well-established alternative to the conventional turning movement.
+A conventional vehicle-style left turn asks a cyclist to merge across one or more lanes of traffic to reach a turn position, a maneuver that becomes increasingly stressful and dangerous as traffic volume, speed, or lane count increases; a two-stage turn queue box removes that merge entirely by breaking the turn into two straight crossings. This pattern exists to document this specific, well-established alternative to the conventional turning movement.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ A conventional vehicle-style left turn asks a cyclist to merge across one or mor
 
 [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) (ELM-PBL-37), [Bike Box](/patterns/elements/bike-box/) (ELM-BKB-42) (related bike-specific intersection treatments); [Roundabout](/patterns/intersections/roundabout/) (INT-RAB-01) (a different intersection default this pattern complements at signalized locations specifically)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Part 9. Formalized as standard, previously FHWA Interim Approval IA-20.

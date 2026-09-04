@@ -7,11 +7,11 @@ llms: An Arterial anti-pattern marked Avoid, formed by mixing on-street parking 
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Stroad" classification="arterial" status="avoid">
-A street and Arterial hybrid: through traffic mixed with on-street parking and direct property access along the same corridor. This is the exact combination the Arterial core safety rule prohibits.
+A street and Arterial hybrid: through traffic mixed with on-street parking and direct property access along the same corridor. This is the exact combination the Arterial core safety rule prohibits.<Citation index={1} />
 </PatternCard>
 
 Occurs most often at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
@@ -28,6 +28,6 @@ The density figures above track how often this pattern actually occurs in the bu
 
 This page exists to help readers identify a Stroad and replace it, with Boulevard where a pedestrian-first frontage fits the corridor, or with Default Arterial paired with a separate Local or Frontage/Service Road where it does not.
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Marohn, C., "What's a STROAD and Why Does It Matter?", Strong Towns.

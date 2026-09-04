@@ -7,7 +7,7 @@ llms: A Local street typology, including NACTO's Home Zone, where pedestrians an
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Living Street / Woonerf" classification="local" status="recommended">
@@ -24,8 +24,8 @@ Pedestrian, then Bicycle, then Vehicle (as guest), then Transit, then Freight.
 
 ## Design notes
 
-NACTO's Home Zone is, strictly, an area-wide overlay rather than a distinct street type of its own, but the Commonway System folds it into this single entry rather than tracking it separately, since the on-the-ground design treatment is the same shared, no-separation street.
+NACTO's Home Zone is, strictly, an area-wide overlay rather than a distinct street type of its own, but the Commonway System folds it into this single entry rather than tracking it separately, since the on-the-ground design treatment is the same shared, no-separation street.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Ben-Joseph, E. (1995), "Changing the Residential Street Scene: Adapting the Shared Street (Woonerf) Concept to the Suburban Environment," *Journal of the American Planning Association* 61(4).

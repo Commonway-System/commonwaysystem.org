@@ -7,7 +7,7 @@ llms: A stop-controlled intersection where every approach stops, tapering off pa
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="All-Way Stop" classification="intersections">
@@ -20,8 +20,8 @@ Rural and Urban are edge cases. Undeveloped and Core are unlikely pairings.
 
 ## Design notes
 
-All-Way Stop tapers off past Compact and Urban density, as intersection volumes exceed what stop control can handle safely. This is the same taper logic that applies to Stop/Yield control, just shifted one tier higher on the density range.
+All-Way Stop tapers off past Compact and Urban density, as intersection volumes exceed what stop control can handle safely. This is the same taper logic that applies to Stop/Yield control, just shifted one tier higher on the density range.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Manual on Uniform Traffic Control Devices, 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2B.13-2B.17.

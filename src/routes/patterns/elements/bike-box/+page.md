@@ -7,7 +7,7 @@ llms: "A designated waiting area marked at the head of a signalized intersection
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike Box" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A designated waiting area marked at the head of a signalized intersection, posit
 
 ## Why this pattern exists
 
-At a signalized intersection, a cyclist stopped alongside or behind queued vehicles has reduced visibility to drivers and a harder time making a turning movement across traffic once the signal changes; a bike box gives cyclists a visible head-start position ahead of the queue, addressing this specific intersection conflict. This pattern exists to document where and how that positioning treatment is applied.
+At a signalized intersection, a cyclist stopped alongside or behind queued vehicles has reduced visibility to drivers and a harder time making a turning movement across traffic once the signal changes; a bike box gives cyclists a visible head-start position ahead of the queue, addressing this specific intersection conflict. This pattern exists to document where and how that positioning treatment is applied.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ At a signalized intersection, a cyclist stopped alongside or behind queued vehic
 
 [Green Pavement/Conflict Marking](/patterns/elements/green-pavement-conflict-marking/) (ELM-GPM-38) (often used to highlight the box itself); [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) (ELM-PBL-37), [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34) (the facilities that typically lead into a bike box)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Part 9. Intersection bicycle boxes formalized as standard, previously FHWA Interim Approval IA-18.

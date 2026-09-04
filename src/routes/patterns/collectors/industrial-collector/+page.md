@@ -7,7 +7,7 @@ llms: A Collector street typology serving industrial land use, where freight mov
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Industrial Collector" classification="collector" status="recommended">
@@ -24,8 +24,8 @@ Freight, then Vehicle, then Pedestrian, then Bicycle, then Transit, an override 
 
 ## Design notes
 
-Industrial land use exists across a wide density range, which is why this Typology's realistic range is broader than most Collector entries, spanning Suburban through Urban with Undeveloped, Rural, and Core all plausible as edge cases rather than clean exclusions.
+Industrial land use exists across a wide density range, which is why this Typology's realistic range is broader than most Collector entries, spanning Suburban through Urban with Undeveloped, Rural, and Core all plausible as edge cases rather than clean exclusions.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Design Vehicle" (citing AASHTO Green Book §2-1).

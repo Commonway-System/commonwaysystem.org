@@ -7,7 +7,7 @@ llms: A Local street typology, marked Situational, that excludes vehicle traffic
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pedestrian-only Street / Plaza" classification="local" status="situational">
@@ -28,8 +28,8 @@ Pedestrian, then Bicycle where permitted. All other modes are excluded rather th
 
 ## Design notes
 
-Unlike Festival Street, which toggles between full and pedestrian-only operation, this Typology's exclusion of vehicles is permanent. That makes it a heavier commitment, appropriate only where the surrounding block can genuinely support it.
+Unlike Festival Street, which toggles between full and pedestrian-only operation, this Typology's exclusion of vehicles is permanent. That makes it a heavier commitment, appropriate only where the surrounding block can genuinely support it.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Pedestrian Streets" and "Public Plazas."

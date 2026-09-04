@@ -7,7 +7,7 @@ llms: "A collector-scale street running through a dense downtown or town-center 
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Downtown Thoroughfare" classification="collector" status="situational">
@@ -18,7 +18,7 @@ Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <Density
 
 ## Why this pattern exists
 
-Distinct from Main Street (a Local-scale pattern built around slow speeds and retail-frontage priority) and from default Collector (which does not assume a downtown context), Downtown Thoroughfare addresses the specific tension of moving a meaningful volume of through-traffic while still supporting the pedestrian activity, frequent crossings, and access needs of a dense commercial core. This is a recognized NACTO street type distinct from both Main Street and a conventional suburban collector.
+Distinct from Main Street (a Local-scale pattern built around slow speeds and retail-frontage priority) and from default Collector (which does not assume a downtown context), Downtown Thoroughfare addresses the specific tension of moving a meaningful volume of through-traffic while still supporting the pedestrian activity, frequent crossings, and access needs of a dense commercial core. This is a recognized NACTO street type distinct from both Main Street and a conventional suburban collector.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ Distinct from Main Street (a Local-scale pattern built around slow speeds and re
 
 [Main Street](/patterns/local-streets/main-street/) (LOC-MST-05) (related Local-scale pattern, distinct in speed and priority); [default Collector pattern](/patterns/collectors/default/) (COL-DEF-01); relevant Intersection patterns for frequent pedestrian crossings
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Street Design Guide*, "Downtown Thoroughfare."

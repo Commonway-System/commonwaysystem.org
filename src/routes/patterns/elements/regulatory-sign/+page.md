@@ -7,7 +7,7 @@ llms: "A sign conveying a legally enforceable traffic rule, such as a stop sign,
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Regulatory Sign" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A sign conveying a legally enforceable traffic rule, such as a stop sign, yield 
 
 ## Why this pattern exists
 
-Regulatory signs are how a jurisdiction communicates enforceable rules to the traveling public; consistent placement, sizing, and messaging across the network is what allows a driver to trust and act on a sign without hesitation. This pattern exists to document the category as distinct from warning and guide signs, since its legal weight demands a different level of rigor in application.
+Regulatory signs are how a jurisdiction communicates enforceable rules to the traveling public; consistent placement, sizing, and messaging across the network is what allows a driver to trust and act on a sign without hesitation. This pattern exists to document the category as distinct from warning and guide signs, since its legal weight demands a different level of rigor in application.<Citation index={1} /><Citation index={2} />
 
 ## Key considerations
 
@@ -30,6 +30,7 @@ Regulatory signs are how a jurisdiction communicates enforceable rules to the tr
 
 [Warning Sign](/patterns/elements/warning-sign/) (ELM-WNS-12), [Guide Sign](/patterns/elements/guide-sign/) (ELM-GDS-13) (related but functionally distinct sign categories); relevant Segment and Intersection patterns the sign is regulating
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2A.03, "Classification of Signs."
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 2B, "Regulatory Signs, Barricades, and Gates."

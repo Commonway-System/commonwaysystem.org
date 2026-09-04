@@ -7,7 +7,7 @@ llms: "A planted zone running between the roadway and the sidewalk, providing se
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Landscaped Buffer Strip" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A planted zone running between the roadway and the sidewalk, providing separatio
 
 ## Why this pattern exists
 
-A planted buffer between moving traffic and pedestrians provides psychological and physical separation beyond what a curb alone offers, while also creating usable space for trees, snow storage, and stormwater treatment that a fully paved streetscape does not accommodate. This pattern exists to document the width and design considerations that make this zone function well.
+A planted buffer between moving traffic and pedestrians provides psychological and physical separation beyond what a curb alone offers, while also creating usable space for trees, snow storage, and stormwater treatment that a fully paved streetscape does not accommodate. This pattern exists to document the width and design considerations that make this zone function well.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ A planted buffer between moving traffic and pedestrians provides psychological a
 
 [Street Tree](/patterns/elements/street-tree/) (ELM-STT-28), [Tree Pit/Tree Trench](/patterns/elements/tree-pit-tree-trench/) (ELM-TPT-29) (elements typically located within this zone); [Bioswale](/patterns/elements/bioswale/) (ELM-BIO-19), [Pervious Strip](/patterns/elements/pervious-strip/) (ELM-PVS-21) (stormwater treatments that may occupy this zone instead)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO Urban Street Design Guide, "Sidewalk Zones" (furnishing zone guidance). Width standards and the buffer's function separating pedestrians from traffic.

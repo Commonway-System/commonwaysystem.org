@@ -7,7 +7,7 @@ llms: The baseline Local street, applying the base modal hierarchy and 20 mph de
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Default (Standard Local Street)" classification="local" status="recommended">
@@ -22,7 +22,7 @@ Rural is an edge case, not the norm. Farm and rural-residential contexts more of
 
 ## Speed and modal hierarchy
 
-20 mph hard maximum, no exceptions. This is not a target or an aspirational limit: under CS's self-enforcing roadway principle, design speed always equals posted speed, so the street's geometry itself has to make 20 mph the comfortable driving speed, not just the posted number.
+20 mph hard maximum, no exceptions. This is not a target or an aspirational limit: under CS's self-enforcing roadway principle, design speed always equals posted speed, so the street's geometry itself has to make 20 mph the comfortable driving speed, not just the posted number.<Citation index={1} />
 
 Modal hierarchy follows the Local base order without an override:
 
@@ -58,6 +58,6 @@ The default intersection treatment where this pattern meets a Collector is a [Co
 
 This entry is the standard against which every other Local Typology is defined as an override. A Typology only departs from the base modal order when its entire reason for existing is a specific mode.
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources. The 20 mph cap and the self-enforcing roadway principle both trace back to FHWA sources already identified in earlier research, so this is a compiling task rather than an open research gap.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, "Self-Enforcing Roadways: A Guidance Report," FHWA-HRT-17-098, 2018.

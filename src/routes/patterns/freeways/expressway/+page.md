@@ -7,11 +7,11 @@ llms: A Freeway street typology with partial access control, between a full Free
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Expressway" classification="freeway" status="recommended">
-A high-speed road with partial access control, some at-grade intersections remain, unlike a fully grade-separated Freeway. Out of the Commonway System's detailed design scope.
+A high-speed road with partial access control, some at-grade intersections remain, unlike a fully grade-separated Freeway. Out of the Commonway System's detailed design scope.<Citation index={1} />
 </PatternCard>
 
 Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
@@ -22,6 +22,6 @@ Undeveloped and Urban are edge cases. Core is an unlikely pairing.
 
 Expressway sits between full Freeway and Arterial in character, partial rather than complete access control, which is why its realistic density range skews slightly narrower than the full Freeway Default entry.
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, *Highway Functional Classification Concepts, Criteria and Procedures*.

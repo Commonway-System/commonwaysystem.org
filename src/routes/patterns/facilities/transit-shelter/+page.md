@@ -7,7 +7,7 @@ llms: "A small- or large-format weather shelter installed at a transit stop, pro
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Shelter" classification="facility" status="recommended">
@@ -22,14 +22,15 @@ Passenger comfort and perceived safety at a stop directly affect transit ridersh
 
 ## Key considerations
 
-- Shelter footprint must not obstruct the required clear path of travel on the adjacent sidewalk
-- Sizing should scale with ridership volume at the stop, not be applied uniformly regardless of demand
+- Shelter footprint must not obstruct the required clear path of travel on the adjacent sidewalk<Citation index={1} />
+- Sizing should scale with ridership volume at the stop, not be applied uniformly regardless of demand<Citation index={2} />
 - Orientation should account for prevailing wind and sun exposure specific to the site, not follow a single default facing
 
 ## Related patterns
 
 [Transit Platform](/patterns/facilities/transit-platform/) (FAC-TPL-02) (the boarding surface it typically pairs with); [Transit Hub/Station](/patterns/facilities/transit-hub-station/) (FAC-THS-03) (the compound facility this becomes part of at higher-order stops)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG, Section R309.2, "Transit Shelters" (federally adopted by DOT, effective January 17, 2025). Minimum clear space for mobility devices, connection to boarding areas via pedestrian access route.
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> TCRP Report 19, "Guidelines for the Location and Design of Bus Stops," Transportation Research Board. Sizing relative to ridership volume, siting and orientation.

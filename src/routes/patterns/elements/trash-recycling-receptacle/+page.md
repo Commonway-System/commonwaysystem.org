@@ -7,7 +7,7 @@ llms: "A fixed waste and recycling container installed in the public right-of-wa
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Trash / Recycling Receptacle" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A fixed waste and recycling container installed in the public right-of-way or an
 
 ## Why this pattern exists
 
-Without a designated disposal point, litter accumulates in places people already gather or pass through; this pattern exists to document placement and servicing considerations that determine whether a receptacle actually reduces litter or becomes an overflowing problem itself.
+Without a designated disposal point, litter accumulates in places people already gather or pass through; this pattern exists to document placement and servicing considerations that determine whether a receptacle actually reduces litter or becomes an overflowing problem itself.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ Without a designated disposal point, litter accumulates in places people already
 
 [Bench](/patterns/elements/bench/) (ELM-BCH-31), [Transit Shelter](/patterns/facilities/transit-shelter/) (FAC-TSH-01) (common companion elements and facilities)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG, Section R212, "Street Furniture." General accessible placement requirements for street furniture.

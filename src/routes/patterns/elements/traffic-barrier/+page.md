@@ -7,7 +7,7 @@ llms: "A longitudinal barrier (guardrail, concrete barrier, or similar rigid or 
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Traffic Barrier" classification="element" status="situational">
@@ -22,14 +22,15 @@ Certain roadside conditions (a steep slope, a fixed object, an opposing travel l
 
 ## Key considerations
 
-- Should only be installed where the hazard being shielded is more severe than the barrier itself, since the barrier becomes a fixed object a vehicle can strike
+- Should only be installed where the hazard being shielded is more severe than the barrier itself, since the barrier becomes a fixed object a vehicle can strike<Citation index={1} />
 - End treatments matter significantly; an unshielded or improperly terminated barrier end can be more dangerous than no barrier at all
-- Height and strength must be matched to the design vehicle and speed of the roadway it protects
+- Height and strength must be matched to the design vehicle and speed of the roadway it protects, crash-tested against current standards<Citation index={2} />
 
 ## Related patterns
 
 [Crash Cushion/End Terminal](/patterns/elements/crash-cushion-end-terminal/) (ELM-CCT-24) (the treatment addressing this pattern’s exposed ends); [Bollard](/patterns/elements/bollard/) (ELM-BOL-25) (a related but functionally distinct barrier type)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *Roadside Design Guide*, 4th ed.
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *Manual for Assessing Safety Hardware* (MASH), 2016.

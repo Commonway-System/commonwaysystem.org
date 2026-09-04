@@ -7,7 +7,7 @@ llms: "A tree planted along a street, typically within the sidewalk zone or a la
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Street Tree" classification="element" status="recommended">
@@ -22,7 +22,7 @@ Street trees do measurable work beyond aesthetics, they reduce pedestrian-level 
 
 ## Key considerations
 
-- Adequate below-grade root space and soil volume must be planned for at installation; insufficient space is the leading cause of poor street tree survival and growth
+- Adequate below-grade root space and soil volume must be planned for at installation; insufficient space is the leading cause of poor street tree survival and growth<Citation index={1} />
 - Species selection should account for mature canopy size relative to available overhead and sidewalk clearance, utility conflicts, and local climate tolerance
 - Spacing should balance canopy coverage goals against sightline requirements at driveways, crossings, and intersections
 
@@ -30,6 +30,6 @@ Street trees do measurable work beyond aesthetics, they reduce pedestrian-level 
 
 [Tree Pit/Tree Trench](/patterns/elements/tree-pit-tree-trench/) (ELM-TPT-29) (the below-grade element supporting this pattern); [Landscaped Buffer Strip](/patterns/elements/landscaped-buffer-strip/) (ELM-LBS-30) (a common zone this pattern is planted within)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Lindsey, J.P. and Bassuk, N. (1991), "Specifying Soil Volumes to Meet the Water Needs of Mature Urban Street Trees and Trees in Containers," *Journal of Arboriculture* 17(6). Peer-reviewed formula (approximately 2 cubic ft of soil per sq ft of mature canopy) underlying the claim that insufficient space is the leading cause of poor street tree survival.

@@ -7,7 +7,7 @@ llms: The default intersection control wherever two Collector-or-higher streets 
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Roundabout (Single / Multi-Lane)" classification="intersections">
@@ -20,8 +20,9 @@ Rural is an edge case. Undeveloped is an unlikely pairing.
 
 ## Design notes
 
-Roundabout is the default control wherever two Collector-or-higher streets meet within the Commonway System's intersection philosophy. Traffic signals remain available but only as a documented last resort, and turbo-roundabouts take over at the highest-volume Arterial-to-Arterial junctions.
+Roundabout is the default control wherever two Collector-or-higher streets meet within the Commonway System's intersection philosophy. Traffic signals remain available but only as a documented last resort, and turbo-roundabouts take over at the highest-volume Arterial-to-Arterial junctions.<Citation index={1} /><Citation index={2} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Rodegerdts, L. et al., *Roundabouts: An Informational Guide*, 2nd ed., NCHRP Report 672 (Washington, DC: Transportation Research Board, 2010).
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Persaud, B. et al., "Safety Effect of Roundabout Conversions in the United States: Empirical Bayes Observational Before-After Study," Insurance Institute for Highway Safety (2001).

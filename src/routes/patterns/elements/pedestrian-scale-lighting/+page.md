@@ -7,7 +7,7 @@ llms: "A lower-mounted luminaire, typically 10-15 feet in height, providing illu
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pedestrian-scale Lighting" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A lower-mounted luminaire, typically 10-15 feet in height, providing illuminatio
 
 ## Why this pattern exists
 
-Standard street lighting is mounted and spaced for vehicle sightlines, which often leaves the sidewalk under-illuminated or produces harsh, high-angle light poorly suited to a pedestrian’s closer-range visual needs (facial recognition, uneven surface detection, personal security). This pattern exists to document the distinct scale and spacing considerations pedestrian lighting requires.
+Standard street lighting is mounted and spaced for vehicle sightlines, which often leaves the sidewalk under-illuminated or produces harsh, high-angle light poorly suited to a pedestrian’s closer-range visual needs (facial recognition, uneven surface detection, personal security). This pattern exists to document the distinct scale and spacing considerations pedestrian lighting requires.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ Standard street lighting is mounted and spaced for vehicle sightlines, which oft
 
 [Street Light](/patterns/elements/street-light/) (ELM-STL-26) (the companion vehicle-oriented lighting pattern); relevant Local and Collector Segment patterns where pedestrian activity is expected
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> ANSI/IES RP-8-22, "Lighting Roadway and Parking Facilities." The same standard also sets pedestrian-volume-based illuminance criteria for sidewalks, distinct from its vehicle-oriented roadway tables, since this pattern serves a different visual task.

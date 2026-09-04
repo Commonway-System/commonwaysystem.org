@@ -7,7 +7,7 @@ llms: "A multi-level parking structure, above-grade or underground, using ramp o
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Parking Garage / Structure" classification="facility" status="situational">
@@ -23,13 +23,14 @@ Where land value or density makes surface parking impractical, a structure trade
 ## Key considerations
 
 - Ground-floor frontage facing the street should avoid a blank wall; active uses or architectural treatment help the structure read as a building rather than a void
-- Pedestrian egress routes (stairs, elevators) should be direct, well-lit, and clearly wayfinding-marked from every level
-- Ramp and turning geometry should be sized for the largest vehicle expected to use the facility, including service and emergency vehicles
+- Pedestrian egress routes (stairs, elevators) should be direct, well-lit, and clearly wayfinding-marked from every level<Citation index={2} />
+- Ramp and turning geometry should be sized for the largest vehicle expected to use the facility, including service and emergency vehicles<Citation index={1} />
 
 ## Related patterns
 
 [Surface Parking Lot](/patterns/facilities/surface-parking-lot/) (FAC-SPL-04) (lower-density alternative); [Park-and-Ride](/patterns/facilities/park-and-ride/) (FAC-PNR-06) (a specific use case that may take structured form)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> ULI/National Parking Association, *The Dimensions of Parking*. Ramp grade, turning radius, and structural circulation design.
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> 2010 ADA Standards for Accessible Design / PROWAG. Accessible egress (stairs, elevators) from every level.

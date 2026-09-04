@@ -7,7 +7,7 @@ llms: "A sign alerting drivers to an upcoming hazard or changed condition, such 
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Warning Sign" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A sign alerting drivers to an upcoming hazard or changed condition, such as a cu
 
 ## Why this pattern exists
 
-A warning sign gives a driver advance notice of a condition they need to react to, a curve tighter than expected, a crossing they might not anticipate, filling the gap between a road’s physical design and a driver’s real-time awareness of what is coming. This pattern exists to document its distinct advisory function and placement logic, separate from a regulatory sign’s enforceable message.
+A warning sign gives a driver advance notice of a condition they need to react to, a curve tighter than expected, a crossing they might not anticipate, filling the gap between a road’s physical design and a driver’s real-time awareness of what is coming. This pattern exists to document its distinct advisory function and placement logic, separate from a regulatory sign’s enforceable message.<Citation index={1} /><Citation index={2} />
 
 ## Key considerations
 
@@ -30,6 +30,7 @@ A warning sign gives a driver advance notice of a condition they need to react t
 
 [Regulatory Sign](/patterns/elements/regulatory-sign/) (ELM-RGS-11), [Guide Sign](/patterns/elements/guide-sign/) (ELM-GDS-13) (related sign categories); [Rumble Strip](/patterns/elements/rumble-strip/) (ELM-RMS-07) (often paired ahead of a hazard this sign warns of)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2A.03, "Classification of Signs."
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 2C, "Warning Signs and Object Markers."

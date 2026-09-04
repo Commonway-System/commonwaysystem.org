@@ -7,7 +7,7 @@ llms: "The pattern governing how a road’s cross-section, speed, and character 
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Density Step-Down / Step-Up" classification="corridor" status="recommended">
@@ -18,7 +18,7 @@ The pattern governing how a road’s cross-section, speed, and character adjust 
 
 ## Why this pattern exists
 
-A road built to Urban-tier standards does not automatically become wrong when the buildings around it thin out, but it does need to change; a road that ignores the transition sends the wrong signal to drivers about what kind of place they are in. Density tiers already carry design implications (speed, cross-section, access spacing) at the Segment/Intersection scale; this pattern is what governs the handoff between two tiers along one continuous route, so the transition itself gets designed rather than left as an arbitrary jurisdictional boundary or abrupt lane-width jump.
+A road built to Urban-tier standards does not automatically become wrong when the buildings around it thin out, but it does need to change; a road that ignores the transition sends the wrong signal to drivers about what kind of place they are in. Density tiers already carry design implications (speed, cross-section, access spacing) at the Segment/Intersection scale; this pattern is what governs the handoff between two tiers along one continuous route, so the transition itself gets designed rather than left as an arbitrary jurisdictional boundary or abrupt lane-width jump.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ A road built to Urban-tier standards does not automatically become wrong when th
 
 [Rural-to-Town Gateway](/patterns/corridors/rural-to-town-gateway/) (CDR-RTG-02) (a special case of stepping down at a jurisdictional/settlement edge specifically, rather than a general tier change); relevant Segment-scale patterns at each density tier
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Theeuwes, J. and Godthelp, H. (1995), "Self-explaining roads," and Theeuwes, J. (2021), "Self-explaining roads: What does visual cognition tell us about designing safer roads?", *Cognitive Research: Principles and Implications* 6(1).

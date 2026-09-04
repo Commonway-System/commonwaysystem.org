@@ -1,4 +1,6 @@
 import { execFileSync } from 'node:child_process'
+import { dev } from '$app/environment'
+import { formatCalVer } from '$lib/site.js'
 import type { LayoutServerLoad } from './$types'
 
 const MONTHS = [
@@ -20,12 +22,52 @@ function formatCommitDate(isoDate: string): string {
 }
 
 /**
+ * The navbar's CalVer version. Deliberately NOT a wall-clock read at
+ * build time (that was the original design, `calVerToday()`, removed
+ * 2026.09.01): a static build's clock reflects whenever Netlify happened
+ * to run it, which isn't always the same moment as the last real push
+ * (a manual "Trigger deploy"/"Clear cache and deploy site" click, or an
+ * automatic retry, rebuilds the exact same commit later, silently
+ * advancing the wall-clock date with it) — this bit in production on
+ * 2026.09.01, when a same-day rebuild of the 2026.08.31 commit made the
+ * navbar show a date one day ahead of every page's own git-derived "Last
+ * updated" text. Tying the version to the last commit's own date instead
+ * makes it idempotent: rebuilding the same commit, whenever that happens,
+ * always reproduces the same version number, and the number only moves
+ * when new content is actually committed, i.e. actually published. In
+ * `pnpm run dev` there's no commit-per-edit to key off, so this still
+ * falls back to a live wall-clock read there, same as the original
+ * design intended, gated on SvelteKit's `dev` flag (true only for the
+ * dev server, false for both `pnpm run build` and `pnpm run preview`).
+ */
+function siteVersion(): string {
+  if (dev) {
+    const now = new Date()
+    return formatCalVer(now.getFullYear(), now.getMonth() + 1, now.getDate())
+  }
+
+  try {
+    const output = execFileSync('git', ['log', '-1', '--format=%cI'], {
+      cwd: process.cwd(),
+      encoding: 'utf-8',
+    }).trim()
+    const [year, month, day] = output.slice(0, 10).split('-').map(Number)
+    return formatCalVer(year, month, day)
+  }
+  catch {
+    // No git available at build time: falls back to the build machine's
+    // wall clock rather than crashing the build, same fallback the
+    // original wall-clock-only design always used.
+    const now = new Date()
+    return formatCalVer(now.getFullYear(), now.getMonth() + 1, now.getDate())
+  }
+}
+
+/**
  * The date each +page.md was last committed, read from git history at
  * build time so it's always the true last-edit date rather than a
  * filesystem mtime, which a fresh CI checkout (Netlify's included) resets
- * to the checkout moment on every file, not the actual last edit. Same
- * "computed once at build time, baked into the static output" reasoning
- * as calVerToday() in src/lib/site.ts.
+ * to the checkout moment on every file, not the actual last edit.
  *
  * A root +layout.server.ts still fully prerenders under adapter-static:
  * this load function runs once per route during the build, and its
@@ -36,6 +78,7 @@ function formatCommitDate(isoDate: string): string {
  */
 export const load: LayoutServerLoad = ({ route }) => {
   const relPath = route.id === '/' ? 'src/routes/+page.md' : `src/routes${route.id}/+page.md`
+  const version = siteVersion()
 
   try {
     const output = execFileSync('git', ['log', '-1', '--format=%cI', '--', relPath], {
@@ -51,9 +94,10 @@ export const load: LayoutServerLoad = ({ route }) => {
     return {
       lastModified: output ? formatCommitDate(output) : null,
       lastModifiedISO: output ? output.slice(0, 10) : null,
+      siteVersion: version,
     }
   }
   catch {
-    return { lastModified: null, lastModifiedISO: null }
+    return { lastModified: null, lastModifiedISO: null, siteVersion: version }
   }
 }

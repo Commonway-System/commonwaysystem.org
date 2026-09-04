@@ -7,7 +7,7 @@ llms: "A corridor where a multi-use trail or linear park runs parallel to, but p
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Road-Adjacent Greenway" classification="corridor" status="recommended">
@@ -18,7 +18,7 @@ A corridor where a multi-use trail or linear park runs parallel to, but physical
 
 ## Why this pattern exists
 
-A greenway running beside a road is a common and valuable configuration, but it creates a specific design problem distinct from a road with no parallel path: where and how people move between the two, and how crossings of the road itself are handled where the greenway needs to cross it. Left unaddressed, this produces either a greenway that is disconnected from the destinations along the road, or unsafe informal crossing points.
+A greenway running beside a road is a common and valuable configuration, but it creates a specific design problem distinct from a road with no parallel path: where and how people move between the two, and how crossings of the road itself are handled where the greenway needs to cross it. Left unaddressed, this produces either a greenway that is disconnected from the destinations along the road, or unsafe informal crossing points.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ A greenway running beside a road is a common and valuable configuration, but it 
 
 [Rail-With-Trail Corridor](/patterns/corridors/rail-with-trail-corridor/) (CDR-RWT-04) (related but distinct: rail involved); [Multi-Use Trail/Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06) (Segment scale, the trail itself); relevant Crossing-family Element patterns
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> AASHTO, *Guide for the Development of Bicycle Facilities*, 5th Edition, 2024.

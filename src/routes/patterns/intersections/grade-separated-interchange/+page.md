@@ -7,7 +7,7 @@ llms: Freeway-scale grade-separated intersection treatment, an acknowledged fall
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Grade-Separated Interchange" classification="intersections">
@@ -20,8 +20,8 @@ Compact and Urban are edge cases. Core is an unlikely pairing.
 
 ## Design notes
 
-This is an acknowledged fallback for genuinely Freeway-scale volume or speed beyond what even a turbo-roundabout can manage, not a general-purpose alternative to the Commonway System's roundabout-first intersection philosophy. It stays confined to the density range where full Freeway-scale roads themselves are realistic.
+This is an acknowledged fallback for genuinely Freeway-scale volume or speed beyond what even a turbo-roundabout can manage, not a general-purpose alternative to the Commonway System's roundabout-first intersection philosophy. It stays confined to the density range where full Freeway-scale roads themselves are realistic.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *A Policy on Geometric Design of Highways and Streets*.

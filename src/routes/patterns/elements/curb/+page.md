@@ -7,7 +7,7 @@ llms: "The raised edge separating the roadway from the sidewalk or shoulder, mar
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Curb" classification="element" status="recommended">
@@ -18,7 +18,7 @@ The raised edge separating the roadway from the sidewalk or shoulder, marking th
 
 ## Why this pattern exists
 
-The curb is the single most foundational physical element separating modes on a street; its height, material, and continuity determine drainage behavior, accessibility, and how legible the vehicle/pedestrian boundary reads to everyone using the street. Nearly every other Element pattern in this family (extensions, ramps, cuts) is a modification or interruption of this base condition, so it needs its own definition first.
+The curb is the single most foundational physical element separating modes on a street; its height, material, and continuity determine drainage behavior, accessibility, and how legible the vehicle/pedestrian boundary reads to everyone using the street. Nearly every other Element pattern in this family (extensions, ramps, cuts) is a modification or interruption of this base condition, so it needs its own definition first.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ The curb is the single most foundational physical element separating modes on a 
 
 [Curb Extension](/patterns/elements/curb-extension/) (ELM-CBE-02), [Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03), [Curb Cut/Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) (ELM-CCA-04) (all modifications of this base element); [Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (a common interruption point)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO Urban Street Design Guide, "Curbs." Height, material, and continuity design guidance for the base element.

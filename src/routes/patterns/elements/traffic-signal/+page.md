@@ -7,7 +7,7 @@ llms: "A signal-controlled device using red, yellow, and green indications to as
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Traffic Signal" classification="element" status="situational">
@@ -22,7 +22,7 @@ Above a certain volume or conflict complexity, an uncontrolled or sign-controlle
 
 ## Key considerations
 
-- Consistent with Commonway System’s intersection defaults, signal installation should require documented burden-of-proof justification rather than being a default choice
+- Consistent with Commonway System’s intersection defaults, signal installation should require documented burden-of-proof justification rather than being a default choice<Citation index={1} />
 - Timing and phasing should account for all modes present, not just vehicle throughput; pedestrian and bicycle phases need adequate crossing time
 - Signal coordination along a corridor affects speed and platooning behavior well beyond the single intersection where it is installed
 
@@ -30,6 +30,6 @@ Above a certain volume or conflict complexity, an uncontrolled or sign-controlle
 
 [Roundabout](/patterns/intersections/roundabout/) (INT-RAB-01) (the CS default this pattern is a documented departure from); [Pedestrian Signal](/patterns/elements/pedestrian-signal/) (ELM-PDS-15), [Bicycle Signal](/patterns/elements/bicycle-signal/) (ELM-BCS-16) (companion signal types at a signalized intersection)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 4C, "Traffic Control Signal Needs Studies." Establishes the nine signal warrants, and explicitly states that meeting a warrant does not itself require installation.

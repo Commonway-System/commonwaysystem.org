@@ -7,7 +7,7 @@ llms: "A compound facility where multiple transit patterns (platforms, shelters,
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Hub / Station" classification="facility" status="recommended">
@@ -18,7 +18,7 @@ A compound facility where multiple transit patterns (platforms, shelters, wayfin
 
 ## Why this pattern exists
 
-Once a stop grows past a single platform and shelter, it becomes its own design problem: passengers transferring between routes or modes need legible wayfinding, adequate circulation space, and often supporting amenities (restrooms, retail, bike parking) that a simple stop never requires. This pattern exists to mark that threshold and give higher-order stops their own documentation rather than treating them as an oversized version of a basic stop.
+Once a stop grows past a single platform and shelter, it becomes its own design problem: passengers transferring between routes or modes need legible wayfinding, adequate circulation space, and often supporting amenities (restrooms, retail, bike parking) that a simple stop never requires. This pattern exists to mark that threshold and give higher-order stops their own documentation rather than treating them as an oversized version of a basic stop.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ Once a stop grows past a single platform and shelter, it becomes its own design 
 
 [Transit Shelter](/patterns/facilities/transit-shelter/) (FAC-TSH-01), [Transit Platform](/patterns/facilities/transit-platform/) (FAC-TPL-02) (component facilities); [Park-and-Ride](/patterns/facilities/park-and-ride/) (FAC-PNR-06) (a related but distinct compound facility oriented around auto transfer rather than multimodal transfer); [Bike-Share Station](/patterns/facilities/bike-share-station/) (FAC-BSS-09), [Secure Bike Parking/Bike Station](/patterns/facilities/secure-bike-parking-bike-station/) (FAC-SBP-10) (frequently co-located amenities)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> TCRP Report 153, "Guidelines for Providing Access to Public Transportation Stations," Transportation Research Board. Circulation, multimodal transfer, and amenity mix planning for higher-order stations.

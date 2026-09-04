@@ -7,7 +7,7 @@ llms: "A fixed or semi-fixed seating element installed along a sidewalk, plaza, 
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bench" classification="element" status="recommended">
@@ -23,13 +23,13 @@ Seating in the public realm extends how long and how comfortably people, particu
 ## Key considerations
 
 - Placement should account for shade, sightlines, and proximity to activity; an isolated bench in full sun with nothing to observe sees little use
-- Should not obstruct the required pedestrian clear path of travel on the sidewalk it is placed along
+- Should not obstruct the required pedestrian clear path of travel on the sidewalk it is placed along<Citation index={1} />
 - Design elements to prevent unwanted extended use (frequently discussed as "hostile architecture") raise genuine equity concerns and should be weighed carefully against basic comfort and accessibility for all users
 
 ## Related patterns
 
 [Trash/Recycling Receptacle](/patterns/elements/trash-recycling-receptacle/) (ELM-TRR-32) (common companion element); [Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07), [Transit Shelter](/patterns/facilities/transit-shelter/) (FAC-TSH-01) (Facility patterns commonly furnished with benches)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG, Section R212, "Street Furniture," and Section R404, "Clear Spaces." Clear-space requirement (2.5 ft x 4.0 ft minimum) at benches.

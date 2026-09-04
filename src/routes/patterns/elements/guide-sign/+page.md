@@ -7,7 +7,7 @@ llms: "A sign providing wayfinding or informational content, such as destination
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Guide Sign" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A sign providing wayfinding or informational content, such as destination names,
 
 ## Why this pattern exists
 
-Travelers, whether driving, cycling, or walking, need to know where they are and how to reach their destination; guide signage is the network’s navigational layer, distinct from the rule-setting and hazard-alerting functions of the other two sign categories. This pattern exists to document its own legibility and placement considerations.
+Travelers, whether driving, cycling, or walking, need to know where they are and how to reach their destination; guide signage is the network’s navigational layer, distinct from the rule-setting and hazard-alerting functions of the other two sign categories. This pattern exists to document its own legibility and placement considerations.<Citation index={1} /><Citation index={2} />
 
 ## Key considerations
 
@@ -30,6 +30,7 @@ Travelers, whether driving, cycling, or walking, need to know where they are and
 
 [Regulatory Sign](/patterns/elements/regulatory-sign/) (ELM-RGS-11), [Warning Sign](/patterns/elements/warning-sign/) (ELM-WNS-12) (related sign categories); wayfinding provisions in relevant Guide-level content
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2A.03, "Classification of Signs."
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 2D, "Guide Signs — Conventional Roads."

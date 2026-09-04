@@ -7,7 +7,7 @@ llms: "A textured ground surface, typically a grid of truncated domes, installed
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Detectable Warning Surface" classification="element" status="recommended">
@@ -23,13 +23,13 @@ A curb ramp removes the vertical cue (a step down) that traditionally signaled a
 ## Key considerations
 
 - Should be present at every curb ramp and transit platform edge reaching a vehicular way, without exception
-- Color contrast with the surrounding surface improves detectability for pedestrians with low vision, not just those who are fully blind
+- Color contrast with the surrounding surface improves detectability for pedestrians with low vision, not just those who are fully blind<Citation index={1} />
 - Material must remain detectable underfoot over time; a worn-down or damaged surface fails its purpose even if visually still present
 
 ## Related patterns
 
 [Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03) (required companion element); [Transit Platform](/patterns/facilities/transit-platform/) (FAC-TPL-02) (Facility pattern where this also applies at platform edges)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R305, "Detectable Warning Surfaces." Dome size, spacing, visual contrast, and placement requirements.

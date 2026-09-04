@@ -7,7 +7,7 @@ llms: A higher-capacity roundabout variant, using spiral lane markings to guide 
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Turbo-Roundabout" classification="intersections">
@@ -20,8 +20,8 @@ Suburban and Core are edge cases. Undeveloped and Rural are unlikely pairings.
 
 ## Design notes
 
-Reserved for higher-volume Arterial-to-Arterial junctions, where a standard roundabout's capacity is not enough but a signal is still not the preferred default. This keeps the roundabout-first philosophy intact at higher volumes rather than defaulting to a signal once traffic grows.
+Reserved for higher-volume Arterial-to-Arterial junctions, where a standard roundabout's capacity is not enough but a signal is still not the preferred default. This keeps the roundabout-first philosophy intact at higher volumes rather than defaulting to a signal once traffic grows.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Fortuijn, L.G.H., "Turbo Roundabouts: Design Principles and Safety Performance," *Transportation Research Record* 2096 (2009).

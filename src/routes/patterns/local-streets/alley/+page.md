@@ -7,7 +7,7 @@ llms: A narrow Local street typology for service and driveway access, where vehi
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Alley" classification="local" status="recommended">
@@ -20,12 +20,12 @@ Suburban is an edge case. Undeveloped and Rural contexts are unlikely to carry a
 
 ## Modal hierarchy
 
-Alley inverts the Local base order: Vehicle, then Freight, then Pedestrian, then Bicycle, then Transit. The override is justified because the Typology's stated purpose is service and driveway access, not through movement, one of the closed set of triggers that permits a departure from the base order.
+Alley inverts the Local base order: Vehicle, then Freight, then Pedestrian, then Bicycle, then Transit. The override is justified because the Typology's stated purpose is service and driveway access, not through movement, one of the closed set of triggers that permits a departure from the base order.<Citation index={1} />
 
 ## Design notes
 
 Because an alley is not a through-route for people walking or biking, its narrow width and service function do not conflict with the 20 mph Local speed cap. The override applies to mode priority, not to the speed rule.
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Green Alley" and "Commercial Alley."

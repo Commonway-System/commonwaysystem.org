@@ -7,7 +7,7 @@ llms: "An enclosed or attended facility offering higher-security, longer-term bi
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Secure Bike Parking / Bike Station" classification="facility" status="situational">
@@ -18,7 +18,7 @@ An enclosed or attended facility offering higher-security, longer-term bike park
 
 ## Why this pattern exists
 
-Commuters and long-term parkers need protection from theft and weather that an open rack cannot provide; this pattern exists to document the access control, capacity, and siting considerations specific to an enclosed facility, distinct from the simpler open-air patterns that serve short-term parking needs.
+Commuters and long-term parkers need protection from theft and weather that an open rack cannot provide; this pattern exists to document the access control, capacity, and siting considerations specific to an enclosed facility, distinct from the simpler open-air patterns that serve short-term parking needs.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ Commuters and long-term parkers need protection from theft and weather that an o
 
 [Bike Parking Corral](/patterns/facilities/bike-parking-corral/) (FAC-BPC-08), [Bike Parking / Rack](/patterns/elements/bike-parking-rack/) (ELM-BPR-40) (lower-security alternatives); [Bike-Share Station](/patterns/facilities/bike-share-station/) (FAC-BSS-09), [Transit Hub/Station](/patterns/facilities/transit-hub-station/) (FAC-THS-03) (common co-location sites)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Association of Pedestrian and Bicycle Professionals (APBP), *Bicycle Parking Guidelines*, 2nd Ed. Long-term/enclosed parking recommendations, access control approaches.

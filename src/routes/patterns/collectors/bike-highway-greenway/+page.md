@@ -7,7 +7,7 @@ llms: A Collector-scale street typology providing a dedicated, physically separa
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike Highway / Greenway" classification="collector" status="recommended">
@@ -24,8 +24,8 @@ Bicycle, then Pedestrian, then Transit, then Vehicle, then Freight, an override 
 
 ## Design notes
 
-Distinct from Local's Bicycle Boulevard, which shares the roadway with calmed vehicle traffic, this Typology is physically separated infrastructure, closer in function to a linear park path or a rail-trail than to a shared street. It is realistic across nearly the full density range, since a separated path is not dependent on the surrounding street grid the way a shared-roadway Typology is.
+Distinct from Local's Bicycle Boulevard, which shares the roadway with calmed vehicle traffic, this Typology is physically separated infrastructure, closer in function to a linear park path or a rail-trail than to a shared street. It is realistic across nearly the full density range, since a separated path is not dependent on the surrounding street grid the way a shared-roadway Typology is.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> CROW, *Design Manual for Bicycle Traffic*, English ed. (2016), Ch. 4.5 "Bicycle highways."

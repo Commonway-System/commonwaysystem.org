@@ -7,7 +7,7 @@ llms: A Local street typology carrying a dedicated transit route, with transit e
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Local Transit" classification="local" status="recommended">
@@ -24,8 +24,8 @@ Transit, then Pedestrian, then Bicycle, then Vehicle, then Freight. This is an o
 
 ## Design notes
 
-This entry is the Local-scale sibling of Collector Transit and Arterial Transit. All three follow the same override logic, moving Transit to the top of their respective base order once a route is designated, rather than treating transit priority as automatic on every street a bus happens to use.
+This entry is the Local-scale sibling of Collector Transit and Arterial Transit. All three follow the same override logic, moving Transit to the top of their respective base order once a route is designated, rather than treating transit priority as automatic on every street a bus happens to use.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Transit Street Design Guide*, 2016.

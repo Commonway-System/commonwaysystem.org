@@ -7,7 +7,7 @@ llms: An Arterial street typology marked Situational/Discouraged, since one-way 
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="One-Way Street" classification="arterial" status="situational">
@@ -19,13 +19,13 @@ Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <Density
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings.
 
 :::warning
-One-Way Street carries Situational/Discouraged status. It tends to encourage speeding, since drivers no longer need to watch for oncoming traffic. The modal hierarchy is retained at the Arterial base order rather than reassigned, a deliberate choice that signals the conflict between the pattern's real-world speeding effect and its nominal priority order, rather than papering over it with a different hierarchy.
+One-Way Street carries Situational/Discouraged status. It tends to encourage speeding, since drivers no longer need to watch for oncoming traffic.<Citation index={1} /> The modal hierarchy is retained at the Arterial base order rather than reassigned, a deliberate choice that signals the conflict between the pattern's real-world speeding effect and its nominal priority order, rather than papering over it with a different hierarchy.
 :::
 
 ## Design notes
 
 Discouraged status here does not mean the pattern is banned; it means adopting it requires weighing the speeding tendency against whatever benefit, often traffic flow or signal progression, motivated the one-way conversion in the first place.
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Riggs, W. and Gilderbloom, J., "Two-Way Street Conversion: Evidence of Increased Livability in Louisville," *Journal of Planning Education and Research* 36(1), 2016.

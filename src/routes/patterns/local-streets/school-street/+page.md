@@ -7,7 +7,7 @@ llms: A Local street typology that closes or restricts vehicle traffic during ac
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="School Street" classification="local" status="recommended">
@@ -24,8 +24,8 @@ During active hours: Pedestrian and Bicycle only. Off-hours: reverts to the Loca
 
 ## Design notes
 
-This Typology and Festival Street share the same schedule-based structure, full closure or restriction during a defined window, base operation otherwise. Both were added to the system after a NACTO gap-check identified time-restricted street patterns not otherwise covered by the core Local set.
+This Typology and Festival Street share the same schedule-based structure, full closure or restriction during a defined window, base operation otherwise. Both were added to the system after a NACTO gap-check identified time-restricted street patterns not otherwise covered by the core Local set.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Gellatly, R. and Marner, B., "Air Quality Monitoring Study: London School Streets," 2021.

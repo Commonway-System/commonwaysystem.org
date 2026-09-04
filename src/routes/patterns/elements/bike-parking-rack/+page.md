@@ -7,7 +7,7 @@ llms: "A fixed rack or set of racks, most commonly an inverted-U or similar desi
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike Parking / Rack" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A fixed rack or set of racks, most commonly an inverted-U or similar design, pro
 
 ## Why this pattern exists
 
-Reliable, well-designed bike parking is a necessary complement to any bike facility investment; without a secure place to park at the destination end of a trip, the quality of the route traveled matters less. This pattern exists to document rack design and placement considerations at the individual fixture level, distinct from the larger corral or secure-parking facility patterns it may be part of.
+Reliable, well-designed bike parking is a necessary complement to any bike facility investment; without a secure place to park at the destination end of a trip, the quality of the route traveled matters less. This pattern exists to document rack design and placement considerations at the individual fixture level, distinct from the larger corral or secure-parking facility patterns it may be part of.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ Reliable, well-designed bike parking is a necessary complement to any bike facil
 
 [Bike Parking Corral](/patterns/facilities/bike-parking-corral/) (FAC-BPC-08), [Secure Bike Parking/Bike Station](/patterns/facilities/secure-bike-parking-bike-station/) (FAC-SBP-10) (Facility-scale patterns this pattern is a component of)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Association of Pedestrian and Bicycle Professionals (APBP), *Bicycle Parking Guidelines*, 2nd Ed. (2010). Inverted-U rack design standard, two-point frame support, placement near destinations.

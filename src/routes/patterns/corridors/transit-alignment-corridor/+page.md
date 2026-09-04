@@ -7,7 +7,7 @@ llms: "A corridor built around a fixed transit line (light rail, streetcar, or d
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Alignment Corridor" classification="corridor" status="situational">
@@ -18,7 +18,7 @@ A corridor built around a fixed transit line (light rail, streetcar, or dedicate
 
 ## Why this pattern exists
 
-A fixed transit alignment is not just another lane, it constrains cross-section width, access point spacing, and intersection design continuously along the corridor in a way that a bus running in mixed traffic does not. Treating each segment along a transit alignment independently risks a cross-section that works at one point and fails at the next (a dedicated lane that disappears and reappears, station spacing that does not match access needs).
+A fixed transit alignment is not just another lane, it constrains cross-section width, access point spacing, and intersection design continuously along the corridor in a way that a bus running in mixed traffic does not. Treating each segment along a transit alignment independently risks a cross-section that works at one point and fails at the next (a dedicated lane that disappears and reappears, station spacing that does not match access needs).<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ A fixed transit alignment is not just another lane, it constrains cross-section 
 
 Transit Corridor (Segment-scale character type, the segment-level treatment this corridor pattern coordinates); Modal Hierarchy mechanism (Guide)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Transit Street Design Guide*, 2016.

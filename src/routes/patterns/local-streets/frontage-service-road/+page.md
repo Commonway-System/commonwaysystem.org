@@ -7,7 +7,7 @@ llms: A Local street typology running parallel to a faster Arterial or Freeway, 
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Frontage / Service Road" classification="local" status="recommended">
@@ -24,8 +24,8 @@ Follows the Local base order: Pedestrian, then Bicycle, then Transit, then Vehic
 
 ## Design notes
 
-The safety rationale is separation, not speed: keeping people walking and biking off a roadway designed for faster through traffic. This is the Local-scale companion to the Arterial safety rule that access needs are served by a separate road rather than mixed into through lanes.
+The safety rationale is separation, not speed: keeping people walking and biking off a roadway designed for faster through traffic.<Citation index={1} /> This is the Local-scale companion to the Arterial safety rule that access needs are served by a separate road rather than mixed into through lanes.
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> AASHTO, *A Policy on Geometric Design of Highways and Streets*.

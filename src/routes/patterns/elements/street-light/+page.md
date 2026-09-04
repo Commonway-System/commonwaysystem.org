@@ -7,7 +7,7 @@ llms: "A pole-mounted luminaire providing illumination for the roadway, typicall
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Street Light" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A pole-mounted luminaire providing illumination for the roadway, typically mount
 
 ## Why this pattern exists
 
-Adequate roadway illumination reduces nighttime crash risk by improving driver visibility of the roadway edge, other vehicles, and pedestrians; this pattern exists to document the mounting height, spacing, and output considerations specific to vehicle-oriented lighting, distinct from the pedestrian-scale lighting that serves a different visual task.
+Adequate roadway illumination reduces nighttime crash risk by improving driver visibility of the roadway edge, other vehicles, and pedestrians; this pattern exists to document the mounting height, spacing, and output considerations specific to vehicle-oriented lighting, distinct from the pedestrian-scale lighting that serves a different visual task.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ Adequate roadway illumination reduces nighttime crash risk by improving driver v
 
 [Pedestrian-scale Lighting](/patterns/elements/pedestrian-scale-lighting/) (ELM-PSL-27) (the companion lighting pattern serving a different visual task and height); relevant Segment patterns this lighting serves
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> ANSI/IES RP-8-22, "Lighting Roadway and Parking Facilities." Current American National Standard for mounting height, spacing, and illuminance-level tables by roadway classification.

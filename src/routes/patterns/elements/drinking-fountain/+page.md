@@ -7,7 +7,7 @@ llms: "A fixed water fountain installed in the public right-of-way or an adjacen
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Drinking Fountain" classification="element" status="situational">
@@ -22,7 +22,7 @@ Public drinking water access supports comfort and public health, particularly in
 
 ## Key considerations
 
-- Accessible height and reach range must be provided, not just a single standard-height basin
+- Accessible height and reach range must be provided, not just a single standard-height basin<Citation index={1} />
 - Freeze-proof design or seasonal shutoff is necessary in climates with winter freezing
 - Best sited near high pedestrian dwell locations (plazas, trailheads, transit hubs), rather than distributed evenly regardless of use pattern
 
@@ -30,6 +30,6 @@ Public drinking water access supports comfort and public health, particularly in
 
 [Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07), [Multi-Use Trail/Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06) (contexts where this pattern is most relevant); [Bench](/patterns/elements/bench/) (ELM-BCH-31) (common companion amenity)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG, Section R212, referencing ADA/ABA Accessibility Guidelines Sections 602.1-602.6 (36 CFR Part 1191, Appendix D). Binding accessible-height and knee-clearance requirements.

@@ -7,7 +7,7 @@ llms: A narrow Local street typology where opposing vehicles yield to each other
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Yield Street" classification="local" status="recommended">
@@ -24,8 +24,8 @@ Pedestrian, then Bicycle, then Vehicle, then Transit, then Freight. Marked as ne
 
 ## Design notes
 
-This pattern only functions where traffic volume is genuinely low. It thins out toward Urban and Core, where local street volumes typically outgrow what a shared, yield-controlled width can safely absorb.
+This pattern only functions where traffic volume is genuinely low. It thins out toward Urban and Core, where local street volumes typically outgrow what a shared, yield-controlled width can safely absorb.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Yield Street."

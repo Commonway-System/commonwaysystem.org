@@ -7,7 +7,7 @@ llms: An uncontrolled intersection with no assigned right-of-way control, realis
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Uncontrolled" classification="intersections">
@@ -20,8 +20,8 @@ Suburban is an edge case. Compact, Urban, and Core are unlikely pairings.
 
 ## Design notes
 
-Uncontrolled intersections are only realistic where traffic volume is low enough on every approach that informal right-of-way resolution stays safe, which narrows this pattern to the lowest end of the density range.
+Uncontrolled intersections are only realistic where traffic volume is low enough on every approach that informal right-of-way resolution stays safe, which narrows this pattern to the lowest end of the density range.<Citation index={1} />
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> SWOV Institute for Road Safety Research, "Principles for a Safe Road Network."

@@ -7,7 +7,7 @@ llms: "A public gathering space reclaimed from roadway or parking space, ranging
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Plaza / Parklet" classification="facility" status="recommended">
@@ -22,14 +22,15 @@ Streets historically allocate nearly all their space to vehicle movement and sto
 
 ## Key considerations
 
-- Site selection should account for sun exposure, adjacent building frontage activity, and pedestrian flow; a plaza with no reason to stop rarely gets used
-- Drainage must be resolved deliberately, since converted roadway space was not designed to shed water toward a pedestrian-occupied surface
+- Site selection should account for sun exposure, adjacent building frontage activity, and pedestrian flow; a plaza with no reason to stop rarely gets used<Citation index={2} />
+- Drainage must be resolved deliberately, since converted roadway space was not designed to shed water toward a pedestrian-occupied surface<Citation index={1} />
 - Where a parklet occupies a former parking space, physical protection from adjacent traffic (bollards, curb, planters) is necessary, not optional
 
 ## Related patterns
 
 [Curb Extension](/patterns/elements/curb-extension/) (ELM-CBE-02) (related Element pattern, since a plaza often anchors at a curb extension or corner); [Bench](/patterns/elements/bench/) (ELM-BCH-31), [Street Tree](/patterns/elements/street-tree/) (ELM-STT-28) (common furnishing elements)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> WSDOT Design Manual, Chapter 1238, "Parklets and Plazas." Drainage, catch-basin avoidance, and railing/planter separation from traffic.
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> NACTO Urban Street Design Guide, "Parklets, Pop-ups and Street Seats." Siting principles (sun exposure, adjacent frontage activity).

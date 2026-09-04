@@ -7,7 +7,7 @@ llms: "A sloped transition cut into a curb, providing an accessible path between
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Curb Ramp" classification="element" status="recommended">
@@ -22,7 +22,7 @@ A curb that provides no ramped transition is an absolute barrier to wheelchair u
 
 ## Key considerations
 
-- Slope must stay within accessible design limits; a ramp too steep defeats its own purpose
+- Slope must stay within accessible design limits; a ramp too steep defeats its own purpose<Citation index={1} />
 - Landing space at the top and bottom of the ramp must be clear of obstructions and large enough for a wheelchair to maneuver
 - Detectable Warning Surface should be present at every curb ramp reaching a street, not treated as a separate, optional add-on
 
@@ -30,6 +30,6 @@ A curb that provides no ramped transition is an absolute barrier to wheelchair u
 
 [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) (ELM-DWS-10) (required companion element); [Curb](/patterns/elements/curb/) (ELM-CRB-01), [Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (the elements this pattern connects)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R304, "Curb Ramps and Blended Transitions." Sets a 1:12 maximum running slope, a 1:48 maximum cross slope, and landing dimension and clear-area requirements.

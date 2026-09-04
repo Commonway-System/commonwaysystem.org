@@ -7,7 +7,7 @@ llms: "A raised roadway feature (speed hump, speed table, or speed cushion) that
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Vertical Speed Control" classification="element" status="recommended">
@@ -18,7 +18,7 @@ A raised roadway feature (speed hump, speed table, or speed cushion) that slows 
 
 ## Why this pattern exists
 
-Signage and paint alone rarely change driver speed on their own; a physical vertical deflection imposes a real cost on speeding that self-enforces without requiring active enforcement presence. This pattern exists to document the distinct forms this treatment takes and where each is appropriate, since a hump, table, and cushion serve different vehicle types and roadway contexts differently.
+Signage and paint alone rarely change driver speed on their own; a physical vertical deflection imposes a real cost on speeding that self-enforces without requiring active enforcement presence. This pattern exists to document the distinct forms this treatment takes and where each is appropriate, since a hump, table, and cushion serve different vehicle types and roadway contexts differently.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ Signage and paint alone rarely change driver speed on their own; a physical vert
 
 [Rumble Strip](/patterns/elements/rumble-strip/) (ELM-RMS-07) (a related but distinct calming treatment using texture rather than vertical deflection); relevant Local and Collector Segment patterns where speed control applies
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Institute of Transportation Engineers, *Guidelines for the Design and Application of Speed Humps* (updated edition).

@@ -7,7 +7,7 @@ llms: "A corridor that deliberately passes through multiple Movement/Place conte
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Character Transect" classification="corridor" status="recommended">
@@ -18,7 +18,7 @@ A corridor that deliberately passes through multiple Movement/Place contexts by 
 
 ## Why this pattern exists
 
-Most corridor-planning guidance treats a road as belonging to one classification for its full length, but real corridors regularly earn different classifications at different points because the land use around them changes. Without an explicit pattern for this, a corridor either gets forced into a single ill-fitting classification, or each segment gets designed in isolation with no coordination between them, producing a road that feels disjointed or unpredictable to travel along.
+Most corridor-planning guidance treats a road as belonging to one classification for its full length, but real corridors regularly earn different classifications at different points because the land use around them changes. Without an explicit pattern for this, a corridor either gets forced into a single ill-fitting classification, or each segment gets designed in isolation with no coordination between them, producing a road that feels disjointed or unpredictable to travel along.<Citation index={1} /><Citation index={2} />
 
 ## Key considerations
 
@@ -30,6 +30,7 @@ Most corridor-planning guidance treats a road as belonging to one classification
 
 [Density Step-Down/Step-Up](/patterns/corridors/density-step-down-step-up/) (CDR-DSD-01), [Rural-to-Town Gateway](/patterns/corridors/rural-to-town-gateway/) (CDR-RTG-02) (component transitions this pattern sequences); Movement/Place diagnostic (Guide)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Jones, P., Boujenko, N., and Marshall, S. (2007), *Link and Place: A Guide to Street Planning and Design*.
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> Duany Plater-Zyberk & Company, the rural-to-urban Transect (SmartCode, 2003).

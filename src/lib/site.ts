@@ -35,19 +35,14 @@ export function externalLinkAttrs(href: unknown): { target?: '_blank', rel?: str
 }
 
 /**
- * Today's date as CalVer (YYYY.MM.DD), e.g. "2026.08.28".
- *
- * Evaluated wherever it's called, so the same code gives two different
- * behaviors depending on when SvelteKit runs it: in `npm run dev` every
- * page is server-rendered live per request, so this shows the real
- * current date the whole time you're developing. In a prerendered
- * static build it runs exactly once, at build time, so the date gets
- * baked into the output as the deploy date, a real CalVer freshness
- * signal rather than a live clock.
+ * Formats a CalVer string (YYYY.MM.DD) from explicit calendar-date parts.
+ * Pure formatting only, deliberately takes plain numbers rather than a
+ * `Date` so callers control exactly which calendar date gets stamped
+ * (a live wall-clock read in dev, a specific git commit's date in
+ * production) rather than this function silently defaulting to "now".
+ * See `src/routes/+layout.server.ts`'s `siteVersion()` for where this
+ * is actually used, and why it isn't computed here.
  */
-export function calVerToday(): string {
-  const now = new Date()
-  const month = String(now.getMonth() + 1).padStart(2, '0')
-  const day = String(now.getDate()).padStart(2, '0')
-  return `${now.getFullYear()}.${month}.${day}`
+export function formatCalVer(year: number, month: number, day: number): string {
+  return `${year}.${String(month).padStart(2, '0')}.${String(day).padStart(2, '0')}`
 }

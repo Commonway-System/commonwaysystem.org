@@ -7,7 +7,7 @@ llms: A dead-end Local street typology, marked Situational, that peaks at Suburb
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Cul-de-sac" classification="local" status="situational">
@@ -19,7 +19,7 @@ Typical at: <DensityChip tier="Suburban" />
 Compact is an edge case. Undeveloped, Rural, Urban, and Core are unlikely pairings.
 
 :::warning
-Cul-de-sac carries Situational status. The connectivity and walkability expectations that define Urban and Core density are close to incompatible with a dead-end street pattern, so this Typology's realistic range is narrow, peaking at Suburban.
+Cul-de-sac carries Situational status. The connectivity and walkability expectations that define Urban and Core density are close to incompatible with a dead-end street pattern, so this Typology's realistic range is narrow, peaking at Suburban.<Citation index={1} />
 :::
 
 ## Modal hierarchy
@@ -30,6 +30,6 @@ Pedestrian, then Bicycle, then Vehicle, then Freight, the Local base order minus
 
 A cul-de-sac trades network connectivity for a quiet, low-through-traffic environment. That trade only holds up at lower densities, where a disconnected street grid does not yet conflict with pedestrian and bicycle route continuity.
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Marshall, W.E. and Garrick, N.W. (2011), "Street network types and road safety: A study of 24 California cities," *Urban Design International* 16(2).

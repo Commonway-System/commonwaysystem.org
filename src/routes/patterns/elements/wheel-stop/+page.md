@@ -7,7 +7,7 @@ llms: "A small barrier, typically a short raised block or bumper, placed at the 
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Wheel Stop" classification="element" status="situational">
@@ -18,7 +18,7 @@ A small barrier, typically a short raised block or bumper, placed at the end of 
 
 ## Why this pattern exists
 
-Vehicles routinely pull farther into a parking space than intended, and without a physical stop, this can push a vehicle’s front end over a curb and into pedestrian space, into landscaping, or into an adjacent lane. This pattern exists to document this small but common protective element, distinct from the curb itself.
+Vehicles routinely pull farther into a parking space than intended, and without a physical stop, this can push a vehicle’s front end over a curb and into pedestrian space, into landscaping, or into an adjacent lane. This pattern exists to document this small but common protective element, distinct from the curb itself.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ Vehicles routinely pull farther into a parking space than intended, and without 
 
 [Curb](/patterns/elements/curb/) (ELM-CRB-01) (the element this pattern protects); [Surface Parking Lot](/patterns/facilities/surface-parking-lot/) (FAC-SPL-04) (Facility pattern where this most commonly applies)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> 2010 ADA Standards for Accessible Design, Section 502.7 (Advisory). Regulatory basis for using wheel stops to prevent vehicle overhang into accessible routes and access aisles.

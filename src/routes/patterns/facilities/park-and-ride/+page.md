@@ -7,7 +7,7 @@ llms: "A parking facility, surface or structured, designed specifically for comm
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Park-and-Ride" classification="facility" status="situational">
@@ -18,18 +18,19 @@ A parking facility, surface or structured, designed specifically for commuters t
 
 ## Why this pattern exists
 
-Park-and-ride serves a distinct trip purpose (a single daily transfer at a predictable time) rather than general destination parking, which shapes its sizing, its relationship to the transit stop it serves, and its access design in ways a generic lot or garage does not need to consider. This pattern exists to document that specific use case rather than leaving it as an unstated variant of Surface Parking Lot or Parking Garage/Structure.
+Park-and-ride serves a distinct trip purpose (a single daily transfer at a predictable time) rather than general destination parking, which shapes its sizing, its relationship to the transit stop it serves, and its access design in ways a generic lot or garage does not need to consider. This pattern exists to document that specific use case rather than leaving it as an unstated variant of Surface Parking Lot or Parking Garage/Structure.<Citation index={1} />
 
 ## Key considerations
 
 - Walking distance and path quality between the parking area and the transit platform should be prioritized, since a poor connection undermines the facility’s entire purpose
 - Sizing should be based on realistic transit ridership projections; an oversized facility encourages unnecessary driving while an undersized one turns away potential riders
-- Peak-period arrival and departure surges concentrated around transit schedules require different circulation design than a steady-demand lot
+- Peak-period arrival and departure surges concentrated around transit schedules require different circulation design than a steady-demand lot<Citation index={2} />
 
 ## Related patterns
 
 [Surface Parking Lot](/patterns/facilities/surface-parking-lot/) (FAC-SPL-04), [Parking Garage/Structure](/patterns/facilities/parking-garage-structure/) (FAC-PGS-05) (the physical forms this pattern typically takes); [Transit Hub/Station](/patterns/facilities/transit-hub-station/) (FAC-THS-03), [Transit Platform](/patterns/facilities/transit-platform/) (FAC-TPL-02) (the transit facility being served)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> TCRP Report 153, "Guidelines for Providing Access to Public Transportation Stations." Station access planning and mode-tradeoff analysis for sizing against ridership projections.
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> TCRP Report 95, Chapter 3, "Park-and-Ride/Pool," Transportation Research Board. Facility classification by size (small, 200 spaces or fewer; large, more than 1,000 spaces) and peak-period demand patterns.

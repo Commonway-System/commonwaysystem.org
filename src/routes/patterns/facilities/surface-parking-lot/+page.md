@@ -7,7 +7,7 @@ llms: "An at-grade, open-air parking area serving adjacent land uses, ranging fr
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Surface Parking Lot" classification="facility" status="situational">
@@ -22,14 +22,17 @@ Surface lots are the most common and land-intensive parking facility, and their 
 
 ## Key considerations
 
-- Pedestrian paths through and across the lot should be clearly delineated rather than left to informal desire lines between parked cars
-- Stormwater management (permeable paving, bioswales, tree canopy) should be integrated into the lot design, not treated as an afterthought
+- Pedestrian paths through and across the lot should be clearly delineated rather than left to informal desire lines between parked cars<Citation index={2} />
+- Stormwater management (permeable paving, bioswales, tree canopy) should be integrated into the lot design, not treated as an afterthought<Citation index={1} />
 - Lot placement relative to the building and street matters: a lot between the building and the street undermines the streetscape it fronts
 
 ## Related patterns
 
 [Parking Garage/Structure](/patterns/facilities/parking-garage-structure/) (FAC-PGS-05) (structural alternative for higher-density sites); [Pervious Pavement](/patterns/elements/pervious-pavement/) (ELM-PVP-22), [Bioswale](/patterns/elements/bioswale/) (ELM-BIO-19) (related Element patterns for stormwater treatment); [Park-and-Ride](/patterns/facilities/park-and-ride/) (FAC-PNR-06) (a specific use case of surface parking)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> EPA, *Reducing Urban Heat Islands: Compendium of Strategies*, "Trees and Vegetation" and "Cool Pavements" chapters (2008; Cool Pavements chapter updated 2012). Direct source for the runoff and heat-island footprint claim above.
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> ULI/National Parking Association, *The Dimensions of Parking*. Circulation, stall layout, and access design standards.
+
+*"Legal / regulatory" here refers to the EPA guidance that municipal NPDES stormwater permits and heat-island mitigation programs are legally built around, not a single mandatory design spec like MUTCD or PROWAG.*

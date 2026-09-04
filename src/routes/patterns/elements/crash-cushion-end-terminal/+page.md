@@ -7,7 +7,7 @@ llms: "An energy-absorbing device installed at the exposed end of a traffic barr
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Crash Cushion / End Terminal" classification="element" status="recommended">
@@ -18,18 +18,19 @@ An energy-absorbing device installed at the exposed end of a traffic barrier or 
 
 ## Why this pattern exists
 
-An unshielded barrier end or exposed fixed object can spear or abruptly stop an impacting vehicle, causing more severe injury than a properly designed energy-absorbing terminal would; this pattern exists specifically to address that exposure, since it is a distinct failure mode from the barrier’s general run.
+An unshielded barrier end or exposed fixed object can spear or abruptly stop an impacting vehicle, causing more severe injury than a properly designed energy-absorbing terminal would; this pattern exists specifically to address that exposure, since it is a distinct failure mode from the barrier’s general run.<Citation index={1} />
 
 ## Key considerations
 
 - Required wherever a traffic barrier’s end is exposed to head-on or angled impact from the direction of travel
 - Device selection must match the expected impact speed and angle for the specific location, not be applied as a generic default
-- Regular inspection and maintenance is necessary, since a damaged or improperly reset device may not perform as designed in a subsequent impact
+- Regular inspection and maintenance is necessary, since a damaged or improperly reset device may not perform as designed in a subsequent impact<Citation index={2} />
 
 ## Related patterns
 
 [Traffic Barrier](/patterns/elements/traffic-barrier/) (ELM-TRB-23) (the element this pattern terminates); [Bollard](/patterns/elements/bollard/) (ELM-BOL-25) (a related but distinct safety hardware type)
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *Manual for Assessing Safety Hardware* (MASH), 2016.
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Federal Highway Administration / American Association of State Highway and Transportation Officials, Joint Implementation Agreement guidance on MASH transition deadlines.

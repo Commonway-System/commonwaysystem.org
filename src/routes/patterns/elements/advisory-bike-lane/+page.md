@@ -7,7 +7,7 @@ llms: "A dashed-line bike lane marked on each side of a narrow, typically two-wa
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Advisory Bike Lane" classification="element" status="situational">
@@ -22,7 +22,7 @@ On a roadway too narrow to accommodate a centerline plus two conventional bike l
 
 ## Key considerations
 
-- Appropriate only on lower-volume, lower-speed roadways where the shared-yielding mechanism can reasonably be expected to work
+- Appropriate only on lower-volume, lower-speed roadways where the shared-yielding mechanism can reasonably be expected to work<Citation index={1} />
 - Driver unfamiliarity with the treatment in areas where it is uncommon may require supporting signage or education
 - Not appropriate as traffic volumes or speeds increase beyond the range this pattern depends on
 
@@ -30,6 +30,6 @@ On a roadway too narrow to accommodate a centerline plus two conventional bike l
 
 [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34) (a related but structurally distinct facility type); relevant Local Segment patterns where roadway width is most constrained
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Bikeway Design Guide*, 3rd Ed., "Advisory Bike Lanes." Width thresholds: roadway under 28 ft, bike lane 5-6.5 ft, central travel space 10-15 ft.

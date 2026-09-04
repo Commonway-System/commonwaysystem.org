@@ -7,7 +7,7 @@ llms: "A road or trail corridor running alongside an active rail line for some o
 ---
 
 <script>
-  import { PatternCard } from '$lib/theme/components'
+  import { PatternCard, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Rail-With-Trail Corridor" classification="corridor" status="situational">
@@ -18,7 +18,7 @@ A road or trail corridor running alongside an active rail line for some or all o
 
 ## Why this pattern exists
 
-Active rail lines impose constraints (crossing safety, minimum setbacks, noise, at-grade conflict points) that do not apply to a corridor without a rail neighbor, and rail-with-trail is a well-documented category in its own right because the failure modes (unsafe informal crossings, inadequate setback, conflict at grade crossings) are specific and recurring enough to need a dedicated pattern rather than general guidance.
+Active rail lines impose constraints (crossing safety, minimum setbacks, noise, at-grade conflict points) that do not apply to a corridor without a rail neighbor, and rail-with-trail is a well-documented category in its own right because the failure modes (unsafe informal crossings, inadequate setback, conflict at grade crossings) are specific and recurring enough to need a dedicated pattern rather than general guidance.<Citation index={1} />
 
 ## Key considerations
 
@@ -30,6 +30,6 @@ Active rail lines impose constraints (crossing safety, minimum setbacks, noise, 
 
 [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) (CDR-RAG-05) (related but distinct: no active rail involved); relevant Crossing-family Element patterns
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> U.S. Department of Transportation / Federal Highway Administration, "Rails-with-Trails: Best Practices and Lessons Learned," 2021.

@@ -7,11 +7,11 @@ llms: The Commonway System's locked default for Local-to-Collector intersections
 ---
 
 <script>
-  import { PatternCard, DensityChip } from '$lib/theme/components'
+  import { PatternCard, DensityChip, EvidenceChip, Citation } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Continuous Sidewalk / Raised Junction" classification="intersections">
-A junction where the sidewalk and bike path continue across the intersection at a consistent grade, and the roadway ramps up to meet them rather than the reverse. Dutch terminology; carries an implicit yield to pedestrians and cyclists crossing.
+A junction where the sidewalk and bike path continue across the intersection at a consistent grade, and the roadway ramps up to meet them rather than the reverse. Dutch terminology;<Citation index={1} /> carries an implicit yield to pedestrians and cyclists crossing.
 </PatternCard>
 
 Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
@@ -22,6 +22,6 @@ Suburban is an edge case, thinning for the same reason as Bicycle Boulevard: a d
 
 This is the Commonway System's locked default treatment for Local-to-Collector intersections, giving priority to people walking and biking at the exact point where a slower Local street meets a faster Collector.
 
-:::unsourced
-Formal citations for this pattern have not yet been compiled from primary sources.
-:::
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> CROW Platform for Transport, Infrastructure and Public Space, *Road Safety Manual* / *Design Manual for Bicycle Traffic*.
