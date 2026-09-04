@@ -8,7 +8,7 @@ llms: A narrow Local street typology for service and driveway access, where vehi
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-ALY-002" title="Alley" classification="local">
+<PatternCard id="LOC-ALY-02" title="Alley" classification="local" status="recommended">
 A narrow Local street serving rear or side property access, service vehicles, and utility placement rather than through movement of any mode.
 </PatternCard>
 

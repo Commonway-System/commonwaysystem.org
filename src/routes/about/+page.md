@@ -14,6 +14,9 @@ What CS is, who compiled it, and how it relates to NACTO, Complete Streets, Stro
 **[Brand Guide](/about/brand-guide/)**
 The full visual and editorial system: colors, typography, voice, illustration rules, citation format, and the Commonway logo.
 
+**[Release History & Roadmap](/about/release-history/)**
+How CalVer versioning works, the current version, the changelog, and what's planned but not yet built.
+
 **[Contributing / Volunteering](/about/contributing/)**
 How to propose a pattern, suggest a correction, or otherwise help build out the guidebook.
 
@@ -24,5 +27,5 @@ How decisions about the system get made and who makes them.
 How to flag an error, an unsourced claim, or a dead citation link.
 
 :::note
-Contributing, Governance, and Reporting are placeholder stubs for now. The Commonway System and Brand Guide pages have real content.
+Contributing, Governance, and Reporting are placeholder stubs for now. The Commonway System, Brand Guide, and Release History & Roadmap pages have real content.
 :::

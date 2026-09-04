@@ -8,7 +8,7 @@ llms: An Arterial street typology combining through traffic with a pedestrian-fi
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-BLV-019" title="Boulevard" classification="arterial">
+<PatternCard id="ART-BLV-02" title="Boulevard" classification="arterial" status="recommended">
 An Arterial with a wide, pedestrian-first frontage alongside through traffic lanes, typically featuring a planted median or landscaped buffer. Includes the Multiway Boulevard variant, where frontage roads are separated from through lanes by planted medians, such as Octavia Boulevard.
 </PatternCard>
 

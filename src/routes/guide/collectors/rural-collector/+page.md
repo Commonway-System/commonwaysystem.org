@@ -8,7 +8,7 @@ llms: A Collector street typology serving vehicle and freight movement through l
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-FTM-013" title="Rural Collector / Farm-to-Market Road" classification="collector">
+<PatternCard id="COL-FTM-02" title="Rural Collector / Farm-to-Market Road" classification="collector" status="recommended">
 A Collector road connecting low-density or agricultural land to the wider network, prioritizing vehicle and freight movement over pedestrian, bicycle, and transit use, which have little demand at this density.
 </PatternCard>
 

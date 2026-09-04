@@ -8,7 +8,7 @@ llms: A Local street typology that closes or restricts vehicle traffic during ac
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-SCH-011" title="School Street" classification="local">
+<PatternCard id="LOC-SCH-11" title="School Street" classification="local" status="recommended">
 A Local street adjacent to a school that restricts or excludes vehicle traffic during arrival and dismissal, then reverts to normal Local operation the rest of the day.
 </PatternCard>
 

@@ -8,7 +8,7 @@ llms: A Local street typology, marked Situational, that excludes vehicle traffic
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-PED-009" title="Pedestrian-only Street / Plaza" classification="local">
+<PatternCard id="LOC-PED-09" title="Pedestrian-only Street / Plaza" classification="local" status="situational">
 A Local street or plaza space that excludes vehicle traffic permanently, not on an event schedule the way a Festival Street does.
 </PatternCard>
 

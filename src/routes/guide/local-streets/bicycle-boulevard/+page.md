@@ -8,7 +8,7 @@ llms: Worked example pattern entry for Bicycle Boulevard / Neighborhood Greenway
   import { PatternCard, DensityChip, Citation } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-UMS-014" title="Bicycle Boulevard / Neighborhood Greenway" classification="local">
+<PatternCard id="LOC-BBG-12" title="Bicycle Boulevard / Neighborhood Greenway" classification="local" status="recommended">
 A Local street where through car traffic is discouraged by design, while walking and bicycling are treated as the primary through movements.
 </PatternCard>
 

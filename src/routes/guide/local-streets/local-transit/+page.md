@@ -8,7 +8,7 @@ llms: A Local street typology carrying a dedicated transit route, with transit e
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-LTR-010" title="Local Transit" classification="local">
+<PatternCard id="LOC-LTR-10" title="Local Transit" classification="local" status="recommended">
 A Local street carrying a fixed transit route, most often a local bus line, where transit priority is layered onto the base pedestrian and bicycle priority rather than replacing it.
 </PatternCard>
 

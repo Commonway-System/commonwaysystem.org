@@ -8,7 +8,7 @@ llms: A Freeway street typology with partial access control, between a full Free
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-EXP-025" title="Expressway" classification="freeway">
+<PatternCard id="FRE-EXP-02" title="Expressway" classification="freeway" status="recommended">
 A high-speed road with partial access control, some at-grade intersections remain, unlike a fully grade-separated Freeway. Out of the Commonway System's detailed design scope.
 </PatternCard>
 

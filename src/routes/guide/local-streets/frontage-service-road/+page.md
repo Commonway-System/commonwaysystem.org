@@ -8,7 +8,7 @@ llms: A Local street typology running parallel to a faster Arterial or Freeway, 
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-FSR-004" title="Frontage / Service Road" classification="local">
+<PatternCard id="LOC-FSR-04" title="Frontage / Service Road" classification="local" status="recommended">
 A Local street running alongside a higher-speed Arterial or Freeway, giving property access and slower-mode movement a lane physically separated from the through traffic next to it.
 </PatternCard>
 

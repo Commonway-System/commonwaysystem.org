@@ -8,7 +8,7 @@ llms: The baseline Freeway typology, a limited-access road, listed for completen
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-FWY-024" title="Default (Freeway)" classification="freeway">
+<PatternCard id="FRE-DEF-01" title="Default (Freeway)" classification="freeway" status="recommended">
 A limited-access road with grade-separated interchanges and no direct property access. Freeway is intentionally out of the Commonway System's detailed design scope; no modal hierarchy or speed regulation applies within CS.
 </PatternCard>
 

@@ -8,7 +8,7 @@ llms: An Arterial street typology marked Situational/Discouraged, since one-way 
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-OWS-023" title="One-Way Street" classification="arterial">
+<PatternCard id="ART-OWS-06" title="One-Way Street" classification="arterial" status="situational">
 An Arterial operating one direction of travel only, typically paired with a second one-way Arterial carrying the opposite direction nearby.
 </PatternCard>
 

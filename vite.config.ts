@@ -16,6 +16,7 @@ const theme = commonwayTheme({
   github: 'https://github.com/Commonway-System/commonwaysystem.org',
   editLink: 'https://github.com/Commonway-System/commonwaysystem.org/edit/main/src/routes/:route',
   footerNote: 'Commonway System Guidebook \u00b7 A Pattern Language for Roads and Streets',
+  googleAnalyticsId: 'G-VCDS38HY87',
   // Manual sidebar, keyed by route prefix, same shape as SveltePress's
   // default theme. Replace this placeholder structure with the real
   // Functional Classification / Street Typology tree as it firms up.
@@ -106,6 +107,7 @@ const theme = commonwayTheme({
           { title: 'Overview', to: '/about/' },
           { title: 'The Commonway System', to: '/about/commonway-system/' },
           { title: 'Brand Guide', to: '/about/brand-guide/' },
+          { title: 'Release History & Roadmap', to: '/about/release-history/' },
           { title: 'Contributing / Volunteering', to: '/about/contributing/' },
           { title: 'Governance', to: '/about/governance/' },
           { title: 'Reporting', to: '/about/reporting/' },

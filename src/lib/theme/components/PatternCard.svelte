@@ -2,16 +2,23 @@
   import type { Snippet } from 'svelte'
 
   type Classification = 'local' | 'collector' | 'arterial' | 'freeway' | 'intersections'
+  type Status = 'recommended' | 'situational' | 'avoid'
 
   interface Props {
-    /** e.g. "STR-UMS-014" */
+    /** e.g. "LOC-BBG-12" */
     id: string
     title: string
     classification: Classification
+    /**
+     * Omit entirely for Intersections & Crossings entries: the master
+     * Typology reference only tracks a Recommended/Situational/Avoid status
+     * for Local, Collector, Arterial, and Freeway rows, not intersections.
+     */
+    status?: Status
     children?: Snippet
   }
 
-  const { id, title, classification, children }: Props = $props()
+  const { id, title, classification, status, children }: Props = $props()
 
   const labels: Record<Classification, string> = {
     local: 'Local',
@@ -20,12 +27,23 @@
     freeway: 'Freeway',
     intersections: 'Intersections & Crossings',
   }
+
+  const statusLabels: Record<Status, string> = {
+    recommended: 'Recommended',
+    situational: 'Situational / Discouraged',
+    avoid: 'Avoid',
+  }
 </script>
 
 <div class="pattern-card" data-classification={classification}>
   <div class="pattern-card__head">
     <code class="pattern-card__id">{id}</code>
-    <span class="pattern-card__classification">{labels[classification]}</span>
+    <div class="pattern-card__head-end">
+      {#if status}
+        <span class="pattern-card__status" data-status={status}>{statusLabels[status]}</span>
+      {/if}
+      <span class="pattern-card__classification">{labels[classification]}</span>
+    </div>
   </div>
   <h3 class="pattern-card__title">{title}</h3>
   {#if children}
@@ -82,11 +100,47 @@
     letter-spacing: 0.02em;
   }
 
+  .pattern-card__head-end {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
   .pattern-card__classification {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--cw-ink-faint);
+  }
+
+  .pattern-card__status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  /* Quiet by design, per the Brand Guide's status-badge intent: Recommended
+     is the unremarkable default, so it gets no color emphasis, just a
+     neutral pill, while Situational and Avoid reuse the same warning/danger
+     tokens the :::warning and :::danger admonitions already use. */
+  .pattern-card__status[data-status='recommended'] {
+    background: var(--cw-paper);
+    color: var(--cw-ink-soft);
+    border: 1px solid var(--cw-hairline-strong);
+  }
+
+  .pattern-card__status[data-status='situational'] {
+    background: var(--cw-warning-soft);
+    color: var(--cw-amber-ink);
+  }
+
+  .pattern-card__status[data-status='avoid'] {
+    background: var(--cw-danger-soft);
+    color: var(--cw-danger);
   }
 
   .pattern-card__title {

@@ -23,4 +23,6 @@ export interface CommonwayThemeOptions {
   /** Template for the "Suggest changes" link. Use :route as a placeholder. */
   editLink?: string
   footerNote?: string
+  /** GA4 Measurement ID, e.g. "G-VCDS38HY87". Omit to skip Google Analytics entirely. */
+  googleAnalyticsId?: string
 }

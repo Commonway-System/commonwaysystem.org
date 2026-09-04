@@ -163,7 +163,7 @@ the top of the `.md` file, SveltePress lets Svelte run inside markdown):
   import { PatternCard, DensityChip, Citation } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-UMS-014" title="Bicycle Boulevard" classification="local">
+<PatternCard id="LOC-BBG-12" title="Bicycle Boulevard" classification="local">
   One or two sentence summary of the pattern.
 </PatternCard>
 

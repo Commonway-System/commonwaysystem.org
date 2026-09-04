@@ -8,7 +8,7 @@ llms: An Arterial street typology with dedicated bus rapid transit or light rail
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-ATR-021" title="Arterial Transit (BRT/LRT)" classification="arterial">
+<PatternCard id="ART-ATR-04" title="Arterial Transit (BRT/LRT)" classification="arterial" status="recommended">
 An Arterial with dedicated bus rapid transit or light rail infrastructure, most often a separated running way or exclusive lane.
 </PatternCard>
 

@@ -8,7 +8,7 @@ llms: A Local street typology that closes to vehicle traffic during scheduled ev
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-FES-008" title="Festival Street" classification="local">
+<PatternCard id="LOC-FES-08" title="Festival Street" classification="local" status="recommended">
 A Local street designed to convert between full vehicle access and a pedestrian-and-bicycle-only event space, on a schedule rather than permanently.
 </PatternCard>
 

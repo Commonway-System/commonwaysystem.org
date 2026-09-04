@@ -8,7 +8,7 @@ llms: A Local street typology built around retail frontage and pedestrian priori
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-MST-005" title="Main Street" classification="local">
+<PatternCard id="LOC-MST-05" title="Main Street" classification="local" status="recommended">
 A Local street lined with retail and commercial frontage, where pedestrian movement and lingering are treated as primary and vehicle movement is subordinate.
 </PatternCard>
 

@@ -8,7 +8,7 @@ llms: The default intersection control wherever two Collector-or-higher streets 
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-RAB-028" title="Roundabout (Single / Multi-Lane)" classification="intersections">
+<PatternCard id="INT-RAB-01" title="Roundabout (Single / Multi-Lane)" classification="intersections">
 A circular intersection where entering traffic yields to the circulating flow, sized single or multi-lane to the volume it carries.
 </PatternCard>
 

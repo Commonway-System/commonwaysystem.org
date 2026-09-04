@@ -8,7 +8,7 @@ llms: Freeway-scale grade-separated intersection treatment, an acknowledged fall
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-GSI-037" title="Grade-Separated Interchange" classification="intersections">
+<PatternCard id="INT-GSI-10" title="Grade-Separated Interchange" classification="intersections">
 An interchange carrying conflicting movements on separate vertical levels, connected by ramps, eliminating at-grade conflict entirely. Freeway-scale only.
 </PatternCard>
 

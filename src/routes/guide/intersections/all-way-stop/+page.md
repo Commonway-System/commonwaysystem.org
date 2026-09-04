@@ -8,7 +8,7 @@ llms: A stop-controlled intersection where every approach stops, tapering off pa
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-AWS-031" title="All-Way Stop" classification="intersections">
+<PatternCard id="INT-AWS-04" title="All-Way Stop" classification="intersections">
 An intersection where every approach carries a stop sign, with right-of-way determined by arrival order.
 </PatternCard>
 

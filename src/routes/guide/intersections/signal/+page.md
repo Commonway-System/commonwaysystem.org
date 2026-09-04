@@ -8,7 +8,7 @@ llms: Traffic signal control, available within the Commonway System only as a do
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-SIG-030" title="Signal" classification="intersections">
+<PatternCard id="INT-SIG-03" title="Signal" classification="intersections">
 A signalized intersection, controlling conflicting movements with timed lights.
 </PatternCard>
 

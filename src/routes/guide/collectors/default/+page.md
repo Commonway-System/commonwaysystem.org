@@ -8,7 +8,7 @@ llms: The baseline Collector street, applying the base modal hierarchy and 30 mp
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-COL-012" title="Default (Standard Collector)" classification="collector">
+<PatternCard id="COL-DEF-01" title="Default (Standard Collector)" classification="collector" status="recommended">
 The baseline Collector street. No special land use, freight function, or dedicated mode gives it a name of its own, so it carries the base Collector modal hierarchy and speed rule unmodified.
 </PatternCard>
 

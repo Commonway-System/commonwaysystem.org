@@ -8,7 +8,7 @@ llms: A Collector street typology carrying a dedicated transit route, with trans
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-CTR-017" title="Collector Transit" classification="collector">
+<PatternCard id="COL-CTR-05" title="Collector Transit" classification="collector" status="recommended">
 A Collector street carrying a fixed transit route, where transit priority is layered onto the base pedestrian and bicycle priority rather than replacing it.
 </PatternCard>
 

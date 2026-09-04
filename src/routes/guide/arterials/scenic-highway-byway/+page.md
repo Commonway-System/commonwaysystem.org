@@ -8,7 +8,7 @@ llms: A low-density, low-development-pressure Arterial street typology, the norm
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-SCB-020" title="Scenic Highway / Byway" classification="arterial">
+<PatternCard id="ART-SCB-03" title="Scenic Highway / Byway" classification="arterial" status="recommended">
 An Arterial through a low-development, often scenic landscape, where vehicle movement is prioritized and pedestrian, bicycle, and transit demand are minimal.
 </PatternCard>
 

@@ -11,7 +11,7 @@ Every pattern sits inside one of four Functional Classifications: Local, Collect
 
 ## Scale hierarchy
 
-Patterns exist at one of five scales: Network, Corridor, Segment or Intersection, Facility, and Element. A pattern's ID encodes its scale and context, for example `STR-UMS-014`.
+Patterns exist at one of five scales: Network, Corridor, Segment or Intersection, Facility, and Element. A pattern's ID encodes its scale and context, for example `LOC-BBG-12`.
 
 :::tip
 This page, and the rest of the guide section, is placeholder text. Swap it out page by page as the real content gets drafted.

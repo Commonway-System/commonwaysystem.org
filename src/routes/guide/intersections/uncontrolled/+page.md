@@ -8,7 +8,7 @@ llms: An uncontrolled intersection with no assigned right-of-way control, realis
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-UNC-034" title="Uncontrolled" classification="intersections">
+<PatternCard id="INT-UNC-07" title="Uncontrolled" classification="intersections">
 An intersection with no stop, yield, signal, or roundabout control, right-of-way resolved informally by the drivers and other road users present.
 </PatternCard>
 

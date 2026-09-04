@@ -5,6 +5,7 @@
   import { initColorScheme, sidebarOpen } from '../layout.js'
   import '../styles/base.css'
   import Backdrop from './Backdrop.svelte'
+  import GoogleAnalytics from './GoogleAnalytics.svelte'
   import Navbar from './Navbar.svelte'
   import Sidebar from './Sidebar.svelte'
   import Toc from './Toc.svelte'
@@ -24,6 +25,7 @@
   })
 </script>
 
+<GoogleAnalytics />
 <Navbar />
 
 <div class="shell">

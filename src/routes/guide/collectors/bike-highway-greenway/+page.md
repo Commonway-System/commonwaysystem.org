@@ -8,7 +8,7 @@ llms: A Collector-scale street typology providing a dedicated, physically separa
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-BHG-016" title="Bike Highway / Greenway" classification="collector">
+<PatternCard id="COL-BHG-04" title="Bike Highway / Greenway" classification="collector" status="recommended">
 A dedicated, physically separated bicycle path operating at Collector scale, prioritizing continuous, higher-speed bicycle through-movement over other modes.
 </PatternCard>
 

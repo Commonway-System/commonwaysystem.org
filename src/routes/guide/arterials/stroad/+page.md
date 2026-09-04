@@ -8,7 +8,7 @@ llms: An Arterial anti-pattern marked Avoid, formed by mixing on-street parking 
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-STD-022" title="Stroad" classification="arterial">
+<PatternCard id="ART-STD-05" title="Stroad" classification="arterial" status="avoid">
 A street and Arterial hybrid: through traffic mixed with on-street parking and direct property access along the same corridor. This is the exact combination the Arterial core safety rule prohibits.
 </PatternCard>
 

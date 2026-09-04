@@ -176,7 +176,7 @@ Clean flat vector illustration, NACTO-inspired, warmed by human figures at true 
 ### Pattern ID card
 
 <ExampleCard>
-  <PatternCard id="STR-UMS-014" title="Urban main street" classification="arterial">
+  <PatternCard id="ART-UMS-07" title="Urban main street" classification="arterial">
     An Urban main street is an Arterial typology combining retail frontage access with continuous pedestrian priority along both edges.
   </PatternCard>
 </ExampleCard>
@@ -256,7 +256,7 @@ Google's own guidance treats generative AI search optimization as fundamentally 
 **What CS does:**
 
 - Lets the plain-language layer at the top of each pattern entry function as a natural, self-contained answer block.
-- URL structure mirrors the Pattern ID system (e.g. `/patterns/str-ums-014`).
+- URL structure mirrors the Pattern ID system (e.g. `/patterns/art-ums-07`).
 - Uses structured data (`DefinedTerm` or `Article` schema, `dateModified` tied to CalVer) for genuine rich-result eligibility, not because AI visibility requires it.
 - Keeps entity clarity through the Functional Classification / Street Typology terminology discipline: consistent, unambiguous naming.
 - Treats the citation system as a genuine GEO asset, not a performance of one. It exists for credibility reasons first.

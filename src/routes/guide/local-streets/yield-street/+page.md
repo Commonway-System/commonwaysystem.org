@@ -8,7 +8,7 @@ llms: A narrow Local street typology where opposing vehicles yield to each other
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-YLD-007" title="Yield Street" classification="local">
+<PatternCard id="LOC-YLD-07" title="Yield Street" classification="local" status="recommended">
 A Local street narrow enough that two vehicles cannot pass without one yielding, using the street's width itself as a traffic-calming device.
 </PatternCard>
 

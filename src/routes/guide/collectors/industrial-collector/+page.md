@@ -8,7 +8,7 @@ llms: A Collector street typology serving industrial land use, where freight mov
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-IND-015" title="Industrial Collector" classification="collector">
+<PatternCard id="COL-IND-03" title="Industrial Collector" classification="collector" status="recommended">
 A Collector road serving warehouses, freight yards, or manufacturing land use, designed around truck movement and loading rather than the base Collector priority order.
 </PatternCard>
 

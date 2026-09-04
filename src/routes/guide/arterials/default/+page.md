@@ -8,7 +8,7 @@ llms: The baseline Arterial street typology, defined by never mixing on-street p
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-ART-018" title="Default (No Parking, No Direct Property Access)" classification="arterial">
+<PatternCard id="ART-DEF-01" title="Default (No Parking, No Direct Property Access)" classification="arterial" status="recommended">
 The baseline Arterial: a through-movement road that never mixes on-street parking or direct property access with through traffic. Any access need along the corridor is served by a separate Local or Frontage/Service Road instead.
 </PatternCard>
 

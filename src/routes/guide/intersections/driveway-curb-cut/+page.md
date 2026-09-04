@@ -8,7 +8,7 @@ llms: A minor access-point junction connecting a driveway or parking entrance to
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-DCC-036" title="Driveway / Curb Cut" classification="intersections">
+<PatternCard id="INT-DCC-09" title="Driveway / Curb Cut" classification="intersections">
 A break in the curb and sidewalk giving a driveway or parking entrance access to the street, a minor junction rather than a full intersection.
 </PatternCard>
 

@@ -18,9 +18,10 @@ const config = {
     }),
     prerender: {
       // '*' crawls every page reachable by a link, same as the default.
-      // robots.txt and llms.txt are +server.ts routes nothing links to,
-      // so they need listing explicitly or the crawler never finds them.
-      entries: ['*', '/robots.txt', '/llms.txt'],
+      // robots.txt, llms.txt, and sitemap.xml are +server.ts routes nothing
+      // links to, so they need listing explicitly or the crawler never
+      // finds them.
+      entries: ['*', '/robots.txt', '/llms.txt', '/sitemap.xml'],
     },
   },
 }

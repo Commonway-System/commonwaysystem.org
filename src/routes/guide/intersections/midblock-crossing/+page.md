@@ -8,7 +8,7 @@ llms: A dedicated pedestrian crossing placed between intersections, used where b
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="INT-MPC-035" title="Midblock Pedestrian Crossing" classification="intersections">
+<PatternCard id="INT-MPC-08" title="Midblock Pedestrian Crossing" classification="intersections">
 A marked, and typically signalized or raised, pedestrian crossing placed mid-block rather than at a corner, serving a specific crossing demand between intersections.
 </PatternCard>
 

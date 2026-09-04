@@ -27,6 +27,6 @@ Google's own helpful-content guidance asks three questions of any piece of conte
 
 ## How the guidebook is organized
 
-Every pattern sits inside one of four Functional Classifications: Local, Collector, Arterial, or Freeway, plus a fifth cross-cutting set for Intersections and Crossings. Within a classification, patterns are grouped by purpose-based Street Typology, and each pattern exists at one of five scales: Network, Corridor, Segment or Intersection, Facility, and Element. A pattern's ID encodes its scale and context, for example `STR-UMS-014`.
+Every pattern sits inside one of four Functional Classifications: Local, Collector, Arterial, or Freeway, plus a fifth cross-cutting set for Intersections and Crossings. Within a classification, patterns are grouped by purpose-based Street Typology, and each pattern exists at one of five scales: Network, Corridor, Segment or Intersection, Facility, and Element. A pattern's ID encodes its scale and context, for example `LOC-BBG-12`.
 
 See the [guide introduction](/guide/introduction/) for the full mechanics of reading a pattern, and the [Brand Guide](/about/brand-guide/) for how the system is written and designed.

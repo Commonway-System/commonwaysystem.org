@@ -8,7 +8,7 @@ llms: A Freeway street typology circling a city or metro area rather than passin
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-BLT-026" title="Beltway / Ring Road" classification="freeway">
+<PatternCard id="FRE-BLT-03" title="Beltway / Ring Road" classification="freeway" status="recommended">
 A limited-access Freeway circling a metro area's outer edge, connecting radial corridors without routing through-traffic into the urban core. Out of the Commonway System's detailed design scope.
 </PatternCard>
 

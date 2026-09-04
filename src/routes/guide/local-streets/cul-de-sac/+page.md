@@ -8,7 +8,7 @@ llms: A dead-end Local street typology, marked Situational, that peaks at Suburb
   import { PatternCard, DensityChip } from '$lib/theme/components'
 </script>
 
-<PatternCard id="STR-CDS-003" title="Cul-de-sac" classification="local">
+<PatternCard id="LOC-CDS-03" title="Cul-de-sac" classification="local" status="situational">
 A dead-end Local street with no through connection for any mode.
 </PatternCard>
 
