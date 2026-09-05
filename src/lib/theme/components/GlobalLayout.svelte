@@ -39,9 +39,15 @@
   // /references/ and /blog/) and its own headings give Toc nothing useful
   // to list either. Rather than the isHome treatment (collapse to one
   // column, hide both side columns), this route repurposes the toc
-  // column for MediaFilters instead of leaving it empty, and widens the
-  // content column to also cover the sidebar's own width, since sidebar
-  // is hidden here the same way isHome hides it. See .shell--media below.
+  // column for MediaFilters's always-expanded desktop variant instead of
+  // leaving it empty, and widens the content column to also cover the
+  // sidebar's own width, since sidebar is hidden here the same way isHome
+  // hides it. Below 940px that toc column disappears entirely (same as
+  // the base .shell) - MediaFilters' own collapsible mobile variant is
+  // mounted separately, inline in /media/+page.md's own content, not
+  // here; see MediaFilters.svelte's `variant` prop doc comment for why
+  // this needs two small mounts rather than one repositioned element. See
+  // .shell--media below.
   const isMedia = $derived(page.url.pathname === '/media/')
 
   onMount(() => {
@@ -69,7 +75,7 @@
   <Backdrop show={$sidebarOpen} onclose={() => sidebarOpen.set(false)} />
   {@render children?.()}
   {#if isMedia}
-    <MediaFilters />
+    <MediaFilters variant="desktop" />
   {:else}
     <Toc />
   {/if}
@@ -121,15 +127,18 @@
 
   /* .shell--media: /media/'s own two-column layout (see isMedia in the
      script) - content folds in the sidebar's own width since sidebar is
-     hidden here too, and the toc column is repurposed for MediaFilters
-     instead of being left empty. Declared last for the same
-     specificity-tie reasoning as .shell--full above. Kept two columns
-     down through the 1180px breakpoint (unlike the base .shell, which
-     drops its toc column there): MediaFilters is the only way to narrow
-     results, not a nice-to-have nav aid, so it shouldn't disappear before
-     the same 940px mobile edge every other column-hiding decision on this
-     site already uses. Below that, content and filters stack, filters
-     first so a reader can narrow results before scrolling into them. */
+     hidden here too, and the toc column holds MediaFilters' always-
+     expanded desktop variant instead of being left empty. Declared last
+     for the same specificity-tie reasoning as .shell--full above. Kept
+     two columns down through the 1180px breakpoint (unlike the base
+     .shell, which drops its toc column there): that desktop filter panel
+     is the only way to narrow results at that width, not a nice-to-have
+     nav aid, so it shouldn't disappear before the same 940px mobile edge
+     every other column-hiding decision on this site already uses. Below
+     940px this collapses to a single content column, same as the base
+     .shell there - MediaFilters' own collapsible mobile variant lives
+     inline in the page content itself at that point, not in this grid,
+     see MediaFilters.svelte. */
   .shell--media {
     grid-template-columns: minmax(0, 1fr) var(--cw-toc-width);
     grid-template-areas: 'content toc';
@@ -138,7 +147,7 @@
   @media (max-width: 940px) {
     .shell--media {
       grid-template-columns: minmax(0, 1fr);
-      grid-template-areas: 'toc' 'content';
+      grid-template-areas: 'content';
     }
   }
 

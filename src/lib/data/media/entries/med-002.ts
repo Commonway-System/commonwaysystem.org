@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector'],
   mediaTags: ['Explainer'],
-  relatedTo: ['NET-GRD-01', 'NET-DEN-02', 'RFT-NET-03', 'LOC-SUP-13', 'COL-MUT-06'],
+  relatedTo: ['NET-GRD-01', 'NET-DEN-02', 'RFT-NET-03', 'LOC-SUP-13', 'COL-MUT-06', 'LOC-CDS-03'],
   dateAdded: '2026-09-04',
 }
 
