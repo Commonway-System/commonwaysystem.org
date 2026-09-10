@@ -46,4 +46,4 @@ None currently cataloged.
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Minnesota Pollution Control Agency, GreenStep Cities, "Implement Traffic Calming Policy/Measures," best practice action referencing gravel road retention and conversion.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Minnesota Pollution Control Agency, GreenStep Cities, "Implement Traffic Calming Policy/Measures," best practice action referencing gravel road retention and conversion.](https://greenstep.pca.state.mn.us/best_practice_action/implement-traffic-calming-policymeasures-including-lane-conversions-road-diets)

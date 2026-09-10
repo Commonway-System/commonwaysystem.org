@@ -34,5 +34,5 @@ An unshielded barrier end or exposed fixed object can spear or abruptly stop an 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *Manual for Assessing Safety Hardware* (MASH), 2016.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Federal Highway Administration / American Association of State Highway and Transportation Officials, Joint Implementation Agreement guidance on MASH transition deadlines.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [American Association of State Highway and Transportation Officials, *Manual for Assessing Safety Hardware* (MASH), 2016.](https://store.transportation.org/item/publicationdetail/2707)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [Federal Highway Administration / American Association of State Highway and Transportation Officials, Joint Implementation Agreement guidance on MASH transition deadlines.](https://rosap.ntl.bts.gov/view/dot/78583)

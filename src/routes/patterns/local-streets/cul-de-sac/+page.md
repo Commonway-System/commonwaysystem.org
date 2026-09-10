@@ -48,4 +48,4 @@ A cul-de-sac trades network connectivity for a quiet, low-through-traffic enviro
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Marshall, W.E. and Garrick, N.W. (2011), "Street network types and road safety: A study of 24 California cities," *Urban Design International* 16(2).
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Marshall, W.E. and Garrick, N.W. (2011), "Street network types and road safety: A study of 24 California cities," *Urban Design International* 16(2).](https://link.springer.com/article/10.1057/udi.2009.31)

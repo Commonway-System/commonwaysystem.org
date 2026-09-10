@@ -47,8 +47,8 @@ This matters because a design that looks identical at the pilot and permanent st
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Street Plans Collaborative. "Tactical Urbanist's Guide to Materials and Design."
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> City of Burlington, Vermont. "Quick Build Design + Materials Standards."
-3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> Congress for the New Urbanism. "Merging Tactical Urbanism with Public Works."
-4. <span id="ref-4"></span><EvidenceChip tier="evidence" /> PeopleForBikes. "Quick Builds for Better Streets: A New Project Delivery Model for U.S. Cities."
-5. <span id="ref-5"></span><EvidenceChip tier="precedent" /> Global Designing Cities Initiative. "From Pop-Up to Permanent: Five Lessons in Tactical Urbanism."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Street Plans Collaborative. "Tactical Urbanist's Guide to Materials and Design."](https://street-plans.com/tactical-urbanists-guide-to-materials-and-design/)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [City of Burlington, Vermont. "Quick Build Design + Materials Standards."](https://www.burlingtonvt.gov/331/Quick-Build-Projects)
+3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> [Congress for the New Urbanism. "Merging Tactical Urbanism with Public Works."](https://www.cnu.org/publicsquare/2019/02/07/merging-tactical-urbanism-public-works)
+4. <span id="ref-4"></span><EvidenceChip tier="evidence" /> [PeopleForBikes. "Quick Builds for Better Streets: A New Project Delivery Model for U.S. Cities."](https://www.peopleforbikes.org/reports/quick-builds-for-better-streets-a-new-project-delivery)
+5. <span id="ref-5"></span><EvidenceChip tier="precedent" /> [Global Designing Cities Initiative. "From Pop-Up to Permanent: Five Lessons in Tactical Urbanism."](https://globaldesigningcities.org/update/from-pop-up-to-permanent-five-lessons-in-tactical-urbanism/)

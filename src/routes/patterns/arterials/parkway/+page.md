@@ -42,5 +42,5 @@ The term "parkway" carries genuinely conflicting meanings across American road-b
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> National Park Service, *Park Roads and Parkways: A History*. Documents the freeway-standard vs. boulevard-standard tension in American parkway design, and the National Trust for Historic Preservation's unsuccessful push to AASHTO's own Task Force on Geometric Design for a distinct parkway classification.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *A Policy on Geometric Design of Highways and Streets* ("Green Book").
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [National Park Service, *Park Roads and Parkways: A History*. Documents the freeway-standard vs. boulevard-standard tension in American parkway design, and the National Trust for Historic Preservation's unsuccessful push to AASHTO's own Task Force on Geometric Design for a distinct parkway classification.](https://www.nps.gov/parkhistory/online_books/roads/shs4.htm)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [American Association of State Highway and Transportation Officials, *A Policy on Geometric Design of Highways and Streets* ("Green Book").](https://store.transportation.org/Item/PublicationDetail?ID=4127)

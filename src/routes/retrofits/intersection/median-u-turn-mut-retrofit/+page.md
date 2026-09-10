@@ -48,6 +48,6 @@ Typically a state DOT capital project, given the scale of median reconstruction 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Indiana Department of Transportation, "Median U-turns."
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Federal Highway Administration, "Chapter 2. Intersections," *Handbook for Designing Roadways for the Aging Population*.
-3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> "Evaluating the Operational Features of an Unconventional Dual-Bay U-Turn Design for Intersections."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Indiana Department of Transportation, "Median U-turns."](https://www.in.gov/indot/traffic-engineering/median-u-turns/)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, "Chapter 2. Intersections," *Handbook for Designing Roadways for the Aging Population*.](https://highways.dot.gov/safety/other/older-road-user/handbook-designing-roadways-aging-population/chapter-2-intersections)
+3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> ["Evaluating the Operational Features of an Unconventional Dual-Bay U-Turn Design for Intersections."](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0158914)

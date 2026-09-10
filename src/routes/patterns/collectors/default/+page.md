@@ -48,4 +48,4 @@ This entry is the standard against which every other Collector Typology is defin
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, *Separated Bike Lane Planning and Design Guide*.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [FHWA, *Separated Bike Lane Planning and Design Guide*.](https://www.fhwa.dot.gov/environment/bicycle_pedestrian/publications/separated_bikelane_pdg/page00.cfm)

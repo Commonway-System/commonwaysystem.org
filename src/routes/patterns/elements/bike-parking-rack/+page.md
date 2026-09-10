@@ -34,4 +34,4 @@ Reliable, well-designed bike parking is a necessary complement to any bike facil
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Association of Pedestrian and Bicycle Professionals (APBP), *Bicycle Parking Guidelines*, 2nd Ed. (2010). Inverted-U rack design standard, two-point frame support, placement near destinations.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Association of Pedestrian and Bicycle Professionals (APBP), *Bicycle Parking Guidelines*, 2nd Ed. (2010). Inverted-U rack design standard, two-point frame support, placement near destinations.](https://www.apbp.org/Publications)

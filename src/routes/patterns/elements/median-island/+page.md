@@ -20,7 +20,7 @@ A raised or landscaped island placed along the center of a roadway to narrow the
 
 ## Why this pattern exists
 
-Narrowing a roadway's visual and physical width slows traffic and reduces opposing-direction conflicts, independent of whether the median also serves a crossing purpose. Pedestrian Safety Island / Refuge documents the crossing-assistance case; this pattern documents the calming and access-management case, where a median exists to manage the corridor itself rather than to assist a specific crossing movement.
+Narrowing a roadway's visual and physical width slows traffic and reduces opposing-direction conflicts, independent of whether the median also serves a crossing purpose. Pedestrian Safety Island / Refuge documents the crossing-assistance case; this pattern documents the calming and access-management case, where a median exists to manage the corridor itself rather than to assist a specific crossing movement.<Citation index={1} /><Citation index={2} />
 
 ## Key considerations
 
@@ -35,5 +35,5 @@ Narrowing a roadway's visual and physical width slows traffic and reduces opposi
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Federal Highway Administration, "Proven Safety Countermeasures: Corridor Access Management." Raised medians that preclude across-roadway movements as an access-management treatment.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Gluck, J., Levinson, H.S., and Stover, V., *Impacts of Access Management Techniques*, NCHRP Report 420, Transportation Research Board, 1999.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, "Proven Safety Countermeasures: Corridor Access Management." Raised medians that preclude across-roadway movements as an access-management treatment.](https://highways.dot.gov/safety/proven-safety-countermeasures/corridor-access-management)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Gluck, J., Levinson, H.S., and Stover, V., *Impacts of Access Management Techniques*, NCHRP Report 420, Transportation Research Board, 1999.](http://onlinepubs.trb.org/onlinepubs/nchrp/nchrp_rpt_420.pdf)

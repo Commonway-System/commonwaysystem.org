@@ -46,5 +46,5 @@ Usually a city transportation or public works department decision, often followi
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Aldred, R. and Goodman, A., "Low Traffic Neighbourhoods, Car Use, and Active Travel: Evidence from the People and Places Survey of Outer London Active Travel Interventions," *Findings*, 2020.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> "Identification of Plausible Low Traffic Neighbourhoods Using Open Data," *ScienceDirect*, definitions of modal filter, permeability, and filtered permeability.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Aldred, R. and Goodman, A., "Low Traffic Neighbourhoods, Car Use, and Active Travel: Evidence from the People and Places Survey of Outer London Active Travel Interventions," *Findings*, 2020.](https://findingspress.org/article/17128-low-traffic-neighbourhoods-car-use-and-active-travel-evidence-from-the-people-and-places-survey-of-outer-london-active-travel-interventions)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> ["Identification of Plausible Low Traffic Neighbourhoods Using Open Data," *ScienceDirect*, definitions of modal filter, permeability, and filtered permeability.](https://www.sciencedirect.com/science/article/pii/S2950105925000415)

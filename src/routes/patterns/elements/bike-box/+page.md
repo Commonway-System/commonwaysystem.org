@@ -34,4 +34,4 @@ At a signalized intersection, a cyclist stopped alongside or behind queued vehic
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Part 9. Intersection bicycle boxes formalized as standard, previously FHWA Interim Approval IA-18.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Part 9. Intersection bicycle boxes formalized as standard, previously FHWA Interim Approval IA-18.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)

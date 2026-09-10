@@ -43,4 +43,4 @@ Width should accommodate two-way pedestrian and bicycle travel without forcing c
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> AASHTO, *Guide for the Development of Bicycle Facilities*, 5th Edition, 2024.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [AASHTO, *Guide for the Development of Bicycle Facilities*, 5th Edition, 2024.](https://store.transportation.org/item/collectiondetail/267)

@@ -30,4 +30,4 @@ Two-way stop or yield control is the lowest-volume intersection treatment in the
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Manual on Uniform Traffic Control Devices, 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2B.05 and 2B.10.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Manual on Uniform Traffic Control Devices, 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2B.05 and 2B.10.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)

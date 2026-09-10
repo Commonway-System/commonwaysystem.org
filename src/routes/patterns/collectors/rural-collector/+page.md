@@ -48,4 +48,4 @@ This entry is the mirror image of Main Street: the norm at Undeveloped and Rural
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> SWOV, "Principles for a Safe Road Network" (CROW Sustainable Safety framework).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [SWOV, "Principles for a Safe Road Network" (CROW Sustainable Safety framework).](https://sustainablesafety.nl/)

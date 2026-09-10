@@ -34,4 +34,4 @@ Commuters and long-term parkers need protection from theft and weather that an o
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Association of Pedestrian and Bicycle Professionals (APBP), *Bicycle Parking Guidelines*, 2nd Ed. Long-term/enclosed parking recommendations, access control approaches.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Association of Pedestrian and Bicycle Professionals (APBP), *Bicycle Parking Guidelines*, 2nd Ed. Long-term/enclosed parking recommendations, access control approaches.](https://www.apbp.org/Publications)

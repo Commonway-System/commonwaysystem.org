@@ -48,6 +48,6 @@ None currently cataloged.
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Federal Highway Administration, "Roundabouts," Intersection Safety.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Persaud, B. et al., "Safety Effect of Roundabout Conversions in the United States: Empirical Bayes Observational Before-After Study," Insurance Institute for Highway Safety, 2001.
-3. <span id="ref-3"></span><EvidenceChip tier="legal" /> Rodegerdts, L. et al., *Roundabouts: An Informational Guide*, 2nd ed., NCHRP Report 672, Transportation Research Board, 2010.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration, "Roundabouts," Intersection Safety.](https://highways.dot.gov/safety/proven-safety-countermeasures/roundabouts)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Persaud, B. et al., "Safety Effect of Roundabout Conversions in the United States: Empirical Bayes Observational Before-After Study," Insurance Institute for Highway Safety, 2001.](https://journals.sagepub.com/doi/abs/10.3141/1751-01)
+3. <span id="ref-3"></span><EvidenceChip tier="legal" /> [Rodegerdts, L. et al., *Roundabouts: An Informational Guide*, 2nd ed., NCHRP Report 672, Transportation Research Board, 2010.](https://nap.nationalacademies.org/catalog/22914/roundabouts-an-informational-guide-second-edition)

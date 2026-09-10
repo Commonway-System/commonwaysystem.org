@@ -34,5 +34,5 @@ A vehicle-only signal phase gives pedestrians no explicit information about when
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 4I, "Pedestrian Control Features" (renumbered from the 2009 edition's Chapter 4E), including Section 4D.02's leading pedestrian interval requirement.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R309, accessible pedestrian signal requirements.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 4I, "Pedestrian Control Features" (renumbered from the 2009 edition's Chapter 4E), including Section 4D.02's leading pedestrian interval requirement.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R309, accessible pedestrian signal requirements.](https://www.access-board.gov/prowag/technical.html)

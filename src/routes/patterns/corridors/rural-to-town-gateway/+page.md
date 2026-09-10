@@ -34,5 +34,5 @@ Drivers respond to the road they perceive, not the posted number.<Citation index
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Theeuwes, J. and Godthelp, H. (1995), "Self-explaining roads," and Theeuwes, J. (2021), "Self-explaining roads: What does visual cognition tell us about designing safer roads?", *Cognitive Research: Principles and Implications* 6(1).
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Hallmark, S., Knickerbocker, S., and Hawkins, N., "Evaluation of Low Cost Traffic Calming for Rural Communities," Iowa DOT / FHWA-SA-16-079.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Theeuwes, J. and Godthelp, H. (1995), "Self-explaining roads," and Theeuwes, J. (2021), "Self-explaining roads: What does visual cognition tell us about designing safer roads?", *Cognitive Research: Principles and Implications* 6(1).](https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-021-00281-6)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Hallmark, S., Knickerbocker, S., and Hawkins, N., "Evaluation of Low Cost Traffic Calming for Rural Communities," Iowa DOT / FHWA-SA-16-079.](https://publications.iowa.gov/15269/)

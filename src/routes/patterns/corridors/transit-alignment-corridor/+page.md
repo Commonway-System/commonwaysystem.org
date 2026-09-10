@@ -34,4 +34,4 @@ Transit Corridor (Segment-scale character type, the segment-level treatment this
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Transit Street Design Guide*, 2016.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Transit Street Design Guide*, 2016.](https://nacto.org/publication/transit-street-design-guide/)

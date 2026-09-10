@@ -34,4 +34,4 @@ Active rail lines impose constraints (crossing safety, minimum setbacks, noise, 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> U.S. Department of Transportation / Federal Highway Administration, "Rails-with-Trails: Best Practices and Lessons Learned," 2021.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [U.S. Department of Transportation / Federal Highway Administration, "Rails-with-Trails: Best Practices and Lessons Learned," 2021.](https://www.fhwa.dot.gov/environment/recreational_trails/publications/)

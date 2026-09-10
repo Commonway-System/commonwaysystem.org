@@ -34,4 +34,4 @@ Once a stop grows past a single platform and shelter, it becomes its own design 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> TCRP Report 153, "Guidelines for Providing Access to Public Transportation Stations," Transportation Research Board. Circulation, multimodal transfer, and amenity mix planning for higher-order stations.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [TCRP Report 153, "Guidelines for Providing Access to Public Transportation Stations," Transportation Research Board. Circulation, multimodal transfer, and amenity mix planning for higher-order stations.](https://nap.nationalacademies.org/catalog/14614/guidelines-for-providing-access-to-public-transportation-stations)

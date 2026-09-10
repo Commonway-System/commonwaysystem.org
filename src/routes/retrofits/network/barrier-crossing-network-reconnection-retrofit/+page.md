@@ -46,5 +46,5 @@ None currently cataloged.
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Federal Highway Administration, "Part 2: Reducing Conflicts," Multimodal Networks, Bicycle and Pedestrian Program, on cul-de-sac connectivity and barrier crossings.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Mineta Transportation Institute, "Low-Stress Bicycling and Network Connectivity," MTI Report 11-19, Level of Traffic Stress and detour-based connectivity measures.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration, "Part 2: Reducing Conflicts," Multimodal Networks, Bicycle and Pedestrian Program, on cul-de-sac connectivity and barrier crossings.](https://www.fhwa.dot.gov/environment/bicycle_pedestrian/publications/multimodal_networks/part02.cfm)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Mineta Transportation Institute, "Low-Stress Bicycling and Network Connectivity," MTI Report 11-19, Level of Traffic Stress and detour-based connectivity measures.](https://transweb.sjsu.edu/sites/default/files/1005-low-stress-bicycling-network-connectivity.pdf)

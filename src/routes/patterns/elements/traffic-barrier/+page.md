@@ -34,5 +34,5 @@ Certain roadside conditions (a steep slope, a fixed object, an opposing travel l
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *Roadside Design Guide*, 4th ed.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *Manual for Assessing Safety Hardware* (MASH), 2016.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [American Association of State Highway and Transportation Officials, *Roadside Design Guide*, 4th ed.](https://store.transportation.org/Item/PublicationDetail?ID=1802)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [American Association of State Highway and Transportation Officials, *Manual for Assessing Safety Hardware* (MASH), 2016.](https://store.transportation.org/item/publicationdetail/2707)

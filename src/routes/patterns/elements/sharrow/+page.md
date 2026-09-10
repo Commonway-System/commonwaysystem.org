@@ -34,4 +34,4 @@ On a roadway too narrow to provide any dedicated bike space, a sharrow at least 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Ferenchak, N.N. and Marshall, W.E. (2019), "Advancing Healthy Cities Through Safer Cycling: An Examination of Shared Lane Markings," *International Journal of Transportation Science and Technology* 8(2). Chicago before/after study: sharrows produced no statistically significant safety improvement, underperforming both bike lanes and no treatment on injury reduction.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Ferenchak, N.N. and Marshall, W.E. (2019), "Advancing Healthy Cities Through Safer Cycling: An Examination of Shared Lane Markings," *International Journal of Transportation Science and Technology* 8(2). Chicago before/after study: sharrows produced no statistically significant safety improvement, underperforming both bike lanes and no treatment on injury reduction.](https://www.sciencedirect.com/science/article/pii/S2046043018300583)

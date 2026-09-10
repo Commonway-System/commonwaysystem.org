@@ -34,5 +34,5 @@ Sidewalk-mounted bike racks compete with pedestrian clear-path space and other f
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Association of Pedestrian and Bicycle Professionals (APBP), *Bicycle Parking Guidelines*, 2nd Ed. On-street/in-lane parking siting.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> NACTO, "Bike and Scooter Parking." Corral-specific design guidance.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Association of Pedestrian and Bicycle Professionals (APBP), *Bicycle Parking Guidelines*, 2nd Ed. On-street/in-lane parking siting.](https://www.apbp.org/Publications)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [NACTO, "Bike and Scooter Parking." Corral-specific design guidance.](https://nacto.org/publication/urban-bikeway-design-guide/maintenance-and-operations/bike-and-scooter-parking/)

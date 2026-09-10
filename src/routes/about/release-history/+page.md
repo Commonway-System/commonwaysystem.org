@@ -24,6 +24,14 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.09.10',
+      items: [
+        'Sitewide citation-link audit (Item 22) completed. All Pattern, Retrofit Strategy, and Guide pages with References sections now carry working outbound links to their primary sources, sourced and verified domain by domain across five batches: Guide pages plus all 17 Retrofit Strategy entries; the Design Speed guide page plus the Network, Corridor, Local Street, Collector, and Arterial pattern categories; Freeway, Intersection, and Facility patterns; Element patterns; and a final round of corrections (two citations updated to their current published editions, one retargeted to a federal source after its original NACTO page was retired).',
+        'Final tally, from a fresh sitewide crawl: 315 citations total across all Pattern, Retrofit, and Guide reference lists, 310 linked to a working source. The remaining 5 (not the 4 originally estimated) are the Network pattern citations marked "Print/ebook source, no persistent URL to monitor" across Grid, Dendritic / Hierarchical, and Organic / Irregular, intentionally unlinked per their own notes.',
+        'Removed a stale Roadmap bullet ("Entity formation and attorney review") that corresponded to a Private canonical Open Item; per the standing rule against listing Private items on the public roadmap, it was deleted rather than replaced.',
+      ],
+    },
+    {
       date: '2026.09.04',
       items: [
         'New top-level Media Gallery section (`/media/`), added between Retrofits and Reference in the nav. A Media item is a small external reference, a YouTube video, podcast, or article, tagged with which Pattern pages, Retrofit Strategy pages, or Guide pages it relates to; the Gallery itself is a real, filterable/sortable index (search, plus checkbox filters for media type, source, and topic), not a static list. Launched with one seed entry (a Not Just Bikes video on continuous sidewalks); see below for same-day additions.',
@@ -210,5 +218,4 @@ Work that's planned but not yet built:
 - **Classification-level overview pages.** Local, Collector, Arterial, and Freeway currently jump straight from the Patterns index into individual Typology pages, with no landing page explaining the classification itself.
 - **A final verification pass on MUTCD citations.** MUTCD 11th Edition with Revision 1 citations are now in place site-wide, but their section/chapter numbers weren't individually re-checked against the actual Revision 1 PDF (Revision 1 itself was confirmed as editorial/technical corrections only, not a renumbering, but that's not the same as a section-by-section check).
 - **Dutch CROW reference table reconciliation.** A temporary comparison table sits in the internal density-matrix document and needs to be folded into the actual Commonway patterns once they're fully planned.
-- **Entity formation and attorney review**, ahead of treating any part of the guide as a finished publication.
 - **Arterial speed baseline figures.** The density-tiered principle is locked; the specific mph figures per density tier are not.

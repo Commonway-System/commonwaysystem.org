@@ -34,5 +34,5 @@ Where a bicycle facility crosses or interacts with an intersection in a way that
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 9D, "Signals for Bicycle Facilities." The current binding standard; bicycle signals existed only as FHWA Interim Approval IA-16 (2013) until the 11th edition made them standard.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> NACTO Urban Bikeway Design Guide, 3rd ed. (2025), "Bike Signal Design." Leading bicycle interval and actuation-versus-recall design guidance.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 9D, "Signals for Bicycle Facilities." The current binding standard; bicycle signals existed only as FHWA Interim Approval IA-16 (2013) until the 11th edition made them standard.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [NACTO Urban Bikeway Design Guide, 3rd ed. (2025), "Bike Signal Design." Leading bicycle interval and actuation-versus-recall design guidance.](https://nacto.org/publication/urban-bikeway-design-guide/designing-safe-intersections/signal-phasing-and-timing-strategies/bike-signal-design/)

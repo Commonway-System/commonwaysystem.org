@@ -44,4 +44,4 @@ This pattern only functions where traffic volume is genuinely low. It thins out 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Yield Street."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Urban Street Design Guide*, "Yield Street."](https://nacto.org/publication/urban-street-design-guide/streets/yield-street/)

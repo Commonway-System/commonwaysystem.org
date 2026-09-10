@@ -44,4 +44,4 @@ The dual-mode design, full street for events and normal Local operation otherwis
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Seattle Municipal Code §11.14.203, "Festival Streets."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Seattle Municipal Code §11.14.203, "Festival Streets."](https://streetsillustrated.seattle.gov/urban-design/public-space/festival-streets/)

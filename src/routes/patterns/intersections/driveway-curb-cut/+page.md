@@ -30,4 +30,4 @@ Driveways and curb cuts drop off at Core density, not because access needs disap
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> U.S. Access Board, Public Right-of-Way Accessibility Guidelines (PROWAG), Section R302, "Pedestrian Access Routes."
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [U.S. Access Board, Public Right-of-Way Accessibility Guidelines (PROWAG), Section R302, "Pedestrian Access Routes."](https://www.access-board.gov/prowag/technical.html)

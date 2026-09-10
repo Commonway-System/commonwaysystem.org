@@ -34,7 +34,7 @@ Applied across a full-width surface (a parking lot, a full travel lane, a plaza)
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> U.S. Environmental Protection Agency, National Menu of Best Management Practices, "Permeable Pavements" fact sheet.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Street Stormwater Guide*, "Pervious Pavement."
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [U.S. Environmental Protection Agency, National Menu of Best Management Practices, "Permeable Pavements" fact sheet.](https://www.epa.gov/system/files/documents/2021-11/bmp-permeable-pavements.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [National Association of City Transportation Officials, *Urban Street Stormwater Guide*, "Pervious Pavement."](https://nacto.org/publication/urban-street-design-guide/street-design-elements/stormwater-management/pervious-pavement/)
 
 *"Legal / regulatory" here refers to the EPA guidance that municipal NPDES stormwater permits are legally built around, not a single mandatory design spec like MUTCD or PROWAG.*

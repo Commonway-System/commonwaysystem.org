@@ -46,4 +46,4 @@ Distinct from Main Street (LOC-MST-05), a Local-scale, slower, retail-frontage-f
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Street Design Guide*, "Downtown Thoroughfare."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [National Association of City Transportation Officials, *Urban Street Design Guide*, "Downtown Thoroughfare."](https://nacto.org/publication/urban-street-design-guide/streets/downtown-thoroughfare/)

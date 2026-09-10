@@ -46,5 +46,5 @@ Usually a city or county public works decision, achievable through routine restr
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> AASHTO, *A Policy on Geometric Design of Highways and Streets* (Green Book), lane width criteria.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Federal Highway Administration, "Separated Bike Lanes," Bicycle and Pedestrian Program.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [AASHTO, *A Policy on Geometric Design of Highways and Streets* (Green Book), lane width criteria.](https://store.transportation.org/Item/PublicationDetail?ID=4127)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration, "Separated Bike Lanes," Bicycle and Pedestrian Program.](https://www.fhwa.dot.gov/environment/bicycle_pedestrian/publications/separated_bike_lanes/index.cfm)

@@ -20,7 +20,7 @@ A small raised or landscaped island placed at the center of a Local-to-Local int
 
 ## Why this pattern exists
 
-Roundabout (Single / Multi-Lane) is sized to the volume it carries and is the default control wherever two Collector-or-higher streets meet; it isn't built for, and doesn't document, the much smaller intervention appropriate at a Local-to-Local intersection. This pattern exists to cover that gap: an intersection too low-volume to need a sized, engineered roundabout, but where an uncontrolled or minimally-controlled crossing still benefits from a physical feature that forces drivers to slow and negotiate rather than proceed straight through at speed.
+Roundabout (Single / Multi-Lane) is sized to the volume it carries and is the default control wherever two Collector-or-higher streets meet; it isn't built for, and doesn't document, the much smaller intervention appropriate at a Local-to-Local intersection. This pattern exists to cover that gap: an intersection too low-volume to need a sized, engineered roundabout, but where an uncontrolled or minimally-controlled crossing still benefits from a physical feature that forces drivers to slow and negotiate rather than proceed straight through at speed.<Citation index={1} /><Citation index={2} />
 
 ## Key considerations
 
@@ -35,5 +35,5 @@ Roundabout (Single / Multi-Lane) is sized to the volume it carries and is the de
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Delaware Department of Transportation, *Traffic Calming Design Manual*, 2025 edition, Section 3D, "Neighborhood Traffic Circles & Mini-Roundabouts."
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> City of Auburn, Alabama, Engineering Services, *Design and Construction Manual*, Appendix J, "Examples of Traffic Calming Measures."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Delaware Department of Transportation, *Traffic Calming Design Manual*, 2025 edition, Section 3D, "Neighborhood Traffic Circles & Mini-Roundabouts."](https://deldot.gov/Publications/manuals/traffic_calming/pdfs/Delaware_TrafficCalmingDesignManual.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [City of Auburn, Alabama, Engineering Services, *Design and Construction Manual*, Appendix J, "Examples of Traffic Calming Measures."](https://static.auburnalabama.org/media/apps/www/engineering-services/publications/design-and-construction-manual/12-30-19-App-J_App-I-Removed_FINAL.pdf)

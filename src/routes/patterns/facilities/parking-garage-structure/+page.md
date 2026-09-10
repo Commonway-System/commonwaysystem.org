@@ -34,5 +34,5 @@ Where land value or density makes surface parking impractical, a structure trade
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> ULI/National Parking Association, *The Dimensions of Parking*. Ramp grade, turning radius, and structural circulation design.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> 2010 ADA Standards for Accessible Design / PROWAG. Accessible egress (stairs, elevators) from every level.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [ULI/National Parking Association, *The Dimensions of Parking*. Ramp grade, turning radius, and structural circulation design.](https://knowledge.uli.org/en/books/2009/the-dimensions-of-parking)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [2010 ADA Standards for Accessible Design / PROWAG. Accessible egress (stairs, elevators) from every level.](https://www.ada.gov/assets/pdfs/2010-design-standards.pdf)

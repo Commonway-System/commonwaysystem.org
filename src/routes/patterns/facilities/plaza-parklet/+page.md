@@ -34,5 +34,5 @@ Streets historically allocate nearly all their space to vehicle movement and sto
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> WSDOT Design Manual, Chapter 1238, "Parklets and Plazas." Drainage, catch-basin avoidance, and railing/planter separation from traffic.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> NACTO Urban Street Design Guide, "Parklets, Pop-ups and Street Seats." Siting principles (sun exposure, adjacent frontage activity).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [WSDOT Design Manual, Chapter 1238, "Parklets and Plazas." Drainage, catch-basin avoidance, and railing/planter separation from traffic.](https://wsdot.wa.gov/publications/manuals/fulltext/m22-01/1238.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [NACTO Urban Street Design Guide, "Parklets, Pop-ups and Street Seats." Siting principles (sun exposure, adjacent frontage activity).](https://nacto.org/publication/urban-street-design-guide/interim-design-strategies/parklets/)

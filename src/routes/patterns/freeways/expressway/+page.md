@@ -30,4 +30,4 @@ Expressway sits between full Freeway and Arterial in character, partial rather t
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, *Highway Functional Classification Concepts, Criteria and Procedures*.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [FHWA, *Highway Functional Classification Concepts, Criteria and Procedures*.](https://www.fhwa.dot.gov/planning/processes/statewide/related/hwy-functional-classification-2023.pdf)

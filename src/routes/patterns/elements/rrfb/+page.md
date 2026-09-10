@@ -34,6 +34,6 @@ An uncontrolled crosswalk relies entirely on driver attentiveness and willingnes
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026). Formerly Interim Approval IA-21, now standardized.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> NCHRP Research Report 841 (2017), "Development of Crash Modification Factors for Uncontrolled Pedestrian Crossing Treatments," Transportation Research Board. Documents a crash modification factor of 0.53 for vehicle-pedestrian crashes.
-3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> Fitzpatrick, K. et al., "Will You Stop for Me?," Report No. TTI-CTS-0010, Texas A&M Transportation Institute (2016). Driver-yielding research underlying its particular effectiveness at multilane crossings.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026). Formerly Interim Approval IA-21, now standardized.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [NCHRP Research Report 841 (2017), "Development of Crash Modification Factors for Uncontrolled Pedestrian Crossing Treatments," Transportation Research Board. Documents a crash modification factor of 0.53 for vehicle-pedestrian crashes.](https://nap.nationalacademies.org/catalog/24627/development-of-crash-modification-factors-for-uncontrolled-pedestrian-crossing-treatments)
+3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> [Fitzpatrick, K. et al., "Will You Stop for Me?," Report No. TTI-CTS-0010, Texas A&M Transportation Institute (2016). Driver-yielding research underlying its particular effectiveness at multilane crossings.](https://static.tti.tamu.edu/tti.tamu.edu/documents/TTI-CTS-0010.pdf)

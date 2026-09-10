@@ -34,4 +34,4 @@ Boarding is where accessibility, dwell time, and safety concerns concentrate mos
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG, Section R309.1, "Boarding and Alighting Areas," and Section R309.1.2, "Platform and Vehicle Floor Coordination." Direct basis for platform height and vehicle floor coordination, and the 8 ft x 5 ft minimum boarding area.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [PROWAG, Section R309.1, "Boarding and Alighting Areas," and Section R309.1.2, "Platform and Vehicle Floor Coordination." Direct basis for platform height and vehicle floor coordination, and the 8 ft x 5 ft minimum boarding area.](https://www.access-board.gov/prowag/technical.html)

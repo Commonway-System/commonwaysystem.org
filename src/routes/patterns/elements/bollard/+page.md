@@ -34,5 +34,5 @@ Where a full barrier or curb is not warranted but vehicle access still needs to 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> U.S. Access Board, Public Right-of-Way Accessibility Guidelines (PROWAG), 2023 final rule (adopted into DOT's ADA regulations effective January 17, 2025); 2010 ADA Standards for Accessible Design, Section 403.5.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> ASTM International, ASTM F2656/F2656M, standard test method for vehicle crash testing of perimeter barriers.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [U.S. Access Board, Public Right-of-Way Accessibility Guidelines (PROWAG), 2023 final rule (adopted into DOT's ADA regulations effective January 17, 2025); 2010 ADA Standards for Accessible Design, Section 403.5.](https://www.access-board.gov/prowag/technical.html)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [ASTM International, ASTM F2656/F2656M, standard test method for vehicle crash testing of perimeter barriers.](https://www.astm.org/Standards/F2656.htm)

@@ -34,5 +34,5 @@ Park-and-ride serves a distinct trip purpose (a single daily transfer at a predi
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> TCRP Report 153, "Guidelines for Providing Access to Public Transportation Stations." Station access planning and mode-tradeoff analysis for sizing against ridership projections.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> TCRP Report 95, Chapter 3, "Park-and-Ride/Pool," Transportation Research Board. Facility classification by size (small, 200 spaces or fewer; large, more than 1,000 spaces) and peak-period demand patterns.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [TCRP Report 153, "Guidelines for Providing Access to Public Transportation Stations." Station access planning and mode-tradeoff analysis for sizing against ridership projections.](https://nap.nationalacademies.org/catalog/14614/guidelines-for-providing-access-to-public-transportation-stations)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [TCRP Report 95, Chapter 3, "Park-and-Ride/Pool," Transportation Research Board. Facility classification by size (small, 200 spaces or fewer; large, more than 1,000 spaces) and peak-period demand patterns.](https://www.nationalacademies.org/read/23432/chapter/2)

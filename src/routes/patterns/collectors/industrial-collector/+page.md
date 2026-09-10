@@ -44,4 +44,4 @@ Industrial land use exists across a wide density range, which is why this Typolo
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Design Vehicle" (citing AASHTO Green Book §2-1).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Urban Street Design Guide*, "Design Vehicle" (citing AASHTO Green Book §2-1).](https://nacto.org/publication/urban-street-design-guide/design-controls/design-vehicle/)

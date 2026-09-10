@@ -34,4 +34,4 @@ A planted buffer between moving traffic and pedestrians provides psychological a
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO Urban Street Design Guide, "Sidewalk Zones" (furnishing zone guidance). Width standards and the buffer's function separating pedestrians from traffic.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO Urban Street Design Guide, "Sidewalk Zones" (furnishing zone guidance). Width standards and the buffer's function separating pedestrians from traffic.](https://nacto.org/publication/urban-street-design-guide/street-design-elements/sidewalks/sidewalk-zones/)

@@ -34,4 +34,4 @@ Reserved for higher-volume Arterial-to-Arterial junctions, where a standard roun
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Fortuijn, L.G.H., "Turbo Roundabouts: Design Principles and Safety Performance," *Transportation Research Record* 2096 (2009).
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Fortuijn, L.G.H., "Turbo Roundabouts: Design Principles and Safety Performance," *Transportation Research Record* 2096 (2009).](https://doi.org/10.3141/2096-03)

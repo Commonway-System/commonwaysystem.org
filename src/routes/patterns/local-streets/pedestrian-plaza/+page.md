@@ -46,4 +46,4 @@ Unlike Festival Street, which toggles between full and pedestrian-only operation
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Pedestrian Streets" and "Public Plazas."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Urban Street Design Guide*, "Pedestrian Streets" and "Public Plazas."](https://nacto.org/publication/urban-street-design-guide/streets/)

@@ -30,4 +30,4 @@ Uncontrolled intersections are only realistic where traffic volume is low enough
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> SWOV Institute for Road Safety Research, "Principles for a Safe Road Network."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [SWOV Institute for Road Safety Research, "Principles for a Safe Road Network."](https://swov.nl/en/fact-sheet/principles-safe-road-network)

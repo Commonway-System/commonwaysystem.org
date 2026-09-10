@@ -34,5 +34,5 @@ A crosswalk establishes a legally and visually defined place for pedestrians to 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Zegeer, C. et al., "Safety Effects of Marked Versus Unmarked Crosswalks at Uncontrolled Locations," FHWA-RD-01-075 (2002). A study of 1,000 marked and 1,000 unmarked sites, basis for the finding that markings alone aren't sufficient at higher speed, volume, or multi-lane crossings.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Part 3 (Markings). Governs marking types, including transverse lines and continental/ladder striping.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Zegeer, C. et al., "Safety Effects of Marked Versus Unmarked Crosswalks at Uncontrolled Locations," FHWA-RD-01-075 (2002). A study of 1,000 marked and 1,000 unmarked sites, basis for the finding that markings alone aren't sufficient at higher speed, volume, or multi-lane crossings.](https://rosap.ntl.bts.gov/view/dot/15480/dot_15480_DS1.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Part 3 (Markings). Governs marking types, including transverse lines and continental/ladder striping.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)

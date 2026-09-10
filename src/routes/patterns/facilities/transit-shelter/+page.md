@@ -34,5 +34,5 @@ Passenger comfort and perceived safety at a stop directly affect transit ridersh
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG, Section R309.2, "Transit Shelters" (federally adopted by DOT, effective January 17, 2025). Minimum clear space for mobility devices, connection to boarding areas via pedestrian access route.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> TCRP Report 19, "Guidelines for the Location and Design of Bus Stops," Transportation Research Board. Sizing relative to ridership volume, siting and orientation.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [PROWAG, Section R309.2, "Transit Shelters" (federally adopted by DOT, effective January 17, 2025). Minimum clear space for mobility devices, connection to boarding areas via pedestrian access route.](https://www.access-board.gov/prowag/technical.html)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [TCRP Report 19, "Guidelines for the Location and Design of Bus Stops," Transportation Research Board. Sizing relative to ridership volume, siting and orientation.](https://www.trb.org/Main/Blurbs/153827.aspx)

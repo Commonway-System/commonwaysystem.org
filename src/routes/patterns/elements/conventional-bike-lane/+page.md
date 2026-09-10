@@ -34,5 +34,5 @@ A conventional bike lane provides a clearly delineated, expected space for cycli
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> AASHTO, *Guide for the Development of Bicycle Facilities*. Adopted by most state DOTs as the foundational lane-width and design standard.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Bikeway Design Guide*, 3rd Ed. (2025), "Design User, Design Speed, and Design Year." Protected lanes become the only all-ages-and-abilities-permissible option above 25 mph or 6,000 vehicles per day.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [AASHTO, *Guide for the Development of Bicycle Facilities*. Adopted by most state DOTs as the foundational lane-width and design standard.](https://store.transportation.org/item/publicationdetail/5371)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [NACTO, *Urban Bikeway Design Guide*, 3rd Ed. (2025), "Design User, Design Speed, and Design Year." Protected lanes become the only all-ages-and-abilities-permissible option above 25 mph or 6,000 vehicles per day.](https://nacto.org/latest/urban-bikeway-design-guide-design-user-design-speed-and-design-year/)

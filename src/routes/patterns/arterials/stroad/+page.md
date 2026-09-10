@@ -82,6 +82,6 @@ This page exists to help readers identify a Stroad and replace it, with Boulevar
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Marohn, C., "What's a STROAD and Why Does It Matter?", Strong Towns.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *A Policy on Geometric Design of Highways and Streets* ("Green Book").
-3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> Gluck, J., Levinson, H.S., and Stover, V., *Impacts of Access Management Techniques*, NCHRP Report 420, Transportation Research Board, 1999. Crash rates rise consistently with access-point density; high-density segments show crash rates approximately 3x well-managed comparison segments.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Marohn, C., "What's a STROAD and Why Does It Matter?", Strong Towns.](https://www.strongtowns.org/journal/2018-3-1-whats-a-stroad-and-why-does-it-matter)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [American Association of State Highway and Transportation Officials, *A Policy on Geometric Design of Highways and Streets* ("Green Book").](https://store.transportation.org/Item/PublicationDetail?ID=4127)
+3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> [Gluck, J., Levinson, H.S., and Stover, V., *Impacts of Access Management Techniques*, NCHRP Report 420, Transportation Research Board, 1999. Crash rates rise consistently with access-point density; high-density segments show crash rates approximately 3x well-managed comparison segments.](http://onlinepubs.trb.org/onlinepubs/nchrp/nchrp_rpt_420.pdf)

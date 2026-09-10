@@ -46,4 +46,4 @@ Typically a city-level planning and transportation department initiative, given 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> "Identification of Plausible Low Traffic Neighbourhoods Using Open Data," *ScienceDirect*, definition and comparison of the Superblock model against modal filtering and Low Traffic Neighbourhoods.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> ["Identification of Plausible Low Traffic Neighbourhoods Using Open Data," *ScienceDirect*, definition and comparison of the Superblock model against modal filtering and Low Traffic Neighbourhoods.](https://www.sciencedirect.com/science/article/pii/S2950105925000415)

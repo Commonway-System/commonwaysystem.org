@@ -34,5 +34,5 @@ Adding painted buffer width increases the physical and perceived separation betw
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 9C.02, "Buffered Bike Lane."
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Bikeway Design Guide*, 3rd Ed. Buffer placement and sizing guidance.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 9C.02, "Buffered Bike Lane."](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [NACTO, *Urban Bikeway Design Guide*, 3rd Ed. Buffer placement and sizing guidance.](https://nacto.org/publication/urban-bikeway-design-guide/)

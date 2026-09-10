@@ -48,5 +48,5 @@ Typically a city or county transportation department decision, though the larger
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> "An Evaluation of 'Road Diet' Projects on Five Lane and Larger Roadways," transportation research summary distributed via NACTO.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Federal Highway Administration, "Road Diets (Roadway Reconfiguration)," Proven Safety Countermeasures, FHWA-SA-12-013.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> ["An Evaluation of 'Road Diet' Projects on Five Lane and Larger Roadways," transportation research summary distributed via NACTO.](https://nacto.org/wp-content/uploads/An-Evaluation-of-Road-Diet-Projects-on-Five-Lane-and-Larger-Roadways.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, "Road Diets (Roadway Reconfiguration)," Proven Safety Countermeasures, FHWA-SA-12-013.](https://highways.dot.gov/safety/proven-safety-countermeasures/road-diets-roadway-reconfiguration)

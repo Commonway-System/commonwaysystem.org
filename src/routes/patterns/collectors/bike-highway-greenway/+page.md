@@ -42,4 +42,4 @@ Distinct from Local's Bicycle Boulevard, which shares the roadway with calmed ve
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> CROW, *Design Manual for Bicycle Traffic*, English ed. (2016), Ch. 4.5 "Bicycle highways."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [CROW, *Design Manual for Bicycle Traffic*, English ed. (2016), Ch. 4.5 "Bicycle highways."](https://crowplatform.com/product/design-manual-for-bicycle-traffic/)

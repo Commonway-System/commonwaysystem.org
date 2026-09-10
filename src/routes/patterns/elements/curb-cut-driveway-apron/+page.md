@@ -34,5 +34,5 @@ Every driveway crossing a sidewalk creates a conflict point between turning vehi
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R304. Cross-slope-through-apron limits.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R302, "Pedestrian Access Routes." Sidewalk continuity through a driveway crossing.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R304. Cross-slope-through-apron limits.](https://www.access-board.gov/prowag/technical.html)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R302, "Pedestrian Access Routes." Sidewalk continuity through a driveway crossing.](https://www.access-board.gov/prowag/technical.html)

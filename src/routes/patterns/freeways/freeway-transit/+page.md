@@ -30,4 +30,4 @@ This is the mirror image of the other three Freeway entries. Default, Expressway
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FTA, National Transit Database Glossary.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [FTA, National Transit Database Glossary.](https://www.transit.dot.gov/ntd/national-transit-database-ntd-glossary)

@@ -34,4 +34,4 @@ Vehicles routinely pull farther into a parking space than intended, and without 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> 2010 ADA Standards for Accessible Design, Section 502.7 (Advisory). Regulatory basis for using wheel stops to prevent vehicle overhang into accessible routes and access aisles.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [2010 ADA Standards for Accessible Design, Section 502.7 (Advisory). Regulatory basis for using wheel stops to prevent vehicle overhang into accessible routes and access aisles.](https://www.ada.gov/assets/pdfs/2010-design-standards.pdf)

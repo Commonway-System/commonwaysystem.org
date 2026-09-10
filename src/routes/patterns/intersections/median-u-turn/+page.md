@@ -24,7 +24,7 @@ Compact is an edge case. Urban and Core are unlikely pairings.
 
 ## Design notes
 
-This geometry exists to remove unprotected left turns from a major intersection entirely, rather than managing them with a longer signal phase. Doing so shortens the signal cycle the main intersection needs to run and reduces the conflict points a driver has to judge in a single movement. The tradeoff is a longer path for the rerouted turn and the median width needed to accommodate it, which is why this pattern is Situational rather than broadly Recommended: it solves a real problem well on a wide, higher-speed divided road, but doesn't fit a narrower cross-section or a genuinely low-speed context where Roundabout or a conventional Signal remains the better fit.
+This geometry exists to remove unprotected left turns from a major intersection entirely, rather than managing them with a longer signal phase.<Citation index={1} /> Doing so shortens the signal cycle the main intersection needs to run and reduces the conflict points a driver has to judge in a single movement.<Citation index={2} /> The tradeoff is a longer path for the rerouted turn and the median width needed to accommodate it, which is why this pattern is Situational rather than broadly Recommended: it solves a real problem well on a wide, higher-speed divided road, but doesn't fit a narrower cross-section or a genuinely low-speed context where Roundabout or a conventional Signal remains the better fit.
 
 ## Related patterns
 
@@ -36,5 +36,5 @@ This geometry exists to remove unprotected left turns from a major intersection 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Indiana Department of Transportation, "Median U-turns."
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Federal Highway Administration, "Chapter 2. Intersections," *Handbook for Designing Roadways for the Aging Population*.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Indiana Department of Transportation, "Median U-turns."](https://www.in.gov/indot/traffic-engineering/median-u-turn/)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, "Chapter 2. Intersections," *Handbook for Designing Roadways for the Aging Population*.](https://highways.dot.gov/safety/other/older-road-user/handbook-designing-roadways-aging-population/chapter-2-intersections)

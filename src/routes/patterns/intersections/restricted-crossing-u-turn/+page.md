@@ -24,7 +24,7 @@ Compact is an edge case. Urban and Core are unlikely pairings.
 
 ## Design notes
 
-RCUT goes further than a Median U-Turn intersection by removing the minor road's direct crossing movement as well as its left turn, letting the main intersection serve the major road's through traffic with minimal minor-road interference. This design carries particular benefit for large trucks, since a driver only has to judge a gap in one direction of traffic at a time rather than crossing the full width of a divided highway at once. Like Median U-Turn, this pattern is Situational: it's a strong fit for a high-speed, four-lane-or-larger divided highway, and a poor fit anywhere lower speed or lower volume already makes a Roundabout the better default.
+RCUT goes further than a Median U-Turn intersection by removing the minor road's direct crossing movement as well as its left turn, letting the main intersection serve the major road's through traffic with minimal minor-road interference.<Citation index={1} /> This design carries particular benefit for large trucks, since a driver only has to judge a gap in one direction of traffic at a time rather than crossing the full width of a divided highway at once.<Citation index={2} /> Like Median U-Turn, this pattern is Situational: it's a strong fit for a high-speed, four-lane-or-larger divided highway, and a poor fit anywhere lower speed or lower volume already makes a Roundabout the better default.<Citation index={3} />
 
 ## Related patterns
 
@@ -36,6 +36,6 @@ RCUT goes further than a Median U-Turn intersection by removing the minor road's
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Texas Department of Transportation, "14.6 Restricted Crossing U-Turn Intersection (RCUT)."
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> Wisconsin Department of Transportation, "Restricted Crossing U-Turn (RCUT) Intersections."
-3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> Kentucky Transportation Cabinet, "Reduced Conflict U-Turn," SAFERoads Solutions, before-after crash data.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Texas Department of Transportation, "14.6 Restricted Crossing U-Turn Intersection (RCUT)."](https://www.txdot.gov/manuals/des/rdw/chapter-14--alternative-intersections-and-intercha/14-6-restricted-crossing-u-turn-intersection--rcut.html)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [Wisconsin Department of Transportation, "Restricted Crossing U-Turn (RCUT) Intersections."](https://wisconsindot.gov/Pages/safety/safety-eng/rcut.aspx)
+3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> [Kentucky Transportation Cabinet, "Reduced Conflict U-Turn," SAFERoads Solutions, before-after crash data.](https://transportation.ky.gov/saferoadsolutions/Pages/RCUT.aspx)

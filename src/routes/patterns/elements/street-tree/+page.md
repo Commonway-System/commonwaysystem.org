@@ -34,4 +34,4 @@ Street trees do measurable work beyond aesthetics, they reduce pedestrian-level 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Lindsey, J.P. and Bassuk, N. (1991), "Specifying Soil Volumes to Meet the Water Needs of Mature Urban Street Trees and Trees in Containers," *Journal of Arboriculture* 17(6). Peer-reviewed formula (approximately 2 cubic ft of soil per sq ft of mature canopy) underlying the claim that insufficient space is the leading cause of poor street tree survival.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Lindsey, J.P. and Bassuk, N. (1991), "Specifying Soil Volumes to Meet the Water Needs of Mature Urban Street Trees and Trees in Containers," *Journal of Arboriculture* 17(6). Peer-reviewed formula (approximately 2 cubic ft of soil per sq ft of mature canopy) underlying the claim that insufficient space is the leading cause of poor street tree survival.](https://auf.isa-arbor.com/content/17/6/141)

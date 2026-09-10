@@ -34,5 +34,5 @@ Rumble strips address inattention and lane departure rather than speed directly,
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Persaud, B., Lyon, C., Eccles, K., and Soika, J., "Safety Evaluation of Centerline Plus Shoulder Rumble Strips," FHWA-HRT-15-048 (Federal Highway Administration, 2015); NCHRP Report 641.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Federal Highway Administration, "Rumble Strips and Bicycle Accommodation," fact sheet.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Persaud, B., Lyon, C., Eccles, K., and Soika, J., "Safety Evaluation of Centerline Plus Shoulder Rumble Strips," FHWA-HRT-15-048 (Federal Highway Administration, 2015); NCHRP Report 641.](https://www.fhwa.dot.gov/publications/research/safety/15048/15048.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration, "Rumble Strips and Bicycle Accommodation," fact sheet.](https://highways.dot.gov/safety/rwd/keep-vehicles-road/rumble-strips/bicycles)

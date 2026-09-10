@@ -34,4 +34,4 @@ On a roadway too narrow to accommodate a centerline plus two conventional bike l
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Bikeway Design Guide*, 3rd Ed., "Advisory Bike Lanes." Width thresholds: roadway under 28 ft, bike lane 5-6.5 ft, central travel space 10-15 ft.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Urban Bikeway Design Guide*, 3rd Ed., "Advisory Bike Lanes." Width thresholds: roadway under 28 ft, bike lane 5-6.5 ft, central travel space 10-15 ft.](https://nacto.org/publication/urban-bikeway-design-guide/designing-bikeways-for-all-ages-and-abilities/bikeways-on-low-speed-low-volume-streets/advisory-bike-lanes/)

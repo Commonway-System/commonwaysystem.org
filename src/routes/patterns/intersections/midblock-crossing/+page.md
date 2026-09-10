@@ -30,4 +30,4 @@ Midblock crossings supplement, rather than replace, intersection-level crossing 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Zegeer, C. et al., "Safety Effects of Marked vs. Unmarked Crosswalks at Uncontrolled Locations," FHWA-RD-01-075 (Federal Highway Administration, 2002).
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Zegeer, C. et al., "Safety Effects of Marked vs. Unmarked Crosswalks at Uncontrolled Locations," FHWA-RD-01-075 (Federal Highway Administration, 2002).](https://rosap.ntl.bts.gov/view/dot/15480/dot_15480_DS1.pdf)

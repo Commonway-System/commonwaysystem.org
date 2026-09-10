@@ -72,5 +72,5 @@ A comparison of Berkeley's bicycle boulevards to their parallel arterials found 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Bikeway Design Guide*, 3rd ed. (2025), "Bike Boulevards," in *Designing Bikeways for All Ages and Abilities*.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Minikel, E., "Cyclist Safety on Bicycle Boulevards and Parallel Arterial Routes in Berkeley, California," *Accident Analysis & Prevention* 45 (2012): 241–247.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [National Association of City Transportation Officials, *Urban Bikeway Design Guide*, 3rd ed. (2025), "Bike Boulevards," in *Designing Bikeways for All Ages and Abilities*.](https://nacto.org/publication/urban-bikeway-design-guide/designing-bikeways-for-all-ages-and-abilities/bikeways-on-low-speed-low-volume-streets/bike-boulevards/)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Minikel, E., "Cyclist Safety on Bicycle Boulevards and Parallel Arterial Routes in Berkeley, California," *Accident Analysis & Prevention* 45 (2012): 241–247.](https://nacto.org/wp-content/uploads/Minikel-2011.pdf)

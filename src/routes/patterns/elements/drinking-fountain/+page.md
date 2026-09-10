@@ -34,4 +34,4 @@ Public drinking water access supports comfort and public health, particularly in
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG, Section R212, referencing ADA/ABA Accessibility Guidelines Sections 602.1-602.6 (36 CFR Part 1191, Appendix D). Binding accessible-height and knee-clearance requirements.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [PROWAG, Section R212, referencing ADA/ABA Accessibility Guidelines Sections 602.1-602.6 (36 CFR Part 1191, Appendix D). Binding accessible-height and knee-clearance requirements.](https://www.access-board.gov/prowag/technical.html)

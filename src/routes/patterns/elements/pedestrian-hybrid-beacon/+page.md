@@ -34,5 +34,5 @@ A pedestrian hybrid beacon provides stronger, legally binding stop control than 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 4J, "Pedestrian Hybrid Beacons" (renumbered from the 2009 edition's Chapter 4F). Warrant conditions.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Fitzpatrick, K. and Park, E.S., "Safety Effectiveness of the HAWK Pedestrian Crossing Treatment," FHWA-HRT-10-042 (2010). Tucson before/after study of 21 treatment sites versus 102 reference intersections: a 29% reduction in total crashes and a 69% reduction in pedestrian crashes.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 4J, "Pedestrian Hybrid Beacons" (renumbered from the 2009 edition's Chapter 4F). Warrant conditions.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Fitzpatrick, K. and Park, E.S., "Safety Effectiveness of the HAWK Pedestrian Crossing Treatment," FHWA-HRT-10-042 (2010). Tucson before/after study of 21 treatment sites versus 102 reference intersections: a 29% reduction in total crashes and a 69% reduction in pedestrian crashes.](https://www.fhwa.dot.gov/publications/research/safety/10042/10042.pdf)

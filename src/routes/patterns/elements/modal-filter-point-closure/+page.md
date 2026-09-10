@@ -20,7 +20,7 @@ A physical closure placed mid-block or at an intersection leg that blocks throug
 
 ## Why this pattern exists
 
-A street network's permeability, how easily a route can be used for through travel, isn't the same for every mode. A modal filter exploits that difference on purpose: it removes a street's usefulness as a through route for motor vehicles while leaving it fully useful, often more pleasant, for anyone walking or biking. This is the physical mechanism underneath both the [Modal filtering / Low Traffic Neighborhood retrofit](/retrofits/network/modal-filtering-low-traffic-neighborhood-retrofit/) and [Superblock retrofit](/retrofits/network/superblock-retrofit/) Retrofit Strategies at the Network scale; those Retrofit Strategies describe the area-wide pattern of closures, this pattern documents the closure itself.
+A street network's permeability, how easily a route can be used for through travel, isn't the same for every mode. A modal filter exploits that difference on purpose: it removes a street's usefulness as a through route for motor vehicles while leaving it fully useful, often more pleasant, for anyone walking or biking.<Citation index={1} /><Citation index={2} /> This is the physical mechanism underneath both the [Modal filtering / Low Traffic Neighborhood retrofit](/retrofits/network/modal-filtering-low-traffic-neighborhood-retrofit/) and [Superblock retrofit](/retrofits/network/superblock-retrofit/) Retrofit Strategies at the Network scale; those Retrofit Strategies describe the area-wide pattern of closures, this pattern documents the closure itself.
 
 ## Key considerations
 
@@ -39,5 +39,5 @@ This Element is the direct physical product of [Modal filtering / Low Traffic Ne
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Aldred, R. and Goodman, A., "Low Traffic Neighbourhoods, Car Use, and Active Travel: Evidence from the People and Places Survey of Outer London Active Travel Interventions," *Findings*, 2020.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Federal Highway Administration, "Traffic Calming ePrimer," Module 3: Toolbox of Individual Traffic Calming Measures. Diagonal diverters and half closures as routing-restriction treatments.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Aldred, R. and Goodman, A., "Low Traffic Neighbourhoods, Car Use, and Active Travel: Evidence from the People and Places Survey of Outer London Active Travel Interventions," *Findings*, 2020.](https://findingspress.org/article/17128-low-traffic-neighbourhoods-car-use-and-active-travel-evidence-from-the-people-and-places-survey-of-outer-london-active-travel-interventions)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, "Traffic Calming ePrimer," Module 3: Toolbox of Individual Traffic Calming Measures. Diagonal diverters and half closures as routing-restriction treatments.](https://highways.dot.gov/safety/speed-management/traffic-calming-eprimer/traffic-calming-eprimer-module-3)

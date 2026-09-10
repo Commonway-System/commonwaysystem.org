@@ -48,4 +48,4 @@ This entry is the Collector-scale sibling of Local Transit and Arterial Transit,
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Transit Street Design Guide* (2016).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Transit Street Design Guide* (2016).](https://nacto.org/publication/transit-street-design-guide/)

@@ -115,13 +115,13 @@ These tools don't reserve land. They commit a jurisdiction to a design approach,
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Florida Department of Transportation. "What is Corridor Management?" Center for Urban Transportation Research.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Salt Lake County Office of Regional Development. "Corridor Preservation Fund."
-3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> CONNECT Our Future. "Transportation Corridor Preservation."
-4. <span id="ref-4"></span><EvidenceChip tier="legal" /> Utah Code Title 72, Chapter 5, Part 4, Section 403. "Transportation Corridor Preservation Powers."
-5. <span id="ref-5"></span><EvidenceChip tier="legal" /> Federal Highway Administration, Office of Real Estate Services. "Corridor Management."
-6. <span id="ref-6"></span><EvidenceChip tier="precedent" /> CRTPO. "Complete Streets Policy."
-7. <span id="ref-7"></span><EvidenceChip tier="evidence" /> NACTO Urban Street Design Guide. "Functional Classification."
-8. <span id="ref-8"></span><EvidenceChip tier="legal" /> Florida Department of Transportation. "Context Classification Guide," October 2024.
-9. <span id="ref-9"></span><EvidenceChip tier="legal" /> MRSC. "Complete Streets." Washington state code compilation.
-10. <span id="ref-10"></span><EvidenceChip tier="legal" /> Washington Revised Code of Washington 47.04.320-.340. "Complete Streets Act."
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Florida Department of Transportation. "What is Corridor Management?" Center for Urban Transportation Research.](https://www.cutr.usf.edu/oldpubs/news_let/articles/spring96/am.htm)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [Salt Lake County Office of Regional Development. "Corridor Preservation Fund."](https://www.saltlakecounty.gov/regional-development/planning-transportation/corridor-preservation-fund)
+3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> [CONNECT Our Future. "Transportation Corridor Preservation."](https://connectourfuture.org/tools/transportation-corridor-preservation/)
+4. <span id="ref-4"></span><EvidenceChip tier="legal" /> [Utah Code Title 72, Chapter 5, Part 4, Section 403. "Transportation Corridor Preservation Powers."](https://le.utah.gov/xcode/Title72/Chapter5/72-5-S403.html)
+5. <span id="ref-5"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, Office of Real Estate Services. "Corridor Management."](https://www.fhwa.dot.gov/real_estate/right-of-way/corridor_management/index.cfm)
+6. <span id="ref-6"></span><EvidenceChip tier="precedent" /> [CRTPO. "Complete Streets Policy."](https://crtpo.org/resources/complete-streets/complete-streets-policy/)
+7. <span id="ref-7"></span><EvidenceChip tier="evidence" /> [NACTO Urban Street Design Guide. "Functional Classification."](https://nacto.org/publication/urban-street-design-guide/design-controls/functional-classification/)
+8. <span id="ref-8"></span><EvidenceChip tier="legal" /> [Florida Department of Transportation. "Context Classification Guide," October 2024.](https://fdotwww.blob.core.windows.net/sitefinity/docs/default-source/roadway/completestreets/files/fdot-context-classification.pdf)
+9. <span id="ref-9"></span><EvidenceChip tier="legal" /> [MRSC. "Complete Streets." Washington state code compilation.](https://mrsc.org/explore-topics/facilities/rights-of-way/complete-streets)
+10. <span id="ref-10"></span><EvidenceChip tier="legal" /> [Washington Revised Code of Washington 47.04.320-.340. "Complete Streets Act."](https://app.leg.wa.gov/rcw/default.aspx?cite=47.04.320)

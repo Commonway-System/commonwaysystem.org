@@ -34,4 +34,4 @@ At points where a bike facility’s path crosses or intersects with vehicle move
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Part 9. Green colored pavement formalized as standard, previously FHWA Interim Approval IA-14.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Part 9. Green colored pavement formalized as standard, previously FHWA Interim Approval IA-14.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)

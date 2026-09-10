@@ -46,6 +46,6 @@ Typically a joint decision between the transit agency and the city or county tra
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Nelson\Nygaard, "Better Bus Transit Priority Toolkit," prepared for TriMet, March 2024.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> NACTO Urban Street Design Guide, "Transit Corridor," Transit Streets section.
-3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> Federal Transit Administration, "Bus Lanes."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Nelson\Nygaard, "Better Bus Transit Priority Toolkit," prepared for TriMet, March 2024.](https://trimet.org/betterbusprogram/pdf/better-bus-toolkit.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [NACTO Urban Street Design Guide, "Transit Corridor," Transit Streets section.](https://nacto.org/publication/urban-street-design-guide/streets/transit-corridor/)
+3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> [Federal Transit Administration, "Bus Lanes."](https://www.transit.dot.gov/research-innovation/bus-lanes)

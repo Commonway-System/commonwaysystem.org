@@ -34,4 +34,4 @@ Above a certain volume or conflict complexity, an uncontrolled or sign-controlle
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 4C, "Traffic Control Signal Needs Studies." Establishes the nine signal warrants, and explicitly states that meeting a warrant does not itself require installation.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [MUTCD 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 4C, "Traffic Control Signal Needs Studies." Establishes the nine signal warrants, and explicitly states that meeting a warrant does not itself require installation.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)

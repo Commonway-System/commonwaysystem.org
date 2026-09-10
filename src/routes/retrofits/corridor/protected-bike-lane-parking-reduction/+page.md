@@ -46,5 +46,5 @@ Usually a city public works or planning department decision, though parking remo
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Transportation Policy Research, Texas A&M Transportation Institute, "Cycle Tracks." Retrofitting protected bike lanes by reallocating parking, underutilized lanes, or excess lane width.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Federal Highway Administration University Course on Bicycle and Pedestrian Transportation Design, on parking removal and safety/capacity effects.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Transportation Policy Research, Texas A&M Transportation Institute, "Cycle Tracks." Retrofitting protected bike lanes by reallocating parking, underutilized lanes, or excess lane width.](https://policy.tti.tamu.edu/strategy/cycle-tracks/)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration University Course on Bicycle and Pedestrian Transportation Design, on parking removal and safety/capacity effects.](https://www.fhwa.dot.gov/publications/research/safety/pedbike/05085/chapt15.cfm)

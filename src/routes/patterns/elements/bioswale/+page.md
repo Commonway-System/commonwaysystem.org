@@ -34,7 +34,7 @@ Conventional curb-and-gutter drainage moves runoff, and whatever pollutants it c
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> U.S. Environmental Protection Agency, *Green Streets* / *Green Street Design Manual*, 2021.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Street Stormwater Guide*.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [U.S. Environmental Protection Agency, *Green Streets* / *Green Street Design Manual*, 2021.](https://www.epa.gov/sites/default/files/2021-04/documents/green_streets_design_manual_feb_2021_web_res_small_508.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [National Association of City Transportation Officials, *Urban Street Stormwater Guide*.](https://nacto.org/publication/urban-street-design-guide/street-design-elements/stormwater-management/bioswales/)
 
 *"Legal / regulatory" here refers to the EPA guidance that municipal NPDES stormwater permits are legally built around, not a single mandatory design spec like MUTCD or PROWAG.*

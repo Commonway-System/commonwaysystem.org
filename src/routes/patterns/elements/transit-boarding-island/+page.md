@@ -34,4 +34,4 @@ Where a protected bike lane runs along a curb that also serves transit stops, a 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Bikeway Design Guide*, 3rd Ed., "Boarding Islands." Width, accessibility, and detectable-warning-surface requirements at the bike lane and transit conflict this pattern resolves.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Urban Bikeway Design Guide*, 3rd Ed., "Boarding Islands." Width, accessibility, and detectable-warning-surface requirements at the bike lane and transit conflict this pattern resolves.](https://nacto.org/publication/urban-bikeway-design-guide/designing-bikeways-for-all-ages-and-abilities/transit-stops/boarding-islands/)

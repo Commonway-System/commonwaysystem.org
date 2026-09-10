@@ -30,4 +30,4 @@ This is the Commonway System's locked default treatment for Local-to-Collector i
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> CROW Platform for Transport, Infrastructure and Public Space, *Road Safety Manual* / *Design Manual for Bicycle Traffic*.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [CROW Platform for Transport, Infrastructure and Public Space, *Road Safety Manual* / *Design Manual for Bicycle Traffic*.](https://www.crow.nl/Onderwerpen/verkeer-en-vervoer/)

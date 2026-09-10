@@ -34,4 +34,4 @@ A tree’s long-term health depends far more on below-grade soil volume and qual
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Lindsey, J.P. and Bassuk, N. (1991), "Specifying Soil Volumes to Meet the Water Needs of Mature Urban Street Trees and Trees in Containers," *Journal of Arboriculture* 17(6). Direct evidentiary basis for shared trenches, pooling soil volume across pits, outperforming isolated small pits.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Lindsey, J.P. and Bassuk, N. (1991), "Specifying Soil Volumes to Meet the Water Needs of Mature Urban Street Trees and Trees in Containers," *Journal of Arboriculture* 17(6). Direct evidentiary basis for shared trenches, pooling soil volume across pits, outperforming isolated small pits.](https://auf.isa-arbor.com/content/17/6/141)

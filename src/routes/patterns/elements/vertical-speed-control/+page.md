@@ -34,4 +34,4 @@ Signage and paint alone rarely change driver speed on their own; a physical vert
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Institute of Transportation Engineers, *Guidelines for the Design and Application of Speed Humps* (updated edition).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Institute of Transportation Engineers, *Guidelines for the Design and Application of Speed Humps* (updated edition).](https://ecommerce.ite.org/iCommerce/iCommerce/Orders/Item_Detail.aspx?iProductCode=RP-038A)

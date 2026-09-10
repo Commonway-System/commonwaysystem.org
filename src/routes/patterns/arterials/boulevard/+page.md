@@ -48,4 +48,4 @@ Multiway Boulevard is confirmed as a named variant folded into this single entry
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Jacobs, A., Macdonald, E., and Rofé, Y., *The Boulevard Book* (MIT Press, 2002).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Jacobs, A., Macdonald, E., and Rofé, Y., *The Boulevard Book* (MIT Press, 2002).](https://mitpress.mit.edu/9780262100908/the-boulevard-book/)

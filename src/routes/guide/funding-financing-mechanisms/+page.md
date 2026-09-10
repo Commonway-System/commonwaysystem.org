@@ -113,11 +113,11 @@ Unlike that page, most of these mechanisms are described consistently across the
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Federal Highway Administration, Center for Innovative Finance Support. "Value Capture Strategies Toolkit for Practitioners."
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Federal Highway Administration. "Filling Funding Gaps." _Public Roads_, Autumn 2019.
-3. <span id="ref-3"></span><EvidenceChip tier="legal" /> Federal Highway Administration. "Value Capture Revenue Tools: An Introduction."
-4. <span id="ref-4"></span><EvidenceChip tier="precedent" /> Federal Highway Administration. "Value Capture Techniques in Practice."
-5. <span id="ref-5"></span><EvidenceChip tier="legal" /> Federal Transit Administration. "Value Capture."
-6. <span id="ref-6"></span><EvidenceChip tier="precedent" /> New Jersey Transit-Oriented Development. "Value Capture Implementation Manual."
-7. <span id="ref-7"></span><EvidenceChip tier="precedent" /> Buro Happold. "Capturing the Value of Public Transit."
-8. <span id="ref-8"></span><EvidenceChip tier="evidence" /> Federal Highway Administration. "Managing Economic Shocks to Value Capture-Funded Projects," March 2022.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, Center for Innovative Finance Support. "Value Capture Strategies Toolkit for Practitioners."](https://www.fhwa.dot.gov/ipd/value_capture/toolkit/)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration. "Filling Funding Gaps." _Public Roads_, Autumn 2019.](https://highways.dot.gov/public-roads/autumn-2019/filling-funding-gaps)
+3. <span id="ref-3"></span><EvidenceChip tier="legal" /> [Federal Highway Administration. "Value Capture Revenue Tools: An Introduction."](https://www.fhwa.dot.gov/ipd/pdfs/fact_sheets/program_value_cap_introduction.pdf)
+4. <span id="ref-4"></span><EvidenceChip tier="precedent" /> [Federal Highway Administration. "Value Capture Techniques in Practice."](https://www.fhwa.dot.gov/ipd/value_capture/strategies_in_practice/)
+5. <span id="ref-5"></span><EvidenceChip tier="legal" /> [Federal Transit Administration. "Value Capture."](https://www.transit.dot.gov/valuecapture)
+6. <span id="ref-6"></span><EvidenceChip tier="precedent" /> [New Jersey Transit-Oriented Development. "Value Capture Implementation Manual."](https://www.njtod.org/value-capture-manual/)
+7. <span id="ref-7"></span><EvidenceChip tier="precedent" /> [Buro Happold. "Capturing the Value of Public Transit."](https://www.burohappold.com/news/value-capture-financing-solution-americas-transit-infrastructure-problem/)
+8. <span id="ref-8"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration. "Managing Economic Shocks to Value Capture-Funded Projects," March 2022.](https://www.fhwa.dot.gov/ipd/pdfs/value_capture/managing_economic_shocks.pdf)

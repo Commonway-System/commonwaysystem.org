@@ -34,7 +34,7 @@ Surface lots are the most common and land-intensive parking facility, and their 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> EPA, *Reducing Urban Heat Islands: Compendium of Strategies*, "Trees and Vegetation" and "Cool Pavements" chapters (2008; Cool Pavements chapter updated 2012). Direct source for the runoff and heat-island footprint claim above.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> ULI/National Parking Association, *The Dimensions of Parking*. Circulation, stall layout, and access design standards.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [EPA, *Reducing Urban Heat Islands: Compendium of Strategies*, "Trees and Vegetation" and "Cool Pavements" chapters (2008; Cool Pavements chapter updated 2012). Direct source for the runoff and heat-island footprint claim above.](https://www.epa.gov/heatislands/guide-reducing-heat-islands)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [ULI/National Parking Association, *The Dimensions of Parking*. Circulation, stall layout, and access design standards.](https://knowledge.uli.org/en/books/2009/the-dimensions-of-parking)
 
 *"Legal / regulatory" here refers to the EPA guidance that municipal NPDES stormwater permits and heat-island mitigation programs are legally built around, not a single mandatory design spec like MUTCD or PROWAG.*

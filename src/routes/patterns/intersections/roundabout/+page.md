@@ -34,5 +34,5 @@ Roundabout is the default control wherever two Collector-or-higher streets meet 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Rodegerdts, L. et al., *Roundabouts: An Informational Guide*, 2nd ed., NCHRP Report 672 (Washington, DC: Transportation Research Board, 2010).
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Persaud, B. et al., "Safety Effect of Roundabout Conversions in the United States: Empirical Bayes Observational Before-After Study," Insurance Institute for Highway Safety (2001).
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Rodegerdts, L. et al., *Roundabouts: An Informational Guide*, 2nd ed., NCHRP Report 672 (Washington, DC: Transportation Research Board, 2010).](http://onlinepubs.trb.org/onlinepubs/nchrp/nchrp_rpt_672.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Persaud, B. et al., "Safety Effect of Roundabout Conversions in the United States: Empirical Bayes Observational Before-After Study," Insurance Institute for Highway Safety (2001).](https://www.iihs.org/topics/bibliography/ref/1248)

@@ -48,5 +48,5 @@ Typically a state DOT or large-city capital project, given the cost and right-of
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> "Unconventional Arterial Intersection Designs under Connected and Automated Vehicle Environment: A Survey," on Displaced Left-turn Intersection design and cost tradeoffs relative to grade-separated interchanges.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> U.S. Patent 7,135,989, "Parallel flow vehicle turn system for traffic intersections," on displaced left-turn retrofit considerations and right-of-way impacts.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> ["Unconventional Arterial Intersection Designs under Connected and Automated Vehicle Environment: A Survey," on Displaced Left-turn Intersection design and cost tradeoffs relative to grade-separated interchanges.](https://arxiv.org/abs/1811.03074)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [U.S. Patent 7,135,989, "Parallel flow vehicle turn system for traffic intersections," on displaced left-turn retrofit considerations and right-of-way impacts.](https://patents.google.com/patent/US7135989B2/en)

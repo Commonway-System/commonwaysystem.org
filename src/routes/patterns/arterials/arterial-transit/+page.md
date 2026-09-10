@@ -48,4 +48,4 @@ Arterial is the one Functional Classification where the base modal hierarchy alr
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Transit Street Design Guide* (2016).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Transit Street Design Guide* (2016).](https://nacto.org/publication/transit-street-design-guide/)

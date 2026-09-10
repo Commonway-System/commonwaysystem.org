@@ -44,4 +44,4 @@ Because an alley is not a through-route for people walking or biking, its narrow
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Green Alley" and "Commercial Alley."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Urban Street Design Guide*, "Green Alley" and "Commercial Alley."](https://nacto.org/publication/urban-street-design-guide/streets/green-alley/)

@@ -34,5 +34,5 @@ Wide or multi-lane crossings ask a pedestrian to judge gaps in traffic across th
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Zegeer, C. et al., "Safety Effects of Marked Versus Unmarked Crosswalks at Uncontrolled Locations," FHWA-RD-01-075 (2002). Documents a crash modification factor of 0.54 (a 46% crash reduction) for a raised median with a marked crosswalk compared to an unmarked comparison.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R306, "Pedestrian Street Crossings." Cut-through opening and accessibility requirements at medians and islands.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Zegeer, C. et al., "Safety Effects of Marked Versus Unmarked Crosswalks at Uncontrolled Locations," FHWA-RD-01-075 (2002). Documents a crash modification factor of 0.54 (a 46% crash reduction) for a raised median with a marked crosswalk compared to an unmarked comparison.](https://rosap.ntl.bts.gov/view/dot/15480/dot_15480_DS1.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R306, "Pedestrian Street Crossings." Cut-through opening and accessibility requirements at medians and islands.](https://www.access-board.gov/prowag/technical.html)

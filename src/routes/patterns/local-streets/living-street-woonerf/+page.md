@@ -48,4 +48,4 @@ NACTO's Home Zone is, strictly, an area-wide overlay rather than a distinct stre
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Ben-Joseph, E. (1995), "Changing the Residential Street Scene: Adapting the Shared Street (Woonerf) Concept to the Suburban Environment," *Journal of the American Planning Association* 61(4).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Ben-Joseph, E. (1995), "Changing the Residential Street Scene: Adapting the Shared Street (Woonerf) Concept to the Suburban Environment," *Journal of the American Planning Association* 61(4).](https://www.tandfonline.com/doi/abs/10.1080/01944369508975661)

@@ -39,5 +39,5 @@ This Element is the direct product of all three protected bike lane retrofits: v
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Lusk, A.C. et al. (2011), "Risk of injury for bicycling on cycle tracks versus in the street," *Injury Prevention* 17(2). Montreal study: 28% lower injury rate on cycle tracks compared to comparable streets.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Bikeway Design Guide*, 3rd Ed., "Protected Bike Lanes." Design specifications.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Lusk, A.C. et al. (2011), "Risk of injury for bicycling on cycle tracks versus in the street," *Injury Prevention* 17(2). Montreal study: 28% lower injury rate on cycle tracks compared to comparable streets.](https://pubmed.ncbi.nlm.nih.gov/21307080/)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [NACTO, *Urban Bikeway Design Guide*, 3rd Ed., "Protected Bike Lanes." Design specifications.](https://nacto.org/publication/urban-bikeway-design-guide/designing-bikeways-for-all-ages-and-abilities/protected-bike-lanes/)

@@ -30,4 +30,4 @@ All-Way Stop tapers off past Compact and Urban density, as intersection volumes 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Manual on Uniform Traffic Control Devices, 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2B.13-2B.17.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Manual on Uniform Traffic Control Devices, 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Section 2B.13-2B.17.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)

@@ -76,5 +76,5 @@ This entry is the standard against which every other Local Typology is defined a
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> FHWA, "Self-Enforcing Roadways: A Guidance Report," FHWA-HRT-17-098, 2018.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Street Design Guide*, "Street Design Principles: Lane Width."
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [FHWA, "Self-Enforcing Roadways: A Guidance Report," FHWA-HRT-17-098, 2018.](https://highways.dot.gov/research/publications/safety/FHWA-HRT-17-098)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [National Association of City Transportation Officials, *Urban Street Design Guide*, "Street Design Principles: Lane Width."](https://nacto.org/publication/urban-street-design-guide/street-design-elements/lane-width/)

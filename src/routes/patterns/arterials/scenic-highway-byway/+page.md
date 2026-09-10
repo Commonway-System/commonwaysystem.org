@@ -44,4 +44,4 @@ This entry follows the same shape as Rural Collector/Farm-to-Market Road: a low-
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> 23 U.S.C. § 162, National Scenic Byways Program.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [23 U.S.C. § 162, National Scenic Byways Program.](https://www.law.cornell.edu/uscode/text/23/162)

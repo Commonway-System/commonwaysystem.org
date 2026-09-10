@@ -48,4 +48,4 @@ Discouraged status here does not mean the pattern is banned; it means adopting i
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Riggs, W. and Gilderbloom, J., "Two-Way Street Conversion: Evidence of Increased Livability in Louisville," *Journal of Planning Education and Research* 36(1), 2016.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Riggs, W. and Gilderbloom, J., "Two-Way Street Conversion: Evidence of Increased Livability in Louisville," *Journal of Planning Education and Research* 36(1), 2016.](https://www.urbanismnext.org/resources/two-way-street-conversion-evidence-of-increased-livability-in-louisville)

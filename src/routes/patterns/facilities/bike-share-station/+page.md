@@ -34,5 +34,5 @@ A shared-bike system depends on station siting decisions (density, spacing, prox
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Bike Share Station Siting Guide*. Station placement principles.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> NACTO, "Walkable Station Spacing is Key to Successful, Equitable Bike Share." Approximately 28 stations per square mile, a station every 1,000 ft.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Bike Share Station Siting Guide*. Station placement principles.](https://nacto.org/publication/bike-share-station-siting-guide/)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [NACTO, "Walkable Station Spacing is Key to Successful, Equitable Bike Share." Approximately 28 stations per square mile, a station every 1,000 ft.](https://nacto.org/publication/walkable-station-spacing-is-key-to-successful-equitable-bike-share/)

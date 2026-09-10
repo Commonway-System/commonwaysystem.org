@@ -34,4 +34,4 @@ A road built to Urban-tier standards does not automatically become wrong when th
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Theeuwes, J. and Godthelp, H. (1995), "Self-explaining roads," and Theeuwes, J. (2021), "Self-explaining roads: What does visual cognition tell us about designing safer roads?", *Cognitive Research: Principles and Implications* 6(1).
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Theeuwes, J. and Godthelp, H. (1995), "Self-explaining roads," and Theeuwes, J. (2021), "Self-explaining roads: What does visual cognition tell us about designing safer roads?", *Cognitive Research: Principles and Implications* 6(1).](https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-021-00281-6)

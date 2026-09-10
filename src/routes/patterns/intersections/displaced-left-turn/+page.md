@@ -24,7 +24,7 @@ Rural is an unlikely pairing. Core is an edge case.
 
 ## Design notes
 
-This design resolves the same unprotected-left-turn conflict as Median U-Turn and Restricted Crossing U-Turn, but through signalized displacement rather than a median crossover, and at high-volume urban or suburban intersections rather than the higher-speed rural and suburban divided highways those two patterns typically suit. It's a faster, lower-cost alternative to a grade-separated interchange where volume is high enough that conventional protected left-turn phasing creates severe delay. The additional right-of-way this pattern requires upstream of the main intersection, and its higher construction cost relative to Median U-Turn or Restricted Crossing U-Turn, keep it Situational rather than broadly Recommended.
+This design resolves the same unprotected-left-turn conflict as Median U-Turn and Restricted Crossing U-Turn, but through signalized displacement rather than a median crossover, and at high-volume urban or suburban intersections rather than the higher-speed rural and suburban divided highways those two patterns typically suit. It's a faster, lower-cost alternative to a grade-separated interchange where volume is high enough that conventional protected left-turn phasing creates severe delay.<Citation index={1} /> The additional right-of-way this pattern requires upstream of the main intersection, and its higher construction cost relative to Median U-Turn or Restricted Crossing U-Turn, keep it Situational rather than broadly Recommended.<Citation index={2} />
 
 ## Related patterns
 
@@ -36,5 +36,5 @@ This design resolves the same unprotected-left-turn conflict as Median U-Turn an
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> "Unconventional Arterial Intersection Designs under Connected and Automated Vehicle Environment: A Survey," on Displaced Left-turn Intersection design and cost tradeoffs relative to grade-separated interchanges.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> U.S. Patent 7,135,989, "Parallel flow vehicle turn system for traffic intersections," on displaced left-turn design and right-of-way considerations.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> ["Unconventional Arterial Intersection Designs under Connected and Automated Vehicle Environment: A Survey," on Displaced Left-turn Intersection design and cost tradeoffs relative to grade-separated interchanges.](https://arxiv.org/abs/1811.03074)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [U.S. Patent 7,135,989, "Parallel flow vehicle turn system for traffic intersections," on displaced left-turn design and right-of-way considerations.](https://patents.google.com/patent/US7135989B2/en)

@@ -34,4 +34,4 @@ A curb ramp removes the vertical cue (a step down) that traditionally signaled a
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R305, "Detectable Warning Surfaces." Dome size, spacing, visual contrast, and placement requirements.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R305, "Detectable Warning Surfaces." Dome size, spacing, visual contrast, and placement requirements.](https://www.access-board.gov/prowag/technical.html)

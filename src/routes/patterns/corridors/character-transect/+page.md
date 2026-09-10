@@ -34,5 +34,5 @@ Most corridor-planning guidance treats a road as belonging to one classification
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Jones, P., Boujenko, N., and Marshall, S. (2007), *Link and Place: A Guide to Street Planning and Design*.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> Duany Plater-Zyberk & Company, the rural-to-urban Transect (SmartCode, 2003).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Jones, P., Boujenko, N., and Marshall, S. (2007), *Link and Place: A Guide to Street Planning and Design*.](https://www.semanticscholar.org/paper/Link-&-Place-A-guide-to-street-planning-and-design-Jones-Boujenko/58fd8fdf31e97674c45fa030d3f3504c2cf3a79e)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [Duany Plater-Zyberk & Company, the rural-to-urban Transect (SmartCode, 2003).](https://transect.org/transect.html)

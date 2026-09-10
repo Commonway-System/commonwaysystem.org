@@ -34,4 +34,4 @@ Without a designated disposal point, litter accumulates in places people already
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG, Section R212, "Street Furniture." General accessible placement requirements for street furniture.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [PROWAG, Section R212, "Street Furniture." General accessible placement requirements for street furniture.](https://www.access-board.gov/prowag/technical.html)

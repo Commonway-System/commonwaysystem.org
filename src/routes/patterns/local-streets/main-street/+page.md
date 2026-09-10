@@ -48,4 +48,4 @@ Main Street is the clearest case where a Local street's identity comes from its 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO, *Urban Street Design Guide*, "Neighborhood Main Street."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO, *Urban Street Design Guide*, "Neighborhood Main Street."](https://nacto.org/publication/urban-street-design-guide/streets/neighborhood-main-street/)

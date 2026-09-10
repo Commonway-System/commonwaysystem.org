@@ -34,4 +34,4 @@ The curb is the single most foundational physical element separating modes on a 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO Urban Street Design Guide, "Curbs." Height, material, and continuity design guidance for the base element.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Federal Highway Administration, *Designing Sidewalks and Trails for Access*, Chapter 4, Section 4.4.11 ("Roadway Design"). Curb height and material guidance by roadway functional class (Table 4-1).](https://www.fhwa.dot.gov/environment/bicycle_pedestrian/publications/sidewalks/chap4b.cfm)

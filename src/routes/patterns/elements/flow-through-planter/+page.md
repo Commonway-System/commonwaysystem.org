@@ -34,7 +34,7 @@ Many streetscape contexts, a narrow sidewalk zone, a site with contaminated or c
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> National Association of City Transportation Officials, *Urban Street Stormwater Guide*, "Flow-Through Planters."
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> U.S. Environmental Protection Agency, National Menu of Best Management Practices, "Site Design and Planning Strategies."
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [National Association of City Transportation Officials, *Urban Street Stormwater Guide*, "Flow-Through Planters."](https://nacto.org/publication/urban-street-design-guide/street-design-elements/stormwater-management/flow-through-planters/)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [U.S. Environmental Protection Agency, National Menu of Best Management Practices, "Site Design and Planning Strategies."](https://www.epa.gov/system/files/documents/2021-11/bmp-site-design-and-planning-strategies.pdf)
 
 *"Legal / regulatory" here refers to the EPA guidance that municipal NPDES stormwater permits are legally built around, not a single mandatory design spec like MUTCD or PROWAG.*

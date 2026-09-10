@@ -48,6 +48,6 @@ Typically a state DOT capital project, since RCUT is used almost exclusively on 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Texas Department of Transportation, "14.6 Restricted Crossing U-Turn Intersection (RCUT)."
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> Wisconsin Department of Transportation, "Restricted Crossing U-Turn (RCUT) Intersections."
-3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> Kentucky Transportation Cabinet, "Reduced Conflict U-Turn," SAFERoads Solutions, before-after crash data.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Texas Department of Transportation, "14.6 Restricted Crossing U-Turn Intersection (RCUT)."](https://www.txdot.gov/manuals/des/rdw/chapter-14--alternative-intersections-and-intercha/14-6-restricted-crossing-u-turn-intersection--rcut.html)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [Wisconsin Department of Transportation, "Restricted Crossing U-Turn (RCUT) Intersections."](https://wisconsindot.gov/Pages/safety/safety-eng/rcut.aspx)
+3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> [Kentucky Transportation Cabinet, "Reduced Conflict U-Turn," SAFERoads Solutions, before-after crash data.](https://transportation.ky.gov/saferoadsolutions/Pages/RCUT.aspx)

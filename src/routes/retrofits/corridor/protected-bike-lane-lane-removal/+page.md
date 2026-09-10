@@ -46,5 +46,5 @@ Usually a city or county transportation department decision, following the same 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Transportation Policy Research, Texas A&M Transportation Institute, "Bicycle Lanes." AASHTO-recommended retrofit approaches without widening the road.
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Federal Highway Administration, "Road Diets (Roadway Reconfiguration)," Proven Safety Countermeasures, FHWA-SA-12-013.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Transportation Policy Research, Texas A&M Transportation Institute, "Bicycle Lanes." AASHTO-recommended retrofit approaches without widening the road.](https://policy.tti.tamu.edu/strategy/bicycle-lanes)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, "Road Diets (Roadway Reconfiguration)," Proven Safety Countermeasures, FHWA-SA-12-013.](https://highways.dot.gov/safety/proven-safety-countermeasures/road-diets-roadway-reconfiguration)

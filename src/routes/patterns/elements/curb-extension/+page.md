@@ -34,5 +34,5 @@ Narrowing the effective roadway width at a specific point shortens pedestrian cr
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> NACTO Urban Street Design Guide, "Curb Extensions." Crossing-distance reduction and sizing guidance (length at least the crosswalk width, 1-2 ft narrower than the parking lane).
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Federal Highway Administration, "Install Curb Extensions at the Crosswalk" (Uncontrolled Pedestrian Crossing Treatment sheet). Identifies crash history, vehicle/pedestrian conflict, and speeding as the conditions this treatment addresses.
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [NACTO Urban Street Design Guide, "Curb Extensions." Crossing-distance reduction and sizing guidance (length at least the crosswalk width, 1-2 ft narrower than the parking lane).](https://nacto.org/publication/urban-street-design-guide/street-design-elements/curb-extensions/)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration, "Install Curb Extensions at the Crosswalk" (Uncontrolled Pedestrian Crossing Treatment sheet). Identifies crash history, vehicle/pedestrian conflict, and speeding as the conditions this treatment addresses.](https://toolkits.ite.org/uiig/treatments/64%20Curb%20Extensions.pdf)

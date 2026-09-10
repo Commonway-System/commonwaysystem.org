@@ -48,6 +48,6 @@ None currently cataloged.
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Ayres Associates, "One-Way or the Other? Two-Way Traffic Conversion Requires Study."
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> "Student Corner: The State of the Debate: Two-Way Street Conversion," Community and Economic Development, UNC School of Government.
-3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> Steuteville, R., "Cities Benefit from Restoring Two-Way Traffic," Congress for the New Urbanism.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Ayres Associates, "One-Way or the Other? Two-Way Traffic Conversion Requires Study."](https://www.ayresassociates.com/one-way-or-the-other-two-way-traffic-conversion-requires-study/)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> ["Student Corner: The State of the Debate: Two-Way Street Conversion," Community and Economic Development, UNC School of Government.](https://ced.sog.unc.edu/2018/12/06/the-state-of-the-debate-two-way-street-conversion/)
+3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> [Steuteville, R., "Cities Benefit from Restoring Two-Way Traffic," Congress for the New Urbanism.](https://www.cnu.org/publicsquare/2019/07/09/cities-benefit-one-way-two-way-conversions)

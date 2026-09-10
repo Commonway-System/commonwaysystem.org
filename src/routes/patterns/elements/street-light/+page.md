@@ -34,4 +34,4 @@ Adequate roadway illumination reduces nighttime crash risk by improving driver v
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> ANSI/IES RP-8-22, "Lighting Roadway and Parking Facilities." Current American National Standard for mounting height, spacing, and illuminance-level tables by roadway classification.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [ANSI/IES RP-8-25, "Lighting Roadway and Parking Facilities." Current American National Standard for mounting height, spacing, and illuminance-level tables by roadway classification.](https://store.ies.org/product/recommended-practice-lighting-roadway-and-parking-facilities/)

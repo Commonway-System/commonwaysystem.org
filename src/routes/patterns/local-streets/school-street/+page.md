@@ -44,4 +44,4 @@ This Typology and Festival Street share the same schedule-based structure, full 
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Gellatly, R. and Marner, B., "Air Quality Monitoring Study: London School Streets," 2021.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Gellatly, R. and Marner, B., "Air Quality Monitoring Study: London School Streets," 2021.](https://www.london.gov.uk/programmes-and-strategies/environment-and-climate-change/environment-publications/school-streets-air-quality-study)

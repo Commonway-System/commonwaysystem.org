@@ -34,4 +34,4 @@ A curb that provides no ramped transition is an absolute barrier to wheelchair u
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R304, "Curb Ramps and Blended Transitions." Sets a 1:12 maximum running slope, a 1:48 maximum cross slope, and landing dimension and clear-area requirements.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [PROWAG (U.S. Access Board, 2023 final rule; adopted into DOT's ADA regulations effective January 17, 2025), Section R304, "Curb Ramps and Blended Transitions." Sets a 1:12 maximum running slope, a 1:48 maximum cross slope, and landing dimension and clear-area requirements.](https://www.access-board.gov/prowag/technical.html)

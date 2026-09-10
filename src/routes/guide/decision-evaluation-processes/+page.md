@@ -56,11 +56,11 @@ Both are procedural rather than physical or legal. Neither one is a Retrofit Str
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Federal Highway Administration. "Road Safety Audits (RSA)."
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Federal Highway Administration. "FHWA Road Safety Audit Guidelines."
-3. <span id="ref-3"></span><EvidenceChip tier="legal" /> Federal Highway Administration. "Conducting Road Safety Audits."
-4. <span id="ref-4"></span><EvidenceChip tier="legal" /> Texas Department of Transportation. "Intersection Control Evaluation (ICE) — Context."
-5. <span id="ref-5"></span><EvidenceChip tier="legal" /> Texas Department of Transportation. "Intersection Control Evaluation — Process and Analysis."
-6. <span id="ref-6"></span><EvidenceChip tier="legal" /> Federal Highway Administration. "Primer on Intersection Control Evaluation (ICE)," FHWA-SA-18-076.
-7. <span id="ref-7"></span><EvidenceChip tier="evidence" /> Jenior, P., Butsick, A., Haas, P., and Ray, B. "Safety Performance for Intersection Control Evaluation (SPICE) Tool User Manual," FHWA-SA-18-026.
-8. <span id="ref-8"></span><EvidenceChip tier="evidence" /> Federal Highway Administration. "Intersections for Pedestrians and Bicyclists: An Informational Guide."
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Federal Highway Administration. "Road Safety Audits (RSA)."](https://highways.dot.gov/safety/proven-safety-countermeasures/road-safety-audit)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [Federal Highway Administration. "FHWA Road Safety Audit Guidelines."](https://highways.dot.gov/safety/data-analysis-tools/rsa/fhwa-road-safety-audit-guidelines)
+3. <span id="ref-3"></span><EvidenceChip tier="legal" /> [Federal Highway Administration. "Conducting Road Safety Audits."](https://highways.dot.gov/safety/data-analysis-tools/rsa/fhwa-road-safety-audit-guidelines/40-conducting-road-safety-audits)
+4. <span id="ref-4"></span><EvidenceChip tier="legal" /> [Texas Department of Transportation. "Intersection Control Evaluation (ICE) — Context."](https://www.txdot.gov/manuals/des/tsp/chapter-10-intersection-analysis/10-2-intersection-control-evaluation--ice----conte.html)
+5. <span id="ref-5"></span><EvidenceChip tier="legal" /> [Texas Department of Transportation. "Intersection Control Evaluation — Process and Analysis."](https://www.txdot.gov/manuals/des/tsp/chapter-10-intersection-analysis/10-3-intersection-control-evaluation---process-and.html)
+6. <span id="ref-6"></span><EvidenceChip tier="legal" /> [Federal Highway Administration. "Primer on Intersection Control Evaluation (ICE)," FHWA-SA-18-076.](https://highways.dot.gov/safety/intersection-safety/ice/primer-intersection-control-evaluation-ice)
+7. <span id="ref-7"></span><EvidenceChip tier="evidence" /> [Jenior, P., Butsick, A., Haas, P., and Ray, B. "Safety Performance for Intersection Control Evaluation (SPICE) Tool User Manual," FHWA-SA-18-026.](https://www.pooledfund.org/Document/Download/8250)
+8. <span id="ref-8"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration. "Intersections for Pedestrians and Bicyclists: An Informational Guide."](https://highways.dot.gov/sites/fhwa.dot.gov/files/2022-06/fhwasa22017.pdf)

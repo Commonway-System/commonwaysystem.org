@@ -34,4 +34,4 @@ Seating in the public realm extends how long and how comfortably people, particu
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> PROWAG, Section R212, "Street Furniture," and Section R404, "Clear Spaces." Clear-space requirement (2.5 ft x 4.0 ft minimum) at benches.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [PROWAG, Section R212, "Street Furniture," and Section R404, "Clear Spaces." Clear-space requirement (2.5 ft x 4.0 ft minimum) at benches.](https://www.access-board.gov/prowag/technical.html)

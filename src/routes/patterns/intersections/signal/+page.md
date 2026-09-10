@@ -34,5 +34,5 @@ Signal's realistic density range overlaps heavily with Roundabout and Turbo-Roun
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Washington State Department of Transportation, *WSDOT Design Manual*, Chapter 1300, "Intersection Control Evaluation."
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Manual on Uniform Traffic Control Devices, 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 4C.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Washington State Department of Transportation, *WSDOT Design Manual*, Chapter 1300, "Intersection Control Evaluation."](https://wsdot.wa.gov/publications/manuals/fulltext/m22-01/1300.pdf)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [Manual on Uniform Traffic Control Devices, 11th Edition with Revision 1 (FHWA, December 2025; effective March 5, 2026), Chapter 4C.](https://mutcd.fhwa.dot.gov/pdfs/11th_Editionr1/mutcd11theditionr1hl.pdf)

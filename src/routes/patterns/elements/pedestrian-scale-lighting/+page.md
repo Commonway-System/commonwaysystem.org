@@ -34,4 +34,4 @@ Standard street lighting is mounted and spaced for vehicle sightlines, which oft
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> ANSI/IES RP-8-22, "Lighting Roadway and Parking Facilities." The same standard also sets pedestrian-volume-based illuminance criteria for sidewalks, distinct from its vehicle-oriented roadway tables, since this pattern serves a different visual task.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [ANSI/IES RP-8-25, "Lighting Roadway and Parking Facilities." The same standard also sets pedestrian-volume-based illuminance criteria for sidewalks, distinct from its vehicle-oriented roadway tables, since this pattern serves a different visual task.](https://store.ies.org/product/recommended-practice-lighting-roadway-and-parking-facilities/)

@@ -48,6 +48,6 @@ Usually a city or county public works or transportation department decision, oft
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> Federal Highway Administration, "Road Diets (Roadway Reconfiguration)," Proven Safety Countermeasures, FHWA-SA-12-013.
-2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> Federal Highway Administration, Highway Safety Information System, "Evaluation of Lane Reduction 'Road Diet' Measures and Their Effects on Crashes and Injuries," 2010.
-3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> NACTO Urban Street Design Guide, "Neighborhood Main Street."
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, "Road Diets (Roadway Reconfiguration)," Proven Safety Countermeasures, FHWA-SA-12-013.](https://highways.dot.gov/safety/proven-safety-countermeasures/road-diets-roadway-reconfiguration)
+2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration, Highway Safety Information System, "Evaluation of Lane Reduction 'Road Diet' Measures and Their Effects on Crashes and Injuries," 2010.](https://highways.dot.gov/research/publications/safety/hsis/FHWA-HRT-10-053)
+3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> [NACTO Urban Street Design Guide, "Neighborhood Main Street."](https://nacto.org/publication/urban-street-design-guide/streets/neighborhood-main-street/)

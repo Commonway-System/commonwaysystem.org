@@ -34,4 +34,4 @@ Compatible with, and often paired with, [Roundabout](/patterns/intersections/rou
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Falbo, Nick, "Protected Intersections for Bicyclists," ProtectedIntersection.com (2014).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Falbo, Nick, "Protected Intersections for Bicyclists," ProtectedIntersection.com (2014).](http://www.protectedintersection.com/)

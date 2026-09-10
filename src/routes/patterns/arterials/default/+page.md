@@ -48,6 +48,6 @@ The no-parking, no-direct-access rule is the load-bearing distinction between th
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> SWOV, "Principles for a Safe Road Network" (CROW Sustainable Safety).
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> FHWA, "Self-Enforcing Roadways: A Guidance Report."
-3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> Gluck, J., Levinson, H. S., and Stover, V., NCHRP Report 420 (1999).
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [SWOV, "Principles for a Safe Road Network" (CROW Sustainable Safety).](https://sustainablesafety.nl/)
+2. <span id="ref-2"></span><EvidenceChip tier="legal" /> [FHWA, "Self-Enforcing Roadways: A Guidance Report."](https://highways.dot.gov/research/publications/safety/FHWA-HRT-17-098)
+3. <span id="ref-3"></span><EvidenceChip tier="evidence" /> [Gluck, J., Levinson, H. S., and Stover, V., NCHRP Report 420 (1999).](http://onlinepubs.trb.org/onlinepubs/nchrp/nchrp_rpt_420.pdf)

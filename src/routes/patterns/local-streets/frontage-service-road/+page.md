@@ -44,4 +44,4 @@ The safety rationale is separation, not speed: keeping people walking and biking
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> AASHTO, *A Policy on Geometric Design of Highways and Streets*.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [AASHTO, *A Policy on Geometric Design of Highways and Streets*.](https://store.transportation.org/Item/PublicationDetail?ID=4127)

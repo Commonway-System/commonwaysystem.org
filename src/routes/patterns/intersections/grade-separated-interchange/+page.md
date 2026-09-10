@@ -30,4 +30,4 @@ This is an acknowledged fallback for genuinely Freeway-scale volume or speed bey
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="legal" /> American Association of State Highway and Transportation Officials, *A Policy on Geometric Design of Highways and Streets*.
+1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [American Association of State Highway and Transportation Officials, *A Policy on Geometric Design of Highways and Streets*.](https://store.transportation.org/Item/PublicationDetail?ID=4127)

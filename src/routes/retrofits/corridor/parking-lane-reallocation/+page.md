@@ -48,5 +48,5 @@ Usually a city public works or planning department decision, sometimes requiring
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Federal Highway Administration University Course on Bicycle and Pedestrian Transportation Design, module on street reconfiguration and parking removal.
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> PPS, "A Glossary of Road Diet Strategies," on converting parking lanes to plazas and parklets.
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration University Course on Bicycle and Pedestrian Transportation Design, module on street reconfiguration and parking removal.](https://www.fhwa.dot.gov/publications/research/safety/pedbike/05085/chapt15.cfm)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> [PPS, "A Glossary of Road Diet Strategies," on converting parking lanes to plazas and parklets.](https://www.pps.org/article/a-glossary-of-road-diet-strategies)

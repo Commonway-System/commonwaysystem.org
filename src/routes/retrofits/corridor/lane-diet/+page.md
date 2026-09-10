@@ -48,4 +48,4 @@ Usually a city or county public works decision, achievable through routine restr
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> Findings presented at the Canadian Institute of Transportation Engineers annual meeting, June 2015, on lane width and side-impact/turn-related crash rates, as referenced in "Technical Guidance on Road Diets."
+1. <span id="ref-1"></span><EvidenceChip tier="evidence" /> [Findings presented at the Canadian Institute of Transportation Engineers annual meeting, June 2015, on lane width and side-impact/turn-related crash rates, as referenced in "Technical Guidance on Road Diets."](https://www.pps.org/article/technical-guidance-on-road-diets)
