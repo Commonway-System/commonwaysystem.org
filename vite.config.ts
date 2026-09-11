@@ -37,6 +37,7 @@ const theme = commonwayTheme({
         items: [
           { title: 'How to read a pattern', to: '/guide/how-to-read-a-pattern/' },
           { title: 'How to read a retrofit strategy', to: '/guide/how-to-read-a-retrofit-strategy/' },
+          { title: 'How the Transportation Ecosystem Fits Together', to: '/guide/how-the-transportation-ecosystem-fits-together/' },
           { title: 'Pattern IDs', to: '/guide/pattern-ids/' },
           { title: 'Density Tiers', to: '/guide/density-tiers/' },
           { title: 'Street Types & Classifications', to: '/guide/street-types/' },

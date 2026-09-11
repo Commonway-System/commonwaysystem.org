@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Collector', 'Arterial'],
   mediaTags: ['Case Study'],
-  relatedTo: ['COL-FTM-02', 'ELM-TRB-23'],
+  relatedTo: ['COL-FTM-02', 'ELM-TRB-23', '/guide/how-the-transportation-ecosystem-fits-together/'],
   dateAdded: '2026-09-04',
 }
 

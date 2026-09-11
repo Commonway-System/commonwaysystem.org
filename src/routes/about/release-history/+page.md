@@ -24,6 +24,13 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.09.11',
+      items: [
+        'New Guide page, "How the Transportation Ecosystem Fits Together" (guide/how-the-transportation-ecosystem-fits-together/), placed in Foundations directly after How to read a retrofit strategy. Explains the landscape of organizations that write street-design guidance, standards, and advocacy, MUTCD, PROWAG, NACTO, AASHTO, Strong Towns, CNU, Vision Zero Network, PPS, Complete Streets, Create Streets, CROW, SWOV, ITDP, grouped by how much binding authority each actually carries rather than by acronym or subject, and states plainly where Commonway System itself fits relative to all of it. 15 real, tiered citations, all sourced directly from each organization\'s own site or the governing federal regulation. Built from a written ticket; its raw `<sup class="citation">` markup was translated to the publication\'s real Citation/EvidenceChip components per the standing ticket-verification rule, and MED-013\'s Related Media tagging was extended to this new page.',
+        'New homepage hero background: the diagonal-line texture behind the hero title (`.hero-lines`) has been replaced with a native, from-scratch canvas animation, small halftone-style dots whose size swells and recedes in organic, varied-size clusters that drift gently rightward across the hero, evoking traffic flow along the roads and streets this guidebook is about. No third-party effects library, no purchased asset: built directly in Svelte with layered value noise, confined to a couple of curving path shapes so the motion itself reads as street-like rather than a generic background wipe. Respects reduced-motion preferences (a static, non-animated dot grid for anyone with that setting on) and leaves the hero\'s teal glow and dark background untouched. See CLAUDE.md for the full build and tuning writeup.',
+      ],
+    },
+    {
       date: '2026.09.10',
       items: [
         'Sitewide citation-link audit (Item 22) completed. All Pattern, Retrofit Strategy, and Guide pages with References sections now carry working outbound links to their primary sources, sourced and verified domain by domain across five batches: Guide pages plus all 17 Retrofit Strategy entries; the Design Speed guide page plus the Network, Corridor, Local Street, Collector, and Arterial pattern categories; Freeway, Intersection, and Facility patterns; Element patterns; and a final round of corrections (two citations updated to their current published editions, one retargeted to a federal source after its original NACTO page was retired).',

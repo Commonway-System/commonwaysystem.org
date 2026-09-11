@@ -1,5 +1,6 @@
 <script lang="ts">
   import Icon from './Icon.svelte'
+  import InkHalftone from './InkHalftone.svelte'
 
   interface Props {
     title: string
@@ -30,7 +31,7 @@
   the same dark), not just from the light-mode one.
 -->
 <section class="hero-bleed">
-  <div class="hero-lines" aria-hidden="true"></div>
+  <InkHalftone />
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-grid">
@@ -93,20 +94,6 @@
     --hero-bg: #0e211d;
   }
 
-  /* Faint diagonal dashes, evoking lane markings, per the brief's "roads
-     and streets" subject matter rather than a generic decorative pattern.
-     Animates only under prefers-reduced-motion: no-preference (see
-     below); static (just the faint diagonal texture) otherwise. */
-  .hero-lines {
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-      115deg,
-      transparent 0 38px,
-      rgba(253, 250, 243, 0.06) 38px 42px
-    );
-  }
-
   .hero-glow {
     position: absolute;
     top: 50%;
@@ -120,21 +107,8 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .hero-lines {
-      animation: hero-lines-drift 30s linear infinite;
-    }
-
     .hero-glow {
       animation: hero-glow-float 9s ease-in-out infinite;
-    }
-  }
-
-  @keyframes hero-lines-drift {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: -600px 300px;
     }
   }
 
