@@ -33,7 +33,7 @@ A posted number does not change how a driver feels behind the wheel. Geometry do
 
 **Design speed always equals posted speed limit.**
 
-This is CS's foundational speed rule, and every Local, Collector, and Arterial pattern in this book is built to it. It follows FHWA's own self-enforcing roadway framework: the roadway's physical design should make the target speed the comfortable, natural driving speed, not just the legal one.<Citation index={7} /> A CS street is not "20 mph" or "30 mph" because a sign says so. It is that speed because its geometry makes any faster speed feel wrong to drive.
+This is CS's foundational speed rule, and every Local, Collector, and Arterial pattern in this publication is built to it. It follows FHWA's own self-enforcing roadway framework: the roadway's physical design should make the target speed the comfortable, natural driving speed, not just the legal one.<Citation index={7} /> A CS street is not "20 mph" or "30 mph" because a sign says so. It is that speed because its geometry makes any faster speed feel wrong to drive.
 
 This is not a target. It is not aspirational. Where a CS pattern specifies a speed, that speed is the design speed, the posted speed, and the intended operating speed, all at once, by design.
 
@@ -41,7 +41,7 @@ This is not a target. It is not aspirational. Where a CS pattern specifies a spe
 
 ### Local: 20 mph hard maximum, no exceptions
 
-CS holds Local streets to 20 mph with no exceptions clause, a stricter standard than the Stockholm Declaration's own 30 km/h (≈20 mph) carve-out for areas where motor vehicles and vulnerable road users mix.<Citation index={8} /> The number is not arbitrary. Pedestrian severe-injury risk from a vehicle impact reaches 10 percent at 17.1 mph and death risk reaches 10 percent at 24.1 mph.<Citation index={9} /> Pedestrian survival exceeds 90 percent in collisions at or below 20 mph, and falls below 50 percent at 30 mph and above.<Citation index={10} /> Local street geometry must make 20 mph the comfortable driving speed. No Local pattern in this book is designed to a higher inferred speed than its posted number.
+CS holds Local streets to 20 mph with no exceptions clause, a stricter standard than the Stockholm Declaration's own 30 km/h (≈20 mph) carve-out for areas where motor vehicles and vulnerable road users mix.<Citation index={8} /> The number is not arbitrary. Pedestrian severe-injury risk from a vehicle impact reaches 10 percent at 17.1 mph and death risk reaches 10 percent at 24.1 mph.<Citation index={9} /> Pedestrian survival exceeds 90 percent in collisions at or below 20 mph, and falls below 50 percent at 30 mph and above.<Citation index={10} /> Local street geometry must make 20 mph the comfortable driving speed. No Local pattern in this publication is designed to a higher inferred speed than its posted number.
 
 ### Collector: 30 mph standard, 35 mph only with rigid separation
 

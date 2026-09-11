@@ -9,9 +9,9 @@ llms: Explains the six Commonway System density tiers (Undeveloped, Rural, Subur
   import { Citation, DensityChip, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
-Every pattern page in this guide notes which density tiers it's typical for, using chips like <DensityChip tier="Suburban" /> shown on the [How to Read a Pattern](/guide/how-to-read-a-pattern/) page. This page explains what those six tiers mean, where the names and numbers come from, and how to read them.
+Every pattern page in this guidebook notes which density tiers it's typical for, using chips like <DensityChip tier="Suburban" /> shown on the [How to Read a Pattern](/guide/how-to-read-a-pattern/) page. This page explains what those six tiers mean, where the names and numbers come from, and how to read them.
 
-Density here means how much housing and activity sit on the land around a given street, not the street itself. The same Street Typology can look different at different densities, and the tier system exists so the guide can say precisely which context it's describing without a paragraph of throat-clearing every time.
+Density here means how much housing and activity sit on the land around a given street, not the street itself. The same Street Typology can look different at different densities, and the tier system exists so the guidebook can say precisely which context it's describing without a paragraph of throat-clearing every time.
 
 <RelatedMedia id="/guide/density-tiers/" />
 
@@ -30,7 +30,7 @@ The six-zone structure itself, and the C1-C6 naming, comes from a joint ITE and 
 
 ## How the numbers work
 
-Each tier also carries an approximate density range, measured in housing units per acre. These numbers are diagnostic, not regulatory: they help a reader place a real segment of street into the right tier, they don't set a zoning cap or a legal limit anywhere in this guide.
+Each tier also carries an approximate density range, measured in housing units per acre. These numbers are diagnostic, not regulatory: they help a reader place a real segment of street into the right tier, they don't set a zoning cap or a legal limit anywhere in this guidebook.
 
 | Tier | Units per acre |
 |---|---|
@@ -57,9 +57,9 @@ The six tiers, in order, are Undeveloped, Rural, Suburban, Compact, Urban, and C
 
 There's no separate tier for a small town. A small town's Main Street often reads as a pocket of Urban or Compact intensity sitting inside an otherwise Rural surrounding area, and that's fine: density tiers are assigned to a specific segment of street, not to an entire town or region, so a single block can carry a different tier than the land around it.
 
-## How this connects to the rest of the guide
+## How this connects to the rest of the guidebook
 
-Every Street Typology page in the guide lists which density tiers it's typical for, using the same six tiers and codes described here. A pattern marked typical at Suburban, Compact, and Urban is telling you it shows up as the normal choice in those contexts; a tier marked as an edge case means it happens but isn't the norm; a tier marked unlikely means the pairing rarely occurs in practice. See the [Street Typology Pattern Index](/patterns/) for the full list.
+Every Street Typology page in the guidebook lists which density tiers it's typical for, using the same six tiers and codes described here. A pattern marked typical at Suburban, Compact, and Urban is telling you it shows up as the normal choice in those contexts; a tier marked as an edge case means it happens but isn't the norm; a tier marked unlikely means the pairing rarely occurs in practice. See the [Street Typology Pattern Index](/patterns/) for the full list.
 
 ## References
 

@@ -29,7 +29,7 @@ llms: Home page for the Commonway System Guidebook, a cross-referenced pattern l
     {
       href: '/blog/',
       title: 'Blog',
-      description: 'Process notes and research as the guide grows.',
+      description: 'Process notes and research as the guidebook grows.',
     },
     {
       href: '/about/',
@@ -55,7 +55,7 @@ llms: Home page for the Commonway System Guidebook, a cross-referenced pattern l
 />
 
 <EvidenceStrip
-  text="Every prescriptive claim in this guide traces to a cited source, and every source carries an evidence tier, so you can see how strong the backing is before you decide whether to trust it."
+  text="Every prescriptive claim in this guidebook traces to a cited source, and every source carries an evidence tier, so you can see how strong the backing is before you decide whether to trust it."
   learnMoreHref="/about/governance/#how-disputes-over-evidence-are-resolved"
 />
 

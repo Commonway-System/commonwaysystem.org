@@ -9,22 +9,22 @@ llms: The Commonway System's full visual and editorial system, colors, typograph
   import { Button, Citation, ColorSwatch, EvidenceChip, ExampleCard, FormControlsPreview, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, RetrofitCard, RetrofitIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
 </script>
 
-The visual and editorial system behind the Commonway System (CS): how it looks, how it's written, and how its evidence is presented. This page transcribes the working brand reference; treat the color values and rules below as the source of truth over anything in the site's theme.
+The visual and editorial system behind the Commonway System (CS): how it looks, how it's written, and how its evidence is presented. This page transcribes the working brand reference; treat the color values and rules below as the source of truth over anything in the publication's theme.
 
 :::note
-This is a working draft (CalVer 2026.08.26), maintained as an internal reference. The site's color tokens (`src/lib/theme/styles/tokens.css`) are synced to the palette documented here, with one exception: `--cw-danger` (the guide doesn't define a danger-admonition color; kept independent rather than reusing Freeway, since Freeway's real color is a neutral gray). The `:::warning` admonition still uses amber, which is a known conflict with the reservation rule below, flagged rather than silently changed since it's a content-semantics call, not a color-value one.
+This is a working draft (CalVer 2026.08.26), maintained as an internal reference. The publication's color tokens (`src/lib/theme/styles/tokens.css`) are synced to the palette documented here, with one exception: `--cw-danger` (the guide doesn't define a danger-admonition color; kept independent rather than reusing Freeway, since Freeway's real color is a neutral gray). The `:::warning` admonition still uses amber, which is a known conflict with the reservation rule below, flagged rather than silently changed since it's a content-semantics call, not a color-value one.
 :::
 
 :::note
-Intersections & Crossings has no color family in the working draft, which only documents Local, Collector, Arterial, and Freeway. The ramp shown below for it is a site-only addition (added 2026.08.30, not part of the guide), built the same way the guide's own four ramps were, from a single base color rather than an invented palette.
+Intersections & Crossings has no color family in the working draft, which only documents Local, Collector, Arterial, and Freeway. The ramp shown below for it is a publication-only addition (added 2026.08.30, not part of the guide), built the same way the guide's own four ramps were, from a single base color rather than an invented palette.
 :::
 
 :::note
-The Speed & Modal Hierarchy card and its Modal Hierarchy pills, documented under Components below, are also a site-only addition (added 2026.09.02, not part of the working draft), built to document a real sitewide component rollout rather than a design decision made on this page first.
+The Speed & Modal Hierarchy card and its Modal Hierarchy pills, documented under Components below, are also a publication-only addition (added 2026.09.02, not part of the working draft), built to document a real sitewide component rollout rather than a design decision made on this page first.
 :::
 
 :::note
-The Retrofit Strategy card and Retrofit Strategy Index card, documented under Components below, are a fourth site-only addition (added 2026.09.03, not part of the working draft), for the new Retrofit Strategies catalog. Both reuse existing Pattern coloring rather than an invented Retrofit-only palette; see their own entries below for the mapping.
+The Retrofit Strategy card and Retrofit Strategy Index card, documented under Components below, are a fourth publication-only addition (added 2026.09.03, not part of the working draft), for the new Retrofit Strategies catalog. Both reuse existing Pattern coloring rather than an invented Retrofit-only palette; see their own entries below for the mapping.
 :::
 
 ## Voice attributes
@@ -182,7 +182,7 @@ Clean flat vector illustration, NACTO-inspired, warmed by human figures at true 
 
 **The amber trigger rule.** Only the specific pattern a page is about floods amber. Adjacent patterns appearing in the same illustration for context stay grayscale, even if they're themselves named CS Typologies with their own pages elsewhere. One page, one amber subject, no exceptions. The amber-flooded pattern occupies roughly 60 to 70 percent of the frame, with just enough grayscale context to make the relationship legible.
 
-**Human figures.** Render in a fixed, neutral ink-based treatment regardless of what's flooding amber around them, since their job is scale and presence, not representing the pattern. Cap at 2 to 3 figures per illustration. Across the book as a whole, figures should reflect a real range of ages and mobility.
+**Human figures.** Render in a fixed, neutral ink-based treatment regardless of what's flooding amber around them, since their job is scale and presence, not representing the pattern. Cap at 2 to 3 figures per illustration. Across the publication as a whole, figures should reflect a real range of ages and mobility.
 
 **Sizing and aspect ratio by scale**
 
@@ -303,13 +303,13 @@ Five named layout variations:
 
 A reusable component in its own right, not just a piece of the card above. Each pill pairs a small icon with the mode's name, one pill per mode across five modes: Pedestrian, Bicycle, Transit, Vehicle, and Freight.
 
-Background color is the pattern's own Functional Classification color, the same token the Pattern ID card's left edge uses above, not a fixed "Core tier" value: it's whichever tier of that classification's ramp the site's `--cw-local`/`--cw-collector`/`--cw-arterial` tokens already point to (see the Pattern ID card entry above and `tokens.css`'s own comments), which differs by classification and shifts again between light and dark mode. Text and icon color is whichever of `#FFFFFF` or `#000000` clears contrast against that background by the larger margin, computed per classification and per theme rather than fixed to one value across all three, with one documented exception for Arterial; see Accessibility notes below.
+Background color is the pattern's own Functional Classification color, the same token the Pattern ID card's left edge uses above, not a fixed "Core tier" value: it's whichever tier of that classification's ramp the publication's `--cw-local`/`--cw-collector`/`--cw-arterial` tokens already point to (see the Pattern ID card entry above and `tokens.css`'s own comments), which differs by classification and shifts again between light and dark mode. Text and icon color is whichever of `#FFFFFF` or `#000000` clears contrast against that background by the larger margin, computed per classification and per theme rather than fixed to one value across all three, with one documented exception for Arterial; see Accessibility notes below.
 
 Two pills separated by a ">" means the left one strictly outranks the right, the first example row above. Two pills separated by an "=" means they're explicitly tied at the same rank, the second example row above, a real case on [Shared-Use Path](/patterns/local-streets/shared-use-path/) and [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/), where Pedestrian and Bicycle share top priority with no ranking between them.
 
 ## Buttons, links & forms
 
-The interactive-site build needs these regardless of how sparingly the book itself uses them, since search, filtering, and the eventual interactive Guide diagnostic tool all depend on real form controls. The site does not have production `<button>`/`<select>` styling wired up as reusable components yet, but these previews use the same `tokens.css` values everything else on the site does.
+The interactive-site build needs these regardless of how sparingly the publication itself uses them, since search, filtering, and the eventual interactive Guide diagnostic tool all depend on real form controls. The publication does not have production `<button>`/`<select>` styling wired up as reusable components yet, but these previews use the same `tokens.css` values everything else on the publication does.
 
 ### Buttons
 
@@ -327,17 +327,17 @@ Primary uses the signature teal fill with ink text, not paper text. Paper-on-tea
 ### Hyperlinks
 
 <ExampleCard>
-Read more about the <a href="https://www.fhwa.dot.gov/" target="_blank" rel="nofollow noopener noreferrer">FHWA self-enforcing roadway framework<span class="cw-external-indicator"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9" /></svg><span class="cw-sr-only"> (opens in new tab)</span></span></a>, or see the <a href="/about/brand-guide/#citation-format">full citation format</a> for this pattern. Toggle dark mode to see the link color switch, and note the small "opens in new tab" icon this site adds to every outbound link automatically.
+Read more about the <a href="https://www.fhwa.dot.gov/" target="_blank" rel="nofollow noopener noreferrer">FHWA self-enforcing roadway framework<span class="cw-external-indicator"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9" /></svg><span class="cw-sr-only"> (opens in new tab)</span></span></a>, or see the <a href="/about/brand-guide/#citation-format">full citation format</a> for this pattern. Toggle dark mode to see the link color switch, and note the small "opens in new tab" icon this publication adds to every outbound link automatically.
 </ExampleCard>
 
-Links use indigo, not teal, since teal is already committed to citations and evidence tiers. Underlined always, not just on hover, since this is a reference work first and a marketing site second. This example uses the site's real `--cw-link` token, which reflects both modes correctly.
+Links use indigo, not teal, since teal is already committed to citations and evidence tiers. Underlined always, not just on hover, since this is a reference work first and a marketing publication second. This example uses the publication's real `--cw-link` token, which reflects both modes correctly.
 
 <div class="swatch-grid">
   <ColorSwatch hex="#3D3AAB" label="Link, light mode" />
   <ColorSwatch hex="#A79EFF" label="Link, dark mode" />
 </div>
 
-The working draft's original indigo (`#3D3AAB`) reaches 8.28:1 contrast on light paper, but only 2.1:1 on a dark background, well below the 4.5:1 WCAG AA minimum. The dark-mode value is the same indigo/violet hue lightened, not a different color, and reaches 7.89:1 on dark paper. Dark mode isn't part of the original working draft; this pairing is a site-only addition, documented here since it's now the real token every hyperlink in the guidebook uses.
+The working draft's original indigo (`#3D3AAB`) reaches 8.28:1 contrast on light paper, but only 2.1:1 on a dark background, well below the 4.5:1 WCAG AA minimum. The dark-mode value is the same indigo/violet hue lightened, not a different color, and reaches 7.89:1 on dark paper. Dark mode isn't part of the original working draft; this pairing is a publication-only addition, documented here since it's now the real token every hyperlink in the guidebook uses.
 
 ### Form controls
 
@@ -417,7 +417,7 @@ Two explicit exceptions to the rest of this guide, scoped to the logo only:
   <LogoPreview src="/logos/full-logo-light-variation-commonway-for-dark-backgrounds.svg" background="dark" label="Light variation, on dark" />
 </div>
 
-This is what the site itself uses in its navbar, switching automatically with the reader's light/dark mode.
+This is what the publication itself uses in its navbar, switching automatically with the reader's light/dark mode.
 
 ### Full lockup, muted / watermark use only
 
@@ -442,4 +442,4 @@ This is what the site itself uses in its navbar, switching automatically with th
   <LogoPreview src="/logos/logo-light-no-text.svg" background="dark" label="For dark backgrounds" />
 </div>
 
-All logo variants ship in `static/logos/`, including the muted/watermark pairs, even where only the standard pair is used live on the site today.
+All logo variants ship in `static/logos/`, including the muted/watermark pairs, even where only the standard pair is used live on the publication today.

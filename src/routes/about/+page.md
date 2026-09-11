@@ -31,7 +31,7 @@ How to flag an error, an unsourced claim, or a dead citation link.
 Everyone who has helped correct, source, or build the Commonway System.
 
 **[Terms and Conditions](/about/terms-and-conditions/)**
-The terms governing use of the Commonway System website and guide.
+The terms governing use of the Commonway System publication and guidebook.
 
 **[Privacy Policy](/about/privacy-policy/)**
 What data Commonway System collects, why, and how it's used.

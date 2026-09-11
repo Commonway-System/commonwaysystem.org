@@ -18,7 +18,7 @@ If you'd rather submit the actual fix yourself, correcting the text, adding the 
 - **A factual error**: a wrong figure, an outdated rule, a description that no longer matches the current guidance
 - **An unsourced claim**: something that should carry the unsourced-claim flag<Citation unsourced /> but doesn't, or something flagged that you believe now has a source available
 - **A dead citation link**: a source URL that no longer resolves or redirects somewhere unexpected
-- **An accessibility issue**: anything that makes the site harder to use with a screen reader, keyboard navigation, or at different zoom levels
+- **An accessibility issue**: anything that makes the publication harder to use with a screen reader, keyboard navigation, or at different zoom levels
 
 ## How to report it
 
@@ -26,7 +26,7 @@ Open a GitHub issue using the [issue template that matches what you're reporting
 
 ## What happens after you report something
 
-A reported error is checked against the same evidence-tier system used everywhere else in the guide: legal/regulatory sources outrank evidence-based sources, which outrank precedent-based ones. A dead citation link gets one of two treatments: if the source moved, the link is updated and an archive snapshot is kept as a backup; if the source is genuinely gone, the citation is re-flagged with the unsourced-claim flag until a replacement is found.
+A reported error is checked against the same evidence-tier system used everywhere else in the guidebook: legal/regulatory sources outrank evidence-based sources, which outrank precedent-based ones. A dead citation link gets one of two treatments: if the source moved, the link is updated and an archive snapshot is kept as a backup; if the source is genuinely gone, the citation is re-flagged with the unsourced-claim flag until a replacement is found.
 
 Reports don't require a response window or a guaranteed timeline, since this is a single-maintainer project, but every report is read and triaged.
 

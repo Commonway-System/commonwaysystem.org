@@ -9,7 +9,7 @@ llms: Explains how to read a Commonway System pattern entry, Pattern ID cards, c
   import { Citation, DensityChip, ExampleCard, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-Every pattern in this guide is built from the same handful of parts, repeated consistently: a Pattern ID card, density tier chips, admonition blocks, and citations. This page walks through what each one means, so the rest of the guide can be read without re-explaining itself on every page.
+Every pattern in this guidebook is built from the same handful of parts, repeated consistently: a Pattern ID card, density tier chips, admonition blocks, and citations. This page walks through what each one means, so the rest of the guidebook can be read without re-explaining itself on every page.
 
 <RelatedMedia id="/guide/how-to-read-a-pattern/" />
 
@@ -21,7 +21,7 @@ Every pattern in this guide is built from the same handful of parts, repeated co
   </PatternCard>
 </ExampleCard>
 
-Each pattern opens with a card naming its ID, title, [Functional Classification](/guide/street-types/), and (for most classifications) a status. The colored left edge matches the classification, Local, Collector, Arterial, Freeway, or Intersections & Crossings, so a reader flipping through the guide can tell at a glance what kind of pattern they're looking at, even before reading the title.
+Each pattern opens with a card naming its ID, title, [Functional Classification](/guide/street-types/), and (for most classifications) a status. The colored left edge matches the classification, Local, Collector, Arterial, Freeway, or Intersections & Crossings, so a reader flipping through the guidebook can tell at a glance what kind of pattern they're looking at, even before reading the title.
 
 The ID itself follows a fixed format, `[PREFIX]-[CTXCODE]-[##]`, like `LOC-BBG-12`, with an optional trailing `(DENSITY)` suffix once more than one page exists for the same Typology at different density tiers.
 

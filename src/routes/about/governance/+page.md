@@ -19,7 +19,7 @@ The maintainer does. But classification decisions aren't made by feel: they foll
 
 ## How disputes over evidence are resolved
 
-When two sources point in different directions, the disagreement is resolved by evidence tier, not by who argued it more persuasively or how long a claim has been on the site. Sources rank in this order:
+When two sources point in different directions, the disagreement is resolved by evidence tier, not by who argued it more persuasively or how long a claim has been in the publication. Sources rank in this order:
 
 1. **Legal or regulatory** (a statute, an adopted code, a government manual)
 2. **Evidence-based** (a peer-reviewed study, published crash data, a formal research report)
@@ -27,7 +27,7 @@ When two sources point in different directions, the disagreement is resolved by 
 
 A higher-tier source overrides a lower-tier one by default. The maintainer only makes a judgment call when two sources sit at the same tier and genuinely conflict, and when that happens, the reasoning behind the call is documented alongside the citation, not left implicit.
 
-An opinion without a citation behind it doesn't move a classification, no matter how many people share it. This system exists specifically so the guide's credibility rests on its sources, not on anyone's personal authority, including the maintainer's own.
+An opinion without a citation behind it doesn't move a classification, no matter how many people share it. This system exists specifically so the guidebook's credibility rests on its sources, not on anyone's personal authority, including the maintainer's own.
 
 ## How the project's direction is set
 

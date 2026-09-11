@@ -31,7 +31,7 @@ Both are procedural rather than physical or legal. Neither one is a Retrofit Str
 4. **Comparison and documentation.** Compare alternatives side by side using a transparent, traceable method. Some agencies use a dedicated tool for this step; the Safety Performance for Intersection Control Evaluation (SPICE) tool is one example, drawing on Highway Safety Manual crash prediction methods to compare predicted crash frequency and severity across control types.<Citation index={7} />
 5. **Selection.** Choose a preferred alternative, documented well enough that the reasoning is legible to anyone reviewing the decision later, including the public.
 
-**Why it matters here.** ICE is the formal version of a question this book raises informally throughout the Pattern catalog: given a choice of intersection control, which one actually performs better for this specific location. ICE is how a jurisdiction answers that question with evidence rather than habit.<Citation index={8} />
+**Why it matters here.** ICE is the formal version of a question this publication raises informally throughout the Pattern catalog: given a choice of intersection control, which one actually performs better for this specific location. ICE is how a jurisdiction answers that question with evidence rather than habit.<Citation index={8} />
 
 ## Road Safety Audit (RSA)
 
@@ -52,7 +52,7 @@ Both are procedural rather than physical or legal. Neither one is a Retrofit Str
 7. **Prepare a formal response** addressing each identified issue.
 8. **Incorporate accepted findings** into the project or into a plan for the existing road, as appropriate.<Citation index={2} />
 
-**Why it matters here.** An RSA is one of the few tools in this book that can be applied to a street that has no active project at all. It's how a safety issue on an existing Pattern gets surfaced in the first place, often the actual trigger that starts a jurisdiction looking at a Retrofit Strategy.<Citation index={3} />
+**Why it matters here.** An RSA is one of the few tools in this publication that can be applied to a street that has no active project at all. It's how a safety issue on an existing Pattern gets surfaced in the first place, often the actual trigger that starts a jurisdiction looking at a Retrofit Strategy.<Citation index={3} />
 
 ## References
 

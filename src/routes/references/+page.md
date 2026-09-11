@@ -5,7 +5,7 @@ date: 2026-08-29
 llms: Explains the Reference section, the technical detail layer beneath a pattern page's plain-language description, organized by Pattern ID, distinct from a page's numbered citations.
 ---
 
-Every pattern page in this guide carries two kinds of backup: numbered citations at the bottom of the page, which back specific claims, and this section, which holds the fuller technical detail sitting beneath a pattern's plain-language description.
+Every pattern page in this guidebook carries two kinds of backup: numbered citations at the bottom of the page, which back specific claims, and this section, which holds the fuller technical detail sitting beneath a pattern's plain-language description.
 
 ## What lives here
 
@@ -15,7 +15,7 @@ This is different from a page's References list. References back a specific clai
 
 ## How it's organized
 
-Reference entries follow the same Pattern ID used throughout the guide. A pattern's expanded technical detail, where it exists, sits at the same ID under this section.
+Reference entries follow the same Pattern ID used throughout the guidebook. A pattern's expanded technical detail, where it exists, sits at the same ID under this section.
 
 ## Where this stands today
 

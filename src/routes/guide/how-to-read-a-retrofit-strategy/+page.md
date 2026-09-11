@@ -68,7 +68,7 @@ This section only appears when a genuine family relationship exists. It follows 
 
 ## References
 
-Primary sources only, evidence-tier tagged, in the same citation format used throughout the site.
+Primary sources only, evidence-tier tagged, in the same citation format used throughout the publication.
 
 ## The short version
 

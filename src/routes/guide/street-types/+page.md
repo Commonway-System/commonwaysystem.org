@@ -9,7 +9,7 @@ llms: Explains what a Functional Classification and a Street Typology are, why t
   import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
-Every pattern page in this guide is sorted two ways: by its Functional Classification and by its Street Typology. Those aren't everyday words, so this page explains what they mean, in plain language, before you run into them everywhere else in the guide.
+Every pattern page in this guidebook is sorted two ways: by its Functional Classification and by its Street Typology. Those aren't everyday words, so this page explains what they mean, in plain language, before you run into them everywhere else in the guidebook.
 
 <RelatedMedia id="/guide/street-types/" />
 
@@ -26,7 +26,7 @@ Every street is pulled between two competing jobs: helping people move through q
 | **Arterial**   | Mostly movement. Built to carry traffic efficiently across a larger area, not to serve driveways directly.    |
 | **Freeway**    | Pure movement. High speed, no direct access to anything at all, not even a single driveway.                   |
 
-There's a real-world example of what goes wrong when a street tries to do both jobs badly at once: it's called a **Stroad**<Citation index={2} />, a road that tries to move fast traffic and serve strip-mall driveways and parking lots at the same time. It ends up dangerous for the same reason a car can't be a good boat: trying to do two very different jobs at once usually means doing neither one well. Commonway System flags Stroad as a pattern to avoid, and most of what a Collector or Arterial page in this guide recommends is really just a way of keeping those two jobs from colliding.
+There's a real-world example of what goes wrong when a street tries to do both jobs badly at once: it's called a **Stroad**<Citation index={2} />, a road that tries to move fast traffic and serve strip-mall driveways and parking lots at the same time. It ends up dangerous for the same reason a car can't be a good boat: trying to do two very different jobs at once usually means doing neither one well. Commonway System flags Stroad as a pattern to avoid, and most of what a Collector or Arterial page in this guidebook recommends is really just a way of keeping those two jobs from colliding.
 
 ## Why a bike path or a bus route gets a car-sounding label
 
@@ -42,9 +42,9 @@ Think of it like this: Functional Classification answers "what job is this stree
 
 Every classification has a **Default** Typology: the standard, ordinary version of that classification, with no special situation attached. A pattern only gets its own named Typology when it's built around something specific enough to deserve a name of its own, a particular access pattern, a particular land use, or a single mode getting full priority.
 
-## Every Street Typology in the guide
+## Every Street Typology in the guidebook
 
-Most of the names below aren't invented for this guide. Many trace to established American design guides, particularly NACTO's Urban Street Design Guide,<Citation index={4} /> cross-referenced against how each pattern is actually used in the field.
+Most of the names below aren't invented for this guidebook. Many trace to established American design guides, particularly NACTO's Urban Street Design Guide,<Citation index={4} /> cross-referenced against how each pattern is actually used in the field.
 
 ### Local
 
