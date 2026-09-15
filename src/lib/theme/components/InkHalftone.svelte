@@ -46,7 +46,7 @@
   // it. A true, unjittered grid, since rows/columns misaligning defeats
   // the printed-halftone look this is going for.
   const BASE_RADIUS = 0
-  const PEAK_RADIUS = 3.4
+  const PEAK_RADIUS = 4.4
   const DOT_COLOR = '253, 250, 243' // --cw-paper-fixed, as an rgb() triple
   const SAMPLE_COUNT = 120
 

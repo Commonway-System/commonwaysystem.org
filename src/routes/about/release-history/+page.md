@@ -24,6 +24,15 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.09.14',
+      items: [
+        'Four new Foundations pages gained a real illustration each: Scale Hierarchy, Density Tiers, Street Types & Classifications, and Design Speed & Speed Limits. Each is a single PNG, hand-placed directly in the page, styled automatically with a themed rounded-corner/border/shadow treatment so it reads as real content rather than a bare embed. See CLAUDE.md for the raw-`<img>`-tag convention this follows.',
+        'New Media Gallery entry, MED-021 (Strong Towns, "The Key to Slowing Traffic is Street Design, Not Speed Limits"), tagged to the Design Speed & Speed Limits guide page. The Gallery\'s first `article`-type entry, alongside its existing video and podcast items.',
+        'Retrofit Strategy Index section order changed from Corridor/Intersection/Network to Network/Corridor/Intersection, both in the sidebar and on the index page itself; the page\'s own intro text and frontmatter description were updated to match.',
+        'Homepage hero background tuning: the ink-halftone effect\'s dots now swell to a larger peak radius for a bolder look at full swell.',
+      ],
+    },
+    {
       date: '2026.09.11',
       items: [
         'New Guide page, "How the Transportation Ecosystem Fits Together" (guide/how-the-transportation-ecosystem-fits-together/), placed in Foundations directly after How to read a retrofit strategy. Explains the landscape of organizations that write street-design guidance, standards, and advocacy, MUTCD, PROWAG, NACTO, AASHTO, Strong Towns, CNU, Vision Zero Network, PPS, Complete Streets, Create Streets, CROW, SWOV, ITDP, grouped by how much binding authority each actually carries rather than by acronym or subject, and states plainly where Commonway System itself fits relative to all of it. 15 real, tiered citations, all sourced directly from each organization\'s own site or the governing federal regulation. Built from a written ticket; its raw `<sup class="citation">` markup was translated to the publication\'s real Citation/EvidenceChip components per the standing ticket-verification rule, and MED-013\'s Related Media tagging was extended to this new page.',
@@ -282,7 +291,6 @@ Work that's planned but not yet built, grouped by area.
 
 ### Design system
 
-- **Header background image.** A new header background treatment.
 - **Sitewide color reorganization.** Broader color-system work,
   including real per-Scale colors for the newest classifications
   (Network, Corridor, Facility, Element), and resolving a few flagged

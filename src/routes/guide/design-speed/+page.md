@@ -9,7 +9,7 @@ llms: Explains the difference between design speed, 85th-percentile operating sp
   import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RelatedMedia id="/guide/design-speed/" />
+<img src="/diagrams/design-speed-diagram.png" alt="Commonway System design speed diagram showing the relationship between design speed, operating speed, and posted speed limit." />
 
 ## What design speed is
 
@@ -24,6 +24,8 @@ A posted speed limit is the legal maximum speed for a section of road, set by a 
 Design speed, operating speed, and posted speed limit are three different measures, set by three different parties, for three different reasons: designers set design speed to establish geometric features, operators set posted limits they judge safe for the road, and drivers pick their own speed based on how safe the road feels to them. These three numbers are frequently incompatible with each other.<Citation index={4} />
 
 The mismatch has a specific origin. A 1985 FHWA memorandum establishing the controlling criteria for federal-aid design stated that design speed should be selected to equal or exceed the posted speed limit. In 2001, AASHTO's Green Book dropped that link. The Green Book now defines design speed purely as a geometric design input and gives no guidance connecting it to posted speed limits.<Citation index={5} /> Since then, US roads are routinely built with generous, above-minimum geometry, then posted below what that geometry actually invites. The result: streets whose curves, lane widths, and sightlines all say "drive faster" while the sign says otherwise. Drivers overwhelmingly follow the road, not the sign. Documented cases show 85th-percentile operating speeds and posted speed limits both exceeding the road's own designated design speed, on roads whose geometry was never checked for consistency against the number on the plans.<Citation index={6} />
+
+<RelatedMedia id="/guide/design-speed/" />
 
 ## Why it matters
 
@@ -118,7 +120,7 @@ CS does not set a speed rule for Freeways. An extensive federal and state regula
 19. <span id="ref-19"></span><EvidenceChip tier="evidence" /> Federal Highway Administration, CMF Clearinghouse. _Combining Multiple CMFs_. Available at: https://www.cmfclearinghouse.fhwa.dot.gov
 20. <span id="ref-20"></span><EvidenceChip tier="evidence" /> [Texas Department of Transportation. "5.4 Crash Modification Factors (CMFs)," dominant effect method. _Roadway Design Manual_.](https://www.txdot.gov/manuals/des/tsp/chapter-5-safety-analysis-concepts/5-4-crash-modification-factors--cmfs-.html)
 21. <span id="ref-21"></span><EvidenceChip tier="legal" /> [Netherlands. _Wet geluidhinder_ [Noise Pollution Act].](https://wetten.overheid.nl/BWBR0003227)
-22. <span id="ref-22"></span><EvidenceChip tier="precedent" /> [N325 Pleyroute corridor speed-setting precedent, as documented in Dutch noise policy literature.](https://en.wikipedia.org/wiki/Provincial_road_N325_(Netherlands))
+22. <span id="ref-22"></span><EvidenceChip tier="precedent" /> [N325 Pleyroute corridor speed-setting precedent, as documented in Dutch noise policy literature.](<https://en.wikipedia.org/wiki/Provincial_road_N325_(Netherlands)>)
 23. <span id="ref-23"></span><EvidenceChip tier="legal" /> [Federal Highway Administration. 23 CFR Part 772, _Procedures for Abatement of Highway Traffic Noise and Construction Noise_.](https://www.ecfr.gov/current/title-23/chapter-I/subchapter-H/part-772)
 24. <span id="ref-24"></span><EvidenceChip tier="precedent" /> AASHTO Center for Environmental Excellence. "Noise Overview." Available at: https://environment.transportation.org/focus-areas/noise/noise-overview/
 25. <span id="ref-25"></span><EvidenceChip tier="precedent" /> [Virginia Department of Transportation. Intersection and access spacing standards by design speed class.](https://snowplowing.vdot.virginia.gov/doing-business/technical-guidance-and-support/land-use-and-development/access-management-standards/)

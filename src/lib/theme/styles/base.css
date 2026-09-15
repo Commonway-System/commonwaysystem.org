@@ -161,6 +161,27 @@ svg {
   margin-top: 0.4rem;
 }
 
+/* A standalone image in prose (a raw <img> tag, see CLAUDE.md's
+   markdown-image note) gets the same rounded-corner/hairline-border/
+   shadow treatment PatternIndexCard and its siblings already use for
+   their own images, so it reads as themed content rather than a bare
+   embed. Two selectors, not one: CommonMark treats a raw HTML tag sitting
+   alone on its own line as a standalone HTML block, a direct child of
+   .cw-content with no wrapping <p> at all (confirmed live via the actual
+   rendered DOM, not assumed) — `.cw-content > img` covers that case.
+   `.cw-content p > img:only-child` additionally covers an <img> that
+   ends up inside a paragraph anyway (e.g. adjacent to other inline
+   content on the same line). Neither matches a bare `.cw-content img`,
+   so an inline icon mixed into a sentence isn't affected, and both apply
+   automatically, no per-image class needed. */
+.cw-content > img,
+.cw-content p > img:only-child {
+  display: block;
+  border-radius: var(--cw-radius-lg);
+  border: 1px solid var(--cw-hairline);
+  box-shadow: 0 1px 2px rgba(20, 20, 20, 0.04);
+}
+
 .cw-content blockquote {
   margin: 1.5rem 0;
   padding: 0.25rem 0 0.25rem 1rem;

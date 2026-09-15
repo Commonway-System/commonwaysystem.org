@@ -11,7 +11,7 @@ llms: Explains what a Functional Classification and a Street Typology are, why t
 
 Every pattern page in this guidebook is sorted two ways: by its Functional Classification and by its Street Typology. Those aren't everyday words, so this page explains what they mean, in plain language, before you run into them everywhere else in the guidebook.
 
-<RelatedMedia id="/guide/street-types/" />
+<img src="/diagrams/functional-classification-diagram.png" alt="Commonway System functional classification diagram showing four classes of streets and roadways: Freeways, Arterials, Collectors, and Local Streets, while describing their differences." />
 
 ## The question every street has to answer
 
@@ -27,6 +27,8 @@ Every street is pulled between two competing jobs: helping people move through q
 | **Freeway**    | Pure movement. High speed, no direct access to anything at all, not even a single driveway.                   |
 
 There's a real-world example of what goes wrong when a street tries to do both jobs badly at once: it's called a **Stroad**<Citation index={2} />, a road that tries to move fast traffic and serve strip-mall driveways and parking lots at the same time. It ends up dangerous for the same reason a car can't be a good boat: trying to do two very different jobs at once usually means doing neither one well. Commonway System flags Stroad as a pattern to avoid, and most of what a Collector or Arterial page in this guidebook recommends is really just a way of keeping those two jobs from colliding.
+
+<RelatedMedia id="/guide/street-types/" />
 
 ## Why a bike path or a bus route gets a car-sounding label
 
