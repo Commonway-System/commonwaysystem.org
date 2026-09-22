@@ -40,7 +40,7 @@
 
 <a class="pic" {href} data-classification={classification}>
   <div class="pic__image">
-    <img src={image ?? '/patterns/pattern-placeholder.svg'} alt="" />
+    <img src={image ?? '/patterns/pattern-placeholder.svg'} alt="" loading="lazy" decoding="async" />
     <div class="pic__overlay"></div>
     <span class="pic__number">{number}</span>
   </div>

@@ -55,9 +55,21 @@ a:hover {
   border-radius: var(--cw-radius-sm);
 }
 
+/* height: auto is the standard companion to max-width: 100% for
+   responsive images: without it, an <img> carrying real width/height
+   HTML attributes (GuideDiagram's CLS-prevention path, see that
+   component) gets its height pinned to the attribute's literal pixel
+   value via the browser's own presentational-hint mapping, while
+   max-width caps only the width — the two end up out of proportion and
+   the image visibly stretches. Component-scoped rules with a class
+   selector (PatternIndexCard/RetrofitIndexCard/MediaCard's own
+   `width: 100%; height: 100%; object-fit: cover` treatment) always win
+   over this plain-element selector regardless of source order, so this
+   doesn't affect their intentionally-cropped card images. */
 img,
 svg {
   max-width: 100%;
+  height: auto;
 }
 
 /* Standard visually-hidden pattern: present for screen readers, removed

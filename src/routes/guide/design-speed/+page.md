@@ -6,10 +6,10 @@ llms: Explains the difference between design speed, 85th-percentile operating sp
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, GuideDiagram, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<img src="/diagrams/design-speed-diagram.png" alt="Commonway System design speed diagram showing the relationship between design speed, operating speed, and posted speed limit." />
+<GuideDiagram src="/diagrams/design-speed-diagram.png" alt="Commonway System design speed diagram showing the relationship between design speed, operating speed, and posted speed limit." width={1280} height={720} />
 
 ## What design speed is
 

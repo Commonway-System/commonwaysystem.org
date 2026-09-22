@@ -26,7 +26,7 @@
 
 <a class="ric" {href} data-scale={scale}>
   <div class="ric__image">
-    <img src={image ?? '/patterns/pattern-placeholder.svg'} alt="" />
+    <img src={image ?? '/patterns/pattern-placeholder.svg'} alt="" loading="lazy" decoding="async" />
     <div class="ric__overlay"></div>
     <span class="ric__number">{number}</span>
   </div>

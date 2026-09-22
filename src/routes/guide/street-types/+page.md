@@ -6,12 +6,12 @@ llms: Explains what a Functional Classification and a Street Typology are, why t
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, GuideDiagram, RelatedMedia } from '$lib/theme/components'
 </script>
 
 Every pattern page in this guidebook is sorted two ways: by its Functional Classification and by its Street Typology. Those aren't everyday words, so this page explains what they mean, in plain language, before you run into them everywhere else in the guidebook.
 
-<img src="/diagrams/functional-classification-diagram.png" alt="Commonway System functional classification diagram showing four classes of streets and roadways: Freeways, Arterials, Collectors, and Local Streets, while describing their differences." />
+<GuideDiagram src="/diagrams/functional-classification-diagram.png" alt="Commonway System functional classification diagram showing four classes of streets and roadways: Freeways, Arterials, Collectors, and Local Streets, while describing their differences." width={1280} height={720} />
 
 ## The question every street has to answer
 

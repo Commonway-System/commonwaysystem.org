@@ -6,7 +6,7 @@ llms: Explains what the Commonway System is, who compiled it, how it relates to 
 ---
 
 <script>
-  import { RelatedMedia } from '$lib/theme/components'
+  import { AuthorPhoto, RelatedMedia } from '$lib/theme/components'
 </script>
 
 The Commonway System (CS) is a pattern language for roads and streets. It organizes established transportation design knowledge, from NACTO's guides to Dutch Sustainable Safety and Vision Zero research, into a single, cross-referenced reference usable by a total beginner or a practicing engineer alike.
@@ -26,14 +26,24 @@ Where CS takes a position beyond conventional practice, it says so directly and 
 
 Google's own helpful-content guidance asks three questions of any piece of content: who created it and what's their real experience with it, how was it made, and why does it exist. CS answers these directly, since the answers are the actual foundation of its credibility, not an afterthought.
 
-| | |
-|---|---|
-| **Who** | Kevin, an enthusiast and researcher/compiler, explicitly not a credentialed engineer or planner. The citation system substitutes for personal authority. |
-| **How** | Primary sources read directly and cross-referenced, not secondhand summaries. Every design claim traces to a named source, dated and linked. |
-| **Why** | To make the accumulated evidence behind good street design legible to a beginner and useful to a practitioner, in one place, without requiring a credential to access it. |
+|         |                                                                                                                                                                                                           |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Who** | Kevin, an enthusiast and researcher/compiler, explicitly not a credentialed engineer or planner. The citation system substitutes for personal authority. See [About the author](#about-the-author) below. |
+| **How** | Primary sources read directly and cross-referenced, not secondhand summaries. Every design claim traces to a named source, dated and linked.                                                              |
+| **Why** | To make the accumulated evidence behind good street design legible to a beginner and useful to a practitioner, in one place, without requiring a credential to access it.                                 |
 
 ## How the guidebook is organized
 
 Every pattern sits inside one of four Functional Classifications: Local, Collector, Arterial, or Freeway, plus a fifth cross-cutting set for Intersections and Crossings. Within a classification, patterns are grouped by purpose-based Street Typology, and each pattern exists at one of five scales: Network, Corridor, Segment or Intersection, Facility, and Element. A pattern's ID encodes its scale and context, for example `LOC-BBG-12`.
 
 See the [guide introduction](/guide/) for the full mechanics of reading a pattern, and the [Brand Guide](/about/brand-guide/) for how the system is written and designed.
+
+## About the author
+
+<AuthorPhoto src="/photos/kevinyoung.png" alt="Kevin Young" caption="Kevin Young, Author, Commonway System">
+
+Kevin Young is the author of the Commonway System, an evidence-based pattern language for roads and streets, with a catalog of retrofit strategies for streets that already exist. He started it in 2026 as an enthusiast and compiler, not a transportation professional, so the work rests on its citations and not on his credentials. Claims are cited to sources, and any not yet sourced carry a visible flag. Plain-language explanations come first, with technical detail beneath. The guide is published online and dated by version, so readers can see how current it is.
+
+More about him at [kevinyoung.net](https://kevinyoung.net) and on [LinkedIn](https://www.linkedin.com/in/youngkev/).
+
+</AuthorPhoto>

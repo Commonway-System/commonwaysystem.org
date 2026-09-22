@@ -6,12 +6,14 @@ import type {
   DefinedTerm,
   ListItem,
   Organization,
+  Person,
   TechArticle,
   Thing,
   WebSite,
   WithContext,
 } from 'schema-dts'
 import { getMediaItems } from '$lib/data/media/index.js'
+import { buildAuthorPerson } from './organization.js'
 import { SITE_URL } from '$lib/site.js'
 import type { SidebarLink } from '../config.js'
 import { getBlogPosts } from '../blog.js'
@@ -22,7 +24,15 @@ import { getBlogPosts } from '../blog.js'
 // singleton) — a nested object repeating @context is redundant, not just
 // stylistically but per JSON-LD's own scoping rules.
 const site: WebSite = { '@type': 'WebSite', name: 'Commonway System', url: SITE_URL }
-const author: Organization = { '@type': 'Organization', name: 'Commonway System' }
+// Co-authored: the Organization (the citation trail carries the actual
+// authority behind any given claim, per the site's own credibility model)
+// and Kevin by name (buildAuthorPerson(), shared with organization.ts's
+// `founder` so his identity data lives in exactly one place). schema.org's
+// `author` property accepts an array natively, no non-standard vocabulary.
+const author: (Organization | Person)[] = [
+  { '@type': 'Organization', name: 'Commonway System' },
+  buildAuthorPerson(),
+]
 
 interface PageSchemaParams {
   pathname: string

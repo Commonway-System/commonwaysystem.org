@@ -9,7 +9,7 @@ llms: Explains who has final say on the Commonway System, how classification dec
   import { Citation } from '$lib/theme/components'
 </script>
 
-The Commonway System is maintained by a single person. Kevin Young compiles, edits, and has final say over everything published here. This isn't a committee project or a consensus process, and this page says so plainly rather than dressing it up as something more collaborative than it is.
+The Commonway System is maintained by a single person. [Kevin Young](/about/commonway-system/#about-the-author) compiles, edits, and has final say over everything published here. This isn't a committee project or a consensus process, and this page says so plainly rather than dressing it up as something more collaborative than it is.
 
 That said, final say doesn't mean personal preference decides things. It means the maintainer applies a fixed set of rules consistently, the same rules described below, and is accountable to those rules in every decision.
 
