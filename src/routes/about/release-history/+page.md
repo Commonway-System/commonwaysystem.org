@@ -24,6 +24,13 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.09.22',
+      items: [
+        'Pattern Index illustration coverage expanded from 11 to 26 of 111 patterns. 15 patterns wired up with a real illustration for the first time: all 4 Network patterns (Grid, Dendritic / Hierarchical, Radial, Organic / Irregular), all 6 Corridor patterns (Density Step-Down / Step-Up, Rural-to-Town Gateway, Character Transect, Rail-With-Trail Corridor, Road-Adjacent Greenway, Transit Alignment Corridor), Bicycle Boulevard / Neighborhood Greenway and Shared-Use Path (Local Streets, completing that category), Bike Highway / Greenway (Collectors), Stroad (Arterials), Protected Intersection (Intersections & Crossings), and Sharrow plus Modal Filter / Point Closure (Elements). Artwork for 11 already-illustrated patterns (10 Local Street patterns plus Roundabout), the shared placeholder graphic, and the two Foundations-page diagrams was also refreshed with updated versions.',
+        'Kevin hand-placed every image file directly in `static/patterns/` outside of a session; each session\'s task was wiring the matching `image` prop into that pattern\'s card in `patterns/+page.md` and verifying it live. See CLAUDE.md for the updated convention, including a note that the extension isn\'t locked to `.png` (several new files are `.jpeg`) and a known filename typo (`net-den-02-dendritic-hierachical.png`) that\'s intentionally left as-is since the reference already matches it.',
+      ],
+    },
+    {
       date: '2026.09.14',
       items: [
         'Four new Foundations pages gained a real illustration each: Scale Hierarchy, Density Tiers, Street Types & Classifications, and Design Speed & Speed Limits. Each is a single PNG, hand-placed directly in the page, styled automatically with a themed rounded-corner/border/shadow treatment so it reads as real content rather than a bare embed. See CLAUDE.md for the raw-`<img>`-tag convention this follows.',

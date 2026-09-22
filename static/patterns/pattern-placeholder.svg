@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-hidden="true">
-  <title>Generic street illustration placeholder</title>
-  <rect x="0" y="0" width="400" height="300" fill="#dcdcdc" />
-  <rect x="0" y="176" width="400" height="124" fill="#adadad" />
-  <polygon points="182,176 218,176 372,300 28,300" fill="#6b6b6b" />
-  <g fill="#f0f0f0">
-    <polygon points="198,176 202,176 199,196 195,196" />
-    <polygon points="192,210 208,210 203,240 197,240" />
-    <polygon points="184,254 216,254 209,292 191,292" />
-  </g>
-</svg>
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h400v300h-400z" fill="#dcdcdc"/><path d="m0 176h400v124h-400z" fill="#adadad"/><path d="m182 176h36l154 124h-344z" fill="#6b6b6b"/><g fill="#f0f0f0"><path d="m198 176h4l-3 20h-4z"/><path d="m192 210h16l-5 30h-6z"/><path d="m184 254h32l-7 38h-18z"/></g></svg>
