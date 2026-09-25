@@ -6,30 +6,10 @@ llms: The Commonway System's full visual and editorial system, colors, typograph
 ---
 
 <script>
-  import { Button, Citation, ColorSwatch, EvidenceChip, ExampleCard, FormControlsPreview, GuideDiagram, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, RetrofitCard, RetrofitIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
+  import { Button, Citation, ColorSwatch, DensityChip, EvidenceChip, ExampleCard, FormControlsPreview, GuideDiagram, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, RetrofitCard, RetrofitIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
 </script>
 
 The visual and editorial system behind the Commonway System (CS): how it looks, how it's written, and how its evidence is presented. This page transcribes the working brand reference; treat the color values and rules below as the source of truth over anything in the publication's theme.
-
-:::note
-This is a working draft (CalVer 2026.08.26), maintained as an internal reference. The publication's color tokens (`src/lib/theme/styles/tokens.css`) are synced to the palette documented here, with one exception: `--cw-danger` (the guide doesn't define a danger-admonition color; kept independent rather than reusing Freeway, since Freeway's real color is a neutral gray). The `:::warning` admonition still uses amber, which is a known conflict with the reservation rule below, flagged rather than silently changed since it's a content-semantics call, not a color-value one.
-:::
-
-:::note
-Intersections & Crossings has no color family in the working draft, which only documents Local, Collector, Arterial, and Freeway. The ramp shown below for it is a publication-only addition (added 2026.08.30, not part of the guide), built the same way the guide's own four ramps were, from a single base color rather than an invented palette.
-:::
-
-:::note
-The Speed & Modal Hierarchy card and its Modal Hierarchy pills, documented under Components below, are also a publication-only addition (added 2026.09.02, not part of the working draft), built to document a real sitewide component rollout rather than a design decision made on this page first.
-:::
-
-:::note
-The Retrofit Strategy card and Retrofit Strategy Index card, documented under Components below, are a fourth publication-only addition (added 2026.09.03, not part of the working draft), for the new Retrofit Strategies catalog. Both reuse existing Pattern coloring rather than an invented Retrofit-only palette; see their own entries below for the mapping.
-:::
-
-:::note
-Guide diagram, documented under Components below, is a fifth publication-only addition (added 2026.09.22, not part of the working draft), built to standardize the full-width topic diagrams already shipping on several Foundations guide pages rather than a design decision made on this page first.
-:::
 
 ## Voice attributes
 
@@ -104,66 +84,134 @@ Represents a strength gradient, not unrelated categories. Legal requirement is t
   </div>
 </ExampleCard>
 
-### Functional Classification ramps
+### Density tiers
 
-Each Functional Classification gets a 6-step tint/shade ramp across density tiers, lightest at Undeveloped, darkest at Core. Revised and colorblind-checked against protanopia, deuteranopia, and tritanopia; Local's hue was shifted from an initial rose to a saturated violet-purple after simulation found a collision with Freeway under deuteranopia.
+The Commonway System design encodes density _within_ each Scale Hierarchy and Functional Classification's own 6-step ramp, not as a separate overlay. `DensityChip` deviates from that on purpose: pattern pages need to show "typical at" density tiers independent of any one classification (a card in the Pattern Index has no classification color context of its own until the page around it supplies one), so it uses its own independent neutral-tan ramp instead, lightest at Undeveloped and darkest at Core, deliberately distinct from both the amber accent and every classification color so it never gets confused with either system.
+
+<div class="swatch-grid">
+  <ColorSwatch hex="#EFE9DD" label="Undeveloped" />
+  <ColorSwatch hex="#DCCDAF" label="Rural" />
+  <ColorSwatch hex="#C3A97E" label="Suburban" />
+  <ColorSwatch hex="#A3844F" label="Compact" />
+  <ColorSwatch hex="#7C6238" label="Urban" />
+  <ColorSwatch hex="#4A3A20" label="Core" />
+</div>
+
+**As rendered chips:**
+
+<ExampleCard>
+  <div class="demo-row">
+    <DensityChip tier="Undeveloped" />
+    <DensityChip tier="Rural" />
+    <DensityChip tier="Suburban" />
+    <DensityChip tier="Compact" />
+    <DensityChip tier="Urban" />
+    <DensityChip tier="Core" />
+  </div>
+</ExampleCard>
+
+### Scale ramps
+
+Every Scale prefix in the Pattern ID scheme gets its own 6-step tint/shade ramp across density tiers, lightest at Undeveloped, darkest at Core: nine ramps in total, one per prefix (Network, Corridor, Local, Collector, Arterial, Freeway, Intersections &amp; Crossings, Facility, Element). The hues are placed in spectrum order matching Scale sequence (Network=red through Element=violet), chosen by simulating protanopia, deuteranopia, and tritanopia across candidate layouts and maximizing worst-case separation, then hand-adjusted for wider Local/Collector/Arterial separation specifically. The ramp color itself is aesthetic and for fast wayfinding, not the mechanism that makes classification colorblind-safe &mdash; a text label next to every colored element is what does that. Never color alone.
+
+**Network**
+
+<div class="swatch-grid">
+  <ColorSwatch hex="#F7D5D4" label="Undeveloped" />
+  <ColorSwatch hex="#EDA4A2" label="Rural" />
+  <ColorSwatch hex="#E4726F" label="Suburban" />
+  <ColorSwatch hex="#DA413C" label="Compact" />
+  <ColorSwatch hex="#B62723" label="Urban" />
+  <ColorSwatch hex="#841C19" label="Core" />
+</div>
+
+**Corridor**
+
+<div class="swatch-grid">
+  <ColorSwatch hex="#F7EFD4" label="Undeveloped" />
+  <ColorSwatch hex="#EDDDA2" label="Rural" />
+  <ColorSwatch hex="#E4CA6F" label="Suburban" />
+  <ColorSwatch hex="#DAB73C" label="Compact" />
+  <ColorSwatch hex="#B69623" label="Urban" />
+  <ColorSwatch hex="#846C19" label="Core" />
+</div>
 
 **Local**
 
 <div class="swatch-grid">
-  <ColorSwatch hex="#E5CDFE" label="Undeveloped" />
-  <ColorSwatch hex="#CA9CFC" label="Rural" />
-  <ColorSwatch hex="#AB60FB" label="Suburban" />
-  <ColorSwatch hex="#891FF9" label="Compact" />
-  <ColorSwatch hex="#6805D1" label="Urban" />
-  <ColorSwatch hex="#4A0495" label="Core" />
+  <ColorSwatch hex="#EDF4D7" label="Undeveloped" />
+  <ColorSwatch hex="#D8E8A7" label="Rural" />
+  <ColorSwatch hex="#C3DB77" label="Suburban" />
+  <ColorSwatch hex="#AFCE48" label="Compact" />
+  <ColorSwatch hex="#8EAB2E" label="Urban" />
+  <ColorSwatch hex="#677C21" label="Core" />
 </div>
 
 **Collector**
 
 <div class="swatch-grid">
-  <ColorSwatch hex="#D9D8F2" label="Undeveloped" />
-  <ColorSwatch hex="#B3B1E5" label="Rural" />
-  <ColorSwatch hex="#8D8AD8" label="Suburban" />
-  <ColorSwatch hex="#6764C4" label="Compact" />
-  <ColorSwatch hex="#4A47B8" label="Urban" />
-  <ColorSwatch hex="#302D82" label="Core" />
+  <ColorSwatch hex="#DAF2D9" label="Undeveloped" />
+  <ColorSwatch hex="#AFE3AC" label="Rural" />
+  <ColorSwatch hex="#84D47E" label="Suburban" />
+  <ColorSwatch hex="#58C551" label="Compact" />
+  <ColorSwatch hex="#3DA336" label="Urban" />
+  <ColorSwatch hex="#2C7627" label="Core" />
 </div>
 
 **Arterial**
 
 <div class="swatch-grid">
-  <ColorSwatch hex="#EAF5D0" label="Undeveloped" />
-  <ColorSwatch hex="#D4EBA1" label="Rural" />
-  <ColorSwatch hex="#BEE072" label="Suburban" />
-  <ColorSwatch hex="#A3CE49" label="Compact" />
-  <ColorSwatch hex="#8AB92E" label="Urban" />
-  <ColorSwatch hex="#6B9420" label="Core" />
+  <ColorSwatch hex="#D7F4E6" label="Undeveloped" />
+  <ColorSwatch hex="#A9E6C9" label="Rural" />
+  <ColorSwatch hex="#7AD8AC" label="Suburban" />
+  <ColorSwatch hex="#4BCB8F" label="Compact" />
+  <ColorSwatch hex="#31A870" label="Urban" />
+  <ColorSwatch hex="#237A51" label="Core" />
 </div>
 
 **Freeway**
 
 <div class="swatch-grid">
-  <ColorSwatch hex="#EDEEF0" label="Undeveloped" />
-  <ColorSwatch hex="#D6D8DC" label="Rural" />
-  <ColorSwatch hex="#B9BCC2" label="Suburban" />
-  <ColorSwatch hex="#9CA0A8" label="Compact" />
-  <ColorSwatch hex="#7D818A" label="Urban" />
-  <ColorSwatch hex="#5C6068" label="Core" />
+  <ColorSwatch hex="#D8EBF3" label="Undeveloped" />
+  <ColorSwatch hex="#ABD4E4" label="Rural" />
+  <ColorSwatch hex="#7CBCD6" label="Suburban" />
+  <ColorSwatch hex="#4FA4C7" label="Compact" />
+  <ColorSwatch hex="#3484A5" label="Urban" />
+  <ColorSwatch hex="#266077" label="Core" />
 </div>
 
-**Intersections & Crossings**
+**Intersections &amp; Crossings**
 
 <div class="swatch-grid">
-  <ColorSwatch hex="#F9E9D2" label="Undeveloped" />
-  <ColorSwatch hex="#F2CF9D" label="Rural" />
-  <ColorSwatch hex="#EAB668" label="Suburban" />
-  <ColorSwatch hex="#E39C33" label="Compact" />
-  <ColorSwatch hex="#BF7D1A" label="Urban" />
-  <ColorSwatch hex="#8A5A13" label="Core" />
+  <ColorSwatch hex="#D7DDF4" label="Undeveloped" />
+  <ColorSwatch hex="#A7B5E8" label="Rural" />
+  <ColorSwatch hex="#778DDB" label="Suburban" />
+  <ColorSwatch hex="#4865CE" label="Compact" />
+  <ColorSwatch hex="#2E49AB" label="Urban" />
+  <ColorSwatch hex="#21357C" label="Core" />
 </div>
 
-Color is for fast scanning; a text label is what makes classification colorblind-safe. Never color alone.
+**Facility**
+
+<div class="swatch-grid">
+  <ColorSwatch hex="#E1D8F3" label="Undeveloped" />
+  <ColorSwatch hex="#BDABE4" label="Rural" />
+  <ColorSwatch hex="#997CD6" label="Suburban" />
+  <ColorSwatch hex="#754FC7" label="Compact" />
+  <ColorSwatch hex="#5834A5" label="Urban" />
+  <ColorSwatch hex="#3F2677" label="Core" />
+</div>
+
+**Element**
+
+<div class="swatch-grid">
+  <ColorSwatch hex="#F3D6F5" label="Undeveloped" />
+  <ColorSwatch hex="#E5A5EA" label="Rural" />
+  <ColorSwatch hex="#D774DE" label="Suburban" />
+  <ColorSwatch hex="#C943D3" label="Compact" />
+  <ColorSwatch hex="#A629B0" label="Urban" />
+  <ColorSwatch hex="#791E7F" label="Core" />
+</div>
 
 ## Typography
 
@@ -209,20 +257,20 @@ Clean flat vector illustration, NACTO-inspired, warmed by human figures at true 
   </PatternCard>
 </ExampleCard>
 
-The colored left edge always matches the pattern's Functional Classification, using each classification's real ramp color now that `tokens.css` is synced (Arterial, Freeway, and Intersections' real hues are naturally light, so the left border uses their darkest tier, Core, to clear the 3:1 UI-component contrast minimum). The ID text itself is always ink, per the guide: "a constant identity mark distinct from classification color."
+The colored left edge always matches the pattern's Scale/classification, using that ramp's own representative color from `tokens.css`: whichever tier is lightest while still clearing (or getting closest to) the 3:1 UI-component contrast minimum, which differs by hue (Core for Corridor, Local, Collector, Arterial, and Freeway; Compact for Intersections & Crossings and Facility; Urban for Network and Element). The ID text itself is always ink, per the guide: "a constant identity mark distinct from classification color."
 
 ### Pattern Index card
 
 <ExampleCard>
   <div class="pattern-index-grid">
     <PatternIndexCard href="/patterns/local-streets/default/" id="LOC-DEF-01" title="Default (Standard Local Street)" classification="local" />
-    <PatternIndexCard href="/patterns/arterials/stroad/" id="ART-STD-05" title="Stroad" classification="arterial" status="avoid" />
+    <PatternIndexCard href="/patterns/arterials/stroad/" id="ART-STD-05" title="Stroad (Commercial Arterial)" classification="arterial" status="avoid" image="/patterns/art-std-05-stroad-commercial-arterial.png" />
     <PatternIndexCard href="/patterns/arterials/one-way-street/" id="ART-OWS-06" title="One-Way Street" classification="arterial" status="situational" />
     <PatternIndexCard href="/patterns/intersections/roundabout/" id="INT-RAB-01" title="Roundabout (Single/Multi-Lane)" classification="intersections" image="/patterns/int-rab-01-roundabout.png" />
   </div>
 </ExampleCard>
 
-Used on the Pattern Index (`/patterns/`) in place of a plain bulleted list, one card per Street Typology. The image area recolors per classification with a `mix-blend-mode: color` overlay (Suburban tier at rest, Core tier as the hover border, same darkest-clears-contrast reasoning as the Pattern ID card's left edge above), including Intersections & Crossings, now that it has its own ramp too. Most patterns still use a single shared placeholder graphic; a handful have a real illustration in already, and swapping the rest in over time only means setting that pattern's own `image` prop, the recolor mechanism keeps working unchanged either way. The number circle restarts at 1 for each Functional Classification group and is always ink-fixed/paper-fixed regardless of theme, the same "constant identity mark" reasoning as the Pattern ID text. The status badge only appears for Situational and Avoid; Recommended (the unremarkable default) gets no badge here at all, unlike its quiet pill on the full pattern page.
+Used on the Pattern Index (`/patterns/`) in place of a plain bulleted list, one card per Street Typology. The image area recolors per classification with a `mix-blend-mode: color` overlay (Suburban tier at rest, Core tier as the hover border, for every one of the nine Scale ramps). Most patterns still use a single shared placeholder graphic; a handful have a real illustration in already, and swapping the rest in over time only means setting that pattern's own `image` prop, the recolor mechanism keeps working unchanged either way. The number circle restarts at 1 for each Functional Classification group and is always ink-fixed/paper-fixed regardless of theme, the same "constant identity mark" reasoning as the Pattern ID text. The status badge only appears for Situational and Avoid; Recommended (the unremarkable default) gets no badge here at all, unlike its quiet pill on the full pattern page.
 
 ### Retrofit Strategy card
 
@@ -238,7 +286,7 @@ Used on the Pattern Index (`/patterns/`) in place of a plain bulleted list, one 
   </RetrofitCard>
 </ExampleCard>
 
-Same visual language as the Pattern ID card above, minus the status badge: a Retrofit Strategy is never Recommended, Situational, or Avoid, it's either applicable to a given street or it isn't, and that judgment lives in each entry's own Applicability and thresholds section rather than a badge. In place of a Functional Classification, the right-aligned label shows the strategy's Scale (Corridor, Intersection, or Network, matching the `RFT-SCALE-##` ID's own middle segment), and the left edge color follows whichever Pattern classification is that scale's functional peer rather than an invented Retrofit-only palette: Intersection strategies use the real Intersections & Crossings ramp, since their Pattern peers already have one; Corridor and Network strategies currently reuse the Freeway-gray placeholder, since Patterns' own "corridor" and "network" classifications are themselves still on that same placeholder (see the Functional Classification ramps above). The ID text is always ink, same "constant identity mark" reasoning as the Pattern ID card.
+Same visual language as the Pattern ID card above, minus the status badge: a Retrofit Strategy is never Recommended, Situational, or Avoid, it's either applicable to a given street or it isn't, and that judgment lives in each entry's own Applicability and thresholds section rather than a badge. In place of a Functional Classification, the right-aligned label shows the strategy's Scale (Corridor, Intersection, or Network, matching the `RFT-SCALE-##` ID's own middle segment), and the left edge color follows whichever Pattern classification is that scale's functional peer rather than an invented Retrofit-only palette: Intersection strategies use the real Intersections & Crossings ramp, Corridor and Network strategies use Patterns' own real corridor/network ramps, now that all nine Scale prefixes have one (see the Scale ramps above). The ID text is always ink, same "constant identity mark" reasoning as the Pattern ID card.
 
 ### Retrofit Strategy Index card
 
@@ -394,24 +442,24 @@ Google's own guidance treats generative AI search optimization as fundamentally 
 
 A contrast issue was caught and fixed during design: the citation badge and Evidence-based chip originally used `#003D35` text on `#00A896`, a 4.10:1 contrast ratio, below the 4.5:1 WCAG AA requirement for text at that size. Corrected to `#002D27`, reaching 5.01:1 (the value used by the evidence chips above).
 
-| Pairing                                   | Ratio   | Status |
-| ------------------------------------------ | ------- | ------ |
-| Citation badge (corrected)                | 5.01:1  | Pass   |
-| Precedent-based chip                      | 7.59:1  | Pass   |
-| Legal/regulatory chip                     | 6.41:1  | Pass   |
-| Pattern ID / metadata label               | 5.04:1  | Pass   |
-| Unsourced-claim flag                      | 8.97:1  | Pass   |
-| Body text on paper                        | 17.67:1 | Pass   |
-| Modal hierarchy pill, Local (light mode)  | 8.30:1  | Pass   |
-| Modal hierarchy pill, Local (dark mode)   | 5.80:1  | Pass   |
-| Modal hierarchy pill, Collector (light mode) | 7.28:1 | Pass |
-| Modal hierarchy pill, Collector (dark mode)  | 6.76:1 | Pass |
-| Modal hierarchy pill, Arterial (light mode)  | 3.57:1 | Fail (mitigated) |
-| Modal hierarchy pill, Arterial (dark mode)   | 2.32:1 | Fail (mitigated) |
+| Pairing                                      | Ratio   | Status |
+| -------------------------------------------- | ------- | ------ |
+| Citation badge (corrected)                   | 5.01:1  | Pass   |
+| Precedent-based chip                         | 7.59:1  | Pass   |
+| Legal/regulatory chip                        | 6.41:1  | Pass   |
+| Pattern ID / metadata label                  | 5.04:1  | Pass   |
+| Unsourced-claim flag                         | 8.97:1  | Pass   |
+| Body text on paper                           | 17.67:1 | Pass   |
+| Modal hierarchy pill, Local (light mode)     | 4.69:1  | Pass   |
+| Modal hierarchy pill, Local (dark mode)      | 8.01:1  | Pass   |
+| Modal hierarchy pill, Collector (light mode) | 5.63:1  | Pass   |
+| Modal hierarchy pill, Collector (dark mode)  | 6.49:1  | Pass   |
+| Modal hierarchy pill, Arterial (light mode)  | 5.28:1  | Pass   |
+| Modal hierarchy pill, Arterial (dark mode)   | 6.97:1  | Pass   |
 
-The full palette is simulated against protanopia, deuteranopia, and tritanopia using the Machado-Oliveira-Fairchild model. Local's hue was moved from an initial muted rose, which collapsed toward Freeway's gray under deuteranopia, to a saturated violet-purple, chosen via a hue and saturation sweep maximizing worst-case separation while staying outside the red, orange, and yellow range reserved for the warning system.
+The nine Scale ramps (see above) are simulated against protanopia, deuteranopia, and tritanopia as part of choosing each hue, maximizing worst-case separation across the palette rather than checking colors one at a time after the fact. Per the site owner: this separation is a wayfinding/aesthetic concern for this palette, not the mechanism that makes classification colorblind-safe, since a text label always accompanies every colored element on the publication.
 
-**Arterial's pill is a documented exception, not a silent pass.** Black actually wins the contrast math against Arterial's yellow-green in both modes (5.88:1 light, 9.06:1 dark, both clearing 4.5:1), but reads far less legibly against that saturated hue than white does in practice. White was chosen anyway, at 3.57:1 (light) and 2.32:1 (dark), below the 4.5:1 text minimum and, in dark mode, below even the 3:1 UI-component minimum. A dark text-shadow behind the pill's text and icon (a glow, not a color change) stands in for the missing contrast margin. This mirrors how this page already treats other known gaps, the `--cw-danger` placeholder and the `:::warning` admonition's amber conflict, flagged plainly rather than quietly rounded up to "close enough."
+**The Modal hierarchy pill's old Arterial exception no longer applies.** Before the 2026.09.23 recolor, Arterial's previous yellow-green hue failed 4.5:1 with both black and white text, and white was kept anyway (3.57:1 light, 2.32:1 dark) with a dark text-shadow glow standing in for the missing margin, a real, flagged exception at the time. The new Arterial hue clears 4.5:1 cleanly both ways in both themes (table above), so the glow hack was removed along with it &mdash; nothing to flag here now.
 
 A separate legibility issue surfaced after the contrast fix above: the citation badge and unsourced-claim flag pass their contrast ratios at the working draft's `--type-micro` size (10px), but a numeral at 10px in a tight colored pill was hard to actually read, a real-world legibility problem the contrast ratio alone doesn't catch. Both now render at 12px, semibold, independent of the type scale documented above. Contrast is unaffected, this is a size correction, not a color one.
 

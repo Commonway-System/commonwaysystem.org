@@ -26,6 +26,14 @@ export interface MediaItem {
   /** 1-2 sentences on how this item relates to CS content, not a neutral summary of the item itself. */
   blurb: string
   endorsementStatus: EndorsementStatus
+  /**
+   * Optional per-page override of endorsementStatus, keyed by the same ids as
+   * relatedTo. Use when one item relates differently to different pages
+   * (e.g. Aligned with a Retrofit Strategy, Context-only on a Pattern whose
+   * typical case the item doesn't describe). The Media Gallery always shows
+   * the base endorsementStatus.
+   */
+  endorsementOverrides?: Record<string, EndorsementStatus>
   /** Reuses the existing Functional Classification / Scale taxonomy, e.g. "Local", "Collector". */
   patternTaxonomyTags: string[]
   mediaTags: MediaTag[]

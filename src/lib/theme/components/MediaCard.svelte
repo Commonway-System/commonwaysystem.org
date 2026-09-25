@@ -5,9 +5,13 @@
 
   interface Props {
     item: MediaItem
+    /** The page this card is shown on (RelatedMedia passes it), used to pick a per-page endorsement override. */
+    pageId?: string
   }
 
-  const { item }: Props = $props()
+  const { item, pageId }: Props = $props()
+
+  const status = $derived((pageId && item.endorsementOverrides?.[pageId]) || item.endorsementStatus)
 
   const endorsementLabels: Record<EndorsementStatus, string> = {
     'aligned': 'Aligned',
@@ -57,7 +61,7 @@
       </svg>
       <span class="cw-sr-only">{typeLabels[item.type]}</span>
     </span>
-    <span class="mc__endorsement">{endorsementLabels[item.endorsementStatus]}</span>
+    <span class="mc__endorsement">{endorsementLabels[status]}</span>
   </div>
   <div class="mc__body">
     <h3 class="mc__title">{item.title}</h3>

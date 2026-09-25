@@ -24,6 +24,19 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.09.25',
+      items: [
+        'New Retrofit Strategy, RFT-CDR-11 ("2+1 road with cable median barrier"), the 18th entry and 11th Corridor strategy: converts an undivided rural two-lane road into a continuous three-lane cross section with an alternating passing lane and a cable median barrier. Cited to Swedish (VTI), FHWA, Kentucky, Missouri, and Colorado sources, including Colorado\'s own caveat that the crash-reduction estimate is uncertain and a limited pilot is advised. Added to the Retrofit Index and sidebar.',
+        'New "Layered guidance across sources" section on Default (Standard Collector) and Rural Collector / Farm-to-Market Road: an expandable table comparing federal/state baseline, NACTO, Complete Streets, and Dutch practice against the Commonway System answer, one row per design element (nine rows on each). Each cell shows a short summary and expands to the full text with citations. Default (Standard Collector) gained references 2 through 19; Rural Collector now has 16.',
+        'Rural Collector / Farm-to-Market Road: speed rule changed from 30 to 35 mph, with a terrain-by-volume design-speed table (level, rolling, mountainous by traffic volume) in the speed box; cells above 45 mph link to the new 2+1 retrofit. Bicycle, pedestrian, separation, lane-width, and intersection guidance now split at 45 mph (shoulder below, separated path above; mini-roundabout below, roundabout or enhanced stop control above), and intersection treatment is broken out by what the road meets (Local, Collector, Arterial, Freeway).',
+        'Default (Standard Collector): separation/buffer guidance corrected so the 3 ft parking-adjacent minimum applies only where no rigid crash-protective barrier separates bicycles from the car lanes, and a Property access row added.',
+        'New `GuidanceTable` component (expandable cells, row and expand-all controls, labeled tiers, a Commonway System column twice the width of the others, built-in default columns) and `SpeedTerrainTable`. Intended as a standard section for every Local, Collector, Arterial, and Intersections & Crossings pattern page; only the two pages above carry it so far.',
+        'Media items can now carry a per-page endorsement status. MED-013 (Safe By Design, 2+1 roads) is Aligned on the new retrofit and Context-only on Rural Collector, whose typical case it doesn\'t describe.',
+        'Sitewide color reorganization (landed 2026.09.23): every Scale now has its own real 6-tier color ramp (Network through Element, hues in Scale order), replacing the shared Freeway-gray placeholder on the newest four; Freeway\'s ramp deliberately departs from the Brand Guide\'s neutral gray at the site owner\'s direction. Pattern, Retrofit, and Modal Hierarchy components updated; Brand Guide\'s Scale ramps and Accessibility notes updated to match. The Roadmap\'s color-reorganization and ecosystem-map items were removed, both now shipped.',
+        'Known incomplete: the Rural Collector table has several deliberate open gaps (NACTO and Complete Streets intersection cells, Dutch pedestrian cell, lane count outside the Commonway column). The separated-facility gap width for speeds of 45 mph and above is not yet specified anywhere in the publication. Four sources could not be independently verified: the Green Book Table 6-1 values beyond the highest-volume column, the AASHTO bike guide\'s wider-shoulder-above-50-mph figure, the Missouri 12 to 24 percent passing-lane figure, and the Dutch 60 km/h access-road speed. The 2+1 retrofit\'s applicability to Default (No Parking, No Direct Property Access) and Scenic Highway / Byway is by reasoning, not yet researched on those pages.',
+      ],
+    },
+    {
       date: '2026.09.22',
       items: [
         'Pattern Index illustration coverage expanded from 11 to 26 of 111 patterns. 15 patterns wired up with a real illustration for the first time: all 4 Network patterns (Grid, Dendritic / Hierarchical, Radial, Organic / Irregular), all 6 Corridor patterns (Density Step-Down / Step-Up, Rural-to-Town Gateway, Character Transect, Rail-With-Trail Corridor, Road-Adjacent Greenway, Transit Alignment Corridor), Bicycle Boulevard / Neighborhood Greenway and Shared-Use Path (Local Streets, completing that category), Bike Highway / Greenway (Collectors), Stroad (Arterials), Protected Intersection (Intersections & Crossings), and Sharrow plus Modal Filter / Point Closure (Elements). Artwork for 11 already-illustrated patterns (10 Local Street patterns plus Roundabout), the shared placeholder graphic, and the two Foundations-page diagrams was also refreshed with updated versions.',
@@ -302,10 +315,6 @@ Work that's planned but not yet built, grouped by area.
 
 ### Design system
 
-- **Sitewide color reorganization.** Broader color-system work,
-  including real per-Scale colors for the newest classifications
-  (Network, Corridor, Facility, Element), and resolving a few flagged
-  accessibility and contrast exceptions.
 - **Accessibility features.** Researching contrast and text-size
   controls, a more visible cursor, and a plain-text output option.
 
@@ -313,8 +322,6 @@ Work that's planned but not yet built, grouped by area.
 
 - **Illustration system rollout.** Extending real illustration content
   beyond the handful of pattern pages that currently have it.
-- **Ecosystem map.** A map showing how the Commonway System relates to
-  NACTO, Complete Streets, Strong Towns, and similar efforts.
 - **Bike Highway / Downtown Thoroughfare content pass.** A future
   revision pass on these two pattern pages.
 - **Binding-adoption template.** A future, separate model template for

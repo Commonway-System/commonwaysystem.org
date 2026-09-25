@@ -80,16 +80,17 @@
   .pattern-card[data-classification='intersections'] {
     --cw-classification-color: var(--cw-intersections);
   }
-  /* PLACEHOLDER: no brand colors are defined yet for these four Scales
-     (Network, Corridor, Facility, Element), added 2026.08.31. Reusing
-     Freeway's own ramp (already a neutral gray, see tokens.css) as a
-     stand-in rather than inventing a new hex value; swap for real colors
-     once assigned. */
-  .pattern-card[data-classification='network'],
-  .pattern-card[data-classification='corridor'],
-  .pattern-card[data-classification='facility'],
+  .pattern-card[data-classification='network'] {
+    --cw-classification-color: var(--cw-network);
+  }
+  .pattern-card[data-classification='corridor'] {
+    --cw-classification-color: var(--cw-corridor);
+  }
+  .pattern-card[data-classification='facility'] {
+    --cw-classification-color: var(--cw-facility);
+  }
   .pattern-card[data-classification='element'] {
-    --cw-classification-color: var(--cw-freeway);
+    --cw-classification-color: var(--cw-element);
   }
 
   .pattern-card__head {

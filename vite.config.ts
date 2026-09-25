@@ -584,6 +584,10 @@ const theme = commonwayTheme({
             title: 'Depaving / pavement-to-gravel conversion',
             to: '/retrofits/corridor/depaving-pavement-to-gravel/',
           },
+          {
+            title: '2+1 road with cable median barrier',
+            to: '/retrofits/corridor/two-plus-one-road-cable-barrier/',
+          },
         ],
       },
       {

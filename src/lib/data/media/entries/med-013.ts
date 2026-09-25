@@ -12,7 +12,9 @@ const item: MediaItem = {
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Collector', 'Arterial'],
   mediaTags: ['Case Study'],
-  relatedTo: ['COL-FTM-02', 'ELM-TRB-23', '/guide/how-the-transportation-ecosystem-fits-together/'],
+  // Aligned with the 2+1 retrofit it is actually about; Context-only on Rural Collector, whose typical case (35 mph, low volume) it doesn't describe.
+  endorsementOverrides: { 'COL-FTM-02': 'context-only' },
+  relatedTo: ['RFT-CDR-11', 'COL-FTM-02', 'ELM-TRB-23', '/guide/how-the-transportation-ecosystem-fits-together/'],
   dateAdded: '2026-09-04',
 }
 

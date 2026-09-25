@@ -65,20 +65,9 @@
     color: var(--cw-collector-pill-fg);
   }
 
-  /* Arterial's green only clears ~2.3-3.6:1 against either black or
-     white text, short of the 4.5:1 text minimum either way. White reads
-     far more clearly than black here, so per the user's own call, a
-     dark glow (text-shadow / icon drop-shadow) stands in for contrast
-     rather than picking the "technically passing" but harder-to-read
-     black. */
   .modal-pill[data-classification='arterial'] {
     background: var(--cw-arterial);
     color: var(--cw-arterial-pill-fg);
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
-  }
-
-  .modal-pill[data-classification='arterial'] .modal-pill__icon {
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.75));
   }
 
   .modal-pill__icon-circle {

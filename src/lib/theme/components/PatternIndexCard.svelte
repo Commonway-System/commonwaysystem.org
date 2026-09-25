@@ -86,15 +86,21 @@
     --pic-overlay: var(--cw-intersections-suburban);
     --pic-hover-border: var(--cw-intersections-core);
   }
-  /* PLACEHOLDER: no brand colors defined yet for these four Scales (added
-     2026.08.31); reusing Freeway's own neutral-gray ramp as a stand-in,
-     same reasoning as PatternCard.svelte's own placeholder mapping. */
-  .pic[data-classification='network'],
-  .pic[data-classification='corridor'],
-  .pic[data-classification='facility'],
+  .pic[data-classification='network'] {
+    --pic-overlay: var(--cw-network-suburban);
+    --pic-hover-border: var(--cw-network-core);
+  }
+  .pic[data-classification='corridor'] {
+    --pic-overlay: var(--cw-corridor-suburban);
+    --pic-hover-border: var(--cw-corridor-core);
+  }
+  .pic[data-classification='facility'] {
+    --pic-overlay: var(--cw-facility-suburban);
+    --pic-hover-border: var(--cw-facility-core);
+  }
   .pic[data-classification='element'] {
-    --pic-overlay: var(--cw-freeway-suburban);
-    --pic-hover-border: var(--cw-freeway-core);
+    --pic-overlay: var(--cw-element-suburban);
+    --pic-hover-border: var(--cw-element-core);
   }
 
   /* Border/radius/shadow/lift treatment matches the homepage feature cards

@@ -40,23 +40,23 @@
      this strategy's scale/function, the same "peers on the Pattern Index
      page" rule RetrofitIndexCard.svelte uses (see there for the fuller
      comment): Intersection strategies get the real Intersections &
-     Crossings ramp, since their Pattern peers already have one.
-     PLACEHOLDER: Corridor and Network still reuse Freeway's neutral-gray
-     ramp as a stand-in, the same open item as PatternCard's own
-     network/corridor/facility/element classifications, since Patterns'
-     "corridor"/"network" classifications are themselves still on that
-     placeholder. */
+     Crossings ramp, Corridor and Network get Patterns' own real
+     corridor/network ramps, now that all nine Scale prefixes have one
+     (see tokens.css). */
   .retrofit-card {
     margin: 1.5rem 0;
     padding: 1.1rem 1.25rem;
     border-radius: var(--cw-radius-lg);
     border: 1px solid var(--cw-hairline);
-    border-left: 4px solid var(--cw-retrofit-color, var(--cw-freeway));
+    border-left: 4px solid var(--cw-retrofit-color, var(--cw-corridor));
     background: var(--cw-paper-raised);
   }
 
   .retrofit-card[data-scale='intersection'] {
     --cw-retrofit-color: var(--cw-intersections);
+  }
+  .retrofit-card[data-scale='network'] {
+    --cw-retrofit-color: var(--cw-network);
   }
 
   .retrofit-card__head {

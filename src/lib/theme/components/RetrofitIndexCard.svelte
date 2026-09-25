@@ -41,19 +41,16 @@
 <style>
   /* Coloring shares whichever Pattern classification is this strategy's
      scale/functional peer, per the user's own instruction, rather than
-     inventing a separate Retrofit-only palette: an Intersection strategy's
-     peers on the Pattern Index are Intersections & Crossings patterns, so
-     it gets that ramp's real color, same overlay/hover-border tiers
-     PatternIndexCard.svelte uses for classification="intersections".
-     Corridor and Network strategies' peers (Patterns' own "corridor" and
-     "network" classifications) are still on the Freeway-gray placeholder
-     themselves, so these two inherit that same placeholder rather than
-     getting a color Patterns' own equivalent classifications don't have
-     yet - swap both together if/when real Corridor/Network colors land. */
-  .ric[data-scale='corridor'],
+     inventing a separate Retrofit-only palette: same overlay/hover-border
+     tiers PatternIndexCard.svelte uses for the matching classification,
+     now that all nine Scale prefixes have a real ramp (see tokens.css). */
+  .ric[data-scale='corridor'] {
+    --ric-overlay: var(--cw-corridor-suburban);
+    --ric-hover-border: var(--cw-corridor-core);
+  }
   .ric[data-scale='network'] {
-    --ric-overlay: var(--cw-freeway-suburban);
-    --ric-hover-border: var(--cw-freeway-core);
+    --ric-overlay: var(--cw-network-suburban);
+    --ric-hover-border: var(--cw-network-core);
   }
   .ric[data-scale='intersection'] {
     --ric-overlay: var(--cw-intersections-suburban);

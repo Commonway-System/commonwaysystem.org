@@ -38,6 +38,7 @@ Corridor strategies change a single street segment's cross-section: lane count, 
   <RetrofitIndexCard href="/retrofits/corridor/protected-bike-lane-lane-removal/" id="RFT-CDR-08" title="Protected bike lane retrofit via lane removal" scale="corridor" />
   <RetrofitIndexCard href="/retrofits/corridor/protected-bike-lane-parking-reduction/" id="RFT-CDR-09" title="Protected bike lane retrofit via parking reduction" scale="corridor" />
   <RetrofitIndexCard href="/retrofits/corridor/depaving-pavement-to-gravel/" id="RFT-CDR-10" title="Depaving / pavement-to-gravel conversion" scale="corridor" />
+  <RetrofitIndexCard href="/retrofits/corridor/two-plus-one-road-cable-barrier/" id="RFT-CDR-11" title="2+1 road with cable median barrier" scale="corridor" />
 </div>
 
 ## Intersection level strategies

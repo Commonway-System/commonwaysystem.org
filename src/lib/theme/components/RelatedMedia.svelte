@@ -21,7 +21,7 @@
     <div class="related-media__box">
       <div class="related-media__grid">
         {#each items as item (item.id)}
-          <MediaCard {item} />
+          <MediaCard {item} pageId={id} />
         {/each}
       </div>
     </div>

@@ -5,19 +5,39 @@
  * as CSS custom properties. Components reference tokens, never raw hex
  * values, so a palette or type change never means hunting through markup.
  *
- * Synced to the working Brand Guide (see /about/brand-guide/) as of
- * CalVer 2026.08.26, with one exception still marked PLACEHOLDER below:
- * --cw-danger (the guide doesn't define a danger-admonition color; kept
- * as an independent site-only red rather than reusing Freeway, since
- * Freeway's real spec color is a neutral gray, not alarming).
+ * Base tokens (ink, paper, teal, indigo, amber) and the evidence tiers are
+ * synced to the working Brand Guide (see /about/brand-guide/), with one
+ * exception still marked PLACEHOLDER below: --cw-danger (the guide doesn't
+ * define a danger-admonition color; kept as an independent site-only red
+ * rather than reusing Freeway, since Freeway's real spec color used to be
+ * a neutral gray, not alarming — see the Scale ramps note directly below).
  *
- * The Intersections & Crossings ramp (--cw-intersections-*) is a
- * site-only addition, not from the working Brand Guide draft (which has
- * no color family for that cross-cutting category): built 2026.08.30
- * from a single base color (#8a5a13, the exact value the scaffold's own
- * --cw-intersections placeholder already used) with the same
- * constant-hue/constant-saturation, evenly-stepped-lightness method the
- * guide's own four ramps use (see the comment above the ramp itself).
+ * Scale ramps (2026.09.23 full recolor): all nine Scale-prefix ramps
+ * (Network, Corridor, Local, Collector, Arterial, Freeway, Intersections &
+ * Crossings, Facility, Element — the nine prefixes in the Pattern ID
+ * scheme, see CLAUDE.md) are now a deliberate site-only palette, not a
+ * literal transcription of the working Brand Guide. The guide's original
+ * four ramps only ever covered the four Functional Classifications
+ * (Local/Collector/Arterial/Freeway); once Patterns grew to nine Scale
+ * prefixes, five of those nine had no real color at all and were standing
+ * in on Freeway's neutral gray as a placeholder. This full recolor,
+ * approved by the site owner (who also owns the working Brand Guide
+ * document, so this is a real, explicit deviation from it, not a
+ * placeholder swap), places one hue per Scale prefix in spectrum order
+ * (Network=red through Element=violet, matching Scale sequence) chosen by
+ * simulating protanopia/deuteranopia/tritanopia across candidate layouts
+ * and maximizing worst-case separation, then hand-adjusted per the site
+ * owner's feedback (wider gaps for Local/Collector/Arterial specifically,
+ * teal and amber no longer treated as hard exclusion zones, Freeway given
+ * a real hue instead of staying gray). Per the site owner: the ramp colors
+ * are aesthetic/wayfinding, not the mechanism that makes classification
+ * colorblind-safe — that's still the text label next to every colored
+ * element, never color alone (see the ramps' own note below). Every ramp
+ * uses the same constant-hue/constant-saturation, evenly-stepped-lightness
+ * method (lightness stepped 90/78.2/66.3/54.5/42.5/30.8 across the six
+ * tiers, same stepping across all nine ramps; saturation varies per hue,
+ * chosen for visual balance since raw high-saturation reads garish on some
+ * hues and flat on others).
  *
  * All contrast ratios below are computed against this file's own
  * --cw-paper / --cw-paper-raised for that theme, per WCAG 2.1 (4.5:1 for
@@ -116,91 +136,115 @@
      restore contrast, same reasoning as --cw-amber-ink/--cw-danger above. */
   --cw-descriptive-ink: #3b5a82;
 
-  /* ---- Functional Classification ramps -------------------------------
-     Full 6-step tint/shade ramp per classification, lightest at
-     Undeveloped, darkest at Core, straight from the Brand Guide (already
-     colorblind-checked by the guide against protanopia, deuteranopia,
-     and tritanopia). --cw-local etc. below are single representative
-     colors for simple UI chrome (PatternCard border, sidebar accents)
-     that isn't density-aware; --cw-local-soft etc. reuse each
-     classification's own Undeveloped tier as a light tint, so nothing is
-     invented outside the documented ramp. */
-  --cw-local-undeveloped: #e5cdfe;
-  --cw-local-rural: #ca9cfc;
-  --cw-local-suburban: #ab60fb;
-  --cw-local-compact: #891ff9;
-  --cw-local-urban: #6805d1;
-  --cw-local-core: #4a0495;
+  /* ---- Scale ramps ---------------------------------------------------
+     Full 6-step tint/shade ramp per Scale prefix, lightest at
+     Undeveloped, darkest at Core (see file-header comment for the
+     2026.09.23 full recolor this replaced). --cw-local etc. below are
+     single representative colors for simple UI chrome (PatternCard
+     border, sidebar accents) that isn't density-aware; --cw-*-soft
+     reuses each ramp's own Undeveloped tier as a light tint, so nothing
+     is invented outside the ramp itself. */
+  --cw-network-undeveloped: #f7d5d4;
+  --cw-network-rural: #eda4a2;
+  --cw-network-suburban: #e4726f;
+  --cw-network-compact: #da413c;
+  --cw-network-urban: #b62723;
+  --cw-network-core: #841c19;
 
-  --cw-collector-undeveloped: #d9d8f2;
-  --cw-collector-rural: #b3b1e5;
-  --cw-collector-suburban: #8d8ad8;
-  --cw-collector-compact: #6764c4;
-  --cw-collector-urban: #4a47b8;
-  --cw-collector-core: #302d82;
+  --cw-corridor-undeveloped: #f7efd4;
+  --cw-corridor-rural: #eddda2;
+  --cw-corridor-suburban: #e4ca6f;
+  --cw-corridor-compact: #dab73c;
+  --cw-corridor-urban: #b69623;
+  --cw-corridor-core: #846c19;
 
-  --cw-arterial-undeveloped: #eaf5d0;
-  --cw-arterial-rural: #d4eba1;
-  --cw-arterial-suburban: #bee072;
-  --cw-arterial-compact: #a3ce49;
-  --cw-arterial-urban: #8ab92e;
-  --cw-arterial-core: #6b9420;
+  --cw-local-undeveloped: #edf4d7;
+  --cw-local-rural: #d8e8a7;
+  --cw-local-suburban: #c3db77;
+  --cw-local-compact: #afce48;
+  --cw-local-urban: #8eab2e;
+  --cw-local-core: #677c21;
 
-  --cw-freeway-undeveloped: #edeef0;
-  --cw-freeway-rural: #d6d8dc;
-  --cw-freeway-suburban: #b9bcc2;
-  --cw-freeway-compact: #9ca0a8;
-  --cw-freeway-urban: #7d818a;
-  --cw-freeway-core: #5c6068;
+  --cw-collector-undeveloped: #daf2d9;
+  --cw-collector-rural: #afe3ac;
+  --cw-collector-suburban: #84d47e;
+  --cw-collector-compact: #58c551;
+  --cw-collector-urban: #3da336;
+  --cw-collector-core: #2c7627;
 
-  /* Site-only ramp (see file-header comment), same 6-step shape as the
-     four guide ramps above: constant hue (~36°) and saturation (~76%),
-     lightness stepped evenly from Undeveloped down to Core. Core
-     (#8a5a13) is the exact base color the request specified, which is
-     also the scaffold's old placeholder value verbatim, so nothing that
-     already referenced --cw-intersections shifts color, it's now backed
-     by a real ramp instead of a single hardcoded hex. */
-  --cw-intersections-undeveloped: #f9e9d2;
-  --cw-intersections-rural: #f2cf9d;
-  --cw-intersections-suburban: #eab668;
-  --cw-intersections-compact: #e39c33;
-  --cw-intersections-urban: #bf7d1a;
-  --cw-intersections-core: #8a5a13;
+  --cw-arterial-undeveloped: #d7f4e6;
+  --cw-arterial-rural: #a9e6c9;
+  --cw-arterial-suburban: #7ad8ac;
+  --cw-arterial-compact: #4bcb8f;
+  --cw-arterial-urban: #31a870;
+  --cw-arterial-core: #237a51;
 
-  /* Representative single color per classification: the lightest tier
-     that still clears (or gets closest to) 4.5:1 text contrast on this
-     theme's paper. Local/Collector reach it at Urban; Arterial, Freeway,
-     and Intersections' hues are naturally lighter and only reach
-     ~3.3-5.7:1 even at Core, so PatternCard/PatternIndexCard use this
-     color for a border accent only (3:1 suffices), never for the ID
-     text, which is always ink, per the guide ("a constant identity mark
-     distinct from classification color"). */
-  --cw-local: var(--cw-local-urban);
-  --cw-collector: var(--cw-collector-urban);
+  --cw-freeway-undeveloped: #d8ebf3;
+  --cw-freeway-rural: #abd4e4;
+  --cw-freeway-suburban: #7cbcd6;
+  --cw-freeway-compact: #4fa4c7;
+  --cw-freeway-urban: #3484a5;
+  --cw-freeway-core: #266077;
+
+  --cw-intersections-undeveloped: #d7ddf4;
+  --cw-intersections-rural: #a7b5e8;
+  --cw-intersections-suburban: #778ddb;
+  --cw-intersections-compact: #4865ce;
+  --cw-intersections-urban: #2e49ab;
+  --cw-intersections-core: #21357c;
+
+  --cw-facility-undeveloped: #e1d8f3;
+  --cw-facility-rural: #bdabe4;
+  --cw-facility-suburban: #997cd6;
+  --cw-facility-compact: #754fc7;
+  --cw-facility-urban: #5834a5;
+  --cw-facility-core: #3f2677;
+
+  --cw-element-undeveloped: #f3d6f5;
+  --cw-element-rural: #e5a5ea;
+  --cw-element-suburban: #d774de;
+  --cw-element-compact: #c943d3;
+  --cw-element-urban: #a629b0;
+  --cw-element-core: #791e7f;
+
+  /* Representative single color per Scale prefix: the lightest tier that
+     still clears (or gets closest to) 4.5:1 text contrast on this
+     theme's paper. Used for a border accent or similar UI chrome only
+     (3:1 suffices there), never for the Pattern ID text itself, which is
+     always ink, per the guide ("a constant identity mark distinct from
+     classification color"). */
+  --cw-network: var(--cw-network-urban);
+  --cw-corridor: var(--cw-corridor-core);
+  --cw-local: var(--cw-local-core);
+  --cw-collector: var(--cw-collector-core);
   --cw-arterial: var(--cw-arterial-core);
   --cw-freeway: var(--cw-freeway-core);
-  --cw-intersections: var(--cw-intersections-core);
+  --cw-intersections: var(--cw-intersections-compact);
+  --cw-facility: var(--cw-facility-compact);
+  --cw-element: var(--cw-element-urban);
 
+  --cw-network-soft: var(--cw-network-undeveloped);
+  --cw-corridor-soft: var(--cw-corridor-undeveloped);
   --cw-local-soft: var(--cw-local-undeveloped);
   --cw-collector-soft: var(--cw-collector-undeveloped);
   --cw-arterial-soft: var(--cw-arterial-undeveloped);
   --cw-freeway-soft: var(--cw-freeway-undeveloped);
   --cw-intersections-soft: var(--cw-intersections-undeveloped);
+  --cw-facility-soft: var(--cw-facility-undeveloped);
+  --cw-element-soft: var(--cw-element-undeveloped);
 
-  /* Modal Hierarchy pill text/icon color. Local and Collector: computed
-     WCAG contrast of #FFFFFF vs #000000 against each classification's
-     own --cw-local/-collector representative fill above, whichever wins
-     by the larger margin (ModalHierarchyPill.svelte) — not a single
-     fixed choice, since the representative token's own value flips
-     between light and dark mode, and the contrast winner flips
-     independently right along with it (white wins on light mode's
-     purple/indigo, black wins on dark mode's lighter tint of the same
-     hue). Arterial is the deliberate exception: its yellow-green only
-     clears ~2.3-3.6:1 against either black or white (short of the
-     4.5:1 text minimum both ways), and white reads far more legibly
-     there than the "technically closer" black, so it's fixed white in
-     both themes with a dark text-shadow/icon-drop-shadow glow standing
-     in for contrast instead (the user's own call, not a WCAG pass). */
+  /* Modal Hierarchy pill text/icon color: computed WCAG contrast of
+     #FFFFFF vs #000000 against each classification's own representative
+     fill above, whichever wins by the larger margin
+     (ModalHierarchyPill.svelte) — not a single fixed choice, since the
+     representative token's own value flips between light and dark mode,
+     and the contrast winner flips independently right along with it.
+     Post-2026.09.23 recolor, all three clear 4.5:1 cleanly both ways in
+     both themes (white wins ~4.7-5.6:1 here on light paper's darker
+     Core-tier fills; black wins ~6.5-8:1 in dark mode, see the dark
+     block below) — the old fixed-white-plus-glow special case for
+     Arterial no longer applies, that was specific to the previous
+     yellow-green hue, which failed both pairings outright. */
   --cw-local-pill-fg: #ffffff;
   --cw-collector-pill-fg: #ffffff;
   --cw-arterial-pill-fg: #ffffff;
@@ -268,73 +312,112 @@
 
   --cw-descriptive-ink: #a9c2e0;
 
-  --cw-local-undeveloped: #e5cdfe;
-  --cw-local-rural: #ca9cfc;
-  --cw-local-suburban: #ab60fb;
-  --cw-local-compact: #891ff9;
-  --cw-local-urban: #6805d1;
-  --cw-local-core: #4a0495;
+  /* Same hex values as the light-mode :root ramps above — the guide's
+     own ramps were never meant to shift with theme, and this site-only
+     2026.09.23 recolor follows the same convention: only the
+     representative and soft tokens below vary by theme, not the ramps
+     themselves. */
+  --cw-network-undeveloped: #f7d5d4;
+  --cw-network-rural: #eda4a2;
+  --cw-network-suburban: #e4726f;
+  --cw-network-compact: #da413c;
+  --cw-network-urban: #b62723;
+  --cw-network-core: #841c19;
 
-  --cw-collector-undeveloped: #d9d8f2;
-  --cw-collector-rural: #b3b1e5;
-  --cw-collector-suburban: #8d8ad8;
-  --cw-collector-compact: #6764c4;
-  --cw-collector-urban: #4a47b8;
-  --cw-collector-core: #302d82;
+  --cw-corridor-undeveloped: #f7efd4;
+  --cw-corridor-rural: #eddda2;
+  --cw-corridor-suburban: #e4ca6f;
+  --cw-corridor-compact: #dab73c;
+  --cw-corridor-urban: #b69623;
+  --cw-corridor-core: #846c19;
 
-  --cw-arterial-undeveloped: #eaf5d0;
-  --cw-arterial-rural: #d4eba1;
-  --cw-arterial-suburban: #bee072;
-  --cw-arterial-compact: #a3ce49;
-  --cw-arterial-urban: #8ab92e;
-  --cw-arterial-core: #6b9420;
+  --cw-local-undeveloped: #edf4d7;
+  --cw-local-rural: #d8e8a7;
+  --cw-local-suburban: #c3db77;
+  --cw-local-compact: #afce48;
+  --cw-local-urban: #8eab2e;
+  --cw-local-core: #677c21;
 
-  --cw-freeway-undeveloped: #edeef0;
-  --cw-freeway-rural: #d6d8dc;
-  --cw-freeway-suburban: #b9bcc2;
-  --cw-freeway-compact: #9ca0a8;
-  --cw-freeway-urban: #7d818a;
-  --cw-freeway-core: #5c6068;
+  --cw-collector-undeveloped: #daf2d9;
+  --cw-collector-rural: #afe3ac;
+  --cw-collector-suburban: #84d47e;
+  --cw-collector-compact: #58c551;
+  --cw-collector-urban: #3da336;
+  --cw-collector-core: #2c7627;
 
-  /* Same hex values as the light-mode :root ramp above, see that block's
-     comment for how this was built from the #8a5a13 base. */
-  --cw-intersections-undeveloped: #f9e9d2;
-  --cw-intersections-rural: #f2cf9d;
-  --cw-intersections-suburban: #eab668;
-  --cw-intersections-compact: #e39c33;
-  --cw-intersections-urban: #bf7d1a;
-  --cw-intersections-core: #8a5a13;
+  --cw-arterial-undeveloped: #d7f4e6;
+  --cw-arterial-rural: #a9e6c9;
+  --cw-arterial-suburban: #7ad8ac;
+  --cw-arterial-compact: #4bcb8f;
+  --cw-arterial-urban: #31a870;
+  --cw-arterial-core: #237a51;
+
+  --cw-freeway-undeveloped: #d8ebf3;
+  --cw-freeway-rural: #abd4e4;
+  --cw-freeway-suburban: #7cbcd6;
+  --cw-freeway-compact: #4fa4c7;
+  --cw-freeway-urban: #3484a5;
+  --cw-freeway-core: #266077;
+
+  --cw-intersections-undeveloped: #d7ddf4;
+  --cw-intersections-rural: #a7b5e8;
+  --cw-intersections-suburban: #778ddb;
+  --cw-intersections-compact: #4865ce;
+  --cw-intersections-urban: #2e49ab;
+  --cw-intersections-core: #21357c;
+
+  --cw-facility-undeveloped: #e1d8f3;
+  --cw-facility-rural: #bdabe4;
+  --cw-facility-suburban: #997cd6;
+  --cw-facility-compact: #754fc7;
+  --cw-facility-urban: #5834a5;
+  --cw-facility-core: #3f2677;
+
+  --cw-element-undeveloped: #f3d6f5;
+  --cw-element-rural: #e5a5ea;
+  --cw-element-suburban: #d774de;
+  --cw-element-compact: #c943d3;
+  --cw-element-urban: #a629b0;
+  --cw-element-core: #791e7f;
 
   /* Dark mode needs a lighter tier than light mode for the same 4.5:1+
-     legibility reason --cw-link and --cw-primary do above. Compact is
-     the closest match to the old hardcoded dark placeholder (#d6a94f,
-     ~57% lightness) this replaces, so the representative color barely
-     shifts even though it's now a real ramp tier instead of an ad-hoc
-     hex. */
-  --cw-local: var(--cw-local-suburban);
-  --cw-collector: var(--cw-collector-suburban);
+     legibility reason --cw-link and --cw-primary do above: the darkest
+     tier that still clears 4.5:1 against dark paper, working up from
+     Core, mirroring the light-mode block's "lightest tier that clears
+     4.5:1 against light paper, working down from Undeveloped" logic. */
+  --cw-network: var(--cw-network-suburban);
+  --cw-corridor: var(--cw-corridor-urban);
+  --cw-local: var(--cw-local-urban);
+  --cw-collector: var(--cw-collector-urban);
   --cw-arterial: var(--cw-arterial-urban);
   --cw-freeway: var(--cw-freeway-compact);
-  --cw-intersections: var(--cw-intersections-compact);
+  --cw-intersections: var(--cw-intersections-suburban);
+  --cw-facility: var(--cw-facility-suburban);
+  --cw-element: var(--cw-element-compact);
 
   /* Undeveloped (near-white pastel) would look wrong as a "soft"
      background on a dark page, so dark mode gets its own hand-tuned
      dark, desaturated tint per hue family instead of reusing a ramp tier
      directly. */
-  --cw-local-soft: #2a1345;
-  --cw-collector-soft: #211f3d;
-  --cw-arterial-soft: #26330f;
-  --cw-freeway-soft: #2b2d31;
-  --cw-intersections-soft: #432c09;
+  --cw-network-soft: #3b1816;
+  --cw-corridor-soft: #3b3316;
+  --cw-local-soft: #333b16;
+  --cw-collector-soft: #193b16;
+  --cw-arterial-soft: #163b2a;
+  --cw-freeway-soft: #16313b;
+  --cw-intersections-soft: #161e3b;
+  --cw-facility-soft: #22163b;
+  --cw-element-soft: #39163b;
 
-  /* Local and Collector flip to black text here: dark mode's lighter
-     tint of the same hue (--cw-local-suburban / --cw-collector-suburban)
-     passes white at only ~3:1 but black at ~6-7:1. Arterial stays fixed
-     white with the glow treatment in both modes, see the light-mode
-     block's comment. */
+  /* All three clear 4.5:1 with black text here, cleanly, post-2026.09.23
+     recolor (black wins ~6.5-8:1 against dark mode's lighter Urban-tier
+     fills; white only reaches ~2.6-3.2:1). The old Arterial exception
+     (fixed white plus a glow, since its previous yellow-green hue failed
+     both pairings) no longer applies — this hue passes the same way
+     Local and Collector already did. */
   --cw-local-pill-fg: #000000;
   --cw-collector-pill-fg: #000000;
-  --cw-arterial-pill-fg: #ffffff;
+  --cw-arterial-pill-fg: #000000;
 
   --cw-note: var(--cw-primary);
   --cw-note-soft: var(--cw-primary-soft);
