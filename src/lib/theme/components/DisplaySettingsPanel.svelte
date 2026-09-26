@@ -1,13 +1,35 @@
 <script lang="ts">
   import { page } from '$app/state'
   import { displaySettings, resetDisplaySettings, updateDisplaySettings } from '../display-settings.js'
-  import type { TextSize } from '../display-settings.js'
+  import type { ReadingFont, RulerDim, TextSize } from '../display-settings.js'
+
+  // The panel is mounted twice (navbar and mobile drawer). Radios sharing a
+  // name form ONE group across the whole document, so each instance needs its own.
+  const uid = $props.id()
 
   const sizes: { value: TextSize, label: string, aria: string }[] = [
     { value: 'default', label: 'A', aria: 'Default text size' },
     { value: 'large', label: 'A', aria: 'Large text (112%)' },
     { value: 'larger', label: 'A', aria: 'Larger text (125%)' },
     { value: 'largest', label: 'A', aria: 'Largest text (150%)' },
+  ]
+
+  const rulerLines: { value: 1 | 2 | 3, label: string }[] = [
+    { value: 1, label: '1 line' },
+    { value: 2, label: '2 lines' },
+    { value: 3, label: '3 lines' },
+  ]
+  const rulerDims: { value: RulerDim, label: string }[] = [
+    { value: 'light', label: 'Light' },
+    { value: 'medium', label: 'Medium' },
+    { value: 'dark', label: 'Dark' },
+  ]
+
+  const fonts: { value: ReadingFont, label: string, note: string }[] = [
+    { value: 'default', label: 'Standard', note: 'The publication\'s own fonts.' },
+    { value: 'lexend', label: 'Lexend', note: 'Wider, even spacing designed for reading fluency.' },
+    { value: 'atkinson', label: 'Atkinson Hyperlegible Next', note: 'Every letter shaped to be distinct from the others.' },
+    { value: 'opendyslexic', label: 'OpenDyslexic', note: 'Heavy-bottomed letters. Some readers prefer it; research has not shown it reads faster.' },
   ]
 </script>
 
@@ -19,7 +41,7 @@
         <label class="ds__size" style:--step={i}>
           <input
             type="radio"
-            name="cw-text-size"
+            name="cw-text-size-{uid}"
             value={size.value}
             checked={$displaySettings.textSize === size.value}
             onchange={() => updateDisplaySettings({ textSize: size.value })}
@@ -29,6 +51,22 @@
         </label>
       {/each}
     </div>
+  </fieldset>
+
+  <fieldset class="ds__group">
+    <legend>Reading font</legend>
+    {#each fonts as font (font.value)}
+      <label class="ds__check" data-font-option={font.value}>
+        <input
+          type="radio"
+          name="cw-reading-font-{uid}"
+          value={font.value}
+          checked={$displaySettings.readingFont === font.value}
+          onchange={() => updateDisplaySettings({ readingFont: font.value })}
+        />
+        <span>{font.label}<small>{font.note}</small></span>
+      </label>
+    {/each}
   </fieldset>
 
   <fieldset class="ds__group">
@@ -44,6 +82,52 @@
   </fieldset>
 
   <fieldset class="ds__group">
+    <legend>Color</legend>
+    <label class="ds__check">
+      <input
+        type="checkbox"
+        checked={$displaySettings.colorSymbols}
+        onchange={(e) => updateDisplaySettings({ colorSymbols: e.currentTarget.checked })}
+      />
+      <span>Color symbols<small>A small symbol tab on colored cards, from the free ColorSym system, for readers who cannot tell the colors apart. <a href="/about/brand-guide/#color-symbols">See the symbol key</a>.</small></span>
+    </label>
+  </fieldset>
+
+  <fieldset class="ds__group">
+    <legend>Reading ruler</legend>
+    <label class="ds__check">
+      <input
+        type="checkbox"
+        checked={$displaySettings.readingRuler}
+        onchange={(e) => updateDisplaySettings({ readingRuler: e.currentTarget.checked, ...(e.currentTarget.checked ? { pointerHalo: false } : {}) })}
+      />
+      <span>Reading ruler<small>Shades the page except for a small window of text that follows your pointer or finger. From the keyboard it follows focus, and Alt+Up or Alt+Down moves it. Shaded text is deliberately dimmer; pick Light if you need more contrast.</small></span>
+    </label>
+    {#if $displaySettings.readingRuler}
+      <div class="ds__sub">
+        <span class="ds__subhead" id="cw-ruler-lines-{uid}">Window height</span>
+        <div class="ds__sizes ds__sizes--text" role="radiogroup" aria-labelledby="cw-ruler-lines-{uid}">
+          {#each rulerLines as option (option.value)}
+            <label class="ds__size">
+              <input type="radio" name="cw-ruler-lines-{uid}" value={option.value} checked={$displaySettings.rulerLines === option.value} onchange={() => updateDisplaySettings({ rulerLines: option.value })} />
+              <span>{option.label}</span>
+            </label>
+          {/each}
+        </div>
+        <span class="ds__subhead" id="cw-ruler-dim-{uid}">Shading</span>
+        <div class="ds__sizes ds__sizes--text" role="radiogroup" aria-labelledby="cw-ruler-dim-{uid}">
+          {#each rulerDims as option (option.value)}
+            <label class="ds__size">
+              <input type="radio" name="cw-ruler-dim-{uid}" value={option.value} checked={$displaySettings.rulerDim === option.value} onchange={() => updateDisplaySettings({ rulerDim: option.value })} />
+              <span>{option.label}</span>
+            </label>
+          {/each}
+        </div>
+      </div>
+    {/if}
+  </fieldset>
+
+  <fieldset class="ds__group">
     <legend>Page layout</legend>
     <label class="ds__check">
       <input
@@ -51,7 +135,7 @@
         checked={$displaySettings.simplifiedView}
         onchange={(e) => updateDisplaySettings({ simplifiedView: e.currentTarget.checked })}
       />
-      <span>Simplified view<small>One column, plain font, no decoration or animation, everything expanded.</small></span>
+      <span>Simplified view<small>One column, plain font (unless you choose a reading font), no decoration or animation, everything expanded.</small></span>
     </label>
   </fieldset>
 
@@ -81,9 +165,9 @@
       <input
         type="checkbox"
         checked={$displaySettings.pointerHalo}
-        onchange={(e) => updateDisplaySettings({ pointerHalo: e.currentTarget.checked })}
+        onchange={(e) => updateDisplaySettings({ pointerHalo: e.currentTarget.checked, ...(e.currentTarget.checked ? { readingRuler: false } : {}) })}
       />
-      <span>Pointer highlight<small>A translucent yellow circle that follows the pointer.</small></span>
+      <span>Pointer highlight<small>A translucent yellow circle that follows the pointer. Turns off the reading ruler.</small></span>
     </label>
   </fieldset>
 
@@ -137,6 +221,25 @@
     font-size: calc(0.875rem + var(--step) * 0.25rem);
   }
 
+  .ds__sizes--text .ds__size {
+    font-family: var(--cw-font-body);
+    font-size: var(--cw-text-sm);
+    font-weight: 500;
+    min-height: 40px;
+  }
+
+  .ds__sub {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0.2rem 0 0 1.75rem;
+  }
+
+  .ds__subhead {
+    font-size: var(--cw-text-sm);
+    color: var(--cw-ink-soft);
+  }
+
   .ds__size input {
     position: absolute;
     inset: 0;
@@ -172,6 +275,11 @@
     margin: 0.15rem 0 0;
     accent-color: var(--cw-primary);
   }
+
+  /* Each option's name is drawn in its own font, as a preview. */
+  .ds__check[data-font-option='lexend'] > span { font-family: 'Lexend Variable', Lexend, system-ui, sans-serif; }
+  .ds__check[data-font-option='atkinson'] > span { font-family: 'Atkinson Hyperlegible Next Variable', 'Atkinson Hyperlegible Next', system-ui, sans-serif; }
+  .ds__check[data-font-option='opendyslexic'] > span { font-family: 'OpenDyslexic', system-ui, sans-serif; }
 
   .ds__check small {
     display: block;

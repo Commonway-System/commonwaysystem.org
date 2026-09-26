@@ -11,22 +11,36 @@ export type TextSize = 'default' | 'large' | 'larger' | 'largest'
 
 export type Contrast = 'default' | 'high'
 
+export type ReadingFont = 'default' | 'lexend' | 'atkinson' | 'opendyslexic'
+
+export type RulerDim = 'light' | 'medium' | 'dark'
+
 export interface DisplaySettings {
   textSize: TextSize
   contrast: Contrast
+  readingFont: ReadingFont
+  colorSymbols: boolean
   simplifiedView: boolean
   enhancedFocus: boolean
   largePointer: boolean
   pointerHalo: boolean
+  readingRuler: boolean
+  rulerLines: 1 | 2 | 3
+  rulerDim: RulerDim
 }
 
 export const DEFAULT_DISPLAY_SETTINGS: DisplaySettings = {
   textSize: 'default',
   contrast: 'default',
+  readingFont: 'default',
+  colorSymbols: false,
   simplifiedView: false,
   enhancedFocus: false,
   largePointer: false,
   pointerHalo: false,
+  readingRuler: false,
+  rulerLines: 2,
+  rulerDim: 'medium',
 }
 
 const STORAGE_KEY = 'commonway-display-settings'
@@ -44,6 +58,8 @@ function apply(s: DisplaySettings) {
   const root = document.documentElement
   root.dataset.textSize = s.textSize
   root.dataset.contrast = s.contrast
+  root.dataset.font = s.readingFont
+  root.dataset.symbols = s.colorSymbols ? 'on' : 'off'
   root.dataset.view = s.simplifiedView ? 'simple' : 'default'
   if (s.simplifiedView)
     expandAllDetails()

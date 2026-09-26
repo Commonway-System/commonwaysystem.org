@@ -1,0 +1,120 @@
+/* ---------------------------------------------------------------------
+   Color symbols (Display settings, data-symbols='on' on <html>).
+   A small tab of ColorSym symbols (https://colorsym.com, CC BY-SA 4.0,
+   files in static/color-symbols/) marks each Scale/classification hue, so
+   color is never the only cue. It is an extra affordance: every colored
+   element already carries a text label.
+
+   The nine hues, from their Suburban-tier hex values:
+     network 2 (red)          R        corridor 47 (yellow)        Y
+     local 74 (yellow-green)  Y/G      collector 116 (green)       G
+     arterial 152             G/B      freeway 197                 B/G
+     intersections 227 (blue) B        facility 259 (violet)       V
+     element 296              V/R
+   ColorSym has no yellow-green, teal or magenta, so those are drawn as two
+   symbols joined by a slash, dominant hue first (arterial is green leaning
+   blue, freeway is blue leaning green). Symbols are decorative (no alt):
+   the visible text label carries the same information for everyone.
+   Symbols are used unmodified, as CC BY-SA 4.0 requires.
+   --------------------------------------------------------------------- */
+
+/* Which symbols each hue gets. Custom properties inherit, so a card's
+   data-classification / data-scale reaches its image area's tab. */
+:is([data-classification='network'], [data-scale='network'], [data-symkey='network']) {
+  --sym-1: url('/color-symbols/red.svg');
+}
+:is([data-classification='corridor'], [data-scale='corridor'], [data-symkey='corridor']) {
+  --sym-1: url('/color-symbols/yellow.svg');
+}
+:is([data-classification='local'], [data-symkey='local']) {
+  --sym-1: url('/color-symbols/yellow.svg');
+  --sym-2: url('/color-symbols/green.svg');
+  --sym-w: 4.2em;
+  --sym-pos: -0.2em center, center, calc(100% + 0.2em) center;
+}
+:is([data-classification='collector'], [data-symkey='collector']) {
+  --sym-1: url('/color-symbols/green.svg');
+}
+:is([data-classification='arterial'], [data-symkey='arterial']) {
+  --sym-1: url('/color-symbols/green.svg');
+  --sym-2: url('/color-symbols/blue.svg');
+  --sym-w: 4.2em;
+  --sym-pos: -0.2em center, center, calc(100% + 0.2em) center;
+}
+:is([data-classification='freeway'], [data-symkey='freeway']) {
+  --sym-1: url('/color-symbols/blue.svg');
+  --sym-2: url('/color-symbols/green.svg');
+  --sym-w: 4.2em;
+  --sym-pos: -0.2em center, center, calc(100% + 0.2em) center;
+}
+:is([data-classification='intersections'], [data-scale='intersection'], [data-symkey='intersections']) {
+  --sym-1: url('/color-symbols/blue.svg');
+}
+:is([data-classification='facility'], [data-symkey='facility']) {
+  --sym-1: url('/color-symbols/violet.svg');
+}
+:is([data-classification='element'], [data-symkey='element']) {
+  --sym-1: url('/color-symbols/violet.svg');
+  --sym-2: url('/color-symbols/red.svg');
+  --sym-w: 4.2em;
+  --sym-pos: -0.2em center, center, calc(100% + 0.2em) center;
+}
+
+/* The tab itself. Fixed paper/ink (not theme tokens): it sits on a colored
+   image or card edge in both themes, so it needs its own guaranteed
+   contrast (near-black symbols on cream is over 15:1, and the ink border
+   separates it from the colored area). Sized in em so it scales with text
+   size; hosts can set font-size to shrink it. */
+html[data-symbols='on'] :is(.pic__image, .ric__image, .pattern-card, .retrofit-card)::after,
+.cw-symtab {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  height: 2.1em;
+  width: var(--sym-w, 2.1em);
+  border-top: 2px solid var(--cw-ink-fixed);
+  border-right: 2px solid var(--cw-ink-fixed);
+  border-top-right-radius: 0.6em;
+  background-color: var(--cw-paper-fixed);
+  background-repeat: no-repeat;
+  background-image: var(--sym-1, none), url('/color-symbols/slash.svg'), var(--sym-2, none);
+  background-size: 2.5em 2.5em, 0.3em 1.3em, 2.5em 2.5em;
+  pointer-events: none;
+}
+
+/* One symbol: centered. Two: first left, slash in the middle, second right. */
+html[data-symbols='on'] :is(.pic__image, .ric__image, .pattern-card, .retrofit-card)::after,
+.cw-symtab {
+  background-position: var(--sym-pos, center, -100em -100em, -100em -100em);
+}
+html[data-symbols='on'] :is(.pic__image, .ric__image)::after {
+  font-size: 1rem;
+}
+
+.cw-symtab {
+  position: static;
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid var(--cw-ink-fixed);
+  border-radius: 0.4em;
+  flex: none;
+}
+
+/* Cards with a colored left edge: the tab sits in the bottom-left corner, so
+   leave room for it below the content. */
+html[data-symbols='on'] :is(.pattern-card, .retrofit-card) {
+  position: relative;
+  padding-bottom: calc(1.1rem + 1.9rem);
+}
+html[data-symbols='on'] :is(.pattern-card, .retrofit-card)::after {
+  border-bottom-left-radius: calc(var(--cw-radius-lg) - 4px);
+  font-size: 0.875rem;
+}
+
+/* Simplified view removes the images the tabs sit on; cards keep theirs. */
+html[data-view='simple'] :is(.pic__image, .ric__image)::after {
+  display: none;
+}

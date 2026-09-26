@@ -43,8 +43,11 @@ Axe will keep listing these as "needs review" on future scans, because it can't 
 
 The "Aa" button in the header (and "Display settings" in the mobile menu) opens a panel with these options. Choices are saved in your browser only. With no saved choice, the site follows your device's own "more contrast" setting.
 
+- **Reading font:** replaces the publication's fonts with Lexend, Atkinson Hyperlegible Next, or OpenDyslexic. All three are served from this publication's own files, never from an outside font service. Research has not shown that any dyslexia-specific font makes reading faster for everyone; some readers simply find one easier, so the choice is yours.
+- **Color symbols:** a small symbol tab on colored cards, using the free ColorSym system, for readers who cannot tell the colors apart. Text labels already carry the same information; the symbols are an extra. The key is on the [Brand Guide](/about/brand-guide/#color-symbols).
 - **Text size:** four steps up to 150%, scaled from your browser's own text size. Your browser's zoom and your operating system's text settings still work on top of it.
 - **High contrast:** pure black and white, solid borders, underlined links, and a text label for every classification color (Local street, Arterial street, and so on) so color is never the only signal.
+- **Reading ruler:** shades the page except for a clear window of one to three lines that follows your mouse, a finger, or keyboard focus (Alt plus the up or down arrow key also moves it). You choose the window height and how dark the shading is. Text in the shaded area is deliberately dimmer, so choose Light if you need more contrast there. It turns off the pointer highlight, does nothing in forced-colors mode or in print, and is not available on the text-only pages.
 - **Simplified view:** one column in a plain system font, with hero art, card illustrations, and animation removed, and every collapsed section expanded.
 - **Enhanced focus outline:** a thicker two-color outline around whatever has keyboard focus, visible on light and dark backgrounds.
 - **Large pointer:** a larger mouse arrow over the page. Your operating system's pointer-size setting works everywhere, including outside the page, and is the better option if you can use it.

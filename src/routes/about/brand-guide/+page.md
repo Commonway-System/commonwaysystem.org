@@ -6,7 +6,7 @@ llms: The Commonway System's full visual and editorial system, colors, typograph
 ---
 
 <script>
-  import { Button, Citation, ColorSwatch, DensityChip, EvidenceChip, ExampleCard, FormControlsPreview, GuideDiagram, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, RetrofitCard, RetrofitIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
+  import { Button, Citation, ColorSwatch, ColorSymbolKey, DensityChip, EvidenceChip, ExampleCard, FormControlsPreview, GuideDiagram, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, RetrofitCard, RetrofitIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
 </script>
 
 The visual and editorial system behind the Commonway System (CS): how it looks, how it's written, and how its evidence is presented. This page transcribes the working brand reference; treat the color values and rules below as the source of truth over anything in the publication's theme.
@@ -212,6 +212,14 @@ Every Scale prefix in the Pattern ID scheme gets its own 6-step tint/shade ramp 
   <ColorSwatch hex="#A629B0" label="Urban" />
   <ColorSwatch hex="#791E7F" label="Core" />
 </div>
+
+### Color symbols
+
+An optional reading aid, switched on from the Display settings panel (Color symbols). A small cream tab with near-black symbols appears in the bottom-left corner of the colored image area on Pattern and Retrofit index cards, and on the bottom-left of the Pattern ID and Retrofit ID cards, so a reader who cannot tell two hues apart can still tell them apart. The symbols come from [ColorSym](https://colorsym.com), a free color-identification system by Chris Eastridge and Luis Francisco (symbols under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), used here unmodified). ColorSym has three primary symbols (red is a dot, yellow is a line, blue is a chevron), and its combined colors join their parents.
+
+ColorSym has no symbol for yellow-green, teal, or magenta, and four of this publication's hues fall between its colors. Those are drawn as two symbols joined by a slash, dominant hue first. This is an extra affordance for people who can use it, not the way classification is communicated: every colored element already carries a text label. The tab is decorative (hidden from screen readers), fixed cream and near-black in both themes so it clears contrast over any card color, and scales with text size.
+
+<ColorSymbolKey />
 
 ## Typography
 

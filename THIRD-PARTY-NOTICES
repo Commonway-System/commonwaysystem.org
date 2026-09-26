@@ -30,3 +30,29 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+--------------------------------------------------------------------------
+
+ColorSym (https://colorsym.com/, https://github.com/luisfrancisco/colorsym)
+
+Five ColorSym symbols (red, yellow, blue, green, violet) by Chris Eastridge
+and Luis Francisco are used, unmodified, as background images in
+src/lib/theme/styles/color-symbols.css, from static/color-symbols/. They
+mark colored cards when a reader turns on "Color symbols" in Display
+settings. The symbols are licensed under Creative Commons
+Attribution-ShareAlike 4.0 International (CC BY-SA 4.0,
+https://creativecommons.org/licenses/by-sa/4.0/); the full text is in
+static/color-symbols/LICENSE-CC-BY-SA-4.0.txt. The separator
+(static/color-symbols/slash.svg) was drawn for this publication. Credit is
+also shown on /about/brand-guide/.
+
+--------------------------------------------------------------------------
+
+Reading fonts (Display settings)
+
+Lexend, Atkinson Hyperlegible Next, and OpenDyslexic are installed as
+npm packages from Fontsource (@fontsource-variable/lexend,
+@fontsource-variable/atkinson-hyperlegible-next, @fontsource/opendyslexic)
+and served from this publication's own files. All three are licensed under
+the SIL Open Font License 1.1 (https://openfontlicense.org/); each package
+carries its own license file.

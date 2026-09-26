@@ -15,6 +15,7 @@
   import MediaFilters from './MediaFilters.svelte'
   import Navbar from './Navbar.svelte'
   import PointerHalo from './PointerHalo.svelte'
+  import ReadingRuler from './ReadingRuler.svelte'
   import SearchDialog from './SearchDialog.svelte'
   import Sidebar from './Sidebar.svelte'
   import Toc from './Toc.svelte'
@@ -104,6 +105,7 @@
 <JsonLd schemas={siteSchemas} />
 <Navbar />
 <PointerHalo />
+<ReadingRuler />
 <SearchDialog />
 
 <div class="shell" class:shell--full={isHome} class:shell--media={isMedia}>

@@ -12,6 +12,8 @@
         var r = document.documentElement
         r.dataset.textSize = s.textSize || 'default'
         r.dataset.contrast = s.contrast || (window.matchMedia('(prefers-contrast: more)').matches ? 'high' : 'default')
+        r.dataset.font = s.readingFont || 'default'
+        r.dataset.symbols = s.colorSymbols ? 'on' : 'off'
         r.dataset.view = s.simplifiedView ? 'simple' : 'default'
         r.dataset.focus = s.enhancedFocus ? 'enhanced' : 'default'
         r.dataset.pointer = s.largePointer ? 'large' : 'default'
