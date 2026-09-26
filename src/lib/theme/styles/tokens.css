@@ -254,6 +254,11 @@
   --cw-note-soft: var(--cw-primary-soft);
   --cw-tip: var(--cw-local);
   --cw-tip-soft: var(--cw-local-soft);
+  /* Text-only variant of --cw-tip: the representative Local token (#677c21) is
+     only 4.13:1 on --cw-tip-soft in light mode, under the 4.5:1 text minimum;
+     this darker shade of the same hue is 4.87:1. Dark mode keeps the plain
+     token, which already passes. */
+  --cw-tip-ink: #5d701e;
   --cw-warning: var(--cw-amber);
   --cw-warning-soft: var(--cw-amber-soft);
   /* PLACEHOLDER: independent site-only red, not derived from any guide
@@ -423,10 +428,58 @@
   --cw-note-soft: var(--cw-primary-soft);
   --cw-tip: var(--cw-local);
   --cw-tip-soft: var(--cw-local-soft);
+  --cw-tip-ink: var(--cw-local);
   --cw-warning: var(--cw-amber);
   --cw-warning-soft: var(--cw-amber-soft);
   --cw-danger: #ef7a93;
   --cw-danger-soft: #3a1420;
 
   --cw-shadow-drawer: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------------------------------------------------------------------
+   High-contrast display mode (Display settings panel, data-contrast on
+   <html>). Overrides only the neutral/interactive tokens: pure black and
+   white surfaces, solid full-strength borders in place of the 12-22%
+   alpha hairlines, and darker/lighter interactive colors. Classification
+   ramps are left alone on purpose: color is never the only carrier of a
+   classification (the ID prefix and a text label say it too; see the
+   high-contrast rules in base.css that print the label on index cards).
+   Selectors are (0,1,1)/(0,2,1) so they beat :root and [data-theme='dark']
+   without !important, in either theme.
+   --------------------------------------------------------------------- */
+html[data-contrast='high'] {
+  --cw-ink: #000000;
+  --cw-ink-soft: #1a1a1a;
+  --cw-ink-faint: #333333;
+  --cw-paper: #ffffff;
+  --cw-paper-raised: #ffffff;
+  --cw-hairline: #595959;
+  --cw-hairline-strong: #000000;
+  --cw-primary: #003a32;
+  --cw-primary-hover: #00251f;
+  --cw-primary-soft: #dff5f0;
+  --cw-link: #1f1c73;
+  --cw-link-hover: #14124f;
+  --cw-descriptive-ink: #1c3550;
+  --cw-tip-ink: #2f3d0a;
+  --cw-amber-ink: #4a2a00;
+}
+
+html[data-contrast='high'][data-theme='dark'] {
+  --cw-ink: #ffffff;
+  --cw-ink-soft: #f2f2f2;
+  --cw-ink-faint: #d9d9d9;
+  --cw-paper: #000000;
+  --cw-paper-raised: #000000;
+  --cw-hairline: #9a9a9a;
+  --cw-hairline-strong: #ffffff;
+  --cw-primary: #7ff5e0;
+  --cw-primary-hover: #b6fbef;
+  --cw-primary-soft: #06201c;
+  --cw-link: #c9c6ff;
+  --cw-link-hover: #e2e0ff;
+  --cw-descriptive-ink: #d3e3f5;
+  --cw-tip-ink: #d8ec9a;
+  --cw-amber-ink: #ffe2b0;
 }

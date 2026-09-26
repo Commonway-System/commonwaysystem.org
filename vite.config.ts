@@ -347,6 +347,10 @@ const theme = commonwayTheme({
             title: 'Displaced Left-Turn (DLT)',
             to: '/patterns/intersections/displaced-left-turn/',
           },
+          {
+            title: 'Railroad Grade Crossing',
+            to: '/patterns/intersections/railroad-grade-crossing/',
+          },
         ],
       },
       {
@@ -641,6 +645,7 @@ const theme = commonwayTheme({
           { title: 'Terms and Conditions', to: '/about/terms-and-conditions/' },
           { title: 'Privacy Policy', to: '/about/privacy-policy/' },
           { title: 'AI Policy', to: '/about/ai-policy/' },
+          { title: 'Accessibility Policy', to: '/about/accessibility-policy/' },
         ],
       },
     ],

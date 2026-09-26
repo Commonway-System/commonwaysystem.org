@@ -134,7 +134,7 @@
     </div>
   </details>
 {:else}
-  <aside class="mf mf--desktop">
+  <aside class="mf mf--desktop" aria-label="Media filters">
     <p class="mf__label">Search &amp; filter</p>
     <div class="mf__body">
       {@render fields()}

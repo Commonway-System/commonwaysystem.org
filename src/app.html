@@ -4,6 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="%sveltekit.assets%/favicons/dark-favicon.svg" />
+    <script>
+      // Apply saved display settings before first paint (mirror of
+      // src/lib/theme/display-settings.ts's apply()); no flash of default text size.
+      try {
+        var s = JSON.parse(localStorage.getItem('commonway-display-settings') || '{}') || {}
+        var r = document.documentElement
+        r.dataset.textSize = s.textSize || 'default'
+        r.dataset.contrast = s.contrast || (window.matchMedia('(prefers-contrast: more)').matches ? 'high' : 'default')
+        r.dataset.view = s.simplifiedView ? 'simple' : 'default'
+        r.dataset.focus = s.enhancedFocus ? 'enhanced' : 'default'
+        r.dataset.pointer = s.largePointer ? 'large' : 'default'
+        r.dataset.halo = s.pointerHalo ? 'on' : 'off'
+      } catch (e) {}
+    </script>
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">

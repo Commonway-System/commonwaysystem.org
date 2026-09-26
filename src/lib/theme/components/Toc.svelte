@@ -1,13 +1,22 @@
 <script lang="ts">
   import { pageAnchors } from '../layout.js'
+  import { tocState } from '../toc-tracking.js'
 </script>
 
 {#if $pageAnchors.length}
-  <aside class="toc">
+  <aside class="toc" aria-label="Table of contents">
     <p class="toc__label">On this page</p>
     <nav aria-label="On this page">
       {#each $pageAnchors as anchor (anchor.id)}
-        <a href="#{anchor.id}" class="toc__link" style:--depth={anchor.depth - 2}>{anchor.text}</a>
+        <a
+          href="#{anchor.id}"
+          class="toc__link"
+          class:toc__link--visible={$tocState.visible.includes(anchor.id)}
+          class:toc__link--current={$tocState.current === anchor.id}
+          aria-current={$tocState.current === anchor.id ? 'location' : undefined}
+          style:--depth={anchor.depth - 2}
+        >{anchor.text}</a
+        >
       {/each}
     </nav>
   </aside>
@@ -40,6 +49,18 @@
     text-decoration: none;
     line-height: 1.4;
     border-left: 2px solid transparent;
+  }
+
+  .toc__link--visible {
+    color: var(--cw-ink);
+    font-weight: 500;
+  }
+
+  .toc__link--current {
+    color: var(--cw-primary);
+    font-weight: 700;
+    border-left-color: var(--cw-primary);
+    padding-left: calc(var(--depth, 0) * 0.75rem + 0.5rem);
   }
 
   .toc__link:hover {

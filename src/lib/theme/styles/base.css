@@ -8,6 +8,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keeps anchored headings AND keyboard-focused elements clear of the sticky
+     navbar (WCAG 2.4.11); the <=1180px override below adds the TocMobile bar. */
+  scroll-padding-top: calc(var(--cw-navbar-height) + 1rem);
   scrollbar-gutter: stable;
   color-scheme: light;
 }
@@ -130,13 +133,10 @@ svg {
   font-weight: 600;
   color: var(--cw-ink);
   position: relative;
-  scroll-margin-top: calc(var(--cw-navbar-height) + 1rem);
 }
 
 /* Reference-list anchors, jumped to by Citation badges (see Citation.svelte). */
-.cw-content [id^='ref-'] {
-  scroll-margin-top: calc(var(--cw-navbar-height) + 1rem);
-}
+
 
 .cw-content h1 {
   font-size: var(--cw-text-4xl);
@@ -249,7 +249,7 @@ svg {
   border-color: color-mix(in srgb, var(--cw-tip) 35%, transparent);
 }
 .svp-admonition--tip .svp-admonition__label {
-  color: var(--cw-tip);
+  color: var(--cw-tip-ink);
 }
 
 .svp-admonition--warning {
@@ -461,4 +461,208 @@ svg {
   .cw-content .pattern-index-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Below 1180px the compact "On this page" bar (TocMobile.svelte) sticks under
+   the navbar, so anchored headings, reference entries, and focused elements
+   all need extra clearance. */
+@media (max-width: 1180px) {
+  html {
+    scroll-padding-top: calc(var(--cw-navbar-height) + 4.75rem);
+  }
+}
+
+
+/* ---------------------------------------------------------------------
+   Reader display settings (Display settings panel, display-settings.ts).
+   Each is driven by a data attribute on <html>, set before first paint by
+   the inline script in app.html.
+   --------------------------------------------------------------------- */
+
+/* Text size: a percentage of the reader's own browser default (so their
+   browser/OS text setting still applies on top), since the whole type
+   scale is rem-based. */
+html[data-text-size='large'] {
+  font-size: 112.5%;
+}
+html[data-text-size='larger'] {
+  font-size: 125%;
+}
+html[data-text-size='largest'] {
+  font-size: 150%;
+}
+
+/* Enhanced focus: thicker two-color ring (yellow outer, dark inner gap
+   fill) so it separates from light AND dark surfaces (WCAG 2.4.13 style). */
+html[data-focus='enhanced'] :focus-visible {
+  outline: 4px solid #ffd60a;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #141414;
+}
+
+/* Large pointer: 40px arrow over the page. Text fields keep the text
+   I-beam, and the fallback keeps the native cursor if the image fails. */
+html[data-pointer='large'] body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M4 3 L4 31 L11 24.5 L16 36 L21.5 33.5 L16.5 22.5 L26 22.5 Z' fill='%23141414' stroke='%23ffffff' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto;
+}
+html[data-pointer='large'] a,
+html[data-pointer='large'] button,
+html[data-pointer='large'] summary,
+html[data-pointer='large'] label,
+html[data-pointer='large'] [role='button'] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M4 3 L4 31 L11 24.5 L16 36 L21.5 33.5 L16.5 22.5 L26 22.5 Z' fill='%23141414' stroke='%23ffffff' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, pointer;
+}
+html[data-pointer='large'] input:not([type='checkbox']):not([type='radio']),
+html[data-pointer='large'] textarea {
+  cursor: text;
+}
+
+
+/* ---------------------------------------------------------------------
+   High-contrast mode, rules beyond the token overrides in tokens.css.
+   --------------------------------------------------------------------- */
+
+/* Content links always underlined (not distinguished by color alone). */
+html[data-contrast='high'] .cw-content a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 2px;
+}
+
+/* No translucent chrome: the navbar's blurred 88% paper fill becomes solid. */
+html[data-contrast='high'] .navbar {
+  background: var(--cw-paper);
+  backdrop-filter: none;
+  border-bottom: 2px solid var(--cw-ink);
+}
+
+/* Cards and panels: solid, visible edges instead of near-invisible hairlines. */
+html[data-contrast='high'] .pic,
+html[data-contrast='high'] .ric,
+html[data-contrast='high'] .mc,
+html[data-contrast='high'] .pattern-card,
+html[data-contrast='high'] .retrofit-card {
+  border-color: var(--cw-ink);
+  box-shadow: none;
+}
+
+/* Classification and scale carried in text too, not just tint and border:
+   printed as a label on every index card (the card itself only shows the
+   ID code and a colored overlay otherwise). */
+html[data-contrast='high'] .pic__meta::after,
+html[data-contrast='high'] .ric__meta::after {
+  flex-basis: 100%;
+  font-family: var(--cw-font-display);
+  font-size: var(--cw-text-sm);
+  font-weight: 600;
+  color: var(--cw-ink);
+}
+html[data-contrast='high'] .pic[data-classification='network'] .pic__meta::after {
+  content: 'Network';
+}
+html[data-contrast='high'] .pic[data-classification='corridor'] .pic__meta::after {
+  content: 'Corridor';
+}
+html[data-contrast='high'] .pic[data-classification='local'] .pic__meta::after {
+  content: 'Local street';
+}
+html[data-contrast='high'] .pic[data-classification='collector'] .pic__meta::after {
+  content: 'Collector street';
+}
+html[data-contrast='high'] .pic[data-classification='arterial'] .pic__meta::after {
+  content: 'Arterial street';
+}
+html[data-contrast='high'] .pic[data-classification='freeway'] .pic__meta::after {
+  content: 'Freeway';
+}
+html[data-contrast='high'] .pic[data-classification='intersections'] .pic__meta::after {
+  content: 'Intersections and crossings';
+}
+html[data-contrast='high'] .pic[data-classification='facility'] .pic__meta::after {
+  content: 'Facility';
+}
+html[data-contrast='high'] .pic[data-classification='element'] .pic__meta::after {
+  content: 'Element';
+}
+html[data-contrast='high'] .ric[data-scale='corridor'] .ric__meta::after {
+  content: 'Corridor scale';
+}
+html[data-contrast='high'] .ric[data-scale='intersection'] .ric__meta::after {
+  content: 'Intersection scale';
+}
+html[data-contrast='high'] .ric[data-scale='network'] .ric__meta::after {
+  content: 'Network scale';
+}
+
+
+/* ---------------------------------------------------------------------
+   Simplified view (Display settings, data-view='simple' on <html>): one
+   column, plain system font, no decoration or motion. Everything stays
+   in the DOM; only presentation changes. <details> are opened by
+   expandAllDetails() in display-settings.ts.
+   --------------------------------------------------------------------- */
+html[data-view='simple'] {
+  --cw-font-display: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --cw-font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  scroll-behavior: auto;
+}
+
+html[data-view='simple'] *,
+html[data-view='simple'] *::before,
+html[data-view='simple'] *::after {
+  animation: none !important;
+  transition: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Decoration: hero art, card illustrations and tint overlays, page glow. */
+html[data-view='simple'] .ink-halftone,
+html[data-view='simple'] .hero-glow,
+html[data-view='simple'] .hero__mark,
+html[data-view='simple'] .hero__motion,
+html[data-view='simple'] .pic__image,
+html[data-view='simple'] .ric__image,
+html[data-view='simple'] .mc__image img {
+  display: none !important;
+}
+
+html[data-view='simple'] .hero-bleed {
+  background: var(--cw-paper) !important;
+  color: var(--cw-ink);
+}
+
+/* Single column: drop the sidebar and TOC columns on wide screens. Below
+   940px the sidebar is already an off-canvas drawer, so it stays. */
+@media (min-width: 941px) {
+  html[data-view='simple'] .shell {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'content';
+  }
+  html[data-view='simple'] .sidebar,
+  html[data-view='simple'] .toc {
+    display: none;
+  }
+}
+
+html[data-view='simple'] .toc-mobile {
+  display: none;
+}
+
+html[data-view='simple'] .cw-content,
+html[data-view='simple'] .cw-content--wide {
+  max-width: 46rem;
+}
+
+/* The hero's text is fixed light-on-dark; with its art and dark background
+   removed in simplified view it must follow the page colors instead. */
+html[data-view='simple'] .hero__title,
+html[data-view='simple'] .hero__tagline,
+html[data-view='simple'] .hero__description,
+html[data-view='simple'] .hero__btn--secondary {
+  color: var(--cw-ink) !important;
+}
+html[data-view='simple'] .hero__btn--secondary {
+  border-color: var(--cw-ink) !important;
 }

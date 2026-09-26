@@ -44,7 +44,7 @@
   }
 
   .example-card__label[data-tone='good'] {
-    color: var(--cw-tip);
+    color: var(--cw-tip-ink);
     background: var(--cw-tip-soft);
   }
 

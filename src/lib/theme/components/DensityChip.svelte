@@ -23,7 +23,9 @@
     Undeveloped: '#4a3a20',
     Rural: '#4a3a20',
     Suburban: '#3a2c14',
-    Compact: '#fbf7ee',
+    // Dark ink, not the light cream Urban/Core use: cream on Compact's mid-tan
+    // was only 3.29:1 (fails the 4.5:1 text minimum); this is 4.87:1.
+    Compact: '#241a0a',
     Urban: '#fbf7ee',
     Core: '#fbf7ee',
   }

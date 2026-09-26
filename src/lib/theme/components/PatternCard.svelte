@@ -47,7 +47,10 @@
       <span class="pattern-card__classification">{labels[classification]}</span>
     </div>
   </div>
-  <h3 class="pattern-card__title">{title}</h3>
+  <!-- Not a heading: the title repeats the page's own <h1> on every pattern
+       page, so an h2/h3 here would add a duplicate, out-of-order entry to
+       the heading outline. -->
+  <p class="pattern-card__title">{title}</p>
   {#if children}
     <div class="pattern-card__body">
       {@render children()}

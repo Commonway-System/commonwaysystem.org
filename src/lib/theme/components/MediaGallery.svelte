@@ -44,7 +44,7 @@
   {#if filtered.length > 0}
     <div class="pattern-index-grid">
       {#each filtered as item (item.id)}
-        <MediaCard {item} />
+        <MediaCard {item} headingLevel={2} />
       {/each}
     </div>
   {:else}

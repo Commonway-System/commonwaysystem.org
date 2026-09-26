@@ -25,7 +25,8 @@
     <code class="retrofit-card__id">{id}</code>
     <span class="retrofit-card__scale">{labels[scale]}</span>
   </div>
-  <h3 class="retrofit-card__title">{title}</h3>
+  <!-- Not a heading, same reasoning as PatternCard.svelte. -->
+  <p class="retrofit-card__title">{title}</p>
   {#if children}
     <div class="retrofit-card__body">
       {@render children()}

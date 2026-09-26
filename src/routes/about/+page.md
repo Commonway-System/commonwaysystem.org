@@ -38,3 +38,6 @@ What data Commonway System collects, why, and how it's used.
 
 **[AI Policy](/about/ai-policy/)**
 How AI was used in building Commonway System, and how human oversight stays in the loop.
+
+**[Accessibility Policy](/about/accessibility-policy/)**
+Where accessibility stands today, the standard we're working toward, known limitations, and how to report a barrier.

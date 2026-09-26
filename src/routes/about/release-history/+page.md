@@ -24,6 +24,20 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.09.26',
+      items: [
+        'New Accessibility Policy page (About, under Terms and Policies; also linked from the footer): the WCAG 2.2 Level AA goal, what has and hasn\'t been tested, every display setting, the text-only pages, external-content limits, and how to report a barrier. The footer gained a distinct row with the copyright line (© current year Commonway System) and links to Terms and Conditions, Privacy Policy, AI Policy, and Accessibility Policy.',
+        'Full-site automated audit with axe-core across all 165 pages (desktop dark, desktop light, and 375px phone), and every issue it found was fixed: a `<main>` landmark on every page; names for the sidebar and "On this page" landmarks; Pattern ID and Retrofit Strategy card titles are no longer headings that skipped a level (Media Gallery cards are now proper `h2`s); the light-mode "Tip" and "Correct" label colors and the "Compact" density chip now meet the 4.5:1 contrast minimum; citation badges have a 24px tap target with no visual change; the Who/How/Why table has real header cells; and stray empty images in this changelog are gone (backtick spans now render as code). A later pass also fixed the muted note color inside expanded Layered guidance cells.',
+        'Skip link ("Skip to main content") as the first Tab stop on every page, and a compact sticky "On this page" bar on tablets and phones (below 1180px, where the right-hand rail is hidden): shows the current section, opens a list of headings with the on-screen ones emphasized, closes on selection, Escape, or an outside tap, and moves focus to the heading you jump to. Anchor jumps and keyboard focus now clear the sticky navbar and bar.',
+        'Homepage hero animation now has a Pause/Play button (WCAG 2.2.2). It freezes both the dot-halftone canvas and the glow, remembers the choice, and is hidden when the device is set to reduce motion.',
+        'New Display settings panel (an "Aa" button in the header, and a section in the mobile menu): text size in four steps up to 150% (scaled from the reader\'s own browser setting), high-contrast mode (also follows the device\'s "more contrast" setting when nothing is saved; pure black and white, solid borders, underlined links, and a text label for every classification color on index cards), simplified view (one column, plain font, no decoration or animation, all collapsed sections expanded), enhanced keyboard focus outline, large mouse pointer, and a translucent yellow pointer highlight. Choices are saved in the browser only and applied before first paint. The panel scrolls inside itself so it stays reachable at the largest text size or on a short screen.',
+        'Text-only version of every page: `pnpm run build` now runs `scripts/generate-text-pages.mjs` after the site build, writing a plain, unstyled version of each page to `/text/…` (165 pages plus an index at `/text/all-pages/`), built from the rendered page so components\' content survives. No images, scripts, or animation; marked noindex with the full page as canonical. Linked as "Text-only version" under every page and from the Display settings panel. Adds one dev dependency (`node-html-parser`) and a prerender exception for `/text/` links in `svelte.config.js`.',
+        'Navbar now wraps onto a second row instead of overflowing the page when text is enlarged or the window is narrow (this also fixes an existing sideways overflow between 941px and about 1000px wide); its measured height feeds the sticky sidebar, "On this page" bar, and anchor clearance. The "Version" label shortens to "V." below 1100px to make room for the new button.',
+        'New pattern, INT-RGC-15 Railroad Grade Crossing (Intersections and Crossings, Situational), covering an at-grade crossing where a street meets an active rail line: its own geometry standard, warning devices, sight-distance rules, and low-clearance-vehicle risk. Industrial Collector gained a "Layered guidance across sources" table (several deliberate "Not researched" gaps). Curb Cut / Driveway Apron, Roundabout, Signal, and Protected Intersection each gained a truck-oriented section with citations: forward entry with no public backing, freight-priority roundabout sizing, and turning-truck risk to people walking and biking. The Pattern Index and sidebar list the new page (112 pattern pages). Every page touched in this release, including these, was scanned with axe in light and dark mode at desktop and 375px width with no violations.',
+        'Known incomplete: no full keyboard-only, screen reader (NVDA, VoiceOver, JAWS), 200/400% zoom, or forced-colors testing has been done, so the policy page does not claim conformance. At the largest text size the header is about 180px tall on wide screens (and taller when wrapped on phones), which leaves less room for content. Text-only pages exist only in built output, so their links 404 under `pnpm run dev`. Contrast and pointer settings were verified with axe and measured values, not a full manual review.',
+      ],
+    },
+    {
       date: '2026.09.25',
       items: [
         'New Retrofit Strategy, RFT-CDR-11 ("2+1 road with cable median barrier"), the 18th entry and 11th Corridor strategy: converts an undivided rural two-lane road into a continuous three-lane cross section with an alternating passing lane and a cable median barrier. Cited to Swedish (VTI), FHWA, Kentucky, Missouri, and Colorado sources, including Colorado\'s own caveat that the crash-reduction estimate is uncertain and a limited pilot is advised. Added to the Retrofit Index and sidebar.',
@@ -201,10 +215,19 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // appear in prose text: two stray backticks around HTML in the page body
   // got misparsed and mangled the Svelte {#if}/{@html} block around it.
   // Script-block content isn't reprocessed as markdown, so it's safe here.
+  // `code` spans in changelog text become real <code> elements with their
+  // contents HTML-escaped. Without this, backticks showed as literal
+  // characters and a `<img>` mentioned in a sentence was parsed as a real,
+  // empty image element.
+  function inlineCode(text) {
+    return text.replace(/`([^`]+)`/g, (_, code) =>
+      `<code>${code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>`)
+  }
+
   function releaseBodyHtml(release) {
     if (release.items)
-      return `<ul>${release.items.map((item) => `<li>${item}</li>`).join('')}</ul>`
-    return `<p>${release.summary}</p>`
+      return `<ul>${release.items.map((item) => `<li>${inlineCode(item)}</li>`).join('')}</ul>`
+    return `<p>${inlineCode(release.summary)}</p>`
   }
 </script>
 
@@ -307,16 +330,8 @@ Work that's planned but not yet built, grouped by area.
   component displays.
 - **Site search.** A real search engine for the publication, currently
   evaluating a few static-site-friendly options.
-- **Collapsible on-page outline.** A proper "Jump to" control for the
-  on-page outline at narrow and tablet widths, which currently just
-  disappears below a certain width.
 - **AI-readable markdown pages.** Exposing a raw markdown version of
   every page for AI/LLM consumption.
-
-### Design system
-
-- **Accessibility features.** Researching contrast and text-size
-  controls, a more visible cursor, and a plain-text output option.
 
 ### Standing / ongoing
 

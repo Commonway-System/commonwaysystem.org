@@ -11,6 +11,7 @@
   import Icon from './Icon.svelte'
   import JsonLd from './JsonLd.svelte'
   import PageNav from './PageNav.svelte'
+  import TocMobile from './TocMobile.svelte'
   import ShareButtons from './ShareButtons.svelte'
 
   interface Props {
@@ -19,6 +20,10 @@
   }
 
   const { fm, children }: Props = $props()
+
+  // Plain text-only version of this page, generated after the build by
+  // scripts/generate-text-pages.mjs (so it 404s under `pnpm run dev`).
+  const textHref = $derived(`/text${page.url.pathname}`)
 
   const editHref = $derived(
     options.editLink ? options.editLink.replace(':route', `${page.route.id ?? ''}`) : undefined,
@@ -79,7 +84,12 @@
 
 <JsonLd schemas={jsonLdSchemas} />
 
-<div class="page">
+<!-- tabindex="-1" (not in the tab order) lets the skip link move focus here. -->
+<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+<main class="page" id="main-content" tabindex="-1">
+  {#if page.url.pathname !== '/media/'}
+    <TocMobile />
+  {/if}
   <div class="cw-content" class:cw-content--wide={fm.wide} bind:this={contentEl}>
     <!-- hideTitle: for pages (currently only the homepage) whose own body
          markup renders the h1 itself, inside a custom section like Hero,
@@ -102,6 +112,8 @@
         </a>
         <span aria-hidden="true"> &middot; </span>
       {/if}
+      <a href={textHref}>Text-only version</a>
+      <span aria-hidden="true"> &middot; </span>
       {#if page.data.lastModified}
         <span>Last updated {page.data.lastModified}</span>
         <span aria-hidden="true"> &middot; </span>
@@ -110,10 +122,26 @@
     </p>
 
     <PageNav />
+
+    <div class="page__legal">
+      <span>&copy; {new Date().getFullYear()} Commonway System</span>
+      <nav aria-label="Policies">
+        <a href="/about/terms-and-conditions/">Terms and Conditions</a>
+        <a href="/about/privacy-policy/">Privacy Policy</a>
+        <a href="/about/ai-policy/">AI Policy</a>
+        <a href="/about/accessibility-policy/">Accessibility Policy</a>
+      </nav>
+    </div>
   </div>
-</div>
+</main>
 
 <style>
+  /* Programmatically focused by the skip link (GlobalLayout.svelte); a focus
+     ring around the whole content column would just be noise. */
+  .page:focus {
+    outline: none;
+  }
+
   .page {
     grid-area: content;
     padding: 2.5rem 1.5rem 4rem;
@@ -138,5 +166,23 @@
     margin-top: 2.5rem;
     font-size: var(--cw-text-sm);
     color: var(--cw-ink-soft);
+  }
+
+  .page__legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 1.25rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--cw-hairline);
+    font-size: var(--cw-text-sm);
+    color: var(--cw-ink-soft);
+  }
+
+  .page__legal nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.25rem;
   }
 </style>

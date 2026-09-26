@@ -22,6 +22,15 @@ const config = {
       // links to, so they need listing explicitly or the crawler never
       // finds them.
       entries: ['*', '/robots.txt', '/llms.txt', '/sitemap.xml'],
+      // Every page links to its text-only version under /text/, which is
+      // written by scripts/generate-text-pages.mjs AFTER this prerender
+      // finishes, so the crawler can't find those targets yet. Anything else
+      // that 404s still fails the build.
+      handleHttpError: ({ path, message }) => {
+        if (path.startsWith('/text/'))
+          return
+        throw new Error(message)
+      },
     },
   },
 }

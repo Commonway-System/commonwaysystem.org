@@ -7,9 +7,11 @@
     item: MediaItem
     /** The page this card is shown on (RelatedMedia passes it), used to pick a per-page endorsement override. */
     pageId?: string
+    /** Heading level for the title: 3 (default) under a section heading like Related Media's h2, 2 when the card sits directly under the page's h1 (the /media/ gallery). */
+    headingLevel?: 2 | 3
   }
 
-  const { item, pageId }: Props = $props()
+  const { item, pageId, headingLevel = 3 }: Props = $props()
 
   const status = $derived((pageId && item.endorsementOverrides?.[pageId]) || item.endorsementStatus)
 
@@ -64,7 +66,7 @@
     <span class="mc__endorsement">{endorsementLabels[status]}</span>
   </div>
   <div class="mc__body">
-    <h3 class="mc__title">{item.title}</h3>
+    <svelte:element this={`h${headingLevel}`} class="mc__title">{item.title}</svelte:element>
     <div class="mc__source">
       {#if item.sourceIcon}
         <img class="mc__source-icon" src={item.sourceIcon} alt="" />

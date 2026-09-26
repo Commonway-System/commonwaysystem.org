@@ -299,7 +299,10 @@
   }
 
   .guidance__note {
+    /* --cw-ink-soft, not -faint: faint measured 4.47-4.49:1 on the highlighted
+       column's tinted background (found expanding cells during the
+       display-settings audit; collapsed cells were never scanned). */
     font-style: italic;
-    color: var(--cw-ink-faint);
+    color: var(--cw-ink-soft);
   }
 </style>

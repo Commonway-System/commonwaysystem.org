@@ -37,9 +37,11 @@
     // dots read fainter than a continuous gradient at the same opacity.
     // Tune here and reload to compare.
     opacity?: number
+    /** Freezes the animation on its current frame (WCAG 2.2.2 Pause, Stop, Hide); the hero's pause button drives this. */
+    paused?: boolean
   }
 
-  const { opacity = 0.16 }: Props = $props()
+  const { opacity = 0.16, paused = false }: Props = $props()
 
   const DOT_SPACING = 10
   // At rest a dot has zero radius (invisible); only a nearby pulse grows
@@ -199,6 +201,9 @@
   let motionQuery: MediaQueryList | undefined
   let rafId: number | null = null
   let reduced = false
+  // Timestamp of the last frame drawn, so a resize while paused redraws the
+  // frozen frame instead of jumping to a new moment.
+  let lastTime = 0
 
   let width = 0
   let height = 0
@@ -297,7 +302,7 @@
     ctx = canvas.getContext('2d')
     ctx?.setTransform(dpr, 0, 0, dpr, 0, 0)
     buildGrid()
-    draw(reduced ? null : performance.now())
+    draw(reduced ? null : paused && lastTime ? lastTime : performance.now())
   }
 
   // time === null renders the reduced-motion resting frame: a fixed,
@@ -352,6 +357,7 @@
   }
 
   function loop(time: number) {
+    lastTime = time
     draw(time)
     rafId = requestAnimationFrame(loop)
   }
@@ -361,6 +367,8 @@
     rafId = null
     if (reduced) {
       draw(null)
+    } else if (paused) {
+      draw(lastTime || performance.now())
     } else {
       rafId = requestAnimationFrame(loop)
     }
@@ -383,6 +391,23 @@
 
     return () => {
       motionQuery?.removeEventListener('change', handleMotionChange)
+    }
+  })
+
+  // Pause/resume after mount (the initial state is handled by startAnimation
+  // in onMount). Pausing just stops scheduling frames, so the canvas keeps
+  // showing the last one drawn.
+  $effect(() => {
+    const isPaused = paused
+    if (!ctx || reduced)
+      return
+    if (isPaused) {
+      if (rafId !== null)
+        cancelAnimationFrame(rafId)
+      rafId = null
+    }
+    else if (rafId === null) {
+      startAnimation()
     }
   })
 

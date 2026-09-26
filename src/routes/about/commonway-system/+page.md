@@ -26,7 +26,7 @@ Where CS takes a position beyond conventional practice, it says so directly and 
 
 Google's own helpful-content guidance asks three questions of any piece of content: who created it and what's their real experience with it, how was it made, and why does it exist. CS answers these directly, since the answers are the actual foundation of its credibility, not an afterthought.
 
-|         |                                                                                                                                                                                                           |
+| <span class="cw-sr-only">Question</span> | <span class="cw-sr-only">Answer</span> |
 | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Who** | Kevin, an enthusiast and researcher/compiler, explicitly not a credentialed engineer or planner. The citation system substitutes for personal authority. See [About the author](#about-the-author) below. |
 | **How** | Primary sources read directly and cross-referenced, not secondhand summaries. Every design claim traces to a named source, dated and linked.                                                              |

@@ -113,6 +113,7 @@ Intersections aren't tied to one Functional Classification, since any two street
   <PatternIndexCard href="/patterns/intersections/median-u-turn/" id="INT-MUT-12" title="Median U-Turn (MUT)" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/restricted-crossing-u-turn/" id="INT-RCU-13" title="Restricted Crossing U-Turn (RCUT)" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/displaced-left-turn/" id="INT-DLT-14" title="Displaced Left-Turn (DLT)" classification="intersections" status="situational" />
+  <PatternIndexCard href="/patterns/intersections/railroad-grade-crossing/" id="INT-RGC-15" title="Railroad Grade Crossing" classification="intersections" status="situational" />
 </div>
 
 ## Facility level patterns

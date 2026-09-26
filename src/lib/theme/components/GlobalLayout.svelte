@@ -3,7 +3,9 @@
   import { afterNavigate } from '$app/navigation'
   import { page } from '$app/state'
   import type { Snippet } from 'svelte'
+  import { expandAllDetails, initDisplaySettings } from '../display-settings.js'
   import { initColorScheme, initTableScrollHints, sidebarOpen } from '../layout.js'
+  import { startTocTracking } from '../toc-tracking.js'
   import { buildOrganization, buildWebSite } from '../schema/organization.js'
   import '../styles/base.css'
   import Backdrop from './Backdrop.svelte'
@@ -11,6 +13,7 @@
   import JsonLd from './JsonLd.svelte'
   import MediaFilters from './MediaFilters.svelte'
   import Navbar from './Navbar.svelte'
+  import PointerHalo from './PointerHalo.svelte'
   import Sidebar from './Sidebar.svelte'
   import Toc from './Toc.svelte'
 
@@ -50,25 +53,42 @@
   // .shell--media below.
   const isMedia = $derived(page.url.pathname === '/media/')
 
+  // Focus moves to <main> too (not just the scroll position), so the next Tab
+  // starts inside the content instead of back at the navbar.
+  function skipToMain(event: MouseEvent) {
+    const main = document.getElementById('main-content')
+    if (!main)
+      return
+    event.preventDefault()
+    main.focus({ preventScroll: true })
+    main.scrollIntoView({ block: 'start' })
+  }
+
   onMount(() => {
     initColorScheme()
+    initDisplaySettings()
     // tick(), not requestAnimationFrame: rAF is throttled/paused while the
     // tab is backgrounded, which would leave the scroll hint permanently
     // hidden on a table that loads in a background tab. tick() just waits
     // for Svelte's own pending DOM updates to flush, no visibility
     // dependency, before the table wrapper's real layout width is measured.
     tick().then(initTableScrollHints)
+    return startTocTracking()
   })
 
   afterNavigate(() => {
     sidebarOpen.set(false)
+    if (document.documentElement.dataset.view === 'simple')
+      tick().then(expandAllDetails)
     tick().then(initTableScrollHints)
   })
 </script>
 
+<a class="skip-link" href="#main-content" onclick={skipToMain}>Skip to main content</a>
 <GoogleAnalytics />
 <JsonLd schemas={siteSchemas} />
 <Navbar />
+<PointerHalo />
 
 <div class="shell" class:shell--full={isHome} class:shell--media={isMedia}>
   <Sidebar />
@@ -82,6 +102,27 @@
 </div>
 
 <style>
+  /* Visually hidden until keyboard focus lands on it, then pinned top-left
+     above the sticky navbar. */
+  .skip-link {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 1000;
+    padding: 0.6rem 1rem;
+    background: var(--cw-ink-fixed);
+    color: var(--cw-paper-fixed);
+    border: 2px solid var(--cw-teal);
+    border-radius: var(--cw-radius-md, 0.375rem);
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-200%);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
   .shell {
     display: grid;
     grid-template-columns: var(--cw-sidebar-width) minmax(0, 1fr) var(--cw-toc-width);

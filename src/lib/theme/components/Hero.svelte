@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
   import Icon from './Icon.svelte'
   import InkHalftone from './InkHalftone.svelte'
 
@@ -13,6 +14,35 @@
   }
 
   const { title, tagline, description, primaryHref, primaryLabel, secondaryHref, secondaryLabel }: Props = $props()
+
+  // WCAG 2.2.2 (Pause, Stop, Hide): the background animation plays
+  // automatically for more than five seconds alongside other content, so
+  // readers get a way to stop it. Covers both the canvas halftone and the
+  // glow's float animation. The choice is remembered per browser; storage
+  // can be unavailable (private window, blocked), so every access is
+  // wrapped and the page works without it. Under prefers-reduced-motion
+  // nothing animates at all, and the button is hidden (see the style block).
+  const STORAGE_KEY = 'commonway-hero-motion-paused'
+  let paused = $state(false)
+
+  onMount(() => {
+    try {
+      paused = localStorage.getItem(STORAGE_KEY) === '1'
+    }
+    catch {
+      // Storage unavailable; start playing.
+    }
+  })
+
+  function toggleMotion() {
+    paused = !paused
+    try {
+      localStorage.setItem(STORAGE_KEY, paused ? '1' : '0')
+    }
+    catch {
+      // Not remembered this visit; the toggle itself still works.
+    }
+  }
 </script>
 
 <!--
@@ -30,8 +60,8 @@
   distinct from the page's own dark-mode paper color (both dark, but not
   the same dark), not just from the light-mode one.
 -->
-<section class="hero-bleed">
-  <InkHalftone />
+<section class="hero-bleed" class:hero-bleed--paused={paused}>
+  <InkHalftone {paused} />
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-grid">
@@ -61,6 +91,15 @@
       </div>
     </div>
   </div>
+  <button type="button" class="hero__motion" onclick={toggleMotion}>
+    {#if paused}
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M3 1.5v11l9-5.5z" /></svg>
+      Play animation
+    {:else}
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="2.5" y="1.5" width="3" height="11" rx="0.5" /><rect x="8.5" y="1.5" width="3" height="11" rx="0.5" /></svg>
+      Pause animation
+    {/if}
+  </button>
 </section>
 
 <style>
@@ -109,6 +148,42 @@
   @media (prefers-reduced-motion: no-preference) {
     .hero-glow {
       animation: hero-glow-float 9s ease-in-out infinite;
+    }
+  }
+
+  .hero-bleed--paused .hero-glow {
+    animation-play-state: paused;
+  }
+
+  .hero__motion {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 32px;
+    padding: 0.3rem 0.75rem;
+    background: rgba(0, 0, 0, 0.55);
+    color: var(--cw-paper-fixed);
+    border: 1px solid rgba(253, 250, 243, 0.45);
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .hero__motion:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: var(--cw-paper-fixed);
+  }
+
+  /* Nothing animates under reduced motion, so there is nothing to pause. */
+  @media (prefers-reduced-motion: reduce) {
+    .hero__motion {
+      display: none;
     }
   }
 

@@ -3,6 +3,7 @@
   import { externalLinkAttrs, isExternalHref } from '$lib/site.js'
   import options from 'virtual:commonway/options'
   import { sidebarOpen } from '../layout.js'
+  import DisplaySettingsPanel from './DisplaySettingsPanel.svelte'
   import Icon from './Icon.svelte'
   import SidebarGroup from './SidebarGroup.svelte'
 
@@ -22,7 +23,7 @@
   }
 </script>
 
-<aside class="sidebar" class:sidebar--open={$sidebarOpen}>
+<aside class="sidebar" class:sidebar--open={$sidebarOpen} aria-label="Sidebar">
   <nav class="sidebar__scroll" aria-label="Section">
     {#if navLinks.length}
       <!-- Mobile-only (see the max-width: 940px rule below): the navbar's
@@ -47,6 +48,10 @@
             {/if}
           </a>
         {/each}
+        <details class="sidebar__display">
+          <summary>Display settings</summary>
+          <DisplaySettingsPanel />
+        </details>
       </div>
     {/if}
     {#each items as item (item.title)}
@@ -90,6 +95,25 @@
   .sidebar__primary-link:hover {
     background: var(--cw-primary-soft);
     color: var(--cw-ink);
+  }
+
+  .sidebar__display {
+    margin-top: 0.5rem;
+    padding: 0 0.6rem;
+  }
+
+  .sidebar__display summary {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--cw-text-sm);
+    color: var(--cw-ink-soft);
+  }
+
+  .sidebar__display[open] summary {
+    margin-bottom: 0.5rem;
   }
 
   .sidebar__primary-link--active {

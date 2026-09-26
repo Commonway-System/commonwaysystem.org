@@ -1,15 +1,38 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
   import { page } from '$app/state'
   import { externalLinkAttrs, isExternalHref } from '$lib/site.js'
   import options from 'virtual:commonway/options'
   import { isDark, sidebarOpen } from '../layout.js'
   import Icon from './Icon.svelte'
+  import DisplaySettings from './DisplaySettings.svelte'
   import ThemeToggle from './ThemeToggle.svelte'
 
   // Sourced from the root +layout.server.ts's siteVersion(), not computed
   // here: see that file's comment for why this can't be a plain wall-clock
   // read at build time.
   const version = $derived(page.data.siteVersion)
+
+  let headerEl: HTMLElement | undefined = $state()
+
+  // With enlarged text (Display settings) or a narrow desktop window, the
+  // navbar's contents can need a second row instead of overflowing the page
+  // sideways. Its real height then differs from the 4rem token, and
+  // everything sticky or scroll-anchored under it (sidebar, TOC, skip-link
+  // and anchor clearance) reads that token, so publish the measured height.
+  onMount(() => {
+    if (!headerEl)
+      return
+    const root = document.documentElement
+    const sync = () => root.style.setProperty('--cw-navbar-height', `${headerEl!.getBoundingClientRect().height}px`)
+    sync()
+    const ro = new ResizeObserver(sync)
+    ro.observe(headerEl)
+    return () => {
+      ro.disconnect()
+      root.style.removeProperty('--cw-navbar-height')
+    }
+  })
 
   const navLinks = options.navbar ?? []
   const wordmark = options.logoText ?? options.siteTitle
@@ -21,7 +44,7 @@
   }
 </script>
 
-<header class="navbar">
+<header class="navbar" bind:this={headerEl}>
   <div class="navbar__inner">
     <div class="navbar__start">
       <a class="navbar__brand" href="/">
@@ -76,6 +99,7 @@
           <Icon name="github" size={19} />
         </a>
       {/if}
+      <DisplaySettings />
       <ThemeToggle />
     </div>
   </div>
@@ -86,21 +110,22 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    height: var(--cw-navbar-height);
+    min-height: 4rem;
     background: color-mix(in srgb, var(--cw-paper) 88%, transparent);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--cw-hairline);
   }
 
   .navbar__inner {
-    height: 100%;
+    min-height: calc(4rem - 1px);
     max-width: 88rem;
     margin: 0 auto;
-    padding: 0 1.25rem;
+    padding: 0.25rem 1.25rem;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 0.25rem 1.5rem;
   }
 
   .navbar__start {
@@ -139,9 +164,13 @@
 
   .navbar__links {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 1.5rem;
-    flex: 1 1 auto;
+    gap: 0.25rem 1.5rem;
+    /* Basis 0 (not auto): the links block takes whatever width is left and
+       wraps its own links onto extra lines when text is enlarged, instead
+       of forcing the whole navbar row to wrap. */
+    flex: 1 1 0;
   }
 
   .navbar__link {
@@ -193,7 +222,7 @@
     display: none;
   }
 
-  @media (max-width: 940px) {
+  @media (max-width: 1100px) {
     .navbar__version-label--full {
       display: none;
     }
@@ -269,7 +298,7 @@
        spacing job on mobile the way it does on desktop.
     */
     .navbar__inner {
-      gap: 0.5rem;
+      gap: 0.25rem 0.5rem;
     }
   }
 </style>

@@ -45,11 +45,19 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 1.5em;
+    min-width: calc(1.5em + 10px);
     padding: 1px 6px;
     border-radius: 9px;
     margin-left: 2px;
+    /* Enlarges the tappable box to at least 24x24 CSS px (WCAG 2.2 SC 2.5.8)
+       without changing the visible pill: the transparent border is inside
+       the link's hit area but outside its painted background (padding-box
+       clip), and the negative margins cancel the extra layout size so line
+       spacing and badge-to-badge gaps stay as they were. */
+    border: 5px solid transparent;
+    margin: -5px -5px -5px -3px;
     background: var(--cw-evidence-evidence);
+    background-clip: padding-box;
     color: var(--cw-evidence-fg);
     text-decoration: none;
     font-size: 12px;
