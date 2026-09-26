@@ -17,6 +17,8 @@ Commonway System doesn't run accounts, doesn't sell anything, and doesn't collec
 
 **Netlify (hosting).** This publication is hosted as a static site through Netlify, which automatically logs basic request information (like IP address and request timestamp) as a normal part of serving any website. We don't use this data ourselves beyond what Netlify's own infrastructure requires to operate. See [Netlify's Privacy Policy](https://www.netlify.com/privacy/) for details.
 
+**Site search.** The search feature runs entirely in your browser, against an index that is part of the publication itself. What you type is never sent to us or to anyone else, and search adds no cookies.
+
 We don't run ads, don't sell or share data with advertisers, and don't have any other analytics, tracking, or data collection on the publication beyond what's listed above.
 
 ## Cookies

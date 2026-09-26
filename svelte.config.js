@@ -22,12 +22,14 @@ const config = {
       // links to, so they need listing explicitly or the crawler never
       // finds them.
       entries: ['*', '/robots.txt', '/llms.txt', '/sitemap.xml'],
-      // Every page links to its text-only version under /text/, which is
+      // Every page links to its text-only version under /text/ and its
+      // markdown version (<page>.md, via <link rel="alternate">), and the Site Map
+      // links /llms-full.txt. All are
       // written by scripts/generate-text-pages.mjs AFTER this prerender
       // finishes, so the crawler can't find those targets yet. Anything else
       // that 404s still fails the build.
       handleHttpError: ({ path, message }) => {
-        if (path.startsWith('/text/'))
+        if (path.startsWith('/text/') || path.endsWith('.md') || path === '/llms-full.txt')
           return
         throw new Error(message)
       },

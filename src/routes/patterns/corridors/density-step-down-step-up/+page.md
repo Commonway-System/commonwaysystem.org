@@ -16,8 +16,6 @@ The pattern governing how a road’s cross-section, speed, and character adjust 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A road built to Urban-tier standards does not automatically become wrong when the buildings around it thin out, but it does need to change; a road that ignores the transition sends the wrong signal to drivers about what kind of place they are in. Density tiers already carry design implications (speed, cross-section, access spacing) at the Segment/Intersection scale; this pattern is what governs the handoff between two tiers along one continuous route, so the transition itself gets designed rather than left as an arbitrary jurisdictional boundary or abrupt lane-width jump.<Citation index={1} />

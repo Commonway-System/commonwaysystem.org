@@ -3,6 +3,7 @@ title: "Grid"
 description: "A network topology in which streets form a continuous, evenly spaced pattern of parallel and perpendicular routes intersecting at right angles, producing rectangular blocks and multiple direct route options between any two points."
 patternId: NET-GRD-01
 date: 2026-08-31
+image: /patterns/net-grd-01-grid.png
 llms: "A network topology in which streets form a continuous, evenly spaced pattern of parallel and perpendicular routes intersecting at right angles, producing rectangular blocks and multiple direct route options between any two points."
 ---
 
@@ -15,8 +16,6 @@ A network topology in which streets form a continuous, evenly spaced pattern of 
 </PatternCard>
 
 <RelatedMedia id={fm.patternId} />
-
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 
 ## Why this pattern exists
 

@@ -20,8 +20,6 @@ Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
 
 Compact is an edge case. Urban and Core are unlikely pairings.
 
-*Working assessment: this pattern's status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Design notes
 
 RCUT goes further than a Median U-Turn intersection by removing the minor road's direct crossing movement as well as its left turn, letting the main intersection serve the major road's through traffic with minimal minor-road interference.<Citation index={1} /> This design carries particular benefit for large trucks, since a driver only has to judge a gap in one direction of traffic at a time rather than crossing the full width of a divided highway at once.<Citation index={2} /> Like Median U-Turn, this pattern is Situational: it's a strong fit for a high-speed, four-lane-or-larger divided highway, and a poor fit anywhere lower speed or lower volume already makes a Roundabout the better default.<Citation index={3} />

@@ -127,14 +127,14 @@
 {/snippet}
 
 {#if variant === 'mobile'}
-  <details class="mf mf--mobile">
+  <details class="mf mf--mobile" data-pagefind-ignore="all">
     <summary class="mf__summary">Search &amp; filter</summary>
     <div class="mf__body">
       {@render fields()}
     </div>
   </details>
 {:else}
-  <aside class="mf mf--desktop" aria-label="Media filters">
+  <aside class="mf mf--desktop" aria-label="Media filters" data-pagefind-ignore="all">
     <p class="mf__label">Search &amp; filter</p>
     <div class="mf__body">
       {@render fields()}

@@ -7,7 +7,7 @@ const item: MediaItem = {
   url: 'https://www.youtube.com/watch?v=xsSp8gxzfjo',
   sourceName: 'Streetcraft',
   sourceIcon: 'https://yt3.googleusercontent.com/FTMCOSCiAMkLHa7m-GmSdGlmVf9TorFan_pibH2F9MdVVvv6h9HrynKtrbuKPP4EA2LEa4Wy=s160-c-k-c0x00ffffff-no-rj',
-  image: 'https://img.youtube.com/vi/xsSp8gxzfjo/maxresdefault.jpg',
+  image: '/media-assets/med-016.jpg',
   blurb: 'A full traffic-calming toolkit walkthrough, plastic mini-roundabouts, curb extensions, chicanes, the speed bump/hump/cushion/table family, and a Cincinnati road-diet case study with dramatic before/after crash data.',
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector', 'Arterial'],

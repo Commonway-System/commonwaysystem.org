@@ -16,8 +16,6 @@ A textured ground surface, typically a grid of truncated domes, installed at the
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A curb ramp removes the vertical cue (a step down) that traditionally signaled a street edge to a pedestrian using a cane or with low vision; the detectable warning surface restores that cue through texture instead of height. This pattern exists because it is a baseline accessibility requirement everywhere a curb ramp meets a street, not an optional accessory.

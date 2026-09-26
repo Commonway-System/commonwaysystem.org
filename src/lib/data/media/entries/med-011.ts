@@ -7,7 +7,7 @@ const item: MediaItem = {
   url: 'https://www.youtube.com/watch?v=ORzNZUeUHAM',
   sourceName: 'Not Just Bikes',
   sourceIcon: 'https://yt3.googleusercontent.com/txNeBAcuSUUxKuIPzA9BF9enVh11NHs2Vdirh2wPfVs6DZW94uGodyVhI5sJPeL7iGE8Wl-5vpE=s160-c-k-c0x00ffffff-no-rj',
-  image: 'https://img.youtube.com/vi/ORzNZUeUHAM/maxresdefault.jpg',
+  image: '/media-assets/med-011.jpg',
   blurb: 'The definitive explainer on stroads, and lays out the Dutch three-tier road/street classification system that CS\'s own Functional Classification structure closely mirrors.',
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector', 'Arterial', 'Freeway'],

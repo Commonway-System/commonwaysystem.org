@@ -1,5 +1,6 @@
 <script lang="ts">
   import { externalLinkAttrs, isExternalHref } from '$lib/site.js'
+  import { thumbUrl } from '$lib/thumbs.js'
   import type { EndorsementStatus, MediaItem, MediaType } from '$lib/data/media/index.js'
   import Icon from './Icon.svelte'
 
@@ -48,6 +49,16 @@
   }
 
   const alt = $derived(item.image ? item.title : 'No preview image available for this item')
+
+  // Self-hosted 480px copy (pnpm run thumbs); falls back to the full image.
+  const imageSrc = $derived(item.image ? thumbUrl(item.image, 480) : '/media-assets/media-placeholder.svg')
+  function useOriginal(event: Event) {
+    const img = event.currentTarget as HTMLImageElement
+    if (item.image && !img.dataset.original) {
+      img.dataset.original = 'true'
+      img.src = item.image
+    }
+  }
 </script>
 
 <a
@@ -56,7 +67,7 @@
   {...externalLinkAttrs(item.url)}
 >
   <div class="mc__image">
-    <img src={item.image ?? '/media-assets/media-placeholder.svg'} {alt} loading="lazy" decoding="async" />
+    <img src={imageSrc} {alt} loading="lazy" decoding="async" onerror={useOriginal} />
     <span class="mc__type-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         {@html typeIconMarkup[item.type]}

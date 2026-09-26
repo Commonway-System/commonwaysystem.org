@@ -7,7 +7,7 @@ const item: MediaItem = {
   url: 'https://www.youtube.com/watch?v=CHZwOAIect4',
   sourceName: 'Not Just Bikes',
   sourceIcon: 'https://yt3.googleusercontent.com/txNeBAcuSUUxKuIPzA9BF9enVh11NHs2Vdirh2wPfVs6DZW94uGodyVhI5sJPeL7iGE8Wl-5vpE=s160-c-k-c0x00ffffff-no-rj',
-  image: 'https://img.youtube.com/vi/CHZwOAIect4/maxresdefault.jpg',
+  image: '/media-assets/med-008.jpg',
   blurb: 'Lays out induced demand, Braess\'s Paradox, and traffic evaporation with real case studies (LA 405, Houston Katy Freeway, Cheonggyecheon), then shows the Dutch one-lane-plus-transit cross-section as the actual fix.',
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector', 'Arterial'],

@@ -3,6 +3,7 @@ title: Frontage / Service Road
 description: A Local Typology running parallel to a faster Arterial or Freeway, keeping pedestrians and cyclists separated from that higher-speed traffic.
 patternId: LOC-FSR-04
 date: 2026-08-29
+image: /patterns/loc-fsr-04-frontage-service-road.png
 llms: A Local street typology running parallel to a faster Arterial or Freeway, separating pedestrians and cyclists from the higher-speed roadway.
 ---
 

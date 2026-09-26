@@ -16,8 +16,6 @@ An energy-absorbing device installed at the exposed end of a traffic barrier or 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 An unshielded barrier end or exposed fixed object can spear or abruptly stop an impacting vehicle, causing more severe injury than a properly designed energy-absorbing terminal would; this pattern exists specifically to address that exposure, since it is a distinct failure mode from the barrier’s general run.<Citation index={1} />

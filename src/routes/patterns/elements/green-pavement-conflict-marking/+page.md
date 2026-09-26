@@ -16,8 +16,6 @@ A colored pavement treatment, typically green, applied at a bike facility’s co
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 At points where a bike facility’s path crosses or intersects with vehicle movement, a merging lane, a turn pocket, an intersection approach, the normal continuity of the bike facility’s visual cue breaks down; colored pavement restores visibility of the bike route through that conflict zone specifically. This pattern exists to document where and how this treatment should be applied.<Citation index={1} />

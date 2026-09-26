@@ -28,7 +28,7 @@
 </script>
 
 {#if prevPage || nextPage}
-  <nav class="pagenav" aria-label="Page navigation">
+  <nav class="pagenav" aria-label="Page navigation" data-pagefind-ignore>
     <a class="pagenav__slot pagenav__slot--prev" href={prevPage?.to} class:is-empty={!prevPage} tabindex={prevPage ? 0 : -1}>
       {#if prevPage}
         <Icon name="arrow-left" size={16} />

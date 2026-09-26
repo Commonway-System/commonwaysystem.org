@@ -16,8 +16,6 @@ A sign alerting drivers to an upcoming hazard or changed condition, such as a cu
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A warning sign gives a driver advance notice of a condition they need to react to, a curve tighter than expected, a crossing they might not anticipate, filling the gap between a road’s physical design and a driver’s real-time awareness of what is coming. This pattern exists to document its distinct advisory function and placement logic, separate from a regulatory sign’s enforceable message.<Citation index={1} /><Citation index={2} />

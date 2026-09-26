@@ -3,6 +3,7 @@ title: "Modal Filter / Point Closure"
 description: "A physical closure placed mid-block or at an intersection leg that blocks through motor vehicle travel while preserving passage for pedestrians and bicyclists, using bollards, planters, partial curb extensions, or a similar barrier."
 patternId: ELM-MFP-44
 date: 2026-09-03
+image: /patterns/elm-mfp-44-modal-filter-point-closure.jpeg
 llms: "A physical closure placed mid-block or at an intersection leg that blocks through motor vehicle travel while preserving passage for pedestrians and bicyclists, using bollards, planters, partial curb extensions, or a similar barrier."
 ---
 
@@ -15,8 +16,6 @@ A physical closure placed mid-block or at an intersection leg that blocks throug
 </PatternCard>
 
 <RelatedMedia id={fm.patternId} />
-
-*Working assessment: this pattern's status reflects a preliminary Commonway System judgment call, pending final review.*
 
 ## Why this pattern exists
 

@@ -3,9 +3,10 @@
   import { page } from '$app/state'
   import { onMount, tick } from 'svelte'
   import type { Snippet } from 'svelte'
-  import { externalLinkAttrs, isExternalHref } from '$lib/site.js'
+  import { SITE_URL, externalLinkAttrs, isExternalHref, markdownPath } from '$lib/site.js'
   import options from 'virtual:commonway/options'
   import { pageAnchors } from '../layout.js'
+  import { patternClassOf, searchSectionOf } from '../search-meta.js'
   import { buildBreadcrumbs } from '../schema/breadcrumbs.js'
   import { buildPageSchemas } from '../schema/page.js'
   import Icon from './Icon.svelte'
@@ -24,6 +25,18 @@
   // Plain text-only version of this page, generated after the build by
   // scripts/generate-text-pages.mjs (so it 404s under `pnpm run dev`).
   const textHref = $derived(`/text${page.url.pathname}`)
+
+  // Markdown version for AI/LLM consumption, advertised in <head> below
+  // (same generator as the text-only version, so also absent under dev).
+  const markdownHref = $derived(markdownPath(page.url.pathname))
+
+  // Search indexing (Pagefind, see scripts/build-search-index.mjs). Only
+  // <main> is indexed, via data-pagefind-body below, so navbar/sidebar/footer
+  // text never pollutes results. `utility` pages (currently /search/) are
+  // left out of the index, the text-only/markdown versions, and search engines.
+  const searchable = $derived(!fm.utility)
+  const searchSection = $derived(searchSectionOf(page.url.pathname))
+  const searchClass = $derived(patternClassOf(fm.patternId))
 
   const editHref = $derived(
     options.editLink ? options.editLink.replace(':route', `${page.route.id ?? ''}`) : undefined,
@@ -76,7 +89,19 @@
 </script>
 
 <svelte:head>
+  {#if !fm.utility}
+    <link rel="alternate" type="text/markdown" href={markdownHref} />
+  {/if}
   <title>{fm.title ? `${fm.title} \u00b7 ${options.siteTitle}` : options.siteTitle}</title>
+  {#if fm.utility}
+    <meta name="robots" content="noindex" />
+  {/if}
+  {#if fm.image}
+    <!-- Social preview: the page's featured image (frontmatter image:), full size. -->
+    <meta property="og:image" content={`${SITE_URL}${fm.image}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={`${SITE_URL}${fm.image}`} />
+  {/if}
   {#if fm.description || options.siteDescription}
     <meta name="description" content={fm.description || options.siteDescription} />
   {/if}
@@ -86,7 +111,27 @@
 
 <!-- tabindex="-1" (not in the tab order) lets the skip link move focus here. -->
 <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-<main class="page" id="main-content" tabindex="-1">
+<main class="page" id="main-content" tabindex="-1" data-pagefind-body={searchable ? '' : undefined}>
+  {#if searchable}
+    <!-- Empty marker elements: Pagefind reads one filter/meta pair per attribute. -->
+    <span data-pagefind-filter={`section:${searchSection}`}></span>
+    <span data-pagefind-meta={`section:${searchSection}`}></span>
+    {#if searchClass}
+      <span data-pagefind-filter={`class:${searchClass}`}></span>
+    {/if}
+    {#if fm.image}
+      <!-- Search results show this (the client swaps in the 160px copy, see search.ts). -->
+      <!-- Named `thumb`, not `image`: Pagefind fills `image` itself with the first <img> on any page, and only an explicit frontmatter image should get a thumbnail. -->
+      <span data-pagefind-meta={`thumb:${fm.image}`}></span>
+    {/if}
+    {#if fm.patternId}
+      <span data-pagefind-meta={`detail:${fm.patternId}`}></span>
+      <!-- The ID card is left out of the index (its title just repeats the
+           page's), so the Pattern ID is indexed here instead, once, and
+           weighted so an ID search finds its own page first. -->
+      <span hidden data-pagefind-weight="8">{fm.patternId}</span>
+    {/if}
+  {/if}
   {#if page.url.pathname !== '/media/'}
     <TocMobile />
   {/if}
@@ -95,11 +140,11 @@
          markup renders the h1 itself, inside a custom section like Hero,
          instead of as a bare heading floating above the content. -->
     {#if fm.title && !fm.hideTitle}
-      <h1>{fm.title}</h1>
+      <h1 data-pagefind-weight="10">{fm.title}</h1>
     {/if}
     {@render children?.()}
 
-    <p class="page__meta">
+    <p class="page__meta" data-pagefind-ignore>
       {#if editHref}
         <a href={editHref} {...externalLinkAttrs(editHref)}>
           Suggest changes to this page
@@ -112,8 +157,10 @@
         </a>
         <span aria-hidden="true"> &middot; </span>
       {/if}
-      <a href={textHref}>Text-only version</a>
-      <span aria-hidden="true"> &middot; </span>
+      {#if !fm.utility}
+        <a href={textHref}>Text-only version</a>
+        <span aria-hidden="true"> &middot; </span>
+      {/if}
       {#if page.data.lastModified}
         <span>Last updated {page.data.lastModified}</span>
         <span aria-hidden="true"> &middot; </span>
@@ -123,9 +170,10 @@
 
     <PageNav />
 
-    <div class="page__legal">
+    <div class="page__legal" data-pagefind-ignore>
       <span>&copy; {new Date().getFullYear()} Commonway System</span>
-      <nav aria-label="Policies">
+      <nav aria-label="Footer">
+        <a href="/about/sitemap/">Site Map</a>
         <a href="/about/terms-and-conditions/">Terms and Conditions</a>
         <a href="/about/privacy-policy/">Privacy Policy</a>
         <a href="/about/ai-policy/">AI Policy</a>

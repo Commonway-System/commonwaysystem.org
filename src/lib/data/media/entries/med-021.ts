@@ -10,7 +10,7 @@ const item: MediaItem = {
   blurb:
     'Makes the case, with side-by-side street photos, that a posted number on a sign does not change driver behavior the way lane width, block length, and sightlines do, the same self-enforcing-design principle behind CS\'s own design-speed-equals-posted-speed rule.',
   endorsementStatus: 'aligned',
-  image: 'https://images.squarespace-cdn.com/content/v1/53dd6676e4b0fedfbc26ea91/1546946016637-ET733X4T6R47YRLD9WYV/12189751_793987447390525_7047780377547951323_n.jpg?format=2500w',
+  image: '/media-assets/med-021.jpg',
   patternTaxonomyTags: ['Local', 'Collector'],
   mediaTags: ['Explainer', 'Case Study'],
   relatedTo: ['/guide/design-speed/'],

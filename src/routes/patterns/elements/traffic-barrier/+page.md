@@ -16,8 +16,6 @@ A longitudinal barrier (guardrail, concrete barrier, or similar rigid or semi-ri
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Certain roadside conditions (a steep slope, a fixed object, an opposing travel lane with no separation) pose a severe risk if an errant vehicle reaches them; a traffic barrier is deployed specifically to intercept and redirect the vehicle before it does, at the cost of introducing its own fixed-object risk if struck directly. This pattern exists to document when that tradeoff is justified.

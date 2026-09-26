@@ -16,8 +16,6 @@ A docking location for a shared-bike program, where users check out and return b
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A shared-bike system depends on station siting decisions (density, spacing, proximity to transit and destinations) that determine whether the system actually gets used; this pattern exists to document those siting and sizing considerations as their own facility type, separate from the bike parking infrastructure a station physically resembles.<Citation index={1} />

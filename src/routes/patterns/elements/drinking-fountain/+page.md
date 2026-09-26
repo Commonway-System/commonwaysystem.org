@@ -16,8 +16,6 @@ A fixed water fountain installed in the public right-of-way or an adjacent publi
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Public drinking water access supports comfort and public health, particularly in hot climates or along longer pedestrian corridors like trails and greenways, and its absence disproportionately affects people without ready access to bottled water. This pattern exists to document siting and accessibility considerations for this amenity.

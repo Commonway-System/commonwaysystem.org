@@ -16,8 +16,6 @@ A pedestrian-activated signal, sometimes called a HAWK beacon, that remains dark
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A pedestrian hybrid beacon provides stronger, legally binding stop control than an RRFB while avoiding the ongoing delay a full traffic signal would impose on a corridor at a location that does not have enough pedestrian volume to justify constant signal timing. This pattern exists to document this middle-tier crossing treatment between an RRFB and a full signal.<Citation index={1} /><Citation index={2} />

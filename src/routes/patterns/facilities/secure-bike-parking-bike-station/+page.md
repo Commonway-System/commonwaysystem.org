@@ -16,8 +16,6 @@ An enclosed or attended facility offering higher-security, longer-term bike park
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Commuters and long-term parkers need protection from theft and weather that an open rack cannot provide; this pattern exists to document the access control, capacity, and siting considerations specific to an enclosed facility, distinct from the simpler open-air patterns that serve short-term parking needs.<Citation index={1} />

@@ -6,9 +6,10 @@
   "description": "Commonway System Guidebook website, built on SveltePress with a fully custom Commonway theme.",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node scripts/generate-text-pages.mjs",
+    "build": "vite build && node scripts/generate-text-pages.mjs && node scripts/build-search-index.mjs && node scripts/make-thumbs.mjs --check",
     "preview": "vite preview",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "thumbs": "node scripts/make-thumbs.mjs"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
@@ -18,10 +19,15 @@
     "@types/hast": "^3.0.4",
     "@types/mdast": "^4.0.4",
     "@types/node": "^26.4.0",
+    "@types/turndown": "^5.0.6",
     "node-html-parser": "^9.0.4",
+    "pagefind": "^1.5.2",
     "schema-dts": "^2.0.0",
+    "sharp": "^0.35.4",
     "svelte": "^5.56.10",
     "svelte-check": "^4.7.6",
+    "turndown": "^7.2.4",
+    "turndown-plugin-gfm": "^1.0.2",
     "typescript": "^5.7.2",
     "vite": "^8.2.2"
   },

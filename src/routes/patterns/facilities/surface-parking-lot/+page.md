@@ -16,8 +16,6 @@ An at-grade, open-air parking area serving adjacent land uses, ranging from a sm
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Surface lots are the most common and land-intensive parking facility, and their design choices (stall layout, stormwater handling, pedestrian access, landscaping) carry outsized impact on both the immediate streetscape and the site’s runoff and heat-island footprint. This pattern exists to document the tradeoffs specific to at-grade, uncovered parking, distinct from the structural and circulation problems a parking garage presents.

@@ -5,6 +5,7 @@
   import type { Snippet } from 'svelte'
   import { expandAllDetails, initDisplaySettings } from '../display-settings.js'
   import { initColorScheme, initTableScrollHints, sidebarOpen } from '../layout.js'
+  import { searchOpen } from '../search.js'
   import { startTocTracking } from '../toc-tracking.js'
   import { buildOrganization, buildWebSite } from '../schema/organization.js'
   import '../styles/base.css'
@@ -14,6 +15,7 @@
   import MediaFilters from './MediaFilters.svelte'
   import Navbar from './Navbar.svelte'
   import PointerHalo from './PointerHalo.svelte'
+  import SearchDialog from './SearchDialog.svelte'
   import Sidebar from './Sidebar.svelte'
   import Toc from './Toc.svelte'
 
@@ -76,19 +78,33 @@
     return startTocTracking()
   })
 
+  // Ctrl/Cmd+K opens the search dialog from anywhere. Deliberately no
+  // single-character shortcut (like "/"): WCAG 2.1.4 requires those to be
+  // remappable or switchable off, and a modifier combination is exempt.
+  function onKeydown(event: KeyboardEvent) {
+    if ((event.ctrlKey || event.metaKey) && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'k') {
+      event.preventDefault()
+      searchOpen.update(open => !open)
+    }
+  }
+
   afterNavigate(() => {
     sidebarOpen.set(false)
+    searchOpen.set(false)
     if (document.documentElement.dataset.view === 'simple')
       tick().then(expandAllDetails)
     tick().then(initTableScrollHints)
   })
 </script>
 
+<svelte:window onkeydown={onKeydown} />
+
 <a class="skip-link" href="#main-content" onclick={skipToMain}>Skip to main content</a>
 <GoogleAnalytics />
 <JsonLd schemas={siteSchemas} />
 <Navbar />
 <PointerHalo />
+<SearchDialog />
 
 <div class="shell" class:shell--full={isHome} class:shell--media={isMedia}>
   <Sidebar />

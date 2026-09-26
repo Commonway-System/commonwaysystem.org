@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { page } from '$app/state'
+  import { thumbUrl } from '$lib/thumbs.js'
   import StatusBadge from './StatusBadge.svelte'
 
   type Classification = 'network' | 'corridor' | 'local' | 'collector' | 'arterial' | 'freeway' | 'intersections' | 'facility' | 'element'
@@ -19,16 +21,32 @@
      */
     status?: Status
     /**
-     * Real per-pattern illustration, once one exists for this Typology.
-     * Omit to fall back to the shared generic placeholder graphic (see
-     * pattern-placeholder.svg) — this prop is the one thing the original
-     * placeholder design anticipated changing later, the mix-blend-mode
-     * recolor mechanism below works unchanged either way.
+     * Override for the card's illustration. Normally OMIT this: the image
+     * comes from the target page's own `image:` frontmatter (looked up by
+     * `href` from `page.data.pageImages`, which patterns/+page.server.ts
+     * supplies), so an image is added in exactly one place. With neither,
+     * the card shows the shared placeholder graphic (pattern-placeholder.svg);
+     * the mix-blend-mode recolor below works the same either way.
      */
     image?: string
   }
 
   const { href, id, title, classification, status, image }: Props = $props()
+
+  const source = $derived(image ?? (page.data.pageImages?.[href] as string | undefined))
+  // The 480px copy (pnpm run thumbs); placeholder when the page has no image.
+  const src = $derived(source ? thumbUrl(source, 480) : '/patterns/pattern-placeholder.svg')
+
+  // Falls back to the full-size original if the small copy is missing (a
+  // forgotten `pnpm run thumbs`; the build warns about it too).
+  function useOriginal(event: Event) {
+    const img = event.currentTarget as HTMLImageElement
+    if (source && !img.dataset.original) {
+      img.dataset.original = 'true'
+      img.src = source
+    }
+  }
+
 
   // The trailing number in the Pattern ID, leading zero stripped. Doubles
   // as the per-classification counter the number circle needs for free:
@@ -40,7 +58,7 @@
 
 <a class="pic" {href} data-classification={classification}>
   <div class="pic__image">
-    <img src={image ?? '/patterns/pattern-placeholder.svg'} alt="" loading="lazy" decoding="async" />
+    <img {src} alt="" loading="lazy" decoding="async" onerror={useOriginal} />
     <div class="pic__overlay"></div>
     <span class="pic__number">{number}</span>
   </div>

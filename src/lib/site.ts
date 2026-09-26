@@ -46,3 +46,8 @@ export function externalLinkAttrs(href: unknown): { target?: '_blank', rel?: str
 export function formatCalVer(year: number, month: number, day: number): string {
   return `${year}.${String(month).padStart(2, '0')}.${String(day).padStart(2, '0')}`
 }
+
+/** Markdown version of a page, written by scripts/generate-text-pages.mjs: '/patterns/foo/' -> '/patterns/foo.md', '/' -> '/index.md'. */
+export function markdownPath(routePath: string): string {
+  return routePath === '/' ? '/index.md' : `${routePath.replace(/\/$/, '')}.md`
+}

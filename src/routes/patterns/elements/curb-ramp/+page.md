@@ -16,8 +16,6 @@ A sloped transition cut into a curb, providing an accessible path between the si
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A curb that provides no ramped transition is an absolute barrier to wheelchair users and others who cannot step over a vertical curb face; this pattern exists because accessible curb transitions are both a baseline civil rights requirement and a foundational usability feature at every crossing point on the network.

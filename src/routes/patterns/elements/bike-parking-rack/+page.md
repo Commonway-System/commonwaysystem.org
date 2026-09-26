@@ -16,8 +16,6 @@ A fixed rack or set of racks, most commonly an inverted-U or similar design, pro
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Reliable, well-designed bike parking is a necessary complement to any bike facility investment; without a secure place to park at the destination end of a trip, the quality of the route traveled matters less. This pattern exists to document rack design and placement considerations at the individual fixture level, distinct from the larger corral or secure-parking facility patterns it may be part of.<Citation index={1} />

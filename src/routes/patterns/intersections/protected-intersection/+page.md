@@ -3,6 +3,7 @@ title: Protected Intersection
 description: A Dutch-style intersection treatment using corner refuge islands and setback crossings to reduce conflict between turning vehicles and people walking or biking.
 patternId: INT-PRI-11
 date: 2026-08-31
+image: /patterns/int-pri-11-protected-intersection.png
 llms: A Dutch-style intersection treatment using corner refuge islands and setback bicycle/pedestrian crossings to reduce conflict between turning vehicles and people walking or biking through the intersection.
 ---
 

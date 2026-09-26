@@ -16,10 +16,10 @@ Every pattern currently in the Commonway System, grouped by Scale: Network, Corr
 Network patterns describe the topology of a whole connected system, or a defined sub-system within it, not any single physical place. You would not stand in one spot and see a Network pattern, you would see it on a map: a grid versus a radial layout, how branching or connectivity shapes route choice across an entire area.
 
 <div class="pattern-index-grid">
-  <PatternIndexCard href="/patterns/network/grid/" id="NET-GRD-01" title="Grid" classification="network" image="/patterns/net-grd-01-grid.png" />
-  <PatternIndexCard href="/patterns/network/dendritic-hierarchical/" id="NET-DEN-02" title="Dendritic / Hierarchical" classification="network" status="situational" image="/patterns/net-den-02-dendritic-hierachical.png" />
-  <PatternIndexCard href="/patterns/network/radial/" id="NET-RAD-03" title="Radial" classification="network" status="situational" image="/patterns/net-rad-03-radial.png" />
-  <PatternIndexCard href="/patterns/network/organic-irregular/" id="NET-ORG-04" title="Organic / Irregular" classification="network" status="descriptive" image="/patterns/net-org-04-organic-irregular.png" />
+  <PatternIndexCard href="/patterns/network/grid/" id="NET-GRD-01" title="Grid" classification="network" />
+  <PatternIndexCard href="/patterns/network/dendritic-hierarchical/" id="NET-DEN-02" title="Dendritic / Hierarchical" classification="network" status="situational" />
+  <PatternIndexCard href="/patterns/network/radial/" id="NET-RAD-03" title="Radial" classification="network" status="situational" />
+  <PatternIndexCard href="/patterns/network/organic-irregular/" id="NET-ORG-04" title="Organic / Irregular" classification="network" status="descriptive" />
 </div>
 
 ## Corridor level patterns
@@ -28,11 +28,11 @@ Corridor patterns describe a linear stretch of the network connecting two places
 
 <div class="pattern-index-grid">
   <PatternIndexCard href="/patterns/corridors/density-step-down-step-up/" id="CDR-DSD-01" title="Density Step-Down / Step-Up" classification="corridor" />
-  <PatternIndexCard href="/patterns/corridors/rural-to-town-gateway/" id="CDR-RTG-02" title="Rural-to-Town Gateway" classification="corridor" image="/patterns/cdr-rtg-02-rural-to-town-gateway.jpeg" />
+  <PatternIndexCard href="/patterns/corridors/rural-to-town-gateway/" id="CDR-RTG-02" title="Rural-to-Town Gateway" classification="corridor" />
   <PatternIndexCard href="/patterns/corridors/character-transect/" id="CDR-CTR-03" title="Character Transect" classification="corridor" />
-  <PatternIndexCard href="/patterns/corridors/rail-with-trail-corridor/" id="CDR-RWT-04" title="Rail-With-Trail Corridor" classification="corridor" status="situational" image="/patterns/cdr-rwt-04-rail-with-trail-corridor.jpeg" />
-  <PatternIndexCard href="/patterns/corridors/road-adjacent-greenway/" id="CDR-RAG-05" title="Road-Adjacent Greenway" classification="corridor" image="/patterns/cdr-rag-05-road-adjacent-greenway.jpeg" />
-  <PatternIndexCard href="/patterns/corridors/transit-alignment-corridor/" id="CDR-TAC-06" title="Transit Alignment Corridor" classification="corridor" status="situational" image="/patterns/cdr-tac-06-transit-alignment-corridor.jpeg" />
+  <PatternIndexCard href="/patterns/corridors/rail-with-trail-corridor/" id="CDR-RWT-04" title="Rail-With-Trail Corridor" classification="corridor" status="situational" />
+  <PatternIndexCard href="/patterns/corridors/road-adjacent-greenway/" id="CDR-RAG-05" title="Road-Adjacent Greenway" classification="corridor" />
+  <PatternIndexCard href="/patterns/corridors/transit-alignment-corridor/" id="CDR-TAC-06" title="Transit Alignment Corridor" classification="corridor" status="situational" />
 </div>
 
 ## Local street patterns
@@ -41,18 +41,18 @@ Local streets have many access points and short trips, so keeping speeds under 2
 
 <div class="pattern-index-grid">
   <PatternIndexCard href="/patterns/local-streets/default/" id="LOC-DEF-01" title="Default (Standard Local Street)" classification="local" />
-  <PatternIndexCard href="/patterns/local-streets/alley/" id="LOC-ALY-02" title="Alley" classification="local" image="/patterns/loc-aly-02-alley.png" />
-  <PatternIndexCard href="/patterns/local-streets/cul-de-sac/" id="LOC-CDS-03" title="Cul-de-sac" classification="local" status="situational" image="/patterns/loc-cds-03-cul-de-sac.png" />
-  <PatternIndexCard href="/patterns/local-streets/frontage-service-road/" id="LOC-FSR-04" title="Frontage / Service Road" classification="local" image="/patterns/loc-fsr-04-frontage-service-road.png" />
-  <PatternIndexCard href="/patterns/local-streets/main-street/" id="LOC-MST-05" title="Main Street" classification="local" image="/patterns/loc-mst-05-main-street.png" />
-  <PatternIndexCard href="/patterns/local-streets/living-street-woonerf/" id="LOC-LSW-06" title="Living Street / Woonerf" classification="local" image="/patterns/loc-lsw-06-living-street-woonerf.png" />
-  <PatternIndexCard href="/patterns/local-streets/yield-street/" id="LOC-YLD-07" title="Yield Street" classification="local" image="/patterns/loc-yld-07-yield-street.png" />
-  <PatternIndexCard href="/patterns/local-streets/festival-street/" id="LOC-FES-08" title="Festival Street" classification="local" image="/patterns/loc-fes-08-festival-street.png" />
-  <PatternIndexCard href="/patterns/local-streets/pedestrian-plaza/" id="LOC-PED-09" title="Pedestrian-only Street / Plaza" classification="local" status="situational" image="/patterns/loc-ped-09-pedestrian-only-street-plaza.png" />
-  <PatternIndexCard href="/patterns/local-streets/local-transit/" id="LOC-LTR-10" title="Local Transit" classification="local" image="/patterns/loc-ltr-10-local-transit.png" />
-  <PatternIndexCard href="/patterns/local-streets/school-street/" id="LOC-SCH-11" title="School Street" classification="local" image="/patterns/loc-sch-11-school-street.png" />
-  <PatternIndexCard href="/patterns/local-streets/bicycle-boulevard/" id="LOC-BBG-12" title="Bicycle Boulevard / Neighborhood Greenway" classification="local" image="/patterns/loc-bbg-12-bicycle-boulevard-neighborhood-greenway.png" />
-  <PatternIndexCard href="/patterns/local-streets/shared-use-path/" id="LOC-SUP-13" title="Shared-Use Path" classification="local" image="/patterns/loc-sup-13-shared-use-path.png" />
+  <PatternIndexCard href="/patterns/local-streets/alley/" id="LOC-ALY-02" title="Alley" classification="local" />
+  <PatternIndexCard href="/patterns/local-streets/cul-de-sac/" id="LOC-CDS-03" title="Cul-de-sac" classification="local" status="situational" />
+  <PatternIndexCard href="/patterns/local-streets/frontage-service-road/" id="LOC-FSR-04" title="Frontage / Service Road" classification="local" />
+  <PatternIndexCard href="/patterns/local-streets/main-street/" id="LOC-MST-05" title="Main Street" classification="local" />
+  <PatternIndexCard href="/patterns/local-streets/living-street-woonerf/" id="LOC-LSW-06" title="Living Street / Woonerf" classification="local" />
+  <PatternIndexCard href="/patterns/local-streets/yield-street/" id="LOC-YLD-07" title="Yield Street" classification="local" />
+  <PatternIndexCard href="/patterns/local-streets/festival-street/" id="LOC-FES-08" title="Festival Street" classification="local" />
+  <PatternIndexCard href="/patterns/local-streets/pedestrian-plaza/" id="LOC-PED-09" title="Pedestrian-only Street / Plaza" classification="local" status="situational" />
+  <PatternIndexCard href="/patterns/local-streets/local-transit/" id="LOC-LTR-10" title="Local Transit" classification="local" />
+  <PatternIndexCard href="/patterns/local-streets/school-street/" id="LOC-SCH-11" title="School Street" classification="local" />
+  <PatternIndexCard href="/patterns/local-streets/bicycle-boulevard/" id="LOC-BBG-12" title="Bicycle Boulevard / Neighborhood Greenway" classification="local" />
+  <PatternIndexCard href="/patterns/local-streets/shared-use-path/" id="LOC-SUP-13" title="Shared-Use Path" classification="local" />
 </div>
 
 ## Collector street patterns
@@ -63,7 +63,7 @@ Collectors link local streets to the arterial network, carrying more through tra
   <PatternIndexCard href="/patterns/collectors/default/" id="COL-DEF-01" title="Default (Standard Collector)" classification="collector" />
   <PatternIndexCard href="/patterns/collectors/rural-collector/" id="COL-FTM-02" title="Rural Collector / Farm-to-Market Road" classification="collector" />
   <PatternIndexCard href="/patterns/collectors/industrial-collector/" id="COL-IND-03" title="Industrial Collector" classification="collector" />
-  <PatternIndexCard href="/patterns/collectors/bike-highway-greenway/" id="COL-BHG-04" title="Bike Highway / Greenway" classification="collector" image="/patterns/col-bhg-04-bike-highway-greenway.png" />
+  <PatternIndexCard href="/patterns/collectors/bike-highway-greenway/" id="COL-BHG-04" title="Bike Highway / Greenway" classification="collector" />
   <PatternIndexCard href="/patterns/collectors/collector-transit/" id="COL-CTR-05" title="Collector Transit" classification="collector" />
   <PatternIndexCard href="/patterns/collectors/multi-use-trail-greenway/" id="COL-MUT-06" title="Multi-Use Trail / Greenway" classification="collector" />
   <PatternIndexCard href="/patterns/collectors/downtown-thoroughfare/" id="COL-DTH-07" title="Downtown Thoroughfare" classification="collector" status="situational" />
@@ -78,7 +78,7 @@ Arterials move higher volumes of through traffic over longer distances, so the c
   <PatternIndexCard href="/patterns/arterials/boulevard/" id="ART-BLV-02" title="Boulevard" classification="arterial" />
   <PatternIndexCard href="/patterns/arterials/scenic-highway-byway/" id="ART-SCB-03" title="Scenic Highway / Byway" classification="arterial" />
   <PatternIndexCard href="/patterns/arterials/arterial-transit/" id="ART-ATR-04" title="Arterial Transit (BRT/LRT)" classification="arterial" />
-  <PatternIndexCard href="/patterns/arterials/stroad/" id="ART-STD-05" title="Stroad (Commercial Arterial)" classification="arterial" status="avoid" image="/patterns/art-std-05-stroad-commercial-arterial.png" />
+  <PatternIndexCard href="/patterns/arterials/stroad/" id="ART-STD-05" title="Stroad (Commercial Arterial)" classification="arterial" status="avoid" />
   <PatternIndexCard href="/patterns/arterials/one-way-street/" id="ART-OWS-06" title="One-Way Street" classification="arterial" status="situational" />
   <PatternIndexCard href="/patterns/arterials/parkway/" id="ART-PKY-07" title="Parkway" classification="arterial" status="situational" />
 </div>
@@ -99,8 +99,8 @@ Freeways sit outside the Commonway System's detailed design scope entirely. They
 Intersections aren't tied to one Functional Classification, since any two street types can meet at a corner. The default is a roundabout wherever a Collector-or-larger street is involved, stepping up to a turbo-roundabout at busy Arterial-to-Arterial junctions. Signals are a documented last resort, and a continuous sidewalk is the default where a Local street meets a Collector.
 
 <div class="pattern-index-grid">
-  <PatternIndexCard href="/patterns/intersections/roundabout/" id="INT-RAB-01" title="Roundabout (Single/Multi-Lane)" classification="intersections" image="/patterns/int-rab-01-roundabout.png" />
-  <PatternIndexCard href="/patterns/intersections/turbo-roundabout/" id="INT-TRB-02" title="Turbo-Roundabout" classification="intersections" image="/patterns/int-trb-02-turbo-roundabout.png" />
+  <PatternIndexCard href="/patterns/intersections/roundabout/" id="INT-RAB-01" title="Roundabout (Single/Multi-Lane)" classification="intersections" />
+  <PatternIndexCard href="/patterns/intersections/turbo-roundabout/" id="INT-TRB-02" title="Turbo-Roundabout" classification="intersections" />
   <PatternIndexCard href="/patterns/intersections/signal/" id="INT-SIG-03" title="Signal" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/all-way-stop/" id="INT-AWS-04" title="All-Way Stop" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/stop-yield/" id="INT-SYD-05" title="Stop / Yield (Two-Way)" classification="intersections" status="situational" />
@@ -109,7 +109,7 @@ Intersections aren't tied to one Functional Classification, since any two street
   <PatternIndexCard href="/patterns/intersections/midblock-crossing/" id="INT-MPC-08" title="Midblock Pedestrian Crossing" classification="intersections" />
   <PatternIndexCard href="/patterns/intersections/driveway-curb-cut/" id="INT-DCC-09" title="Driveway / Curb Cut" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/grade-separated-interchange/" id="INT-GSI-10" title="Grade-Separated Interchange" classification="intersections" status="situational" />
-  <PatternIndexCard href="/patterns/intersections/protected-intersection/" id="INT-PRI-11" title="Protected Intersection" classification="intersections" image="/patterns/int-pri-11-protected-intersection.png" />
+  <PatternIndexCard href="/patterns/intersections/protected-intersection/" id="INT-PRI-11" title="Protected Intersection" classification="intersections" />
   <PatternIndexCard href="/patterns/intersections/median-u-turn/" id="INT-MUT-12" title="Median U-Turn (MUT)" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/restricted-crossing-u-turn/" id="INT-RCU-13" title="Restricted Crossing U-Turn (RCUT)" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/displaced-left-turn/" id="INT-DLT-14" title="Displaced Left-Turn (DLT)" classification="intersections" status="situational" />
@@ -176,12 +176,12 @@ Element patterns describe the physical components a segment, intersection, or fa
   <PatternIndexCard href="/patterns/elements/advisory-bike-lane/" id="ELM-ABL-36" title="Advisory Bike Lane" classification="element" status="situational" />
   <PatternIndexCard href="/patterns/elements/protected-bike-lane-cycle-track/" id="ELM-PBL-37" title="Protected Bike Lane / Cycle Track" classification="element" />
   <PatternIndexCard href="/patterns/elements/green-pavement-conflict-marking/" id="ELM-GPM-38" title="Green Pavement / Conflict Marking" classification="element" />
-  <PatternIndexCard href="/patterns/elements/sharrow/" id="ELM-SHR-39" title="Sharrow" classification="element" status="avoid" image="/patterns/elm-shr-39-sharrow.jpeg" />
+  <PatternIndexCard href="/patterns/elements/sharrow/" id="ELM-SHR-39" title="Sharrow" classification="element" status="avoid" />
   <PatternIndexCard href="/patterns/elements/bike-parking-rack/" id="ELM-BPR-40" title="Bike Parking / Rack" classification="element" />
   <PatternIndexCard href="/patterns/elements/transit-boarding-island/" id="ELM-TBI-41" title="Transit Boarding Island" classification="element" />
   <PatternIndexCard href="/patterns/elements/bike-box/" id="ELM-BKB-42" title="Bike Box" classification="element" />
   <PatternIndexCard href="/patterns/elements/two-stage-turn-queue-box/" id="ELM-TSQ-43" title="Two-Stage Turn Queue Box" classification="element" />
-  <PatternIndexCard href="/patterns/elements/modal-filter-point-closure/" id="ELM-MFP-44" title="Modal Filter / Point Closure" classification="element" image="/patterns/elm-mfp-44-modal-filter-point-closure.jpeg" />
+  <PatternIndexCard href="/patterns/elements/modal-filter-point-closure/" id="ELM-MFP-44" title="Modal Filter / Point Closure" classification="element" />
   <PatternIndexCard href="/patterns/elements/median-island/" id="ELM-MDI-45" title="Median Island" classification="element" />
   <PatternIndexCard href="/patterns/elements/neighborhood-traffic-circle-mini-roundabout/" id="ELM-NTC-46" title="Neighborhood Traffic Circle / Mini-Roundabout" classification="element" />
 </div>

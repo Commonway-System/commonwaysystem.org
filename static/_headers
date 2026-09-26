@@ -1,0 +1,8 @@
+# Netlify headers file (copied into build/ like _redirects).
+# The generated markdown versions of every page (see
+# scripts/generate-text-pages.mjs) are for AI/LLM readers: serve them as
+# markdown, and keep search engines on the HTML pages so they aren't indexed
+# as duplicates.
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex

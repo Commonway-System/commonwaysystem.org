@@ -16,8 +16,6 @@ A signal indication, typically a bicycle-shaped symbol in red, yellow, and green
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Where a bicycle facility crosses or interacts with an intersection in a way that a shared vehicle or pedestrian phase does not safely accommodate, a dedicated bicycle signal resolves the conflict explicitly rather than leaving cyclists to interpret a signal meant for another mode. This pattern exists to document where that dedicated treatment is warranted.<Citation index={1} />

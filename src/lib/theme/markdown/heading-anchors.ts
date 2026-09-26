@@ -24,6 +24,8 @@ export function headingAnchors(): ReturnType<Plugin<[], Root>> {
             href: `#${node.properties.id}`,
             className: ['svp-heading-anchor'],
             ariaLabel: 'Link to this heading',
+            // Keeps the "#" out of search-result heading titles (Pagefind).
+            dataPagefindIgnore: 'all',
           },
           children: [{ type: 'text', value: '#' }],
         },

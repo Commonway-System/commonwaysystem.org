@@ -3,6 +3,7 @@ title: Stroad (Commercial Arterial)
 description: An Arterial anti-pattern, Avoid status, mixing on-street parking or direct property access with through traffic. This page exists to help identify and replace it.
 patternId: ART-STD-05
 date: 2026-08-29
+image: /patterns/art-std-05-stroad-commercial-arterial.png
 llms: An Arterial anti-pattern marked Avoid, formed by mixing on-street parking or direct property access with through traffic. This page exists to help identify and replace it with Boulevard or Default Arterial.
 ---
 

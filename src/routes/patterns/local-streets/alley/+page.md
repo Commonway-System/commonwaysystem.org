@@ -3,6 +3,7 @@ title: Alley
 description: A narrow Local Typology carrying service and driveway access, with vehicle and freight movement prioritized over through pedestrian and bicycle traffic.
 patternId: LOC-ALY-02
 date: 2026-08-29
+image: /patterns/loc-aly-02-alley.png
 llms: A narrow Local street typology for service and driveway access, where vehicle and freight movement outrank pedestrian and bicycle through-traffic.
 ---
 

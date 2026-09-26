@@ -16,8 +16,6 @@ A striped, dedicated on-street lane for bicycle travel, separated from the adjac
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A conventional bike lane provides a clearly delineated, expected space for cyclists that a shared travel lane does not, improving predictability for both cyclists and drivers at a lower cost and space requirement than a buffered or protected facility. This pattern exists to document where this baseline level of separation is adequate versus where a stronger treatment is warranted.<Citation index={1} />

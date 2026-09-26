@@ -16,8 +16,6 @@ A parking facility, surface or structured, designed specifically for commuters t
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Park-and-ride serves a distinct trip purpose (a single daily transfer at a predictable time) rather than general destination parking, which shapes its sizing, its relationship to the transit stop it serves, and its access design in ways a generic lot or garage does not need to consider. This pattern exists to document that specific use case rather than leaving it as an unstated variant of Surface Parking Lot or Parking Garage/Structure.<Citation index={1} />

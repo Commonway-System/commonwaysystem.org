@@ -3,6 +3,7 @@ title: Shared-Use Path
 description: An off-street Local Typology physically separated from the roadway, shared by pedestrians and bicyclists under roughly equal priority.
 patternId: LOC-SUP-13
 date: 2026-08-31
+image: /patterns/loc-sup-13-shared-use-path.png
 llms: A Local street typology for an off-street path physically separated from the roadway, shared by pedestrians and bicyclists under roughly equal priority, connecting local-scale destinations.
 ---
 

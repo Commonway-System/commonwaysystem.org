@@ -16,8 +16,6 @@ The break in a curb allowing vehicle access from the roadway to an adjacent driv
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Every driveway crossing a sidewalk creates a conflict point between turning vehicles and pedestrians on that sidewalk, and the apron’s slope and width directly affect both vehicle turning ease and the sidewalk’s cross-slope and continuity for pedestrians passing through.<Citation index={2} /> This pattern exists to document that conflict point’s design considerations distinct from a controlled crossing like a crosswalk.

@@ -3,6 +3,7 @@ title: Local Transit
 description: A Local Typology with a dedicated transit route, where transit is elevated above the rest of the Local base order.
 patternId: LOC-LTR-10
 date: 2026-08-29
+image: /patterns/loc-ltr-10-local-transit.png
 llms: A Local street typology carrying a dedicated transit route, with transit elevated above the rest of the Local base modal hierarchy.
 ---
 

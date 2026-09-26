@@ -16,8 +16,6 @@ A small- or large-format weather shelter installed at a transit stop, protecting
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Passenger comfort and perceived safety at a stop directly affect transit ridership; a stop with no protection from weather discourages waiting and signals that the route is not a priority investment. This pattern exists to document shelter as a distinct facility with its own siting, sizing, and structural considerations, separate from the platform it sits on and the route it serves.

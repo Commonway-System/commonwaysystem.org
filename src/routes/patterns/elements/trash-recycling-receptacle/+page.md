@@ -16,8 +16,6 @@ A fixed waste and recycling container installed in the public right-of-way or an
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Without a designated disposal point, litter accumulates in places people already gather or pass through; this pattern exists to document placement and servicing considerations that determine whether a receptacle actually reduces litter or becomes an overflowing problem itself.<Citation index={1} />

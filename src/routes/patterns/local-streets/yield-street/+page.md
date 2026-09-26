@@ -3,6 +3,7 @@ title: Yield Street
 description: A Local Typology narrow enough that opposing vehicles yield to each other, viable only where traffic volume genuinely stays low.
 patternId: LOC-YLD-07
 date: 2026-08-29
+image: /patterns/loc-yld-07-yield-street.png
 llms: A narrow Local street typology where opposing vehicles yield to each other by design, viable only at genuinely low traffic volumes.
 ---
 

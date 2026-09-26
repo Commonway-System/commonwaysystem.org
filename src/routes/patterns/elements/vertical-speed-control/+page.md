@@ -16,8 +16,6 @@ A raised roadway feature (speed hump, speed table, or speed cushion) that slows 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Signage and paint alone rarely change driver speed on their own; a physical vertical deflection imposes a real cost on speeding that self-enforces without requiring active enforcement presence. This pattern exists to document the distinct forms this treatment takes and where each is appropriate, since a hump, table, and cushion serve different vehicle types and roadway contexts differently.<Citation index={1} />

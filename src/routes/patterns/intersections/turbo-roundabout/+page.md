@@ -3,6 +3,7 @@ title: Turbo-Roundabout
 description: A higher-capacity roundabout variant reserved for the highest-volume Arterial-to-Arterial junctions.
 patternId: INT-TRB-02
 date: 2026-08-29
+image: /patterns/int-trb-02-turbo-roundabout.png
 llms: A higher-capacity roundabout variant, using spiral lane markings to guide traffic, reserved for the highest-volume Arterial-to-Arterial junctions.
 ---
 

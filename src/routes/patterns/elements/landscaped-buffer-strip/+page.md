@@ -16,8 +16,6 @@ A planted zone running between the roadway and the sidewalk, providing separatio
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A planted buffer between moving traffic and pedestrians provides psychological and physical separation beyond what a curb alone offers, while also creating usable space for trees, snow storage, and stormwater treatment that a fully paved streetscape does not accommodate. This pattern exists to document the width and design considerations that make this zone function well.<Citation index={1} />

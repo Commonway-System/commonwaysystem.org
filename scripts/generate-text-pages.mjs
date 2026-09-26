@@ -1,7 +1,10 @@
-// Post-build step: for every prerendered page in build/, writes a plain,
-// text-only version to build/text/<same path>/index.html (the homepage's is
-// build/text/index.html), built from the page's already-rendered <main>
-// content. Working from the rendered HTML (not the source markdown) is what
+// Post-build step: for every prerendered page in build/, writes two derived
+// versions from the page's already-rendered <main> content:
+//   1. a plain, text-only HTML page at build/text/<same path>/index.html (the
+//      homepage's is build/text/index.html), for readers (accessibility);
+//   2. a markdown file at build/<path>.md (build/index.md for the homepage),
+//      for AI/LLM consumption, linked from each page's <head> and llms.txt.
+// Both start from the same cleaned <main>. Working from the rendered HTML (not the source markdown) is what
 // keeps components' output (cards, tables, the layered guidance table,
 // callouts) intact: much of the content lives in Svelte components and data,
 // not plain markdown.
@@ -12,6 +15,8 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSy
 import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parse } from 'node-html-parser'
+import TurndownService from 'turndown'
+import gfmPlugin from 'turndown-plugin-gfm'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const buildDir = join(root, 'build')
@@ -22,7 +27,7 @@ const KEEP_ATTRS = new Set(['href', 'id', 'colspan', 'rowspan', 'scope', 'open',
 const DROP_SELECTORS = [
   'script', 'style', 'canvas', 'button', 'iframe', 'video', 'audio', 'form', 'input', 'select', 'textarea',
   '.toc-mobile', '.page__meta', '.page__legal', '.pagenav', '.svp-heading-anchor',
-  '.cw-external-indicator', 'a .cw-sr-only', '.cw-table-hint', '.hero__motion', '.hero-glow', '.ink-halftone',
+  '[hidden]', '.cw-external-indicator', 'a .cw-sr-only', '.cw-table-hint', '.hero__motion', '.hero-glow', '.ink-halftone',
 ]
 
 function findPages(dir, out = []) {
@@ -45,7 +50,13 @@ function routeOf(file) {
   return rel ? `/${rel}/` : '/'
 }
 
-const routes = new Set(findPages(buildDir).map(routeOf))
+// Utility pages (the search page, marked noindex) get no text or markdown
+// version, so they aren't link targets to rewrite.
+const routes = new Set(
+  findPages(buildDir)
+    .filter(file => !/<meta name="robots" content="[^"]*noindex/.test(readFileSync(file, 'utf8')))
+    .map(routeOf),
+)
 
 function textHref(href) {
   if (!href || href.startsWith('#') || href.startsWith('mailto:') || /^[a-z][a-z0-9+.-]*:/i.test(href))
@@ -61,7 +72,7 @@ function textHref(href) {
   return `/text${path === '/' ? '/' : path}${m[2]}`
 }
 
-function cleanMain(main) {
+function cleanMain(main, mapHref = textHref) {
   // A button that is the label of a table header (the layered guidance
   // table's row headers) keeps its text; every other button is a control
   // with no meaning in a static page and is dropped below.
@@ -108,7 +119,7 @@ function cleanMain(main) {
     if (el.tagName === 'A') {
       const href = el.getAttribute('href')
       if (href)
-        el.setAttribute('href', textHref(href))
+        el.setAttribute('href', mapHref(href))
     }
   })
 }
@@ -156,6 +167,142 @@ ${body}
 `
 }
 
+// ---------------------------------------------------------------------------
+// Markdown versions (for AI/LLM consumption)
+// ---------------------------------------------------------------------------
+
+/** Route ('/patterns/foo/') to its markdown path ('/patterns/foo.md'; the homepage is '/index.md'). */
+function markdownPath(route) {
+  return route === '/' ? '/index.md' : `${route.replace(/\/$/, '')}.md`
+}
+
+/** Absolute URL for any internal link so a .md file still works when read on its own. */
+function markdownHref(href) {
+  if (!href || href.startsWith('#') || href.startsWith('mailto:') || /^[a-z][a-z0-9+.-]*:/i.test(href))
+    return href
+  const m = href.match(/^([^#?]*)(.*)$/)
+  let path = m[1]
+  if (!path.startsWith('/'))
+    return href
+  const asRoute = path.endsWith('/') ? path : `${path}/`
+  if (routes.has(asRoute))
+    return `${SITE_URL}${markdownPath(asRoute)}${m[2]}`
+  return `${SITE_URL}${path}${m[2]}`
+}
+
+// A table whose cells hold block content (the layered guidance table's
+// expandable cells, nested tables) can't be a markdown table. Flatten it to
+// one h3 per row and one h4 per column, which reads well as plain markdown.
+function flattenComplexTables(main) {
+  const hasTableAncestor = (node) => {
+    for (let p = node.parentNode; p; p = p.parentNode) {
+      if (p.tagName === 'TABLE')
+        return true
+    }
+    return false
+  }
+  main.querySelectorAll('table').filter(t => !hasTableAncestor(t)).forEach((table) => {
+    const complex = table.querySelectorAll('td').some(td => td.querySelector('details, div, p, ul, ol, table, pre'))
+    if (!complex)
+      return
+    const headRow = table.querySelector('thead tr') ?? table.querySelector('tr')
+    const cols = headRow ? headRow.querySelectorAll('th, td').map(c => c.text.trim()) : []
+    const caption = table.querySelector('caption')?.text.trim()
+    let out = caption ? `<p>${esc(caption)}</p>` : ''
+    const rows = table.querySelectorAll('tbody tr').length ? table.querySelectorAll('tbody tr') : table.querySelectorAll('tr').slice(1)
+    for (const row of rows) {
+      const cells = row.querySelectorAll(':scope > th, :scope > td')
+      if (!cells.length)
+        continue
+      out += `<h3>${esc(cells[0].text.trim())}</h3>`
+      cells.slice(1).forEach((cell, i) => {
+        out += `<h4>${esc(cols[i + 1] ?? '')}</h4><div>${cell.innerHTML}</div>`
+      })
+    }
+    table.replaceWith(`<div>${out}</div>`)
+  })
+}
+
+function makeTurndown() {
+  const td = new TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced', bulletListMarker: '-', emDelimiter: '_' })
+  td.use(gfmPlugin.gfm)
+  // <details> is always open in these files: keep its summary as a bold lead-in line.
+  td.addRule('summary', {
+    filter: 'summary',
+    replacement: content => `\n\n**${content.trim()}**\n\n`,
+  })
+  return td
+}
+
+function frontMatter(doc, title, route) {
+  const desc = doc.querySelector('meta[name="description"]')?.getAttribute('content')?.trim()
+  let updated
+  let id
+  for (const s of doc.querySelectorAll('script[type="application/ld+json"]')) {
+    try {
+      const j = JSON.parse(s.text)
+      for (const node of Array.isArray(j) ? j : [j]) {
+        updated ??= node.dateModified
+        id ??= node.identifier
+      }
+    }
+    catch {}
+  }
+  const q = v => JSON.stringify(String(v))
+  const lines = ['---', `title: ${q(title)}`, `url: ${q(SITE_URL + route)}`]
+  if (id)
+    lines.push(`id: ${q(id)}`)
+  if (desc)
+    lines.push(`description: ${q(desc)}`)
+  if (updated)
+    lines.push(`updated: ${q(updated)}`)
+  lines.push('---', '')
+  return lines.join('\n')
+}
+
+function toMarkdown(file, route, title, td) {
+  const doc = parse(readFileSync(file, 'utf8'))
+  const main = doc.querySelector('main#main-content')
+  // The Media Gallery's filter controls do nothing in a static file.
+  main.querySelectorAll('.mf').forEach(n => n.remove())
+  cleanMain(main, markdownHref)
+  // Numbered citation badges become [N], pointing at the numbered References list.
+  main.querySelectorAll('sup').forEach((sup) => {
+    const a = sup.querySelector('a')
+    if (a && (a.getAttribute('href') ?? '').startsWith('#'))
+      sup.replaceWith(`@@C${a.text.trim()}@@`)
+  })
+  // A card that is one big link (media cards) would become a multi-line
+  // markdown link: link its heading instead and keep the rest as plain text.
+  main.querySelectorAll('a').forEach((a) => {
+    if (!a.querySelector('h2, h3, h4, p, div'))
+      return
+    const href = a.getAttribute('href')
+    const heading = a.querySelector('h2, h3, h4')
+    if (heading && href)
+      heading.set_content(`<a href="${esc(href)}">${heading.innerHTML}</a>`)
+    a.replaceWith(`<div>${a.innerHTML}</div>`)
+  })
+  // Modal-hierarchy pills separate ranks with '>' (or '=' for ties) in their own spans.
+  main.querySelectorAll('span').forEach((sp) => {
+    const t = sp.text.trim()
+    if (t === '>' || t === '=')
+      sp.replaceWith(` @@S${t === '>' ? 'G' : 'E'}@@ `)
+  })
+  flattenComplexTables(main)
+  const body = td.turndown(main.innerHTML)
+    .replace(/@@C(\d+)@@/g, '[$1]')
+    .replace(/@@SG@@/g, '>')
+    .replace(/@@SE@@/g, '=')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+  return `${frontMatter(doc, title, route)}\n${body}\n`
+}
+
+const turndown = makeTurndown()
+let mdCount = 0
+const fullDocs = []
+
 const listing = []
 let count = 0
 
@@ -165,6 +312,8 @@ for (const file of findPages(buildDir)) {
   const main = doc.querySelector('main#main-content')
   if (!main)
     continue // not a content page (nothing to make a text version of)
+  if (doc.querySelector('meta[name="robots"][content*="noindex"]'))
+    continue // utility page (the search page): no text or markdown version
 
   const rawTitle = (doc.querySelector('title')?.text ?? route).trim()
   const title = rawTitle.replace(/\s*[·|]\s*Commonway System\s*$/, '')
@@ -175,6 +324,11 @@ for (const file of findPages(buildDir)) {
   writeFileSync(join(outDir, 'index.html'), shell({ title, canonicalPath: route, body: main.innerHTML, fullHref: route }))
   listing.push({ route, title })
   count++
+
+  const md = toMarkdown(file, route, title, turndown)
+  writeFileSync(join(buildDir, markdownPath(route).slice(1)), md)
+  fullDocs.push({ route, md })
+  mdCount++
 }
 
 // Index of every text page.
@@ -187,3 +341,14 @@ writeFileSync(
 )
 
 console.log(`Text pages: wrote ${count} pages + index to build/text/`)
+// llms-full.txt: every page's markdown in one file (home first, then by
+// route), each preceded by a separator and its URL, so a model can load the
+// whole guidebook in one fetch. Front matter is dropped; the URL line and the
+// page's own H1 carry the same information.
+fullDocs.sort((a, b) => (a.route === '/' ? -1 : b.route === '/' ? 1 : a.route.localeCompare(b.route)))
+const fullText = fullDocs
+  .map(({ route, md }) => `Source: ${SITE_URL}${route}\n\n${md.replace(/^---\n[\s\S]*?\n---\n/, '').trim()}`)
+  .join('\n\n---\n\n')
+writeFileSync(join(buildDir, 'llms-full.txt'), `# Commonway System, full text\n\nEvery page of the Commonway System guidebook as markdown, concatenated. Index and per-page files: ${SITE_URL}/llms.txt\n\n---\n\n${fullText}\n`)
+
+console.log(`Markdown pages: wrote ${mdCount} .md files next to their pages, plus build/llms-full.txt`)

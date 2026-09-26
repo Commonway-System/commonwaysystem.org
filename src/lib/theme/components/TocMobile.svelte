@@ -50,7 +50,7 @@
 />
 
 {#if $pageAnchors.length >= 2}
-  <div class="toc-mobile" bind:this={root}>
+  <div class="toc-mobile" data-pagefind-ignore bind:this={root}>
     <button
       type="button"
       class="toc-mobile__toggle"

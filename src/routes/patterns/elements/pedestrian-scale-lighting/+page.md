@@ -16,8 +16,6 @@ A lower-mounted luminaire, typically 10-15 feet in height, providing illuminatio
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Standard street lighting is mounted and spaced for vehicle sightlines, which often leaves the sidewalk under-illuminated or produces harsh, high-angle light poorly suited to a pedestrian’s closer-range visual needs (facial recognition, uneven surface detection, personal security). This pattern exists to document the distinct scale and spacing considerations pedestrian lighting requires.<Citation index={1} />

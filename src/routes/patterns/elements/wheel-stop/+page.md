@@ -16,8 +16,6 @@ A small barrier, typically a short raised block or bumper, placed at the end of 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Vehicles routinely pull farther into a parking space than intended, and without a physical stop, this can push a vehicle’s front end over a curb and into pedestrian space, into landscaping, or into an adjacent lane. This pattern exists to document this small but common protective element, distinct from the curb itself.<Citation index={1} />

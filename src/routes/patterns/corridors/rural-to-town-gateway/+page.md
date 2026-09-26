@@ -3,6 +3,7 @@ title: "Rural-to-Town Gateway"
 description: "The specific transition zone where a highway or rural road enters a town, village, or settlement edge, marked by deliberate physical cues (narrowing, street trees, lighting change, surface texture) that signal to drivers that the road’s character and behavior expectations have changed."
 patternId: CDR-RTG-02
 date: 2026-08-31
+image: /patterns/cdr-rtg-02-rural-to-town-gateway.jpeg
 llms: "The specific transition zone where a highway or rural road enters a town, village, or settlement edge, marked by deliberate physical cues (narrowing, street trees, lighting change, surface texture) that signal to drivers that the road’s character and behavior expectations have changed."
 ---
 
@@ -15,8 +16,6 @@ The specific transition zone where a highway or rural road enters a town, villag
 </PatternCard>
 
 <RelatedMedia id={fm.patternId} />
-
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 
 ## Why this pattern exists
 

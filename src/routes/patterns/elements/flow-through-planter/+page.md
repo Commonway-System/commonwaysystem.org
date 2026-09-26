@@ -16,8 +16,6 @@ A contained, structured planting box with an engineered soil and drainage layer 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Many streetscape contexts, a narrow sidewalk zone, a site with contaminated or compacted native soil, cannot accommodate an open bioswale’s footprint or infiltration requirements; a flow-through planter delivers similar filtration benefits within a contained structure suited to tighter or more constrained sites. This pattern exists to document that structural alternative.<Citation index={2} />

@@ -16,8 +16,6 @@ A widened curb that narrows the roadway at a crossing or parking zone, taking ga
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Narrowing the effective roadway width at a specific point shortens pedestrian crossing distance, slows turning and through vehicles, and can reclaim space for other uses (a bus stop, plantings, a parklet), addressing several distinct problems (crossing safety, traffic calming, space reclamation) with one flexible physical treatment.<Citation index={1} />

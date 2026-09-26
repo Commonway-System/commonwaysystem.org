@@ -16,8 +16,6 @@ An on-street, curbside cluster of bike racks, typically installed in place of a 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Sidewalk-mounted bike racks compete with pedestrian clear-path space and other furnishings, and demand at popular destinations often exceeds what a sidewalk can hold; converting curbside vehicle space to bike parking solves both problems at once, at a much lower space cost per bike than a car per space. This pattern exists to document that specific curbside conversion, distinct from sidewalk-mounted racks documented at the Element scale.<Citation index={1} /><Citation index={2} />

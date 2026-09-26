@@ -16,8 +16,6 @@ A Rectangular Rapid Flashing Beacon, a pedestrian- or cyclist-activated warning 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 An uncontrolled crosswalk relies entirely on driver attentiveness and willingness to yield; an RRFB gives the crossing a strong, attention-getting visual cue exactly when a pedestrian or cyclist is present, without the cost and delay of a full traffic signal. This pattern exists to document this lighter-weight treatment and where it fits relative to a full signal or hybrid beacon.<Citation index={1} />

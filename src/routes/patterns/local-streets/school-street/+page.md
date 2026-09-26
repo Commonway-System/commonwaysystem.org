@@ -3,6 +3,7 @@ title: School Street
 description: A Local Typology that closes or restricts vehicle traffic during active school hours, protecting pedestrian and bicycle arrival and dismissal.
 patternId: LOC-SCH-11
 date: 2026-08-29
+image: /patterns/loc-sch-11-school-street.png
 llms: A Local street typology that closes or restricts vehicle traffic during active school hours to protect pedestrian and bicycle arrival and dismissal.
 ---
 

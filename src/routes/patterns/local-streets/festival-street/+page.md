@@ -3,6 +3,7 @@ title: Festival Street
 description: A Local Typology that closes to vehicle traffic during scheduled events and reverts to the base modal hierarchy off-hours.
 patternId: LOC-FES-08
 date: 2026-08-29
+image: /patterns/loc-fes-08-festival-street.png
 llms: A Local street typology that closes to vehicle traffic during scheduled events and reverts to the base Local modal hierarchy off-hours.
 ---
 

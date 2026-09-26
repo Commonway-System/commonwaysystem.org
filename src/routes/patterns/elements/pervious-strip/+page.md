@@ -16,8 +16,6 @@ A linear strip of permeable surface (gravel, permeable pavers, or open-graded ag
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A conventional impervious strip in this same location contributes runoff volume with no infiltration benefit; converting it to a pervious surface reduces runoff at a relatively low cost compared to a full bioswale or planter, without requiring a change in the strip’s basic use. This pattern exists to document that lower-intervention infiltration option.<Citation index={1} />

@@ -1,5 +1,8 @@
+import { existsSync, readFileSync, statSync } from 'node:fs'
+import { extname, resolve } from 'node:path'
 import { sveltepress } from '@sveltepress/vite'
 import { defineConfig } from 'vite'
+import type { Plugin } from 'vite'
 import { commonwayTheme } from './src/lib/theme/index.js'
 
 // All of the site's actual navigation, sidebar grouping, and branding text
@@ -623,6 +626,7 @@ const theme = commonwayTheme({
         collapsible: false,
         items: [
           { title: 'Overview', to: '/about/' },
+          { title: 'Site Map', to: '/about/sitemap/' },
           { title: 'The Commonway System', to: '/about/commonway-system/' },
           { title: 'Brand Guide', to: '/about/brand-guide/' },
         ],
@@ -652,8 +656,32 @@ const theme = commonwayTheme({
   },
 })
 
+// Serves the last build's search index (build/pagefind/, written by
+// scripts/build-search-index.mjs) at /pagefind/ under `pnpm run dev`, so
+// search works while developing after at least one `pnpm run build`. It's
+// the previous build's index, so results can lag recent edits. Not part of
+// the production build (the built site has the real /pagefind/ folder).
+function devSearchIndex(): Plugin {
+  const types: Record<string, string> = { '.js': 'text/javascript', '.json': 'application/json', '.css': 'text/css', '.wasm': 'application/wasm' }
+  return {
+    name: 'commonway-dev-search-index',
+    apply: 'serve',
+    configureServer(server) {
+      server.middlewares.use('/pagefind', (req, res, next) => {
+        const rel = decodeURIComponent((req.url ?? '/').split('?')[0]).replace(/^\/+/, '')
+        const file = resolve(process.cwd(), 'build/pagefind', rel)
+        if (!file.startsWith(resolve(process.cwd(), 'build/pagefind')) || !existsSync(file) || !statSync(file).isFile())
+          return next()
+        res.setHeader('Content-Type', types[extname(file)] ?? 'application/octet-stream')
+        res.end(readFileSync(file))
+      })
+    },
+  }
+}
+
 export default defineConfig({
   plugins: [
+    devSearchIndex(),
     sveltepress({
       theme,
       siteConfig: {

@@ -16,8 +16,6 @@ A marked pedestrian crossing point, located at an intersection or midblock, deli
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A crosswalk establishes a legally and visually defined place for pedestrians to cross, giving both pedestrians and drivers a shared, predictable expectation about where crossing will occur. This pattern exists to document marking types and the considerations that determine where and how a crossing should be marked, distinct from the signals or islands that may accompany it.<Citation index={2} />

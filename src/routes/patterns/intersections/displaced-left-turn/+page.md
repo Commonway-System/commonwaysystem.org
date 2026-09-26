@@ -20,8 +20,6 @@ Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <Dens
 
 Rural is an unlikely pairing. Core is an edge case.
 
-*Working assessment: this pattern's status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Design notes
 
 This design resolves the same unprotected-left-turn conflict as Median U-Turn and Restricted Crossing U-Turn, but through signalized displacement rather than a median crossover, and at high-volume urban or suburban intersections rather than the higher-speed rural and suburban divided highways those two patterns typically suit. It's a faster, lower-cost alternative to a grade-separated interchange where volume is high enough that conventional protected left-turn phasing creates severe delay.<Citation index={1} /> The additional right-of-way this pattern requires upstream of the main intersection, and its higher construction cost relative to Median U-Turn or Restricted Crossing U-Turn, keep it Situational rather than broadly Recommended.<Citation index={2} />

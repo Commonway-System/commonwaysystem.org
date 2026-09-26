@@ -3,6 +3,7 @@ title: Bike Highway / Greenway
 description: A Collector-scale Typology providing a dedicated, physically separated bicycle path, distinct from Local's shared-roadway Bicycle Boulevard.
 patternId: COL-BHG-04
 date: 2026-08-29
+image: /patterns/col-bhg-04-bike-highway-greenway.png
 llms: A Collector-scale street typology providing a dedicated, physically separated bicycle path, distinct from Local's shared-roadway Bicycle Boulevard.
 ---
 

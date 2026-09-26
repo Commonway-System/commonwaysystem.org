@@ -13,7 +13,7 @@
 </script>
 
 {#if items.length > 0}
-  <section class="related-media">
+  <section class="related-media" data-pagefind-ignore="all">
     <h2>Related Media</h2>
     <p class="related-media__intro">
       The items below come from outside the Commonway System, external videos, podcasts, and articles related to this page's topic, not part of the guidebook itself.

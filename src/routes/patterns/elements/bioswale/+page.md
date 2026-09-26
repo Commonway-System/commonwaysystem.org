@@ -16,8 +16,6 @@ A vegetated, shallow channel designed to collect, convey, and filter stormwater 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Conventional curb-and-gutter drainage moves runoff, and whatever pollutants it carries, directly into the storm system with no filtration; a bioswale intercepts that runoff at the source, reducing both the volume reaching the storm system and the pollutant load it carries. This pattern exists to document the design considerations that make a swale function as intended rather than as an underperforming ditch.<Citation index={1} />

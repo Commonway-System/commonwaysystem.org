@@ -16,8 +16,6 @@ A public gathering space reclaimed from roadway or parking space, ranging from a
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Streets historically allocate nearly all their space to vehicle movement and storage; this pattern documents the deliberate conversion of some of that space into space for people to sit, gather, and linger, a use case with its own siting, furnishing, and drainage considerations distinct from a sidewalk widening alone.

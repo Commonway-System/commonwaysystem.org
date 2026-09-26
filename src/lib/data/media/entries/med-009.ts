@@ -7,7 +7,7 @@ const item: MediaItem = {
   url: 'https://www.youtube.com/watch?v=mXLqrMljdfU',
   sourceName: 'Not Just Bikes',
   sourceIcon: 'https://yt3.googleusercontent.com/txNeBAcuSUUxKuIPzA9BF9enVh11NHs2Vdirh2wPfVs6DZW94uGodyVhI5sJPeL7iGE8Wl-5vpE=s160-c-k-c0x00ffffff-no-rj',
-  image: 'https://img.youtube.com/vi/mXLqrMljdfU/maxresdefault.jpg',
+  image: '/media-assets/med-009.jpg',
   blurb: 'Documents Amsterdam\'s on-street parking reduction through permit attrition and street redesigns, including the tradeoff of a large replacement garage inducing more driving nearby.',
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector'],

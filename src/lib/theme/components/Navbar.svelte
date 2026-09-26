@@ -6,6 +6,7 @@
   import { isDark, sidebarOpen } from '../layout.js'
   import Icon from './Icon.svelte'
   import DisplaySettings from './DisplaySettings.svelte'
+  import SearchButton from './SearchButton.svelte'
   import ThemeToggle from './ThemeToggle.svelte'
 
   // Sourced from the root +layout.server.ts's siteVersion(), not computed
@@ -99,6 +100,7 @@
           <Icon name="github" size={19} />
         </a>
       {/if}
+      <SearchButton />
       <DisplaySettings />
       <ThemeToggle />
     </div>

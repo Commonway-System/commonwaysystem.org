@@ -16,8 +16,6 @@ A corridor that deliberately passes through multiple Movement/Place contexts by 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Most corridor-planning guidance treats a road as belonging to one classification for its full length, but real corridors regularly earn different classifications at different points because the land use around them changes. Without an explicit pattern for this, a corridor either gets forced into a single ill-fitting classification, or each segment gets designed in isolation with no coordination between them, producing a road that feels disjointed or unpredictable to travel along.<Citation index={1} /><Citation index={2} />

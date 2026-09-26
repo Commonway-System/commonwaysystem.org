@@ -67,6 +67,7 @@ function buildTechArticle(fm: Record<string, any>, dateModifiedISO: string | nul
     ...(fm.description ? { description: fm.description } : {}),
     'isPartOf': site,
     author,
+    ...(fm.image ? { image: `${SITE_URL}${fm.image}` } : {}),
     ...(fm.date ? { datePublished: fm.date } : {}),
     ...(dateModifiedISO ? { dateModified: dateModifiedISO } : {}),
     ...extra,
@@ -79,6 +80,7 @@ function buildWebPage(fm: Record<string, any>, dateModifiedISO: string | null): 
     '@type': 'WebPage',
     'name': fm.title,
     ...(fm.description ? { description: fm.description } : {}),
+    ...(fm.image ? { image: `${SITE_URL}${fm.image}` } : {}),
     ...(fm.date ? { datePublished: fm.date } : {}),
     ...(dateModifiedISO ? { dateModified: dateModifiedISO } : {}),
   } as WithContext<{ '@type': 'WebPage' } & Record<string, unknown>>

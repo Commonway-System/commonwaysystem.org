@@ -9,7 +9,10 @@ rebuilt from scratch with Commonway System branding and a set of
 CS-specific components (Pattern ID card, Retrofit Strategy card, density
 tier chip, citation badge, evidence-tier chip, Media Gallery, plus the
 Brand Guide preview components: color swatch, logo preview, example card,
-button, form controls preview, type sample).
+button, form controls preview, type sample). It also has search across every page,
+a display-settings panel (text size, contrast, simplified view), a
+plain text-only version and a markdown version of every page, and a
+human-readable site map.
 
 ## Who this file is for, and what running it locally actually does
 
@@ -53,9 +56,10 @@ it locally" means), then starting it up.
 
 ## Requirements
 
-- **Node.js 20 or later.** Node.js is the runtime this project's code runs
-  on. [Download it here](https://nodejs.org/) if you don't already have
-  it.
+- **Node.js 24 or later.** Node.js is the runtime this project's code runs
+  on (Netlify builds the live publication with Node 24, and the build's
+  helper scripts rely on Node 24's built-in TypeScript support).
+  [Download it here](https://nodejs.org/) if you don't already have it.
 - **pnpm.** This project's package manager (a tool for downloading and
   managing the code libraries the project depends on), similar to npm but
   faster. The lockfile in this repo (`pnpm-lock.yaml` /
@@ -78,19 +82,31 @@ file you edit and save.
 
 Then open the URL it prints (usually `http://localhost:5173`).
 
-To produce the static build (what actually gets deployed to
-commonwaysystem.org):
+Other commands you may need:
 
 ```sh
-pnpm run build
+pnpm run check     # type-checks the Svelte and TypeScript code
+pnpm run build     # the full static build, described below
 pnpm run preview   # serves the build/ folder locally to sanity-check it
+pnpm run thumbs    # makes small copies of new or changed images (see "Adding images")
 ```
 
-You don't need this step to contribute content, `pnpm run dev` above is
-enough to preview any edit. `pnpm run build` matters mainly to maintainers
-doing a real deploy: it writes plain HTML/CSS/JS to `build/`, no server
-required at runtime. Any static host works, this publication currently deploys
-via Netlify, triggered automatically on push to GitHub.
+You don't need `pnpm run build` to contribute content: `pnpm run dev` above
+is enough to preview any edit. The build matters mainly to maintainers doing
+a real deploy. It writes plain HTML/CSS/JS to `build/`, no server required
+at runtime, then runs three more steps: it writes a plain **text-only** version
+of every page (`build/text/`) and a **markdown** version of every page
+(`build/<page>.md`, plus `build/llms-full.txt`), builds the **search index**
+(`build/pagefind/`), and checks that every image has its small copies. Any
+static host works; this publication currently deploys via Netlify, triggered
+automatically on push to GitHub.
+
+Because those extra steps happen after the main build, the text-only pages,
+the markdown files, and (until you have run a build once) search do not exist
+under `pnpm run dev`. Links to them will 404 there, which is expected. After
+one `pnpm run build`, the dev server serves that build's search index, so
+search works while you edit (results lag your latest edits until the next
+build).
 
 ## Project structure
 
@@ -100,113 +116,87 @@ src/
     +layout.svelte            Root layout. Deliberately minimal, SveltePress
                                wraps this in the theme's GlobalLayout.
     +layout.ts                Turns on prerendering and trailing-slash URLs.
+    +layout.server.ts         Build-time data for every page: the "Last
+                               updated" date and the navbar version.
     +page.md                  Home page.
-    guide/+page.md             Guide intro (bare root).
-    guide/how-to-read-a-pattern/+page.md
-    guide/density-tiers/+page.md
-    guide/street-types/+page.md
-    guide/design-speed/+page.md
-    guide/pattern-ids/+page.md
-    guide/...                  Additional Foundations / Find Your Pattern /
-                               Make It Happen chapters follow the same
-                               one-folder-per-page shape.
-    patterns/+page.md          Pattern Index (bare root).
-    patterns/local-streets/bicycle-boulevard/+page.md
-    patterns/.../+page.md      Add new pattern pages the same way: a folder
-                               with a +page.md inside it, under patterns/,
-                               nested by Scale/classification.
-    retrofits/+page.md         Retrofit Strategy Index (bare root).
-    retrofits/corridor/.../+page.md
-    retrofits/intersection/.../+page.md
-    retrofits/network/.../+page.md
-                               Retrofit Strategy entries, one folder each,
-                               nested by Scale the same way patterns are.
+    guide/                    Guide chapters, one folder per page
+                               (Foundations, Find Your Pattern, Make It Happen).
+    patterns/+page.md         Pattern Index (bare root).
+    patterns/<scale>/<slug>/+page.md
+                               Pattern pages, nested by Scale/classification.
+                               Add new ones the same way: a folder with a
+                               +page.md inside it.
+    retrofits/+page.md        Retrofit Strategy Index (bare root).
+    retrofits/<scale>/<slug>/+page.md
+                               Retrofit Strategy entries, nested by Scale.
     references/+page.md
-    media/+page.md              Media Gallery: filterable/sortable index of
+    media/+page.md            Media Gallery: filterable/sortable index of
                                external videos, podcasts, and articles.
-    blog/+page.md              Dynamic index, see BlogIndex.svelte.
-    blog/welcome/+page.md
-    about/+page.md
-    about/brand-guide/+page.md        Live preview of every brand token.
-    about/commonway-system/+page.md
-    about/release-history/+page.md    Version, changelog, and the live
-                                       public Roadmap (see below).
-    about/contributing/+page.md
-    about/governance/+page.md
-    about/reporting/+page.md
-    about/acknowledgments/+page.md    Data-driven contributor list, see
-                                       the `contributors` array in its
-                                       own <script> block.
+    blog/                     Dynamic index (BlogIndex.svelte) plus one
+                               folder per post.
+    search/+page.md           The full-page search (also opens as a dialog
+                               from the header). A "utility" page: see below.
+    about/                    Overview, Site Map, The Commonway System, Brand
+                               Guide, Release History (changelog and live
+                               Roadmap), Contributing, Governance, Reporting,
+                               Acknowledgments, and the Terms, Privacy, AI, and
+                               Accessibility policies.
+    about/sitemap/            The human site map, built from the sidebar and
+                               every page at build time (+page.server.ts).
     llms.txt/+server.ts       Generates llms.txt from every +page.md's
                                frontmatter at build time. See below.
     robots.txt/+server.ts     Blanket-allow robots.txt, also build-time.
+    sitemap.xml/+server.ts    The XML sitemap for search engines.
 
   lib/
-    site.ts                   SITE_URL, the canonical domain used for
-                               llms.txt's absolute links.
-    server/content.ts         Reads every +page.md's frontmatter at
-                               build/dev time for llms.txt.
+    site.ts                   SITE_URL and shared link helpers.
+    thumbs.ts                 The naming rule for small image copies.
+    server/content.ts         Reads every +page.md's frontmatter at build
+                               time (llms.txt, sitemap, page images).
+    server/sitemap-tree.ts    Builds the human site map.
+    data/media/               Media Gallery items: one small TypeScript
+                               file per item in entries/, schema in types.ts.
     theme/                    The theme itself. You will rarely need to
                                touch this once the visual direction is set.
-    index.ts                  Theme entry point (the SveltePress contract).
-    config.ts                 TypeScript shape of the theme's options.
-    layout.ts                 Svelte stores (sidebar open/closed, dark mode).
-    highlighter.ts             Code block syntax highlighting (Shiki).
-    markdown/
-      admonitions.ts          Implements :::note :::tip :::warning :::danger
-                               and :::unsourced callout blocks.
-      heading-anchors.ts      Adds the hover "#" link next to headings.
-    styles/
-      tokens.css              *** Brand control panel. Colors, type, spacing,
+      index.ts                Theme entry point (the SveltePress contract).
+      config.ts               TypeScript shape of the theme's options.
+      layout.ts               Svelte stores (sidebar open/closed, dark mode).
+      display-settings.ts     The Display settings panel's saved choices.
+      search.ts               Client side of site search (loads the index).
+      search-meta.ts          Search filter values (section, pattern type).
+      highlighter.ts          Code block syntax highlighting (Shiki).
+      schema/                 JSON-LD structured data, built per page.
+      markdown/               admonitions.ts (:::note etc.), heading-anchors.ts,
+                               external-links.ts, table-scroll.ts.
+      styles/
+        tokens.css            *** Brand control panel. Colors, type, spacing,
                                all as CSS variables. Start here for any
                                visual change. ***
-      base.css                Base element styles and content typography,
-                               built from the tokens above.
-    components/
-      GlobalLayout.svelte     Navbar + sidebar + content + toc grid.
-      PageLayout.svelte       Wraps each page: title, edit link, prev/next.
-      Navbar.svelte
-      Sidebar.svelte / SidebarGroup.svelte
-      Toc.svelte
-      PageNav.svelte          Prev/next footer links.
-      ThemeToggle.svelte      Light/dark mode switch.
-      Backdrop.svelte         Mobile sidebar scrim.
-      Icon.svelte             All icons in one file, keyed by name.
-      icons/                  Individual icon source files.
-      Hero.svelte             CS-specific: homepage hero.
-      EvidenceStrip.svelte    CS-specific: homepage differentiator strip.
-      FeatureGrid.svelte      CS-specific: homepage features grid.
-      PatternCard.svelte      CS-specific: the Pattern ID card.
-      RetrofitCard.svelte     CS-specific: the Retrofit Strategy ID card.
-      RetrofitIndexCard.svelte  CS-specific: Retrofit Strategy Index grid card.
-      StatusBadge.svelte      CS-specific: shared Recommended/Situational/
-                               Avoid/Descriptive pill, backs both Pattern
-                               and Retrofit cards.
-      DensityChip.svelte      CS-specific: Undeveloped -> Core tier chip.
-      Citation.svelte         CS-specific: numbered badge / unsourced flag.
-      EvidenceChip.svelte     CS-specific: Legal/Evidence-based/Precedent
-                               tier chip.
-      Illustration.svelte     CS-specific: Paired/Single-condition/Diagram/
-                               Descriptive/Conditional pattern illustration
-                               frame-and-callout renderer.
-      SpeedModalHierarchyCard.svelte  CS-specific, plus its sub-components
-      SpeedLimitSection.svelte        (SpeedLimitSign, ModalHierarchySection,
-      ModalHierarchyRow.svelte        ModalHierarchyRow, ModalHierarchyPill):
-      ModalHierarchyPill.svelte       speed-limit signage and ranked-mode
-      SpeedLimitSign.svelte           hierarchy display on pattern pages.
-      MediaGallery.svelte      CS-specific: filterable/sortable Media
-                               Gallery index.
-      MediaCard.svelte        CS-specific: one Media Gallery entry.
-      MediaFilters.svelte     CS-specific: Media Gallery's filter panel.
-      RelatedMedia.svelte     CS-specific: per-page tagged-media section,
-                               shown on Pattern, Retrofit, and select
-                               Guide/About pages.
-      ColorSwatch.svelte      Brand Guide page: color token preview.
-      LogoPreview.svelte      Brand Guide page: logo lockup preview.
-      ExampleCard.svelte      Brand Guide page: generic example card.
-      Button.svelte           Brand Guide page: button variant preview.
-      FormControlsPreview.svelte  Brand Guide page: form control preview.
-      TypeSample.svelte       Brand Guide page: type scale preview.
+        base.css              Base element styles and content typography,
+                               built from the tokens above, plus the Display
+                               settings modes.
+      components/             Layout shell (GlobalLayout, PageLayout, Navbar,
+                               Sidebar, Toc, TocMobile, PageNav), search
+                               (SearchButton, SearchDialog, SearchPanel), the
+                               Display settings panel, the site map, the
+                               Commonway-specific components (Pattern and
+                               Retrofit cards, Citation, EvidenceChip,
+                               DensityChip, GuidanceTable, the Speed & Modal
+                               Hierarchy card, Illustration, Media Gallery
+                               pieces, homepage sections), and the Brand Guide
+                               preview components. One file per component;
+                               index.ts lists the ones pages can import.
+
+scripts/                      Build helpers run by `pnpm run build`:
+                               generate-text-pages.mjs (text-only and markdown
+                               versions), build-search-index.mjs (search),
+                               make-thumbs.mjs (`pnpm run thumbs`).
+
+static/                       Files served as-is: logos, favicons, diagrams,
+                               pattern illustrations (patterns/), media
+                               previews (media-assets/), and the small copies
+                               in each thumbs/ folder. _redirects and
+                               _headers are Netlify's own rules files.
 
 vite.config.ts                 Publication content lives here: navbar links, the
                                 manual sidebar tree, GitHub link, edit-link
@@ -231,6 +221,8 @@ title: Page Title
 description: Optional, used for the meta description tag.
 llms: Optional, a one-sentence plain-language summary used in llms.txt.
 llmsOptional: false # true lists this page under llms.txt's "## Optional" section instead
+date: 2026-01-31 # first publish date, used in the page's structured data
+image: /patterns/example.png # optional featured image, see "Adding images" below
 ---
 
 Regular markdown. Tables, code blocks, and GitHub-flavored markdown
@@ -241,7 +233,10 @@ The page's `<h1>` is rendered automatically from `title`, don't repeat it
 as a `# Heading` in the body, that duplicates it.
 
 `llms` falls back to `description`, then `title`, if omitted. See
-"llms.txt and robots.txt" below.
+"llms.txt, sitemap, and markdown versions" below. Pattern and Retrofit
+Strategy pages also carry a `patternId` (for example `LOC-BBG-12`). A utility
+page such as `/search/` sets `utility: true`, which keeps it out of the search
+index, the sitemaps, and the text-only and markdown versions.
 
 Admonition blocks:
 
@@ -292,6 +287,32 @@ A cited claim.<Citation index={1} />
 `intersections`, `network`, `corridor`, `facility`, or `element`, and
 controls the card's accent color.
 
+## Adding images
+
+A page's featured image is one optional line of frontmatter, `image:`,
+pointing at a file under `static/` (for example
+`image: /patterns/loc-aly-02-alley.png`). That single line is what the
+Pattern Index and Retrofit Index cards, the search results, the social-share
+preview, and the page's structured data all use. A page with no `image:` shows
+a placeholder on its card, and no thumbnail in search unless it is a Pattern,
+Retrofit Strategy, blog post, or Media item (those always show one).
+
+The full-size illustrations are large (about 1 MB each), so search results and
+cards show small copies instead. **Whenever you add or replace an image, run:**
+
+```sh
+pnpm run thumbs
+```
+
+then include the new files in the `thumbs/` folders next to your image in your
+commit. It only makes the copies that are missing or out of date, so it is safe
+to run any time. If you forget, `pnpm run build` warns about the missing copy
+and the publication falls back to the full-size image, which works but loads
+slowly.
+
+Media Gallery previews are saved with the publication (`static/media-assets/`),
+never loaded from another website's servers.
+
 ## Editing navigation and sidebar
 
 Open `vite.config.ts`. The `commonwayTheme({...})` call at the top is the
@@ -316,10 +337,11 @@ Everything visual is a CSS custom property in
   per-Functional-Classification colors used on Pattern ID cards and sidebar
   chrome, each backed by a full 6-tier density ramp (`--cw-local-undeveloped`
   through `--cw-local-core`, etc.) synced to the real Brand Guide palette.
-  `--cw-intersections` has its own ramp too; `--cw-network`, `--cw-corridor`,
-  `--cw-facility`, and `--cw-element` are still **PLACEHOLDER**, sharing
-  Freeway's neutral-gray ramp pending real per-Scale colors (see the live
-  Roadmap referenced below).
+  Every Scale prefix has its own real ramp: Network, Corridor, Local,
+  Collector, Arterial, Freeway, Intersections & Crossings, Facility, and
+  Element (nine in all, with hues placed in spectrum order and checked
+  for colorblind separation; the colored text label beside every use is what
+  carries the classification, never the color alone).
 - `--cw-amber` / `--cw-amber-soft` / `--cw-amber-ink`: the reserved
   highlight color. Used only for pattern highlighting and the
   `:::unsourced` flag, never as a general UI accent, by design.
@@ -329,28 +351,47 @@ Everything visual is a CSS custom property in
 - The `[data-theme='dark']` block at the bottom of the file is the dark-mode
   override for every token above.
 
-## llms.txt and robots.txt
+## llms.txt, sitemap, and markdown versions
 
-`src/routes/llms.txt/+server.ts` and `src/routes/robots.txt/+server.ts` are
-SvelteKit endpoints, not static files. `llms.txt` is built from every
-`+page.md`'s frontmatter (`llms`, falling back to `description`, then
-`title`) at build time, via `src/lib/server/content.ts`, so a new page
-appears in it automatically, nothing to hand-maintain. Pages are grouped
-into `##` sections by their top-level route folder (`/guide/` → "Guide",
-etc.); set `llmsOptional: true` on a page's frontmatter to list it under
-the spec's reserved `## Optional` heading instead, for lower-priority
-stub/placeholder pages a context-constrained reader can skip. `robots.txt`
-is a blanket allow,
-since the whole guidebook is public.
+`src/routes/llms.txt/+server.ts`, `src/routes/robots.txt/+server.ts`, and
+`src/routes/sitemap.xml/+server.ts` are SvelteKit endpoints, not static files.
+`llms.txt` and `sitemap.xml` are built from every `+page.md`'s frontmatter
+(`llms`, falling back to `description`, then `title`) at build time, via
+`src/lib/server/content.ts`, so a new page appears in both automatically,
+nothing to hand-maintain. `llms.txt` groups pages into `##` sections by their
+top-level route folder (`/guide/` becomes "Guide", etc.); set `llmsOptional: true`
+on a page's frontmatter to list it under the spec's reserved `## Optional`
+heading instead, for lower-priority stub/placeholder pages a context-constrained
+reader can skip. `robots.txt` is a blanket allow, since the whole guidebook is
+public.
 
-Because `adapter-static` prerenders everything ahead of time, these compile
-down to plain `build/llms.txt` and `build/robots.txt` files, same as any
-other route, no server required at runtime. Nothing on the publication links to
-them, so they're listed explicitly in `svelte.config.js`'s
-`kit.prerender.entries`, otherwise the prerender crawler would never find
-them. The canonical domain used for the absolute URLs in `llms.txt` lives
-in `src/lib/site.ts` (`SITE_URL`), update it there once the real domain is
-set.
+Every page also has a **markdown version** at the same path with `.md` on the
+end (`/patterns/foo/` becomes `/patterns/foo.md`; the home page is
+`/index.md`), and `build/llms-full.txt` holds the whole guidebook as one
+markdown file. Both are written by `scripts/generate-text-pages.mjs` from the
+already-built HTML, so components' content is included. `llms.txt` links to the
+`.md` versions, and each page's `<head>` advertises its own. `static/_headers`
+serves them as markdown and asks search engines not to index them.
+
+Because `adapter-static` prerenders everything ahead of time, the endpoints
+compile down to plain files in `build/`, same as any other route, no server
+required at runtime. Nothing on the publication links to some of them, so they
+are listed explicitly in `svelte.config.js`'s `kit.prerender.entries`, otherwise
+the prerender crawler would never find them. The canonical domain used for
+absolute URLs lives in `src/lib/site.ts` (`SITE_URL`).
+
+## Search and the site map
+
+Search is built on [Pagefind](https://pagefind.app/): the index is built at
+the end of `pnpm run build` (`scripts/build-search-index.mjs`) and runs entirely
+in the browser, so nothing a reader types is sent anywhere. Every page's main
+content is indexed, plus one result per Media Gallery item. It opens from the
+Search button in the header (or Ctrl/Cmd+K) and as the full page at `/search/`.
+
+The human-readable site map at `/about/sitemap/` is generated at build time from
+the navbar, the sidebar tree in `vite.config.ts`, and every page. A page that
+is missing from the sidebar still appears, under "Other pages", and the build
+prints a warning so you can add it to the sidebar.
 
 ## Contributor-facing files
 

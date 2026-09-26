@@ -16,8 +16,6 @@ A designated waiting area positioned in the far corner of an intersection, allow
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A conventional vehicle-style left turn asks a cyclist to merge across one or more lanes of traffic to reach a turn position, a maneuver that becomes increasingly stressful and dangerous as traffic volume, speed, or lane count increases; a two-stage turn queue box removes that merge entirely by breaking the turn into two straight crossings. This pattern exists to document this specific, well-established alternative to the conventional turning movement.<Citation index={1} />

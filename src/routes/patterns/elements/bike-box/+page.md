@@ -16,8 +16,6 @@ A designated waiting area marked at the head of a signalized intersection, posit
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 At a signalized intersection, a cyclist stopped alongside or behind queued vehicles has reduced visibility to drivers and a harder time making a turning movement across traffic once the signal changes; a bike box gives cyclists a visible head-start position ahead of the queue, addressing this specific intersection conflict. This pattern exists to document where and how that positioning treatment is applied.<Citation index={1} />

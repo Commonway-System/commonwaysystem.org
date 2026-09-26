@@ -3,6 +3,7 @@ title: Bicycle Boulevard / Neighborhood Greenway
 description: A Local street where traffic calming and diversion discourage through car traffic while prioritizing bicycle through-movement in the shared roadway.
 patternId: LOC-BBG-12
 date: 2026-08-29
+image: /patterns/loc-bbg-12-bicycle-boulevard-neighborhood-greenway.png
 llms: A Local street typology using traffic calming and diversion to discourage through car traffic while prioritizing bicycle through-movement in the shared roadway, distinguished from Bike Highway/Greenway's full physical separation.
 ---
 

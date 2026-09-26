@@ -20,8 +20,6 @@ Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" /> <Den
 
 Compact, Urban, and Core are also possible wherever an active rail line crosses a public street. The pattern is most common near industrial or agricultural rail spurs, but it is not exclusive to them.
 
-*Working assessment: this pattern's status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Design notes
 
 This is its own pattern, not a row on another page, because it has its own geometry standard, its own required warning devices (distinct from any road-only intersection control), and its own sight-distance rules that vary by railroad company. It also applies across street types, not just [Industrial Collector](/patterns/collectors/industrial-collector/) (COL-IND-03) or [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) (COL-FTM-02), where an active spur is a realistic condition.

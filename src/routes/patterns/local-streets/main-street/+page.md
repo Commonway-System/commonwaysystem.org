@@ -3,6 +3,7 @@ title: Main Street
 description: A Local Typology built around retail frontage and pedestrian priority, the defining Local pattern at Compact and Urban density.
 patternId: LOC-MST-05
 date: 2026-08-29
+image: /patterns/loc-mst-05-main-street.png
 llms: A Local street typology built around retail frontage and pedestrian priority, the small-town pattern at Rural density and the defining Local pattern at Compact and Urban density.
 ---
 

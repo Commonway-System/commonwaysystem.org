@@ -16,8 +16,6 @@ The boarding surface at a transit stop where passengers board and alight, varyin
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Boarding is where accessibility, dwell time, and safety concerns concentrate most tightly; a platform that does not match vehicle floor height or lacks adequate length creates real barriers for wheelchair users and slows every boarding cycle. This pattern exists to separate platform design, a distinct engineering and accessibility problem, from the shelter, signage, and other amenities that sit on top of it.

@@ -3,6 +3,7 @@ title: Living Street / Woonerf
 description: A Local Typology where pedestrians and cyclists share the full street width with vehicles, who move at walking pace as guests. Includes NACTO's Home Zone.
 patternId: LOC-LSW-06
 date: 2026-08-29
+image: /patterns/loc-lsw-06-living-street-woonerf.png
 llms: A Local street typology, including NACTO's Home Zone, where pedestrians and cyclists share the full street width and vehicles move as guests at walking pace.
 ---
 

@@ -20,8 +20,6 @@ Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
 
 Compact is an edge case. Urban and Core are unlikely pairings.
 
-*Working assessment: this pattern's status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Design notes
 
 This geometry exists to remove unprotected left turns from a major intersection entirely, rather than managing them with a longer signal phase.<Citation index={1} /> Doing so shortens the signal cycle the main intersection needs to run and reduces the conflict points a driver has to judge in a single movement.<Citation index={2} /> The tradeoff is a longer path for the rerouted turn and the median width needed to accommodate it, which is why this pattern is Situational rather than broadly Recommended: it solves a real problem well on a wide, higher-speed divided road, but doesn't fit a narrower cross-section or a genuinely low-speed context where Roundabout or a conventional Signal remains the better fit.

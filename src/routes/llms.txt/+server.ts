@@ -1,5 +1,5 @@
 import { getSitePages } from '$lib/server/content.js'
-import { SITE_URL } from '$lib/site.js'
+import { SITE_URL, markdownPath } from '$lib/site.js'
 
 // Prerendered to a plain static file, same as robots.txt, generated from
 // every +page.md's frontmatter at build time. Add a page, it shows up here
@@ -23,7 +23,7 @@ function sectionOf(routePath: string): string {
 }
 
 export function GET() {
-  const pages = getSitePages()
+  const pages = getSitePages().filter(page => !page.utility)
 
   // Pages flagged llmsOptional (stub/placeholder content) go in their own
   // "## Optional" section at the end, per the llms.txt spec's convention
@@ -42,7 +42,7 @@ export function GET() {
 
   function bullet(page: (typeof pages)[number]) {
     const summary = page.llms ?? page.description ?? page.title
-    return `- [${page.title}](${SITE_URL}${page.routePath}): ${summary}`
+    return `- [${page.title}](${SITE_URL}${markdownPath(page.routePath)}): ${summary}`
   }
 
   const lines: string[] = [
@@ -51,6 +51,10 @@ export function GET() {
     '> A Pattern Language for Roads and Streets. One system, grounded in what\'s proven.',
     '',
     'The Commonway System (CS) organizes established transportation design knowledge, from NACTO\'s guides to Dutch Sustainable Safety and Vision Zero research, into a single, cross-referenced pattern language. Every claim traces back to a cited source rather than a credential, and each page opens with a plain-language answer before the technical depth beneath it.',
+    '',
+    'Every link below is the markdown version of a page. Any page\'s HTML URL has the same content as markdown at the same path with `.md` appended (`/patterns/foo/` becomes `/patterns/foo.md`; the homepage is `/index.md`), and each HTML page advertises it with `<link rel="alternate" type="text/markdown">`.',
+    '',
+    `The whole guidebook as one markdown file, for loading in a single request: ${SITE_URL}/llms-full.txt`,
     '',
   ]
 

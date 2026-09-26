@@ -3,6 +3,7 @@ title: "Transit Alignment Corridor"
 description: "A corridor built around a fixed transit line (light rail, streetcar, or dedicated BRT) running parallel to or within the roadway, addressing how the transit alignment shapes the corridor’s whole cross-section for its full length."
 patternId: CDR-TAC-06
 date: 2026-08-31
+image: /patterns/cdr-tac-06-transit-alignment-corridor.jpeg
 llms: "A corridor built around a fixed transit line (light rail, streetcar, or dedicated BRT) running parallel to or within the roadway, addressing how the transit alignment shapes the corridor’s whole cross-section for its full length."
 ---
 
@@ -15,8 +16,6 @@ A corridor built around a fixed transit line (light rail, streetcar, or dedicate
 </PatternCard>
 
 <RelatedMedia id={fm.patternId} />
-
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 
 ## Why this pattern exists
 

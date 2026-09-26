@@ -16,8 +16,6 @@ A short, sturdy vertical post installed to block or control vehicle access to a 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Where a full barrier or curb is not warranted but vehicle access still needs to be controlled or blocked, a plaza edge, a bike facility entrance, a sidewalk protected from a nearby travel lane, bollards provide a lighter-weight, often more flexible solution. This pattern exists to document that distinct, smaller-scale protective and access-control role.

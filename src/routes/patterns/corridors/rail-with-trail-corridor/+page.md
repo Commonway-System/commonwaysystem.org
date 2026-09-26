@@ -3,6 +3,7 @@ title: "Rail-With-Trail Corridor"
 description: "A road or trail corridor running alongside an active rail line for some or all of its length, addressing crossing frequency, setback distance, and shared right-of-way concerns created by the parallel rail operation."
 patternId: CDR-RWT-04
 date: 2026-08-31
+image: /patterns/cdr-rwt-04-rail-with-trail-corridor.jpeg
 llms: "A road or trail corridor running alongside an active rail line for some or all of its length, addressing crossing frequency, setback distance, and shared right-of-way concerns created by the parallel rail operation."
 ---
 
@@ -15,8 +16,6 @@ A road or trail corridor running alongside an active rail line for some or all o
 </PatternCard>
 
 <RelatedMedia id={fm.patternId} />
-
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 
 ## Why this pattern exists
 

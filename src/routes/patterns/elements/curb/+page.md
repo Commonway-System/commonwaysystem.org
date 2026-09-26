@@ -16,8 +16,6 @@ The raised edge separating the roadway from the sidewalk or shoulder, marking th
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 The curb is the single most foundational physical element separating modes on a street; its height, material, and continuity determine drainage behavior, accessibility, and how legible the vehicle/pedestrian boundary reads to everyone using the street. Nearly every other Element pattern in this family (extensions, ramps, cuts) is a modification or interruption of this base condition, so it needs its own definition first.<Citation index={1} />

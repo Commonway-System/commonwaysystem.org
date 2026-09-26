@@ -16,8 +16,6 @@ A multi-level parking structure, above-grade or underground, using ramp or helix
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Where land value or density makes surface parking impractical, a structure trades footprint for height and circulation complexity, introducing its own set of design problems (ramp grade and turning radius, pedestrian egress from upper levels, ground-floor treatment facing the street) that a surface lot never has to solve. This pattern exists to document those structure-specific considerations separately from surface parking.

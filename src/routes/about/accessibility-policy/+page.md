@@ -54,6 +54,10 @@ The "Aa" button in the header (and "Display settings" in the mobile menu) opens 
 
 Every page has a text-only version, linked as "Text-only version" beneath the page and from the Display settings panel. These are plain, unstyled pages with no images, scripts, or animation, built from the same content as the full page and linked to each other. An index of all of them is at [All text pages](/text/all-pages/). Text-only pages ask search engines not to index them and point back to the full page as the canonical version.
 
+## Search
+
+The Search button in the header (in the mobile menu at phone width) opens a search dialog, and Ctrl+K (Cmd+K on a Mac) opens it from anywhere. The dialog is a native modal: focus moves into it, the page behind it is inert, Escape closes it, and focus returns to where you were. Results are ordinary links, and the arrow keys move between them (Tab works too). The number of results is announced as you type. The same search is available as a full page at [Search](/search/), which is also where "See all results" leads. If you would rather browse than search, the [Site Map](/about/sitemap/) lists every page, grouped like the navigation, without needing JavaScript. There is deliberately no single-key shortcut such as "/", because single-key shortcuts need a way to be turned off or remapped. Search needs JavaScript; without it, the [text-only page index](/text/all-pages/) and the Pattern Index are the way to browse. It has been checked with automated tools only, not yet with a screen reader.
+
 ## What we're planning
 
 Further accessibility work will be added here as testing turns up issues. This page will be updated to reflect the current state rather than the intended one.

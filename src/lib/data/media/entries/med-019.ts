@@ -7,7 +7,7 @@ const item: MediaItem = {
   url: 'https://www.youtube.com/watch?v=UV0x2hNRYnU',
   sourceName: 'Road Guy Rob',
   sourceIcon: 'https://yt3.googleusercontent.com/ytc/AIdro_mMdWqEkGZJd9Ax-0D9QdiaUhsTYdFmPIYU5Z3ATRiw28E=s160-c-k-c0x00ffffff-no-rj',
-  image: 'https://img.youtube.com/vi/UV0x2hNRYnU/maxresdefault.jpg',
+  image: '/media-assets/med-019.jpg',
   blurb: 'Explains the interrupted-flow/platooning physics behind signalized-arterial congestion, then covers Carmel\'s Keystone Parkway conversion to a limited-access road using compact elevated roundabout interchanges instead of a full diamond interchange.',
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Collector', 'Arterial'],

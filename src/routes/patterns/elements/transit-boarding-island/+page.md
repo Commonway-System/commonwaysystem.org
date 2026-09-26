@@ -16,8 +16,6 @@ A raised platform positioned between a bike lane and the vehicle travel lane at 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Where a protected bike lane runs along a curb that also serves transit stops, a standard curbside stop forces either the bus to cross the bike lane to reach the curb, or passengers to cross the bike lane to board, both creating a recurring conflict point. A boarding island resolves this by placing the stop between the two facilities, letting each operate without crossing the other. This pattern exists to document that specific, well-defined conflict and its resolution.<Citation index={1} />

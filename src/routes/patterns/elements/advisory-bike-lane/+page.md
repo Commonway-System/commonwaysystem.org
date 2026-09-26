@@ -16,8 +16,6 @@ A dashed-line bike lane marked on each side of a narrow, typically two-way, road
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 On a roadway too narrow to accommodate a centerline plus two conventional bike lanes, an advisory bike lane provides a visual cue and priority framework for cyclists while allowing the roadway’s limited width to be shared flexibly by low-volume, low-speed traffic. This pattern exists to document this specific narrow-roadway treatment and its dependence on low traffic conditions to function safely.

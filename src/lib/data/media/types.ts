@@ -21,7 +21,14 @@ export interface MediaItem {
    * back to a generic Lucide icon for the item's type, see MediaCard).
    */
   sourceIcon?: string
-  /** Same dual-sourcing rule as sourceIcon. Omit to fall back to the shared placeholder graphic. */
+  /**
+   * Self-hosted preview image, e.g. "/media-assets/med-001.jpg" (a ~640px
+   * copy in static/media-assets/; run `pnpm run thumbs` after adding one).
+   * Deliberately NOT hotlinked from YouTube or anywhere else: search results
+   * show it on every page, and loading it from a third party would break the
+   * site's "search sends nothing anywhere" promise. Omit to fall back to the
+   * shared placeholder graphic.
+   */
   image?: string
   /** 1-2 sentences on how this item relates to CS content, not a neutral summary of the item itself. */
   blurb: string

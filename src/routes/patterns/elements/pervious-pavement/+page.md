@@ -16,8 +16,6 @@ A load-bearing paving surface (permeable concrete, porous asphalt, or permeable 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Applied across a full-width surface (a parking lot, a full travel lane, a plaza), pervious pavement addresses runoff at a larger scale than a pervious strip while still functioning as a normal load-bearing driving or walking surface. This pattern exists to document its own structural and maintenance requirements, which differ meaningfully from conventional pavement.<Citation index={1} />

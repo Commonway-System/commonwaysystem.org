@@ -11,7 +11,7 @@ const item: MediaItem = {
   url: 'https://www.youtube.com/watch?v=9OfBpQgLXUc',
   sourceName: 'Not Just Bikes',
   sourceIcon: 'https://yt3.googleusercontent.com/txNeBAcuSUUxKuIPzA9BF9enVh11NHs2Vdirh2wPfVs6DZW94uGodyVhI5sJPeL7iGE8Wl-5vpE=s160-c-k-c0x00ffffff-no-rj',
-  image: 'https://img.youtube.com/vi/9OfBpQgLXUc/maxresdefault.jpg',
+  image: '/media-assets/med-001.jpg',
   blurb: 'Shows the same sidewalk-continuity concept behind Continuous Sidewalk / Raised Junction in practice: the roadway rises to meet the sidewalk at a crossing, rather than the sidewalk dropping to meet the road, so geometry itself signals the priority shift.',
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector'],

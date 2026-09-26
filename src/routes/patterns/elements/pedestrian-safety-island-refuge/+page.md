@@ -16,8 +16,6 @@ A protected median space within a roadway allowing a pedestrian to cross in two 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Wide or multi-lane crossings ask a pedestrian to judge gaps in traffic across the full roadway width at once, a task that becomes harder and riskier as width and traffic volume increase; a refuge island breaks that judgment into two simpler, more manageable stages.<Citation index={1} /> This pattern exists to document the sizing and placement considerations that make an island genuinely usable rather than a token gesture.

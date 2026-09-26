@@ -16,8 +16,6 @@ A striped bike lane with an additional painted buffer zone, typically hatched or
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Adding painted buffer width increases the physical and perceived separation between cyclists and vehicle traffic without the cost or space demand of a physical barrier, addressing some of the comfort gap between a conventional bike lane and a fully protected facility. This pattern exists to document that intermediate option.<Citation index={1} />

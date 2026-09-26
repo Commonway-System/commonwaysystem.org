@@ -16,8 +16,6 @@ A tree planted along a street, typically within the sidewalk zone or a landscape
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Street trees do measurable work beyond aesthetics, they reduce pedestrian-level heat, intercept a portion of rainfall before it reaches the storm system, and provide a visual and physical buffer between pedestrians and moving traffic; this pattern exists to document species selection, spacing, and root-space considerations that determine whether a tree thrives or struggles in a street environment.

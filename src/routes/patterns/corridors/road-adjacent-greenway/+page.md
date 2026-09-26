@@ -3,6 +3,7 @@ title: "Road-Adjacent Greenway"
 description: "A corridor where a multi-use trail or linear park runs parallel to, but physically separated from, a road for some or all of its length, without an active rail line involved, addressing connection points and crossing treatment between the two."
 patternId: CDR-RAG-05
 date: 2026-08-31
+image: /patterns/cdr-rag-05-road-adjacent-greenway.jpeg
 llms: "A corridor where a multi-use trail or linear park runs parallel to, but physically separated from, a road for some or all of its length, without an active rail line involved, addressing connection points and crossing treatment between the two."
 ---
 
@@ -15,8 +16,6 @@ A corridor where a multi-use trail or linear park runs parallel to, but physical
 </PatternCard>
 
 <RelatedMedia id={fm.patternId} />
-
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 
 ## Why this pattern exists
 

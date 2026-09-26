@@ -7,7 +7,7 @@ const item: MediaItem = {
   url: 'https://www.youtube.com/watch?v=yCzi1Q4xCTA',
   sourceName: 'BicycleDutch',
   sourceIcon: 'https://yt3.googleusercontent.com/ytc/AIdro_moD1ifT9Z2K26sIAyf-URK52lizb_NZd3DGB26c1Uz8Q=s160-c-k-c0x00ffffff-no-rj',
-  image: 'https://img.youtube.com/vi/yCzi1Q4xCTA/maxresdefault.jpg',
+  image: '/media-assets/med-005.jpg',
   blurb: 'Shows the protected-intersection design vocabulary, continuous cycle tracks, corner refuge islands, separated signal phasing, that underpins CS\'s Protected Intersection pattern and the Corridor retrofit paths built around it.',
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector'],

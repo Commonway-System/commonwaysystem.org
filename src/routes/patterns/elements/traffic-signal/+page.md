@@ -16,8 +16,6 @@ A signal-controlled device using red, yellow, and green indications to assign ri
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Above a certain volume or conflict complexity, an uncontrolled or sign-controlled intersection can no longer safely and efficiently sort competing movements; a traffic signal imposes timed, positive control over who moves when. This pattern exists to document signal use as a documented departure from Commonway System’s roundabout-default intersection treatment, requiring its own justification.

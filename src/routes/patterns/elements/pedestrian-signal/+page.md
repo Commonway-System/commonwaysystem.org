@@ -16,8 +16,6 @@ A signal indication, typically a walking figure and countdown display, informing
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A vehicle-only signal phase gives pedestrians no explicit information about when or how long they have to cross; a pedestrian signal makes crossing timing an intentional, communicated part of the intersection’s operation. This pattern exists to document its own timing and placement considerations distinct from the vehicle signal it operates alongside.<Citation index={1} />

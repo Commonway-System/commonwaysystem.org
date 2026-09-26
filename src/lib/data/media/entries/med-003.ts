@@ -7,7 +7,7 @@ const item: MediaItem = {
   url: 'https://www.youtube.com/watch?v=KUDVP6aRS1Y',
   sourceName: 'City Beautiful',
   sourceIcon: 'https://yt3.googleusercontent.com/V_p_uSGNkNk6nGGvy5npyNX8d9Z2Pyv66G2UXWuoBxHsBgy74-haa8WYw3VyBWtjY_iAuelZ3FE=s160-c-k-c0x00ffffff-no-rj',
-  image: 'https://img.youtube.com/vi/KUDVP6aRS1Y/maxresdefault.jpg',
+  image: '/media-assets/med-003.jpg',
   blurb: 'Traces how the grid became the default American street pattern, from William Penn\'s Philadelphia through Jefferson\'s Midwest land ordinances, historical background for why the Grid network topology pattern is so dominant in U.S. contexts.',
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector', 'Arterial'],

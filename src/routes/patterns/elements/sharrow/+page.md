@@ -3,6 +3,7 @@ title: "Sharrow"
 description: "A shared-lane marking, a painted symbol combining a bicycle icon and chevron arrows, placed within a shared vehicle travel lane to indicate that cyclists may use the full lane and to suggest proper positioning within it."
 patternId: ELM-SHR-39
 date: 2026-08-31
+image: /patterns/elm-shr-39-sharrow.jpeg
 llms: "A shared-lane marking, a painted symbol combining a bicycle icon and chevron arrows, placed within a shared vehicle travel lane to indicate that cyclists may use the full lane and to suggest proper positioning within it."
 ---
 
@@ -15,8 +16,6 @@ A shared-lane marking, a painted symbol combining a bicycle icon and chevron arr
 </PatternCard>
 
 <RelatedMedia id={fm.patternId} />
-
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 
 ## Why this pattern exists
 

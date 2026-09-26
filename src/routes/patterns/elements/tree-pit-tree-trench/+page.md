@@ -16,8 +16,6 @@ The below-grade excavated and engineered soil volume, either an individual pit o
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 A tree’s long-term health depends far more on below-grade soil volume and quality than on what is visible at the surface; a standard small pit surrounded by compacted pavement subgrade starves a tree’s root system, while a shared trench connecting multiple pits dramatically increases available soil volume. This pattern exists to document that structural, below-grade design distinct from the visible tree itself.

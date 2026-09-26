@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { page } from '$app/state'
+  import { thumbUrl } from '$lib/thumbs.js'
+
   type Scale = 'corridor' | 'intersection' | 'network'
 
   interface Props {
@@ -8,15 +11,31 @@
     title: string
     scale: Scale
     /**
-     * Real per-strategy illustration, once one exists. Omit to fall back
-     * to the shared generic placeholder graphic, same mechanism and same
-     * file as PatternIndexCard.svelte uses - no Retrofit Strategy has its
-     * own illustration yet, so every card currently falls back.
+     * Override for the card's illustration. Normally OMIT this: the image
+     * comes from the strategy page's own `image:` frontmatter (looked up by
+     * `href` from `page.data.pageImages`, supplied by
+     * retrofits/+page.server.ts), same as PatternIndexCard.svelte. With
+     * neither, the shared generic placeholder graphic shows (none of the
+     * strategies have an illustration yet).
      */
     image?: string
   }
 
   const { href, id, title, scale, image }: Props = $props()
+
+  const source = $derived(image ?? (page.data.pageImages?.[href] as string | undefined))
+  const src = $derived(source ? thumbUrl(source, 480) : '/patterns/pattern-placeholder.svg')
+
+  // Falls back to the full-size original if the small copy is missing (a
+  // forgotten `pnpm run thumbs`; the build warns about it too).
+  function useOriginal(event: Event) {
+    const img = event.currentTarget as HTMLImageElement
+    if (source && !img.dataset.original) {
+      img.dataset.original = 'true'
+      img.src = source
+    }
+  }
+
 
   // Same mechanism as PatternIndexCard.svelte: the trailing number in the
   // ID, doubling as the per-scale counter since RFT numbering already
@@ -26,7 +45,7 @@
 
 <a class="ric" {href} data-scale={scale}>
   <div class="ric__image">
-    <img src={image ?? '/patterns/pattern-placeholder.svg'} alt="" loading="lazy" decoding="async" />
+    <img {src} alt="" loading="lazy" decoding="async" onerror={useOriginal} />
     <div class="ric__overlay"></div>
     <span class="ric__number">{number}</span>
   </div>

@@ -3,6 +3,7 @@ title: "Organic / Irregular"
 description: "An unplanned, irregular network shaped incrementally over time by terrain, property lines, and historical settlement patterns rather than a deliberate overall layout, typically found in historic or pre-industrial city cores."
 patternId: NET-ORG-04
 date: 2026-08-31
+image: /patterns/net-org-04-organic-irregular.png
 llms: "An unplanned, irregular network shaped incrementally over time by terrain, property lines, and historical settlement patterns rather than a deliberate overall layout, typically found in historic or pre-industrial city cores."
 ---
 

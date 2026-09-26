@@ -16,8 +16,6 @@ A bike facility physically separated from adjacent vehicle traffic by a barrier,
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Physical separation removes the reliance on driver behavior and paint compliance that lower-tier bike facilities depend on, making cycling comfortable and accessible to a much broader range of riders, including children and less-confident adults, the core goal of an all-ages-and-abilities bike network.<Citation index={1} /> This pattern exists to document the design considerations specific to physical separation.

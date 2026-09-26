@@ -16,8 +16,6 @@ A pole-mounted luminaire providing illumination for the roadway, typically mount
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Adequate roadway illumination reduces nighttime crash risk by improving driver visibility of the roadway edge, other vehicles, and pedestrians; this pattern exists to document the mounting height, spacing, and output considerations specific to vehicle-oriented lighting, distinct from the pedestrian-scale lighting that serves a different visual task.<Citation index={1} />

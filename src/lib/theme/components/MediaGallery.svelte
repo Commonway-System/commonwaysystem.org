@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from '$app/state'
   import { getMediaItems } from '$lib/data/media/index.js'
   import {
     mediaSearch,
@@ -10,6 +11,14 @@
   import MediaCard from './MediaCard.svelte'
 
   const allItems = getMediaItems()
+
+  // A site-search result for a media item lands here as /media/?q=<title>.
+  // Effects don't run during prerendering, so reading the query is safe.
+  $effect(() => {
+    const q = page.url.searchParams.get('q')
+    if (q !== null)
+      mediaSearch.set(q)
+  })
 
   // Filter controls themselves live in MediaFilters.svelte, rendered in a
   // separate grid area by GlobalLayout (see isMedia there) rather than
@@ -38,7 +47,7 @@
   })
 </script>
 
-<div class="mg">
+<div class="mg" data-pagefind-ignore="all">
   <p class="mg__count">{filtered.length} of {allItems.length} media items</p>
 
   {#if filtered.length > 0}

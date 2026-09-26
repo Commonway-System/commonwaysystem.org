@@ -39,8 +39,8 @@
 
 <div class="pattern-card" data-classification={classification}>
   <div class="pattern-card__head">
-    <code class="pattern-card__id">{id}</code>
-    <div class="pattern-card__head-end">
+    <code class="pattern-card__id" data-pagefind-ignore>{id}</code>
+    <div class="pattern-card__head-end" data-pagefind-ignore>
       {#if status}
         <StatusBadge {status} />
       {/if}
@@ -50,7 +50,7 @@
   <!-- Not a heading: the title repeats the page's own <h1> on every pattern
        page, so an h2/h3 here would add a duplicate, out-of-order entry to
        the heading outline. -->
-  <p class="pattern-card__title">{title}</p>
+  <p class="pattern-card__title" data-pagefind-ignore>{title}</p>
   {#if children}
     <div class="pattern-card__body">
       {@render children()}

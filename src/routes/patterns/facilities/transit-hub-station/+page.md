@@ -16,8 +16,6 @@ A compound facility where multiple transit patterns (platforms, shelters, wayfin
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Once a stop grows past a single platform and shelter, it becomes its own design problem: passengers transferring between routes or modes need legible wayfinding, adequate circulation space, and often supporting amenities (restrooms, retail, bike parking) that a simple stop never requires. This pattern exists to mark that threshold and give higher-order stops their own documentation rather than treating them as an oversized version of a basic stop.<Citation index={1} />

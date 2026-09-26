@@ -3,6 +3,7 @@
   import { externalLinkAttrs, isExternalHref } from '$lib/site.js'
   import options from 'virtual:commonway/options'
   import { sidebarOpen } from '../layout.js'
+  import { openSearch } from '../search.js'
   import DisplaySettingsPanel from './DisplaySettingsPanel.svelte'
   import Icon from './Icon.svelte'
   import SidebarGroup from './SidebarGroup.svelte'
@@ -32,6 +33,18 @@
            they'd become completely unreachable on narrow viewports, on
            every page, not just ones with a page-specific sidebar tree. -->
       <div class="sidebar__primary-nav">
+        <button
+          type="button"
+          class="sidebar__primary-link sidebar__search"
+          aria-haspopup="dialog"
+          onclick={() => {
+            sidebarOpen.set(false)
+            openSearch()
+          }}
+        >
+          <Icon name="search" size={16} />
+          Search
+        </button>
         {#each navLinks as link (link.to)}
           <a
             href={link.to}
@@ -90,6 +103,16 @@
     font-size: var(--cw-text-sm);
     color: var(--cw-ink-soft);
     text-decoration: none;
+  }
+
+  .sidebar__search {
+    gap: 0.5rem;
+    width: 100%;
+    min-height: 44px;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
   }
 
   .sidebar__primary-link:hover {

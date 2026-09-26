@@ -16,8 +16,6 @@ A textured roadway surface, typically a series of shallow grooves or raised bars
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Rumble strips address inattention and lane departure rather than speed directly, giving a driver an audible and tactile cue at a specific location or along a stretch of roadway, distinct from the speed-reduction goal of vertical deflection treatments. This pattern exists to document that separate function and its own siting considerations.<Citation index={1} />

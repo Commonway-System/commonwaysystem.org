@@ -16,8 +16,6 @@ A sign providing wayfinding or informational content, such as destination names,
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Travelers, whether driving, cycling, or walking, need to know where they are and how to reach their destination; guide signage is the network’s navigational layer, distinct from the rule-setting and hazard-alerting functions of the other two sign categories. This pattern exists to document its own legibility and placement considerations.<Citation index={1} /><Citation index={2} />

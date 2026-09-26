@@ -16,8 +16,6 @@ A fixed or semi-fixed seating element installed along a sidewalk, plaza, or tran
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Seating in the public realm extends how long and how comfortably people, particularly older adults, people with mobility limitations, and caregivers, can use a street or public space; this pattern exists to document siting and design considerations distinct from the seating that might be built into a transit shelter or plaza specifically.

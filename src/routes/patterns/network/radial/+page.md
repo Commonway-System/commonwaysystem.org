@@ -3,6 +3,7 @@ title: "Radial"
 description: "A network topology in which routes converge toward and radiate outward from a central point, frequently supplemented by circumferential (ring) routes connecting the radial spokes at varying distances from the center."
 patternId: NET-RAD-03
 date: 2026-08-31
+image: /patterns/net-rad-03-radial.png
 llms: "A network topology in which routes converge toward and radiate outward from a central point, frequently supplemented by circumferential (ring) routes connecting the radial spokes at varying distances from the center."
 ---
 
@@ -15,8 +16,6 @@ A network topology in which routes converge toward and radiate outward from a ce
 </PatternCard>
 
 <RelatedMedia id={fm.patternId} />
-
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
 
 ## Why this pattern exists
 

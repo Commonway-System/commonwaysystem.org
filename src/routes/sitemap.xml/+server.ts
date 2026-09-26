@@ -15,7 +15,7 @@ function escapeXml(value: string): string {
 }
 
 export function GET() {
-  const pages = getSitePages()
+  const pages = getSitePages().filter(page => !page.utility)
 
   // W3C datetime (YYYY-MM-DD), the format the sitemap spec wants, not
   // CalVer's dot-separated one. Same "this build's date" freshness signal

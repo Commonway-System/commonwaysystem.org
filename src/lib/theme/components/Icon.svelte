@@ -1,6 +1,6 @@
 <script lang="ts">
   interface Props {
-    name: 'menu' | 'close' | 'chevron-down' | 'chevron-right' | 'sun' | 'moon' | 'arrow-left' | 'arrow-right' | 'github' | 'external' | 'x-twitter' | 'facebook' | 'linkedin' | 'reddit' | 'bluesky' | 'mail' | 'link' | 'check'
+    name: 'menu' | 'close' | 'chevron-down' | 'chevron-right' | 'sun' | 'moon' | 'arrow-left' | 'arrow-right' | 'github' | 'external' | 'x-twitter' | 'facebook' | 'linkedin' | 'reddit' | 'bluesky' | 'mail' | 'link' | 'check' | 'search'
     size?: number
     /**
      * Most icons here are line-drawn (stroke, fill="none"), the original
@@ -36,6 +36,7 @@
     // Simplified two-wing mark (a closed bowtie silhouette), matching the
     // spirit of Bluesky's wing shape, not a pixel-exact trace of it.
     'bluesky': 'M12 9L2 6L10 17L12 9L22 6L14 17Z',
+    'search': 'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4.2-4.2',
     'mail': 'M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM4 6l8 7 8-7',
     'link': 'M8 3h10a2 2 0 0 1 2 2v10M4 7h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z',
     'check': 'M5 13l4 4L19 7',

@@ -16,8 +16,6 @@ A raised or landscaped island placed along the center of a roadway to narrow the
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern's status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Narrowing a roadway's visual and physical width slows traffic and reduces opposing-direction conflicts, independent of whether the median also serves a crossing purpose. Pedestrian Safety Island / Refuge documents the crossing-assistance case; this pattern documents the calming and access-management case, where a median exists to manage the corridor itself rather than to assist a specific crossing movement.<Citation index={1} /><Citation index={2} />

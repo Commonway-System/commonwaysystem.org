@@ -16,8 +16,6 @@ A sign conveying a legally enforceable traffic rule, such as a stop sign, yield 
 
 <RelatedMedia id={fm.patternId} />
 
-*Working assessment: this pattern’s status reflects a preliminary Commonway System judgment call, pending final review.*
-
 ## Why this pattern exists
 
 Regulatory signs are how a jurisdiction communicates enforceable rules to the traveling public; consistent placement, sizing, and messaging across the network is what allows a driver to trust and act on a sign without hesitation. This pattern exists to document the category as distinct from warning and guide signs, since its legal weight demands a different level of rigor in application.<Citation index={1} /><Citation index={2} />

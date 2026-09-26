@@ -3,6 +3,7 @@ title: Roundabout (Single / Multi-Lane)
 description: The default intersection control wherever two Collector-or-higher streets meet, per the Commonway System's locked intersection philosophy.
 patternId: INT-RAB-01
 date: 2026-08-29
+image: /patterns/int-rab-01-roundabout.png
 llms: The default intersection control wherever two Collector-or-higher streets meet, single or multi-lane, per the Commonway System's locked intersection philosophy.
 ---
 
