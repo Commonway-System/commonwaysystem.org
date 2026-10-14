@@ -5,7 +5,7 @@ date: 2026-08-29
 llms: Explains what data the Commonway System website collects through Google Analytics, GitHub, and Netlify hosting logs, and what choices visitors have.
 ---
 
-**Effective date:** August 29, 2026 · **Last revised:** October 14, 2026 (Google Analytics now runs only with your consent; Cloudflare and Media card icons added)
+**Effective date:** August 29, 2026 · **Last revised:** October 14, 2026 (Media card channel icons are now hosted by the publication, so those cards no longer contact Google)
 
 Commonway System doesn't run accounts, doesn't sell anything, and doesn't collect information directly from visitors beyond what's described below. This page covers the third-party services the publication relies on, and the ordinary logging that comes from being hosted on the web at all.
 
@@ -19,7 +19,7 @@ Commonway System doesn't run accounts, doesn't sell anything, and doesn't collec
 
 **Cloudflare (network and Web Analytics).** Every request to the publication passes through Cloudflare, which handles the domain, encryption and caching and, like any network provider, processes IP addresses to do so. Cloudflare Web Analytics is also turned on: it counts page views and load times without cookies, without storing anything on your device and without following you across other sites, so it runs for every visitor. See [Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/).
 
-**Channel icons on Media cards.** The small channel and publication icons on Media Gallery and Related Media cards are loaded from Google's image servers (the same ones YouTube uses), so viewing those cards sends an ordinary image request to Google. The larger preview images are hosted by the publication itself.
+**Channel icons and preview images on Media cards.** The small channel icons and the larger preview images on Media Gallery and Related Media cards are copies hosted by the publication itself, so viewing those cards sends nothing to Google or YouTube. Following a card's link takes you to the creator's own site.
 
 **Site search.** The search feature runs entirely in your browser, against an index that is part of the publication itself. What you type is never sent to us or to anyone else, and search adds no cookies.
 

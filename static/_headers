@@ -10,8 +10,9 @@
 # CSP 'unsafe-inline' scripts: SvelteKit's inline bootstrap, the display-settings
 # script in src/app.html and JSON-LD. 'wasm-unsafe-eval': Pagefind search.
 # Outside hosts: Google Analytics (loaded only after cookie consent) and the
-# Media cards' channel icons (yt3.googleusercontent.com). /cdn-cgi/ is
-# Cloudflare's same-origin email-protection script.
+# Cloudflare beacon. Channel icons are self-hosted (/channel-icons/). COEP
+# credentialless lets those cross-origin no-cors loads through without cookies.
+# /cdn-cgi/ is Cloudflare's same-origin email-protection script.
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
@@ -20,9 +21,10 @@
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=(), browsing-topics=()
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
   No-Vary-Search: params
   Link: </sitemap.xml>; rel="sitemap"; type="application/xml", </rss.xml>; rel="alternate"; type="application/rss+xml"; title="Commonway System Blog", </llms.txt>; rel="describedby"; type="text/plain", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json", </.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/ai-catalog+json"
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'inline-speculation-rules' 'wasm-unsafe-eval' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://yt3.googleusercontent.com https://www.googletagmanager.com https://*.google-analytics.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloudflareinsights.com; worker-src 'self' blob:; manifest-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'inline-speculation-rules' 'wasm-unsafe-eval' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.googletagmanager.com https://*.google-analytics.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloudflareinsights.com; worker-src 'self' blob:; manifest-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
 
 # Fingerprinted build output never changes under the same name.
 /_app/immutable/*
