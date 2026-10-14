@@ -1,0 +1,17 @@
+{
+  "name": "Commonway System",
+  "short_name": "Commonway",
+  "description": "A pattern language for roads and streets: street typologies, retrofit strategies and the evidence behind them.",
+  "lang": "en-US",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#fdfaf3",
+  "theme_color": "#fdfaf3",
+  "icons": [
+    { "src": "/favicons/dark-favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/favicons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

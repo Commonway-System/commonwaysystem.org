@@ -1,13 +1,29 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
   import DisplaySettingsPanel from './DisplaySettingsPanel.svelte'
 
+  // The panel is a popover (popover="auto"): the browser puts it in the top
+  // layer, closes it on Escape or a click outside, and returns focus to the
+  // button. The button opens it with invoker commands (commandfor/command)
+  // where supported; elsewhere the click handler calls togglePopover(). In a
+  // browser with no popover support at all, `fallback` drives a plain
+  // show/hide class with the old Escape/outside-click handlers.
   let open = $state(false)
   let root: HTMLElement | undefined = $state()
+  let panel: HTMLElement | undefined = $state()
+  let toggle: HTMLButtonElement | undefined = $state()
   let scroller: HTMLElement | undefined = $state()
+  let fallback = $state(false)
+  let invokers = false
   // The "more below" hint shows while the panel overflows and disappears for
   // good (until reopened) as soon as the reader scrolls it.
   let overflows = $state(false)
   let scrolled = $state(false)
+
+  onMount(() => {
+    fallback = typeof HTMLElement.prototype.togglePopover !== 'function'
+    invokers = 'command' in HTMLButtonElement.prototype
+  })
 
   function measure() {
     if (scroller)
@@ -29,10 +45,21 @@
     return () => ro.disconnect()
   })
 
+  function onclick() {
+    if (fallback)
+      open = !open
+    else if (!invokers)
+      panel?.togglePopover()
+  }
+
+  function onToggle(e: Event) {
+    open = (e as ToggleEvent).newState === 'open'
+  }
+
   function onKeydown(e: KeyboardEvent) {
-    if (e.key === 'Escape' && open) {
+    if (fallback && e.key === 'Escape' && open) {
       open = false
-      root?.querySelector<HTMLButtonElement>('.dsb__toggle')?.focus()
+      toggle?.focus()
     }
   }
 </script>
@@ -40,7 +67,7 @@
 <svelte:window
   onkeydown={onKeydown}
   onpointerdown={(e) => {
-    if (open && root && !root.contains(e.target as Node))
+    if (fallback && open && root && !root.contains(e.target as Node))
       open = false
   }}
 />
@@ -53,31 +80,38 @@
     aria-controls="display-settings-panel"
     aria-label="Display settings"
     title="Display settings"
-    onclick={() => (open = !open)}
+    commandfor="display-settings-panel"
+    command="toggle-popover"
+    {onclick}
+    bind:this={toggle}
   >
     <span aria-hidden="true">Aa</span>
   </button>
-  {#if open}
-    <div id="display-settings-panel" class="dsb__panel" role="group" aria-label="Display settings">
-      <div class="dsb__scroll" bind:this={scroller} onscroll={() => { if (scroller && scroller.scrollTop > 4) scrolled = true }}>
-        <DisplaySettingsPanel />
-      </div>
-      <!-- Decorative: the scrollbar and edge shadow are the accessible cues;
-           this only points sighted readers at the hidden options. -->
-      <div class="dsb__more" class:dsb__more--shown={overflows && !scrolled} aria-hidden="true">
-        <span class="dsb__more-label">
-          Scroll for more
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6" /></svg>
-        </span>
-      </div>
+  <div
+    id="display-settings-panel"
+    class="dsb__panel"
+    class:dsb__panel--fallback-open={fallback && open}
+    popover="auto"
+    role="group"
+    aria-label="Display settings"
+    ontoggle={onToggle}
+    bind:this={panel}
+  >
+    <div class="dsb__scroll" bind:this={scroller} onscroll={() => { if (scroller && scroller.scrollTop > 4) scrolled = true }}>
+      <DisplaySettingsPanel />
     </div>
-  {/if}
+    <!-- Decorative: the scrollbar and edge shadow are the accessible cues;
+         this only points sighted readers at the hidden options. -->
+    <div class="dsb__more" class:dsb__more--shown={open && overflows && !scrolled} aria-hidden="true">
+      <span class="dsb__more-label">
+        Scroll for more
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6" /></svg>
+      </span>
+    </div>
+  </div>
 </div>
 
 <style>
-  /* Deliberately not position: relative: the panel is positioned against
-     the (sticky) navbar instead, so it always opens directly below the
-     whole navbar even when enlarged text wraps the navbar to two rows. */
   .dsb {
     flex-shrink: 0;
   }
@@ -104,10 +138,16 @@
     background: var(--cw-primary-soft);
   }
 
+  /* A popover sits in the top layer, positioned against the viewport. The
+     navbar is sticky at the viewport top, so this still opens directly below
+     the whole navbar, even when enlarged text wraps it to two rows. */
   .dsb__panel {
-    position: absolute;
-    top: calc(100% + 0.5rem);
+    position: fixed;
+    inset: auto;
+    top: calc(var(--cw-navbar-height) + 0.5rem);
     right: 1rem;
+    margin: 0;
+    color: var(--cw-ink);
     z-index: 60;
     width: min(20rem, calc(100vw - 2rem));
     padding: 0;
@@ -142,6 +182,31 @@
       linear-gradient(color-mix(in srgb, var(--cw-ink) 32%, transparent), transparent) 0 0 / 100% 0.9rem no-repeat scroll,
       linear-gradient(to top, color-mix(in srgb, var(--cw-ink) 32%, transparent), transparent) 0 100% / 100% 0.9rem no-repeat scroll,
       var(--cw-paper);
+  }
+
+  /* Closed popovers are display: none from the browser's own stylesheet.
+     Without popover support, the class does the same job. */
+  @supports not selector(:popover-open) {
+    .dsb__panel {
+      display: none;
+    }
+    .dsb__panel--fallback-open {
+      display: block;
+    }
+  }
+
+  /* CSS anchor positioning: where supported, the panel's right edge lines up
+     with the Aa button instead of the viewport edge, and flips to the
+     button's other side if that would run off-screen. */
+  @supports (anchor-name: --a) {
+    .dsb__toggle {
+      anchor-name: --cw-display-settings;
+    }
+    .dsb__panel {
+      position-anchor: --cw-display-settings;
+      right: anchor(right);
+      position-try-fallbacks: flip-inline;
+    }
   }
 
   /* "Scroll for more" pill at the bottom edge, only while there is more below

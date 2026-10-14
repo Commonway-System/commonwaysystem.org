@@ -53,6 +53,8 @@
           class="navbar__brand-mark"
           src={$isDark ? '/logos/full-logo-light-variation-commonway-for-dark-backgrounds.svg' : '/logos/full-logo-dark-variation-commonway-for-light-backgrounds.svg'}
           alt={wordmark}
+          width="615"
+          height="167"
         />
       </a>
       <button
@@ -301,6 +303,20 @@
     */
     .navbar__inner {
       gap: 0.25rem 0.5rem;
+    }
+  }
+
+  /* Phones: the five items (logo, menu, version, GitHub, theme toggle) need
+     about 368px, and iOS's wider monospace font for the date needs a little
+     more, so on a 360-390px phone the theme toggle wrapped onto a second
+     row. That made the header twice as tall and left the menu drawer's top
+     (the search button) tucked under it on real phones. The version is the
+     least essential item, and the Release History page carries it, so it
+     goes below 420px; the remaining four fit down to about 280px. Declared
+     last so it beats the 940px block above. */
+  @media (max-width: 420px) {
+    .navbar__version {
+      display: none;
     }
   }
 </style>

@@ -1,8 +1,16 @@
 <script lang="ts">
   import { displaySettings } from '../display-settings.js'
+  import { keepOnTopLayer } from '../top-layer.js'
 
   let el: HTMLDivElement | undefined = $state()
   let visible = $state(false)
+
+  // Also above the search dialog and the Display settings panel, which sit
+  // in the browser's top layer (see top-layer.ts).
+  $effect(() => {
+    if (el)
+      return keepOnTopLayer(el)
+  })
 
   // Mouse/pen only: on touch there is no hovering pointer to highlight.
   function onMove(e: PointerEvent) {
@@ -27,8 +35,14 @@
 <style>
   .halo {
     position: fixed;
+    inset: auto;
     top: 0;
     left: 0;
+    /* Undo the browser's own popover box (centered, padded, overflow auto). */
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    color: inherit;
     z-index: 2000;
     width: 3rem;
     height: 3rem;

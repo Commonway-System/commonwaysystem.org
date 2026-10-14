@@ -3,7 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="%sveltekit.assets%/favicons/dark-favicon.svg" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fdfaf3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicons/dark-favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title="Commonway System Blog" href="/rss.xml" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <script>
       // Apply saved display settings before first paint (mirror of
       // src/lib/theme/display-settings.ts's apply()); no flash of default text size.
@@ -19,6 +27,11 @@
         r.dataset.pointer = s.largePointer ? 'large' : 'default'
         r.dataset.halo = s.pointerHalo ? 'on' : 'off'
       } catch (e) {}
+    </script>
+    <!-- Speculation Rules: prefetch same-site pages on hover/pointer-down intent.
+         Markdown copies, text-only pages and the search index are left out. -->
+    <script type="speculationrules">
+      {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.md"}},{"not":{"href_matches":"/text/*"}},{"not":{"href_matches":"/pagefind/*"}}]},"eagerness":"moderate"}]}
     </script>
     %sveltekit.head%
   </head>

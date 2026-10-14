@@ -56,6 +56,8 @@ export function GET() {
     '',
     `The whole guidebook as one markdown file, for loading in a single request: ${SITE_URL}/llms-full.txt`,
     '',
+    `The whole guidebook as an Open Knowledge Format (OKF) bundle, one Markdown concept per page with typed front matter and each page's cited sources: ${SITE_URL}/okf/index.md (browsable) or ${SITE_URL}/okf.tar.gz (one download). Each page's JSON-LD is also published on its own at its URL with \`.jsonld\` appended, indexed in ${SITE_URL}/schemamap.xml.`,
+    '',
   ]
 
   const home = sections.get('')

@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
+  import { thumbUrl } from '$lib/thumbs.js'
 
   interface Props {
     src: string
@@ -10,23 +11,36 @@
   }
 
   const { src, alt, caption, children }: Props = $props()
+
+  // Shown at 140-160 CSS px, so the 160 and 480 px WebP copies (static/**/thumbs/,
+  // made by `pnpm run thumbs`) cover every screen density instead of the
+  // full-size original.
+  const srcset = $derived(src.startsWith('/') ? `${thumbUrl(src, 160)} 160w, ${thumbUrl(src, 480)} 480w` : undefined)
 </script>
 
+<div class="author-bio-wrap">
 <div class="author-bio">
   <div class="author-bio__text">
     {@render children?.()}
   </div>
   {#if caption}
     <figure class="author-bio__figure">
-      <img class="author-bio__photo" {src} {alt} loading="lazy" decoding="async" />
+      <img class="author-bio__photo" {src} {srcset} sizes="160px" {alt} width="160" height="160" loading="lazy" decoding="async" />
       <figcaption>{caption}</figcaption>
     </figure>
   {:else}
-    <img class="author-bio__photo" {src} {alt} loading="lazy" decoding="async" />
+    <img class="author-bio__photo" {src} {srcset} sizes="160px" {alt} width="160" height="160" loading="lazy" decoding="async" />
   {/if}
+</div>
 </div>
 
 <style>
+  /* The wrapper is a size container, so the row stacks based on the space
+     it actually has (a narrow column, enlarged text), not the window width. */
+  .author-bio-wrap {
+    container-type: inline-size;
+  }
+
   .author-bio {
     display: flex;
     gap: 1.5rem;
@@ -82,10 +96,10 @@
   }
 
   /* Stacks instead of staying side-by-side once the row gets too narrow
-     for both a comfortable text measure and the photo, same 560px
-     breakpoint base.css already uses elsewhere for narrow-viewport
-     layout changes. */
-  @media (max-width: 560px) {
+     for both a comfortable text measure and the photo. A container query:
+     it measures the component's own width (about 500px of row is where the
+     text column gets too narrow beside a 160px photo). */
+  @container (max-width: 500px) {
     .author-bio {
       flex-direction: column;
     }

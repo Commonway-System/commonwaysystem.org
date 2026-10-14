@@ -44,19 +44,9 @@ llms: Home page for the Commonway System Guidebook, a cross-referenced pattern l
   ]
 </script>
 
-<Hero
-  title="Commonway System"
-  tagline="One system, grounded in what's proven."
-  description="A pattern language for roads and streets, built on Vision Zero and Dutch Sustainable Safety evidence, layered on NACTO's foundation."
-  primaryHref="/guide/"
-  primaryLabel="Start with the Guide"
-  secondaryHref="/patterns/"
-  secondaryLabel="Browse Patterns"
-/>
+<!-- Each component tag stays on one line: CommonMark only treats a complete one-line opening tag as an HTML block. Split across lines, it gets wrapped in a <p>, which breaks hydration. -->
+<Hero title="Commonway System" tagline="One system, grounded in what's proven." description="A pattern language for roads and streets, built on Vision Zero and Dutch Sustainable Safety evidence, layered on NACTO's foundation." primaryHref="/guide/" primaryLabel="Start with the Guide" secondaryHref="/patterns/" secondaryLabel="Browse Patterns" />
 
-<EvidenceStrip
-  text="Every prescriptive claim in this guidebook traces to a cited source, and every source carries an evidence tier, so you can see how strong the backing is before you decide whether to trust it."
-  learnMoreHref="/about/governance/#how-disputes-over-evidence-are-resolved"
-/>
+<EvidenceStrip text="Every prescriptive claim in this guidebook traces to a cited source, and every source carries an evidence tier, so you can see how strong the backing is before you decide whether to trust it." learnMoreHref="/about/governance/#how-disputes-over-evidence-are-resolved" />
 
 <FeatureGrid features={features} />

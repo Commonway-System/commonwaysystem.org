@@ -22,7 +22,7 @@
 
 <div class="retrofit-card" data-scale={scale}>
   <div class="retrofit-card__head">
-    <code class="retrofit-card__id" data-pagefind-ignore>{id}</code>
+    <code class="retrofit-card__id" translate="no" data-pagefind-ignore>{id}</code>
     <span class="retrofit-card__scale" data-pagefind-ignore>{labels[scale]}</span>
   </div>
   <!-- Not a heading, same reasoning as PatternCard.svelte. -->

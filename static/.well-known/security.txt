@@ -1,0 +1,6 @@
+# Security contact for commonwaysystem.org (RFC 9116). Renew Expires every year.
+Contact: mailto:info@commonwaysystem.org
+Contact: https://commonwaysystem.org/about/reporting/
+Expires: 2027-10-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://commonwaysystem.org/.well-known/security.txt

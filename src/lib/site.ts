@@ -51,3 +51,8 @@ export function formatCalVer(year: number, month: number, day: number): string {
 export function markdownPath(routePath: string): string {
   return routePath === '/' ? '/index.md' : `${routePath.replace(/\/$/, '')}.md`
 }
+
+/** JSON-LD copy of a page (Schemamap), written by scripts/generate-agent-files.mjs: '/patterns/foo/' -> '/patterns/foo.jsonld', '/' -> '/index.jsonld'. */
+export function jsonldPath(routePath: string): string {
+  return routePath === '/' ? '/index.jsonld' : `${routePath.replace(/\/$/, '')}.jsonld`
+}

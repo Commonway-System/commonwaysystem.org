@@ -9,7 +9,7 @@ llms: Explains the five-level Commonway System scale hierarchy (Network, Corrido
   import { GuideDiagram, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<GuideDiagram src="/diagrams/scale-hierarchy-diagram.png" alt="Commonway System scale hierarchy diagram showing five levels: Network, Corridor, Segment or Intersection, Facility, and Element, arranged from top to bottom with arrows connecting each scale, on a clean white background with the text Commonway System Scale Hierarchy" width={1280} height={720} />
+<GuideDiagram priority src="/diagrams/scale-hierarchy-diagram.png" alt="Commonway System scale hierarchy diagram showing five levels: Network, Corridor, Segment or Intersection, Facility, and Element, arranged from top to bottom with arrows connecting each scale, on a clean white background with the text Commonway System Scale Hierarchy" width={1280} height={720} />
 
 Every pattern in the Commonway System exists at one of five scales:
 

@@ -39,7 +39,7 @@
 
 <div class="pattern-card" data-classification={classification}>
   <div class="pattern-card__head">
-    <code class="pattern-card__id" data-pagefind-ignore>{id}</code>
+    <code class="pattern-card__id" translate="no" data-pagefind-ignore>{id}</code>
     <div class="pattern-card__head-end" data-pagefind-ignore>
       {#if status}
         <StatusBadge {status} />

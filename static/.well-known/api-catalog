@@ -1,0 +1,17 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://commonwaysystem.org/.well-known/api-catalog",
+      "item": [
+        { "href": "https://commonwaysystem.org/sitemap.xml", "type": "application/xml", "title": "XML sitemap" },
+        { "href": "https://commonwaysystem.org/rss.xml", "type": "application/rss+xml", "title": "Blog feed" },
+        { "href": "https://commonwaysystem.org/llms.txt", "type": "text/plain", "title": "Guidebook summary for language models" },
+        { "href": "https://commonwaysystem.org/llms-full.txt", "type": "text/plain", "title": "Full text of every page for language models" },
+        { "href": "https://commonwaysystem.org/.well-known/agent-skills/index.json", "type": "application/json", "title": "Agent Skills index" },
+        { "href": "https://commonwaysystem.org/.well-known/ai-catalog.json", "type": "application/ai-catalog+json", "title": "AI Catalog (Agentic Resource Discovery)" },
+        { "href": "https://commonwaysystem.org/okf.tar.gz", "type": "application/okf-bundle+gzip", "title": "Open Knowledge Format bundle" },
+        { "href": "https://commonwaysystem.org/schemamap.xml", "type": "application/xml", "title": "Schemamap: index of per-page JSON-LD" }
+      ]
+    }
+  ]
+}

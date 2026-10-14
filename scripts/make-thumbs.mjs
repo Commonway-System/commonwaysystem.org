@@ -18,7 +18,7 @@ import { basename, dirname, extname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import { parse } from 'yaml'
-import { THUMB_WIDTHS, thumbUrl } from '../src/lib/thumbs.ts'
+import { DIAGRAM_WIDTHS, THUMB_WIDTHS, thumbUrl } from '../src/lib/thumbs.ts'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const staticDir = join(root, 'static')
@@ -28,7 +28,7 @@ const checkOnly = args.has('--check')
 
 const RASTER = /\.(png|jpe?g|webp)$/i
 // Whole folders of content images (anything dropped in is picked up)...
-const IMAGE_DIRS = ['patterns', 'media-assets']
+const IMAGE_DIRS = ['patterns', 'media-assets', 'photos']
 
 function listRaster(dir) {
   const out = []
@@ -70,6 +70,10 @@ const sources = new Set([
   ...IMAGE_DIRS.flatMap(d => listRaster(join(staticDir, d))),
   ...frontmatterImages(join(root, 'src/routes')),
 ])
+// Full-width Foundations diagrams (GuideDiagram.svelte): 768 and 1280 px WebP
+// for its srcset, in place of the 300-600 KB PNG originals.
+const diagrams = new Set(listRaster(join(staticDir, 'diagrams')))
+for (const d of diagrams) sources.add(d)
 
 let made = 0
 let missing = 0
@@ -79,7 +83,7 @@ for (const source of [...sources].sort()) {
     continue
   }
   const publicPath = source.replace(staticDir, '')
-  for (const width of THUMB_WIDTHS) {
+  for (const width of diagrams.has(source) ? DIAGRAM_WIDTHS : THUMB_WIDTHS) {
     const target = join(staticDir, thumbUrl(publicPath, width))
     const stale = !existsSync(target) || statSync(target).mtimeMs < statSync(source).mtimeMs
     if (!stale && !force)
@@ -90,7 +94,7 @@ for (const source of [...sources].sort()) {
       continue
     }
     mkdirSync(dirname(target), { recursive: true })
-    await sharp(source).resize({ width, withoutEnlargement: true }).webp({ quality: 80 }).toFile(target)
+    await sharp(source).resize({ width, withoutEnlargement: true }).webp({ quality: diagrams.has(source) ? 85 : 80 }).toFile(target)
     made++
   }
 }

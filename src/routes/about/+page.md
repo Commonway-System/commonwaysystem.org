@@ -21,6 +21,9 @@ The full visual and editorial system: colors, typography, voice, illustration ru
 **[Release History & Roadmap](/about/release-history/)**
 How CalVer versioning works, the current version, the changelog, and what's planned but not yet built.
 
+**[Website Audit](/about/website-audit/)**
+How the publication measures up against the Website Specification checklist, item by item, with what's done and what's next.
+
 **[Submit a Change](/about/contributing/)**
 How to propose a pattern, suggest a correction, or otherwise help build out the guidebook.
 

@@ -6,7 +6,7 @@
   "description": "Commonway System Guidebook website, built on SveltePress with a fully custom Commonway theme.",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node scripts/generate-text-pages.mjs && node scripts/build-search-index.mjs && node scripts/make-thumbs.mjs --check",
+    "build": "vite build && node scripts/generate-text-pages.mjs && node scripts/generate-agent-files.mjs && node scripts/build-search-index.mjs && node scripts/make-thumbs.mjs --check",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "thumbs": "node scripts/make-thumbs.mjs"

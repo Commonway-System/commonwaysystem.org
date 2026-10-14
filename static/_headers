@@ -1,8 +1,109 @@
-# Netlify headers file (copied into build/ like _redirects).
+# Netlify headers file (copied into build/ like _redirects). Cloudflare sits
+# in front and passes these through. Checked against the Website
+# Specification checklist; see /about/website-audit/ and src/lib/audit.ts.
+
+# No-Vary-Search: every page is a static file, so no query string changes a
+# response and a prefetched page can be reused whatever its query
+# (/search/?q=, /media/?q=). Link: discovery for crawlers and agents.
+# Cloudflare injects its Web Analytics beacon (static.cloudflareinsights.com,
+# cookieless) into every page at the edge; it reports to cloudflareinsights.com.
+# CSP 'unsafe-inline' scripts: SvelteKit's inline bootstrap, the display-settings
+# script in src/app.html and JSON-LD. 'wasm-unsafe-eval': Pagefind search.
+# Outside hosts: Google Analytics (loaded only after cookie consent) and the
+# Media cards' channel icons (yt3.googleusercontent.com). /cdn-cgi/ is
+# Cloudflare's same-origin email-protection script.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  No-Vary-Search: params
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml", </rss.xml>; rel="alternate"; type="application/rss+xml"; title="Commonway System Blog", </llms.txt>; rel="describedby"; type="text/plain", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json", </.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/ai-catalog+json"
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'inline-speculation-rules' 'wasm-unsafe-eval' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://yt3.googleusercontent.com https://www.googletagmanager.com https://*.google-analytics.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloudflareinsights.com; worker-src 'self' blob:; manifest-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
+
+# Fingerprinted build output never changes under the same name.
+/_app/immutable/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Content images and their thumbnails: a month. Replacing an image under the
+# same name can take that long to show for returning readers.
+# /patterns/ also holds the pattern pages themselves, so only image files.
+/patterns/*.png
+  Cache-Control: public, max-age=2592000
+/patterns/*.jpg
+  Cache-Control: public, max-age=2592000
+/patterns/*.jpeg
+  Cache-Control: public, max-age=2592000
+/patterns/*.webp
+  Cache-Control: public, max-age=2592000
+/patterns/*.svg
+  Cache-Control: public, max-age=2592000
+/media-assets/*
+  Cache-Control: public, max-age=2592000
+/diagrams/*
+  Cache-Control: public, max-age=2592000
+/photos/*
+  Cache-Control: public, max-age=2592000
+/logos/*
+  Cache-Control: public, max-age=2592000
+/favicons/*
+  Cache-Control: public, max-age=604800
+/color-symbols/*
+  Cache-Control: public, max-age=2592000
+
+/manifest.webmanifest
+  Content-Type: application/manifest+json
+
+# Well-known files are meant to be read by other origins' tools. Listed one
+# by one, not /.well-known/*: SKILL.md also matches /*.md below, and Netlify
+# joins a header set by two matching rules into one invalid comma list.
+/.well-known/security.txt
+  Access-Control-Allow-Origin: *
+/.well-known/gpc.json
+  Access-Control-Allow-Origin: *
+/.well-known/agent-skills/index.json
+  Access-Control-Allow-Origin: *
+/.well-known/api-catalog
+  Content-Type: application/linkset+json
+  Access-Control-Allow-Origin: *
+/.well-known/traffic-advice
+  Content-Type: application/trafficadvice+json
+  Access-Control-Allow-Origin: *
+
 # The generated markdown versions of every page (see
 # scripts/generate-text-pages.mjs) are for AI/LLM readers: serve them as
 # markdown, and keep search engines on the HTML pages so they aren't indexed
 # as duplicates.
 /*.md
   Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex
+  Access-Control-Allow-Origin: *
+
+/llms.txt
+  Access-Control-Allow-Origin: *
+/llms-full.txt
+  Access-Control-Allow-Origin: *
+/.well-known/tdmrep.json
+  Content-Type: application/json
+  Access-Control-Allow-Origin: *
+
+# Agent-readiness files written by scripts/generate-agent-files.mjs and the
+# AI Catalog route (see /about/website-audit/). The /okf/ tree is all .md
+# files, already covered by the /*.md rule above.
+/.well-known/ai-catalog.json
+  Content-Type: application/ai-catalog+json
+  Access-Control-Allow-Origin: *
+/*.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+  X-Robots-Tag: noindex
+/schemamap.xml
+  Access-Control-Allow-Origin: *
+/okf.tar.gz
+  Content-Type: application/okf-bundle+gzip
+  Access-Control-Allow-Origin: *
   X-Robots-Tag: noindex

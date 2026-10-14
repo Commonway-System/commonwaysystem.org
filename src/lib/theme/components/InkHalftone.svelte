@@ -356,10 +356,15 @@
     ctx.fill()
   }
 
+  // Visibility-aware: no frames while the hero is scrolled out of view (an
+  // IntersectionObserver flips this in onMount). The canvas keeps its last
+  // frame, and the loop restarts when the hero comes back.
+  let offscreen = false
+
   function loop(time: number) {
     lastTime = time
     draw(time)
-    rafId = requestAnimationFrame(loop)
+    rafId = offscreen ? null : requestAnimationFrame(loop)
   }
 
   function startAnimation() {
@@ -383,6 +388,13 @@
     resizeObserver = new ResizeObserver(() => resize())
     resizeObserver.observe(container)
 
+    const visibility = new IntersectionObserver(([entry]) => {
+      offscreen = !entry.isIntersecting
+      if (!offscreen && rafId === null && !paused && !reduced)
+        startAnimation()
+    })
+    visibility.observe(container)
+
     const handleMotionChange = (event: MediaQueryListEvent) => {
       reduced = event.matches
       startAnimation()
@@ -391,6 +403,7 @@
 
     return () => {
       motionQuery?.removeEventListener('change', handleMotionChange)
+      visibility.disconnect()
     }
   })
 

@@ -17,6 +17,8 @@ html {
   /* Keeps anchored headings AND keyboard-focused elements clear of the sticky
      navbar (WCAG 2.4.11); the <=1180px override below adds the TocMobile bar. */
   scroll-padding-top: calc(var(--cw-navbar-height) + 1rem);
+  /* Set by CookieBanner.svelte while it covers the bottom of the viewport. */
+  scroll-padding-bottom: var(--cw-consent-height, 0px);
   scrollbar-gutter: stable;
   color-scheme: light;
 }
@@ -33,6 +35,24 @@ body {
   font-size: var(--cw-text-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  padding-bottom: var(--cw-consent-height, 0px);
+}
+
+/* Balanced headings (no lone last word) and fewer orphans in body text.
+   Progressive: browsers without text-wrap ignore it. */
+h1, h2, h3, h4, figcaption, caption {
+  text-wrap: balance;
+}
+
+p, li, dd, blockquote {
+  text-wrap: pretty;
+}
+
+/* Page-to-page view transition (GlobalLayout.svelte's onNavigate): a short
+   cross-fade. Never runs under reduced motion or Simplified view. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 180ms;
 }
 
 /* Content hyperlinks. Underlined always (never removed, only softened at
@@ -712,4 +732,40 @@ html[data-font='atkinson'] {
 html[data-font='opendyslexic'] {
   --cw-font-display: 'OpenDyslexic', system-ui, sans-serif;
   --cw-font-body: 'OpenDyslexic', system-ui, sans-serif;
+}
+
+/* Forced colors (Windows High Contrast and similar). The browser swaps every
+   color for the reader's system palette, so anything whose edge or meaning
+   was a background fill gets a real outline instead (an outline, because the
+   components set their own borders and outline isn't used except for focus).
+   Color swatches on the Brand Guide keep their true colors: showing the
+   color is their whole job, and each has a text label beside it. */
+@media (forced-colors: active) {
+  .status-badge,
+  .chip,
+  .evidence-chip,
+  .citation,
+  .modal-pill,
+  .pic,
+  .ric,
+  .mc,
+  .pattern-card,
+  .retrofit-card,
+  .consent,
+  .cw-table-wrap {
+    outline: 1px solid CanvasText;
+    outline-offset: -1px;
+  }
+
+  .swatch__chip,
+  .speed-limit-sign {
+    forced-color-adjust: none;
+  }
+
+  /* Decorative images that sit on a colored tint read fine as-is; the
+     hero's animated canvas is decoration and stays hidden from the palette
+     swap. */
+  canvas {
+    forced-color-adjust: none;
+  }
 }

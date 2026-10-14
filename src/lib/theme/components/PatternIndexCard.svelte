@@ -65,7 +65,7 @@
   <div class="pic__body">
     <h3 class="pic__title">{title}</h3>
     <div class="pic__meta">
-      <code class="pic__id">{id}</code>
+      <code class="pic__id" translate="no">{id}</code>
       {#if status}
         <StatusBadge {status} />
       {/if}

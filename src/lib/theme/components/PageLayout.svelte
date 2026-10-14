@@ -3,8 +3,9 @@
   import { page } from '$app/state'
   import { onMount, tick } from 'svelte'
   import type { Snippet } from 'svelte'
-  import { SITE_URL, externalLinkAttrs, isExternalHref, markdownPath } from '$lib/site.js'
+  import { SITE_URL, externalLinkAttrs, isExternalHref, jsonldPath, markdownPath } from '$lib/site.js'
   import options from 'virtual:commonway/options'
+  import { reopenConsent } from '../consent.js'
   import { pageAnchors } from '../layout.js'
   import { patternClassOf, searchSectionOf } from '../search-meta.js'
   import { buildBreadcrumbs } from '../schema/breadcrumbs.js'
@@ -37,6 +38,16 @@
   const searchable = $derived(!fm.utility)
   const searchSection = $derived(searchSectionOf(page.url.pathname))
   const searchClass = $derived(patternClassOf(fm.patternId))
+
+  // Head metadata. Every page is reachable at exactly one URL (trailing
+  // slash, no query), which is also its canonical. Pages without their own
+  // featured image share the site's social card (static/og/).
+  const canonical = $derived(`${SITE_URL}${page.url.pathname}`)
+  const pageTitle = $derived(fm.title ? `${fm.title} \u00b7 ${options.siteTitle}` : options.siteTitle)
+  const pageDescription = $derived(fm.description || options.siteDescription || '')
+  const ogImage = $derived(fm.image ? `${SITE_URL}${fm.image}` : `${SITE_URL}/og/commonway-system-card.png`)
+  const ogImageAlt = $derived(fm.image ? `Illustration for ${fm.title ?? options.siteTitle}` : 'Commonway System logo')
+  const isArticle = $derived(page.url.pathname !== '/' && !page.url.pathname.startsWith('/about/') && page.url.pathname.split('/').filter(Boolean).length > 1)
 
   const editHref = $derived(
     options.editLink ? options.editLink.replace(':route', `${page.route.id ?? ''}`) : undefined,
@@ -91,20 +102,35 @@
 <svelte:head>
   {#if !fm.utility}
     <link rel="alternate" type="text/markdown" href={markdownHref} />
+    <!-- Schemamap: this page's JSON-LD on its own, and the index of every page's. -->
+    <link rel="alternate" type="application/ld+json" href={jsonldPath(page.url.pathname)} />
+    <link rel="schemamap" type="application/xml" href="/schemamap.xml" />
   {/if}
-  <title>{fm.title ? `${fm.title} \u00b7 ${options.siteTitle}` : options.siteTitle}</title>
+  <title>{pageTitle}</title>
+  <link rel="canonical" href={canonical} />
   {#if fm.utility}
-    <meta name="robots" content="noindex" />
+    <meta name="robots" content="noindex, follow" />
+  {:else}
+    <meta name="robots" content="index, follow, max-image-preview:large" />
   {/if}
-  {#if fm.image}
-    <!-- Social preview: the page's featured image (frontmatter image:), full size. -->
-    <meta property="og:image" content={`${SITE_URL}${fm.image}`} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content={`${SITE_URL}${fm.image}`} />
+  {#if pageDescription}
+    <meta name="description" content={pageDescription} />
+    <meta property="og:description" content={pageDescription} />
   {/if}
-  {#if fm.description || options.siteDescription}
-    <meta name="description" content={fm.description || options.siteDescription} />
+  <meta property="og:title" content={fm.title ?? options.siteTitle} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content={isArticle ? 'article' : 'website'} />
+  <meta property="og:site_name" content={options.siteTitle} />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content={ogImageAlt} />
+  {#if !fm.image}
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
   {/if}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content={ogImageAlt} />
 </svelte:head>
 
 <JsonLd schemas={jsonLdSchemas} />
@@ -171,13 +197,17 @@
     <PageNav />
 
     <div class="page__legal" data-pagefind-ignore>
-      <span>&copy; {new Date().getFullYear()} Commonway System</span>
+      <span>&copy; {new Date().getFullYear()} <span translate="no">Commonway System</span></span>
       <nav aria-label="Footer">
         <a href="/about/sitemap/">Site Map</a>
+        <a href="/about/reporting/">Report a Problem</a>
         <a href="/about/terms-and-conditions/">Terms and Conditions</a>
         <a href="/about/privacy-policy/">Privacy Policy</a>
         <a href="/about/ai-policy/">AI Policy</a>
         <a href="/about/accessibility-policy/">Accessibility Policy</a>
+        {#if options.googleAnalyticsId}
+          <button type="button" class="page__legal-btn" onclick={reopenConsent}>Cookie settings</button>
+        {/if}
       </nav>
     </div>
   </div>
@@ -232,5 +262,24 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.35rem 1.25rem;
+  }
+
+  /* "Cookie settings" reopens the consent banner, so it's a real button,
+     dressed like the footer links beside it. */
+  .page__legal-btn {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: var(--cw-link);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--cw-link) 40%, transparent);
+    text-underline-offset: 0.15em;
+    cursor: pointer;
+  }
+
+  .page__legal-btn:hover {
+    color: var(--cw-link-hover);
+    text-decoration-color: currentColor;
   }
 </style>

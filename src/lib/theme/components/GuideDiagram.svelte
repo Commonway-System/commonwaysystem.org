@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { DIAGRAM_WIDTHS, thumbUrl } from '$lib/thumbs.js'
+
   interface Props {
     /** e.g. "/diagrams/density-tier-diagram.png" */
     src: string
@@ -44,9 +46,27 @@
      * add a caption without touching sizing, or size without a caption.
      */
     caption?: string
+    /**
+     * Set for a diagram that sits at the top of its page (all four current
+     * ones do): it loads eagerly with high fetch priority instead of lazily,
+     * since it's on screen from the start and often the page's largest
+     * element (Largest Contentful Paint).
+     */
+    priority?: boolean
   }
 
-  const { src, alt, width, height, aspectRatio, caption }: Props = $props()
+  const { src, alt, width, height, aspectRatio, caption, priority = false }: Props = $props()
+
+  // static/diagrams/ images have 768 and 1280 px WebP copies (made by
+  // `pnpm run thumbs`, see src/lib/thumbs.ts); the original stays as `src`
+  // for browsers that ignore srcset. Other sources render as before.
+  const srcset = $derived(
+    src.startsWith('/diagrams/') ? DIAGRAM_WIDTHS.map(w => `${thumbUrl(src, w)} ${w}w`).join(', ') : undefined,
+  )
+  // The content column is at most 46rem wide.
+  const sizes = $derived(srcset ? '(min-width: 50rem) 46rem, calc(100vw - 3rem)' : undefined)
+  const loading = $derived(priority ? 'eager' : 'lazy')
+  const fetchpriority = $derived(priority ? 'high' : undefined)
 
   // width+height (real intrinsic dimensions) win when both are known;
   // aspectRatio is the fallback for "ratio known, exact pixels aren't."
@@ -66,11 +86,11 @@
     sync if that treatment ever changes.
   -->
   <figure>
-    <img {src} {alt} {width} {height} style={sizeStyle} loading="lazy" decoding="async" />
+    <img {src} {srcset} {sizes} {alt} {width} {height} style={sizeStyle} {loading} {fetchpriority} decoding="async" />
     <figcaption>{caption}</figcaption>
   </figure>
 {:else}
-  <img {src} {alt} {width} {height} style={sizeStyle} loading="lazy" decoding="async" />
+  <img {src} {srcset} {sizes} {alt} {width} {height} style={sizeStyle} {loading} {fetchpriority} decoding="async" />
 {/if}
 
 <style>

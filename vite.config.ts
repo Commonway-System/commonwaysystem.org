@@ -636,6 +636,7 @@ const theme = commonwayTheme({
         collapsible: false,
         items: [
           { title: 'Release History & Roadmap', to: '/about/release-history/' },
+          { title: 'Website Audit', to: '/about/website-audit/' },
           { title: 'Project Governance', to: '/about/governance/' },
           { title: 'Submit a Change', to: '/about/contributing/' },
           { title: 'Report a Problem', to: '/about/reporting/' },

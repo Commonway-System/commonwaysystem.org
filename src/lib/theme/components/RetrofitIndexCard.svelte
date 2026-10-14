@@ -52,7 +52,7 @@
   <div class="ric__body">
     <h3 class="ric__title">{title}</h3>
     <div class="ric__meta">
-      <code class="ric__id">{id}</code>
+      <code class="ric__id" translate="no">{id}</code>
     </div>
   </div>
 </a>

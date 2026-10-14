@@ -5,17 +5,21 @@ date: 2026-08-29
 llms: Explains what data the Commonway System website collects through Google Analytics, GitHub, and Netlify hosting logs, and what choices visitors have.
 ---
 
-**Effective date:** August 29, 2026
+**Effective date:** August 29, 2026 · **Last revised:** October 14, 2026 (Google Analytics now runs only with your consent; Cloudflare and Media card icons added)
 
 Commonway System doesn't run accounts, doesn't sell anything, and doesn't collect information directly from visitors beyond what's described below. This page covers the third-party services the publication relies on, and the ordinary logging that comes from being hosted on the web at all.
 
 ## What we use
 
-**Google Analytics.** We use Google Analytics to understand how the publication is used: which pages get visited, how people arrive at the publication, and general device and browser information. This is aggregate usage data, not information tied to your name or identity. See [Google's own privacy policy](https://policies.google.com/privacy) for how Google processes this data.
+**Google Analytics, only if you accept.** With your consent, we use Google Analytics to understand how the publication is used: which pages get visited, how people arrive at the publication, and general device and browser information. This is aggregate usage data, not information tied to your name or identity. Until you choose Accept in the cookie notice, Google Analytics isn't loaded at all and nothing is sent to Google. See [Google's own privacy policy](https://policies.google.com/privacy) for how Google processes this data.
 
 **GitHub.** The publication's content and code are maintained in a public GitHub repository. If you open an issue, submit a pull request, or otherwise interact with the repository, GitHub collects and publicly displays your GitHub username and activity, the way it does for any public repository. We don't control that data ourselves; see [GitHub's Privacy Statement](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement) for how GitHub handles it.
 
 **Netlify (hosting).** This publication is hosted as a static site through Netlify, which automatically logs basic request information (like IP address and request timestamp) as a normal part of serving any website. We don't use this data ourselves beyond what Netlify's own infrastructure requires to operate. See [Netlify's Privacy Policy](https://www.netlify.com/privacy/) for details.
+
+**Cloudflare (network and Web Analytics).** Every request to the publication passes through Cloudflare, which handles the domain, encryption and caching and, like any network provider, processes IP addresses to do so. Cloudflare Web Analytics is also turned on: it counts page views and load times without cookies, without storing anything on your device and without following you across other sites, so it runs for every visitor. See [Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/).
+
+**Channel icons on Media cards.** The small channel and publication icons on Media Gallery and Related Media cards are loaded from Google's image servers (the same ones YouTube uses), so viewing those cards sends an ordinary image request to Google. The larger preview images are hosted by the publication itself.
 
 **Site search.** The search feature runs entirely in your browser, against an index that is part of the publication itself. What you type is never sent to us or to anyone else, and search adds no cookies.
 
@@ -23,7 +27,11 @@ We don't run ads, don't sell or share data with advertisers, and don't have any 
 
 ## Cookies
 
-Google Analytics may set cookies in your browser to distinguish visitors and sessions. You can block or delete these through your browser's settings, or use [Google's Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout) to opt out entirely. Blocking cookies won't affect your ability to read the publication; it only affects the usage data we can see.
+The publication sets no cookies of its own. Google Analytics is the only thing that can set cookies here, and only after you choose **Accept** in the cookie notice shown on your first visit. If you choose **Decline**, or don't choose, Google Analytics isn't loaded. Reading the publication works exactly the same either way.
+
+If your browser sends a [Global Privacy Control](https://globalprivacycontrol.org/) signal, the publication treats it as Decline unless you opt in yourself. You can change your choice at any time with **Cookie settings** at the bottom of every page; if you withdraw consent, the Google Analytics cookies already set are deleted.
+
+Your choice, and your Display settings, are remembered in your browser's local storage, not in a cookie, and never leave your device.
 
 ## Children's privacy
 
@@ -35,7 +43,7 @@ Nearly every pattern page in the guidebook cites external sources: government ma
 
 ## Your choices
 
-You can use the Google Analytics opt-out tool linked above, adjust your browser's cookie and tracking settings, or use browser extensions that block analytics scripts. None of this affects your ability to use the publication.
+You can decline analytics in the cookie notice or under **Cookie settings** at the bottom of any page, turn on Global Privacy Control in your browser, use [Google's Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout), or use browser extensions that block analytics scripts. None of this affects your ability to use the publication.
 
 ## Changes to this policy
 

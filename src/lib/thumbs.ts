@@ -4,10 +4,13 @@
 // the conventional path (and falls back to the original if it 404s, see the
 // onerror handlers). `/patterns/foo.png` -> `/patterns/thumbs/foo-160.webp`.
 
-/** 160: search results. 480: index and gallery cards. */
-export type ThumbWidth = 160 | 480
+/** 160: search results. 480: index and gallery cards. 768 and 1280: full-width diagrams (GuideDiagram's srcset). */
+export type ThumbWidth = 160 | 480 | 768 | 1280
 
 export const THUMB_WIDTHS: readonly ThumbWidth[] = [160, 480]
+
+/** Foundations diagrams (static/diagrams/) are shown full column width, so they get larger WebP copies instead. */
+export const DIAGRAM_WIDTHS: readonly ThumbWidth[] = [768, 1280]
 
 /** Local raster images only (png, jpg, jpeg, webp); anything else (an SVG, a full URL) is returned unchanged. */
 export function thumbUrl(src: string, width: ThumbWidth): string {

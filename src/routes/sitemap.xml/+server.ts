@@ -23,11 +23,16 @@ export function GET() {
   // is no per-page last-modified data to draw from instead.
   const lastmod = new Date().toISOString().slice(0, 10)
 
+  // Image sitemap extension: a page's featured image (frontmatter image:),
+  // the same picture its social card and search thumbnail use.
   const urls = pages
-    .map(page => `  <url>\n    <loc>${escapeXml(`${SITE_URL}${page.routePath}`)}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`)
+    .map((page) => {
+      const image = page.image ? `\n    <image:image>\n      <image:loc>${escapeXml(`${SITE_URL}${page.image}`)}</image:loc>\n    </image:image>` : ''
+      return `  <url>\n    <loc>${escapeXml(`${SITE_URL}${page.routePath}`)}</loc>\n    <lastmod>${lastmod}</lastmod>${image}\n  </url>`
+    })
     .join('\n')
 
-  const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
+  const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls}\n</urlset>\n`
 
   return new Response(body, {
     headers: { 'content-type': 'application/xml; charset=utf-8' },

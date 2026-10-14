@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte'
-  import { afterNavigate } from '$app/navigation'
+  import { afterNavigate, onNavigate } from '$app/navigation'
   import { page } from '$app/state'
   import type { Snippet } from 'svelte'
   import { expandAllDetails, initDisplaySettings } from '../display-settings.js'
@@ -10,6 +10,7 @@
   import { buildOrganization, buildWebSite } from '../schema/organization.js'
   import '../styles/base.css'
   import Backdrop from './Backdrop.svelte'
+  import CookieBanner from './CookieBanner.svelte'
   import GoogleAnalytics from './GoogleAnalytics.svelte'
   import JsonLd from './JsonLd.svelte'
   import MediaFilters from './MediaFilters.svelte'
@@ -89,6 +90,40 @@
     }
   }
 
+  // Page-to-page navigation cross-fades with the View Transitions API where
+  // supported. Skipped under reduced motion, in Simplified view, and in a
+  // hidden tab (where the browser would skip it anyway).
+  onNavigate((navigation) => {
+    if (!document.startViewTransition || document.visibilityState !== 'visible')
+      return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+      return
+    if (document.documentElement.dataset.view === 'simple')
+      return
+    return new Promise<void>((resolve) => {
+      const transition = document.startViewTransition(async () => {
+        resolve()
+        await navigation.complete
+      })
+      // A skipped transition (a quick second click) rejects; harmless.
+      transition.ready.catch(() => {})
+      transition.finished.catch(() => {})
+    })
+  })
+
+  // While the mobile drawer is open, the page behind it is inert: Tab,
+  // clicks and screen readers stay in the drawer and the navbar (whose
+  // menu button closes it). Above 940px the sidebar is never a drawer.
+  $effect(() => {
+    const open = $sidebarOpen
+    const targets = [document.getElementById('main-content'), document.querySelector<HTMLElement>('.toc')]
+    const drawer = open && window.matchMedia('(max-width: 940px)').matches
+    for (const t of targets) {
+      if (t)
+        t.inert = drawer
+    }
+  })
+
   afterNavigate(() => {
     sidebarOpen.set(false)
     searchOpen.set(false)
@@ -101,6 +136,7 @@
 <svelte:window onkeydown={onKeydown} />
 
 <a class="skip-link" href="#main-content" onclick={skipToMain}>Skip to main content</a>
+<CookieBanner />
 <GoogleAnalytics />
 <JsonLd schemas={siteSchemas} />
 <Navbar />
