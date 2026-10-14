@@ -6,6 +6,7 @@ const item: MediaItem = {
   title: 'How Expanding Bike Lanes Can Actually Decrease Traffic - Cheddar Explains',
   url: 'https://www.youtube.com/watch?v=XN-tSpQZmYk',
   sourceName: 'Cheddar',
+  sourceIcon: '/channel-icons/cheddar.jpg',
   image: '/media-assets/med-043.jpg',
   blurb: 'The video cites New York DOT data showing protected bike lanes cut injuries while holding vehicle travel times steady. It supplies the measured results behind the Commonway System\'s protected bike lane guidance.',
   endorsementStatus: 'aligned',

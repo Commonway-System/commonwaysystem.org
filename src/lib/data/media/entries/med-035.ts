@@ -6,6 +6,7 @@ const item: MediaItem = {
   title: 'Road and Street Design In the Netherlands',
   url: 'https://www.youtube.com/watch?v=IGfdpDfw8Ms',
   sourceName: 'Streetscapes',
+  sourceIcon: '/channel-icons/streetscapes.jpg',
   image: '/media-assets/med-035.jpg',
   blurb: 'The video explains the Dutch road hierarchy of through, distributor, and access roads, as applied in Groningen with reference to the CROW manual. It is a clean overview of the functional classification thinking behind the Commonway System\'s street types guide.',
   endorsementStatus: 'aligned',

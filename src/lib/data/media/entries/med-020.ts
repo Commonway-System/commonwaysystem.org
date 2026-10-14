@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'Let\'s FIX the HIGH SCHOOL (with 152 ROUNDABOUTS!)',
   url: 'https://www.youtube.com/watch?v=1ZUZA76L09M',
   sourceName: 'Road Guy Rob',
-  sourceIcon: 'https://yt3.googleusercontent.com/ytc/AIdro_mMdWqEkGZJd9Ax-0D9QdiaUhsTYdFmPIYU5Z3ATRiw28E=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/road-guy-rob.jpg',
   image: '/media-assets/med-020.jpg',
   blurb: 'The origin story of Carmel\'s roundabout program, starting with a contentious school-zone traffic-calming project, and the engineering fix (tightened entries, fatter center island) that made the design work.',
   endorsementStatus: 'aligned',

@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'Are Parking Lots Ruining Your City?',
   url: 'https://www.youtube.com/watch?v=vUhOFUQDLQk',
   sourceName: 'Strong Towns',
-  sourceIcon: 'https://yt3.googleusercontent.com/QBTWIIVpPXH5-2KFsRghj8MQzt_Bl8MLGuR7kQN2E0aFvW70b6aEOaBacPONv0E6e15QCXxA=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/strong-towns.jpg',
   image: '/media-assets/med-044.jpg',
   blurb: 'The video traces Fayetteville, Arkansas eliminating parking minimums in 2015 and tallies the land-use and economic costs of mandated parking. It is a case study for the Commonway System\'s surface parking and density guidance.',
   endorsementStatus: 'aligned',

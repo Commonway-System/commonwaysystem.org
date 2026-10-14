@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'Crossing the Street Shouldn\'t Be Deadly (but it is)',
   url: 'https://www.youtube.com/watch?v=_ByEBjf9ktY',
   sourceName: 'Not Just Bikes',
-  sourceIcon: 'https://yt3.googleusercontent.com/txNeBAcuSUUxKuIPzA9BF9enVh11NHs2Vdirh2wPfVs6DZW94uGodyVhI5sJPeL7iGE8Wl-5vpE=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/not-just-bikes.jpg',
   image: '/media-assets/med-022.jpg',
   blurb: 'This video walks through pedestrian crossing designs, from beg buttons and signal phases to raised crossings, HAWK beacons, and continuous sidewalks. It shows how crossing geometry and timing decide whether walking is safe, the same question behind the Commonway System\'s crosswalk and crossing elements.',
   endorsementStatus: 'aligned',

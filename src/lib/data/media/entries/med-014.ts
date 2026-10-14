@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'America Built the Wrong Roundabout (The Dutch Didn\'t)',
   url: 'https://www.youtube.com/watch?v=CKjTkXljhWc',
   sourceName: 'Safe By Design',
-  sourceIcon: 'https://yt3.googleusercontent.com/KYF5Gs1Wig8ByrKExfHzafbZpHRtvVEt5_sqGk-xYlfMSGR-mETqVB_n14rn1NkqIQrvLDqVsw=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/safe-by-design.jpg',
   image: '/media-assets/med-014.jpg',
   blurb: 'Traces the turbo roundabout\'s origin and safety data, but also reports the Fietsersbond\'s documented cyclist/pedestrian crossing hazards at turbo roundabouts directly, worth noting since it complicates a clean "aligned" label.',
   endorsementStatus: 'context-only',

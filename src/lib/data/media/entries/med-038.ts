@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'Bike lanes are not good enough',
   url: 'https://www.youtube.com/watch?v=p36skNda3KE',
   sourceName: 'City Beautiful',
-  sourceIcon: 'https://yt3.googleusercontent.com/V_p_uSGNkNk6nGGvy5npyNX8d9Z2Pyv66G2UXWuoBxHsBgy74-haa8WYw3VyBWtjY_iAuelZ3FE=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/city-beautiful.jpg',
   image: '/media-assets/med-038.jpg',
   blurb: 'The video argues that painted bike lanes fail and shows what works instead: cycle tracks, protected intersections, advisory lanes, plus a road-diet case study. It makes the case for the protected cycling facilities the Commonway System\'s bike patterns specify.',
   endorsementStatus: 'aligned',

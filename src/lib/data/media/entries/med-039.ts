@@ -6,6 +6,7 @@ const item: MediaItem = {
   title: 'Why protected bike lanes are more valuable than parking spaces',
   url: 'https://www.youtube.com/watch?v=E85HMNJix_o',
   sourceName: 'Vox',
+  sourceIcon: '/channel-icons/vox.jpg',
   image: '/media-assets/med-039.jpg',
   blurb: 'The video uses New York\'s 9th Avenue parking-protected bike lane to show that trading parking for protected cycling improves safety and even retail sales. It is evidence for the Commonway System\'s parking-lane reallocation retrofit strategy.',
   endorsementStatus: 'aligned',

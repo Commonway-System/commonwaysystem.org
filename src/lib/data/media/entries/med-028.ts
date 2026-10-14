@@ -6,6 +6,7 @@ const item: MediaItem = {
   title: 'A Plan to fix Toronto\'s Streetcars',
   url: 'https://www.youtube.com/watch?v=DmSj162rSoc',
   sourceName: 'RMTransit',
+  sourceIcon: '/channel-icons/rmtransit.jpg',
   image: '/media-assets/med-028.jpg',
   blurb: 'The video proposes concrete fixes for Toronto\'s streetcar network: traffic and signal priority, upgraded stops, and operational improvements. These map to the Commonway System\'s transit priority retrofit and transit patterns.',
   endorsementStatus: 'aligned',

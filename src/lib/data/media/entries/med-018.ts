@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'South Carolina\'s Freeway for Bikes',
   url: 'https://www.youtube.com/watch?v=NxGYs8kHxw4',
   sourceName: 'Road Guy Rob',
-  sourceIcon: 'https://yt3.googleusercontent.com/ytc/AIdro_mMdWqEkGZJd9Ax-0D9QdiaUhsTYdFmPIYU5Z3ATRiw28E=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/road-guy-rob.jpg',
   image: '/media-assets/med-018.jpg',
   blurb: 'The Swamp Rabbit Trail\'s rail-to-trail history and its treatment as genuine transportation infrastructure, plus the Travelers Rest Main Street road diet that reallocated car lanes to parking and bike parking.',
   endorsementStatus: 'aligned',

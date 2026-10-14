@@ -6,6 +6,7 @@ const item: MediaItem = {
   title: 'A Flaw In Street Design May Be Costing Lives - Cheddar Explains',
   url: 'https://www.youtube.com/watch?v=yyWYvovLvMQ',
   sourceName: 'Cheddar',
+  sourceIcon: '/channel-icons/cheddar.jpg',
   image: '/media-assets/med-041.jpg',
   blurb: 'The video explains "forgiving design," the wide clear zones built for driver error, and draws the roads-versus-streets distinction. It covers the design-speed thinking at the heart of the Commonway System\'s street types and design speed guides.',
   endorsementStatus: 'aligned',

@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'Why the Dutch Wait Less at Traffic Lights',
   url: 'https://www.youtube.com/watch?v=knbVWXzL4-4',
   sourceName: 'Not Just Bikes',
-  sourceIcon: 'https://yt3.googleusercontent.com/txNeBAcuSUUxKuIPzA9BF9enVh11NHs2Vdirh2wPfVs6DZW94uGodyVhI5sJPeL7iGE8Wl-5vpE=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/not-just-bikes.jpg',
   image: '/media-assets/med-010.jpg',
   blurb: 'Breaks down Dutch traffic-responsive signal timing, independent phasing, transit signal priority, and no-right-turn-on-red as a pedestrian/cyclist safety measure.',
   endorsementStatus: 'aligned',

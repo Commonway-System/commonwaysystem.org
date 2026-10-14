@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'Why America Won\'t Copy Sweden\'s Cheap Highway Fix',
   url: 'https://www.youtube.com/watch?v=jyNEnYaBszk',
   sourceName: 'Safe By Design',
-  sourceIcon: 'https://yt3.googleusercontent.com/KYF5Gs1Wig8ByrKExfHzafbZpHRtvVEt5_sqGk-xYlfMSGR-mETqVB_n14rn1NkqIQrvLDqVsw=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/safe-by-design.jpg',
   image: '/media-assets/med-013.jpg',
   blurb: 'Explains Sweden\'s 2+1 alternating-passing-lane cable-barrier retrofit and the specific AASHTO Green Book barriers (literally) that have kept the same fix from scaling in the US.',
   endorsementStatus: 'aligned',

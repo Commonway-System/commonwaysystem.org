@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'Would you drive on this FLIP-FLOPPED interchange? (It\'s better in every way!)',
   url: 'https://www.youtube.com/watch?v=40OUCb1cODY',
   sourceName: 'Road Guy Rob',
-  sourceIcon: 'https://yt3.googleusercontent.com/ytc/AIdro_mMdWqEkGZJd9Ax-0D9QdiaUhsTYdFmPIYU5Z3ATRiw28E=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/road-guy-rob.jpg',
   image: '/media-assets/med-030.jpg',
   blurb: 'The video compares diverging diamond interchanges with conventional diamonds, and looks at SPUIs and pedestrian treatment. It gives the Commonway System\'s grade-separated interchange pattern a vivid real-world counterpart.',
   endorsementStatus: 'context-only',

@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'Are Streets Too Complicated Now?',
   url: 'https://www.youtube.com/watch?v=u1Xs5EA5_uU',
   sourceName: 'City Beautiful',
-  sourceIcon: 'https://yt3.googleusercontent.com/V_p_uSGNkNk6nGGvy5npyNX8d9Z2Pyv66G2UXWuoBxHsBgy74-haa8WYw3VyBWtjY_iAuelZ3FE=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/city-beautiful.jpg',
   image: '/media-assets/med-004.jpg',
   blurb: 'Asks whether today\'s proliferation of lines, signals, and lane types on streets is overcomplication or a needed response to modern demands, a question that runs directly through CS\'s Element-scale catalog and the density-tiered Corridor retrofit paths this video is tagged to.',
   endorsementStatus: 'aligned',

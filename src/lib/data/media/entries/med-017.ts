@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'What is the "Correct" Speed Limit?',
   url: 'https://www.youtube.com/watch?v=JRbnBc-97Ps',
   sourceName: 'Not Just Bikes',
-  sourceIcon: 'https://yt3.googleusercontent.com/txNeBAcuSUUxKuIPzA9BF9enVh11NHs2Vdirh2wPfVs6DZW94uGodyVhI5sJPeL7iGE8Wl-5vpE=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/not-just-bikes.jpg',
   image: '/media-assets/med-017.jpg',
   blurb: 'Makes the physics and data case for 30 km/h (roughly 20 mph) as the safe default urban speed, the same logic behind CS\'s own Local street speed cap.',
   endorsementStatus: 'aligned',

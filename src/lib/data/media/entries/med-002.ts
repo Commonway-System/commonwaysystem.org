@@ -6,7 +6,7 @@ const item: MediaItem = {
   title: 'The Reason Our Streets Switched to Cul-De-Sacs',
   url: 'https://www.youtube.com/watch?v=d9vDcfH03gs',
   sourceName: 'City Beautiful',
-  sourceIcon: 'https://yt3.googleusercontent.com/V_p_uSGNkNk6nGGvy5npyNX8d9Z2Pyv66G2UXWuoBxHsBgy74-haa8WYw3VyBWtjY_iAuelZ3FE=s160-c-k-c0x00ffffff-no-rj',
+  sourceIcon: '/channel-icons/city-beautiful.jpg',
   image: '/media-assets/med-002.jpg',
   blurb: 'Traces the postwar shift from connected grid networks to tree-shaped cul-de-sac subdivisions, then covers the same shared-use-path connector strategy CS\'s Network Reconnection retrofit recommends for stitching disconnected cul-de-sacs back into the surrounding network.',
   endorsementStatus: 'aligned',

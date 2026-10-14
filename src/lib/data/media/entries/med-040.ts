@@ -6,6 +6,7 @@ const item: MediaItem = {
   title: 'How highways make traffic worse',
   url: 'https://www.youtube.com/watch?v=2z7o3sRxA5g',
   sourceName: 'Vox',
+  sourceIcon: '/channel-icons/vox.jpg',
   image: '/media-assets/med-040.jpg',
   blurb: 'The video explains induced demand through Houston\'s Katy Freeway widening and presents highway removal as the remedy. It is a clear explainer for the concept underpinning much of the Commonway System\'s highway skepticism.',
   endorsementStatus: 'aligned',
