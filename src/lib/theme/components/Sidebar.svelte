@@ -163,7 +163,7 @@
       transform: translateX(-100%);
       transition: transform 0.18s ease;
       z-index: 45;
-      padding: 1rem 1rem 2rem;
+      padding: 2.25rem 1rem 2rem;
     }
 
     .sidebar--open {
