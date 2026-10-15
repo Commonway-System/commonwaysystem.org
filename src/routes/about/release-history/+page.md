@@ -26,6 +26,7 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
     {
       date: '2026.10.15',
       items: [
+        'Media Gallery: one more video, Vox\'s "America\'s deadliest road, explained" (MED-107, 107 items in all), tagged to the Stroad, Curb Cut / Driveway Apron, Crosswalk and Pedestrian Signal patterns, the five-plus-lane and protected bike lane retrofit strategies, and Design Speed & Speed Limits. Cover is self-hosted.',
         'Media Gallery: 17 more items (MED-090 to MED-106, 106 in all). Seven videos, eight articles and two podcast episodes cover the Parkway, Scenic Highway / Byway, Industrial Collector, Character Transect and Density Step-Down / Step-Up patterns, plus the Street Types, Design Speed and Density Tiers guide pages: the Merritt Parkway and scenic byways, freight-first streets and truck blind zones, FDOT and Transport for NSW context frameworks, gateway treatments, and how highway geometry sets speed. Two new channel icons (Practical Engineering, CBS Sunday Morning) are self-hosted. The National Park Service, Journal News and FHWA articles have no cover image and show the shared placeholder. Known incomplete: covers are copies of the publishers\' own images and should be removed if one asks; the endorsement labels are Kevin\'s call to review (the Journal News parkway investigation is marked Context only).',
       ],
     },
