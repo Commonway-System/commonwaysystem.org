@@ -13,7 +13,7 @@ const item: MediaItem = {
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local'],
   mediaTags: ['Explainer', 'Case Study'],
-  relatedTo: ['NET-GRD-01', 'NET-ORG-04', 'RFT-NET-02', 'LOC-ALY-02', 'LOC-DEF-01', 'LOC-LSW-06', 'LOC-YLD-07', 'LOC-PED-09'],
+  relatedTo: ['NET-GRD-01', 'NET-ORG-04', 'RFT-NET-02', 'LOC-ALY-02', 'LOC-DEF-01', 'LOC-LSW-06', 'LOC-YLD-07', 'LOC-PED-09', 'FAC-PLZ-07'],
   dateAdded: '2026-10-14',
 }
 

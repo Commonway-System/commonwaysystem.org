@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector', 'Arterial'],
   mediaTags: ['Explainer'],
-  relatedTo: ['ELM-CRW-08', 'INT-MPC-08', 'INT-CSJ-06', 'ELM-PSI-09', '/guide/design-speed/'],
+  relatedTo: ['ELM-CRW-08', 'INT-MPC-08', 'INT-CSJ-06', 'ELM-PSI-09', 'ELM-PDS-15', 'ELM-MDI-45', 'ELM-TFS-14', 'INT-SIG-03', '/guide/design-speed/'],
   dateAdded: '2026-10-14',
 }
 
