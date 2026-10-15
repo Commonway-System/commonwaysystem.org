@@ -60,6 +60,7 @@ const theme = commonwayTheme({
           },
           { title: 'Scale Hierarchy', to: '/guide/scale-hierarchy/' },
           { title: 'Design Speed & Speed Limits', to: '/guide/design-speed/' },
+          { title: 'Induced Demand', to: '/guide/induced-demand/' },
         ],
       },
       {

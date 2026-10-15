@@ -8,11 +8,11 @@ const item: MediaItem = {
   sourceName: 'Vox',
   sourceIcon: '/channel-icons/vox.jpg',
   image: '/media-assets/med-040.jpg',
-  blurb: 'The video explains induced demand through Houston\'s Katy Freeway widening and presents highway removal as the remedy. It is a clear explainer for the concept underpinning much of the Commonway System\'s highway skepticism.',
-  endorsementStatus: 'aligned',
+  blurb: 'Explains induced demand through the Katy Freeway widening and why transit alone falls short. Its Boston example is mischaracterized: the freeway was buried, not removed.',
+  endorsementStatus: 'context-only',
   patternTaxonomyTags: ['Arterial', 'Freeway'],
   mediaTags: ['Explainer'],
-  relatedTo: ['ART-DEF-01', '/guide/how-the-transportation-ecosystem-fits-together/', '/guide/street-types/'],
+  relatedTo: ['ART-DEF-01', '/guide/how-the-transportation-ecosystem-fits-together/', '/guide/street-types/', '/guide/induced-demand/'],
   dateAdded: '2026-10-14',
 }
 

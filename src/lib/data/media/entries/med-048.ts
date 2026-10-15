@@ -8,11 +8,11 @@ const item: MediaItem = {
   sourceName: 'Transportation for America',
   sourceIcon: '/channel-icons/transportation-for-america.jpg',
   image: '/media-assets/med-048.jpg',
-  blurb: 'The piece explains induced demand with hard numbers: the 100 largest US urbanized areas added 42 percent more freeway lane-miles while delay rose 144 percent. It is a clear explainer for the concept at the core of the Commonway System\'s skepticism of highway expansion.',
+  blurb: 'Explains induced demand with hard numbers: from 1993 to 2017, the 100 largest US urbanized areas added 42 percent more freeway lane-miles while population grew 32 percent and delay rose 144 percent. A clear explainer for the concept at the core of the Commonway System\'s skepticism of highway expansion.',
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Arterial', 'Freeway'],
   mediaTags: ['Explainer', 'News/Advocacy'],
-  relatedTo: ['ART-DEF-01', '/guide/how-the-transportation-ecosystem-fits-together/', '/guide/street-types/'],
+  relatedTo: ['ART-DEF-01', '/guide/how-the-transportation-ecosystem-fits-together/', '/guide/street-types/', '/guide/induced-demand/'],
   dateAdded: '2026-10-14',
 }
 
