@@ -24,6 +24,12 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.10.15',
+      items: [
+        'Media Gallery: 17 more items (MED-090 to MED-106, 106 in all). Seven videos, eight articles and two podcast episodes cover the Parkway, Scenic Highway / Byway, Industrial Collector, Character Transect and Density Step-Down / Step-Up patterns, plus the Street Types, Design Speed and Density Tiers guide pages: the Merritt Parkway and scenic byways, freight-first streets and truck blind zones, FDOT and Transport for NSW context frameworks, gateway treatments, and how highway geometry sets speed. Two new channel icons (Practical Engineering, CBS Sunday Morning) are self-hosted. The National Park Service, Journal News and FHWA articles have no cover image and show the shared placeholder. Known incomplete: covers are copies of the publishers\' own images and should be removed if one asks; the endorsement labels are Kevin\'s call to review (the Journal News parkway investigation is marked Context only).',
+      ],
+    },
+    {
       date: '2026.10.14',
       items: [
         'Media Gallery: 17 more items (MED-073 to MED-089, 89 in all). Seven videos, seven articles and two podcast episodes cover the Make It Happen and funding pages (Intersection Control Evaluation and Road Safety Audits from FHWA and WSDOT, Complete Streets policy, impact fees, tax increment financing, speed-limit setting, road ownership, Virginia\'s independent cities, Unigov, tribal roads, Michigan road commissions, quick-build permitting), plus Safe By Design\'s Restricted Crossing U-Turn video, tagged to the RCUT, Median U-Turn, Displaced Left-Turn and Signal patterns, their retrofit strategies and the crossing patterns. Eight new source icons are self-hosted; the Governing and Congressional Research Service entries use the shared placeholder image because those pages have no cover image.',
