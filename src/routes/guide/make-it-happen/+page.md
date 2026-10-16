@@ -1,111 +1,147 @@
 ---
 title: How Road Changes Actually Happen
-description: A plain-language method for finding out who has authority over a road and how to actually request a change, from a faded stripe to a new stop sign.
+description: "Whose road it is decides who can change it, and how: four questions that find the right government and the right kind of request, from a faded stripe to a new crosswalk."
 date: 2026-09-01
-llms: A four-question method for figuring out who has authority over a specific road and how that government processes a request, covering restoring vs. adding vs. changing a standard everywhere, public vs. private roads, splits in jurisdiction, and the seven ways a request actually gets processed once the right authority is found.
+llms: "A four-question method for getting a street change made, opened through Kansas City's request process and Beaufort, South Carolina's state-owned streets. Covers why requests stall; what you're asking for (restore, add, change the standard); public vs. private roads (MUTCD scope, Florida's HOA enforcement election, ownership lookups); which government has authority (state ownership shares, Washington's signal rule, Los Angeles sidewalks, tribal speed limits under RCW 46.61.480); the seven processing tracks as a table; warrants, speed humps, MPOs and resurfacing; Baltimore and Colorado metro districts; fair questions including the Astoria bike lane ruling; and a first-call checklist."
 ---
 
 <script>
   import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
-Getting a street pattern built is rarely just a design question. It's a process question: who has the authority to approve a change, how that authority typically handles a request like yours, and what actually has to happen before anything gets painted, signed, or poured.
+_Whose road it is decides who can change it, and how_
 
-That process varies by city, county, and state, sometimes down to the individual road. This page can't give you the phone number to call. What it can give you is a method: four questions that will get you to the right authority and the right kind of request, wherever you are.
+In Kansas City, Missouri, a request for a crosswalk, stop sign or speed hump starts with a call to 311.<Citation index={1} /> Traffic engineers take it from there. A crosswalk in the middle of a block usually gets approved only if at least 10 people cross there every hour for five straight weekday hours, and only where the speed limit is under 45 mph.<Citation index={1} /> The City Council can overrule the engineers, but the engineers decide first.<Citation index={1} />
 
-This page doesn't cover private roads or homeowners' association jurisdiction beyond a short note under Question 2 below, since that's a routine branch of the method rather than an exception to it. It also doesn't cover Corridor Preservation, a separate, opt-in program for reserving right-of-way for a distant future facility, which has almost nothing to do with the everyday process covered here. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/) for the tools that reserve land and commit a jurisdiction to a policy, including corridor preservation, ahead of a request like the one this page walks through.
+The city gets about 200 traffic-calming requests a year. Clearing them would cost about $5.4 million.<Citation index={2} />
+
+Those are Kansas City's rules for Kansas City's streets. In Beaufort, South Carolina, city leaders wanted narrower lanes and on-street parking to slow drivers down. They couldn't make the change on their own: the state owns nearly every road in town.<Citation index={3} />
+
+A good request can stall because it went to the wrong government, or asked for the wrong kind of change. This page gives you four questions that sort out both.
+
+:::note
+Reserving land for a future road, or changing local law, is covered in [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/).
+:::
+
+## Why requests stall
+
+- **Wrong government.** The city may not own the road, or may own the pavement but not the signal. In Washington State, the state DOT runs the signals on state highways through smaller towns; larger cities run their own.<Citation index={4} />
+- **Wrong kind of ask.** Fixing a faded stripe and adding a stop sign take different tracks. One needs a work order. The other needs a study.
+- **Wrong expectation.** Neighborhood support starts a request. Engineers decide it.<Citation index={1} />
+- **Missed timing.** Some changes arrive without a request. When a city resurfaces a street, federal law requires curb ramps at its crossings.<Citation index={5} />
+
+## The four questions
+
+| Question | Why it matters |
+| --- | --- |
+| 1. What are you asking for? | Restoring, adding and changing a standard take different paths. |
+| 2. Is the road public or private? | A private road answers to its owner or HOA, not a government. |
+| 3. Which government has authority? | Ownership is the start. Signals, sidewalks and sovereignty can split it. |
+| 4. How does that government process it? | Seven tracks, from a work order to a capital project. |
+
+## 1. What are you asking for?
+
+**Restore something already there.** A faded stripe, a broken sign, a pothole. The need was proven when it went in, so it doesn't need proving again.
+
+**Add or change something at one location.** A new stop sign, a crosswalk, a signal change, a road diet. It's new, so someone has to justify it.
+
+**Change the standard everywhere.** If the problem is the rule itself, not one street, the path runs through your local government's comprehensive plan or ordinances. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/). The rest of this page covers the first two.
+
+## 2. Is the road public or private?
+
+A private road has no government in charge of its design. The owner or homeowners' association decides, under the community's declaration and bylaws.
+
+Private doesn't always mean outside traffic law. The national standard for signs, signals and markings covers any road open to public travel, including shopping-center roads, but not gated private communities.<Citation index={6} /> Some states also let private communities opt in to public enforcement. In Florida, an HOA board can vote by majority to have local police enforce state traffic law on its private roads. The roads stay private.<Citation index={7} />
+
+Not sure which you have? Some states publish ownership lookups. Maryland's lets you search a road by name and see who maintains it.<Citation index={8} /> Otherwise, call your public works department and ask.
+
+## 3. Which government has authority?
+
+**Start with ownership.** It varies more than most people expect. As of 2012, South Carolina's state government owned 63 percent of the state's roads; New Jersey's owned 6 percent.<Citation index={3} /> A road that looks like a city street may belong to the state.
+
+**Then check who controls each piece.** On one stretch of road, the signal, the pavement and the sidewalk can each belong to someone different. Washington's signal rule is one example.<Citation index={4} /> In Los Angeles, the owner of a lot maintains the sidewalk in front of it.<Citation index={9} />
+
+**Check for overlapping sovereignty.** Where a Washington state highway crosses reservation land, the tribe can change the speed limit after an engineering and traffic study. The change takes effect only once the state approves it and signs go up.<Citation index={10} />
+
+**Ask each authority for its piece.** One call rarely covers a request two governments share.
+
+If the answers keep getting stranger, your area may be one of the documented exceptions. See [When Jurisdiction Doesn't Follow the Pattern](/guide/make-it-happen/jurisdiction-variants/).
+
+## 4. How does that government process it?
+
+| Track | When it applies | Who decides | What to bring |
+| --- | --- | --- | --- |
+| Service request | Restoring something already approved | Maintenance staff | Location, a photo, what's broken |
+| Engineering study or warrant | Adding or changing a sign, signal or marking | Traffic engineer, under the state's MUTCD<Citation index={6} /> | Location and what you've seen: near misses, crossings, crashes |
+| Capital project | Cost beyond routine maintenance | Local government; with federal money, also the MPO<Citation index={11} /><Citation index={12} /> | A sponsor: a council member or department |
+| Legislative or public hearing | Changes the law treats as significant | An elected or appointed board<Citation index={13} /> | Testimony at the hearing |
+| Adopted-plan implementation | The change is already named in an adopted plan | Staff, folded into scheduled work<Citation index={14} /> | The plan page that names your street |
+| Compliance-triggered work | The law requires it when other work happens | Nobody; it's required<Citation index={5} /> | Nothing. Watch the project schedule. |
+| Accessibility request | A barrier for people with disabilities | A separate accessibility program, where one exists<Citation index={9} /> | A description of the barrier |
+
+**Warrants protect the signs that matter.** The Manual on Uniform Traffic Control Devices (MUTCD) is the national standard for signs, signals and markings. States adopt it as is, add a supplement, or write their own manual in substantial conformance.<Citation index={6} /> A warrant is proof of need, before the device goes in. Compliance is poor at unwarranted stop signs, they can raise speeds between intersections, and removing them has improved compliance at the stop signs that are justified.<Citation index={15} />
+
+**Not everything follows the MUTCD.** Speed humps count as pavement design, not traffic control devices, so the MUTCD doesn't cover them.<Citation index={16} /> Each city writes its own rules. Pittsburg, California, for example, requires signatures from 67 percent of households on the street before its council will consider one.<Citation index={17} /> Treat any number you find as your city's rule, not a national one.
+
+**Intersections may get a formal comparison.** An Intersection Control Evaluation compares options; a Road Safety Audit examines an existing site. See [Decision & Evaluation Processes](/guide/decision-evaluation-processes/).
+
+**Federal money runs through the MPO.** A project using federal highway or transit funds must appear in the region's Transportation Improvement Program, a four-year list adopted by the Metropolitan Planning Organization.<Citation index={11} /> Local public agencies apply and commit local money; residents comment.<Citation index={12} /> For other funding, see [Funding & Financing Mechanisms](/guide/funding-financing-mechanisms/). For building in stages, from pilot to permanent, see [Construction Methodology & The Build Spectrum](/guide/construction-methodology-spectrum/).
+
+**Small changes can need a vote.** In San Francisco, adding or removing a midblock crosswalk takes a public hearing and action by the SFMTA Board.<Citation index={13} />
+
+**Resurfacing is the moment.** Sacramento uses its bikeway plan to decide which streets get bike lanes when they're repaved.<Citation index={14} /> Resurfacing also triggers curb ramps under the ADA. Painting, crack sealing and patching don't.<Citation index={5} />
+
+## When jurisdiction gets strange
+
+In Baltimore, the city maintains every road, including the interstates and numbered state routes, except three toll roads run by the Maryland Transportation Authority.<Citation index={8} /> The state highway agency maintains none of the city's roads.<Citation index={18} /> A route number won't tell you whom to call.
+
+In parts of Colorado, a new subdivision's streets may be paid for by a metropolitan district: a local government with its own elected board, property tax and bonds, often set up by the developer before the first homes are built.<Citation index={19} />
+
+These are real, documented structures, and there are more. [When Jurisdiction Doesn't Follow the Pattern](/guide/make-it-happen/jurisdiction-variants/) covers them.
+
+## Fair questions
+
+**My neighbors all agree. Why do we still need a study?** Because the study asks a different question: will the device work? Drivers ignore signs they see as unneeded.<Citation index={15} /> In Kansas City the council can overrule the engineers,<Citation index={1} /> but that is a political fight, not a shortcut.
+
+**Can we take our project straight to the MPO?** No. MPO funding goes to local public agencies, which apply and put up local money. Residents comment.<Citation index={12} /> Your first stop is the city or county that would sponsor it.
+
+**Is a decision final?** Not always. In December 2025, a Queens judge ordered New York City to undo a half-built protected bike lane on 31st Street in Astoria. She found the city hadn't shown it met legal requirements to notify the fire department and other agencies.<Citation index={20} /> The city appealed.<Citation index={21} /> In April 2026, it restarted the approval process with those certifications in hand and a longer, 2.5-mile plan.<Citation index={22} /> A decision can fall on process, and a process can be redone.
+
+**Why did a curb ramp appear when nobody asked?** Because the street was resurfaced. The ADA requires ramps whenever a street is altered that way.<Citation index={5} />
+
+## What you can do
+
+1. **Name your request.** Restore, add, or change the standard.
+2. **Find the owner.** Use an ownership lookup or call public works. Ask who maintains the road and who controls its signs and signals.
+3. **File it where it's tracked.** Use 311 or the formal request channel, and keep the reference number. Kansas City's advice is not to skip this step.<Citation index={1} />
+4. **Ask what the decision turns on.** A warrant, a petition, a count? Get the criteria in writing.
+5. **Check for scheduled work.** Ask whether the street is due for resurfacing or named in an adopted plan.
+6. **Use the right channel for access barriers.** Ask whether your city runs a separate accessibility program.<Citation index={9} />
+7. **If the answer is no, ask why.** Ask which rule applied. Your council member can help move a request that stalls.<Citation index={1} />
 
 <RelatedMedia id="/guide/make-it-happen/" />
 
-## Question 1: What are you trying to do?
-
-Start here, because the answer changes everything downstream.
-
-**A. Restore or maintain something that already exists in its current, already-approved form.** A faded stripe, a broken sign, a pothole. The need for this was already established when it was first installed, so it doesn't need to be justified again.
-
-**B. Add or change something at a specific location that isn't there today, or that currently works differently.** A new stop sign, a new crosswalk, a changed signal, a road diet. This is new, so someone will need to justify it before it happens.
-
-**C. Change the underlying design standard everywhere this situation occurs, not just at one location.** This is the one genuinely location-independent path on this page. It skips the rest of this method entirely and routes straight to your local government's comprehensive plan or ordinance process, the same process that would apply to any other proposed change in local law or policy.
-
-If you picked A or B, keep going. If you picked C, this page's remaining questions won't apply to you the way they apply to a single-location request.
-
-## Question 2: Is the road public or private?
-
-**Private roads have no government jurisdiction at all.** Authority sits with the HOA board or the private owner, governed by the community's declaration and bylaws, not by any public process. But two things are worth knowing if you're dealing with a private road:
-
-Traffic control devices an HOA installs without real engineering backing have been challenged and thrown out in court as unenforceable, in at least one case tied to a fatality dispute.<Citation index={1} /> A private road isn't a free pass to install whatever seems reasonable.
-
-And in some states, that private status can be partly, deliberately lifted. Florida is one example: a board majority vote can convert enforcement (not ownership) so that state traffic law and police authority apply, as an all-or-nothing election.<Citation index={2} /> The road stays privately owned, but it starts behaving like a public one for enforcement purposes.
-
-**Public roads continue to Question 3.** If you're not sure whether a road is public or private, check for a blue street sign (a private-road marker in some jurisdictions), look up your jurisdiction's own road ownership map if it publishes one, or call your local public works department and ask. Several jurisdictions' own published guidance tells residents to do exactly this rather than guess.
-
-## Question 3: Which government has authority?
-
-This is not a single clean lookup, and it's the question most likely to surprise a newcomer. It has four parts.
-
-**3a. Start with ownership, but don't stop there.** City, county, state, tribal, or federal ownership is the obvious first check, but which layer of government owns which roads is itself inconsistent from place to place. A state highway running through a small town might be state property in every sense except that the town controls its traffic signals below a certain population size.<Citation index={3} /> Ownership tells you where to start looking, not necessarily where the request ends up.
-
-**3b. Check whether authority splits by function on this exact road.** Signal timing, road grade, underground utilities, and sidewalks can each belong to a different authority on the same physical stretch of road, even when one government clearly owns the pavement itself. Don't assume the entity that owns the road controls every part of a request about it.
-
-**3c. Check for overlapping sovereignty.** Tribal land crossed by a state highway is the clearest example: a change may require joint approval from two authorities, with neither one able to act alone.
-
-**3d. If more than one authority holds a piece of your request, contact each one for its specific piece.** Don't assume one call covers everything once you've found more than one authority involved.
-
-Jurisdiction can fracture in ways well beyond what these four steps anticipate: by a population threshold, by a city that consolidated with its county but left specific municipalities out, by a route number that means something different once you cross into a particular city's limits. If your situation feels unusual once you start asking around, the [reference page on jurisdiction variants](/guide/make-it-happen/jurisdiction-variants/) catalogs the specific, documented structures that don't follow this page's general method cleanly.
-
-## Question 4: How does that government process this?
-
-Once you know which government (or governments) actually holds the authority, the request itself follows one of several tracks, depending on what you're asking for.
-
-**4a. Direct service request.** Fits routine maintenance authority. Staff can act without a study, because the need was already established when the thing was first installed. This is the track for most of what Question 1 sorted into "restore or maintain."
-
-**4b. Engineering study or warrant.** Triggered by adding or changing something that isn't already there. For devices covered by the Manual on Uniform Traffic Control Devices (MUTCD), this is a genuine federal standard, applied through state adoption.<Citation index={4} /> Every state must adopt the MUTCD as-is, adopt it with a state supplement, or write its own state MUTCD in substantial conformance, and the specific approach varies by state.<Citation index={4} />
-
-This isn't bureaucracy for its own sake. It exists because research shows unwarranted devices actually reduce safety: drivers learn to treat unjustified signs and signals as optional, which lowers compliance even at nearby locations where a device really is warranted.<Citation index={5} /> A warrant is proof of need, required before the device goes in, not after.
-
-Not everything runs through MUTCD's warrant process, though. Speed humps are the clearest example: because MUTCD doesn't cover them, states and cities have each written their own separate petition and eligibility criteria, and these vary widely even within a single state.<Citation index={6} /> Whatever number or percentage you find published for your own jurisdiction, treat it as that jurisdiction's own rule, not a national standard.
-
-And a warrant, once required, isn't a formality that agreement among neighbors can skip. Unanimous neighborhood support does not exempt a request from this process. An engineering study can still be required, and a request can still be denied, even when every affected property owner agrees.<Citation index={7} />
-
-At an intersection specifically, this engineering study can take a more formal, staged shape than a warrant lookup, an Intersection Control Evaluation comparing control alternatives, or a Road Safety Audit examining an existing location for safety issues. See [Decision & Evaluation Processes](/guide/decision-evaluation-processes/) for how each one works.
-
-**4c. Capital project.** Needed once a request's cost exceeds routine maintenance authority, whether it's a new addition or a larger fix. Timeline depends heavily on the funding source. Projects using federal funds must go through a Metropolitan Planning Organization (MPO) and appear in that region's Transportation Improvement Program before federal money can be released, which can add years.<Citation index={8} /> Residents cannot approach an MPO directly; a local government has to sponsor the project first.<Citation index={9} />
-
-A capital project also raises two questions this page doesn't answer on its own: where the money actually comes from, beyond a federal grant, and whether "capital project" has to mean full permanent construction from day one. See [Funding & Financing Mechanisms](/guide/funding-financing-mechanisms/) for the first, and [Construction Methodology & The Build Spectrum](/guide/construction-methodology-spectrum/) for the second, since a project can often move through a demonstration, pilot, or quick-build stage before committing to permanent construction.
-
-**4d. Legislative or public-hearing action.** Required when state law or local code treats the change as carrying legal or political weight, independent of its physical scale. Installing or removing a mid-block crosswalk in some cities requires exactly this kind of legislative action, even though physically it's a small change.<Citation index={10} />
-
-**4e. Already-adopted-plan implementation.** If the specific change you're asking about was already designated in a plan the city or county previously adopted, such as a bike master plan, it can often proceed as ordinary engineering work folded into a scheduled project, with no fresh public process.<Citation index={11} /> The public input already happened when the plan itself was adopted.
-
-**4f. Compliance-triggered work.** Some changes aren't requested by anyone at all. The clearest example is ADA curb ramps: federal law requires them whenever a street is "altered," such as during resurfacing, regardless of whether any resident asked.<Citation index={12} /> If a qualifying project is already scheduled nearby, this kind of change may already be coming without a request from you.
-
-**4g. Rights-based accommodation channel.** Separate from the ordinary public works request path, some jurisdictions maintain a dedicated process specifically for disability-related access barrier requests, evaluated on different terms and by a different office than a general request.<Citation index={13} /> If your request is about a mobility or access barrier specifically, check whether your jurisdiction runs a channel like this before filing it as a general request.
-
-## Jurisdiction can fracture in ways worth expecting
-
-Even once you've worked through all four questions, it's worth knowing that "who's in charge here" can turn out to be genuinely surprising, not just unfamiliar. In Baltimore, the state highway administration maintains numbered state routes in every Maryland county except Baltimore City, where the city's own department of transportation maintains those same state highways instead, meaning a route number tells you nothing reliable about who to call once you're inside certain city boundaries.<Citation index={14} /> In parts of Colorado, a newly built subdivision's roads can be financed and governed by a metropolitan district, an independent unit of government with its own elected board and taxing authority, created by the developer before residents ever moved in, layered underneath the city or county residents assume is in charge.<Citation index={15} />
-
-These aren't edge cases invented for this page. They're real, documented structures, and there are more like them. The [reference page on jurisdiction variants](/guide/make-it-happen/jurisdiction-variants/) is where to look if your own situation doesn't fit the general method cleanly.
-
-## A decision isn't always final
-
-Whichever track above produced an answer, that answer isn't necessarily the end of the story. A decision reached through any of these tracks can be challenged, and potentially reversed, through the courts. This has happened with contested bike lanes and road diets in more than one city.<Citation index={16} /> A denial, or an approval, is a decision made through a specific process. It isn't automatically the last word.
-
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> HOA Talk forum discussion, DIY stop signs ruled unenforceable after fatality dispute. https://www.hoatalk.com/Forum/tabid/55/forumid/1/postid/229452/view/topic/Default.aspx
-2. <span id="ref-2"></span><EvidenceChip tier="legal" /> Florida Statute 316.006(2)(b)4 and (3)(b)5, HOA board election of state traffic law enforcement on private roads. Summary via LegalClarity: https://legalclarity.org/florida-private-road-laws-traffic-regulations-explained/
-3. <span id="ref-3"></span><EvidenceChip tier="legal" /> Revised Code of Washington 47.24.020, state DOT authority over traffic signals in incorporated towns below a population threshold. https://apps.leg.wa.gov/rcw/default.aspx?cite=47.24.020
-4. <span id="ref-4"></span><EvidenceChip tier="legal" /> 23 CFR 655.603, MUTCD as the national standard for traffic control devices; state adoption options. https://www.law.cornell.edu/cfr/text/23/655.603 (Supplementary: Kittelson, "What You Need to Know About the New MUTCD," state adoption breakdown: https://www.kittelson.com/ideas/what-you-need-to-know-about-the-new-mutcd/)
-5. <span id="ref-5"></span><EvidenceChip tier="evidence" /> Research synthesis on unwarranted stop signs reducing driver compliance. https://archive.rcgov.org/ca20120221/PW021412-16.pdf
-6. <span id="ref-6"></span><EvidenceChip tier="evidence" /> Iowa State University study on speed humps, confirming exclusion from MUTCD and resulting jurisdiction-by-jurisdiction criteria. https://cityofpleasantridge.org/wp-content/uploads/2019/01/Study-on-Speed-Humps-Iowa-State-University.pdf
-7. <span id="ref-7"></span><EvidenceChip tier="precedent" /> Kansas City reporting on engineering-study requirement despite unanimous neighborhood support. https://thebeaconnews.org/stories/2024/11/18/request-crosswalk-stop-sign-in-kansas-city/
-8. <span id="ref-8"></span><EvidenceChip tier="legal" /> 23 CFR Part 450, federal definition and requirements for the Transportation Improvement Program. https://www.ecfr.gov/current/title-23/chapter-I/subchapter-E/part-450
-9. <span id="ref-9"></span><EvidenceChip tier="precedent" /> Indianapolis MPO, sponsor-to-TIP project process. https://www.indympo.org/funding/irtip
-10. <span id="ref-10"></span><EvidenceChip tier="precedent" /> San Francisco Better Streets, public hearing and SFMTA Board action requirement for mid-block crosswalk installation/removal. https://sfbetterstreets.org/find-project-types/pedestrian-safety-and-traffic-calming/crosswalks/index.html
-11. <span id="ref-11"></span><EvidenceChip tier="precedent" /> Sacramento example of plan-adoption absorbing future public process for bikeway implementation. https://www.pedbikeinfo.org/resources/resources_details.php?id=4693
-12. <span id="ref-12"></span><EvidenceChip tier="legal" /> DOJ/FHWA joint guidance on ADA Title II curb ramp requirements triggered by street alteration. https://archive.ada.gov/doj-fhwa-ta.htm
-13. <span id="ref-13"></span><EvidenceChip tier="precedent" /> Los Angeles Access Request Program, disability-specific access barrier remediation process. https://sidewalks.lacity.gov/access-request-program-frequently-asked-questions
-14. <span id="ref-14"></span><EvidenceChip tier="precedent" /> Maryland Department of Transportation State Highway Administration, road maintenance jurisdiction excluding Baltimore City. https://roads.maryland.gov/mdotsha/pages/index.aspx?PageId=9
-15. <span id="ref-15"></span><EvidenceChip tier="legal" /> Colorado Special District Act, Title 32, Article 1, C.R.S., governing metropolitan district formation and authority. Summary via Colorado Division of Local Government: https://dlg.colorado.gov/special-districts-brief-review-for-residents
-16. <span id="ref-16"></span><EvidenceChip tier="precedent" /> NYC Streetsblog reporting on court-ordered removal of a half-installed Queens bike lane under Article 78 challenge. https://nyc.streetsblog.org/2025/12/05/queens-judge-orders-city-to-nix-half-installed-queens-bike-lane
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Merchant, Josh. "How to Request a Crosswalk, Speed Hump or Stop Sign in Kansas City." _The Beacon_, November 18, 2024.](https://thebeaconnews.org/stories/2024/11/18/request-crosswalk-stop-sign-in-kansas-city/)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> ["Kansas City Traffic Deaths Keep Going Up, While Its Effort to Make Roads Safer Is Underfunded." KCUR, January 2, 2024.](https://www.kcur.org/housing-development-section/2024-01-02/kansas-city-traffic-deaths-safe-roads-vision-zero-street-improvements-bike-lanes)
+3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> [Vock, Daniel C. "States Looking to Sell Some Roads to Cities and Towns." _Governing_ (Stateline), April 10, 2014.](https://www.governing.com/news/headlines/states-looking-to-sell-some-roads-to-cit.html) Ownership shares are 2012 Federal Highway Administration data.
+4. <span id="ref-4"></span><EvidenceChip tier="legal" /> [Revised Code of Washington 47.24.020(13), (17).](https://apps.leg.wa.gov/rcw/default.aspx?cite=47.24.020)
+5. <span id="ref-5"></span><EvidenceChip tier="legal" /> [U.S. Department of Justice and U.S. Department of Transportation. _Joint Technical Assistance on the Title II of the Americans with Disabilities Act Requirements to Provide Curb Ramps when Streets, Roads, or Highways are Altered through Resurfacing_. July 8, 2013.](https://archive.ada.gov/doj-fhwa-ta.htm)
+6. <span id="ref-6"></span><EvidenceChip tier="legal" /> [_Standards_. 23 C.F.R. § 655.603.](https://www.law.cornell.edu/cfr/text/23/655.603) Supplementary: [Hawkins, Gene. "What You Need to Know About the New MUTCD." Kittelson & Associates, March 19, 2024.](https://www.kittelson.com/ideas/what-you-need-to-know-about-the-new-mutcd/)
+7. <span id="ref-7"></span><EvidenceChip tier="legal" /> [Florida Statutes § 316.006(2)(b)4 and (3)(b)5.](http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0300-0399/0316/Sections/0316.006.html)
+8. <span id="ref-8"></span><EvidenceChip tier="precedent" /> [Maryland Department of Transportation. "Know Your Roads."](https://mdot.maryland.gov/tso/Pages/Index.aspx?PageId=66)
+9. <span id="ref-9"></span><EvidenceChip tier="precedent" /> [City of Los Angeles. "Access Request Program: Frequently Asked Questions."](https://sidewalks.lacity.gov/access-request-program-frequently-asked-questions)
+10. <span id="ref-10"></span><EvidenceChip tier="legal" /> [Revised Code of Washington 46.61.480 (2009 c 383 § 1).](https://lawfilesext.leg.wa.gov/law/RCW/RCW%20%2046%20%20TITLE/RCW%20%2046%20.%2061%20%20CHAPTER/RCW%20%2046%20.%2061%20.480.htm)
+11. <span id="ref-11"></span><EvidenceChip tier="legal" /> [_Planning Assistance and Standards_. 23 C.F.R. Part 450, §§ 450.104 and 450.326.](https://www.ecfr.gov/current/title-23/chapter-I/subchapter-E/part-450)
+12. <span id="ref-12"></span><EvidenceChip tier="precedent" /> [Indianapolis Metropolitan Planning Organization. "Indianapolis Regional Transportation Improvement Program."](https://www.indympo.org/funding/irtip)
+13. <span id="ref-13"></span><EvidenceChip tier="precedent" /> [San Francisco Better Streets. "Crosswalks."](https://sfbetterstreets.org/find-project-types/pedestrian-safety-and-traffic-calming/crosswalks/index.html)
+14. <span id="ref-14"></span><EvidenceChip tier="precedent" /> [Pedestrian and Bicycle Information Center. "Complete Streets Implementation in Sacramento." 2011.](https://www.pedbikeinfo.org/resources/resources_details.php?id=4693)
+15. <span id="ref-15"></span><EvidenceChip tier="evidence" /> [Bretherton, W. Martin, Jr. "Multi-way Stops: The Research Shows the MUTCD Is Correct!" Appendix A to _All-Way Stop Control Warrant Study: E. Oakland St. & Merlot Dr._ Rapid City Public Works, February 8, 2012.](https://archive.rcgov.org/ca20120221/PW021412-16.pdf)
+16. <span id="ref-16"></span><EvidenceChip tier="evidence" /> [Smith, Duane E., and Karen L. Giese. _A Study on Speed Humps_. Ames: Center for Transportation Research and Education, Iowa State University, 1997.](https://cityofpleasantridge.org/wp-content/uploads/2019/01/Study-on-Speed-Humps-Iowa-State-University.pdf)
+17. <span id="ref-17"></span><EvidenceChip tier="precedent" /> [City of Pittsburg, California. _Traffic Calming Policy_. Adopted June 4, 2001; revised May 17, 2004.](https://pittsburgca.gov/home/showpublisheddocument/340/637479142624630000) The policy may have been revised since.
+18. <span id="ref-18"></span><EvidenceChip tier="precedent" /> [Maryland Department of Transportation State Highway Administration. Roads and maintenance.](https://roads.maryland.gov/mdotsha/pages/index.aspx?PageId=9)
+19. <span id="ref-19"></span><EvidenceChip tier="legal" /> [Colorado Division of Local Government. "Special Districts: A Brief Review for Residents."](https://dlg.colorado.gov/special-districts-brief-review-for-residents) Summarizes C.R.S. Title 32, Article 1.
+20. <span id="ref-20"></span><EvidenceChip tier="precedent" /> [Meyer, David. "Queens Judge Orders City to Nix Half-Installed Queens Bike Lane." _Streetsblog NYC_, December 5, 2025.](https://nyc.streetsblog.org/2025/12/05/queens-judge-orders-city-to-nix-half-installed-queens-bike-lane)
+21. <span id="ref-21"></span><EvidenceChip tier="precedent" /> ["City Appeals Astoria Bike Lane Injunction." _Queens Chronicle_, January 2026.](https://www.qchron.com/editions/central/city-appeals-astoria-bike-lane-injunction/article_2d259772-45d6-57e8-bbf1-d84d85d49a4e.html) The article shows no date; month from its own reference to the December 5 ruling and appeal deadline.
+22. <span id="ref-22"></span><EvidenceChip tier="precedent" /> ["Mamdani's DOT Responds to Astoria Bike Lane Backlash ... With an Even Longer Bike Lane." _Streetsblog NYC_, April 15, 2026.](https://nyc.streetsblog.org/2026/04/15/mamdani-astoria-all-of-31st)

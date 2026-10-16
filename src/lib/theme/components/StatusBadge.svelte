@@ -34,6 +34,9 @@
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.01em;
+    /* One line always: on a narrow card "Recommended" would otherwise
+       break mid-word into "Recomm / ended". */
+    white-space: nowrap;
   }
 
   .status-badge[data-status='recommended'] {

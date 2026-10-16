@@ -1,6 +1,7 @@
 <script lang="ts">
   import { externalLinkAttrs, isExternalHref } from '$lib/site.js'
   import { thumbUrl } from '$lib/thumbs.js'
+  import { endorsementFor } from '$lib/data/media/index.js'
   import type { EndorsementStatus, MediaItem, MediaType } from '$lib/data/media/index.js'
   import Icon from './Icon.svelte'
 
@@ -14,7 +15,7 @@
 
   const { item, pageId, headingLevel = 3 }: Props = $props()
 
-  const status = $derived((pageId && item.endorsementOverrides?.[pageId]) || item.endorsementStatus)
+  const status = $derived(endorsementFor(item, pageId))
 
   const endorsementLabels: Record<EndorsementStatus, string> = {
     'aligned': 'Aligned',
@@ -89,6 +90,7 @@
       <span>{item.sourceName}</span>
     </div>
     <p class="mc__blurb">{item.blurb}</p>
+    <span class="mc__id" translate="no">{item.id}</span>
   </div>
   {#if isExternalHref(item.url)}
     <span class="cw-external-indicator mc__external-indicator">
@@ -225,6 +227,18 @@
 
   .mc__source-icon--fallback {
     border-radius: 0;
+    color: var(--cw-ink-soft);
+  }
+
+  /* Permanent media ID (e.g. MED-024), pinned to the bottom of the card so
+     IDs line up across a row; the external-link icon sits opposite it. */
+  .mc__id {
+    margin-top: auto;
+    padding-top: 0.25rem;
+    font-family: var(--cw-font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     color: var(--cw-ink-soft);
   }
 

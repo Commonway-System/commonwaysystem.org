@@ -13,3 +13,5 @@ export const mediaSelectedTypes = writable<Set<MediaType>>(new Set())
 export const mediaSelectedSources = writable<Set<string>>(new Set())
 export const mediaSelectedTopics = writable<Set<string>>(new Set())
 export const mediaSortBy = writable<'date' | 'alpha'>('date')
+/** Set from /media/?for=<id> (a page's "See all in the Media Gallery" link): only items tagged to that page. */
+export const mediaForPage = writable<string | null>(null)

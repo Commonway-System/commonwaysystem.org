@@ -1,121 +1,187 @@
 ---
 title: When Jurisdiction Doesn't Follow the Pattern
-description: Real, documented government structures that don't fit the general method for finding out who has authority over a road, from consolidated city-counties to interstate compact authorities.
+description: "Where the usual city, county and state stack breaks: consolidated city-counties, independent cities, Dillon's Rule, tribal land, special districts, compact authorities, Connecticut, Michigan, federal parkland, Puerto Rico and the U.S. territories."
 date: 2026-09-01
-llms: Catalogs documented exceptions to the general jurisdiction-finding method in How Road Changes Actually Happen, including consolidated city-county governments, independent cities, Dillon's Rule states, tribal land overlaps, special districts, interstate compact authorities, states without a county layer, Michigan-style road commissions, federal-agency-embedded roads, and Puerto Rico.
+llms: "Ten documented exceptions to the jurisdiction method in How Road Changes Actually Happen, opened through the Rock Creek and Potomac Parkway, a National Park Service commuter road in Washington, D.C. Includes a which-one-is-you table and, for each case, what changes for a request: consolidated city-counties (Jacksonville, Indianapolis Unigov), Virginia's independent cities and state-maintained county roads, Dillon's Rule vs. home rule, tribal land (TTIP, RCW 46.61.480), Colorado metropolitan districts, the Port Authority of New York and New Jersey, Connecticut without counties, Michigan county road commissions, federal parkland, and Puerto Rico plus Guam, the U.S. Virgin Islands, American Samoa and the Northern Mariana Islands under 23 U.S.C. 165. Fair questions cover Virginia's 20-year road acceptance rule and Connecticut's implied dedication."
 ---
 
 <script>
   import { Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
 </script>
 
-The [How Road Changes Actually Happen chapter](/guide/make-it-happen/) teaches a general method for finding out who has authority over a road and how that government processes a request. That method works for most readers most of the time. It does not work cleanly for everyone, because a small number of documented government structures depart from the ordinary city-county-state stack in ways the general method doesn't anticipate.
+_Where the usual city, county and state stack breaks, and what to do about it_
 
-This page catalogs those structures. Each entry is a real, named, documented exception, not a hypothetical edge case. If your situation matches one of these, start here instead of the general method, since it will get you to the right authority faster.
+Every weekday morning, the Rock Creek and Potomac Parkway in Washington, D.C., runs one way: into the city. Every afternoon it flips and runs out. The National Park Service has handled rush hour this way since 1937.<Citation index={1} /> On its busiest stretch, about 55,000 vehicles a day use it.<Citation index={1} />
 
-This page does not cover private roads or homeowners' association jurisdiction. That topic is addressed directly in Question 2 of the [How Road Changes Actually Happen chapter](/guide/make-it-happen/), since it's a routine branch of the general method rather than an exception to it.
+It's a commuter road through the middle of the capital, and the city doesn't run it. A crosswalk request sent to city hall would go nowhere.
 
-<RelatedMedia id="/guide/make-it-happen/jurisdiction-variants/" />
+The four questions in [How Road Changes Actually Happen](/guide/make-it-happen/) still work here. But in some places, the answer to "which government?" is one most people wouldn't guess. This page covers ten documented cases.
 
-## Consolidated city-county governments
+## Why you should care
 
-Some cities and counties have merged into a single government. Consolidation is almost never total, though. Specific municipalities or functions are routinely carved out even after a formal merger.
+- **You'll call the right office first.** A route number or a city limit sign won't always tell you who's in charge.
+- **"We can't" may be literally true.** In some states, a city can do only what the legislature allows.
+- **You may be paying a government you've never heard of.** Some Colorado subdivisions repay 30-year bonds through a district tax.
+- **The money follows different rules.** In U.S. territories, federal highway funds can't be spent on local roads.
 
-Jacksonville and Duval County, Florida consolidated in 1968, but four municipalities (Baldwin, Jacksonville Beach, Neptune Beach, and Atlantic Beach) declined to join and remain fully independent cities inside the consolidated county today.<Citation index={1} />
+## Which one is you?
 
-Indianapolis and Marion County, Indiana consolidated under Unigov in 1970, combining administration, planning and zoning, parks, and infrastructure development.<Citation index={2} /> Police, fire, and school districts were explicitly left out of that consolidation. Four municipalities were also excluded by a population threshold written into the enabling legislation, yet their residents still vote for the consolidated mayor and council and receive countywide services.<Citation index={3} />
+| If you live... | You may be dealing with | What changes for your request |
+| --- | --- | --- |
+| In Jacksonville, Indianapolis or another merged city-county | A consolidated government | Check whether your town opted out |
+| In a Virginia city, Baltimore, St. Louis or Carson City | An independent city | The city owns the streets; no county is involved |
+| In a Virginia county other than Arlington or Henrico | State-maintained secondary roads | The state DOT, not the county, maintains your road |
+| In a Dillon's Rule state | Limited local power | The fix may need the legislature |
+| On or near tribal land | Tribal sovereignty | Two governments may both need to approve |
+| In a newer Colorado subdivision | A metropolitan district | The district board may be the one to ask |
+| At a Hudson River bridge or tunnel | An interstate compact authority | Neither state decides alone |
+| In Connecticut | Towns and the state, no counties | Your town's traffic authority, or CTDOT on state roads |
+| In Michigan, outside a city or village | A county road commission | The township can't fix it |
+| On a parkway through federal parkland | A federal land agency | The agency decides, not the city |
+| In Puerto Rico or a U.S. territory | A territorial government | Different federal funding rules |
 
-Roads and infrastructure appear to be among the functions most likely to be pulled into a consolidation even when other functions stay separate, but this is a pattern, not a guarantee, and needs to be verified for each consolidated city individually.
+## Consolidated city-counties
+
+When a city and county merge, some towns usually stay out. In 1968, Jacksonville merged with Duval County, Florida. Baldwin, Atlantic Beach, Neptune Beach and Jacksonville Beach opted out and kept their own governments.<Citation index={2} /> Baldwin, the only one surrounded by Jacksonville, now gets its policing from the Jacksonville Sheriff's Office.<Citation index={2} />
+
+Indianapolis and Marion County merged in 1970 under Unigov.<Citation index={3} /> State law left out municipalities of more than 5,000 people.<Citation index={4} /> Four stayed out: Beech Grove, Lawrence, Southport and Speedway. Their residents still vote for the consolidated mayor and council and pay countywide taxes.<Citation index={5} />
+
+**For your request:** Check whether your address is in the consolidated city or an excluded town. Excluded towns provide their own services or contract for them.<Citation index={2} /><Citation index={5} />
 
 ## Independent cities
 
-Virginia has 38 independent cities that are not part of any county at all. They are legal equals to counties, not subdivisions of them. Only three other independent cities exist anywhere else in the country: Baltimore, St. Louis, and Carson City.<Citation index={4} />
+Virginia has 38 independent cities, which belong to no county. Only three exist elsewhere: Baltimore, St. Louis and Carson City.<Citation index={6} />
 
-Virginia inverts the usual national pattern in a specific way: except for Arlington and Henrico counties, Virginia's counties do not maintain their own roads at all. The state DOT maintains secondary roads directly.<Citation index={5} /> Virginia's independent cities, by contrast, own and maintain their own roads and receive a fixed state funding allocation for it, while counties compete for a share of the state DOT's budget instead.
+In Virginia, cities maintain their own streets, with quarterly state payments based on lane miles.<Citation index={7} /> In counties, the state DOT maintains secondary roads.<Citation index={6} /> Arlington and Henrico counties are the exceptions: they withdrew from that system, and the state pays them to maintain their own roads.<Citation index={8} />
 
-Virginia also has a distinct request category worth knowing about if you're dealing with an independent city: its Rural Addition Policy lets a resident petition to have a private or informally public road formally accepted into the state-maintained system, generally requiring at least 20 years of public use and 24-hour public availability.<Citation index={6} /> This is a different kind of request than fixing or adding something to a road the state already maintains. It's a request that the state take on the road at all.
+**For your request:** In a Virginia city, go to city hall. In most Virginia counties, a neighborhood road goes to the state DOT.
 
 ## Dillon's Rule states
 
-This variant is different in kind from the others on this page. It doesn't change which government has jurisdiction. It changes whether a government that clearly has jurisdiction is legally free to act on its own initiative.
+This one doesn't change who owns the road. It changes what that government may do.
 
-Under Dillon's Rule, which originates from an 1868 court decision, a local government only has the powers explicitly granted to it by the state, plus powers necessarily or fairly implied from an express grant.<Citation index={7} /> A Dillon's Rule city or county that needs new authority to do something has to lobby the state legislature for it.
+Under Dillon's Rule, from an 1868 court opinion, a local government has only three kinds of power: those the state grants in so many words, those fairly implied from them, and those essential to its purpose.<Citation index={9} /> Virginia is one of about half the states that follow it. There, an act the General Assembly hasn't authorized is void.<Citation index={10} />
 
-Home Rule flips that presumption: a local government can act unless the state has explicitly withdrawn that authority.<Citation index={8} /> Most states fall somewhere between the two, sometimes granting home rule only above a population threshold, which means two towns in the same state can have genuinely different authority to act on an identical request.
+Home rule flips the presumption: a local government can act unless state law forbids it. Some states tie home rule to size. In Washington, only cities over 10,000 people qualify; in Texas, cities over 5,000 can vote to adopt it.<Citation index={11} />
 
-This matters directly for the How Road Changes Actually Happen chapter's Question 4 tracks. In a Dillon's Rule jurisdiction, a government telling you "we can't do that" may be legally accurate rather than simply unwilling, and the real next step is lobbying the state legislature, not applying more local pressure. Virginia, already covered above under independent cities, is a strict Dillon's Rule state.
+**For your request:** "We don't have the authority" may be accurate. If it is, the next step is the legislature, not more local pressure.
 
-## Tribal land overlaps
+## Tribal land
 
-Tribal roads are maintained by a tribe's own transportation department or by the federal Bureau of Indian Affairs (BIA). This is not a variant of local government. It's a genuinely separate sovereign layer alongside federal, state, and local government. Tribes prepare their own five-year Tribal Transportation Improvement Program, submitted to the BIA for approval, running parallel to the state and MPO planning system rather than through it.<Citation index={9} />
+Tribes are governments, alongside federal, state and local ones. The Bureau of Indian Affairs maintains BIA-system roads, and tribes can run all or part of the federal Tribal Transportation Program themselves.<Citation index={12} /> Each tribe sets its own four-year Tribal Transportation Improvement Program, which the Federal Highway Administration approves.<Citation index={13} /> Of about 157,000 miles in the federal tribal road inventory, about 100,000 are state and local roads.<Citation index={14} />
 
-Where a state highway crosses reservation land, authority can require joint approval from both governments, with neither able to act alone. In Washington State, for example, tribal authorities can adjust speed limits on a state highway within reservation boundaries, but the change isn't effective until the state DOT also approves it and signs are posted.<Citation index={10} /> If the road in question is a city or county road instead of a state highway, the tribal change additionally needs that local government's approval too.
+Where a Washington state highway crosses a reservation, the tribe can change the speed limit after an engineering and traffic study. The change takes effect only once the state approves it and signs go up. If the highway is also a city or county road, that government must approve too.<Citation index={15} />
 
-## Special districts and metropolitan districts
+**For your request:** Find out whose system the road is in: BIA, tribal, or state and local. A road through a reservation may still be a county road.
 
-In Colorado and some other states, roads inside a new development can be financed, and sometimes maintained, by a special district rather than the city or county a resident would normally assume is in charge. Colorado's metropolitan districts are genuine, independent units of local government under the state's Special District Act, with elected boards, property tax authority, and the power to issue bonds.<Citation index={11} />
+## Special and metropolitan districts
 
-These districts are often created by the developer before residents ever move in, specifically to work around state tax limitation laws that restrict how much a city or county can raise taxes for new infrastructure.<Citation index={12} /> A resident can end up paying off a 30-year infrastructure bond to a government entity they've never heard of, layered directly underneath the city or county they assumed owned the road. Colorado also has several narrower single-purpose variants of this same idea, with different governance models depending on the district type.
+In Colorado, a new subdivision's streets may be financed by a metropolitan district: a local government with an elected board and the power to tax property and issue bonds. Developers often set them up.<Citation index={16} /> Builders say state tax limits make them more attractive. Their bonds usually run 30 years, repaid through residents' property taxes, and they may maintain streets the city hasn't accepted.<Citation index={17} />
+
+**For your request:** Check your property tax bill for a district. If one is there, its board may be the one to ask.
 
 ## Interstate compact authorities
 
-A small number of roads and crossings are governed by an authority that belongs to two states jointly, created through a formal interstate compact rather than through either state's ordinary government structure. The Port Authority of New York and New Jersey is the clearest example: a joint corporate entity created by a 1921 interstate compact that required congressional consent, governed by twelve commissioners split evenly between the two states' governors.<Citation index={13} />
+The Port Authority of New York and New Jersey was created by a 1921 compact between the two states, with the consent of Congress. Twelve commissioners run it, six from each state, appointed by the governors with state senate approval.<Citation index={18} /> Its police enforce motor vehicle law at the Holland and Lincoln tunnels and the Bayonne, Goethals and George Washington bridges.<Citation index={19} />
 
-Its jurisdiction is defined geometrically, by a 25-mile radius from lower Manhattan, rather than by any political boundary, and it operates its own police department with authority to enforce motor vehicle law specifically at the bridges and tunnels it controls.<Citation index={14} /> A road authority like this exists entirely outside the normal city, county, and state stack, because it belongs to two states at once.
+**For your request:** At a compact facility, the authority is in charge. Neither state's DOT nor any city decides alone.
 
-## States without a functioning county layer
+## States without county government
 
-A few states have no active county government at all, though they arrived there by different paths. Connecticut abolished county government entirely in 1960.<Citation index={15} /> Unlike Puerto Rico, which never had counties in the first place, Connecticut's county lines still appear on some maps and in some statutes, but there is no government behind them today. The state replaced counties administratively with regional planning councils and councils of governments, mainly for federal grant purposes.
+Connecticut abolished county government in 1960. In 2022, the Census Bureau made its nine planning regions, served by councils of governments, the state's county equivalents.<Citation index={20} />
 
-In practice, this creates a direct town-versus-state road split at the level of individual streets. Some Connecticut towns publish street-by-street guides showing which segments are town-maintained and which are state-maintained.<Citation index={16} /> Connecticut also formalizes the split-by-function pattern seen elsewhere on this page: a state Office of State Traffic Administration holds authority over traffic control devices statewide, working through a locally designated Local Traffic Authority in each town, whose exact form (a board of selectmen, a police commission, a mayor, or a police chief) depends on that town's own structure.<Citation index={17} />
+Roads split between towns and the state. Glastonbury publishes which of its streets are state routes and sends residents to a state DOT garage for those.<Citation index={21} /> Traffic control splits too. Each town's traffic authority is its police commission, its manager or police chief, or its board of selectmen, depending on the town. On state highways, it's the Office of the State Traffic Administration.<Citation index={22} /> Each town also names a Local Traffic Authority who takes state-road requests to the state DOT.<Citation index={23} />
 
-Connecticut additionally recognizes a distinct legal path from private to public road status: if an owner deliberately allows sustained public use over a significant period of time, a court can later find the road became public through this use, called implicit dedication, without any formal petition process ever having occurred.<Citation index={18} />
+**For your request:** On a town road, start with the town's traffic authority. On a state route, the town can pass your request along, but the state decides.
 
-## Michigan-style road commissions
+## Michigan road commissions
 
-Michigan townships have no jurisdiction over roads at all, which runs counter to how townships function in most other states.<Citation index={19} /> Instead, Michigan created county road commissions: legally distinct, single-purpose government bodies that are not part of general county government, except in Wayne County, which uses its own department of public services instead.<Citation index={20} />
+Michigan townships have no direct authority over local roads.<Citation index={24} /> County road commissions do, under a 1909 state law, and they are separate from general county government. In Wayne and Macomb counties, a county department fills that role.<Citation index={25} /> Road commissions can't levy taxes; they run mainly on fuel taxes and registration fees. They hold about 75 percent of Michigan's road miles; the state holds 8 percent, and cities and villages 17 percent.<Citation index={25} /><Citation index={26} /> Some also maintain state highways under contract.<Citation index={25} />
 
-These commissions have jurisdiction over all roads in their county except state highways, hold no taxing authority of their own, and are funded entirely through state and federal road funds. Roughly three-quarters of Michigan's road mileage falls under county road commission jurisdiction, with the rest split between the state highway system and cities and villages.<Citation index={21} /> Road commissions also contract with the state DOT to maintain thousands of miles of state roads, meaning the entity responsible for the physical work and the entity that sets the design standard can be two different bodies even on a single stretch of state highway.
+Townships can still pay for road work, through a millage or special assessment.<Citation index={24} />
 
-## Federal-agency-embedded roads
+**For your request:** Outside cities and villages, call the county road commission, not the township.
 
-Some ordinary, daily-commute roads inside a city are managed by a federal land agency rather than the city's own transportation department. In Washington, D.C., the district's own transportation department manages most of the city's roads, but several major corridors, including Rock Creek Parkway, the George Washington Parkway, and the roads around the National Mall and Tidal Basin, are managed by the National Park Service instead.<Citation index={22} /> These are not confined to park land at the city's edge. They function as ordinary commuting routes threaded through the middle of the city.
+## Federal land inside cities
 
-The National Park Service also follows a distinct federal compliance pathway for traffic control devices, operating under a specific memorandum of understanding with the Federal Highway Administration rather than adopting the MUTCD directly.<Citation index={23} /> The Park Service's own sign system is deemed to be in substantial conformance with the MUTCD rather than a direct adoption of it. Major event closures in the district, such as a marathon or a presidential inauguration, typically require coordination across the district's own transportation department, the Metropolitan Police, the U.S. Park Police, and the Secret Service, since no single agency holds full authority over the affected corridors.
+In Washington, D.C., Beach Drive and the Rock Creek and Potomac Parkway are National Park Service roads that serve as commuter routes.<Citation index={1} /> The Park Service uses its own sign manual. Under a 1973 agreement with the Federal Highway Administration, amended in 2006, that manual counts as in substantial conformance with the MUTCD.<Citation index={27} />
 
-## Puerto Rico and territorial structure
+**For your request:** On park roads, the agency that manages the park decides.
 
-Puerto Rico has no county layer at all. It is organized directly into 78 municipios, each functioning as a combined city and county.<Citation index={24} /> Its state-equivalent layer is itself split in two: the Department of Transportation and Public Works is the cabinet-level department, while actual highway construction and maintenance sits with a separate, semi-independent public corporation, the Puerto Rico Highways and Transportation Authority, which functions as a child agency of the department rather than a division inside it.<Citation index={25} />
+## Puerto Rico and the territories
 
-For federal-aid highway purposes, Puerto Rico is treated like a state, with its own Federal Highway Administration division office.<Citation index={26} /> That federal funding relationship holds even though Puerto Rico's basic governmental structure doesn't match the mainland county-city-state stack this page's other entries are built around.
+Puerto Rico has no counties. Its 78 municipios are county equivalents, and all are working governments.<Citation index={28} /> Highway building and maintenance belong to the Puerto Rico Highways and Transportation Authority, created in 1965 under the Department of Transportation and Public Works.<Citation index={29} /> The Federal Highway Administration's Caribbean division works with it.<Citation index={30} />
 
-Other US territories, including Guam, the US Virgin Islands, American Samoa, and the Northern Mariana Islands, were not individually researched for this page. Each likely has its own variant of a non-standard county layer paired with a federally recognized DOT-equivalent, broadly similar in kind to Puerto Rico's, but this has not been verified and should not be treated as confirmed.
+Federal highway law defines "State" to include Puerto Rico.<Citation index={31} /> Yet Puerto Rico gets its own annual allocation and can't receive funds apportioned to states.<Citation index={32} />
+
+Guam, the U.S. Virgin Islands, American Samoa and the Northern Mariana Islands share a separate Territorial Highway Program. Its money flows only after each territory signs an agreement with the U.S. Department of Transportation covering road standards and maintenance. It can't pay for routine maintenance or for roads classed as local.<Citation index={32} />
+
+- **Guam** has 19 villages and no counties. Its Department of Public Works maintains the island's roads; village mayors help set street priorities. About 155 miles are federal-aid highways, beside about 860 miles of other roads.<Citation index={33} />
+- **U.S. Virgin Islands:** the territorial Department of Public Works plans, builds and maintains the public roads and runs the federal-aid highway program.<Citation index={34} />
+- **Northern Mariana Islands:** the Department of Public Works maintains primary and secondary roads.<Citation index={35} /> Some roads are part of a Territorial Highway System eligible for federal aid.<Citation index={36} />
+- **American Samoa** has about 150 miles in its territorial highway system.<Citation index={37} /> Village roads can be funded another way: in 2024, a village access road was paid for by the Interior Department's Office of Insular Affairs and supervised by the Department of Public Works.<Citation index={38} />
+
+**For your request:** In a territory, the territorial public works department is usually the road agency. Ask whether the road is in the federal-aid system; if it's local, the money comes from somewhere else.
+
+## Fair questions
+
+**My city says it doesn't have the authority. Is that an excuse?** Maybe not. In a Dillon's Rule state, an act the legislature hasn't authorized is void.<Citation index={10} /> Ask which law they're relying on.
+
+**Can an old private road become public?** Sometimes. In Virginia, a county board can ask the state to take a road into its secondary system once motor vehicles have used it for 20 years and it serves at least three families per mile. The county must pay to bring it up to standard.<Citation index={39} /> In Connecticut, a court can find a road public when the owner intended it and the public accepted it, and long public use can show acceptance.<Citation index={40} />
+
+**My road crosses a reservation. Whose rules apply?** It depends on the road's system. Most miles in the federal tribal inventory are state and local roads.<Citation index={14} /> On a Washington state highway, both the tribe and the state have a say.<Citation index={15} />
+
+**Why can't my Michigan township fix my road?** Because it has no direct authority over it. The county road commission does. Your township can still help pay.<Citation index={24} />
+
+## What you can do
+
+1. **Find your row** in the table above.
+2. **Ask the first office two things:** who maintains this road, and who controls its signs and signals?
+3. **Check your property tax bill** for a district you didn't know about.
+4. **Before pushing locally, check your state's rule.** Dillon's Rule or home rule changes what your city can do.
+5. **On tribal or federal land,** contact the tribe's transportation department or the agency that manages the land.
+
+<RelatedMedia id="/guide/make-it-happen/jurisdiction-variants/" />
 
 ## References
 
-1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> Government of Jacksonville overview, including the four independent municipalities that declined 1968 consolidation. https://en.wikipedia.org/wiki/Government_of_Jacksonville
-2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> Unigov overview (Indianapolis/Marion County consolidation scope). https://en.wikipedia.org/wiki/Unigov
-3. <span id="ref-3"></span><EvidenceChip tier="legal" /> Indiana Code 36-3-1-7, excluded cities and included towns under Unigov. https://law.justia.com/codes/indiana/title-36/article-3/chapter-1/section-36-3-1-7/
-4. <span id="ref-4"></span><EvidenceChip tier="precedent" /> LegalClarity, overview of Virginia's independent cities (38 cities, count of 41 nationwide). https://legalclarity.org/virginia-independent-cities-what-they-are-and-how-they-work/
-5. <span id="ref-5"></span><EvidenceChip tier="precedent" /> Virginia Department of Transportation, contact and jurisdiction FAQ confirming the Arlington/Henrico exception. https://www.vdot.virginia.gov/contact/
-6. <span id="ref-6"></span><EvidenceChip tier="precedent" /> Virginia Department of Transportation, "How Roads Qualify for Improvements," Rural Addition Policy criteria. https://www.vdot.virginia.gov/projects/roads-qualify/
-7. <span id="ref-7"></span><EvidenceChip tier="legal" /> Cornell Law School Legal Information Institute, Wex definition of home rule, including Dillon's Rule origin. https://www.law.cornell.edu/wex/home_rule
-8. <span id="ref-8"></span><EvidenceChip tier="legal" /> FiscalNote, overview of Dillon's Rule versus Home Rule. https://fiscalnote.com/blog/dillons-rule-vs-home-rule
-9. <span id="ref-9"></span><EvidenceChip tier="legal" /> Bureau of Indian Affairs, Tribal Transportation Program overview. https://www.bia.gov/bia/ois/division-transportation/operations
-10. <span id="ref-10"></span><EvidenceChip tier="legal" /> Washington State Legislature, bill report on tribal authority to adjust speed limits on state highways within reservation boundaries. https://lawfilesext.leg.wa.gov/biennium/2009-10/Htm/Bill%20Reports/Senate/5331%20SBR%20TRAN%2009.htm
-11. <span id="ref-11"></span><EvidenceChip tier="legal" /> Colorado Special District Act, Title 32, Article 1, C.R.S. Summary via Colorado Division of Local Government: https://dlg.colorado.gov/special-districts-brief-review-for-residents
-12. <span id="ref-12"></span><EvidenceChip tier="precedent" /> Colorado Association of Homebuilders, metro districts explained (developer financing model, TABOR context). https://www.hbacolorado.com/colorado-metro-districts/
-13. <span id="ref-13"></span><EvidenceChip tier="precedent" /> Ballotpedia, New York-New Jersey Port Authority Compact of 1921. https://ballotpedia.org/New_York-New_Jersey_Port_Authority_Compact_of_1921
-14. <span id="ref-14"></span><EvidenceChip tier="precedent" /> Wikipedia, Port Authority of New York and New Jersey Police Department, jurisdiction at specific bridges and tunnels. https://en.wikipedia.org/wiki/Port_Authority_of_New_York_and_New_Jersey_Police_Department
-15. <span id="ref-15"></span><EvidenceChip tier="precedent" /> Wikipedia, local government in Connecticut, county abolition history (1960 Public Act 152). https://en.wikipedia.org/wiki/Local_government_in_Connecticut
-16. <span id="ref-16"></span><EvidenceChip tier="precedent" /> Town of Glastonbury, Connecticut, town-versus-state road guide. https://www.glastonburyct.gov/departments/department-directory-a-h/highway/streets-transportation/town-vs-state-roads
-17. <span id="ref-17"></span><EvidenceChip tier="legal" /> Connecticut Department of Transportation, Local Traffic Authority role description. https://portal.ct.gov/dot/osta/local-traffic-authority
-18. <span id="ref-18"></span><EvidenceChip tier="legal" /> Connecticut Office of Legislative Research, report on towns taking over roads within special taxing districts, including implicit dedication case law. https://www.cga.ct.gov/2002/rpt/2002-R-1015.htm
-19. <span id="ref-19"></span><EvidenceChip tier="precedent" /> Michigan Townships Association, "What Townships Do," explicit statement that townships lack road authority. https://michigantownships.org/about-townships/what-townships-do/
-20. <span id="ref-20"></span><EvidenceChip tier="legal" /> Road Commission for Oakland County, jurisdiction breakdown and 1909 enabling law (Public Act 51), Wayne County exception. https://rcocweb.org/177/What-Is-the-Road-Commission
-21. <span id="ref-21"></span><EvidenceChip tier="precedent" /> Canton, Michigan, FAQ on statewide road ownership breakdown by percentage. https://www.cantonmi.gov/m/faq?cat=28#question-169
-22. <span id="ref-22"></span><EvidenceChip tier="precedent" /> District Department of Transportation, National Park Service traffic advisory reporting on Beach Drive/Rock Creek Parkway management. https://ddot.dc.gov/release/national-park-service-traffic-advisory-report-february-2
-23. <span id="ref-23"></span><EvidenceChip tier="legal" /> Federal Highway Administration and National Park Service, memorandum of understanding on traffic control devices (UniGuide substantial conformance). https://mutcd.fhwa.dot.gov/resources/policy/moutcd/index.htm
-24. <span id="ref-24"></span><EvidenceChip tier="precedent" /> Wikipedia, Puerto Rico Department of Transportation and Public Works, municipio structure. https://en.wikipedia.org/wiki/Puerto_Rico_Department_of_Transportation_and_Public_Works
-25. <span id="ref-25"></span><EvidenceChip tier="precedent" /> Wikipedia, Puerto Rico Highways and Transportation Authority, child-agency relationship to DTOP. https://en.wikipedia.org/wiki/Puerto_Rico_Highways_and_Transportation_Authority
-26. <span id="ref-26"></span><EvidenceChip tier="legal" /> Federal Highway Administration, Puerto Rico/USVI Division office overview. https://highways.dot.gov/field-offices/puerto-rico
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [National Park Service. "Rock Creek Park General Management Plan."](https://www.nps.gov/rocr/learn/management/rock-creek-park-general-management-plan.htm)
+2. <span id="ref-2"></span><EvidenceChip tier="precedent" /> ["The Story of Baldwin, the Town Inside of Jacksonville." _The Coastal_, August 28, 2018.](https://thecoastal.com/flashback/the-story-of-baldwin-the-town-inside-of-jacksonville/)
+3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> [Taft, Bill. "Here's How We Fill Unigov's Proverbial Potholes." _Indianapolis Business Journal_, June 13, 2025.](https://www.ibj.com/articles/bill-taft-heres-how-we-fill-unigovs-proverbial-potholes)
+4. <span id="ref-4"></span><EvidenceChip tier="legal" /> [Indiana Code § 36-3-1-7.](https://law.justia.com/codes/indiana/title-36/article-3/chapter-1/section-36-3-1-7/)
+5. <span id="ref-5"></span><EvidenceChip tier="precedent" /> [Neal, Harrison C., III. "Excluded Cities." _Encyclopedia of Indianapolis_, revised February 2021.](https://indyencyclopedia.org/excluded-cities/)
+6. <span id="ref-6"></span><EvidenceChip tier="precedent" /> ["Virginia Independent Cities: What They Are and How They Work." LegalClarity.](https://legalclarity.org/virginia-independent-cities-what-they-are-and-how-they-work/)
+7. <span id="ref-7"></span><EvidenceChip tier="legal" /> [Code of Virginia § 33.2-319.](https://law.lis.virginia.gov/vacode/title33.2/chapter3/section33.2-319/)
+8. <span id="ref-8"></span><EvidenceChip tier="legal" /> [Commonwealth Transportation Board. "Arlington and Henrico Counties Maintenance Payments FY 2023." Resolution, June 21, 2022.](https://ctb.virginia.gov/media/ctb/agendas-and-meeting-minutes/2022/june/res/9.pdf)
+9. <span id="ref-9"></span><EvidenceChip tier="legal" /> [Legal Information Institute. "Dillon's Rule." _Wex_, Cornell Law School.](https://www.law.cornell.edu/wex/dillon%27s_rule)
+10. <span id="ref-10"></span><EvidenceChip tier="legal" /> [Kamptner, Greg. "The Dillon Rule and Its Limitations on a Locality's Land Use Powers." Chapter 5 of _Albemarle County Land Use Law Handbook_, March 2022.](https://albemarle.org/home/showpublisheddocument/13136/637854425989570000)
+11. <span id="ref-11"></span><EvidenceChip tier="precedent" /> ["Dillon's Rule vs. Home Rule." FiscalNote, November 5, 2021.](https://fiscalnote.com/blog/dillons-rule-vs-home-rule)
+12. <span id="ref-12"></span><EvidenceChip tier="legal" /> [Bureau of Indian Affairs, Division of Transportation. "Operations."](https://www.bia.gov/bia/ois/division-transportation/operations)
+13. <span id="ref-13"></span><EvidenceChip tier="legal" /> [_Tribal Transportation Program_. 25 C.F.R. Part 170, Subpart D, §§ 170.421-170.424.](https://www.ecfr.gov/current/title-25/chapter-I/subchapter-H/part-170/subpart-D)
+14. <span id="ref-14"></span><EvidenceChip tier="evidence" /> [Congressional Research Service. _Highways and Highway Safety on Indian Lands_. R44359, February 2, 2016.](https://www.everycrsreport.com/reports/R44359.html)
+15. <span id="ref-15"></span><EvidenceChip tier="legal" /> [Revised Code of Washington 46.61.480 (2009 c 383 § 1).](https://lawfilesext.leg.wa.gov/law/RCW/RCW%20%2046%20%20TITLE/RCW%20%2046%20.%2061%20%20CHAPTER/RCW%20%2046%20.%2061%20.480.htm)
+16. <span id="ref-16"></span><EvidenceChip tier="legal" /> [Colorado Division of Local Government. "Special Districts: A Brief Review for Residents."](https://dlg.colorado.gov/special-districts-brief-review-for-residents) Summarizes C.R.S. Title 32, Article 1.
+17. <span id="ref-17"></span><EvidenceChip tier="precedent" /> [Home Builders Association of Colorado. "Colorado Metro Districts."](https://www.hbacolorado.com/colorado-metro-districts/)
+18. <span id="ref-18"></span><EvidenceChip tier="legal" /> ["New York-New Jersey Port Authority Compact of 1921." Ballotpedia.](https://ballotpedia.org/New_York-New_Jersey_Port_Authority_Compact_of_1921)
+19. <span id="ref-19"></span><EvidenceChip tier="precedent" /> <Citation unsourced /> ["Port Authority of New York and New Jersey Police Department." Wikipedia.](https://en.wikipedia.org/wiki/Port_Authority_of_New_York_and_New_Jersey_Police_Department) No primary source found for the facility list.
+20. <span id="ref-20"></span><EvidenceChip tier="legal" /> [U.S. Census Bureau. "Change to County-Equivalents in the State of Connecticut." _Federal Register_, June 6, 2022.](https://www.federalregister.gov/documents/full_text/xml/2022/06/06/2022-12063.xml)
+21. <span id="ref-21"></span><EvidenceChip tier="precedent" /> [Town of Glastonbury, Connecticut. "Town vs. State Roads."](https://www.glastonburyct.gov/departments/department-directory-a-h/highway/streets-transportation/town-vs-state-roads)
+22. <span id="ref-22"></span><EvidenceChip tier="legal" /> [Connecticut General Statutes §§ 14-297(7) and 14-298.](https://www.cga.ct.gov/current/pub/chap_249.htm)
+23. <span id="ref-23"></span><EvidenceChip tier="legal" /> [Connecticut Department of Transportation. "Local Traffic Authority."](https://portal.ct.gov/dot/osta/local-traffic-authority)
+24. <span id="ref-24"></span><EvidenceChip tier="precedent" /> [Michigan Townships Association. "What Can We Do About These Roads?" Presentation, undated.](https://michigantownships.org/wp-content/uploads/What-Can-We-Do-About-These-Roads_Presentation_CAM.pdf)
+25. <span id="ref-25"></span><EvidenceChip tier="legal" /> [Road Commission for Oakland County. "What Is the Road Commission?"](https://rcocweb.org/177/What-Is-the-Road-Commission)
+26. <span id="ref-26"></span><EvidenceChip tier="precedent" /> [Charter Township of Canton, Michigan. Roads FAQ.](https://www.cantonmi.gov/m/faq?cat=28#question-169)
+27. <span id="ref-27"></span><EvidenceChip tier="legal" /> [Federal Highway Administration and National Park Service. Memorandum of Understanding on Traffic Control Devices on Roads in National Parks, 1973, amended 2006.](https://mutcd.fhwa.dot.gov/resources/policy/moutcd/index.htm)
+28. <span id="ref-28"></span><EvidenceChip tier="legal" /> [U.S. Census Bureau. "Puerto Rico." 2010 State and Local Geography Guides.](https://census.gov/geographies/reference-files/2010/geo/state-local-geo-guides-2010/puerto-rico.html)
+29. <span id="ref-29"></span><EvidenceChip tier="precedent" /> <Citation unsourced /> ["Puerto Rico Highways and Transportation Authority." Wikipedia.](https://en.wikipedia.org/wiki/Puerto_Rico_Highways_and_Transportation_Authority) Founding act (Act 74 of 1965) not read in the original.
+30. <span id="ref-30"></span><EvidenceChip tier="legal" /> [Federal Highway Administration. "Puerto Rico/U.S. Virgin Islands Division."](https://highways.dot.gov/field-offices/puerto-rico)
+31. <span id="ref-31"></span><EvidenceChip tier="legal" /> [23 U.S.C. § 101(a)(28).](https://www.law.cornell.edu/uscode/text/23/101)
+32. <span id="ref-32"></span><EvidenceChip tier="legal" /> [_Territorial and Puerto Rico Highway Program_. 23 U.S.C. § 165.](https://www.law.cornell.edu/uscode/text/23/165)
+33. <span id="ref-33"></span><EvidenceChip tier="precedent" /> [Guam Department of Public Works. _Village Streets Master Plan_. 2009, revised March 30, 2011.](https://www.guamtransportationprogram.com/docs/pages/2030-guam-transportation-plan/village-streets/village-streets-master-plan-2009-20121206.pdf)
+34. <span id="ref-34"></span><EvidenceChip tier="precedent" /> [U.S. Virgin Islands Department of Public Works. About the department.](https://dpw.vi.gov/?p=7847)
+35. <span id="ref-35"></span><EvidenceChip tier="precedent" /> [CNMI Department of Public Works. _Fiscal Year 2023 Citizen-Centric Report_.](https://www.cnmileg.net/resources/files/2023%20CCR/DPW2023%20CCR.pdf)
+36. <span id="ref-36"></span><EvidenceChip tier="precedent" /> [_CNMI Joint Military Training Environmental Impact Statement_, Revised Draft, Chapter 3.7, Transportation.](https://www.cnmijointmilitarytrainingeis.com/RDEIS/0307_CJMT_RDEIS_Ch3_37Transportation.pdf)
+37. <span id="ref-37"></span><EvidenceChip tier="precedent" /> [King, Christopher, and Faleosina Voight. Slides, Territorial Climate and Infrastructure Workshop, Office of Insular Affairs, March 2022.](https://edit.doi.gov/sites/doi.gov/files/3.a-as-2022-infrastructure-priority-shoreline-protection-c.pptx_.pdf) The slides also give a 59-mile figure; the 150-mile system total is used here.
+38. <span id="ref-38"></span><EvidenceChip tier="precedent" /> ["Investing in American Samoa's Village Roads." _Samoa News_, February 2024.](https://www.samoanews.com/node/128230)
+39. <span id="ref-39"></span><EvidenceChip tier="legal" /> [Code of Virginia § 33.2-335.](https://law.lis.virginia.gov/vacode/title33.2/chapter3/section33.2-335/)
+40. <span id="ref-40"></span><EvidenceChip tier="legal" /> [_A & H Corp. v. City of Bridgeport_, 180 Conn. 435, 430 A.2d 25 (1980).](https://case-law.vlex.com/vid/h-corp-v-city-893770493)

@@ -6,7 +6,7 @@ llms: Start Here, a front door to the whole publication. Where to begin by goal,
 ---
 
 <script>
-  import { patternPageCount } from '$lib/pattern-count'
+  import { patternPageCount, retrofitStrategyCount } from '$lib/pattern-count'
 </script>
 
 *Find your way around the Commonway System*
@@ -19,7 +19,7 @@ The Commonway System gathers the best evidence on those choices into one system.
 
 - **You have a street that needs fixing.** Start with [How Road Changes Actually Happen](/guide/make-it-happen/): who controls your road, and how to ask for a change.
 - **You want to see what good looks like.** Browse all {patternPageCount} [Patterns](/patterns/), each describing what a street, intersection, or street element should be.
-- **You want to fix a street that already exists.** [Retrofits](/retrofits/) show how to move an existing street toward a pattern, such as a road diet or a signal-to-roundabout conversion.
+- **You want to fix a street that already exists.** Browse all {retrofitStrategyCount} [Retrofits](/retrofits/), which show how to move an existing street toward a pattern, such as a road diet or a signal-to-roundabout conversion.
 - **You want to know why streets work the way they do.** Read [Core Concepts](/guide/how-the-transportation-ecosystem-fits-together/): who sets the rules, why the speed sign doesn't set the speed, and why added lanes fill up.
 - **You want to know how the system is organized.** [Using the System](/guide/how-to-read-a-pattern/) explains pattern pages, IDs, density tiers, and street types.
 - **You'd rather watch or listen.** The [Media](/media/) gallery collects videos, podcasts, and articles, each linked to the pages it supports.

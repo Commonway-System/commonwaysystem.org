@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector', 'Arterial'],
   mediaTags: ['Explainer'],
-  relatedTo: ['/guide/legal-planning-mechanisms/', '/guide/make-it-happen/'],
+  relatedTo: ['/guide/legal-planning-mechanisms/'],
   dateAdded: '2026-10-14',
 }
 

@@ -6,12 +6,27 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
 ---
 
 <script>
-  import { patternPageCount } from '$lib/pattern-count'
+  import { patternPageCount, retrofitStrategyCount } from '$lib/pattern-count'
 
   // Newest first. A quiet day can stay a one-line `summary`; a heavier day
   // can add `items` for a bulleted breakdown instead, per-entry, not a
   // shape every entry is forced into.
   const releases = [
+    {
+      date: '2026.10.16',
+      items: [
+        'How Road Changes Actually Happen rewritten: reader-first structure that opens with Kansas City\'s request process and Beaufort, South Carolina\'s state-owned streets, then why requests stall, the four questions (with a table), the seven processing tracks as a table, warrants, speed humps, MPOs and resurfacing, when jurisdiction gets strange, fair questions (including the Astoria bike lane ruling and appeal), and what you can do. 22 references, each with an evidence-tier chip; every old source re-read, one forum post dropped, eleven claims corrected to match their sources (among them Washington\'s signal rule, which was stated backwards).',
+        'When Jurisdiction Doesn\'t Follow the Pattern rewritten: opens with the Rock Creek and Potomac Parkway, adds a "Which one is you?" table, a "For your request" line under each case, fair questions and what you can do. Puerto Rico\'s federal funding status corrected, and Guam, the U.S. Virgin Islands, American Samoa and the Northern Mariana Islands now researched and covered. 40 references; Wikipedia, blocked and unreadable sources replaced with primary ones where found; two references carry the unsourced flag.',
+        'Related Media: six items untagged from the main Make It Happen page (MED-075, MED-076, MED-083 off-topic; MED-078, MED-085, MED-086 now variants-only). MED-086\'s blurb mileage corrected to match the CRS report.',
+        'Roadmap: the shipped Commonway System page update came off the list.',
+        'Start Here, the Commonway System About page and Release History now show a live count of Retrofit Strategies (18 today), computed from the pages themselves the same way the pattern count already is, so it updates when a strategy is added. Release History\'s status line also now names all nine pattern scales and classifications, not just the five Segment-scale ones.',
+        'Every media card, in the Media Gallery and in Related Media, now shows its permanent media ID (for example MED-024) at the bottom of the card. Pattern ID cards no longer break the status badge mid-word on phones ("Recomm / ended"): the badge and ID stay on one line and the card header wraps instead. The markdown copy of each page now links "See all in the Media Gallery" to the real Gallery page, where the page filter works. Accessibility check: axe (WCAG 2.2 AA plus best practice) found no violations on Roundabout, Collector Default, Alley, the Media Gallery, the Pattern Index, the Retrofit Strategy Index and the Brand Guide, in light and dark at desktop and 375px; not tested with a screen reader.',
+        'Related Media: pages with three or more items now show them in a single row that scrolls sideways, instead of a grid that could run many rows deep (56 pages have three or more, Design Speed & Speed Limits has 17). Two cards show at a time on desktop and one on a phone, with the next card peeking in at the edge. Previous and Next buttons, a "Showing 3–4 of 14" line announced to screen readers, no autoplay, and touch, trackpad and keyboard scrolling all work. Simplified view and print show every card stacked. Items are now ordered Aligned first, then Context only, then Counterexample. A new "See all N in the Media Gallery" link opens the Gallery filtered to that page, with a "Show all media" button to clear it. Pages with one or two items look the same as before. Accessibility check: axe (WCAG 2.2 AA plus best practice) found no violations on Roundabout, Design Speed & Speed Limits, Railroad Grade Crossing, Road-Adjacent Greenway and the filtered Gallery, in light and dark at desktop and 375px, and on Roundabout in high contrast, Simplified view and the largest text size and after pressing Next; not tested with a screen reader. The Accessibility Policy describes the new row.',
+        'Media Gallery: 16 more items (MED-109 to MED-124, 124 in all). Six videos and ten articles cover the pattern pages that had no Related Media: Road-Adjacent Greenway (Indianapolis Cultural Trail, FDOT sidepath study, Rails-to-Trails crossings guide), Rural-to-Town Gateway (Dutch village entrances, Illinois self-enforcing roads, the Iowa gateway study), Beltway / Ring Road (I-485, a peer-reviewed ring-road study, the DC outer beltway), All-Way Stop (Not Just Bikes, FHWA\'s North Carolina results, Scranton\'s signal-to-stop test) and Railroad Grade Crossing (Practical Engineering, Train Curious, two FRA pages). Four new channel icons are self-hosted. The two beltway pages of evidence are marked Context only and can be dropped if you would rather skip freeway pages. The FDOT, Iowa State, FHWA and FRA gate-skirts reports and the MDPI study have no cover and show the shared placeholder. Known incomplete: the Dutch village video is credited to its uploader, On 3 Wheels; covers are copies of the publishers\' own images and should be removed if one asks; the endorsement labels are Kevin\'s call to review. Accessibility check: axe (WCAG 2.2 AA plus best practice) found no violations on the Media Gallery and four of the tagged pattern pages, in light and dark at desktop and 375px; not tested with a screen reader.',
+        'Accessibility check: axe (WCAG 2.2 AA plus best practice) found no violations on both rewritten pages or on Release History, in light and dark at desktop and 375px; not tested with a screen reader.',
+        'Link check: no reference returned a 404. Not machine-verified because the sites block or time out automated requests: Ballotpedia, FiscalNote, FHWA (highways.dot.gov), Samoa News, Justia, Glastonbury, Albemarle County, Pittsburg CA, Colorado DLG, the Connecticut General Assembly and Indianapolis MPO.',
+      ],
+    },
     {
       date: '2026.10.15',
       items: [
@@ -281,7 +296,7 @@ If more than one push happens on the same calendar day, they share a single vers
 
 **{currentVersion.date}**
 
-The guidebook currently documents {patternPageCount} Street Typology pattern pages across Local, Collector, Arterial, Freeway, and Intersections & Crossings. None are content stubs, every published pattern page carries real modal-hierarchy, density-applicability, and design-notes content, and every one now carries real citations rather than the "Unsourced claim" flag. Find Your Pattern is still the one remaining placeholder page in the Guide, pending its own diagnostic sequence. It is actively expanding, not a finished publication.
+The guidebook currently documents {patternPageCount} pattern pages across all nine scales and classifications (Network, Corridor, Local, Collector, Arterial, Freeway, Intersections & Crossings, Facility, and Element), plus {retrofitStrategyCount} Retrofit Strategies at the Network, Corridor and Intersection scales. None are content stubs, every published pattern page carries real modal-hierarchy, density-applicability, and design-notes content, and every one now carries real citations rather than the "Unsourced claim" flag. Find Your Pattern is still the one remaining placeholder page in the Guide, pending its own diagnostic sequence. It is actively expanding, not a finished publication.
 
 ## Changelog
 
@@ -334,9 +349,6 @@ Work that's planned but not yet built, grouped by area.
 
 ### Existing content
 
-- **Commonway System page update.** A refresh of
-  `/about/commonway-system/` with clearer information for a
-  first-time visitor.
 - **Brand Guide page update.** Finalizing `/about/brand-guide/` as the
   canonical brand reference, including documentation for components
   not yet covered there.

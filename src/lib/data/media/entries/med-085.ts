@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'context-only',
   patternTaxonomyTags: ['Local', 'Collector', 'Arterial'],
   mediaTags: ['News/Advocacy'],
-  relatedTo: ['/guide/make-it-happen/jurisdiction-variants/', '/guide/make-it-happen/'],
+  relatedTo: ['/guide/make-it-happen/jurisdiction-variants/'],
   dateAdded: '2026-10-14',
 }
 

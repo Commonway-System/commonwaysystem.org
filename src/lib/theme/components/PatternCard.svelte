@@ -98,9 +98,10 @@
 
   .pattern-card__head {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 0.5rem 1rem;
     margin-bottom: 0.5rem;
   }
 
@@ -115,12 +116,14 @@
        reach 3-6:1 on paper, below the 4.5:1 text minimum. */
     color: var(--cw-ink);
     letter-spacing: 0.02em;
+    white-space: nowrap;
   }
 
   .pattern-card__head-end {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.4rem 0.6rem;
   }
 
   .pattern-card__classification {

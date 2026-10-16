@@ -7,7 +7,7 @@ llms: "Explains the Commonway System, a pattern language for roads and streets i
 
 <script>
   import { AuthorPhoto, Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
-  import { patternPageCount } from '$lib/pattern-count'
+  import { patternPageCount, retrofitStrategyCount } from '$lib/pattern-count'
 </script>
 
 _A pattern language for roads and streets_
@@ -33,7 +33,7 @@ Knowledge is power only when people can use it. The Commonway System is built so
 ## What it is
 
 - **{patternPageCount} [patterns](/patterns/)** describe what a street, intersection, facility, or street element should be.
-- **[Retrofits](/retrofits/)** show how to move an existing street toward a pattern.
+- **{retrofitStrategyCount} [retrofits](/retrofits/)** show how to move an existing street toward a pattern.
 - **The [Guide](/guide/)** explains the core concepts, how to use the system, and how to get a street changed.
 
 Every recommendation cites its source. Plain language comes first, with the technical detail underneath, so the same page serves a first-time reader and a practicing engineer. One system, grounded in what's proven.

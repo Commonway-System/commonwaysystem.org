@@ -185,7 +185,9 @@ function markdownHref(href) {
   if (!path.startsWith('/'))
     return href
   const asRoute = path.endsWith('/') ? path : `${path}/`
-  if (routes.has(asRoute))
+  // A query string means a filtered view (e.g. /media/?for=INT-RAB-01) that
+  // only the real page can apply, so keep pointing at the HTML page.
+  if (routes.has(asRoute) && !m[2].startsWith('?'))
     return `${SITE_URL}${markdownPath(asRoute)}${m[2]}`
   return `${SITE_URL}${path}${m[2]}`
 }

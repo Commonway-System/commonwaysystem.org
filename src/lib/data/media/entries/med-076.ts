@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector', 'Arterial'],
   mediaTags: ['Explainer'],
-  relatedTo: ['/guide/make-it-happen/', '/guide/design-speed/', 'LOC-DEF-01'],
+  relatedTo: ['/guide/design-speed/', 'LOC-DEF-01'],
   dateAdded: '2026-10-14',
 }
 
