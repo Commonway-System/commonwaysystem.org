@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Freeway', 'Arterial'],
   mediaTags: ['Historical'],
-  relatedTo: ['ART-BLV-02', '/guide/how-the-transportation-ecosystem-fits-together/', '/guide/street-types/'],
+  relatedTo: ['ART-BLV-02', '/guide/street-types/'],
   dateAdded: '2026-10-14',
 }
 

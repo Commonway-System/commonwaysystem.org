@@ -2,7 +2,7 @@
 title: Pattern IDs
 description: What each part of a Commonway System Pattern ID means, the nine Scale prefixes, and what the status badges mean.
 date: 2026-09-01
-llms: Explains the Commonway System Pattern ID format (PREFIX-CTXCODE-##), the nine Scale prefixes, and the Recommended/Situational/Avoid status badges.
+llms: Explains the Commonway System Pattern ID format (PREFIX-CTXCODE-##), the nine Scale prefixes, and the Recommended, Situational / Discouraged, Avoid, and Descriptive status badges.
 ---
 
 <script>
@@ -47,13 +47,12 @@ See [Scale Hierarchy](/guide/scale-hierarchy/) for what each of the nine Scale p
 
 ## Status badges
 
-Where a status applies, it appears as a small badge next to the classification label on the Pattern ID card.
+Every pattern carries a status, shown as a small badge next to the classification label on the Pattern ID card.
 
 - **Recommended** is the quiet default, no color emphasis, since it's the unremarkable normal case.
-- **Situational** reuses the amber warning color, meaning the pattern is real but context-dependent.
+- **Situational / Discouraged** reuses the amber warning color, meaning the pattern is real but fits only certain contexts.
 - **Avoid** reuses the rose danger color, meaning the Commonway System actively recommends against it.
-
-Status is omitted entirely on Intersections & Crossings entries, since the master Typology reference doesn't track a status for those.
+- **Descriptive** uses a cool slate-blue, meaning the pattern documents an existing condition rather than weighing a design choice, such as [Organic / Irregular](/patterns/network/organic-irregular/) (NET-ORG-04).
 
 ## How this connects to the rest of the guidebook
 

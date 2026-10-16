@@ -37,8 +37,22 @@ const theme = commonwayTheme({
       // down inside one of the named groups below it.
       { title: 'Start Here', to: '/guide/' },
       {
-        title: 'Foundations',
+        title: 'Core Concepts',
         collapsible: false,
+        items: [
+          {
+            title: 'How the Transportation Ecosystem Fits Together',
+            to: '/guide/how-the-transportation-ecosystem-fits-together/',
+          },
+          { title: 'Design Speed & Speed Limits', to: '/guide/design-speed/' },
+          { title: 'Induced Demand', to: '/guide/induced-demand/' },
+        ],
+      },
+      {
+        title: 'Using the System',
+        collapsible: false,
+        // Find Your Pattern is a placeholder for a future diagnostic; it
+        // stays in the sidebar here even though the tool isn't built yet.
         items: [
           {
             title: 'How to read a pattern',
@@ -48,36 +62,20 @@ const theme = commonwayTheme({
             title: 'How to read a retrofit strategy',
             to: '/guide/how-to-read-a-retrofit-strategy/',
           },
-          {
-            title: 'How the Transportation Ecosystem Fits Together',
-            to: '/guide/how-the-transportation-ecosystem-fits-together/',
-          },
-          { title: 'Pattern IDs', to: '/guide/pattern-ids/' },
-          { title: 'Density Tiers', to: '/guide/density-tiers/' },
+          { title: 'Scale Hierarchy', to: '/guide/scale-hierarchy/' },
           {
             title: 'Street Types & Classifications',
             to: '/guide/street-types/',
           },
-          { title: 'Scale Hierarchy', to: '/guide/scale-hierarchy/' },
-          { title: 'Design Speed & Speed Limits', to: '/guide/design-speed/' },
-          { title: 'Induced Demand', to: '/guide/induced-demand/' },
-        ],
-      },
-      {
-        title: 'Find Your Pattern',
-        collapsible: false,
-        // One page for now, a placeholder for what will eventually be a
-        // short diagnostic sequence; built as its own group already so
-        // nothing has to move once that sequence exists.
-        items: [
+          { title: 'Density Tiers', to: '/guide/density-tiers/' },
+          { title: 'Pattern IDs', to: '/guide/pattern-ids/' },
           { title: 'Find Your Pattern', to: '/guide/find-your-pattern/' },
         ],
       },
       {
         title: 'Make It Happen',
         collapsible: false,
-        // Same reasoning as Find Your Pattern above: this group was built
-        // to hold several pages (who decides, how it's funded, how to
+        // This group was built to hold several pages (who decides, how it's funded, how to
         // submit a request) as they're written, one placeholder page
         // originally held the slot. As of 2026.09.01 the slot's real
         // content has landed: the process-explainer chapter itself, plus
@@ -89,9 +87,9 @@ const theme = commonwayTheme({
         // catalog itself. Slugs sit directly under /guide/, not nested
         // under /guide/make-it-happen/, only the sidebar grouping is
         // nested. The batch's fifth page, "How to read a retrofit
-        // strategy," lives in Foundations instead, directly under "How to
-        // read a pattern," since it's that page's sibling instructional
-        // page, not a Make It Happen tool.
+        // strategy," lives in Using the System instead, directly under
+        // "How to read a pattern," since it's that page's sibling
+        // instructional page, not a Make It Happen tool.
         items: [
           {
             title: 'How Road Changes Actually Happen',

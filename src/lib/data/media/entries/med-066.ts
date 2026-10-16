@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'context-only',
   patternTaxonomyTags: ['Arterial'],
   mediaTags: ['Explainer'],
-  relatedTo: ['/guide/how-the-transportation-ecosystem-fits-together/', 'ART-ATR-04', '/guide/street-types/'],
+  relatedTo: ['ART-ATR-04', '/guide/street-types/'],
   dateAdded: '2026-10-14',
 }
 

@@ -14,7 +14,7 @@ llms: Home page for the Commonway System Guidebook, a cross-referenced pattern l
     {
       href: '/guide/',
       title: 'Guide',
-      description: "Start here. How the system is put together, how patterns are classified, and how to read one.",
+      description: "Start here. Find your way around, learn the core concepts, and see how to get a street changed.",
     },
     {
       href: '/patterns/',

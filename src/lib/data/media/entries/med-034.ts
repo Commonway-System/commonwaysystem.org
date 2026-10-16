@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Freeway', 'Arterial'],
   mediaTags: ['Case Study', 'Explainer'],
-  relatedTo: ['RFT-CDR-02', 'RFT-CDR-01', '/guide/how-the-transportation-ecosystem-fits-together/'],
+  relatedTo: ['RFT-CDR-02', 'RFT-CDR-01'],
   dateAdded: '2026-10-14',
 }
 

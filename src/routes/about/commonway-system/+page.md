@@ -1,49 +1,93 @@
 ---
 title: The Commonway System
-description: What the Commonway System is, who compiled it, and how it relates to NACTO, Complete Streets, and Strong Towns.
+description: "A pattern language for roads and streets: why the Commonway System exists, what its name means, the positions it takes, how it relates to NACTO, Complete Streets, and Strong Towns, and who compiles it."
 date: 2026-08-29
-llms: Explains what the Commonway System is, who compiled it, how it relates to NACTO, Complete Streets, and Strong Towns, and how the guidebook is organized.
+llms: "Explains the Commonway System, a pattern language for roads and streets inspired by Christopher Alexander's A Pattern Language (1977): why it exists (street knowledge is scattered and hard to act on), what the name means, what it contains (patterns, retrofits, the Guide), the positions it takes (design speed equals posted speed, 20 mph Local streets, roundabouts first, no parking or direct access on Arterials, added lanes as a cost), its status labels (Recommended, Situational / Discouraged, Avoid, Descriptive), how it relates to NACTO, Complete Streets, and Strong Towns, how its claims can be checked, and its author, Kevin Young."
 ---
 
 <script>
-  import { AuthorPhoto, RelatedMedia } from '$lib/theme/components'
+  import { AuthorPhoto, Citation, EvidenceChip, RelatedMedia } from '$lib/theme/components'
+  import { patternPageCount } from '$lib/pattern-count'
 </script>
 
-The Commonway System (CS) is a pattern language for roads and streets. It organizes established transportation design knowledge, from NACTO's guides to Dutch Sustainable Safety and Vision Zero research, into a single, cross-referenced reference usable by a total beginner or a practicing engineer alike.
+_A pattern language for roads and streets_
 
-**Subtitle:** "A Pattern Language for Roads and Streets"
-**Tagline:** "One system, grounded in what's proven."
+In 1977, Christopher Alexander and his colleagues published _A Pattern Language_: more than 250 patterns for building towns and homes, each one a design problem paired with its solution. Its premise was that ordinary people, not just professionals, should be able to design their own homes, streets, and communities.<Citation index={1} />
 
-<RelatedMedia id="/about/commonway-system/" />
+The Commonway System applies that idea to roads and streets.
 
-## How CS relates to other frameworks
+## Why it exists
 
-CS does not replace or compete with NACTO, Complete Streets, or Strong Towns. It cites and builds on their work, adding evidence layers where the research supports going further. Every pattern in the system traces back to a source, so the authority behind CS is the citation trail, not a credential.
+For most people, the transportation system feels beyond their control. Roads get widened, speed limits get raised, crosswalks never arrive, and it seems nothing an ordinary person does can change that.
 
-Where CS takes a position beyond conventional practice, it says so directly and names the evidence: naming the baseline practice or the structural cause of a pattern, then closing with a classification (Default, Situational-Discouraged, or Avoid) backed by a specific source. A baseline source is never called wrong, outdated, or flawed, since the disagreement is about evidence, not authority.
+The knowledge to change it isn't locked away. No one is gating it. But it is scattered across federal rules, professional manuals, research papers, and advocacy campaigns, each with its own authority and its own audience (see [How the Transportation Ecosystem Fits Together](/guide/how-the-transportation-ecosystem-fits-together/)). For anyone without years in the field, it is hard to find, harder to understand, and harder still to act on.
 
-## Who, how, and why
+Knowledge is power only when people can use it. The Commonway System is built so they can.
 
-Google's own helpful-content guidance asks three questions of any piece of content: who created it and what's their real experience with it, how was it made, and why does it exist. CS answers these directly, since the answers are the actual foundation of its credibility, not an afterthought.
+## Why the name
+
+**System,** because it is one: classifications, patterns, IDs, and rules that fit together, so an answer in one place agrees with an answer in another.
+
+**Commonway** is the hope behind it: that this becomes the common way to understand street design, shared by neighbors and engineers alike.
+
+## What it is
+
+- **{patternPageCount} [patterns](/patterns/)** describe what a street, intersection, facility, or street element should be.
+- **[Retrofits](/retrofits/)** show how to move an existing street toward a pattern.
+- **The [Guide](/guide/)** explains the core concepts, how to use the system, and how to get a street changed.
+
+Every recommendation cites its source. Plain language comes first, with the technical detail underneath, so the same page serves a first-time reader and a practicing engineer. One system, grounded in what's proven.
+
+## What it stands for
+
+The Commonway System doesn't just summarize other guidance. Where the evidence supports it, it takes a position:
+
+- **Design speed always equals the posted speed limit.** A street should be built for the speed on its sign. ([Design Speed & Speed Limits](/guide/design-speed/))
+- **Local streets are 20 mph, with no exceptions.** ([Design Speed & Speed Limits](/guide/design-speed/))
+- **Roundabouts come first.** They are the default wherever two Collector-or-higher streets meet; signals are a documented last resort. ([Roundabout, INT-RAB-01](/patterns/intersections/roundabout/))
+- **Arterials move traffic, not parked cars.** The default Arterial has no on-street parking and no direct property access. ([Arterial Default, ART-DEF-01](/patterns/arterials/default/))
+- **Added lanes are a cost, not a cure.** For congestion, pricing, reallocated road space, and a connected network come first; widening comes last. ([Induced Demand](/guide/induced-demand/))
+
+## How it relates to NACTO, Complete Streets, and Strong Towns
+
+The Commonway System doesn't replace or compete with them. It cites and builds on their work, and goes further only where the research supports it.
+
+When it does go further, it says so plainly. It names the baseline practice, then gives each pattern a status: **Recommended**, **Situational / Discouraged**, or **Avoid**, each backed by a specific source. A pattern that documents an existing condition without endorsing it, such as an [organic, irregular street network](/patterns/network/organic-irregular/), is marked **Descriptive**. It never calls a baseline source wrong or outdated. Disagreements are about evidence, not authority.
+
+## Why you can trust it
 
 | <span class="cw-sr-only">Question</span> | <span class="cw-sr-only">Answer</span> |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Who** | Kevin, an enthusiast and researcher/compiler, explicitly not a credentialed engineer or planner. The citation system substitutes for personal authority. See [About the author](#about-the-author) below. |
-| **How** | Primary sources read directly and cross-referenced, not secondhand summaries. Every design claim traces to a named source, dated and linked.                                                              |
-| **Why** | To make the accumulated evidence behind good street design legible to a beginner and useful to a practitioner, in one place, without requiring a credential to access it.                                 |
+| ------- | ------ |
+| **Who** | Kevin Young, an enthusiast, researcher, and compiler, not a credentialed engineer or planner. The citations carry the authority, not a credential. See [About the author](#about-the-author). |
+| **How** | Primary sources read directly and cross-referenced, not secondhand summaries. Every design claim traces to a named, dated, linked source. |
+| **Why** | To make the evidence behind good street design something anyone can find, understand, and act on, in one place, with no credential required. |
 
-## How the guidebook is organized
+And you can check the work:
 
-Every pattern sits inside one of four Functional Classifications: Local, Collector, Arterial, or Freeway, plus a fifth cross-cutting set for Intersections and Crossings. Within a classification, patterns are grouped by purpose-based Street Typology, and each pattern exists at one of five scales: Network, Corridor, Segment or Intersection, Facility, and Element. A pattern's ID encodes its scale and context, for example `LOC-BBG-12`.
+- **Evidence tiers.** Every source is labeled Legal / regulatory, Evidence-based, or Precedent-based, so you can see what kind of authority stands behind each claim. ([How disputes over evidence are resolved](/about/governance/#how-disputes-over-evidence-are-resolved))
+- **Visible gaps.** A claim still waiting for a source is flagged in amber instead of left looking settled.
+- **Dated versions.** Every change is logged in [What's New](/about/release-history/).
+- **Open correction.** Anyone can [report a problem](/about/reporting/) or [submit a change](/about/contributing/).
+- **Disclosed tools.** How AI was used, and how a human reviews every classification and citation, is set out in the [AI Policy](/about/ai-policy/).
 
-See the [guide introduction](/guide/) for the full mechanics of reading a pattern, and the [Brand Guide](/about/brand-guide/) for how the system is written and designed.
+## How it's organized
+
+Every pattern belongs to one of four Functional Classifications (Local, Collector, Arterial, Freeway) or the cross-cutting Intersections and Crossings set, and sits at one of five scales, from Network down to Element. Each has a permanent ID, such as `LOC-BBG-12`.
+
+For the full map, see [Start Here](/guide/). For how to read a pattern page, see [Using the System](/guide/how-to-read-a-pattern/).
 
 ## About the author
 
 <AuthorPhoto src="/photos/kevinyoung.png" alt="Kevin Young" caption="Kevin Young, Author, Commonway System">
 
-Kevin Young is the author of the Commonway System, an evidence-based pattern language for roads and streets, with a catalog of retrofit strategies for streets that already exist. He started it in 2026 as an enthusiast and compiler, not a transportation professional, so the work rests on its citations and not on his credentials. Claims are cited to sources, and any not yet sourced carry a visible flag. Plain-language explanations come first, with technical detail beneath. The guide is published online and dated by version, so readers can see how current it is.
+Kevin Young is the author of the Commonway System. He started it in 2026, out of dissatisfaction with the status quo, as an enthusiast and compiler rather than a transportation professional. That is why the work rests on its citations, not on his credentials. Claims are cited to sources, and any not yet sourced carry a visible flag. Plain-language explanations come first, with technical detail beneath. The guidebook is published online and dated by version, so readers can see how current it is.
 
 More about him at [kevinyoung.net](https://kevinyoung.net) and on [LinkedIn](https://www.linkedin.com/in/youngkev/).
 
 </AuthorPhoto>
+
+<RelatedMedia id="/about/commonway-system/" />
+
+## References
+
+1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [Alexander, Christopher, Sara Ishikawa, and Murray Silverstein. _A Pattern Language: Towns, Buildings, Construction_. New York: Oxford University Press, 1977.](https://www.oup.com.au/books/general-interest/art-technology/9780195019193)

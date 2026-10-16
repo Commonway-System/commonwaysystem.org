@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'context-only',
   patternTaxonomyTags: ['Arterial', 'Freeway'],
   mediaTags: ['Explainer'],
-  relatedTo: ['ART-DEF-01', '/guide/how-the-transportation-ecosystem-fits-together/', '/guide/street-types/', '/guide/induced-demand/'],
+  relatedTo: ['ART-DEF-01', '/guide/street-types/', '/guide/induced-demand/'],
   dateAdded: '2026-10-14',
 }
 

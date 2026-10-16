@@ -120,7 +120,7 @@ src/
                                updated" date and the navbar version.
     +page.md                  Home page.
     guide/                    Guide chapters, one folder per page
-                               (Foundations, Find Your Pattern, Make It Happen).
+                               (Core Concepts, Using the System, Make It Happen).
     patterns/+page.md         Pattern Index (bare root).
     patterns/<scale>/<slug>/+page.md
                                Pattern pages, nested by Scale/classification.

@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'context-only',
   patternTaxonomyTags: ['Arterial'],
   mediaTags: ['Interview', 'Explainer'],
-  relatedTo: ['/guide/how-the-transportation-ecosystem-fits-together/', 'ART-ATR-04'],
+  relatedTo: ['ART-ATR-04'],
   dateAdded: '2026-10-14',
 }
 
