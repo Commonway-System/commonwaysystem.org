@@ -40,6 +40,8 @@ Right after the ID card, every pattern opens with the Pattern viewer: drawings o
 
 The tabs along the top switch between views of the same street, such as a cross-section (a cut straight across the street, edge to edge, as if you were standing in it) and a top-down view. Expand fills the screen, on a phone too; Exit full view or the Escape key brings it back.
 
+**Reading the cross-section.** The drawing is a cut through the ground as well as the street, so you can see where curbs step up and where trees have soil to grow in. Under it, three rows of dimensions give each strip's width, the width from curb to curb, and the full right of way between the property lines (the dashed lines at either edge). Past those lines, the drawing shows lawns, buildings, a parking lot or open land as context; that part is the setting, not part of the pattern. A colored band under the dimensions says who each strip is for, Pedestrian, Bicycle, Transit or Vehicle, with buffers and medians hatched between them. The band's words carry the meaning; its colors only help. Under the band, a top-down slice shows a short stretch of the same street from above, every strip lined up under its column in the section: lane markings, bike lane symbols, crosswalks, and trees seen from above. Top-down slice switches it off.
+
 **Stepping down the layers.** Street guidance comes in layers, explained in [How the Transportation Ecosystem Fits Together](/guide/how-the-transportation-ecosystem-fits-together/): a federal or state minimum, NACTO's enhancements, a Complete Streets policy, and the Commonway System's own answer. The viewer opens on the Commonway System and lets you step down to see what each earlier layer would have built. A pattern shows only the layers that have been researched for it, so some show fewer. Dutch practice, where it appears, sits apart under "For comparison": it isn't a step on the same ladder, it's a different system.
 
 **What changed.** With Highlight changes on, anything that differs from the layer just below is outlined in amber and numbered, and the same numbers appear in a "What changed" list under the drawing, so the list says in words what the outline shows.
@@ -50,7 +52,7 @@ The tabs along the top switch between views of the same street, such as a cross-
 
 **Sharing a view.** The address bar keeps your choices, so copying the link shares exactly the view you're looking at.
 
-**What the drawings are, and aren't.** Drawings are to scale but simplified: people, vehicles, trees and lights are drawn at their real size, but a drawing is one way to build the pattern, not a requirement. The guidance and its citations live in the descriptions and the page text. Most patterns don't have drawn views yet; they show their illustration as an Overview, or a placeholder marked "Illustration in progress".
+**What the drawings are, and aren't.** Drawings are to scale but illustrated: people, vehicles, trees and lights are drawn at their real size, and the people and cars change from strip to strip so the street looks lived in. Bike lanes are drawn painted green, as NACTO recommends, unless a pattern says otherwise. A drawing is one way to build the pattern, not a requirement. Simplified view (in Display settings) swaps the illustrations for plain outline symbols. The guidance and its citations live in the descriptions and the page text. Most patterns don't have drawn views yet; they show their illustration as an Overview, or a placeholder marked "Illustration in progress".
 
 ## Density tiers
 
