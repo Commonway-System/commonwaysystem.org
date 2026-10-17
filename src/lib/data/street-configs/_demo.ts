@@ -24,6 +24,7 @@ const data: ViewerData = {
       description: 'Sample only: two wide lanes, parking on both sides, narrow sidewalks, nothing for bicycles.',
       config: {
         kind: 'street',
+        frontage: { left: 'buildings', right: 'lawn' },
         segments: [
           { id: 'sw-l', type: 'sidewalk', width: 5 },
           { id: 'pk-l', type: 'parking', width: 8 },
@@ -39,6 +40,7 @@ const data: ViewerData = {
       description: 'Sample only: lanes narrowed, and the width they give up becomes a painted bike lane on each side.',
       config: {
         kind: 'street',
+        frontage: { left: 'buildings', right: 'lawn' },
         segments: [
           { id: 'sw-l', type: 'sidewalk', width: 5 },
           { id: 'pk-l', type: 'parking', width: 8 },
@@ -56,6 +58,7 @@ const data: ViewerData = {
       description: 'Sample only: the bike lanes move to the curb behind a buffer, street trees go in, and curb extensions shorten the crossing.',
       config: {
         kind: 'street',
+        frontage: { left: 'buildings', right: 'lawn' },
         segments: [
           { id: 'sw-l', type: 'sidewalk', width: 5, items: [{ type: 'tree', spacing: 30, offset: 4 }] },
           { id: 'bk-l', type: 'protected-bike-lane', width: 5, direction: 'inbound' },
@@ -78,6 +81,7 @@ const data: ViewerData = {
       description: 'Sample only: cycle tracks raised to sidewalk level, no on-street parking.',
       config: {
         kind: 'street',
+        frontage: { left: 'buildings', right: 'lawn' },
         segments: [
           { id: 'sw-l', type: 'sidewalk', width: 6 },
           { id: 'bk-l', type: 'protected-bike-lane', width: 7, direction: 'both', variant: 'cycle-track' },

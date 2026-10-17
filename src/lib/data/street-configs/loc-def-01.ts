@@ -20,6 +20,7 @@ const data: ViewerData = {
       cite: [1, 2],
       config: {
         kind: 'street',
+        frontage: { left: 'lawn', right: 'lawn' },
         segments: [
           { id: 'sw-l', type: 'sidewalk', width: 5 },
           { id: 'fs-l', type: 'furnishing', width: 5, items: [{ type: 'tree', spacing: 30 }] },

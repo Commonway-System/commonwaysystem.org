@@ -30,6 +30,7 @@ const data: ViewerData = {
       cite: [1, 3],
       config: {
         kind: 'street',
+        frontage: { left: 'parking-lot', right: 'parking-lot' },
         segments: [
           { id: 'sw-l', type: 'sidewalk', width: 5 },
           { id: 'pk-l', type: 'parking', width: 8 },

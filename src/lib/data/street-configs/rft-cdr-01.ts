@@ -22,6 +22,7 @@ const data: ViewerData = {
       cite: [4],
       config: {
         kind: 'street',
+        frontage: { left: 'lawn', right: 'lawn' },
         segments: [
           { id: 'sw-l', type: 'sidewalk', width: 5 },
           { id: 'ln-1', type: 'travel-lane', width: 10, direction: 'inbound' },
@@ -38,6 +39,7 @@ const data: ViewerData = {
       cite: [4],
       config: {
         kind: 'street',
+        frontage: { left: 'lawn', right: 'lawn' },
         segments: [
           { id: 'sw-l', type: 'sidewalk', width: 5 },
           { id: 'bk-l', type: 'bike-lane', width: 5, direction: 'inbound' },

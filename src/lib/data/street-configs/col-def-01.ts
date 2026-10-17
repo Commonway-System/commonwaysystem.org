@@ -34,6 +34,7 @@ const data: ViewerData = {
       cite: [2, 13, 7],
       config: {
         kind: 'street',
+        frontage: { left: 'lawn', right: 'lawn' },
         segments: [
           sidewalk('sw-l', 4),
           { id: 'pk-l', type: 'parking', width: 7 },
@@ -50,6 +51,7 @@ const data: ViewerData = {
       cite: [3, 5, 8],
       config: {
         kind: 'street',
+        frontage: { left: 'lawn', right: 'lawn' },
         segments: [
           sidewalk('sw-l', 6),
           { id: 'bk-l', type: 'protected-bike-lane', width: 6, direction: 'inbound' },
@@ -70,6 +72,7 @@ const data: ViewerData = {
       cite: [4],
       config: {
         kind: 'street',
+        frontage: { left: 'lawn', right: 'lawn' },
         segments: [
           sidewalk('sw-l', 6),
           { id: 'fs-l', type: 'furnishing', width: 4, items: [{ type: 'tree', spacing: 30 }, { type: 'street-light', spacing: 60, start: 15 }] },
@@ -96,6 +99,7 @@ const data: ViewerData = {
       description: 'Two 10 ft travel lanes, one each way. A protected bike lane on each side behind a rigid barrier, which needs no minimum buffer width. Sidewalks on both sides sized to NACTO\'s range, with a furnishing strip. On-street parking is optional and left out here; where it is provided, it gets 8 ft.',
       config: {
         kind: 'street',
+        frontage: { left: 'lawn', right: 'lawn' },
         segments: [
           sidewalk('sw-l', 6),
           { id: 'fs-l', type: 'furnishing', width: 4, items: [{ type: 'tree', spacing: 30 }, { type: 'street-light', spacing: 60, start: 15 }] },
@@ -118,6 +122,7 @@ const data: ViewerData = {
       cite: [6],
       config: {
         kind: 'street',
+        frontage: { left: 'lawn', right: 'lawn' },
         segments: [
           sidewalk('sw-l', 6),
           { id: 'bk-l', type: 'protected-bike-lane', width: 7, direction: 'both', variant: 'cycle-track' },

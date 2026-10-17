@@ -17,6 +17,7 @@ import type { StreetConfig, ViewerData } from '$lib/viewer/types'
 /** Exported so Stroad (and later Retrofit Strategies) can show the same street. */
 export const multiwayBoulevard: StreetConfig = {
   kind: 'street',
+  frontage: { left: 'buildings', right: 'buildings' },
   segments: [
     { id: 'sw-l', type: 'sidewalk', width: 8 },
     { id: 'pk-l', type: 'parking', width: 7 },
