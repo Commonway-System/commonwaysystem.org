@@ -63,6 +63,21 @@ When a page has three or more Related Media items, they sit in a single row that
 
 The Search button in the header (in the mobile menu at phone width) opens a search dialog, and Ctrl+K (Cmd+K on a Mac) opens it from anywhere. The dialog is a native modal: focus moves into it, the page behind it is inert, Escape closes it, and focus returns to where you were. Results are ordinary links, and the arrow keys move between them (Tab works too). The number of results is announced as you type. The same search is available as a full page at [Search](/search/), which is also where "See all results" leads. If you would rather browse than search, the [Site Map](/about/sitemap/) lists every page, grouped like the navigation, without needing JavaScript. There is deliberately no single-key shortcut such as "/", because single-key shortcuts need a way to be turned off or remapped. Search needs JavaScript; without it, the [text-only page index](/text/all-pages/) and the Pattern Index are the way to browse. It has been checked with automated tools only, not yet with a screen reader.
 
+## Pattern viewer
+
+Every pattern and Retrofit Strategy page opens with a Pattern viewer: drawings of the street that change as you choose a view or a configuration. It's built to work without seeing the drawings:
+
+- **Every drawing has a written description**, shown under it and linked to it, so a screen reader reads the description with the drawing. When you change the view or configuration, the new description is announced. "All configurations, in words" lists every configuration's description at once, and it's what the text-only and markdown versions of the page show in place of the drawing.
+- **Changes are numbered and written out.** With Highlight changes on, each change is outlined in amber and given a numbered badge, and the same numbers appear in a "What changed" list in words. The outline alone is too faint on a light background to count as a signal, so it never stands alone.
+- **The controls are standard.** The view tabs follow the usual tab pattern (arrow keys move between them, Home and End jump to the ends). The configuration and units choices are ordinary radio buttons and checkboxes, so they work with a keyboard, a screen reader and touch the way any form does.
+- **Full view is a standard modal dialog.** Focus moves into it, the page behind it is inert, Escape closes it, and focus returns to the Expand button. A citation link followed from full view closes it and goes to the reference.
+- **Nothing moves on its own,** and the drawings have no animation.
+- **Your choices can be shared and kept.** The address bar records the view and configuration; feet or meters is remembered in your browser only.
+
+**How it was checked (October 16, 2026).** Axe (WCAG 2.0 to 2.2 Level A and AA plus best practice) found no violations on all 130 pattern and Retrofit Strategy pages, each in light and dark mode at desktop and 375px width (520 scans); on every configuration of every drawn view, in compare mode and at each cut point (96 more); in full view; and with high contrast, the largest text size, Simplified view, a reading font, color symbols and the enhanced focus outline switched on. By hand: a keyboard walk through the viewer (every stop shows a focus outline; arrow keys move between tabs and configurations; Escape closes full view and returns focus to Expand), no sideways scrolling at 320px width, and the drawings' own text and badge colors measured directly, since axe treats each drawing as one image. Forced-colors mode was checked in Chrome's emulation: the drawings keep their own fill colors, and their text and lines now follow the system's text and background colors, after the check found labels that could have disappeared on a light system palette.
+
+Known limitations: the drawings themselves are images, so the detail of where each item sits is only in the drawing, while the descriptions give the widths and what's there. Not yet tested: a screen reader, a real Windows high-contrast session (only Chrome's emulation), and real touch devices beyond the phone-width scans.
+
 ## What we're planning
 
 Further accessibility work will be added here as testing turns up issues. This page will be updated to reflect the current state rather than the intended one.

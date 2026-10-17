@@ -33,6 +33,10 @@ The scale appears directly on the ID card (the sample above shows `CDR`, Corrido
 
 Retrofit Strategies do not carry status badges (Recommended, Situational, Discouraged, and so on). A Pattern's badge tells you whether CS endorses that destination. A Retrofit Strategy isn't endorsed or discouraged in that sense, it's either applicable to your situation or it isn't. That judgment lives in the Applicability and thresholds section below, not in a badge.
 
+## Before and after
+
+Right after the card comes the same viewer every pattern carries (see [How to Read a Pattern](/guide/how-to-read-a-pattern/#the-pattern-viewer)), set up for a retrofit: it opens on After, steps back to Before, and can show the two side by side, with every change numbered and listed in words. Strategies without drawings yet show a placeholder, headed "Strategy viewer".
+
 ## Overview
 
 A short, word-lite explanation of what the strategy physically or procedurally involves. If you've never heard of a road diet or a Restricted Crossing U-Turn, this is where you find out what it actually is, in plain language, before anything else.

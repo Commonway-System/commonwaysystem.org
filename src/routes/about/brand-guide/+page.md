@@ -6,7 +6,8 @@ llms: The Commonway System's full visual and editorial system, colors, typograph
 ---
 
 <script>
-  import { Button, Citation, ColorSwatch, ColorSymbolKey, DensityChip, EvidenceChip, ExampleCard, FormControlsPreview, GuideDiagram, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, RetrofitCard, RetrofitIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
+  import sampleViewer from '$lib/data/street-configs/_demo'
+  import { Button, Citation, ColorSwatch, ColorSymbolKey, DensityChip, EvidenceChip, ExampleCard, FormControlsPreview, GuideDiagram, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, PatternViewer, RetrofitCard, RetrofitIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
 </script>
 
 The visual and editorial system behind the Commonway System (CS): how it looks, how it's written, and how its evidence is presented. This page transcribes the working brand reference; treat the color values and rules below as the source of truth over anything in the publication's theme.
@@ -377,6 +378,20 @@ Used for the full-width topic diagrams on Foundations guide pages (currently Den
 
 Five props beyond the required `src`/`alt`, all optional and independent of each other. `width`/`height` set the image's real pixel dimensions as HTML attributes, not just CSS, so the browser can reserve the correct layout space before a lazy-loaded image actually finishes downloading, instead of leaving a gap or reflowing the page once it lands. `aspectRatio` is a fallback for when only the ratio is known, not the exact pixel size. `caption` adds a line of visible text under the image, shown above, inside a real `<figure>`/`<figcaption>` pair, semantics an assistive technology already understands with no extra ARIA needed. Caption is deliberately kept distinct from alt text: alt describes what the image shows, for someone who can't see it; caption is visible context or attribution for everyone, the generation credit in the example above rather than a restatement of the image's content. A diagram lazy-loads (`loading="lazy"`) unless `priority` is set, so one below the fold costs nothing until a reader scrolls to it. The four Foundations diagrams sit at the very top of their pages, so they set `priority`, which loads them eagerly with `fetchpriority="high"` instead: lazy-loading an image that's on screen from the start only delays it. Any image under `/diagrams/` is also served through `srcset` as 768 and 1280 px WebP copies (about a fifth of the PNG's size), made by `pnpm run thumbs`. Omit all four optional props for a bare, unsized `<img>`, the same shape these diagrams originally shipped with before width/height/caption support existed.
 
+### Pattern viewer
+
+<ExampleCard>
+<PatternViewer data={sampleViewer} title="Sample street" classification="local" demo />
+</ExampleCard>
+
+Sits right after the Pattern ID card on every pattern page (and after the Retrofit Strategy card, as "Before and after"), in the same rounded, hairline-bordered card shell as the components above. The example is a made-up sample street. A control row holds one tab per view and an Expand button that opens a full-screen view; with a single view, a plain label replaces the tabs. The drawing area is 16:9 once the card is wider than 560px and square below that, measured on the card itself (a container query) rather than the screen, since the content column is narrower than the screen and the reader's Text size setting doesn't move screen breakpoints.
+
+Configurations are a ladder of pill-shaped radio buttons in a fixed order (Federal / State minimum, NACTO, Complete Streets, Commonway System), the chosen one filled in `--cw-primary`, the Commonway rung in semibold. Dutch practice sits apart on a dashed rule under "For comparison", with a dashed pill, because it's a different system rather than a further step. How readers use the layers is explained on [How to Read a Pattern](/guide/how-to-read-a-pattern/#the-pattern-viewer).
+
+The drawings are diagrams built from each pattern's data, not the hand-drawn illustrations described under Illustration & photography above. Strips use site-only pavement, paint and planting colors (`viewer.css`) so they read as what they are, in both themes, with a text label and an edge on every strip so color is never the only signal. People and objects are drawn in neutral ink at true scale, as the illustration rules ask. Amber marks only what changed from the layer below, which keeps it inside the Brand Guide's rule that amber is reserved for pattern highlighting: an outline plus a numbered amber badge, and the same number in the "What changed" list under the drawing.
+
+A pattern without drawn views shows its frontmatter illustration as an Overview, or the shared placeholder tinted with the pattern's classification color (the Pattern Index card's recolor), captioned "Illustration in progress".
+
 ## Buttons, links & forms
 
 The interactive-site build needs these regardless of how sparingly the publication itself uses them, since search, filtering, and the eventual interactive Guide diagnostic tool all depend on real form controls. The publication does not have production `<button>`/`<select>` styling wired up as reusable components yet, but these previews use the same `tokens.css` values everything else on the publication does.
@@ -464,6 +479,10 @@ A contrast issue was caught and fixed during design: the citation badge and Evid
 | Modal hierarchy pill, Collector (dark mode)  | 6.49:1  | Pass   |
 | Modal hierarchy pill, Arterial (light mode)  | 5.28:1  | Pass   |
 | Modal hierarchy pill, Arterial (dark mode)   | 6.97:1  | Pass   |
+| Pattern viewer change badge (ink on amber)   | 8.97:1  | Pass   |
+| Pattern viewer change outline (amber on light paper) | 1.97:1 | Not the only signal |
+
+The Pattern viewer's amber change outline is below the 3:1 non-text minimum on light paper, so it never carries meaning alone: every outlined change also gets a numbered badge with a dark ring (8.97:1) and the same number in a written "What changed" list. In dark mode the outline itself reaches 8.97:1.
 
 The nine Scale ramps (see above) are simulated against protanopia, deuteranopia, and tritanopia as part of choosing each hue, maximizing worst-case separation across the palette rather than checking colors one at a time after the fact. Per the site owner: this separation is a wayfinding/aesthetic concern for this palette, not the mechanism that makes classification colorblind-safe, since a text label always accompanies every colored element on the publication.
 
