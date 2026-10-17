@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import { breakpoints, FEATURE_LABELS, isRaised, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
+  import { barrierTop, bikeLaneSymbol, laneArrow, makeIds, makeStamps, seedOf, sharrow, streetItemTop } from '$lib/viewer/art'
+  import { breakpoints, FEATURE_LABELS, isRaised, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
   import { formatLength } from '$lib/viewer/state'
   import type { RendererProps, Segment, StreetConfig, StreetFeature } from '$lib/viewer/types'
 
@@ -10,6 +11,7 @@
   // at a spot along the street (features) and the stretches where the shape
   // changes (overrides, e.g. a curb extension).
   const { entry, units, annotations, cut, changes, descriptionId, label }: RendererProps = $props()
+  const uid = $props.id()
 
   let box: HTMLDivElement | undefined = $state()
   let w = $state(720)
@@ -152,6 +154,7 @@
       : 0
     const firstArrow = Math.max(30, (labelChars * font * 0.56 + 40) / scale)
     const arrowStep = Math.min(80, Math.max(30, length - firstArrow - 10))
+    const isBike = (t: Segment['type']) => t === 'bike-lane' || t === 'protected-bike-lane'
     const arrows = bands.filter(b => ARROWED.has(b.s.type)).flatMap((b) => {
       const out = []
       for (let ft = firstArrow; ft < length - 10; ft += arrowStep) {
@@ -159,7 +162,7 @@
         const bh = band.bottom - band.top
         if (bh < 6)
           continue
-        out.push({ x: X(ft), y: (band.top + band.bottom) / 2, size: Math.min(bh * 0.32, 9), dir: b.s.direction ?? 'outbound', key: `${b.s.id}-${ft}` })
+        out.push({ x: X(ft), y: (band.top + band.bottom) / 2, size: Math.min(bh * 0.32, 9), dir: b.s.direction ?? 'outbound', key: `${b.s.id}-${ft}`, bike: isBike(b.s.type), marking: markingOf(b.s), bh })
       }
       return out
     })
@@ -188,6 +191,52 @@
 
     const streetTop = y0
     const streetBottom = y0 + streetH
+
+    // Illustrated items and markings, drawn from above. The art runs along
+    // its y axis, so each piece is turned 90 degrees: the street runs left to
+    // right here. Arms and open sides reach toward the middle of the street.
+    const ids = makeIds(uid)
+    const stamps = makeStamps(ids)
+    const mid = (streetTop + streetBottom) / 2
+    const turn = (x: number, y: number, inner: string) => `<g transform="translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(90) scale(${scale.toFixed(3)})">${inner}</g>`
+    let art = ''
+    for (const it of items) {
+      if (it.type === 'barrier' && it.continuous) {
+        art += turn(x0 + (length * scale) / 2, it.y, barrierTop(length))
+        continue
+      }
+      // Toward the street's middle: art +x becomes plan +y after the turn.
+      const toward = it.y < mid ? 1 : -1
+      const strip = it.key.slice(0, it.key.lastIndexOf('-'))
+      art += turn(it.x, it.y, stamps.use(`${strip}|${toward}`, () => streetItemTop(ids, it.type, seedOf(strip), toward)))
+    }
+    // Bike lanes: the bike lane symbol with its arrow ahead (art "toward the
+    // reader" becomes leftward here, which is the inbound direction).
+    // A shared travel lane gets a sharrow where its arrow would be.
+    for (const a of arrows.filter(a => a.dir === 'both' && a.marking === 'sharrow')) {
+      // Two-way shared lane: one sharrow each way, inbound in the upper half.
+      const q = a.bh / 4
+      art += turn(a.x, a.y - q, sharrow(true)) + turn(a.x, a.y + q, sharrow(false))
+    }
+    for (const a of arrows.filter(a => a.dir !== 'both' && (a.bike || a.marking === 'sharrow'))) {
+      const toward = a.dir === 'inbound'
+      const ahead = (toward ? -1 : 1) * 3.2 * scale
+      if (a.marking === 'sharrow')
+        art += turn(a.x, a.y, sharrow(toward))
+      else if (a.marking === 'bike-symbol')
+        art += turn(a.x - ahead * 0.8, a.y, bikeLaneSymbol(toward)) + turn(a.x + ahead, a.y, laneArrow(4.2, toward))
+    }
+    art = stamps.defs() + art
+    // Sidewalk score joints every 5 ft.
+    const joints = bands.filter(b => b.s.type === 'sidewalk').flatMap((b) => {
+      const out = []
+      for (let ft = 5; ft < length; ft += 5) {
+        const band = bandAt(b.i, ft)
+        if (band.bottom - band.top > 1)
+          out.push({ key: `${b.s.id}-${ft}`, d: `M ${X(ft)} ${band.top} V ${band.bottom}` })
+      }
+      return out
+    })
     const feats = (config.features ?? []).map((f) => {
       const [a, b] = spanOf(config, f)
       const top = bandAt(a, f.at).top
@@ -214,7 +263,7 @@
     const steps = units === 'm' ? [2 / 0.3048, 5 / 0.3048, 10 / 0.3048, 20 / 0.3048, 50 / 0.3048] : [5, 10, 20, 50, 100]
     const barFt = steps.find(s => s >= target * 0.6) ?? steps[steps.length - 1]
 
-    return { m, font, scale, length, X, x0, markRows, markBadges, bands, markings, arrows, items, feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt }
+    return { m, font, scale, length, X, x0, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' || !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
   })
 
   function defaultLength(f: StreetFeature): number {
@@ -247,13 +296,17 @@
 
       <g clip-path="url(#pvx-street-{entry.id})">
         {#each P.bands as b (b.s.id)}
-          <polygon class="s-{b.s.type}" points={b.points} />
+          <polygon class="s-{b.s.type}{b.s.surface && b.s.type !== 'furnishing' && b.s.type !== 'median' ? ` sf-${b.s.surface}` : ''}" points={b.points} />
           {#if b.s.type === 'buffer' && !(b.s.items ?? []).some(i => i.type === 'barrier')}
             {#each Array.from({ length: Math.ceil(P.length / 8) }) as _, k (k)}
               {@const xx = P.X(k * 8)}
               <path class="hatch" d="M {xx} {b.base.bottom} L {xx + (b.base.bottom - b.base.top)} {b.base.top}" />
             {/each}
           {/if}
+        {/each}
+
+        {#each P.joints as j (j.key)}
+          <path class="s-joint" d={j.d} />
         {/each}
 
         {#each P.markings as mk, k (k)}
@@ -306,25 +359,8 @@
           {/if}
         {/each}
 
-        {#each P.items as it (it.key)}
-          {#if it.type === 'tree'}
-            <circle class="g-canopy" cx={it.x} cy={it.y} r={Math.max(3, 9 * P.scale)} />
-            <circle class="g-solid" cx={it.x} cy={it.y} r={Math.max(1, 0.4 * P.scale)} />
-          {:else if it.type === 'street-light'}
-            <circle class="g" cx={it.x} cy={it.y} r={Math.max(2, 0.7 * P.scale)} />
-          {:else if it.type === 'barrier'}
-            {#if it.continuous}
-              <rect class="g" x={P.x0} y={it.y - Math.max(1, 0.5 * P.scale)} width={P.length * P.scale} height={Math.max(2, P.scale)} />
-            {:else}
-              <rect class="g" x={it.x - 3 * P.scale} y={it.y - Math.max(1, 0.5 * P.scale)} width={6 * P.scale} height={Math.max(2, P.scale)} />
-            {/if}
-          {:else if it.type === 'bench' || it.type === 'transit-shelter' || it.type === 'planter'}
-            {@const dims = it.type === 'bench' ? [5, 1.5] : it.type === 'planter' ? [3, 3] : [12, 5]}
-            <rect class="g" x={it.x - (dims[0] * P.scale) / 2} y={it.y - (dims[1] * P.scale) / 2} width={dims[0] * P.scale} height={dims[1] * P.scale} />
-          {:else}
-            <circle class="g" cx={it.x} cy={it.y} r={Math.max(1.5, 0.5 * P.scale)} />
-          {/if}
-        {/each}
+        <!-- Street items and bike lane markings, illustrated from above (kept in Simplified view: this is already a plan) -->
+        <g class="art art--slice" aria-hidden="true">{@html P.art}</g>
       </g>
 
       <path class="edge" d="M {P.x0} {P.streetTop} H {P.x0 + P.length * P.scale} M {P.x0} {P.streetBottom} H {P.x0 + P.length * P.scale}" />

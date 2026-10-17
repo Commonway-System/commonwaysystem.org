@@ -108,6 +108,29 @@ export interface SegmentItem {
   label?: string
 }
 
+/**
+ * What a strip's surface is painted or paved with. Defaults by type (see
+ * surfaceOf in geometry.ts): bike lanes green, as NACTO recommends; transit
+ * lanes red; walks concrete; everything else asphalt. Set it to say
+ * otherwise, e.g. 'asphalt' for a bike lane left unpainted.
+ */
+export type Surface = 'asphalt' | 'green' | 'red' | 'concrete' | 'pavers'
+
+/**
+ * The pavement marking drawn in a lane in the top-down views. Defaults by
+ * type (markingOf in geometry.ts): bike lanes get the bike lane symbol with
+ * an arrow; nothing else is marked. 'sharrow' is the shared lane marking for
+ * a travel lane bicycles share with cars (a bicycle boulevard).
+ */
+export type Marking = 'bike-symbol' | 'sharrow' | 'none'
+
+/**
+ * The people drawn on a sidewalk. Normally chosen for you (seeded, and one
+ * wheelchair user per drawing); list them only where who's there is the
+ * point: children for a School Street, a crowd for a Festival Street.
+ */
+export type PersonVariant = 'walker' | 'walker-dress' | 'adult-child' | 'wheelchair' | 'cane' | 'stroller' | 'dog-walker' | 'runner'
+
 export interface Segment {
   /** Stable within a pattern's data file: the "what changed" comparison matches segments by id. */
   id: string
@@ -123,6 +146,12 @@ export interface Segment {
   elementId?: ElementId
   /** Citation numbers from the page's own References list. */
   cite?: number[]
+  /** Paint or paving; defaults by type. */
+  surface?: Surface
+  /** Pavement marking in the top-down views; defaults by type. */
+  marking?: Marking
+  /** Sidewalks: the people drawn, in order across the strip (only as many as fit). */
+  people?: PersonVariant[]
 }
 
 // ---------------------------------------------------------------------------
@@ -185,9 +214,19 @@ export interface CutSection {
   at: number
 }
 
+/**
+ * What lies past the property line on each side, drawn as context only (the
+ * description carries the meaning): lawns and shrubs, buildings up to the
+ * line (storefronts, awnings, upper floors), a parking lot edge, or open
+ * rural land.
+ */
+export type FrontageType = 'lawn' | 'buildings' | 'parking-lot' | 'field'
+
 export interface StreetConfig {
   kind: 'street'
   segments: Segment[]
+  /** Past the property lines; lawn on both sides if omitted. */
+  frontage?: { left?: FrontageType, right?: FrontageType }
   features?: StreetFeature[]
   overrides?: ShapeOverride[]
   /** Length shown in plan views, feet (renderer default if omitted). */
@@ -316,6 +355,8 @@ export interface Annotations {
   dimensions: boolean
   /** Highlight what differs from `changedFrom` (amber, plus numbered callouts). */
   changes: boolean
+  /** Cross-section only: the aligned top-down slice under the section. */
+  slice: boolean
 }
 
 /** One numbered "what changed" callout (built by diffStreets in geometry.ts). */

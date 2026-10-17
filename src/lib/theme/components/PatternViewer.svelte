@@ -111,7 +111,7 @@
   let chosenFacets = $state<Record<string, string>>({})
   const facetValues = $derived({ ...facetDefaults(data?.facets), ...chosenFacets })
 
-  let annotations = $state<Annotations>({ labels: true, dimensions: true, changes: true })
+  let annotations = $state<Annotations>({ labels: true, dimensions: true, changes: true, slice: true })
 
   const labelFor = (id: ConfigId) => (data ? resolveEntry(data, id, facetValues)?.label : undefined) ?? CONFIG_LABELS[id]
 
@@ -355,6 +355,7 @@
     <div
       class="pv__stage"
       class:pv__stage--compare={panes.length > 1}
+      class:pv__stage--natural={view.kind === 'cross-section' && !expanded}
       id={panelId}
       role={views.length > 1 ? 'tabpanel' : undefined}
       aria-labelledby={views.length > 1 ? `${uid}-tab-${view.id}` : undefined}
@@ -386,6 +387,7 @@
             {retrofit}
             {cuts}
             {cut}
+            sliceOption={view.kind === 'cross-section'}
             oncut={(id) => { chosenCut = id }}
           />
         </div>
@@ -557,6 +559,17 @@
      each keeps a full square (PatternViewerStage sizes the panes). */
   @container pv (max-width: 559px) {
     .pv__stage--compare {
+      aspect-ratio: auto;
+    }
+  }
+
+  /* The cross-section sets its own height from its width (sky, rows, slice). */
+  .pv__stage.pv__stage--natural {
+    aspect-ratio: auto;
+  }
+
+  @container pv (min-width: 560px) {
+    .pv__stage.pv__stage--natural {
       aspect-ratio: auto;
     }
   }

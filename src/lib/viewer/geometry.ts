@@ -3,7 +3,7 @@
 // "what changed" comparison. Pure functions, no DOM, so they run during
 // prerendering too.
 import { formatLength } from './state.js'
-import type { Change, ConfigEntry, FeatureType, ItemType, Segment, SegmentType, ShapeOverride, StreetConfig, Units } from './types.js'
+import type { Change, ConfigEntry, FeatureType, ItemType, Marking, Segment, SegmentType, ShapeOverride, StreetConfig, Surface, Units } from './types.js'
 
 export const SEGMENT_LABELS: Record<SegmentType, string> = {
   'sidewalk': 'Sidewalk',
@@ -57,6 +57,29 @@ export const OVERRIDE_LABELS: Record<ShapeOverride['type'], string> = {
   'median-break': 'Median break',
   'median-start': 'Median',
 }
+
+/** A strip's surface: its own `surface`, or the default for its type. */
+export function surfaceOf(s: Segment): Surface {
+  if (s.surface)
+    return s.surface
+  if (s.type === 'bike-lane' || s.type === 'protected-bike-lane')
+    return 'green'
+  if (s.type === 'transit-lane')
+    return 'red'
+  if (s.type === 'sidewalk' || s.type === 'curb')
+    return 'concrete'
+  return 'asphalt'
+}
+
+/** A strip's pavement marking: its own `marking`, or the default for its type. */
+export function markingOf(s: Segment): Marking {
+  if (s.marking)
+    return s.marking
+  return s.type === 'bike-lane' || s.type === 'protected-bike-lane' ? 'bike-symbol' : 'none'
+}
+
+const SURFACE_WORDS: Record<Surface, string> = { asphalt: 'plain asphalt', green: 'green paint', red: 'red paint', concrete: 'concrete', pavers: 'pavers' }
+const MARKING_WORDS: Record<Marking, string> = { 'bike-symbol': 'bike lane markings', 'sharrow': 'shared lane markings', 'none': 'no markings' }
 
 export function segmentLabel(s: Segment): string {
   return s.label ?? SEGMENT_LABELS[s.type]
@@ -144,6 +167,11 @@ export function diffStreets(current: StreetConfig, previous: StreetConfig, units
       parts.push(`${len(old.width)} to ${len(seg.width)}`)
     if ((old.variant ?? '') !== (seg.variant ?? '') && seg.variant)
       parts.push(`now ${seg.variant.replace(/-/g, ' ')}`)
+    // Paint and markings, compared as drawn (a type change already says enough).
+    if (old.type === seg.type && surfaceOf(old) !== surfaceOf(seg))
+      parts.push(`now ${SURFACE_WORDS[surfaceOf(seg)]}`)
+    if (old.type === seg.type && markingOf(old) !== markingOf(seg))
+      parts.push(markingOf(seg) === 'none' ? 'markings removed' : `adds ${MARKING_WORDS[markingOf(seg)]}`)
     const added = itemTypes(seg).filter(t => !itemTypes(old).includes(t))
     const removed = itemTypes(old).filter(t => !itemTypes(seg).includes(t))
     if (added.length)

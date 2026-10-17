@@ -77,7 +77,7 @@
   }
 </script>
 
-<div class="pvs" class:pvs--compare={panes.length > 1} class:pvs--expanded={expanded}>
+<div class="pvs" class:pvs--compare={panes.length > 1} class:pvs--expanded={expanded} class:pvs--natural={view.kind === 'cross-section' && !expanded}>
   {#if view.kind === 'image' && imageSrc}
     <figure class="pvs__pane pvs__pane--image">
       <img
@@ -164,7 +164,7 @@
       flex: 0 0 auto;
     }
 
-    .pvs--compare:not(.pvs--expanded) .pvs__draw {
+    .pvs--compare:not(.pvs--expanded):not(.pvs--natural) .pvs__draw {
       aspect-ratio: 1 / 1;
     }
   }

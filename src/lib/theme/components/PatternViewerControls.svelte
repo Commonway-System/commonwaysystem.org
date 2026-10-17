@@ -32,6 +32,8 @@
     cuts?: { id: string, label: string }[]
     cut?: string
     oncut?: (id: string) => void
+    /** Offer the top-down slice toggle (cross-section view). */
+    sliceOption?: boolean
   }
 
   const {
@@ -56,6 +58,7 @@
     cuts = [],
     cut,
     oncut,
+    sliceOption = false,
   }: Props = $props()
 
   const all = $derived([...ladder, ...references])
@@ -146,6 +149,12 @@
       <input type="checkbox" checked={annotations.dimensions} onchange={e => onannotation('dimensions', e.currentTarget.checked)} />
       <span>Dimensions</span>
     </label>
+    {#if sliceOption}
+      <label class="pvc__check">
+        <input type="checkbox" checked={annotations.slice} onchange={e => onannotation('slice', e.currentTarget.checked)} />
+        <span>Top-down slice</span>
+      </label>
+    {/if}
     {#if ladder.length > 1}
       <label class="pvc__check">
         <input type="checkbox" checked={annotations.changes} onchange={e => onannotation('changes', e.currentTarget.checked)} />

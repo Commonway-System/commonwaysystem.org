@@ -7,20 +7,7 @@
    pattern-illustration highlighting. */
 
 .pvx {
-  --pvx-road: #7a7a78;
-  --pvx-parking: #8f8e8a;
-  --pvx-sidewalk: #d8d2c4;
-  --pvx-furnishing: #a9bf8e;
-  --pvx-curb: #b3ad9f;
-  --pvx-bike: #5f9a63;
-  --pvx-buffer: #9c9b96;
-  --pvx-transit: #b0573f;
-  --pvx-median: #a9bf8e;
-  --pvx-shoulder: #9b9a95;
   --pvx-edge: rgba(20, 20, 20, 0.35);
-  --pvx-white: #ffffff;
-  --pvx-yellow: #f2c230;
-  --pvx-canopy: #6f9a52;
   --pvx-glyph-stroke: var(--cw-ink-soft);
   --pvx-glyph-fill: var(--cw-paper-raised);
   --pvx-text: var(--cw-ink);
@@ -28,29 +15,140 @@
   --pvx-highlight: var(--cw-amber);
   --pvx-highlight-fill: rgba(255, 159, 28, 0.16);
   --pvx-badge-text: var(--cw-ink-fixed);
+
+  /* Illustrated art (src/lib/viewer/art/): sky, ground cut, materials,
+     plants, buildings, paint, and the top-down slice. Approved from the
+     2026.10.17 mockup. Meaning never rests on these colors alone: strips are
+     labeled, and the zone band carries text. */
+  --pvx-sky-top: #e3eeec;
+  --pvx-sky-bottom: #f7f5ee;
+  --pvx-cloud: #ffffff;
+  --pvx-cloud-a: 0.75;
+  --pvx-soil: #b89c79;
+  --pvx-soil-dot: #9f835f;
+  --pvx-root: #8e7354;
+  --pvx-gravel: #c9c2b4;
+  --pvx-gravel-dot: #a49c8c;
+  --pvx-concrete: #dedad1;
+  --pvx-concrete-shade: #c3beb2;
+  --pvx-asphalt: #4f5052;
+  --pvx-base: #9b968b;
+  --pvx-grass: #86ad5e;
+  --pvx-grass-dk: #6c9447;
+  --pvx-mulch: #7a5b3e;
+  --pvx-canopy-dk: #3f6d30;
+  --pvx-canopy-md: #5f9140;
+  --pvx-canopy-lt: #9cc463;
+  --pvx-trunk: #6a4f3d;
+  --pvx-pole: #6e7378;
+  --pvx-glass: #3b4853;
+  --pvx-shadow: rgba(0, 0, 0, 0.16);
+  --pvx-shadow-a: 0.2;
+  --pvx-cut-line: rgba(20, 20, 20, 0.45);
+  --pvx-guide: rgba(20, 20, 20, 0.22);
+  --pvx-paint-green: #4f9a55;
+  --pvx-paint-red: #b0573f;
+  --pvx-pavers: #b98c6e;
+  --pvx-bldg-a: #c58a6a;
+  --pvx-bldg-b: #d8ccb4;
+  --pvx-bldg-trim: #efe7d6;
+  --pvx-window: #8fa6b3;
+  --pvx-window-lit: #8fa6b3;
+  --pvx-roof: #bab5ab;
+  --pvx-roof-dk: #a29d92;
+  --pvx-awning: #2f6f6a;
+  --pvx-p-asphalt: #6f7073;
+  --pvx-p-concrete: #e6e2d9;
+  --pvx-p-concrete-2: #dcd7cc;
+  --pvx-p-joint: rgba(0, 0, 0, 0.13);
+  --pvx-p-grass: #9cbf70;
+  --pvx-p-grass-dk: #7fa656;
+  --pvx-p-grass-lt: #b7d38c;
+  --pvx-p-curb: #f1eee7;
+  --pvx-p-green: #4f9650;
+  --pvx-p-red: #b0573f;
+  --pvx-p-pavers: #c99d7e;
+  --pvx-p-white: #fbfbf8;
+  --pvx-p-yellow: #f0c02e;
+  /* Zone band: dark text on light fills here, light text on dark fills in
+     dark mode; every pair clears 4.5:1. */
+  --pvx-z-ped: #f4b97a;
+  --pvx-z-bike: #93cf7f;
+  --pvx-z-transit: #8fb3e0;
+  --pvx-z-car: #ec6a5c;
+  --pvx-z-text: #141414;
+  --pvx-z-sep: #ebe6da;
+  --pvx-art-filter: none;
 }
 
 [data-theme='dark'] .pvx {
-  --pvx-road: #3f3f3d;
-  --pvx-parking: #4c4b48;
-  --pvx-sidewalk: #6b665c;
-  --pvx-furnishing: #4e6440;
-  --pvx-curb: #5b574f;
-  --pvx-bike: #3f6e43;
-  --pvx-buffer: #575652;
-  --pvx-transit: #7d3a29;
-  --pvx-median: #4e6440;
-  --pvx-shoulder: #4a4a47;
   --pvx-edge: rgba(255, 255, 255, 0.3);
-  --pvx-white: #e8e8e8;
-  --pvx-yellow: #d9a821;
-  --pvx-canopy: #5b8044;
   --pvx-highlight-fill: rgba(255, 159, 28, 0.2);
+
+  --pvx-sky-top: #16222a;
+  --pvx-sky-bottom: #24313a;
+  --pvx-cloud: #3a4a55;
+  --pvx-cloud-a: 0.55;
+  --pvx-soil: #5a4734;
+  --pvx-soil-dot: #6d5841;
+  --pvx-root: #4a3a2a;
+  --pvx-gravel: #5d5a53;
+  --pvx-gravel-dot: #77736a;
+  --pvx-concrete: #8f8b83;
+  --pvx-concrete-shade: #75716a;
+  --pvx-asphalt: #2c2d2e;
+  --pvx-base: #55524c;
+  --pvx-grass: #4d6e3c;
+  --pvx-grass-dk: #3e5c30;
+  --pvx-mulch: #4a3828;
+  --pvx-canopy-dk: #2a4a22;
+  --pvx-canopy-md: #3f6a30;
+  --pvx-canopy-lt: #6c9447;
+  --pvx-trunk: #4f3b2e;
+  --pvx-pole: #8a8f94;
+  --pvx-glass: #26303a;
+  --pvx-shadow: rgba(0, 0, 0, 0.38);
+  --pvx-shadow-a: 0.45;
+  --pvx-cut-line: rgba(255, 255, 255, 0.35);
+  --pvx-guide: rgba(255, 255, 255, 0.2);
+  --pvx-paint-green: #2f6236;
+  --pvx-paint-red: #7d3a29;
+  --pvx-pavers: #6b4f3d;
+  --pvx-bldg-a: #6b4636;
+  --pvx-bldg-b: #625b4f;
+  --pvx-bldg-trim: #857d6f;
+  --pvx-window: #2c3840;
+  --pvx-window-lit: #c9a85a;
+  --pvx-roof: #4a4843;
+  --pvx-roof-dk: #3d3b37;
+  --pvx-awning: #24524e;
+  --pvx-p-asphalt: #3b3c3e;
+  --pvx-p-concrete: #8c8981;
+  --pvx-p-concrete-2: #827f77;
+  --pvx-p-joint: rgba(0, 0, 0, 0.25);
+  --pvx-p-grass: #4e6c3d;
+  --pvx-p-grass-dk: #3f5a31;
+  --pvx-p-grass-lt: #5f7f4b;
+  --pvx-p-curb: #a3a098;
+  --pvx-p-green: #2f5a33;
+  --pvx-p-red: #6e3324;
+  --pvx-p-pavers: #73574a;
+  --pvx-p-white: #dcdcd8;
+  --pvx-p-yellow: #c9a02a;
+  --pvx-z-ped: #8a5a2b;
+  --pvx-z-bike: #3f7a3a;
+  --pvx-z-transit: #2f5a8a;
+  --pvx-z-car: #a8392e;
+  --pvx-z-text: #fdfaf3;
+  --pvx-z-sep: #3a3936;
+  --pvx-art-filter: brightness(0.82) saturate(0.9);
 }
 
 html[data-contrast='high'] .pvx {
   --pvx-edge: var(--cw-ink);
   --pvx-glyph-stroke: var(--cw-ink);
+  --pvx-cut-line: var(--cw-ink);
+  --pvx-guide: var(--cw-ink-soft);
 }
 
 .pvx {
@@ -58,6 +156,8 @@ html[data-contrast='high'] .pvx {
   width: 100%;
   height: 100%;
   min-height: 0;
+  overflow: hidden;
+  border-radius: var(--cw-radius-md);
 }
 
 .pvx svg {
@@ -68,31 +168,39 @@ html[data-contrast='high'] .pvx {
   font-family: var(--cw-font-body);
 }
 
-.pvx .s-sidewalk { fill: var(--pvx-sidewalk); }
-.pvx .s-furnishing { fill: var(--pvx-furnishing); }
-.pvx .s-curb { fill: var(--pvx-curb); }
-.pvx .s-parking { fill: var(--pvx-parking); }
+/* Strip surfaces in the Top down view: the same paint as the slice under
+   the cross-section (green bike lanes, red transit lanes, planted strips). */
+.pvx .s-sidewalk { fill: var(--pvx-p-concrete); }
+.pvx .s-furnishing { fill: var(--pvx-p-grass); }
+.pvx .s-curb { fill: var(--pvx-p-curb); }
+.pvx .s-parking { fill: var(--pvx-p-asphalt); }
 .pvx .s-bike-lane,
-.pvx .s-protected-bike-lane { fill: var(--pvx-bike); }
-.pvx .s-buffer { fill: var(--pvx-buffer); }
+.pvx .s-protected-bike-lane { fill: var(--pvx-p-green); }
+.pvx .s-buffer { fill: var(--pvx-p-asphalt); }
 .pvx .s-travel-lane,
-.pvx .s-turn-lane { fill: var(--pvx-road); }
-.pvx .s-transit-lane { fill: var(--pvx-transit); }
-.pvx .s-median { fill: var(--pvx-median); }
-.pvx .s-shoulder { fill: var(--pvx-shoulder); }
+.pvx .s-turn-lane { fill: var(--pvx-p-asphalt); }
+.pvx .s-transit-lane { fill: var(--pvx-p-red); }
+.pvx .s-median { fill: var(--pvx-p-grass); }
+.pvx .s-shoulder { fill: var(--pvx-p-asphalt); }
+.pvx .sf-asphalt { fill: var(--pvx-p-asphalt); }
+.pvx .sf-green { fill: var(--pvx-p-green); }
+.pvx .sf-red { fill: var(--pvx-p-red); }
+.pvx .sf-concrete { fill: var(--pvx-p-concrete); }
+.pvx .sf-pavers { fill: var(--pvx-p-pavers); }
+.pvx .s-joint { stroke: var(--pvx-p-joint); stroke-width: 1; fill: none; }
 
 .pvx .edge { stroke: var(--pvx-edge); stroke-width: 1; fill: none; }
 .pvx .curb-line { stroke: var(--pvx-glyph-stroke); stroke-width: 2; fill: none; }
-.pvx .mk-white { stroke: var(--pvx-white); fill: none; }
-.pvx .mk-yellow { stroke: var(--pvx-yellow); fill: none; }
-.pvx .mk-fill-white { fill: var(--pvx-white); }
-.pvx .hatch { stroke: var(--pvx-white); stroke-width: 1.5; opacity: 0.7; }
+.pvx .mk-white { stroke: var(--pvx-p-white); fill: none; }
+.pvx .mk-yellow { stroke: var(--pvx-p-yellow); fill: none; }
+.pvx .mk-fill-white { fill: var(--pvx-p-white); }
+.pvx .hatch { stroke: var(--pvx-p-white); stroke-width: 1.5; opacity: 0.7; }
 
 .pvx .g { stroke: var(--pvx-glyph-stroke); fill: var(--pvx-glyph-fill); stroke-width: 1.25; stroke-linejoin: round; stroke-linecap: round; }
 .pvx .g-line { stroke: var(--pvx-glyph-stroke); fill: none; stroke-width: 1.25; stroke-linecap: round; }
 .pvx .g-solid { fill: var(--pvx-glyph-stroke); stroke: none; }
-.pvx .g-canopy { fill: var(--pvx-canopy); fill-opacity: 0.7; stroke: var(--pvx-glyph-stroke); stroke-width: 1; }
-.pvx .g-arrow { fill: var(--pvx-white); opacity: 0.85; }
+.pvx .g-canopy { fill: var(--pvx-canopy-md); fill-opacity: 0.7; stroke: var(--pvx-glyph-stroke); stroke-width: 1; }
+.pvx .g-arrow { fill: var(--pvx-p-white); opacity: 0.9; }
 
 .pvx .g,
 .pvx .g-line,
@@ -102,11 +210,39 @@ html[data-contrast='high'] .pvx {
   vector-effect: non-scaling-stroke;
 }
 
+/* Illustrated people, vehicles and plants: muted a little in dark mode so
+   they sit in the dusk palette instead of glowing. */
+.pvx .art { filter: var(--pvx-art-filter); }
+
+/* Simplified view: the plain outline symbols replace the illustrations, and
+   the clouds go. The plain layer is in the markup either way, so switching
+   the setting needs no re-render. */
+.pvx .art-plain { display: none; }
+html[data-view='simple'] .pvx .art,
+html[data-view='simple'] .pvx .pvx-cloud { display: none; }
+html[data-view='simple'] .pvx .art-plain,
+html[data-view='simple'] .pvx .art--slice { display: inline; }
+
 .pvx .t { fill: var(--pvx-text); }
 .pvx .t-soft { fill: var(--cw-ink-soft); }
 .pvx .t-bg { fill: var(--pvx-text-bg); opacity: 0.92; }
 .pvx .leader { stroke: var(--cw-ink-faint); stroke-width: 1; fill: none; }
 .pvx .dim { stroke: var(--cw-ink-soft); stroke-width: 1; fill: none; }
+.pvx .guide { stroke: var(--pvx-guide); stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+.pvx .dim--tick { stroke-width: 1.25; }
+.pvx .dim-arrow { fill: var(--cw-ink-soft); }
+.pvx .t--label { font-weight: 600; }
+.pvx .t--num { font-weight: 700; }
+
+/* Zone band: who each strip is for. The text is the signal; the fill helps. */
+.pvx .zone--ped { fill: var(--pvx-z-ped); }
+.pvx .zone--bike { fill: var(--pvx-z-bike); }
+.pvx .zone--transit { fill: var(--pvx-z-transit); }
+.pvx .zone--car { fill: var(--pvx-z-car); }
+.pvx .zone--sep { fill: var(--pvx-z-sep); }
+.pvx .zt { fill: var(--pvx-z-text); }
+
+.pvx .propline { stroke: var(--pvx-cut-line); stroke-width: 1; stroke-dasharray: 8 3 2 3; fill: none; }
 .pvx .cutline { stroke: var(--cw-ink); stroke-width: 1.25; stroke-dasharray: 6 4; fill: none; }
 
 .pvx .hl { fill: var(--pvx-highlight-fill); stroke: var(--pvx-highlight); stroke-width: 2.5; }
@@ -120,10 +256,17 @@ html[data-contrast='high'] .pvx {
    the system's. Tie them to the system colors instead. */
 @media (forced-colors: active) {
   .pvx .t { fill: CanvasText; }
+  .pvx .t-soft,
+  .pvx .zt { fill: CanvasText; }
+  .pvx .dim-arrow { fill: CanvasText; }
+  /* Band fills would sit under system-colored text; outline them instead. */
+  .pvx .zone { fill: Canvas !important; stroke: CanvasText; stroke-width: 1; }
+  .pvx .guide { stroke: CanvasText; }
   .pvx .t-bg { fill: Canvas; opacity: 1; }
   .pvx .leader,
   .pvx .dim,
   .pvx .cutline,
+  .pvx .propline,
   .pvx .curb-line { stroke: CanvasText; }
   .pvx {
     --pvx-glyph-stroke: CanvasText;
