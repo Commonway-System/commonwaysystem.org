@@ -7,12 +7,14 @@ llms: "A small barrier, typically a short raised block or bumper, placed at the 
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Wheel Stop" classification="element" status="situational">
 A small barrier, typically a short raised block or bumper, placed at the end of a parking space to prevent a parked vehicle from overrunning a curb, sidewalk, or space limit.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

@@ -7,12 +7,14 @@ llms: "Installs a scattered set of point closures across a residential area, res
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Modal filtering / Low Traffic Neighborhood retrofit" scale="network">
 Installs a scattered set of point closures across a residential area, restricting motor vehicle through-traffic on interior streets while preserving full access for residents, deliveries, and emergency services, and full passage for pedestrians and bicyclists.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="network" retrofit />
 
 ## Overview
 

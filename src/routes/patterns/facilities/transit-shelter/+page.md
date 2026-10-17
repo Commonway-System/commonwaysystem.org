@@ -7,12 +7,14 @@ llms: "A small- or large-format weather shelter installed at a transit stop, pro
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Shelter" classification="facility" status="recommended">
 A small- or large-format weather shelter installed at a transit stop, protecting waiting passengers from sun, rain, and wind, ranging from a simple lean-to canopy to a fully enclosed structure with seating and lighting.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
 <RelatedMedia id={fm.patternId} />
 

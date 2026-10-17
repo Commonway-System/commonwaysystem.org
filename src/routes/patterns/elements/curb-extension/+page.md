@@ -7,12 +7,14 @@ llms: "A widened curb that narrows the roadway at a crossing or parking zone, ta
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Curb Extension" classification="element" status="recommended">
 A widened curb that narrows the roadway at a crossing or parking zone, taking gateway, pinchpoint, chicane, bus bulb, or conventional form depending on its purpose and location.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

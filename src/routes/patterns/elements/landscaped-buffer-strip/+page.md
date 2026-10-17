@@ -7,12 +7,14 @@ llms: "A planted zone running between the roadway and the sidewalk, providing se
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Landscaped Buffer Strip" classification="element" status="recommended">
 A planted zone running between the roadway and the sidewalk, providing separation, stormwater treatment opportunity, and space for street trees and other plantings, distinct from a hardscaped or paved separation.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

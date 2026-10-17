@@ -7,12 +7,14 @@ llms: "A protected median space within a roadway allowing a pedestrian to cross 
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pedestrian Safety Island / Refuge" classification="element" status="recommended">
 A protected median space within a roadway allowing a pedestrian to cross in two stages, stopping partway across to wait for a gap in the second direction of traffic rather than crossing the full width in one movement.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

@@ -7,12 +7,14 @@ llms: "Converts a one-way street back to two-way operation, typically reducing l
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="One-way to two-way conversion" scale="corridor">
 Converts a one-way street back to two-way operation, typically reducing lane width and count in the process.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
 ## Overview
 

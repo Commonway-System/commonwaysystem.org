@@ -7,12 +7,14 @@ llms: "A signal indication, typically a bicycle-shaped symbol in red, yellow, an
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bicycle Signal" classification="element" status="situational">
 A signal indication, typically a bicycle-shaped symbol in red, yellow, and green, giving cyclists their own dedicated phase or right-of-way instruction distinct from vehicle and pedestrian signals.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

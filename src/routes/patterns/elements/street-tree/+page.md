@@ -7,12 +7,14 @@ llms: "A tree planted along a street, typically within the sidewalk zone or a la
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Street Tree" classification="element" status="recommended">
 A tree planted along a street, typically within the sidewalk zone or a landscaped buffer, providing shade, stormwater interception, visual buffering from traffic, and streetscape character.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

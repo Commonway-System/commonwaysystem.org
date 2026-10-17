@@ -8,12 +8,14 @@ llms: A dead-end Local street typology, marked Situational, that peaks at Suburb
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Cul-de-sac" classification="local" status="situational">
 A dead-end Local street with no through connection for any mode.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 

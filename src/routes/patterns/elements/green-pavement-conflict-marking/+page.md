@@ -7,12 +7,14 @@ llms: "A colored pavement treatment, typically green, applied at a bike facility
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Green Pavement / Conflict Marking" classification="element" status="recommended">
 A colored pavement treatment, typically green, applied at a bike facility’s conflict point with a driveway, turn lane, or intersection, to increase driver awareness that a cyclist may be present or crossing through that space.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

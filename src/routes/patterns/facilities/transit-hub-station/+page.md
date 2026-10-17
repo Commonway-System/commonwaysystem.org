@@ -7,12 +7,14 @@ llms: "A compound facility where multiple transit patterns (platforms, shelters,
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Hub / Station" classification="facility" status="recommended">
 A compound facility where multiple transit patterns (platforms, shelters, wayfinding, sometimes multiple routes or modes) converge into a single coordinated site, documenting intermodal transfer and placemaking rather than a single boarding point.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
 <RelatedMedia id={fm.patternId} />
 

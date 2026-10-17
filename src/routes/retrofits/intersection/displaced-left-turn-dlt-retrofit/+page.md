@@ -7,12 +7,14 @@ llms: "Also known as a continuous flow intersection, shifts the left-turn lane t
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Displaced Left-Turn (DLT) retrofit" scale="intersection">
 Shifts the left-turn lane to the opposing side of oncoming traffic upstream of the main intersection, letting left-turning and opposing through traffic move simultaneously without a dedicated protected phase.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="intersections" retrofit />
 
 ## Overview
 

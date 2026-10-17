@@ -8,12 +8,14 @@ llms: A Local street typology built around retail frontage and pedestrian priori
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Main Street" classification="local" status="recommended">
 A Local street lined with retail and commercial frontage, where pedestrian movement and lingering are treated as primary and vehicle movement is subordinate.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 

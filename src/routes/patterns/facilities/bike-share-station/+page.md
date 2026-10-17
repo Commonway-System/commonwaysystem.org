@@ -7,12 +7,14 @@ llms: "A docking location for a shared-bike program, where users check out and r
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike-Share Station" classification="facility" status="situational">
 A docking location for a shared-bike program, where users check out and return bikes from a fixed station, either dock-based (physical docking points) or hybrid/dockless with a designated parking zone.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
 <RelatedMedia id={fm.patternId} />
 

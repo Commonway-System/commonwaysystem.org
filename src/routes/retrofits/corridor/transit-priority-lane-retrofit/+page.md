@@ -7,12 +7,14 @@ llms: "Converts an existing general travel lane or on-street parking lane into a
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Transit priority lane retrofit" scale="corridor">
 Converts an existing general travel lane or on-street parking lane into a lane dedicated to bus travel, curbside or center-running.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
 ## Overview
 

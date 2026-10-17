@@ -7,12 +7,14 @@ llms: "Reduces the through-lane count on a roadway of five or more lanes, applyi
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Five-plus lane reallocation" scale="corridor">
 Reduces the through-lane count on a roadway of five or more lanes, applying road diet principles at a larger scale than the standard four-to-three conversion.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
 ## Overview
 

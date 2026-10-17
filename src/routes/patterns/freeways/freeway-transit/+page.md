@@ -7,12 +7,14 @@ llms: A Freeway-scale transit typology, commuter or heavy rail, the one Freeway-
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Freeway-scale Transit (Commuter / Heavy Rail)" classification="freeway" status="recommended">
 Grade-separated commuter or heavy rail, moving passenger volume at Freeway scale without the limited-access roadway itself.<Citation index={1} />
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="freeway" />
 
 <RelatedMedia id={fm.patternId} />
 

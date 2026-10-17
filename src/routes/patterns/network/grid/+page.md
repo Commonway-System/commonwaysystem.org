@@ -8,12 +8,14 @@ llms: "A network topology in which streets form a continuous, evenly spaced patt
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Grid" classification="network" status="recommended">
 A network topology in which streets form a continuous, evenly spaced pattern of parallel and perpendicular routes intersecting at right angles, producing rectangular blocks and multiple direct route options between any two points.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="network" />
 
 <RelatedMedia id={fm.patternId} />
 

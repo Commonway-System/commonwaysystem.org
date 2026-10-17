@@ -8,12 +8,14 @@ llms: "A network topology in which routes converge toward and radiate outward fr
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Radial" classification="network" status="situational">
 A network topology in which routes converge toward and radiate outward from a central point, frequently supplemented by circumferential (ring) routes connecting the radial spokes at varying distances from the center.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="network" />
 
 <RelatedMedia id={fm.patternId} />
 

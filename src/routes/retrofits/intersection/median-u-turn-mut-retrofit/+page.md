@@ -7,12 +7,14 @@ llms: "Also known as a Michigan U-turn, reroutes left-turn and through movements
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Median U-Turn (MUT) retrofit" scale="intersection">
 Reroutes left-turn and through movements from a minor approach away from the main intersection, requiring drivers to turn right first, then complete a U-turn at a median opening downstream.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="intersections" retrofit />
 
 ## Overview
 

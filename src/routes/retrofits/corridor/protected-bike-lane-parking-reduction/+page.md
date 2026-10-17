@@ -7,12 +7,14 @@ llms: "Installs a physically separated bike lane by removing or reconfiguring on
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Protected bike lane retrofit via parking reduction" scale="corridor">
 Installs a physically separated bike lane by removing or reconfiguring on-street parking, often placing the bike lane where parking used to be and shifting parking, if retained, to the outside of a physical buffer.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
 ## Overview
 

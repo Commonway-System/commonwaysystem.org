@@ -7,12 +7,14 @@ llms: "Replaces an existing signalized intersection with a roundabout, removing 
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Signal-to-roundabout conversion" scale="intersection">
 Replaces an existing signalized intersection with a roundabout, removing signal equipment and phasing entirely in favor of continuous yield-controlled circulation.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="intersections" retrofit />
 
 ## Overview
 

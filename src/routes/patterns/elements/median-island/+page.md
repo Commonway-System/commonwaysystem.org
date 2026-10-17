@@ -7,12 +7,14 @@ llms: "A raised or landscaped island placed along the center of a roadway to nar
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Median Island" classification="element" status="recommended">
 A raised or landscaped island placed along the center of a roadway to narrow the effective travel width and separate opposing traffic, without a pedestrian crossing function.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

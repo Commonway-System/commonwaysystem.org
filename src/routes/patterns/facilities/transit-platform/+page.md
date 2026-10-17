@@ -7,12 +7,14 @@ llms: "The boarding surface at a transit stop where passengers board and alight,
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Platform" classification="facility" status="recommended">
 The boarding surface at a transit stop where passengers board and alight, varying by platform height (level or low), length (accommodating one or multiple vehicles), and configuration (island platform serving two directions, or side platforms serving one direction each).
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
 <RelatedMedia id={fm.patternId} />
 

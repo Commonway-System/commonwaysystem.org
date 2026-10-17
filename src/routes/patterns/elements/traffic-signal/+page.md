@@ -7,12 +7,14 @@ llms: "A signal-controlled device using red, yellow, and green indications to as
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Traffic Signal" classification="element" status="situational">
 A signal-controlled device using red, yellow, and green indications to assign right-of-way among conflicting vehicle movements at an intersection.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

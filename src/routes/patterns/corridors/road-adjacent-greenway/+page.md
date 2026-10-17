@@ -8,12 +8,14 @@ llms: "A corridor where a multi-use trail or linear park runs parallel to, but p
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Road-Adjacent Greenway" classification="corridor" status="recommended">
 A corridor where a multi-use trail or linear park runs parallel to, but physically separated from, a road for some or all of its length, without an active rail line involved, addressing connection points and crossing treatment between the two.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" />
 
 <RelatedMedia id={fm.patternId} />
 

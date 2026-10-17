@@ -7,12 +7,14 @@ llms: "Narrows existing travel lane widths, typically to 10-10.5 feet, without r
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Lane diet" scale="corridor">
 Narrows existing travel lane widths without removing a lane, reclaiming the width difference for a bike lane, wider sidewalk, or buffer.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
 ## Overview
 

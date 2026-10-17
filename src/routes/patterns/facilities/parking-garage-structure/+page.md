@@ -7,12 +7,14 @@ llms: "A multi-level parking structure, above-grade or underground, using ramp o
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Parking Garage / Structure" classification="facility" status="situational">
 A multi-level parking structure, above-grade or underground, using ramp or helix circulation to move vehicles between levels.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
 <RelatedMedia id={fm.patternId} />
 

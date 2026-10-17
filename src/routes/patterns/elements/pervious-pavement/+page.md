@@ -7,12 +7,14 @@ llms: "A load-bearing paving surface (permeable concrete, porous asphalt, or per
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pervious Pavement" classification="element" status="situational">
 A load-bearing paving surface (permeable concrete, porous asphalt, or permeable interlocking pavers) engineered to allow stormwater to infiltrate directly through the pavement surface into a stone reservoir base below, rather than running off.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

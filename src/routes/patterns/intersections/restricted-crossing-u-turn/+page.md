@@ -7,12 +7,14 @@ llms: "An at-grade intersection design, also known as a J-turn or superstreet, t
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Restricted Crossing U-Turn (RCUT)" classification="intersections" status="situational">
 An at-grade intersection design in which minor-road through and left-turn movements are removed entirely and redirected via a right turn followed by a U-turn at a designated median crossover. Also known as a J-turn or superstreet.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 

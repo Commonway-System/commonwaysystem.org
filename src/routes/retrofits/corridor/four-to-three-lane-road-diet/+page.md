@@ -7,12 +7,15 @@ llms: "Converts a four-lane undivided roadway into three lanes, one through lane
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import viewerData from '$lib/data/street-configs/rft-cdr-01'
+  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard, PatternViewer } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Four-to-three lane road diet" scale="corridor">
 Converts an existing four-lane undivided roadway (two through lanes each direction) into three lanes: one through lane each direction plus a center two-way left-turn lane, reclaiming the freed width for other uses.
 </RetrofitCard>
+
+<PatternViewer data={viewerData} image={fm.image} title={fm.title} classification="corridor" retrofit />
 
 ## Overview
 
@@ -51,3 +54,4 @@ Usually a city or county public works or transportation department decision, oft
 1. <span id="ref-1"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, "Road Diets (Roadway Reconfiguration)," Proven Safety Countermeasures, FHWA-SA-12-013.](https://highways.dot.gov/safety/proven-safety-countermeasures/road-diets-roadway-reconfiguration)
 2. <span id="ref-2"></span><EvidenceChip tier="evidence" /> [Federal Highway Administration, Highway Safety Information System, "Evaluation of Lane Reduction 'Road Diet' Measures and Their Effects on Crashes and Injuries," 2010.](https://highways.dot.gov/research/publications/safety/hsis/FHWA-HRT-10-053)
 3. <span id="ref-3"></span><EvidenceChip tier="precedent" /> [NACTO Urban Street Design Guide, "Neighborhood Main Street."](https://nacto.org/publication/urban-street-design-guide/streets/neighborhood-main-street/)
+4. <span id="ref-4"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, *Road Diet Informational Guide*, FHWA-SA-14-028, November 2014. Section 4.1.4 (lane widths of 10 to 12 ft typically used; center two-way left-turn lane typically 10 to 16 ft; one-way bike lane typically 5 ft) and Section 1.2.1 (the 1979 Billings, Montana installation on a 40 ft roadway).](https://highways.dot.gov/sites/fhwa.dot.gov/files/2022-06/rdig.pdf)

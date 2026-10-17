@@ -7,12 +7,14 @@ llms: "A vegetated, shallow channel designed to collect, convey, and filter stor
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bioswale" classification="element" status="recommended">
 A vegetated, shallow channel designed to collect, convey, and filter stormwater runoff from an adjacent roadway or hard surface, using soil and plant material to slow flow and remove pollutants before water reaches a storm drain or waterway.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

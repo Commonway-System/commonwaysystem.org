@@ -7,12 +7,14 @@ llms: "A designated waiting area marked at the head of a signalized intersection
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike Box" classification="element" status="recommended">
 A designated waiting area marked at the head of a signalized intersection, positioned ahead of the vehicle stop line, allowing cyclists to position themselves in front of queued vehicles during a red signal for improved visibility and to enable a safer left turn or through movement.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

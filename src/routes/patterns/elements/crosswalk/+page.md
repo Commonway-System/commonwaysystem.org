@@ -7,12 +7,14 @@ llms: "A marked pedestrian crossing point, located at an intersection or midbloc
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Crosswalk" classification="element" status="recommended">
 A marked pedestrian crossing point, located at an intersection or midblock, delineated with pavement markings ranging from a simple two-line crosswalk to high-visibility continental or ladder striping.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

@@ -8,34 +8,18 @@ llms: A Local street typology using traffic calming and diversion to discourage 
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, Illustration, IllustrationCallout, IllustrationCallouts, IllustrationFrame, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bicycle Boulevard / Neighborhood Greenway" classification="local" status="recommended">
 A Local street where traffic calming and diversion discourage through car traffic while prioritizing bicycle through-movement in the shared roadway.
 </PatternCard>
 
+<PatternViewer image={fm.image} title={fm.title} classification="local" />
+
 Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Suburban is an edge case, thinning for the same reason as [Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/): a disconnected, cul-de-sac-heavy grid gives it fewer parallel, low-traffic routes to use. Undeveloped and Rural are unlikely pairings.
-
-## Illustration
-
-<Illustration type="Paired" format="Segment / cross-section (~2.8:1)">
-  <IllustrationFrame label="Typical condition" tone="grayscale">
-    An ordinary Local street cross-section: unrestricted through car traffic, a cyclist taking the lane alongside car volumes, no diverters, no wayfinding.
-  </IllustrationFrame>
-  <IllustrationFrame label="Commonway recommendation" tone="amber">
-    A modal diverter or traffic circle blocks car through-movement while a bicycle-width gap passes through; wayfinding signage marks the route; a calmed, low-volume, low-speed shared roadway.
-  </IllustrationFrame>
-  <IllustrationCallouts>
-    <IllustrationCallout number={1} kind="physical">Modal diverter / traffic circle blocking through car movement; a bicycle-width gap allows continuous bicycle passage.</IllustrationCallout>
-    <IllustrationCallout number={2} kind="physical">Wayfinding signage marking the route as a through bicycle connection.</IllustrationCallout>
-    <IllustrationCallout number={3} kind="control-timing">At crossings of higher-volume streets, a signalized or protected crossing reduces bicyclist delay.<Citation index={1} /></IllustrationCallout>
-  </IllustrationCallouts>
-</Illustration>
-
-No supplemental illustration needed.
 
 <RelatedMedia id={fm.patternId} />
 

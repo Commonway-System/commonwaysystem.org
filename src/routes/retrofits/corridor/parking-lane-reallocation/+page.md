@@ -7,12 +7,14 @@ llms: "Converts an existing on-street parking lane to another use, a bike lane, 
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Parking-lane reallocation" scale="corridor">
 Converts an existing on-street parking lane to another use: a bike lane, a transit lane, a parklet, or public plaza space.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
 ## Overview
 

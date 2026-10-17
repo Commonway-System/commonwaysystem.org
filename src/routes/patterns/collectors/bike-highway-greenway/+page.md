@@ -8,12 +8,14 @@ llms: A Collector-scale street typology providing a dedicated, physically separa
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike Highway / Greenway" classification="collector" status="recommended">
 A dedicated, physically separated bicycle path operating at Collector scale, prioritizing continuous, higher-speed bicycle through-movement over other modes.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 

@@ -7,12 +7,14 @@ llms: A Freeway street typology with partial access control, between a full Free
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Expressway" classification="freeway" status="recommended">
 A high-speed road with partial access control, some at-grade intersections remain, unlike a fully grade-separated Freeway. Out of the Commonway System's detailed design scope.<Citation index={1} />
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="freeway" />
 
 <RelatedMedia id={fm.patternId} />
 

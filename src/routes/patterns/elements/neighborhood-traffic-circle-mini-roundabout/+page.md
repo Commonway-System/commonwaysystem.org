@@ -7,12 +7,14 @@ llms: "A small raised or landscaped island placed at the center of a Local-to-Lo
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Neighborhood Traffic Circle / Mini-Roundabout" classification="element" status="recommended">
 A small raised or landscaped island placed at the center of a Local-to-Local intersection, around which traffic circulates at low speed, used for calming rather than volume control.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

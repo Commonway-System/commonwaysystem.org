@@ -8,12 +8,14 @@ llms: "A corridor built around a fixed transit line (light rail, streetcar, or d
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Transit Alignment Corridor" classification="corridor" status="situational">
 A corridor built around a fixed transit line (light rail, streetcar, or dedicated BRT) running parallel to or within the roadway, addressing how the transit alignment shapes the corridor’s whole cross-section for its full length.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" />
 
 <RelatedMedia id={fm.patternId} />
 

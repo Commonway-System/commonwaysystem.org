@@ -7,12 +7,14 @@ llms: "A public gathering space reclaimed from roadway or parking space, ranging
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Plaza / Parklet" classification="facility" status="recommended">
 A public gathering space reclaimed from roadway or parking space, ranging from a single parking-space-sized parklet to a full intersection-corner plaza.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
 <RelatedMedia id={fm.patternId} />
 

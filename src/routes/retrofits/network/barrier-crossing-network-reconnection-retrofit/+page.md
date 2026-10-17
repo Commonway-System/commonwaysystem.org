@@ -7,12 +7,14 @@ llms: "Adds a new pedestrian and bicycle connection, a bridge, tunnel, or path l
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Barrier-crossing / network reconnection retrofit" scale="network">
 Adds a new pedestrian and bicycle connection, a bridge, tunnel, or path linkage, across a highway, rail line, or disconnected cul-de-sac pattern that currently severs an otherwise walkable or bikeable network.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="network" retrofit />
 
 ## Overview
 

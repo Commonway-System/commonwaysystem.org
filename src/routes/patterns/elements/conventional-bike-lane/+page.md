@@ -7,12 +7,14 @@ llms: "A striped, dedicated on-street lane for bicycle travel, separated from th
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Conventional Bike Lane" classification="element" status="situational">
 A striped, dedicated on-street lane for bicycle travel, separated from the adjacent vehicle travel lane by paint markings alone, with no physical buffer or barrier.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

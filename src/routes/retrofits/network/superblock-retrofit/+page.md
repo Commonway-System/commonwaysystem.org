@@ -7,12 +7,14 @@ llms: "Groups several existing blocks into a single traffic cell, routing throug
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Superblock retrofit" scale="network">
 Groups several existing blocks into a single traffic cell, routing through-traffic around the perimeter while reclaiming the interior streets for pedestrians, bicyclists, and local access only.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="network" retrofit />
 
 ## Overview
 

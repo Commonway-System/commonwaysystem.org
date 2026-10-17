@@ -7,12 +7,14 @@ llms: "Converts a paved roadway to a gravel or unpaved surface on a low-volume r
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Depaving / pavement-to-gravel conversion" scale="corridor">
 Converts a paved roadway to a gravel or unpaved surface, typically on a low-volume rural or exurban road, reducing both construction cost and vehicle speed.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
 ## Overview
 

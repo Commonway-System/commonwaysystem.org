@@ -7,7 +7,7 @@ llms: A Collector street typology serving vehicle and freight movement through l
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, GuidanceTable, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard, SpeedTerrainTable } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, GuidanceTable, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard, SpeedTerrainTable, PatternViewer } from '$lib/theme/components'
 
   const cROW = { href: '/guide/street-types/#for-readers-coming-from-dutch-crow-practice', label: 'CROW comparison table' }
   const retro = { href: '/retrofits/corridor/two-plus-one-road-cable-barrier/', label: '2+1 road with cable median barrier' }
@@ -145,6 +145,8 @@ llms: A Collector street typology serving vehicle and freight movement through l
 <PatternCard id={fm.patternId} title="Rural Collector / Farm-to-Market Road" classification="collector" status="recommended">
 A Collector road connecting low-density or agricultural land to the wider network, prioritizing vehicle and freight movement over pedestrian, bicycle, and transit use, which have little demand at this density.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 

@@ -7,12 +7,14 @@ llms: "A parking facility, surface or structured, designed specifically for comm
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Park-and-Ride" classification="facility" status="situational">
 A parking facility, surface or structured, designed specifically for commuters to leave a personal vehicle and transfer to transit for the remainder of their trip.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
 <RelatedMedia id={fm.patternId} />
 

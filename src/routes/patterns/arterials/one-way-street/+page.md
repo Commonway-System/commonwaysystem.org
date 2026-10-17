@@ -7,12 +7,14 @@ llms: An Arterial street typology marked Situational/Discouraged, since one-way 
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="One-Way Street" classification="arterial" status="situational">
 An Arterial operating one direction of travel only, typically paired with a second one-way Arterial carrying the opposite direction nearby.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="arterial" />
 
 <RelatedMedia id={fm.patternId} />
 

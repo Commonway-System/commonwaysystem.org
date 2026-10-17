@@ -7,12 +7,14 @@ llms: "A raised roadway feature (speed hump, speed table, or speed cushion) that
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Vertical Speed Control" classification="element" status="recommended">
 A raised roadway feature (speed hump, speed table, or speed cushion) that slows vehicles through vertical deflection, forcing a driver to reduce speed to avoid an uncomfortable jolt.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

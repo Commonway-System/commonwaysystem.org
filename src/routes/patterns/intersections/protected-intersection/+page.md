@@ -8,12 +8,14 @@ llms: A Dutch-style intersection treatment using corner refuge islands and setba
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Protected Intersection" classification="intersections" status="recommended">
 A Dutch-style intersection treatment using corner refuge islands and setback bicycle/pedestrian crossings to reduce conflict between turning vehicles and people walking or biking through the intersection.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 

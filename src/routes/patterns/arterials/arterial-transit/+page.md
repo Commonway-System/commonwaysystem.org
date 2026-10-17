@@ -7,12 +7,14 @@ llms: An Arterial street typology with dedicated bus rapid transit or light rail
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Arterial Transit (BRT/LRT)" classification="arterial" status="recommended">
 An Arterial with dedicated bus rapid transit or light rail infrastructure, most often a separated running way or exclusive lane.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="arterial" />
 
 <RelatedMedia id={fm.patternId} />
 

@@ -7,12 +7,14 @@ llms: A Collector street typology for an off-street path shared by pedestrians a
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Multi-Use Trail / Greenway" classification="collector" status="recommended">
 An off-street path shared by pedestrians and bicyclists under roughly equal priority, similar to Shared-Use Path but longer-distance and often a destination in its own right, such as a rail-trail or linear park path.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 

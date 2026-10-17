@@ -7,12 +7,14 @@ llms: An at-grade crossing where any street type meets an active rail line, with
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Railroad Grade Crossing" classification="intersections" status="situational">
 An at-grade crossing where any street type meets an active rail line, with its own geometry, warning devices, and low-clearance-vehicle risk distinct from any road-to-road intersection.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 

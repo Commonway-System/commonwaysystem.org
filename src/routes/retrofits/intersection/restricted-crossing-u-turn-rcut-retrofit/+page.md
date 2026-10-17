@@ -7,12 +7,14 @@ llms: "Also known as a J-turn or superstreet, reroutes both left-turn and throug
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Restricted Crossing U-Turn (RCUT) retrofit" scale="intersection">
 Reroutes both left-turn and through movements from the minor road, requiring drivers to turn right onto the major road first, then complete a U-turn at a designated median crossover. Also known as a J-turn or superstreet.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="intersections" retrofit />
 
 ## Overview
 

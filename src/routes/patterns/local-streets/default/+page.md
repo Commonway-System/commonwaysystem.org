@@ -7,28 +7,15 @@ llms: The baseline Local street, applying the base modal hierarchy and 20 mph de
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, Illustration, IllustrationCallout, IllustrationCallouts, IllustrationFrame, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import viewerData from '$lib/data/street-configs/loc-def-01'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Default (Standard Local Street)" classification="local" status="recommended">
 The baseline Local street. No special access pattern, event use, or dedicated mode gives it a name of its own, so it carries the base Local modal hierarchy and speed rule unmodified. Every other Local Typology is defined as a departure from this one: a Typology earns its own name only when its entire reason for existing is a specific access pattern, a specific event use, or a specific mode.
 </PatternCard>
 
-## Illustration
-
-<Illustration type="Paired" format="Segment / cross-section (~2.8:1)">
-  <IllustrationFrame label="Typical condition" tone="grayscale">
-    Oversized suburban local cross-section: no planting buffer, a narrow or absent sidewalk, and an overly wide travel lane.
-  </IllustrationFrame>
-  <IllustrationFrame label="Commonway recommendation" tone="amber">
-    Sidewalk 5 ft, planting/furnishing zone 5 ft (standard, not optional), shared two-way undivided travel lane 18 ft, sized to self-enforce 20 mph.<Citation index={1} />
-  </IllustrationFrame>
-  <IllustrationCallouts>
-    <IllustrationCallout number={1} kind="physical">Sidewalk sized for comfortable two-way pedestrian travel.</IllustrationCallout>
-    <IllustrationCallout number={2} kind="physical">Planting/furnishing zone buffering pedestrians from the travel lane.</IllustrationCallout>
-    <IllustrationCallout number={3} kind="physical">Travel lane narrowed to self-enforce 20 mph.<Citation index={2} /></IllustrationCallout>
-  </IllustrationCallouts>
-</Illustration>
+<PatternViewer data={viewerData} image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 

@@ -7,12 +7,14 @@ llms: "A signal indication, typically a walking figure and countdown display, in
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pedestrian Signal" classification="element" status="recommended">
 A signal indication, typically a walking figure and countdown display, informing pedestrians when it is their turn to cross and how much time remains to do so at a signalized intersection or crossing.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

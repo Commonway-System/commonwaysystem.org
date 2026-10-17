@@ -8,12 +8,14 @@ llms: A Local street typology, marked Situational, that excludes vehicle traffic
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pedestrian-only Street / Plaza" classification="local" status="situational">
 A Local street or plaza space that excludes vehicle traffic permanently, not on an event schedule the way a Festival Street does.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 

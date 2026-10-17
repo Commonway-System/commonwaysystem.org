@@ -8,12 +8,14 @@ llms: A Local street typology, including NACTO's Home Zone, where pedestrians an
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Living Street / Woonerf" classification="local" status="recommended">
 A Local street with no separation between the pedestrian, bicycle, and vehicle space. Vehicles are guests, moving at walking pace and yielding to people on foot or bike by design, not by signage alone.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 

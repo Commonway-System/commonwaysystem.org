@@ -7,12 +7,14 @@ llms: "A dashed-line bike lane marked on each side of a narrow, typically two-wa
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Advisory Bike Lane" classification="element" status="situational">
 A dashed-line bike lane marked on each side of a narrow, typically two-way, roadway with no dedicated centerline, where vehicles are expected to cross into the bike lane space temporarily to pass oncoming traffic, yielding to any cyclist present.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

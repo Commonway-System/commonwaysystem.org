@@ -8,12 +8,14 @@ llms: "A shared-lane marking, a painted symbol combining a bicycle icon and chev
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Sharrow" classification="element" status="avoid">
 A shared-lane marking, a painted symbol combining a bicycle icon and chevron arrows, placed within a shared vehicle travel lane to indicate that cyclists may use the full lane and to suggest proper positioning within it.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

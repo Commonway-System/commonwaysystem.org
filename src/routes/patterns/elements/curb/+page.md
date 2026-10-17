@@ -7,12 +7,14 @@ llms: "The raised edge separating the roadway from the sidewalk or shoulder, mar
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Curb" classification="element" status="recommended">
 The raised edge separating the roadway from the sidewalk or shoulder, marking the physical boundary between space allocated to vehicles and space allocated to pedestrians or the roadway edge condition.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

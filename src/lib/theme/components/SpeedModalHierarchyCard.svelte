@@ -11,11 +11,10 @@
 <!--
   Reusable card replacing the old plain "Modal hierarchy" heading and the
   ad hoc "Speed and modal hierarchy" prose on the three Default patterns.
-  Composed the same way as Illustration/IllustrationFrame: this shell just
-  lays out whatever SpeedLimitSection/ModalHierarchySection children are
-  passed in, one level of component nesting, matching the one confirmed-
-  working depth on this site (see IllustrationInsteadSee's note on the
-  markdown-link-inside-nested-component-children bug).
+  This shell just lays out whatever SpeedLimitSection/ModalHierarchySection
+  children are passed in, one level of component nesting, the one
+  confirmed-working depth on this site (markdown links inside doubly nested
+  component children don't render; see CLAUDE.md).
 -->
 <div class="speed-modal-card">
   {#if children}

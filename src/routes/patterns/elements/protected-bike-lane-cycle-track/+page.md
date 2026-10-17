@@ -7,12 +7,14 @@ llms: "A bike facility physically separated from adjacent vehicle traffic by a b
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Protected Bike Lane / Cycle Track" classification="element" status="recommended">
 A bike facility physically separated from adjacent vehicle traffic by a barrier, curb, parked cars, bollards, or planters, rather than paint markings alone, providing the highest level of separation among on-street bike facility types.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

@@ -7,12 +7,14 @@ llms: "Converts an undivided rural two-lane road into a continuous three-lane cr
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="2+1 road with cable median barrier" scale="corridor">
 Converts an undivided rural two-lane road into a continuous three-lane cross section, with an alternating passing lane and a cable median barrier, built within the existing right-of-way.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
 ## Overview
 

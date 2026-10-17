@@ -7,7 +7,8 @@ llms: The baseline Collector street, applying the base modal hierarchy and 30 mp
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, GuidanceTable, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import viewerData from '$lib/data/street-configs/col-def-01'
+  import { Citation, DensityChip, EvidenceChip, GuidanceTable, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard, PatternViewer } from '$lib/theme/components'
 
   const csSeg = '/patterns/collectors/default/#speed-and-modal-hierarchy'
   const guidanceRows = [
@@ -107,6 +108,8 @@ llms: The baseline Collector street, applying the base modal hierarchy and 30 mp
 <PatternCard id={fm.patternId} title="Default (Standard Collector)" classification="collector" status="recommended">
 The baseline Collector street. No special land use, freight function, or dedicated mode gives it a name of its own, so it carries the base Collector modal hierarchy and speed rule unmodified.
 </PatternCard>
+
+<PatternViewer data={viewerData} image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 

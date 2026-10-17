@@ -7,12 +7,14 @@ llms: "An intersection where left-turn movements from both approaches are remove
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Median U-Turn (MUT)" classification="intersections" status="situational">
 An intersection where left-turn movements from both the major and minor approaches are removed from the main crossing and rerouted through a downstream median crossover, requiring a driver to travel past the intersection, make a U-turn, then complete the turn from the opposite direction.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 

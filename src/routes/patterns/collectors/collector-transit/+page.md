@@ -7,12 +7,14 @@ llms: A Collector street typology carrying a dedicated transit route, with trans
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Collector Transit" classification="collector" status="recommended">
 A Collector street carrying a fixed transit route, where transit priority is layered onto the base pedestrian and bicycle priority rather than replacing it.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 

@@ -7,12 +7,14 @@ llms: "The break in a curb allowing vehicle access from the roadway to an adjace
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Curb Cut / Driveway Apron" classification="element" status="situational">
 The break in a curb allowing vehicle access from the roadway to an adjacent driveway, typically formed with a sloped apron transitioning between street grade and driveway grade.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

@@ -7,12 +7,14 @@ llms: "An on-street, curbside cluster of bike racks, typically installed in plac
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Bike Parking Corral" classification="facility" status="recommended">
 An on-street, curbside cluster of bike racks, typically installed in place of a single car parking space, providing multiple bike parking spots in the footprint one vehicle would otherwise occupy.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
 <RelatedMedia id={fm.patternId} />
 

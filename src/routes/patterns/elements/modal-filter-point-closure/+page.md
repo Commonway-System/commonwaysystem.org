@@ -8,12 +8,14 @@ llms: "A physical closure placed mid-block or at an intersection leg that blocks
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Modal Filter / Point Closure" classification="element" status="recommended">
 A physical closure placed mid-block or at an intersection leg that blocks through motor vehicle travel while preserving passage for pedestrians and bicyclists, using bollards, planters, partial curb extensions, or a similar barrier.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

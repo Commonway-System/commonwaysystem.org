@@ -7,12 +7,14 @@ llms: A dedicated pedestrian crossing placed between intersections, used where b
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Midblock Pedestrian Crossing" classification="intersections" status="recommended">
 A marked, and typically signalized or raised, pedestrian crossing placed mid-block rather than at a corner, serving a specific crossing demand between intersections.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 

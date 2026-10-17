@@ -7,12 +7,14 @@ llms: "A linear strip of permeable surface (gravel, permeable pavers, or open-gr
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Pervious Strip" classification="element" status="situational">
 A linear strip of permeable surface (gravel, permeable pavers, or open-graded aggregate), allowing stormwater to infiltrate directly into the ground rather than running off to a drain, typically installed within a parking lane, shoulder, or buffer zone.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

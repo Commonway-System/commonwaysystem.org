@@ -7,12 +7,14 @@ llms: "Installs a physically separated bike lane by removing an entire travel la
 ---
 
 <script>
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
 </script>
 
 <RetrofitCard id={fm.patternId} title="Protected bike lane retrofit via lane removal" scale="corridor">
 Installs a physically separated bike lane by removing an entire travel lane, the same underlying mechanism as a road diet, applied specifically to create bike facility space.
 </RetrofitCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
 ## Overview
 

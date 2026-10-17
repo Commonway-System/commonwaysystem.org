@@ -8,12 +8,15 @@ llms: An Arterial anti-pattern marked Avoid, formed by mixing on-street parking 
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, Illustration, IllustrationCallout, IllustrationCallouts, IllustrationFrame, IllustrationInsteadSee, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import viewerData from '$lib/data/street-configs/art-std-05'
+  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Stroad (Commercial Arterial)" classification="arterial" status="avoid">
 A street and Arterial hybrid, known under two common names, Stroad (coined by Strong Towns) and Commercial Arterial: through traffic mixed with on-street parking, frequent direct commercial driveway access, or both, along the same corridor.<Citation index={1} /> This is the exact combination the Arterial core safety rule prohibits: arterials should carry through traffic without direct property access or on-street parking competing for the same space.<Citation index={2} />
 </PatternCard>
+
+<PatternViewer data={viewerData} image={fm.image} title={fm.title} classification="arterial" />
 
 Occurs most often at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
 
@@ -37,35 +40,6 @@ No default modal order is assigned, since the pattern itself is the anti-pattern
 </ModalHierarchySection>
 
 </SpeedModalHierarchyCard>
-
-## Illustration
-
-<Illustration type="Single-condition" format="Segment / cross-section (~2.8:1)">
-  <IllustrationFrame label="Typical condition" tone="amber">
-    Mixed on-street parking and a through-traffic lane, with no protected crossing; the entire condition is amber-flooded, per the Single-condition rule for Avoid patterns.
-  </IllustrationFrame>
-  <IllustrationCallouts>
-    <IllustrationCallout number={1} kind="physical">On-street parking beside through lanes.</IllustrationCallout>
-    <IllustrationCallout number={4} kind="physical">No protected or signalized midblock crossing despite pedestrian-generating land use.</IllustrationCallout>
-  </IllustrationCallouts>
-  <IllustrationInsteadSee links={[
-    { label: 'Boulevard', href: '/patterns/arterials/boulevard/', id: 'ART-BLV-02' },
-    { label: 'Default Arterial', href: '/patterns/arterials/default/', id: 'ART-DEF-01' },
-    { label: 'Frontage / Service Road', href: '/patterns/local-streets/frontage-service-road/', id: 'LOC-FSR-04', joiner: ' + ' },
-  ]} />
-</Illustration>
-
-**Supplemental illustration**, justified: the driveway-spacing claim below is longitudinal, and the required cross-section format above is lateral and can't show it.
-
-<Illustration type="Supplemental (plan-view)" format="Wide (16:9 or wider)">
-  <IllustrationFrame label="Plan view" tone="amber">
-    Direct driveway cuts spaced every 100–200 ft along the corridor, with no parallel frontage or service road to aggregate access points.
-  </IllustrationFrame>
-  <IllustrationCallouts>
-    <IllustrationCallout number={2} kind="physical">Direct driveway cuts every 100–200 ft.<Citation index={3} /></IllustrationCallout>
-    <IllustrationCallout number={3} kind="physical">No parallel frontage/service road to aggregate access points.</IllustrationCallout>
-  </IllustrationCallouts>
-</Illustration>
 
 <RelatedMedia id={fm.patternId} />
 

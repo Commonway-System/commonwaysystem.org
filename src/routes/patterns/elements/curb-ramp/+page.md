@@ -7,12 +7,14 @@ llms: "A sloped transition cut into a curb, providing an accessible path between
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Curb Ramp" classification="element" status="recommended">
 A sloped transition cut into a curb, providing an accessible path between the sidewalk and street surface for wheelchair users, strollers, and anyone unable to step up or down a vertical curb face.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 

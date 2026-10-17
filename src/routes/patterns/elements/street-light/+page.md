@@ -7,12 +7,14 @@ llms: "A pole-mounted luminaire providing illumination for the roadway, typicall
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
 <PatternCard id={fm.patternId} title="Street Light" classification="element" status="recommended">
 A pole-mounted luminaire providing illumination for the roadway, typically mounted at a height and spacing designed primarily to serve vehicle visibility and drivers, though its light also reaches the surrounding sidewalk and public realm.
 </PatternCard>
+
+<PatternViewer image={fm.image} title={fm.title} classification="element" />
 
 <RelatedMedia id={fm.patternId} />
 
