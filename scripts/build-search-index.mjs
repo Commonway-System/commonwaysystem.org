@@ -45,11 +45,12 @@ async function main() {
       language: 'en',
       content: [
         item.title,
+        item.id,
         item.blurb,
         `${type} from ${item.sourceName}.`,
         [...item.patternTaxonomyTags, ...item.mediaTags].join(', '),
       ].join(' '),
-      meta: { title: item.title, section: 'Media', detail: `${type} · ${item.sourceName}`, ...(item.image ? { thumb: item.image } : {}) },
+      meta: { title: item.title, section: 'Media', detail: `${item.id} · ${type} · ${item.sourceName}`, ...(item.image ? { thumb: item.image } : {}) },
       filters: { section: ['Media'] },
     })
     if (recordErrors?.length)

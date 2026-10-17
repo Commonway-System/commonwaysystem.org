@@ -1,13 +1,18 @@
 <script lang="ts">
+  import { page } from '$app/state'
   import { getMediaItems } from '$lib/data/media/index.js'
   import type { MediaType } from '$lib/data/media/index.js'
   import {
     mediaSearch,
+    mediaSelectedPatterns,
+    mediaSelectedRetrofits,
     mediaSelectedSources,
     mediaSelectedTopics,
     mediaSelectedTypes,
     mediaSortBy,
   } from '../media-filters.js'
+
+  import MediaFilterList from './MediaFilterList.svelte'
 
   interface Props {
     /**
@@ -43,12 +48,44 @@
     { value: 'article', label: 'Article' },
   ]
 
-  const sourceOptions = [...new Set(allItems.map(item => item.sourceName))].sort((a, b) => a.localeCompare(b))
+  // 60+ sources, most with one or two items: list the busiest first with
+  // their item counts, and let the reader type to narrow the list.
+  const sourceCounts = new Map<string, number>()
+  for (const item of allItems)
+    sourceCounts.set(item.sourceName, (sourceCounts.get(item.sourceName) ?? 0) + 1)
+  const sourceOptions = [...sourceCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([name, count]) => ({ name, count }))
+
+  // Pattern and Retrofit Strategy groups: every ID some item is tagged to,
+  // labelled "Name (ID)" from the page titles the /media/ page supplies, so
+  // each can be found by ID or by name. Guide and About route paths are not
+  // patterns or strategies and are left out.
+  const idCounts = new Map<string, number>()
+  for (const item of allItems)
+    for (const id of item.relatedTo)
+      if (!id.startsWith('/'))
+        idCounts.set(id, (idCounts.get(id) ?? 0) + 1)
+  const mediaPages = $derived(page.data.mediaPages as Record<string, { title: string, href: string }> | undefined)
+  const idOptions = $derived(
+    [...idCounts.entries()]
+      .map(([value, count]) => ({ value, count, label: mediaPages?.[value]?.title ?? value }))
+      .sort((x, y) => x.value.localeCompare(y.value)),
+  )
+  const patternOptions = $derived(idOptions.filter(o => !o.value.startsWith('RFT-')))
+  const retrofitOptions = $derived(idOptions.filter(o => o.value.startsWith('RFT-')))
+  const sourceListOptions = sourceOptions.map(({ name, count }) => ({ value: name, label: name, count }))
 
   // Topic combines patternTaxonomyTags and mediaTags into one filter group,
   // per the ticket (Section 3): a reader picking "Explainer" or "Local"
   // shouldn't need to know which underlying field it came from.
-  const topicOptions = [...new Set(allItems.flatMap(item => [...item.patternTaxonomyTags, ...item.mediaTags]))].sort((a, b) => a.localeCompare(b))
+  const topicCounts = new Map<string, number>()
+  for (const item of allItems)
+    for (const topic of new Set([...item.patternTaxonomyTags, ...item.mediaTags]))
+      topicCounts.set(topic, (topicCounts.get(topic) ?? 0) + 1)
+  const topicOptions = [...topicCounts.entries()]
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([value, count]) => ({ value, label: value, count }))
 
   function toggleType(value: MediaType) {
     mediaSelectedTypes.update((current) => {
@@ -60,6 +97,22 @@
 
   function toggleSource(value: string) {
     mediaSelectedSources.update((current) => {
+      const next = new Set(current)
+      next.has(value) ? next.delete(value) : next.add(value)
+      return next
+    })
+  }
+
+  function togglePattern(value: string) {
+    mediaSelectedPatterns.update((current) => {
+      const next = new Set(current)
+      next.has(value) ? next.delete(value) : next.add(value)
+      return next
+    })
+  }
+
+  function toggleRetrofit(value: string) {
+    mediaSelectedRetrofits.update((current) => {
       const next = new Set(current)
       next.has(value) ? next.delete(value) : next.add(value)
       return next
@@ -78,12 +131,12 @@
 {#snippet fields()}
   <label class="mf__field">
     <span>Search media</span>
-    <input type="search" placeholder="e.g. continuous sidewalk" bind:value={$mediaSearch} />
+    <input type="search" placeholder="e.g. continuous sidewalk, MED-013 or ART-BLV-02" bind:value={$mediaSearch} />
   </label>
 
   <fieldset class="mf__field">
     <legend>Media type</legend>
-    <div class="mf__checks">
+    <div class="mf__checks mf__checks--row">
       {#each typeOptions as { value, label } (value)}
         <label class="mf__check">
           <input type="checkbox" checked={$mediaSelectedTypes.has(value)} onchange={() => toggleType(value)} />
@@ -93,35 +146,57 @@
     </div>
   </fieldset>
 
-  <fieldset class="mf__field">
-    <legend>Source</legend>
-    <div class="mf__checks">
-      {#each sourceOptions as source (source)}
-        <label class="mf__check">
-          <input type="checkbox" checked={$mediaSelectedSources.has(source)} onchange={() => toggleSource(source)} />
-          {source}
-        </label>
-      {/each}
-    </div>
-  </fieldset>
+  <MediaFilterList
+    legend="Source"
+    noun="source"
+    plural="sources"
+    options={sourceListOptions}
+    selected={$mediaSelectedSources}
+    ontoggle={toggleSource}
+    onclear={() => mediaSelectedSources.set(new Set())}
+  />
 
-  <fieldset class="mf__field">
-    <legend>Topic</legend>
-    <div class="mf__checks">
-      {#each topicOptions as topic (topic)}
-        <label class="mf__check">
-          <input type="checkbox" checked={$mediaSelectedTopics.has(topic)} onchange={() => toggleTopic(topic)} />
-          {topic}
-        </label>
-      {/each}
-    </div>
-  </fieldset>
+  <MediaFilterList
+    legend="Pattern"
+    noun="pattern"
+    plural="patterns"
+    options={patternOptions}
+    selected={$mediaSelectedPatterns}
+    ontoggle={togglePattern}
+    onclear={() => mediaSelectedPatterns.set(new Set())}
+  />
+
+  <MediaFilterList
+    legend="Retrofit Strategy"
+    noun="retrofit strategy"
+    plural="retrofit strategies"
+    options={retrofitOptions}
+    selected={$mediaSelectedRetrofits}
+    ontoggle={toggleRetrofit}
+    onclear={() => mediaSelectedRetrofits.set(new Set())}
+  />
+
+  <MediaFilterList
+    legend="Topic"
+    noun="topic"
+    plural="topics"
+    options={topicOptions}
+    selected={$mediaSelectedTopics}
+    ontoggle={toggleTopic}
+    onclear={() => mediaSelectedTopics.set(new Set())}
+  />
 
   <label class="mf__field">
     <span>Sort by</span>
     <select bind:value={$mediaSortBy}>
-      <option value="date">Date Added</option>
-      <option value="alpha">Alphabetical</option>
+      <option value="date-desc">Newest added</option>
+      <option value="date-asc">Oldest added</option>
+      <option value="title-asc">Title (A to Z)</option>
+      <option value="title-desc">Title (Z to A)</option>
+      <option value="channel-asc">Channel (A to Z)</option>
+      <option value="channel-desc">Channel (Z to A)</option>
+      <option value="id-asc">Media ID (lowest first)</option>
+      <option value="id-desc">Media ID (highest first)</option>
     </select>
   </label>
 {/snippet}
@@ -178,14 +253,27 @@
     gap: 0.35rem;
   }
 
+  /* Short labels (Video / Podcast / Article) sit side by side. */
+  .mf__checks--row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+  }
+
   .mf__check {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 0.4rem;
     font-size: var(--cw-text-sm);
     font-weight: 400;
     color: var(--cw-ink-soft);
   }
+
+
+
+
+
+
 
   .mf input:focus-visible,
   .mf select:focus-visible {

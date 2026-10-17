@@ -232,21 +232,24 @@
   .rm__frame::after {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
+    /* The track bleeds 6px past the frame on every side (negative margin), so
+       the fades reach out to the track's real edges instead of stopping 6px
+       short and leaving a sliver of card showing outside them. */
+    top: -6px;
+    bottom: -6px;
     z-index: 1;
-    width: 1.5rem;
+    width: calc(1.5rem + 6px);
     pointer-events: none;
     transition: opacity 0.2s ease;
   }
 
   .rm__frame::before {
-    left: 0;
+    left: -6px;
     background: linear-gradient(to right, var(--cw-paper-raised), transparent);
   }
 
   .rm__frame::after {
-    right: 0;
+    right: -6px;
     background: linear-gradient(to left, var(--cw-paper-raised), transparent);
   }
 

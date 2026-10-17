@@ -131,16 +131,25 @@
     outline-offset: 2px;
   }
 
+  /* Every card's image area is the same 16:9 box, whatever the picture's own
+     shape. flex: none stops the column from squeezing it when a long blurb
+     makes the card tight; the image is taken out of flow so a tall or wide
+     original can't stretch the box; cover crops it from the center. */
   .mc__image {
     position: relative;
+    flex: none;
     aspect-ratio: 16 / 9;
+    overflow: hidden;
     background: var(--cw-hairline);
   }
 
   .mc__image img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
   }
 

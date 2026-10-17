@@ -3,9 +3,12 @@
   import { replaceState } from '$app/navigation'
   import { page } from '$app/state'
   import { getMediaItems } from '$lib/data/media/index.js'
+  import type { MediaItem } from '$lib/data/media/types.js'
   import {
     mediaForPage,
     mediaSearch,
+    mediaSelectedPatterns,
+    mediaSelectedRetrofits,
     mediaSelectedSources,
     mediaSelectedTopics,
     mediaSelectedTypes,
@@ -24,6 +27,7 @@
     mediaForPage.set(page.url.searchParams.get('for'))
   })
 
+  const mediaPages = $derived(page.data.mediaPages as Record<string, { title: string, href: string }> | undefined)
   const forPage = $derived($mediaForPage ? (page.data.mediaPages as Record<string, { title: string, href: string }> | undefined)?.[$mediaForPage] : undefined)
 
   let countEl: HTMLParagraphElement | undefined = $state()
@@ -57,19 +61,37 @@
         return false
       if ($mediaSelectedSources.size > 0 && !$mediaSelectedSources.has(item.sourceName))
         return false
+      if ($mediaSelectedPatterns.size > 0 && !item.relatedTo.some(id => $mediaSelectedPatterns.has(id)))
+        return false
+      if ($mediaSelectedRetrofits.size > 0 && !item.relatedTo.some(id => $mediaSelectedRetrofits.has(id)))
+        return false
       if ($mediaSelectedTopics.size > 0) {
         const itemTopics = new Set([...item.patternTaxonomyTags, ...item.mediaTags])
         if (![...$mediaSelectedTopics].some(topic => itemTopics.has(topic)))
           return false
       }
       if (q) {
-        const haystack = `${item.title} ${item.blurb} ${item.sourceName}`.toLowerCase()
+        // Also searches the pages an item is tagged to: their Pattern or
+        // Retrofit Strategy ID, and the page title (which carries the ID too).
+        const related = item.relatedTo.map(id => `${id} ${mediaPages?.[id]?.title ?? ''}`).join(' ')
+        const haystack = `${item.id} ${item.title} ${item.blurb} ${item.sourceName} ${related}`.toLowerCase()
         if (!haystack.includes(q))
           return false
       }
       return true
     })
-    return items.sort((a, b) => $mediaSortBy === 'alpha' ? a.title.localeCompare(b.title) : b.dateAdded.localeCompare(a.dateAdded))
+    // Items added in one batch share a dateAdded, so every sort falls back to
+    // the permanent ID to keep the order stable and predictable.
+    const byId = (a: MediaItem, b: MediaItem) => a.id.localeCompare(b.id, 'en', { numeric: true })
+    const text = (x: string, y: string) => x.localeCompare(y, 'en', { sensitivity: 'base' })
+    const [key, dir] = $mediaSortBy.split('-') as ['date' | 'title' | 'channel' | 'id', 'asc' | 'desc']
+    const compare = (a: MediaItem, b: MediaItem) => {
+      if (key === 'date') return a.dateAdded.localeCompare(b.dateAdded)
+      if (key === 'title') return text(a.title, b.title)
+      if (key === 'channel') return text(a.sourceName, b.sourceName)
+      return byId(a, b)
+    }
+    return items.sort((a, b) => (dir === 'desc' ? -1 : 1) * compare(a, b) || byId(a, b))
   })
 </script>
 
