@@ -13,6 +13,20 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   // shape every entry is forced into.
   const releases = [
     {
+      date: '2026.10.17',
+      items: [
+        'Media Gallery: 16 more items (MED-125 to MED-140, 140 in all). Seven videos and nine articles cover Stop / Yield (Two-Way), Uncontrolled, Driveway / Curb Cut, Festival Street and Frontage / Service Road: Scranton replacing downtown signals with stop control, the Vox shared-space video, BicycleDutch on commercial driveways, Streetfilms on Bogotá\'s Ciclovía, Seattle\'s Play Streets, two Texas frontage-road videos, and articles from Kittelson, Strong Towns, Iowa State, Roads & Bridges, FHWA, The Urbanist and Streetsblog NYC. The Strong Towns frontage-roads piece is labeled Counterexample; the Vox shared-space video and the Roads & Bridges article are Context only.',
+        'Media Gallery search now matches the media ID (type MED-013 to find that item). Site search results for media show the ID too, and searching an ID finds the item.',
+        'Media Gallery search box now also finds items by Pattern ID or Retrofit Strategy ID (type ART-BLV-02 to see everything tagged to that pattern) and by pattern or strategy name.',
+        'Media Gallery filters rebuilt: Source, Pattern, Retrofit Strategy and Topic are now collapsible groups, closed by default, each with a "Find a ..." box, a scrolling list with item counts (Source busiest first, Pattern and Retrofit Strategy by ID, Topic alphabetical), a faint shadow at the top and bottom of the list that shows when there is more to scroll to, a "(N selected)" count that stays visible when the group is closed, and a clear link. Pattern and Retrofit Strategy are searchable by ID or by name. Media type is now a single row. The filter column went from about 2,700px tall to about 560px. Picking more than one value inside a group shows items matching any of them; picking values in different groups shows items matching all of them.',
+        'Media Gallery sorting now has eight options: newest or oldest added, title A to Z or Z to A, channel A to Z or Z to A, and media ID lowest or highest first. Items added the same day fall back to ID order so the order is always the same.',
+        'Media cards: every card image is now the same 16:9 box, cropped from the center, in the Media Gallery and in Related Media. Before, a tall image could stretch its card and a long blurb could squeeze it.',
+        'Related Media: the fade at the edge of the scrolling row now lines up with the edge of the row.',
+        'Accessibility check: axe (WCAG 2.2 AA plus best practice) found no violations on the Media Gallery (groups closed and all opened), Release History, and the Festival Street, Stop / Yield and Frontage / Service Road pages, in light and dark at desktop and 375px. Not tested with a screen reader or in forced-colors mode; the new filter groups use native details and fieldset-style grouping but have not been tried with assistive technology.',
+        'Known incomplete: MED-134, MED-135 and MED-136 use the shared placeholder image (no usable cover), and MED-132 and MED-134 have no channel icon.',
+      ],
+    },
+    {
       date: '2026.10.16',
       items: [
         'Pattern viewer: a new box right after the Pattern ID card on every pattern and Retrofit Strategy page (130 pages), replacing the old Illustration section. Tabs switch between views; Expand fills the screen, on a phone too, and Escape or Exit full view returns. The drawing area is 16:9, square on narrow screens. Readers land on the Commonway System configuration and can step down through Complete Streets, NACTO and the Federal / State minimum, see Dutch practice for comparison, compare two side by side, and choose where to cut the cross-section; Retrofit Strategies show Before and After. Every choice is kept in the address, so a link opens the same view, and feet or meters is remembered. A page without drawn views shows its illustration as an Overview, or a placeholder tinted with its classification color.',
