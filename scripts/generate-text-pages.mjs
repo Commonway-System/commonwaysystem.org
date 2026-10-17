@@ -28,6 +28,9 @@ const DROP_SELECTORS = [
   'script', 'style', 'canvas', 'button', 'iframe', 'video', 'audio', 'form', 'input', 'select', 'textarea',
   '.toc-mobile', '.page__meta', '.page__legal', '.pagenav', '.svp-heading-anchor',
   '[hidden]', '.cw-external-indicator', 'a .cw-sr-only', '.cw-table-hint', '.hero__motion', '.hero-glow', '.ink-halftone',
+  // Pattern viewer: controls and the live drawing have no meaning on a static
+  // page; its description and "All configurations, in words" list stay.
+  '.pv__bar', '.pv__controls', '.pv__live', '.pv__away', '.pvp', '.pvx', 'dialog',
 ]
 
 function findPages(dir, out = []) {

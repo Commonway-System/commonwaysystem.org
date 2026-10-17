@@ -12,6 +12,9 @@ export const THUMB_WIDTHS: readonly ThumbWidth[] = [160, 480]
 /** Foundations diagrams (static/diagrams/) are shown full column width, so they get larger WebP copies instead. */
 export const DIAGRAM_WIDTHS: readonly ThumbWidth[] = [768, 1280]
 
+/** Pattern illustrations (static/patterns/) also get a 1280 copy, for the Pattern viewer's Overview view. */
+export const PATTERN_VIEWER_WIDTHS: readonly ThumbWidth[] = [1280]
+
 /** Local raster images only (png, jpg, jpeg, webp); anything else (an SVG, a full URL) is returned unchanged. */
 export function thumbUrl(src: string, width: ThumbWidth): string {
   if (!src.startsWith('/'))

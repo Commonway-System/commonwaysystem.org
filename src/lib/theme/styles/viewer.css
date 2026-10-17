@@ -1,0 +1,133 @@
+/* Pattern viewer drawing palette, shared by the cross-section and top-down
+   renderers (PatternViewerSection.svelte, PatternViewerPlan.svelte).
+   Site-only colors, not Brand Guide tokens: pavement, paint and planting
+   need to read as what they are, in both themes. Meaning never rests on
+   color alone: every strip carries a text label, and edges are drawn. The
+   change highlight uses the reserved amber, which the Brand Guide keeps for
+   pattern-illustration highlighting. */
+
+.pvx {
+  --pvx-road: #7a7a78;
+  --pvx-parking: #8f8e8a;
+  --pvx-sidewalk: #d8d2c4;
+  --pvx-furnishing: #a9bf8e;
+  --pvx-curb: #b3ad9f;
+  --pvx-bike: #5f9a63;
+  --pvx-buffer: #9c9b96;
+  --pvx-transit: #b0573f;
+  --pvx-median: #a9bf8e;
+  --pvx-shoulder: #9b9a95;
+  --pvx-edge: rgba(20, 20, 20, 0.35);
+  --pvx-white: #ffffff;
+  --pvx-yellow: #f2c230;
+  --pvx-canopy: #6f9a52;
+  --pvx-glyph-stroke: var(--cw-ink-soft);
+  --pvx-glyph-fill: var(--cw-paper-raised);
+  --pvx-text: var(--cw-ink);
+  --pvx-text-bg: var(--cw-paper-raised);
+  --pvx-highlight: var(--cw-amber);
+  --pvx-highlight-fill: rgba(255, 159, 28, 0.16);
+  --pvx-badge-text: var(--cw-ink-fixed);
+}
+
+[data-theme='dark'] .pvx {
+  --pvx-road: #3f3f3d;
+  --pvx-parking: #4c4b48;
+  --pvx-sidewalk: #6b665c;
+  --pvx-furnishing: #4e6440;
+  --pvx-curb: #5b574f;
+  --pvx-bike: #3f6e43;
+  --pvx-buffer: #575652;
+  --pvx-transit: #7d3a29;
+  --pvx-median: #4e6440;
+  --pvx-shoulder: #4a4a47;
+  --pvx-edge: rgba(255, 255, 255, 0.3);
+  --pvx-white: #e8e8e8;
+  --pvx-yellow: #d9a821;
+  --pvx-canopy: #5b8044;
+  --pvx-highlight-fill: rgba(255, 159, 28, 0.2);
+}
+
+html[data-contrast='high'] .pvx {
+  --pvx-edge: var(--cw-ink);
+  --pvx-glyph-stroke: var(--cw-ink);
+}
+
+.pvx {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.pvx svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  font-family: var(--cw-font-body);
+}
+
+.pvx .s-sidewalk { fill: var(--pvx-sidewalk); }
+.pvx .s-furnishing { fill: var(--pvx-furnishing); }
+.pvx .s-curb { fill: var(--pvx-curb); }
+.pvx .s-parking { fill: var(--pvx-parking); }
+.pvx .s-bike-lane,
+.pvx .s-protected-bike-lane { fill: var(--pvx-bike); }
+.pvx .s-buffer { fill: var(--pvx-buffer); }
+.pvx .s-travel-lane,
+.pvx .s-turn-lane { fill: var(--pvx-road); }
+.pvx .s-transit-lane { fill: var(--pvx-transit); }
+.pvx .s-median { fill: var(--pvx-median); }
+.pvx .s-shoulder { fill: var(--pvx-shoulder); }
+
+.pvx .edge { stroke: var(--pvx-edge); stroke-width: 1; fill: none; }
+.pvx .curb-line { stroke: var(--pvx-glyph-stroke); stroke-width: 2; fill: none; }
+.pvx .mk-white { stroke: var(--pvx-white); fill: none; }
+.pvx .mk-yellow { stroke: var(--pvx-yellow); fill: none; }
+.pvx .mk-fill-white { fill: var(--pvx-white); }
+.pvx .hatch { stroke: var(--pvx-white); stroke-width: 1.5; opacity: 0.7; }
+
+.pvx .g { stroke: var(--pvx-glyph-stroke); fill: var(--pvx-glyph-fill); stroke-width: 1.25; stroke-linejoin: round; stroke-linecap: round; }
+.pvx .g-line { stroke: var(--pvx-glyph-stroke); fill: none; stroke-width: 1.25; stroke-linecap: round; }
+.pvx .g-solid { fill: var(--pvx-glyph-stroke); stroke: none; }
+.pvx .g-canopy { fill: var(--pvx-canopy); fill-opacity: 0.7; stroke: var(--pvx-glyph-stroke); stroke-width: 1; }
+.pvx .g-arrow { fill: var(--pvx-white); opacity: 0.85; }
+
+.pvx .g,
+.pvx .g-line,
+.pvx .g-canopy,
+.pvx .g-solid {
+  /* Glyphs are drawn in feet and scaled; keep their outlines a constant width. */
+  vector-effect: non-scaling-stroke;
+}
+
+.pvx .t { fill: var(--pvx-text); }
+.pvx .t-soft { fill: var(--cw-ink-soft); }
+.pvx .t-bg { fill: var(--pvx-text-bg); opacity: 0.92; }
+.pvx .leader { stroke: var(--cw-ink-faint); stroke-width: 1; fill: none; }
+.pvx .dim { stroke: var(--cw-ink-soft); stroke-width: 1; fill: none; }
+.pvx .cutline { stroke: var(--cw-ink); stroke-width: 1.25; stroke-dasharray: 6 4; fill: none; }
+
+.pvx .hl { fill: var(--pvx-highlight-fill); stroke: var(--pvx-highlight); stroke-width: 2.5; }
+.pvx .hl-ring { fill: none; stroke: var(--pvx-highlight); stroke-width: 2.5; }
+.pvx .badge { fill: var(--pvx-highlight); stroke: var(--cw-ink-fixed); stroke-width: 1; }
+.pvx .badge-t { fill: var(--pvx-badge-text); font-weight: 700; }
+
+/* Forced colors (Windows high contrast): SVG fills aren't forced, so the
+   strips keep their own colors, but text and lines drawn straight on the
+   page would keep the site theme's ink while the page background becomes
+   the system's. Tie them to the system colors instead. */
+@media (forced-colors: active) {
+  .pvx .t { fill: CanvasText; }
+  .pvx .t-bg { fill: Canvas; opacity: 1; }
+  .pvx .leader,
+  .pvx .dim,
+  .pvx .cutline,
+  .pvx .curb-line { stroke: CanvasText; }
+  .pvx {
+    --pvx-glyph-stroke: CanvasText;
+    --pvx-glyph-fill: Canvas;
+    --pvx-edge: CanvasText;
+  }
+}

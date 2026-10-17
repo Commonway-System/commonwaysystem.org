@@ -18,7 +18,7 @@ import { basename, dirname, extname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import { parse } from 'yaml'
-import { DIAGRAM_WIDTHS, THUMB_WIDTHS, thumbUrl } from '../src/lib/thumbs.ts'
+import { DIAGRAM_WIDTHS, PATTERN_VIEWER_WIDTHS, THUMB_WIDTHS, thumbUrl } from '../src/lib/thumbs.ts'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const staticDir = join(root, 'static')
@@ -74,6 +74,9 @@ const sources = new Set([
 // for its srcset, in place of the 300-600 KB PNG originals.
 const diagrams = new Set(listRaster(join(staticDir, 'diagrams')))
 for (const d of diagrams) sources.add(d)
+// Pattern illustrations are also shown full width in the Pattern viewer's
+// Overview view, so they get a 1280 px copy on top of the card sizes.
+const patternArt = new Set(listRaster(join(staticDir, 'patterns')))
 
 let made = 0
 let missing = 0
@@ -83,7 +86,7 @@ for (const source of [...sources].sort()) {
     continue
   }
   const publicPath = source.replace(staticDir, '')
-  for (const width of diagrams.has(source) ? DIAGRAM_WIDTHS : THUMB_WIDTHS) {
+  for (const width of diagrams.has(source) ? DIAGRAM_WIDTHS : patternArt.has(source) ? [...THUMB_WIDTHS, ...PATTERN_VIEWER_WIDTHS] : THUMB_WIDTHS) {
     const target = join(staticDir, thumbUrl(publicPath, width))
     const stale = !existsSync(target) || statSync(target).mtimeMs < statSync(source).mtimeMs
     if (!stale && !force)
