@@ -31,6 +31,9 @@ const DROP_SELECTORS = [
   // Pattern viewer: controls and the live drawing have no meaning on a static
   // page; its description and "All configurations, in words" list stay.
   '.pv__bar', '.pv__controls', '.pv__live', '.pv__away', '.pvp', '.pvx', 'dialog',
+  // Release History changelog: the "Show the N changes" toggle of an older
+  // release says nothing once every <details> is open.
+  '.cl-more__summary', '.cl-chevron',
 ]
 
 function findPages(dir, out = []) {

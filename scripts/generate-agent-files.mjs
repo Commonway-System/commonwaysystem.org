@@ -273,12 +273,15 @@ for (const [d, entry] of dirs) {
 const refsSorted = [...refs.values()].sort((a, b) => a.title.localeCompare(b.title))
 writeFileSync(join(okfDir, 'references', 'index.md'), `# References\n\nEvery source cited by a page in this bundle, one concept each, with its evidence tier and the pages that cite it.\n\n${refsSorted.map(r => line(`${r.id}.md`, r.title, r.tier)).join('\n')}\n`)
 
-// log.md: the changelog from Release History & Roadmap, newest first.
+// log.md: the changelog from Release History & Roadmap, newest first. Its
+// markdown copy has a ### heading per release date and #### per change type
+// (Changelog.svelte); a change to that markup needs this parser updated.
 const historyMd = readFileSync(join(buildDir, 'about/release-history.md'), 'utf8')
 const changelog = historyMd.split(/^## Changelog\s*$/m)[1]?.split(/^## /m)[0] ?? ''
 const log = changelog
   .replace(/^Entries run newest to oldest\..*$/m, '')
-  .replace(/^\*\*(\d{4})\.(\d{2})\.(\d{2})\*\*\s*$/gm, '## $1-$2-$3\n')
+  .replace(/^### (\d{4})\.(\d{2})\.(\d{2})\s*$/gm, '## $1-$2-$3')
+  .replace(/^#### /gm, '### ')
   .replace(/^-\s{3}/gm, '* ')
   .replace(/\n{3,}/g, '\n\n')
   .trim()
