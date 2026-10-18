@@ -2,17 +2,16 @@
 title: "Pedestrian Signal"
 description: "A signal indication, typically a walking figure and countdown display, informing pedestrians when it is their turn to cross and how much time remains to do so at a signalized intersection or crossing."
 patternId: ELM-PDS-15
+status: recommended
 date: 2026-08-31
 llms: "A signal indication, typically a walking figure and countdown display, informing pedestrians when it is their turn to cross and how much time remains to do so at a signalized intersection or crossing."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Pedestrian Signal" classification="element" status="recommended">
 A signal indication, typically a walking figure and countdown display, informing pedestrians when it is their turn to cross and how much time remains to do so at a signalized intersection or crossing.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ A vehicle-only signal phase gives pedestrians no explicit information about when
 
 ## Related patterns
 
-[Traffic Signal](/patterns/elements/traffic-signal/) (ELM-TFS-14) (the companion vehicle control this pattern coordinates with); [Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03), [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) (ELM-DWS-10) (companion accessibility elements)
+<div class="cw-links">
+
+- [Traffic Signal](/patterns/elements/traffic-signal/) <IdPill id="ELM-TFS-14" /> (the companion vehicle control this pattern coordinates with)
+- [Curb Ramp](/patterns/elements/curb-ramp/) <IdPill id="ELM-CRP-03" />
+- [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) <IdPill id="ELM-DWS-10" /> (companion accessibility elements)
+
+</div>
 
 ## References
 

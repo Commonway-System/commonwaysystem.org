@@ -7,12 +7,10 @@ llms: "Converts a paved roadway to a gravel or unpaved surface on a low-volume r
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="Depaving / pavement-to-gravel conversion" scale="corridor">
 Converts a paved roadway to a gravel or unpaved surface, typically on a low-volume rural or exurban road, reducing both construction cost and vehicle speed.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
@@ -24,23 +22,42 @@ This is the outlier among Corridor retrofit strategies: its primary driver is us
 
 ## Where this leads: Target patterns
 
-[Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) (COL-FTM-02)
+<div class="cw-links">
+
+- [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) <IdPill id="COL-FTM-02" />
+
+</div>
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Applicable to low-volume rural or exurban roads where paving costs exceed the practical benefit of a paved surface for the traffic actually using it. Not applicable to any corridor carrying meaningful through-traffic volume, transit service, or bicycle commuting demand, all of which benefit materially from a paved surface.
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 Minnesota's GreenStep Cities program lists retention of a gravel road, or conversion of a paved road to gravel, as a traffic-calming and financial best practice for appropriate low-volume roads.<Citation index={1} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
 This strategy sits differently on the construction spectrum than most others in this catalog: it moves toward less permanent infrastructure rather than more, and doesn't have a meaningful demonstration or pilot stage in the usual sense. The decision is typically made and executed directly, based on cost analysis rather than iterative testing. See [Construction Methodology & The Build Spectrum](/guide/construction-methodology-spectrum/).
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 Usually a county or rural township public works decision, based on maintenance budget analysis rather than a formal safety or capacity process. See [Funding & Financing Mechanisms](/guide/funding-financing-mechanisms/).
+
+</div>
+</div>
 
 ## Related retrofit strategies
 

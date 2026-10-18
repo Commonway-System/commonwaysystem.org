@@ -2,17 +2,16 @@
 title: "Bike Parking / Rack"
 description: "A fixed rack or set of racks, most commonly an inverted-U or similar design, providing a place to lock a bicycle, typically installed on a sidewalk or in a dedicated on-street corral."
 patternId: ELM-BPR-40
+status: recommended
 date: 2026-08-31
 llms: "A fixed rack or set of racks, most commonly an inverted-U or similar design, providing a place to lock a bicycle, typically installed on a sidewalk or in a dedicated on-street corral."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Bike Parking / Rack" classification="element" status="recommended">
 A fixed rack or set of racks, most commonly an inverted-U or similar design, providing a place to lock a bicycle, typically installed on a sidewalk or in a dedicated on-street corral.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Reliable, well-designed bike parking is a necessary complement to any bike facil
 
 ## Related patterns
 
-[Bike Parking Corral](/patterns/facilities/bike-parking-corral/) (FAC-BPC-08), [Secure Bike Parking/Bike Station](/patterns/facilities/secure-bike-parking-bike-station/) (FAC-SBP-10) (Facility-scale patterns this pattern is a component of)
+<div class="cw-links">
+
+- [Bike Parking Corral](/patterns/facilities/bike-parking-corral/) <IdPill id="FAC-BPC-08" />
+- [Secure Bike Parking/Bike Station](/patterns/facilities/secure-bike-parking-bike-station/) <IdPill id="FAC-SBP-10" /> (Facility-scale patterns this pattern is a component of)
+
+</div>
 
 ## References
 

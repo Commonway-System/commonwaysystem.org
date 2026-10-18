@@ -2,25 +2,28 @@
 title: "Restricted Crossing U-Turn (RCUT)"
 description: "An at-grade intersection design in which minor-road through and left-turn movements are removed entirely and redirected via a right turn followed by a U-turn at a designated median crossover."
 patternId: INT-RCU-13
+status: situational
 date: 2026-09-03
 llms: "An at-grade intersection design, also known as a J-turn or superstreet, that removes minor-road through and left-turn movements entirely, redirecting them via a right turn and a U-turn at a median crossover, Situational on high-speed divided highways."
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Restricted Crossing U-Turn (RCUT)" classification="intersections" status="situational">
 An at-grade intersection design in which minor-road through and left-turn movements are removed entirely and redirected via a right turn followed by a U-turn at a designated median crossover. Also known as a J-turn or superstreet.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
 
 Compact is an edge case. Urban and Core are unlikely pairings.
+
+</div>
 
 ## Design notes
 
@@ -28,11 +31,17 @@ RCUT goes further than a Median U-Turn intersection by removing the minor road's
 
 ## Related patterns
 
-[Median U-Turn](/patterns/intersections/median-u-turn/) (INT-MUT-12) (the related, less restrictive geometry that still allows a direct minor-road through movement), [Displaced Left-Turn](/patterns/intersections/displaced-left-turn/) (INT-DLT-14) (an alternative approach to the same unprotected-left-turn and through-crossing problem), [Signal](/patterns/intersections/signal/) (INT-SIG-03) (the conventional intersection this pattern modifies rather than replaces outright)
+<div class="cw-links">
+
+- [Median U-Turn](/patterns/intersections/median-u-turn/) <IdPill id="INT-MUT-12" /> (the related, less restrictive geometry that still allows a direct minor-road through movement)
+- [Displaced Left-Turn](/patterns/intersections/displaced-left-turn/) <IdPill id="INT-DLT-14" /> (an alternative approach to the same unprotected-left-turn and through-crossing problem)
+- [Signal](/patterns/intersections/signal/) <IdPill id="INT-SIG-03" /> (the conventional intersection this pattern modifies rather than replaces outright)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Restricted Crossing U-Turn (RCUT) retrofit](/retrofits/intersection/restricted-crossing-u-turn-rcut-retrofit/) (RFT-INT-03) reroutes an existing conventional intersection's minor-road movements to this geometry.
+[Restricted Crossing U-Turn (RCUT) retrofit](/retrofits/intersection/restricted-crossing-u-turn-rcut-retrofit/) <IdPill id="RFT-INT-03" /> reroutes an existing conventional intersection's minor-road movements to this geometry.
 
 ## References
 

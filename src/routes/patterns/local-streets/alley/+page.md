@@ -2,26 +2,29 @@
 title: Alley
 description: A narrow Local Typology carrying service and driveway access, with vehicle and freight movement prioritized over through pedestrian and bicycle traffic.
 patternId: LOC-ALY-02
+status: recommended
 date: 2026-08-29
 image: /patterns/loc-aly-02-alley.png
 llms: A narrow Local street typology for service and driveway access, where vehicle and freight movement outrank pedestrian and bicycle through-traffic.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Alley" classification="local" status="recommended">
 A narrow Local street serving rear or side property access, service vehicles, and utility placement rather than through movement of any mode.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Suburban is an edge case. Undeveloped and Rural contexts are unlikely to carry a purpose-built alley.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -43,7 +46,12 @@ Because an alley is not a through-route for people walking or biking, its narrow
 
 ## Related patterns
 
-[Default (Standard Local Street)](/patterns/local-streets/default/) (LOC-DEF-01) (the base modal order this pattern inverts), [Curb Cut / Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) (ELM-CCA-04) (the Element governing the driveway access this Typology exists to serve)
+<div class="cw-links">
+
+- [Default (Standard Local Street)](/patterns/local-streets/default/) <IdPill id="LOC-DEF-01" /> (the base modal order this pattern inverts)
+- [Curb Cut / Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) <IdPill id="ELM-CCA-04" /> (the Element governing the driveway access this Typology exists to serve)
+
+</div>
 
 ## References
 

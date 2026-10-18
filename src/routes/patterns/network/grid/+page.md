@@ -2,18 +2,17 @@
 title: "Grid"
 description: "A network topology in which streets form a continuous, evenly spaced pattern of parallel and perpendicular routes intersecting at right angles, producing rectangular blocks and multiple direct route options between any two points."
 patternId: NET-GRD-01
+status: recommended
 date: 2026-08-31
 image: /patterns/net-grd-01-grid.png
 llms: "A network topology in which streets form a continuous, evenly spaced pattern of parallel and perpendicular routes intersecting at right angles, producing rectangular blocks and multiple direct route options between any two points."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Grid" classification="network" status="recommended">
 A network topology in which streets form a continuous, evenly spaced pattern of parallel and perpendicular routes intersecting at right angles, producing rectangular blocks and multiple direct route options between any two points.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="network" />
 
@@ -31,7 +30,14 @@ Grid is one of the most common and longest-documented network topologies worldwi
 
 ## Related patterns
 
-[Dendritic/Hierarchical](/patterns/network/dendritic-hierarchical/) (NET-DEN-02), [Radial](/patterns/network/radial/) (NET-RAD-03), [Organic/Irregular](/patterns/network/organic-irregular/) (NET-ORG-04) (contrasting Network topologies); Superblock/Cellular (a modifier applied to this pattern, not a separate topology)
+<div class="cw-links">
+
+- [Dendritic/Hierarchical](/patterns/network/dendritic-hierarchical/) <IdPill id="NET-DEN-02" />
+- [Radial](/patterns/network/radial/) <IdPill id="NET-RAD-03" />
+- [Organic/Irregular](/patterns/network/organic-irregular/) <IdPill id="NET-ORG-04" /> (contrasting Network topologies)
+- Superblock/Cellular (a modifier applied to this pattern, not a separate topology)
+
+</div>
 
 ## References
 

@@ -2,26 +2,29 @@
 title: Cul-de-sac
 description: A dead-end Local Typology, Situational status, that peaks at Suburban density and thins out toward Urban and Core.
 patternId: LOC-CDS-03
+status: situational
 date: 2026-08-29
 image: /patterns/loc-cds-03-cul-de-sac.png
 llms: A dead-end Local street typology, marked Situational, that peaks at Suburban density and becomes incompatible with Urban and Core connectivity.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Cul-de-sac" classification="local" status="situational">
 A dead-end Local street with no through connection for any mode.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Suburban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Suburban" />
 
 Compact is an edge case. Undeveloped, Rural, Urban, and Core are unlikely pairings.
+
+</div>
 
 :::warning
 Cul-de-sac carries Situational status. The connectivity and walkability expectations that define Urban and Core density are close to incompatible with a dead-end street pattern, so this Typology's realistic range is narrow, peaking at Suburban.<Citation index={1} />
@@ -47,7 +50,12 @@ A cul-de-sac trades network connectivity for a quiet, low-through-traffic enviro
 
 ## Related patterns
 
-[Grid](/patterns/network/grid/) (NET-GRD-01) (the connected Network topology this pattern structurally departs from, the basis of this page's cited connectivity/safety research), [Default (Standard Local Street)](/patterns/local-streets/default/) (LOC-DEF-01) (the base order this pattern drops Transit from)
+<div class="cw-links">
+
+- [Grid](/patterns/network/grid/) <IdPill id="NET-GRD-01" /> (the connected Network topology this pattern structurally departs from, the basis of this page's cited connectivity/safety research)
+- [Default (Standard Local Street)](/patterns/local-streets/default/) <IdPill id="LOC-DEF-01" /> (the base order this pattern drops Transit from)
+
+</div>
 
 ## References
 

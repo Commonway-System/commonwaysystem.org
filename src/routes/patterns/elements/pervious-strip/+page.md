@@ -2,17 +2,16 @@
 title: "Pervious Strip"
 description: "A linear strip of permeable surface (gravel, permeable pavers, or open-graded aggregate), allowing stormwater to infiltrate directly into the ground rather than running off to a drain, typically installed within a parking lane, shoulder, or buffer zone."
 patternId: ELM-PVS-21
+status: situational
 date: 2026-08-31
 llms: "A linear strip of permeable surface (gravel, permeable pavers, or open-graded aggregate), allowing stormwater to infiltrate directly into the ground rather than running off to a drain, typically installed within a parking lane, shoulder, or buffer zone."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Pervious Strip" classification="element" status="situational">
 A linear strip of permeable surface (gravel, permeable pavers, or open-graded aggregate), allowing stormwater to infiltrate directly into the ground rather than running off to a drain, typically installed within a parking lane, shoulder, or buffer zone.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ A conventional impervious strip in this same location contributes runoff volume 
 
 ## Related patterns
 
-[Pervious Pavement](/patterns/elements/pervious-pavement/) (ELM-PVP-22) (a related but distinct full-surface treatment); [Bioswale](/patterns/elements/bioswale/) (ELM-BIO-19), [Flow-Through Planter](/patterns/elements/flow-through-planter/) (ELM-FTP-20) (higher-intervention alternatives)
+<div class="cw-links">
+
+- [Pervious Pavement](/patterns/elements/pervious-pavement/) <IdPill id="ELM-PVP-22" /> (a related but distinct full-surface treatment)
+- [Bioswale](/patterns/elements/bioswale/) <IdPill id="ELM-BIO-19" />
+- [Flow-Through Planter](/patterns/elements/flow-through-planter/) <IdPill id="ELM-FTP-20" /> (higher-intervention alternatives)
+
+</div>
 
 ## References
 

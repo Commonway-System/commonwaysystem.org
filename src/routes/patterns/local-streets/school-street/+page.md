@@ -2,26 +2,29 @@
 title: School Street
 description: A Local Typology that closes or restricts vehicle traffic during active school hours, protecting pedestrian and bicycle arrival and dismissal.
 patternId: LOC-SCH-11
+status: recommended
 date: 2026-08-29
 image: /patterns/loc-sch-11-school-street.png
 llms: A Local street typology that closes or restricts vehicle traffic during active school hours to protect pedestrian and bicycle arrival and dismissal.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="School Street" classification="local" status="recommended">
 A Local street adjacent to a school that restricts or excludes vehicle traffic during arrival and dismissal, then reverts to normal Local operation the rest of the day.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings, where schools are typically set back with dedicated drop-off lots rather than fronting a closable street.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -43,7 +46,11 @@ This Typology and Festival Street share the same schedule-based structure, full 
 
 ## Related patterns
 
-[Festival Street](/patterns/local-streets/festival-street/) (LOC-FES-08) (shares this pattern's schedule-based structure, per both pages' Design notes)
+<div class="cw-links">
+
+- [Festival Street](/patterns/local-streets/festival-street/) <IdPill id="LOC-FES-08" /> (shares this pattern's schedule-based structure, per both pages' Design notes)
+
+</div>
 
 ## References
 

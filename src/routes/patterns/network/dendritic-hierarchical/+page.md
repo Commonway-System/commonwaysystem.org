@@ -2,18 +2,17 @@
 title: "Dendritic / Hierarchical"
 description: "A tree-like network topology where local streets feed into collectors, which feed into arterials, minimizing through-connections at lower tiers and concentrating traffic onto a smaller number of higher-order routes. Historically progressed through increasingly branch-heavy, cul-de-sac-dominated forms over the 20th century, documented as an internal four-stage spectrum: Fragmented Parallel (c. 1950), Warped Parallel (c. 1960), Loops and Lollipops (c. 1970), and Lollipops on a Stick (c. 1980)."
 patternId: NET-DEN-02
+status: situational
 date: 2026-08-31
 image: /patterns/net-den-02-dendritic-hierachical.png
 llms: "A tree-like network topology where local streets feed into collectors, which feed into arterials, minimizing through-connections at lower tiers and concentrating traffic onto a smaller number of higher-order routes. Historically progressed through increasingly branch-heavy, cul-de-sac-dominated forms over the 20th century, documented as an internal four-stage spectrum: Fragmented Parallel (c. 1950), Warped Parallel (c. 1960), Loops and Lollipops (c. 1970), and Lollipops on a Stick (c. 1980)."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Dendritic / Hierarchical" classification="network" status="situational">
 A tree-like network topology where local streets feed into collectors, which feed into arterials, minimizing through-connections at lower tiers and concentrating traffic onto a smaller number of higher-order routes. Historically progressed through increasingly branch-heavy, cul-de-sac-dominated forms over the 20th century, documented as an internal four-stage spectrum: Fragmented Parallel (c. 1950), Warped Parallel (c. 1960), Loops and Lollipops (c. 1970), and Lollipops on a Stick (c. 1980).
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="network" />
 
@@ -31,7 +30,7 @@ Dendritic/Hierarchical networks reduce through-traffic on local streets by desig
 
 ## Related patterns
 
-[Grid](/patterns/network/grid/) (NET-GRD-01) (contrasting topology); Superblock/Cellular (a [Grid](/patterns/network/grid/) (NET-GRD-01) modifier addressing a similar through-traffic concern by a different mechanism); Marshall’s D-type/Distributory
+[Grid](/patterns/network/grid/) <IdPill id="NET-GRD-01" /> (contrasting topology); Superblock/Cellular (a [Grid](/patterns/network/grid/) <IdPill id="NET-GRD-01" /> modifier addressing a similar through-traffic concern by a different mechanism); Marshall’s D-type/Distributory
 
 ## References
 

@@ -7,12 +7,10 @@ llms: "Converts an undivided rural two-lane road into a continuous three-lane cr
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="2+1 road with cable median barrier" scale="corridor">
 Converts an undivided rural two-lane road into a continuous three-lane cross section, with an alternating passing lane and a cable median barrier, built within the existing right-of-way.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
@@ -26,15 +24,27 @@ Run-off and head-on crashes together account for the large majority of fatalitie
 
 ## Where this leads: Target patterns
 
-[Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) (COL-FTM-02), [Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01), [Scenic Highway / Byway](/patterns/arterials/scenic-highway-byway/) (ART-SCB-03)
+<div class="cw-links">
+
+- [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) <IdPill id="COL-FTM-02" />
+- [Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) <IdPill id="ART-DEF-01" />
+- [Scenic Highway / Byway](/patterns/arterials/scenic-highway-byway/) <IdPill id="ART-SCB-03" />
+
+</div>
 
 This strategy does not change a road into a different pattern so much as change the safety properties of the same pattern when it runs at high speed. It applies within these patterns, wherever a two-lane rural road is functioning as a through-highway rather than a low-volume access road.
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Appropriate on rural two-lane roads where design speed, terrain, or existing posted speed exceeds roughly 45 mph. Past that point two vehicles closing head-on hit each other at roughly 90 mph or more combined, and collision energy scales with the square of closing speed, not linearly, so the safety answer changes qualitatively rather than just numerically.
 
 It is the direct destination for the terrain and volume combinations in Rural Collector / Farm-to-Market Road's own [Speed management row](/patterns/collectors/rural-collector/#layered-guidance-across-sources) that cross that threshold: level terrain at 400 to 2,000 vehicles per day (50 mph) and above 2,000 (60 mph), and rolling terrain above 2,000 vehicles per day (50 mph). It also applies to the Rural density tier of Default (No Parking, No Direct Property Access) and to Scenic Highway / Byway, wherever a two-lane rural road is functioning as a through-highway.
+
+</div>
+<div class="cw-fact">
 
 ## Evidence and effectiveness
 
@@ -46,17 +56,30 @@ The passing lane contributes on its own: Missouri DOT's research found passing-l
 
 The evidence has honest limits. Colorado DOT's feasibility study of a Swedish-style 2+1 road with barrier states that its crash reduction estimate carries real statistical uncertainty, because the underlying study had a short after-period, and it recommends a limited pilot rather than full rollout.<Citation index={5} />
 
+</div>
+<div class="cw-fact">
+
 ## Getting it built
 
 Unlike many Corridor strategies, this one cannot start from paint: the cable barrier and the three-lane cross section are permanent construction. Colorado's study recommends a limited pilot before wider deployment.<Citation index={5} /> Kentucky's 2+1 design guidance reports construction cost savings of 50 to 90% compared with a full four-lane divided highway.<Citation index={3} /> See [Construction Methodology & The Build Spectrum](/guide/construction-methodology-spectrum/).
+
+</div>
+<div class="cw-fact">
 
 ## Who can move this
 
 Most rural two-lane roads of this kind are state or county highways, so the decision typically sits with the state department of transportation or the county road agency, through its design guidance and engineering review. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/) and [Decision & Evaluation Processes](/guide/decision-evaluation-processes/).
 
+</div>
+</div>
+
 ## Related retrofit strategies
 
-[Depaving / pavement-to-gravel conversion](/retrofits/corridor/depaving-pavement-to-gravel/) (RFT-CDR-10) (the opposite response to a low-volume rural road: lowering its speed by changing the surface rather than adding a barrier)
+<div class="cw-links">
+
+- [Depaving / pavement-to-gravel conversion](/retrofits/corridor/depaving-pavement-to-gravel/) <IdPill id="RFT-CDR-10" /> (the opposite response to a low-volume rural road: lowering its speed by changing the surface rather than adding a barrier)
+
+</div>
 
 ## References
 

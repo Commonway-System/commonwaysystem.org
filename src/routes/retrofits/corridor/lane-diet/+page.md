@@ -7,12 +7,10 @@ llms: "Narrows existing travel lane widths, typically to 10-10.5 feet, without r
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="Lane diet" scale="corridor">
 Narrows existing travel lane widths without removing a lane, reclaiming the width difference for a bike lane, wider sidewalk, or buffer.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
@@ -24,15 +22,29 @@ Where a road diet removes a whole lane, a lane diet keeps the same lane count bu
 
 ## Where this leads: Target patterns
 
-[Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01), [Default (No Parking, No Direct Access)](/patterns/arterials/default/) (ART-DEF-01)
+<div class="cw-links">
+
+- [Default (Standard Collector)](/patterns/collectors/default/) <IdPill id="COL-DEF-01" />
+- [Default (No Parking, No Direct Access)](/patterns/arterials/default/) <IdPill id="ART-DEF-01" />
+
+</div>
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Appropriate on corridors where lane count must stay the same, due to volume or a jurisdiction's unwillingness to remove a lane, but where existing lanes exceed the width actually needed for safe operation at the corridor's design speed.
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 A Canadian Institute of Transportation study presented in 2015 found side-impact and turn-related crash rates lowest where average lane widths fall between 10 and 10.5 feet, challenging the assumption that wider lanes are inherently safer.<Citation index={1} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
@@ -40,13 +52,23 @@ Can move through the construction spectrum easily, since restriping to a narrowe
 
 No formal decision process is typically required, since lane count is unchanged.
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 Usually a city or county public works decision, achievable through routine restriping without new legislation. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/).
 
+</div>
+</div>
+
 ## Related retrofit strategies
 
-[Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) (RFT-CDR-01) (the more aggressive alternative where lane count itself can be reduced)
+<div class="cw-links">
+
+- [Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) <IdPill id="RFT-CDR-01" /> (the more aggressive alternative where lane count itself can be reduced)
+
+</div>
 
 ## References
 

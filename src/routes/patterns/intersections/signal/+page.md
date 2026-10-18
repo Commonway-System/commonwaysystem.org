@@ -2,25 +2,28 @@
 title: Signal
 description: Traffic signal control, available within the Commonway System only as a documented last resort, never the presumed choice.
 patternId: INT-SIG-03
+status: situational
 date: 2026-08-29
 llms: Traffic signal control, available within the Commonway System only as a documented last resort against the safer roundabout default, never the presumed choice.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Signal" classification="intersections" status="situational">
 A signalized intersection, controlling conflicting movements with timed lights.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings.
+
+</div>
 
 :::note
 Signal remains available within the Commonway System, but only as a last resort requiring documented burden-of-proof justification, modeled on WSDOT's Roundabout First and Intersection Control Evaluation policy.<Citation index={1} /><Citation index={2} /> It is not banned, just never presumed. Where a roundabout or turbo-roundabout can serve the same volume, that is the default choice instead.
@@ -34,12 +37,24 @@ Signal's realistic density range overlaps heavily with Roundabout and Turbo-Roun
 
 Vehicles making a turn are involved in a disproportionate share of fatal pedestrian and cyclist crashes relative to vehicles going straight, and that risk rises sharply with vehicle size.<Citation index={3} /><Citation index={4} /> This applies to every signal installation, not just those on freight-priority streets. [Industrial Collector](/patterns/collectors/industrial-collector/) is the acute case of it.
 
+<div class="cw-tiles">
+
 - **Leading pedestrian intervals.** Give pedestrians a several-second head start into the crosswalk before the parallel vehicle phase turns green, so a turning driver has a chance to see the pedestrian before beginning the turn.<Citation index={5} />
 - **Curb extensions.** They shorten crossing exposure time and place waiting pedestrians directly in the turning driver's line of sight.<Citation index={5} /> See [Curb Extension](/patterns/elements/curb-extension/).
 
+</div>
+
 ## Related patterns
 
-[Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) (INT-RAB-01) and [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (explicitly named on this page as competing for the same higher-volume intersections); [Median U-Turn](/patterns/intersections/median-u-turn/) (INT-MUT-12), [Restricted Crossing U-Turn](/patterns/intersections/restricted-crossing-u-turn/) (INT-RCU-13), and [Displaced Left-Turn](/patterns/intersections/displaced-left-turn/) (INT-DLT-14) (unconventional geometries that modify rather than replace this pattern to remove unprotected left turns)
+<div class="cw-links">
+
+- [Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) <IdPill id="INT-RAB-01" />
+- [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) <IdPill id="INT-TRB-02" /> (explicitly named on this page as competing for the same higher-volume intersections)
+- [Median U-Turn](/patterns/intersections/median-u-turn/) <IdPill id="INT-MUT-12" />
+- [Restricted Crossing U-Turn](/patterns/intersections/restricted-crossing-u-turn/) <IdPill id="INT-RCU-13" />
+- [Displaced Left-Turn](/patterns/intersections/displaced-left-turn/) <IdPill id="INT-DLT-14" /> (unconventional geometries that modify rather than replace this pattern to remove unprotected left turns)
+
+</div>
 
 ## References
 

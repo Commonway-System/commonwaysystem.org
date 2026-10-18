@@ -2,17 +2,16 @@
 title: "Park-and-Ride"
 description: "A parking facility, surface or structured, designed specifically for commuters to leave a personal vehicle and transfer to transit for the remainder of their trip."
 patternId: FAC-PNR-06
+status: situational
 date: 2026-08-31
 llms: "A parking facility, surface or structured, designed specifically for commuters to leave a personal vehicle and transfer to transit for the remainder of their trip."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Park-and-Ride" classification="facility" status="situational">
 A parking facility, surface or structured, designed specifically for commuters to leave a personal vehicle and transfer to transit for the remainder of their trip.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
@@ -30,7 +29,14 @@ Park-and-ride serves a distinct trip purpose (a single daily transfer at a predi
 
 ## Related patterns
 
-[Surface Parking Lot](/patterns/facilities/surface-parking-lot/) (FAC-SPL-04), [Parking Garage/Structure](/patterns/facilities/parking-garage-structure/) (FAC-PGS-05) (the physical forms this pattern typically takes); [Transit Hub/Station](/patterns/facilities/transit-hub-station/) (FAC-THS-03), [Transit Platform](/patterns/facilities/transit-platform/) (FAC-TPL-02) (the transit facility being served)
+<div class="cw-links">
+
+- [Surface Parking Lot](/patterns/facilities/surface-parking-lot/) <IdPill id="FAC-SPL-04" />
+- [Parking Garage/Structure](/patterns/facilities/parking-garage-structure/) <IdPill id="FAC-PGS-05" /> (the physical forms this pattern typically takes)
+- [Transit Hub/Station](/patterns/facilities/transit-hub-station/) <IdPill id="FAC-THS-03" />
+- [Transit Platform](/patterns/facilities/transit-platform/) <IdPill id="FAC-TPL-02" /> (the transit facility being served)
+
+</div>
 
 ## References
 

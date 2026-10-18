@@ -2,25 +2,28 @@
 title: "Displaced Left-Turn (DLT)"
 description: "An intersection where the left-turn lane is shifted to the opposing side of oncoming traffic at a signalized crossover upstream of the main intersection, letting left-turning and opposing through traffic move on concurrent phases."
 patternId: INT-DLT-14
+status: situational
 date: 2026-09-03
 llms: "An intersection, also known as a continuous flow intersection, where the left-turn lane is shifted to the opposing side of oncoming traffic upstream, letting left-turning and opposing through traffic move concurrently, Situational at high-volume urban and suburban intersections."
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Displaced Left-Turn (DLT)" classification="intersections" status="situational">
 An intersection where the left-turn lane is shifted to the opposing side of oncoming traffic at a signalized crossover upstream of the main intersection, letting left-turning and opposing through traffic move on concurrent phases. Also known as a continuous flow intersection.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 
 Rural is an unlikely pairing. Core is an edge case.
+
+</div>
 
 ## Design notes
 
@@ -28,11 +31,17 @@ This design resolves the same unprotected-left-turn conflict as Median U-Turn an
 
 ## Related patterns
 
-[Median U-Turn](/patterns/intersections/median-u-turn/) (INT-MUT-12), [Restricted Crossing U-Turn](/patterns/intersections/restricted-crossing-u-turn/) (INT-RCU-13) (the two lower-cost alternatives addressing the same underlying unprotected-left-turn problem in a different speed and volume context), [Grade-Separated Interchange](/patterns/intersections/grade-separated-interchange/) (INT-GSI-10) (the higher-cost alternative this pattern is often chosen instead of)
+<div class="cw-links">
+
+- [Median U-Turn](/patterns/intersections/median-u-turn/) <IdPill id="INT-MUT-12" />
+- [Restricted Crossing U-Turn](/patterns/intersections/restricted-crossing-u-turn/) <IdPill id="INT-RCU-13" /> (the two lower-cost alternatives addressing the same underlying unprotected-left-turn problem in a different speed and volume context)
+- [Grade-Separated Interchange](/patterns/intersections/grade-separated-interchange/) <IdPill id="INT-GSI-10" /> (the higher-cost alternative this pattern is often chosen instead of)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Displaced Left-Turn (DLT) retrofit](/retrofits/intersection/displaced-left-turn-dlt-retrofit/) (RFT-INT-04) reroutes an existing conventional intersection's left-turn movement to this geometry.
+[Displaced Left-Turn (DLT) retrofit](/retrofits/intersection/displaced-left-turn-dlt-retrofit/) <IdPill id="RFT-INT-04" /> reroutes an existing conventional intersection's left-turn movement to this geometry.
 
 ## References
 

@@ -2,17 +2,16 @@
 title: "Protected Bike Lane / Cycle Track"
 description: "A bike facility physically separated from adjacent vehicle traffic by a barrier, curb, parked cars, bollards, or planters, rather than paint markings alone, providing the highest level of separation among on-street bike facility types."
 patternId: ELM-PBL-37
+status: recommended
 date: 2026-08-31
 llms: "A bike facility physically separated from adjacent vehicle traffic by a barrier, curb, parked cars, bollards, or planters, rather than paint markings alone, providing the highest level of separation among on-street bike facility types."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Protected Bike Lane / Cycle Track" classification="element" status="recommended">
 A bike facility physically separated from adjacent vehicle traffic by a barrier, curb, parked cars, bollards, or planters, rather than paint markings alone, providing the highest level of separation among on-street bike facility types.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -31,11 +30,17 @@ Physical separation removes the reliance on driver behavior and paint compliance
 
 ## Related patterns
 
-[Buffered Bike Lane](/patterns/elements/buffered-bike-lane/) (ELM-BBL-35), [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34) (lower-separation alternatives); [Bicycle Signal](/patterns/elements/bicycle-signal/) (ELM-BCS-16) (a common companion treatment at intersections)
+<div class="cw-links">
+
+- [Buffered Bike Lane](/patterns/elements/buffered-bike-lane/) <IdPill id="ELM-BBL-35" />
+- [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) <IdPill id="ELM-CBL-34" /> (lower-separation alternatives)
+- [Bicycle Signal](/patterns/elements/bicycle-signal/) <IdPill id="ELM-BCS-16" /> (a common companion treatment at intersections)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-This Element is the direct product of all three protected bike lane retrofits: via [lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) (RFT-CDR-07), via [lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) (RFT-CDR-08), and via [parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) (RFT-CDR-09).
+This Element is the direct product of all three protected bike lane retrofits: via [lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) <IdPill id="RFT-CDR-07" />, via [lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) <IdPill id="RFT-CDR-08" />, and via [parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) <IdPill id="RFT-CDR-09" />.
 
 ## References
 

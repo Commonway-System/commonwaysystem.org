@@ -2,17 +2,16 @@
 title: "Curb"
 description: "The raised edge separating the roadway from the sidewalk or shoulder, marking the physical boundary between space allocated to vehicles and space allocated to pedestrians or the roadway edge condition."
 patternId: ELM-CRB-01
+status: recommended
 date: 2026-08-31
 llms: "The raised edge separating the roadway from the sidewalk or shoulder, marking the physical boundary between space allocated to vehicles and space allocated to pedestrians or the roadway edge condition."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Curb" classification="element" status="recommended">
 The raised edge separating the roadway from the sidewalk or shoulder, marking the physical boundary between space allocated to vehicles and space allocated to pedestrians or the roadway edge condition.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,14 @@ The curb is the single most foundational physical element separating modes on a 
 
 ## Related patterns
 
-[Curb Extension](/patterns/elements/curb-extension/) (ELM-CBE-02), [Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03), [Curb Cut/Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) (ELM-CCA-04) (all modifications of this base element); [Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (a common interruption point)
+<div class="cw-links">
+
+- [Curb Extension](/patterns/elements/curb-extension/) <IdPill id="ELM-CBE-02" />
+- [Curb Ramp](/patterns/elements/curb-ramp/) <IdPill id="ELM-CRP-03" />
+- [Curb Cut/Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) <IdPill id="ELM-CCA-04" /> (all modifications of this base element)
+- [Crosswalk](/patterns/elements/crosswalk/) <IdPill id="ELM-CRW-08" /> (a common interruption point)
+
+</div>
 
 ## References
 

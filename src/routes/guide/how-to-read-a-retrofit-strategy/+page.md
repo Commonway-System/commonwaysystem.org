@@ -6,7 +6,7 @@ llms: Explains how to read a Commonway System Retrofit Strategy entry, the RFT I
 ---
 
 <script>
-  import { EvidenceChip, ExampleCard, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { EvidenceChip, ExampleCard, PageHeader, RelatedMedia } from '$lib/theme/components'
 </script>
 
 Retrofit Strategies answer a different question than Patterns do. A Pattern describes what a street should be. A Retrofit Strategy describes how to move an existing street toward that destination. This page explains how each part of a Retrofit Strategy entry works.
@@ -18,18 +18,16 @@ If you haven't read [How to Read a Pattern](/guide/how-to-read-a-pattern/) yet, 
 ## The ID card
 
 <ExampleCard>
-  <RetrofitCard id="RFT-CDR-01" title="Four-to-three lane road diet" scale="corridor">
-    Converts an existing four-lane undivided roadway (two through lanes each direction) into three lanes: one through lane each direction plus a center two-way left-turn lane, reclaiming the freed width for other uses.
-  </RetrofitCard>
+  <PageHeader demo eyebrow="Retrofits · Corridor" title="Four-to-three lane road diet" patternId="RFT-CDR-01" accent="corridor" summary="Converts an existing four-lane undivided roadway (two through lanes each direction) into three lanes: one through lane each direction plus a center two-way left-turn lane, reclaiming the freed width for other uses." />
 </ExampleCard>
 
-The card above is a real one, [Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/). Every Retrofit Strategy has an ID in the format `RFT-SCALE-##`, for example `RFT-CDR-01`.
+The header above is a real one, [Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/). Every Retrofit Strategy has an ID in the format `RFT-SCALE-##`, for example `RFT-CDR-01`.
 
 - **RFT** marks this as a Retrofit Strategy, not a Pattern.
 - **SCALE** is one of three values: **CDR** (Corridor), **INT** (Intersection), or **NET** (Network). This tells you what level the strategy operates at, a single street segment, a single intersection, or an area-wide network.
 - **##** is a sequential number within that scale. Numbers are never renumbered or reused, matching how Pattern IDs work.
 
-The scale appears directly on the ID card (the sample above shows `CDR`, Corridor, in the upper right), the same place Patterns display their own identifying information. There is no separate scale badge. If you're used to reading a Pattern's ID card, reading a Retrofit Strategy's works the same way.
+The scale appears directly in the header (the sample above shows Corridor in the small label above the title), the same place Patterns display their own identifying information. There is no separate scale badge. If you're used to reading a Pattern's ID card, reading a Retrofit Strategy's works the same way.
 
 Retrofit Strategies do not carry status badges (Recommended, Situational, Discouraged, and so on). A Pattern's badge tells you whether CS endorses that destination. A Retrofit Strategy isn't endorsed or discouraged in that sense, it's either applicable to your situation or it isn't. That judgment lives in the Applicability and thresholds section below, not in a badge.
 

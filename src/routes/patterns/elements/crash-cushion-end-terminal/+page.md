@@ -2,17 +2,16 @@
 title: "Crash Cushion / End Terminal"
 description: "An energy-absorbing device installed at the exposed end of a traffic barrier or in front of a fixed hazard, designed to decelerate an impacting vehicle gradually rather than presenting a rigid, unshielded end or face."
 patternId: ELM-CCT-24
+status: recommended
 date: 2026-08-31
 llms: "An energy-absorbing device installed at the exposed end of a traffic barrier or in front of a fixed hazard, designed to decelerate an impacting vehicle gradually rather than presenting a rigid, unshielded end or face."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Crash Cushion / End Terminal" classification="element" status="recommended">
 An energy-absorbing device installed at the exposed end of a traffic barrier or in front of a fixed hazard, designed to decelerate an impacting vehicle gradually rather than presenting a rigid, unshielded end or face.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ An unshielded barrier end or exposed fixed object can spear or abruptly stop an 
 
 ## Related patterns
 
-[Traffic Barrier](/patterns/elements/traffic-barrier/) (ELM-TRB-23) (the element this pattern terminates); [Bollard](/patterns/elements/bollard/) (ELM-BOL-25) (a related but distinct safety hardware type)
+<div class="cw-links">
+
+- [Traffic Barrier](/patterns/elements/traffic-barrier/) <IdPill id="ELM-TRB-23" /> (the element this pattern terminates)
+- [Bollard](/patterns/elements/bollard/) <IdPill id="ELM-BOL-25" /> (a related but distinct safety hardware type)
+
+</div>
 
 ## References
 

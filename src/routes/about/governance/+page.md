@@ -21,9 +21,13 @@ The maintainer does. But classification decisions aren't made by feel: they foll
 
 When two sources point in different directions, the disagreement is resolved by evidence tier, not by who argued it more persuasively or how long a claim has been in the publication. Sources rank in this order:
 
+<div class="cw-ranked">
+
 1. **Legal or regulatory** (a statute, an adopted code, a government manual)
 2. **Evidence-based** (a peer-reviewed study, published crash data, a formal research report)
 3. **Precedent-based** (a real place doing it successfully, without a formal study behind it)
+
+</div>
 
 A higher-tier source overrides a lower-tier one by default. The maintainer only makes a judgment call when two sources sit at the same tier and genuinely conflict, and when that happens, the reasoning behind the call is documented alongside the citation, not left implicit.
 
@@ -35,9 +39,13 @@ The maintainer sets priorities and decides what gets built next. The [Release Hi
 
 Two different kinds of changes are held to two different bars:
 
+<div class="cw-options cw-options--pair">
+
 **Foundational structure** (the Functional Classification system, the pattern ID format, the scale hierarchy, core safety rules like the Local speed cap) requires the maintainer's direct sign-off, regardless of how well a proposed change is cited. These decisions shape everything built on top of them, so they don't move on the strength of a single well-argued case.
 
 **Content within the existing structure** (a new citation, a correction to a stated range, a new pattern proposal that fits into an existing Functional Classification) moves faster and follows the ordinary review process described on the [Submit a Change](/about/contributing/) page.
+
+</div>
 
 ## Participation isn't a vote
 

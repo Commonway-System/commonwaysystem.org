@@ -2,13 +2,14 @@
 title: Default (Standard Collector)
 description: The baseline Collector street typology, carrying the base modal hierarchy and 30 mph standard speed with no named override.
 patternId: COL-DEF-01
+status: recommended
 date: 2026-08-29
 llms: The baseline Collector street, applying the base modal hierarchy and 30 mph standard speed with no named override.
 ---
 
 <script>
   import viewerData from '$lib/data/street-configs/col-def-01'
-  import { Citation, DensityChip, EvidenceChip, GuidanceTable, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard, PatternViewer } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, GuidanceTable, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 
   const csSeg = '/patterns/collectors/default/#speed-and-modal-hierarchy'
   const guidanceRows = [
@@ -105,17 +106,19 @@ llms: The baseline Collector street, applying the base modal hierarchy and 30 mp
   ]
 </script>
 
-<PatternCard id={fm.patternId} title="Default (Standard Collector)" classification="collector" status="recommended">
 The baseline Collector street. No special land use, freight function, or dedicated mode gives it a name of its own, so it carries the base Collector modal hierarchy and speed rule unmodified.
-</PatternCard>
 
 <PatternViewer data={viewerData} image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Rural is an edge case. Undeveloped is an unlikely pairing.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -143,11 +146,23 @@ This entry is the standard against which every other Collector Typology is defin
 
 ## Related patterns
 
-[Default (Standard Local Street)](/patterns/local-streets/default/) (LOC-DEF-01) and [Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the equivalent baseline reference point one Functional Classification down and up, completing the three-tier chain)
+<div class="cw-links">
+
+- [Default (Standard Local Street)](/patterns/local-streets/default/) <IdPill id="LOC-DEF-01" />
+- [Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) <IdPill id="ART-DEF-01" /> (the equivalent baseline reference point one Functional Classification down and up, completing the three-tier chain)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) (RFT-CDR-01), [Lane diet](/retrofits/corridor/lane-diet/) (RFT-CDR-03), [Protected bike lane retrofit via lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) (RFT-CDR-07), [Protected bike lane retrofit via parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) (RFT-CDR-09)
+<div class="cw-links">
+
+- [Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) <IdPill id="RFT-CDR-01" />
+- [Lane diet](/retrofits/corridor/lane-diet/) <IdPill id="RFT-CDR-03" />
+- [Protected bike lane retrofit via lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) <IdPill id="RFT-CDR-07" />
+- [Protected bike lane retrofit via parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) <IdPill id="RFT-CDR-09" />
+
+</div>
 
 ## References
 

@@ -2,25 +2,28 @@
 title: Default (No Parking, No Direct Property Access)
 description: The baseline Arterial typology, where the core safety rule against mixing on-street parking or direct property access with through traffic is what defines it.
 patternId: ART-DEF-01
+status: recommended
 date: 2026-08-29
 llms: The baseline Arterial street typology, defined by never mixing on-street parking or direct property access with through traffic, the rule that distinguishes it from a Stroad.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Default (No Parking, No Direct Property Access)" classification="arterial" status="recommended">
 The baseline Arterial: a through-movement road that never mixes on-street parking or direct property access with through traffic. Any access need along the corridor is served by a separate Local or Frontage/Service Road instead.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="arterial" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Undeveloped is an edge case.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -42,11 +45,24 @@ The no-parking, no-direct-access rule is the load-bearing distinction between th
 
 ## Related patterns
 
-[Stroad (Commercial Arterial)](/patterns/arterials/stroad/) (ART-STD-05) (explicitly named on this page as the pattern this rule exists to prevent becoming), [Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) (the equivalent baseline one Functional Classification down)
+<div class="cw-links">
+
+- [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) <IdPill id="ART-STD-05" /> (explicitly named on this page as the pattern this rule exists to prevent becoming)
+- [Default (Standard Collector)](/patterns/collectors/default/) <IdPill id="COL-DEF-01" /> (the equivalent baseline one Functional Classification down)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) (RFT-CDR-01), [Five-plus lane reallocation](/retrofits/corridor/five-plus-lane-reallocation/) (RFT-CDR-02), [Lane diet](/retrofits/corridor/lane-diet/) (RFT-CDR-03), [One-way to two-way conversion](/retrofits/corridor/one-way-to-two-way-conversion/) (RFT-CDR-04), [Protected bike lane retrofit via lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) (RFT-CDR-08)
+<div class="cw-links">
+
+- [Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) <IdPill id="RFT-CDR-01" />
+- [Five-plus lane reallocation](/retrofits/corridor/five-plus-lane-reallocation/) <IdPill id="RFT-CDR-02" />
+- [Lane diet](/retrofits/corridor/lane-diet/) <IdPill id="RFT-CDR-03" />
+- [One-way to two-way conversion](/retrofits/corridor/one-way-to-two-way-conversion/) <IdPill id="RFT-CDR-04" />
+- [Protected bike lane retrofit via lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) <IdPill id="RFT-CDR-08" />
+
+</div>
 
 ## References
 

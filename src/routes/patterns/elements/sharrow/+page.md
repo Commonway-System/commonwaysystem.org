@@ -2,18 +2,17 @@
 title: "Sharrow"
 description: "A shared-lane marking, a painted symbol combining a bicycle icon and chevron arrows, placed within a shared vehicle travel lane to indicate that cyclists may use the full lane and to suggest proper positioning within it."
 patternId: ELM-SHR-39
+status: avoid
 date: 2026-08-31
 image: /patterns/elm-shr-39-sharrow.jpeg
 llms: "A shared-lane marking, a painted symbol combining a bicycle icon and chevron arrows, placed within a shared vehicle travel lane to indicate that cyclists may use the full lane and to suggest proper positioning within it."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Sharrow" classification="element" status="avoid">
 A shared-lane marking, a painted symbol combining a bicycle icon and chevron arrows, placed within a shared vehicle travel lane to indicate that cyclists may use the full lane and to suggest proper positioning within it.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -31,7 +30,13 @@ On a roadway too narrow to provide any dedicated bike space, a sharrow at least 
 
 ## Related patterns
 
-[Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34), [Advisory Bike Lane](/patterns/elements/advisory-bike-lane/) (ELM-ABL-36) (facilities this pattern should generally be upgraded toward); [Stroad](/patterns/arterials/stroad/) (ART-STD-05) (the explicit Avoid-status pattern this shares status logic with)
+<div class="cw-links">
+
+- [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) <IdPill id="ELM-CBL-34" />
+- [Advisory Bike Lane](/patterns/elements/advisory-bike-lane/) <IdPill id="ELM-ABL-36" /> (facilities this pattern should generally be upgraded toward)
+- [Stroad](/patterns/arterials/stroad/) <IdPill id="ART-STD-05" /> (the explicit Avoid-status pattern this shares status logic with)
+
+</div>
 
 ## References
 

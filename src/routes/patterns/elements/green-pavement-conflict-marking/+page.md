@@ -2,17 +2,16 @@
 title: "Green Pavement / Conflict Marking"
 description: "A colored pavement treatment, typically green, applied at a bike facility’s conflict point with a driveway, turn lane, or intersection, to increase driver awareness that a cyclist may be present or crossing through that space."
 patternId: ELM-GPM-38
+status: recommended
 date: 2026-08-31
 llms: "A colored pavement treatment, typically green, applied at a bike facility’s conflict point with a driveway, turn lane, or intersection, to increase driver awareness that a cyclist may be present or crossing through that space."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Green Pavement / Conflict Marking" classification="element" status="recommended">
 A colored pavement treatment, typically green, applied at a bike facility’s conflict point with a driveway, turn lane, or intersection, to increase driver awareness that a cyclist may be present or crossing through that space.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,14 @@ At points where a bike facility’s path crosses or intersects with vehicle move
 
 ## Related patterns
 
-[Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) (ELM-PBL-37), [Buffered Bike Lane](/patterns/elements/buffered-bike-lane/) (ELM-BBL-35), [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34) (the facilities this pattern supports at conflict points); [Bike Box](/patterns/elements/bike-box/) (ELM-BKB-42) (a related conflict-point treatment at intersections)
+<div class="cw-links">
+
+- [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) <IdPill id="ELM-PBL-37" />
+- [Buffered Bike Lane](/patterns/elements/buffered-bike-lane/) <IdPill id="ELM-BBL-35" />
+- [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) <IdPill id="ELM-CBL-34" /> (the facilities this pattern supports at conflict points)
+- [Bike Box](/patterns/elements/bike-box/) <IdPill id="ELM-BKB-42" /> (a related conflict-point treatment at intersections)
+
+</div>
 
 ## References
 

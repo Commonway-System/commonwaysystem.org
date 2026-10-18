@@ -2,12 +2,13 @@
 title: Industrial Collector
 description: A Collector Typology serving industrial land use, where freight movement outranks vehicle, pedestrian, bicycle, and transit priority.
 patternId: COL-IND-03
+status: recommended
 date: 2026-08-29
 llms: A Collector street typology serving industrial land use, where freight movement is prioritized above vehicle, pedestrian, bicycle, and transit use.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, GuidanceTable, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, GuidanceTable, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 
   const na = (why) => ({ summary: 'Not applicable.', content: [why] })
   const unspec = { summary: 'Not specified.', content: ['Not specified in the typical-elements list.'] }
@@ -112,17 +113,19 @@ llms: A Collector street typology serving industrial land use, where freight mov
   ]
 </script>
 
-<PatternCard id={fm.patternId} title="Industrial Collector" classification="collector" status="recommended">
 A Collector road serving warehouses, freight yards, or manufacturing land use, designed around truck movement and loading rather than the base Collector priority order.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 
 Undeveloped, Rural, and Core are edge cases.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -154,11 +157,19 @@ Two cautions apply when sizing anything on this page to the largest design vehic
 
 **Bicycle facility catchment.** The 3-mile bike and 0.5-mile walk threshold above borrows the distances in FTA's own adopted eligibility policy for pedestrian and bicycle improvements, which are themselves reasoned from equivalent travel time at each mode's typical speed: roughly a 15-to-30-minute walk at 2 mph, and the same time budget at a bicycle's roughly 10 mph average commute speed.<Citation index={22} /> The trigger is population, not land use classification. An industrial designation for this street does not mean its only legitimate users are people employed at businesses along it, and it should not be read as excusing the facility just because a bicycle plan has not caught up to the corridor. Industrial and logistics employment also skews toward a workforce with lower vehicle ownership and higher walk and bicycle mode share than the general population, including shift-work schedules that raise their own visibility and lighting needs. That is a reason to apply this trigger generously here, not a reason to scope it down to only the workers on-site.<Citation index={24} />
 
-Where this pattern's street crosses an active rail spur, an increasingly common condition on industrial land, see [Railroad Grade Crossing](/patterns/intersections/railroad-grade-crossing/) (INT-RGC-15), which covers the geometry and warning devices this page does not.
+Where this pattern's street crosses an active rail spur, an increasingly common condition on industrial land, see [Railroad Grade Crossing](/patterns/intersections/railroad-grade-crossing/) <IdPill id="INT-RGC-15" />, which covers the geometry and warning devices this page does not.
 
 ## Related patterns
 
-[Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) (the base order this pattern overrides for Freight priority), [Alley](/patterns/local-streets/alley/) (LOC-ALY-02) (the other cross-Classification pattern overriding to a Vehicle/Freight-first order for a specific access purpose), [Roundabout (Single / Multi-Lane)](/patterns/intersections/roundabout/) (INT-RAB-01) (this pattern's intersection answer depends on that page's freight-street sizing note), [Curb Cut / Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) (ELM-CCA-04) (this pattern's property-access answer depends on that Element's forward-entry requirement), [Railroad Grade Crossing](/patterns/intersections/railroad-grade-crossing/) (INT-RGC-15) (where an active rail spur crosses this street)
+<div class="cw-links">
+
+- [Default (Standard Collector)](/patterns/collectors/default/) <IdPill id="COL-DEF-01" /> (the base order this pattern overrides for Freight priority)
+- [Alley](/patterns/local-streets/alley/) <IdPill id="LOC-ALY-02" /> (the other cross-Classification pattern overriding to a Vehicle/Freight-first order for a specific access purpose)
+- [Roundabout (Single / Multi-Lane)](/patterns/intersections/roundabout/) <IdPill id="INT-RAB-01" /> (this pattern's intersection answer depends on that page's freight-street sizing note)
+- [Curb Cut / Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) <IdPill id="ELM-CCA-04" /> (this pattern's property-access answer depends on that Element's forward-entry requirement)
+- [Railroad Grade Crossing](/patterns/intersections/railroad-grade-crossing/) <IdPill id="INT-RGC-15" /> (where an active rail spur crosses this street)
+
+</div>
 
 ## References
 

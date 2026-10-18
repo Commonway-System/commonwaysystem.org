@@ -2,17 +2,16 @@
 title: "Traffic Signal"
 description: "A signal-controlled device using red, yellow, and green indications to assign right-of-way among conflicting vehicle movements at an intersection."
 patternId: ELM-TFS-14
+status: situational
 date: 2026-08-31
 llms: "A signal-controlled device using red, yellow, and green indications to assign right-of-way among conflicting vehicle movements at an intersection."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Traffic Signal" classification="element" status="situational">
 A signal-controlled device using red, yellow, and green indications to assign right-of-way among conflicting vehicle movements at an intersection.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ Above a certain volume or conflict complexity, an uncontrolled or sign-controlle
 
 ## Related patterns
 
-[Roundabout](/patterns/intersections/roundabout/) (INT-RAB-01) (the CS default this pattern is a documented departure from); [Pedestrian Signal](/patterns/elements/pedestrian-signal/) (ELM-PDS-15), [Bicycle Signal](/patterns/elements/bicycle-signal/) (ELM-BCS-16) (companion signal types at a signalized intersection)
+<div class="cw-links">
+
+- [Roundabout](/patterns/intersections/roundabout/) <IdPill id="INT-RAB-01" /> (the CS default this pattern is a documented departure from)
+- [Pedestrian Signal](/patterns/elements/pedestrian-signal/) <IdPill id="ELM-PDS-15" />
+- [Bicycle Signal](/patterns/elements/bicycle-signal/) <IdPill id="ELM-BCS-16" /> (companion signal types at a signalized intersection)
+
+</div>
 
 ## References
 

@@ -2,18 +2,17 @@
 title: "Rail-With-Trail Corridor"
 description: "A road or trail corridor running alongside an active rail line for some or all of its length, addressing crossing frequency, setback distance, and shared right-of-way concerns created by the parallel rail operation."
 patternId: CDR-RWT-04
+status: situational
 date: 2026-08-31
 image: /patterns/cdr-rwt-04-rail-with-trail-corridor.jpeg
 llms: "A road or trail corridor running alongside an active rail line for some or all of its length, addressing crossing frequency, setback distance, and shared right-of-way concerns created by the parallel rail operation."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Rail-With-Trail Corridor" classification="corridor" status="situational">
 A road or trail corridor running alongside an active rail line for some or all of its length, addressing crossing frequency, setback distance, and shared right-of-way concerns created by the parallel rail operation.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" />
 
@@ -31,7 +30,12 @@ Active rail lines impose constraints (crossing safety, minimum setbacks, noise, 
 
 ## Related patterns
 
-[Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) (CDR-RAG-05) (related but distinct: no active rail involved); relevant Crossing-family Element patterns
+<div class="cw-links">
+
+- [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) <IdPill id="CDR-RAG-05" /> (related but distinct: no active rail involved)
+- relevant Crossing-family Element patterns
+
+</div>
 
 ## References
 

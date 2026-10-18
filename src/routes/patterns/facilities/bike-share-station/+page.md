@@ -2,17 +2,16 @@
 title: "Bike-Share Station"
 description: "A docking location for a shared-bike program, where users check out and return bikes from a fixed station, either dock-based (physical docking points) or hybrid/dockless with a designated parking zone."
 patternId: FAC-BSS-09
+status: situational
 date: 2026-08-31
 llms: "A docking location for a shared-bike program, where users check out and return bikes from a fixed station, either dock-based (physical docking points) or hybrid/dockless with a designated parking zone."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Bike-Share Station" classification="facility" status="situational">
 A docking location for a shared-bike program, where users check out and return bikes from a fixed station, either dock-based (physical docking points) or hybrid/dockless with a designated parking zone.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
@@ -30,7 +29,12 @@ A shared-bike system depends on station siting decisions (density, spacing, prox
 
 ## Related patterns
 
-[Secure Bike Parking / Bike Station](/patterns/facilities/secure-bike-parking-bike-station/) (FAC-SBP-10) (a related but distinct higher-security facility type); [Transit Hub/Station](/patterns/facilities/transit-hub-station/) (FAC-THS-03) (a common co-location site)
+<div class="cw-links">
+
+- [Secure Bike Parking / Bike Station](/patterns/facilities/secure-bike-parking-bike-station/) <IdPill id="FAC-SBP-10" /> (a related but distinct higher-security facility type)
+- [Transit Hub/Station](/patterns/facilities/transit-hub-station/) <IdPill id="FAC-THS-03" /> (a common co-location site)
+
+</div>
 
 ## References
 

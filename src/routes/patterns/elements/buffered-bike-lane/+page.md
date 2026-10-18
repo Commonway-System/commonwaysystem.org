@@ -2,17 +2,16 @@
 title: "Buffered Bike Lane"
 description: "A striped bike lane with an additional painted buffer zone, typically hatched or cross-hatched markings, separating it from the adjacent vehicle travel lane or parking lane by more distance than a conventional bike lane alone provides."
 patternId: ELM-BBL-35
+status: recommended
 date: 2026-08-31
 llms: "A striped bike lane with an additional painted buffer zone, typically hatched or cross-hatched markings, separating it from the adjacent vehicle travel lane or parking lane by more distance than a conventional bike lane alone provides."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Buffered Bike Lane" classification="element" status="recommended">
 A striped bike lane with an additional painted buffer zone, typically hatched or cross-hatched markings, separating it from the adjacent vehicle travel lane or parking lane by more distance than a conventional bike lane alone provides.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Adding painted buffer width increases the physical and perceived separation betw
 
 ## Related patterns
 
-[Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34) (the baseline this pattern improves on); [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) (ELM-PBL-37) (the stronger-separation alternative)
+<div class="cw-links">
+
+- [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) <IdPill id="ELM-CBL-34" /> (the baseline this pattern improves on)
+- [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) <IdPill id="ELM-PBL-37" /> (the stronger-separation alternative)
+
+</div>
 
 ## References
 

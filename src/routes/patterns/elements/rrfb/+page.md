@@ -2,17 +2,16 @@
 title: "RRFB"
 description: "A Rectangular Rapid Flashing Beacon, a pedestrian- or cyclist-activated warning device using bright, irregularly-flashing LED lights mounted near a crosswalk sign to increase driver yielding at an uncontrolled crossing."
 patternId: ELM-RRF-17
+status: recommended
 date: 2026-08-31
 llms: "A Rectangular Rapid Flashing Beacon, a pedestrian- or cyclist-activated warning device using bright, irregularly-flashing LED lights mounted near a crosswalk sign to increase driver yielding at an uncontrolled crossing."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="RRFB" classification="element" status="recommended">
 A Rectangular Rapid Flashing Beacon, a pedestrian- or cyclist-activated warning device using bright, irregularly-flashing LED lights mounted near a crosswalk sign to increase driver yielding at an uncontrolled crossing.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ An uncontrolled crosswalk relies entirely on driver attentiveness and willingnes
 
 ## Related patterns
 
-[Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (the crossing this pattern supports); [Pedestrian Hybrid Beacon](/patterns/elements/pedestrian-hybrid-beacon/) (ELM-PHB-18) (a stronger-control alternative for busier crossings); [Traffic Signal](/patterns/elements/traffic-signal/) (ELM-TFS-14) (the higher-control alternative this pattern is meant to avoid triggering)
+<div class="cw-links">
+
+- [Crosswalk](/patterns/elements/crosswalk/) <IdPill id="ELM-CRW-08" /> (the crossing this pattern supports)
+- [Pedestrian Hybrid Beacon](/patterns/elements/pedestrian-hybrid-beacon/) <IdPill id="ELM-PHB-18" /> (a stronger-control alternative for busier crossings)
+- [Traffic Signal](/patterns/elements/traffic-signal/) <IdPill id="ELM-TFS-14" /> (the higher-control alternative this pattern is meant to avoid triggering)
+
+</div>
 
 ## References
 

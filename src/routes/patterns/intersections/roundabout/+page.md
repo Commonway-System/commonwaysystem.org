@@ -2,26 +2,29 @@
 title: Roundabout (Single / Multi-Lane)
 description: The default intersection control wherever two Collector-or-higher streets meet, per the Commonway System's locked intersection philosophy.
 patternId: INT-RAB-01
+status: recommended
 date: 2026-08-29
 image: /patterns/int-rab-01-roundabout.png
 llms: The default intersection control wherever two Collector-or-higher streets meet, single or multi-lane, per the Commonway System's locked intersection philosophy.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, RelatedMedia, PatternViewer } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Roundabout (Single / Multi-Lane)" classification="intersections" status="recommended">
 A circular intersection where entering traffic yields to the circulating flow, sized single or multi-lane to the volume it carries.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Rural is an edge case. Undeveloped is an unlikely pairing.
+
+</div>
 
 ## Design notes
 
@@ -37,11 +40,22 @@ Two cautions apply. Designing every movement for the largest conceivable truck d
 
 ## Related patterns
 
-[Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) (the step up for higher-volume Arterial-to-Arterial junctions, per this page), [Signal](/patterns/intersections/signal/) (INT-SIG-03) (the alternative control competing for the same higher-volume intersections, per Signal's own Design notes), [Neighborhood Traffic Circle / Mini-Roundabout](/patterns/elements/neighborhood-traffic-circle-mini-roundabout/) (ELM-NTC-46) (the much smaller, unsized analogue for a Local-to-Local intersection), [Industrial Collector](/patterns/collectors/industrial-collector/) (COL-IND-03) (a freight-priority street whose intersection answer depends on this page's freight-street sizing note)
+<div class="cw-links">
+
+- [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) <IdPill id="INT-TRB-02" /> (the step up for higher-volume Arterial-to-Arterial junctions, per this page)
+- [Signal](/patterns/intersections/signal/) <IdPill id="INT-SIG-03" /> (the alternative control competing for the same higher-volume intersections, per Signal's own Design notes)
+- [Neighborhood Traffic Circle / Mini-Roundabout](/patterns/elements/neighborhood-traffic-circle-mini-roundabout/) <IdPill id="ELM-NTC-46" /> (the much smaller, unsized analogue for a Local-to-Local intersection)
+- [Industrial Collector](/patterns/collectors/industrial-collector/) <IdPill id="COL-IND-03" /> (a freight-priority street whose intersection answer depends on this page's freight-street sizing note)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Signal-to-roundabout conversion](/retrofits/intersection/signal-to-roundabout-conversion/) (RFT-INT-01)
+<div class="cw-links">
+
+- [Signal-to-roundabout conversion](/retrofits/intersection/signal-to-roundabout-conversion/) <IdPill id="RFT-INT-01" />
+
+</div>
 
 ## References
 

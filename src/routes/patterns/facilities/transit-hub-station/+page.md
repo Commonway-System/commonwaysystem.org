@@ -2,17 +2,16 @@
 title: "Transit Hub / Station"
 description: "A compound facility where multiple transit patterns (platforms, shelters, wayfinding, sometimes multiple routes or modes) converge into a single coordinated site, documenting intermodal transfer and placemaking rather than a single boarding point."
 patternId: FAC-THS-03
+status: recommended
 date: 2026-08-31
 llms: "A compound facility where multiple transit patterns (platforms, shelters, wayfinding, sometimes multiple routes or modes) converge into a single coordinated site, documenting intermodal transfer and placemaking rather than a single boarding point."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Transit Hub / Station" classification="facility" status="recommended">
 A compound facility where multiple transit patterns (platforms, shelters, wayfinding, sometimes multiple routes or modes) converge into a single coordinated site, documenting intermodal transfer and placemaking rather than a single boarding point.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
@@ -30,7 +29,15 @@ Once a stop grows past a single platform and shelter, it becomes its own design 
 
 ## Related patterns
 
-[Transit Shelter](/patterns/facilities/transit-shelter/) (FAC-TSH-01), [Transit Platform](/patterns/facilities/transit-platform/) (FAC-TPL-02) (component facilities); [Park-and-Ride](/patterns/facilities/park-and-ride/) (FAC-PNR-06) (a related but distinct compound facility oriented around auto transfer rather than multimodal transfer); [Bike-Share Station](/patterns/facilities/bike-share-station/) (FAC-BSS-09), [Secure Bike Parking/Bike Station](/patterns/facilities/secure-bike-parking-bike-station/) (FAC-SBP-10) (frequently co-located amenities)
+<div class="cw-links">
+
+- [Transit Shelter](/patterns/facilities/transit-shelter/) <IdPill id="FAC-TSH-01" />
+- [Transit Platform](/patterns/facilities/transit-platform/) <IdPill id="FAC-TPL-02" /> (component facilities)
+- [Park-and-Ride](/patterns/facilities/park-and-ride/) <IdPill id="FAC-PNR-06" /> (a related but distinct compound facility oriented around auto transfer rather than multimodal transfer)
+- [Bike-Share Station](/patterns/facilities/bike-share-station/) <IdPill id="FAC-BSS-09" />
+- [Secure Bike Parking/Bike Station](/patterns/facilities/secure-bike-parking-bike-station/) <IdPill id="FAC-SBP-10" /> (frequently co-located amenities)
+
+</div>
 
 ## References
 

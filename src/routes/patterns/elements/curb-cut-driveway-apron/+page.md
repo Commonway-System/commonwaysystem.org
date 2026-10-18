@@ -2,17 +2,16 @@
 title: "Curb Cut / Driveway Apron"
 description: "The break in a curb allowing vehicle access from the roadway to an adjacent driveway, typically formed with a sloped apron transitioning between street grade and driveway grade."
 patternId: ELM-CCA-04
+status: situational
 date: 2026-08-31
 llms: "The break in a curb allowing vehicle access from the roadway to an adjacent driveway, typically formed with a sloped apron transitioning between street grade and driveway grade."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Curb Cut / Driveway Apron" classification="element" status="situational">
 The break in a curb allowing vehicle access from the roadway to an adjacent driveway, typically formed with a sloped apron transitioning between street grade and driveway grade.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -37,7 +36,14 @@ Every driveway crossing a sidewalk creates a conflict point between turning vehi
 
 ## Related patterns
 
-[Curb](/patterns/elements/curb/) (ELM-CRB-01), [Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03) (related curb modifications); relevant sidewalk continuity guidance; [Industrial Collector](/patterns/collectors/industrial-collector/) (COL-IND-03) (a freight-priority street whose property-access answer depends on the forward-entry requirement above)
+<div class="cw-links">
+
+- [Curb](/patterns/elements/curb/) <IdPill id="ELM-CRB-01" />
+- [Curb Ramp](/patterns/elements/curb-ramp/) <IdPill id="ELM-CRP-03" /> (related curb modifications)
+- relevant sidewalk continuity guidance
+- [Industrial Collector](/patterns/collectors/industrial-collector/) <IdPill id="COL-IND-03" /> (a freight-priority street whose property-access answer depends on the forward-entry requirement above)
+
+</div>
 
 ## References
 

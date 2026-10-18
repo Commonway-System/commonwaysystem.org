@@ -2,25 +2,28 @@
 title: Midblock Pedestrian Crossing
 description: A dedicated pedestrian crossing placed between intersections, used where block length or destination demand makes waiting for the corner impractical.
 patternId: INT-MPC-08
+status: recommended
 date: 2026-08-29
 llms: A dedicated pedestrian crossing placed between intersections, used where block length or destination demand makes waiting for the corner impractical.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Midblock Pedestrian Crossing" classification="intersections" status="recommended">
 A marked, and typically signalized or raised, pedestrian crossing placed mid-block rather than at a corner, serving a specific crossing demand between intersections.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings.
+
+</div>
 
 ## Design notes
 
@@ -28,7 +31,12 @@ Midblock crossings supplement, rather than replace, intersection-level crossing 
 
 ## Related patterns
 
-[Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (the Element-scale pattern this is a specific placement context for), [Pedestrian Hybrid Beacon](/patterns/elements/pedestrian-hybrid-beacon/) (ELM-PHB-18) (the Element most often used to control this crossing type at higher speeds or volumes)
+<div class="cw-links">
+
+- [Crosswalk](/patterns/elements/crosswalk/) <IdPill id="ELM-CRW-08" /> (the Element-scale pattern this is a specific placement context for)
+- [Pedestrian Hybrid Beacon](/patterns/elements/pedestrian-hybrid-beacon/) <IdPill id="ELM-PHB-18" /> (the Element most often used to control this crossing type at higher speeds or volumes)
+
+</div>
 
 ## References
 

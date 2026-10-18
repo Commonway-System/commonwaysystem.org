@@ -2,17 +2,16 @@
 title: "Pervious Pavement"
 description: "A load-bearing paving surface (permeable concrete, porous asphalt, or permeable interlocking pavers) engineered to allow stormwater to infiltrate directly through the pavement surface into a stone reservoir base below, rather than running off."
 patternId: ELM-PVP-22
+status: situational
 date: 2026-08-31
 llms: "A load-bearing paving surface (permeable concrete, porous asphalt, or permeable interlocking pavers) engineered to allow stormwater to infiltrate directly through the pavement surface into a stone reservoir base below, rather than running off."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Pervious Pavement" classification="element" status="situational">
 A load-bearing paving surface (permeable concrete, porous asphalt, or permeable interlocking pavers) engineered to allow stormwater to infiltrate directly through the pavement surface into a stone reservoir base below, rather than running off.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Applied across a full-width surface (a parking lot, a full travel lane, a plaza)
 
 ## Related patterns
 
-[Pervious Strip](/patterns/elements/pervious-strip/) (ELM-PVS-21) (a related, lower-scale treatment); [Surface Parking Lot](/patterns/facilities/surface-parking-lot/) (FAC-SPL-04) (Facility pattern where this often applies)
+<div class="cw-links">
+
+- [Pervious Strip](/patterns/elements/pervious-strip/) <IdPill id="ELM-PVS-21" /> (a related, lower-scale treatment)
+- [Surface Parking Lot](/patterns/facilities/surface-parking-lot/) <IdPill id="FAC-SPL-04" /> (Facility pattern where this often applies)
+
+</div>
 
 ## References
 

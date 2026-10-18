@@ -2,17 +2,16 @@
 title: "Bench"
 description: "A fixed or semi-fixed seating element installed along a sidewalk, plaza, or transit stop, providing a place to rest independent of any specific transit or commercial function."
 patternId: ELM-BCH-31
+status: recommended
 date: 2026-08-31
 llms: "A fixed or semi-fixed seating element installed along a sidewalk, plaza, or transit stop, providing a place to rest independent of any specific transit or commercial function."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Bench" classification="element" status="recommended">
 A fixed or semi-fixed seating element installed along a sidewalk, plaza, or transit stop, providing a place to rest independent of any specific transit or commercial function.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ Seating in the public realm extends how long and how comfortably people, particu
 
 ## Related patterns
 
-[Trash/Recycling Receptacle](/patterns/elements/trash-recycling-receptacle/) (ELM-TRR-32) (common companion element); [Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07), [Transit Shelter](/patterns/facilities/transit-shelter/) (FAC-TSH-01) (Facility patterns commonly furnished with benches)
+<div class="cw-links">
+
+- [Trash/Recycling Receptacle](/patterns/elements/trash-recycling-receptacle/) <IdPill id="ELM-TRR-32" /> (common companion element)
+- [Plaza/Parklet](/patterns/facilities/plaza-parklet/) <IdPill id="FAC-PLZ-07" />
+- [Transit Shelter](/patterns/facilities/transit-shelter/) <IdPill id="FAC-TSH-01" /> (Facility patterns commonly furnished with benches)
+
+</div>
 
 ## References
 

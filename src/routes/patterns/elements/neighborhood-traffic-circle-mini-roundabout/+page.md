@@ -2,17 +2,16 @@
 title: "Neighborhood Traffic Circle / Mini-Roundabout"
 description: "A small raised or landscaped island placed at the center of a Local-to-Local intersection, around which traffic circulates at low speed, used for calming rather than volume control."
 patternId: ELM-NTC-46
+status: recommended
 date: 2026-09-03
 llms: "A small raised or landscaped island placed at the center of a Local-to-Local intersection, around which traffic circulates at low speed, used for calming rather than volume control, distinct from the sized, engineered Roundabout pattern."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Neighborhood Traffic Circle / Mini-Roundabout" classification="element" status="recommended">
 A small raised or landscaped island placed at the center of a Local-to-Local intersection, around which traffic circulates at low speed, used for calming rather than volume control.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -31,7 +30,13 @@ Roundabout (Single / Multi-Lane) is sized to the volume it carries and is the de
 
 ## Related patterns
 
-[Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) (INT-RAB-01) (the sized, higher-volume analogue governed by different rules), [All-Way Stop](/patterns/intersections/all-way-stop/) (INT-AWS-04) (a control type this pattern sometimes replaces at a Local intersection), [Vertical Speed Control](/patterns/elements/vertical-speed-control/) (ELM-VSC-06) (an alternative Local-to-Local calming treatment)
+<div class="cw-links">
+
+- [Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) <IdPill id="INT-RAB-01" /> (the sized, higher-volume analogue governed by different rules)
+- [All-Way Stop](/patterns/intersections/all-way-stop/) <IdPill id="INT-AWS-04" /> (a control type this pattern sometimes replaces at a Local intersection)
+- [Vertical Speed Control](/patterns/elements/vertical-speed-control/) <IdPill id="ELM-VSC-06" /> (an alternative Local-to-Local calming treatment)
+
+</div>
 
 ## References
 

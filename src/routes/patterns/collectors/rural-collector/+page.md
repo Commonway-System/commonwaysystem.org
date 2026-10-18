@@ -2,12 +2,13 @@
 title: Rural Collector / Farm-to-Market Road
 description: A Collector Typology moving vehicle and freight traffic through low-density agricultural or undeveloped land, the norm at Undeveloped and Rural density.
 patternId: COL-FTM-02
+status: recommended
 date: 2026-08-29
 llms: A Collector street typology serving vehicle and freight movement through low-density agricultural or undeveloped land, the norm at Undeveloped and Rural density and effectively absent past Suburban.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, GuidanceTable, ModalHierarchySection, PatternCard, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard, SpeedTerrainTable, PatternViewer } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, GuidanceTable, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard, SpeedTerrainTable } from '$lib/theme/components'
 
   const cROW = { href: '/guide/street-types/#for-readers-coming-from-dutch-crow-practice', label: 'CROW comparison table' }
   const retro = { href: '/retrofits/corridor/two-plus-one-road-cable-barrier/', label: '2+1 road with cable median barrier' }
@@ -142,17 +143,19 @@ llms: A Collector street typology serving vehicle and freight movement through l
   ]
 </script>
 
-<PatternCard id={fm.patternId} title="Rural Collector / Farm-to-Market Road" classification="collector" status="recommended">
 A Collector road connecting low-density or agricultural land to the wider network, prioritizing vehicle and freight movement over pedestrian, bicycle, and transit use, which have little demand at this density.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
 
 Suburban is an edge case. Compact, Urban, and Core are unlikely pairings.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -184,11 +187,21 @@ This entry is the mirror image of Main Street: the norm at Undeveloped and Rural
 
 ## Related patterns
 
-[Main Street](/patterns/local-streets/main-street/) (LOC-MST-05) (explicitly named on this page as this pattern's mirror image), [Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) (the base order this pattern overrides)
+<div class="cw-links">
+
+- [Main Street](/patterns/local-streets/main-street/) <IdPill id="LOC-MST-05" /> (explicitly named on this page as this pattern's mirror image)
+- [Default (Standard Collector)](/patterns/collectors/default/) <IdPill id="COL-DEF-01" /> (the base order this pattern overrides)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Depaving / pavement-to-gravel conversion](/retrofits/corridor/depaving-pavement-to-gravel/) (RFT-CDR-10), [2+1 road with cable median barrier](/retrofits/corridor/two-plus-one-road-cable-barrier/) (RFT-CDR-11) (for the terrain and volume combinations above 45 mph)
+<div class="cw-links">
+
+- [Depaving / pavement-to-gravel conversion](/retrofits/corridor/depaving-pavement-to-gravel/) <IdPill id="RFT-CDR-10" />
+- [2+1 road with cable median barrier](/retrofits/corridor/two-plus-one-road-cable-barrier/) <IdPill id="RFT-CDR-11" /> (for the terrain and volume combinations above 45 mph)
+
+</div>
 
 ## References
 

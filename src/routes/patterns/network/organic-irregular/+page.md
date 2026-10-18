@@ -2,18 +2,17 @@
 title: "Organic / Irregular"
 description: "An unplanned, irregular network shaped incrementally over time by terrain, property lines, and historical settlement patterns rather than a deliberate overall layout, typically found in historic or pre-industrial city cores."
 patternId: NET-ORG-04
+status: descriptive
 date: 2026-08-31
 image: /patterns/net-org-04-organic-irregular.png
 llms: "An unplanned, irregular network shaped incrementally over time by terrain, property lines, and historical settlement patterns rather than a deliberate overall layout, typically found in historic or pre-industrial city cores."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Organic / Irregular" classification="network" status="descriptive">
 An unplanned, irregular network shaped incrementally over time by terrain, property lines, and historical settlement patterns rather than a deliberate overall layout, typically found in historic or pre-industrial city cores.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="network" />
 
@@ -31,7 +30,14 @@ Organic/Irregular networks are a real, common existing condition, especially in 
 
 ## Related patterns
 
-[Grid](/patterns/network/grid/) (NET-GRD-01), [Radial](/patterns/network/radial/) (NET-RAD-03), [Dendritic/Hierarchical](/patterns/network/dendritic-hierarchical/) (NET-DEN-02) (contrasting Network topologies); Marshall’s A-type/Altstadt
+<div class="cw-links">
+
+- [Grid](/patterns/network/grid/) <IdPill id="NET-GRD-01" />
+- [Radial](/patterns/network/radial/) <IdPill id="NET-RAD-03" />
+- [Dendritic/Hierarchical](/patterns/network/dendritic-hierarchical/) <IdPill id="NET-DEN-02" /> (contrasting Network topologies)
+- Marshall’s A-type/Altstadt
+
+</div>
 
 ## References
 

@@ -2,25 +2,28 @@
 title: Scenic Highway / Byway
 description: A low-density, low-development-pressure Arterial Typology, the norm at Undeveloped and Rural density and an unlikely pairing past Compact.
 patternId: ART-SCB-03
+status: recommended
 date: 2026-08-29
 llms: A low-density, low-development-pressure Arterial street typology, the norm at Undeveloped and Rural density, an unlikely pairing past Compact density.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Scenic Highway / Byway" classification="arterial" status="recommended">
 An Arterial through a low-development, often scenic landscape, where vehicle movement is prioritized and pedestrian, bicycle, and transit demand are minimal.<Citation index={1} />
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="arterial" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
 
 Suburban is an edge case. Compact, Urban, and Core are unlikely pairings.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -42,7 +45,11 @@ This entry follows the same shape as Rural Collector/Farm-to-Market Road: a low-
 
 ## Related patterns
 
-[Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) (COL-FTM-02) (explicitly named on this page as following the same shape)
+<div class="cw-links">
+
+- [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) <IdPill id="COL-FTM-02" /> (explicitly named on this page as following the same shape)
+
+</div>
 
 ## References
 

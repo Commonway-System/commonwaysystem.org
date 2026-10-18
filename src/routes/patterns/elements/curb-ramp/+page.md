@@ -2,17 +2,16 @@
 title: "Curb Ramp"
 description: "A sloped transition cut into a curb, providing an accessible path between the sidewalk and street surface for wheelchair users, strollers, and anyone unable to step up or down a vertical curb face."
 patternId: ELM-CRP-03
+status: recommended
 date: 2026-08-31
 llms: "A sloped transition cut into a curb, providing an accessible path between the sidewalk and street surface for wheelchair users, strollers, and anyone unable to step up or down a vertical curb face."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Curb Ramp" classification="element" status="recommended">
 A sloped transition cut into a curb, providing an accessible path between the sidewalk and street surface for wheelchair users, strollers, and anyone unable to step up or down a vertical curb face.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ A curb that provides no ramped transition is an absolute barrier to wheelchair u
 
 ## Related patterns
 
-[Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) (ELM-DWS-10) (required companion element); [Curb](/patterns/elements/curb/) (ELM-CRB-01), [Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (the elements this pattern connects)
+<div class="cw-links">
+
+- [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) <IdPill id="ELM-DWS-10" /> (required companion element)
+- [Curb](/patterns/elements/curb/) <IdPill id="ELM-CRB-01" />
+- [Crosswalk](/patterns/elements/crosswalk/) <IdPill id="ELM-CRW-08" /> (the elements this pattern connects)
+
+</div>
 
 ## References
 

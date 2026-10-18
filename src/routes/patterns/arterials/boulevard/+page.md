@@ -2,26 +2,29 @@
 title: Boulevard
 description: An Arterial Typology combining through traffic with a pedestrian-first frontage, including the Multiway Boulevard variant with medians separating frontage from through lanes.
 patternId: ART-BLV-02
+status: recommended
 date: 2026-08-29
 llms: An Arterial street typology combining through traffic with a pedestrian-first frontage, including the Multiway Boulevard variant, which separates frontage roads from through lanes with planted medians.
 ---
 
 <script>
   import viewerData from '$lib/data/street-configs/art-blv-02'
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Boulevard" classification="arterial" status="recommended">
 An Arterial with a wide, pedestrian-first frontage alongside through traffic lanes, typically featuring a planted median or landscaped buffer. Includes the Multiway Boulevard variant, where frontage roads are separated from through lanes by planted medians, such as Octavia Boulevard.<Citation index={1} />
-</PatternCard>
 
 <PatternViewer data={viewerData} image={fm.image} title={fm.title} classification="arterial" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -43,11 +46,21 @@ Multiway Boulevard is confirmed as a named variant folded into this single entry
 
 ## Related patterns
 
-[Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the base Arterial rule this pattern applies pedestrian-first frontage to), [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) (ART-STD-05) (named in Stroad's own "Instead, see" list as one of its two replacement patterns), [Median Island](/patterns/elements/median-island/) (ELM-MDI-45) (the Element pattern this corridor most often carries)
+<div class="cw-links">
+
+- [Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) <IdPill id="ART-DEF-01" /> (the base Arterial rule this pattern applies pedestrian-first frontage to)
+- [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) <IdPill id="ART-STD-05" /> (named in Stroad's own "Instead, see" list as one of its two replacement patterns)
+- [Median Island](/patterns/elements/median-island/) <IdPill id="ELM-MDI-45" /> (the Element pattern this corridor most often carries)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Five-plus lane reallocation](/retrofits/corridor/five-plus-lane-reallocation/) (RFT-CDR-02)
+<div class="cw-links">
+
+- [Five-plus lane reallocation](/retrofits/corridor/five-plus-lane-reallocation/) <IdPill id="RFT-CDR-02" />
+
+</div>
 
 ## References
 

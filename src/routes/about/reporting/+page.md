@@ -15,10 +15,14 @@ If you'd rather submit the actual fix yourself, correcting the text, adding the 
 
 ## What to report here
 
+<div class="cw-tiles">
+
 - **A factual error**: a wrong figure, an outdated rule, a description that no longer matches the current guidance
 - **An unsourced claim**: something that should carry the unsourced-claim flag<Citation unsourced /> but doesn't, or something flagged that you believe now has a source available
 - **A dead citation link**: a source URL that no longer resolves or redirects somewhere unexpected
 - **An accessibility issue**: anything that makes the publication harder to use with a screen reader, keyboard navigation, or at different zoom levels
+
+</div>
 
 ## How to report it
 

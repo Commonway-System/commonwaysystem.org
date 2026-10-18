@@ -17,6 +17,8 @@ Unlike that page, most of these mechanisms are described consistently across the
 
 ## Special assessment district
 
+<div class="cw-fields">
+
 **What it is.** A fee charged to property owners within a defined district whose properties are the primary beneficiaries of a transportation improvement. Also called a Local Improvement District or Benefit Assessment District depending on the state.<Citation index={1} />
 
 **Applicable purpose.** Captures the value a specific, identifiable group of properties gains from a nearby improvement and returns it to fund that improvement.
@@ -27,7 +29,11 @@ Unlike that page, most of these mechanisms are described consistently across the
 
 **Leveraging.** Can serve as the local match for federal or state grants, or as security for bonds, letting a district borrow against future assessment revenue.
 
+</div>
+
 ## Tax increment financing (TIF)
+
+<div class="cw-fields">
 
 **What it is.** A district in which the incremental growth in property tax revenue, above a fixed baseline, is redirected to fund the improvement believed to have driven that growth.<Citation index={2} />
 
@@ -39,7 +45,11 @@ Unlike that page, most of these mechanisms are described consistently across the
 
 **Leveraging.** Frequently used to back long-term debt, since the revenue stream is projected over the life of the TIF district.
 
+</div>
+
 ## Development impact fee
+
+<div class="cw-fields">
 
 **What it is.** A one-time charge imposed on new development to fund the public infrastructure that development's added demand requires.<Citation index={3} />
 
@@ -51,7 +61,11 @@ Unlike that page, most of these mechanisms are described consistently across the
 
 **Leveraging.** Can be pledged against bonds where a jurisdiction has a predictable development pipeline.
 
+</div>
+
 ## Transportation utility fee
+
+<div class="cw-fields">
 
 **What it is.** A periodic fee charged to property owners or renters, based on estimated trip generation, functioning more like a utility bill than a property tax.<Citation index={4} />
 
@@ -63,7 +77,11 @@ Unlike that page, most of these mechanisms are described consistently across the
 
 **Leveraging.** Weaker as bond security than TIF or special assessments, since courts in some states have limited how these fees can be structured and challenged.
 
+</div>
+
 ## Joint development
+
+<div class="cw-fields">
 
 **What it is.** A cost- or revenue-sharing partnership between a public agency and a private developer to build infrastructure and adjacent private development together.<Citation index={5} />
 
@@ -75,7 +93,11 @@ Unlike that page, most of these mechanisms are described consistently across the
 
 **Leveraging.** Can bring private capital into a project that public funding alone couldn't support, in exchange for shared control or revenue.
 
+</div>
+
 ## Parking benefit district
+
+<div class="cw-fields">
 
 **What it is.** A district in which revenue from paid on-street parking is returned to that same district for local improvements, rather than going to a general fund.<Citation index={6} />
 
@@ -87,7 +109,11 @@ Unlike that page, most of these mechanisms are described consistently across the
 
 **Leveraging.** Limited on its own, but frequently paired with other mechanisms on this page for a larger project.
 
+</div>
+
 ## Transportation reinvestment zone
+
+<div class="cw-fields">
 
 **What it is.** A defined zone, similar in mechanism to TIF, specifically authorized in some states for transportation-related revenue capture and reinvestment.<Citation index={7} />
 
@@ -99,7 +125,11 @@ Unlike that page, most of these mechanisms are described consistently across the
 
 **Leveraging.** Can back bonds the same way TIF does, where state law authorizes it.
 
+</div>
+
 ## Naming rights and sponsorship
+
+<div class="cw-fields">
 
 **What it is.** The sale of naming or sponsorship rights for a piece of infrastructure to a private company or institution.<Citation index={8} />
 
@@ -110,6 +140,8 @@ Unlike that page, most of these mechanisms are described consistently across the
 **Use of funds.** Varies by agreement; often directed to the specific asset being named.
 
 **Leveraging.** Minimal, given the modest and often one-time nature of the revenue.
+
+</div>
 
 ## References
 

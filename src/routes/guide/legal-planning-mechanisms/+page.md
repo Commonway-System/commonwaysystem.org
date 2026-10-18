@@ -23,13 +23,19 @@ These tools reserve or acquire land for a future transportation use, typically w
 
 ### Official map
 
+<div class="cw-fields">
+
 **What it is.** A map, adopted by ordinance, that designates the future location of a planned street or right-of-way expansion. Property within the mapped area can be restricted from development that would conflict with the future facility.<Citation index={4} />
 
 **Who controls it.** Local government, by ordinance, usually tied to a comprehensive or master plan.
 
 **When it's used.** Early, well before a project has funding or a design. An official map is a placeholder that prevents the land from being built out of reach.
 
+</div>
+
 ### Option to purchase
+
+<div class="cw-fields">
 
 **What it is.** An agreement giving a public agency the right, but not the obligation, to buy a specific parcel or easement at a later date, at a price set now.<Citation index={2} />
 
@@ -37,7 +43,11 @@ These tools reserve or acquire land for a future transportation use, typically w
 
 **When it's used.** When a specific parcel is known to be needed but the agency isn't ready to commit funds yet. Lower-cost than outright acquisition, since it defers payment.
 
+</div>
+
 ### Comprehensive or master plan corridor designation
+
+<div class="cw-fields">
 
 **What it is.** Formally naming a corridor in a jurisdiction's adopted comprehensive plan as a future transportation priority.<Citation index={3} />
 
@@ -45,7 +55,11 @@ These tools reserve or acquire land for a future transportation use, typically w
 
 **When it's used.** As the first formal step in corridor preservation, since most other tools in this section reference the comprehensive plan as their legal basis.
 
+</div>
+
 ### Concurrency ordinance
+
+<div class="cw-fields">
 
 **What it is.** A requirement that infrastructure capacity, including transportation capacity, must exist or be committed before new development is approved.
 
@@ -53,7 +67,11 @@ These tools reserve or acquire land for a future transportation use, typically w
 
 **When it's used.** To prevent development from outpacing a corridor's planned capacity, indirectly protecting the case for future right-of-way.
 
+</div>
+
 ### Voluntary developer reservation
+
+<div class="cw-fields">
 
 **What it is.** A developer voluntarily sets aside land for a future transportation facility as part of a project, often in exchange for a density bonus or other incentive.
 
@@ -61,7 +79,11 @@ These tools reserve or acquire land for a future transportation use, typically w
 
 **When it's used.** When a parcel is being developed before the transportation need is fully funded, and outright dedication isn't legally required.
 
+</div>
+
 ### Density transfer
+
+<div class="cw-fields">
 
 **What it is.** Development rights are shifted from the portion of a parcel needed for a future right-of-way to the remaining buildable portion, so the owner doesn't lose overall development capacity.
 
@@ -69,7 +91,11 @@ These tools reserve or acquire land for a future transportation use, typically w
 
 **When it's used.** As a lighter-weight alternative to a full transfer of development rights program, when only a single parcel's right-of-way need is being addressed.
 
+</div>
+
 ### Setback and building-line reservation
+
+<div class="cw-fields">
 
 **What it is.** Zoning or subdivision requirements that keep new construction set back far enough to leave room for a future roadway widening or facility.
 
@@ -77,11 +103,15 @@ These tools reserve or acquire land for a future transportation use, typically w
 
 **When it's used.** Routinely, as a background requirement on any parcel adjacent to a corridor with a known future need, rather than as a standalone action.
 
+</div>
+
 ## Policy mechanisms
 
 These tools don't reserve land. They commit a jurisdiction to a design approach, which in turn shapes what happens the next time a street is touched.
 
 ### Complete Streets policy
+
+<div class="cw-fields">
 
 **What it is.** A formal commitment, by ordinance, departmental policy, or executive order, to design and operate streets for all users rather than motor vehicles alone.<Citation index={6} /><Citation index={9} /><Citation index={10} />
 
@@ -89,7 +119,11 @@ These tools don't reserve land. They commit a jurisdiction to a design approach,
 
 **When it's used.** As a standing policy rather than a per-project decision, meaning its main effect is on projects that haven't been scoped yet.
 
+</div>
+
 ### Arterial retrofit ordinance
+
+<div class="cw-fields">
 
 **What it is.** An ordinance that specifically mandates retrofit treatment, rather than leaving it discretionary, on arterials meeting defined criteria.
 
@@ -97,7 +131,11 @@ These tools don't reserve land. They commit a jurisdiction to a design approach,
 
 **When it's used.** Where a jurisdiction wants retrofit to happen on a schedule rather than opportunistically. This is a policy mechanism whose entire purpose is to compel a Retrofit Strategy from the Corridor scale catalog.
 
+</div>
+
 ### Functional classification reclassification
+
+<div class="cw-fields">
 
 **What it is.** Changing a street's official functional class, which in turn changes which design standards and treatments are eligible or required.<Citation index={7} />
 
@@ -105,13 +143,19 @@ These tools don't reserve land. They commit a jurisdiction to a design approach,
 
 **When it's used.** When a street's actual function and use no longer match its classification, commonly after a corridor has already transitioned in practice from a through-route to a local destination street or vice versa.
 
+</div>
+
 ### Context classification
+
+<div class="cw-fields">
 
 **What it is.** A design-standards system that ties requirements to the surrounding land use context rather than to functional class alone, letting the same street type receive different treatment in a downtown versus a rural setting.<Citation index={8} />
 
 **Who controls it.** State DOT, when adopted as a statewide system; can also be adapted locally.
 
 **When it's used.** As an alternative or supplement to functional classification, in jurisdictions that have found classification alone too blunt an instrument for context-sensitive design.
+
+</div>
 
 ## References
 

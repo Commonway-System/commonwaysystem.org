@@ -2,23 +2,26 @@
 title: "Parkway"
 description: "A roadway historically designed as a scenic, landscaped route, typically featuring a planted median and limited access, whose modern implementations vary widely between two distinct traditions: a limited-access, freeway-like facility, and a slower, arterial-scale boulevard-like facility running through or alongside parkland."
 patternId: ART-PKY-07
+status: situational
 date: 2026-08-31
 llms: "A roadway historically designed as a scenic, landscaped route, typically featuring a planted median and limited access, whose modern implementations vary widely between two distinct traditions: a limited-access, freeway-like facility, and a slower, arterial-scale boulevard-like facility running through or alongside parkland."
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Parkway" classification="arterial" status="situational">
 A roadway historically designed as a scenic, landscaped route, typically featuring a planted median and limited access, whose modern implementations vary widely between two distinct traditions: a limited-access, freeway-like facility, and a slower, arterial-scale boulevard-like facility running through or alongside parkland.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="arterial" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -40,7 +43,14 @@ The term "parkway" carries genuinely conflicting meanings across American road-b
 
 ## Related patterns
 
-[default Freeway pattern](/patterns/freeways/default/) (FRE-DEF-01) (redirect target for freeway-standard parkways); [default Arterial pattern](/patterns/arterials/default/) (ART-DEF-01) (the standards a non-freeway parkway must follow); [Boulevard](/patterns/arterials/boulevard/) (ART-BLV-02), [Scenic Highway/Byway](/patterns/arterials/scenic-highway-byway/) (ART-SCB-03) (related but distinct Arterial subtypes)
+<div class="cw-links">
+
+- [default Freeway pattern](/patterns/freeways/default/) <IdPill id="FRE-DEF-01" /> (redirect target for freeway-standard parkways)
+- [default Arterial pattern](/patterns/arterials/default/) <IdPill id="ART-DEF-01" /> (the standards a non-freeway parkway must follow)
+- [Boulevard](/patterns/arterials/boulevard/) <IdPill id="ART-BLV-02" />
+- [Scenic Highway/Byway](/patterns/arterials/scenic-highway-byway/) <IdPill id="ART-SCB-03" /> (related but distinct Arterial subtypes)
+
+</div>
 
 ## References
 

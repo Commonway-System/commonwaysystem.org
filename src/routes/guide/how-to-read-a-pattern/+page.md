@@ -7,7 +7,7 @@ llms: Explains how to read a Commonway System pattern entry, Pattern ID cards, c
 
 <script>
   import sampleViewer from '$lib/data/street-configs/_demo'
-  import { Citation, DensityChip, ExampleCard, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, ExampleCard, ModalHierarchySection, PageHeader, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
 Every pattern in this guidebook is built from the same handful of parts, repeated consistently: a Pattern ID card, the Pattern viewer, density tier chips, admonition blocks, and citations. This page walks through what each one means, so the rest of the guidebook can be read without re-explaining itself on every page.
@@ -17,22 +17,20 @@ Every pattern in this guidebook is built from the same handful of parts, repeate
 ## The Pattern ID card
 
 <ExampleCard>
-  <PatternCard id="ART-UMS-09" title="Urban main street" classification="arterial" status="recommended">
-    An Urban main street is an Arterial typology combining retail frontage access with continuous pedestrian priority along both edges.
-  </PatternCard>
+  <PageHeader demo eyebrow="Patterns · Arterials" title="Urban main street" patternId="ART-UMS-09" status="recommended" accent="arterial" summary="An Urban main street is an Arterial typology combining retail frontage access with continuous pedestrian priority along both edges." />
 </ExampleCard>
 
-Each pattern opens with a card naming its ID, title, [Functional Classification](/guide/street-types/), and (for most classifications) a status. The colored left edge matches the classification, Local, Collector, Arterial, Freeway, or Intersections & Crossings, so a reader flipping through the guidebook can tell at a glance what kind of pattern they're looking at, even before reading the title.
+Each pattern opens with a header that is also its ID card, naming its ID, title, [Functional Classification](/guide/street-types/), and (for most classifications) a status, followed by a one-sentence summary. The header's color matches the classification, Local, Collector, Arterial, Freeway, or Intersections & Crossings, so a reader flipping through the guidebook can tell at a glance what kind of pattern they're looking at, even before reading the title.
 
 The ID itself follows a fixed format, `[PREFIX]-[CTXCODE]-[##]`, like `LOC-BBG-12`, with an optional trailing `(DENSITY)` suffix once more than one page exists for the same Typology at different density tiers.
 
-The label in the upper right corner shows the pattern's Functional Classification when one applies: Local, Collector, Arterial, Freeway, or Intersections & Crossings. For the four Scales that don't subdivide by classification, Network, Corridor, Facility, and Element, that same corner shows the Scale name itself instead. See [Scale Hierarchy](/guide/scale-hierarchy/) for what each of the nine Scale prefixes covers.
+The small label above the title shows the pattern's Functional Classification when one applies: Local, Collector, Arterial, Freeway, or Intersections & Crossings. For the four Scales that don't subdivide by classification, Network, Corridor, Facility, and Element, that same label shows the Scale name itself instead. See [Scale Hierarchy](/guide/scale-hierarchy/) for what each of the nine Scale prefixes covers.
 
 Read the [Pattern IDs](/guide/pattern-ids/) page for what each part of the ID means, the full nine-prefix Scale breakdown, and what each status badge means.
 
 ## The Pattern viewer
 
-Right after the ID card, every pattern opens with the Pattern viewer: drawings of the pattern that you can change. The example below is a made-up sample street, not a real pattern.
+Right after the header, every pattern opens with the Pattern viewer: drawings of the pattern that you can change. The example below is a made-up sample street, not a real pattern.
 
 <ExampleCard>
 <PatternViewer data={sampleViewer} title="Sample street" classification="collector" demo />

@@ -19,10 +19,14 @@ The four questions in [How Road Changes Actually Happen](/guide/make-it-happen/)
 
 ## Why you should care
 
+<div class="cw-tiles">
+
 - **You'll call the right office first.** A route number or a city limit sign won't always tell you who's in charge.
 - **"We can't" may be literally true.** In some states, a city can do only what the legislature allows.
 - **You may be paying a government you've never heard of.** Some Colorado subdivisions repay 30-year bonds through a district tax.
 - **The money follows different rules.** In U.S. territories, federal highway funds can't be spent on local roads.
+
+</div>
 
 ## Which one is you?
 
@@ -116,14 +120,20 @@ Federal highway law defines "State" to include Puerto Rico.<Citation index={31} 
 
 Guam, the U.S. Virgin Islands, American Samoa and the Northern Mariana Islands share a separate Territorial Highway Program. Its money flows only after each territory signs an agreement with the U.S. Department of Transportation covering road standards and maintenance. It can't pay for routine maintenance or for roads classed as local.<Citation index={32} />
 
+<div class="cw-tiles">
+
 - **Guam** has 19 villages and no counties. Its Department of Public Works maintains the island's roads; village mayors help set street priorities. About 155 miles are federal-aid highways, beside about 860 miles of other roads.<Citation index={33} />
 - **U.S. Virgin Islands:** the territorial Department of Public Works plans, builds and maintains the public roads and runs the federal-aid highway program.<Citation index={34} />
 - **Northern Mariana Islands:** the Department of Public Works maintains primary and secondary roads.<Citation index={35} /> Some roads are part of a Territorial Highway System eligible for federal aid.<Citation index={36} />
 - **American Samoa** has about 150 miles in its territorial highway system.<Citation index={37} /> Village roads can be funded another way: in 2024, a village access road was paid for by the Interior Department's Office of Insular Affairs and supervised by the Department of Public Works.<Citation index={38} />
 
+</div>
+
 **For your request:** In a territory, the territorial public works department is usually the road agency. Ask whether the road is in the federal-aid system; if it's local, the money comes from somewhere else.
 
 ## Fair questions
+
+<div class="cw-options">
 
 **My city says it doesn't have the authority. Is that an excuse?** Maybe not. In a Dillon's Rule state, an act the legislature hasn't authorized is void.<Citation index={10} /> Ask which law they're relying on.
 
@@ -133,13 +143,19 @@ Guam, the U.S. Virgin Islands, American Samoa and the Northern Mariana Islands s
 
 **Why can't my Michigan township fix my road?** Because it has no direct authority over it. The county road commission does. Your township can still help pay.<Citation index={24} />
 
+</div>
+
 ## What you can do
+
+<div class="cw-ranked">
 
 1. **Find your row** in the table above.
 2. **Ask the first office two things:** who maintains this road, and who controls its signs and signals?
 3. **Check your property tax bill** for a district you didn't know about.
 4. **Before pushing locally, check your state's rule.** Dillon's Rule or home rule changes what your city can do.
 5. **On tribal or federal land,** contact the tribe's transportation department or the agency that manages the land.
+
+</div>
 
 <RelatedMedia id="/guide/make-it-happen/jurisdiction-variants/" />
 

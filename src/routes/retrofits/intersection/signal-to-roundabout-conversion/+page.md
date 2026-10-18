@@ -7,12 +7,10 @@ llms: "Replaces an existing signalized intersection with a roundabout, removing 
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="Signal-to-roundabout conversion" scale="intersection">
 Replaces an existing signalized intersection with a roundabout, removing signal equipment and phasing entirely in favor of continuous yield-controlled circulation.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" retrofit />
 
@@ -24,15 +22,29 @@ A signal manages conflict by separating movements in time; a roundabout manages 
 
 ## Where this leads: Target patterns
 
-[Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) (INT-RAB-01), [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) (INT-TRB-02) at the highest-volume Arterial-to-Arterial locations
+<div class="cw-links">
+
+- [Roundabout (Single/Multi-Lane)](/patterns/intersections/roundabout/) <IdPill id="INT-RAB-01" />
+- [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) <IdPill id="INT-TRB-02" /> at the highest-volume Arterial-to-Arterial locations
+
+</div>
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Applicable at nearly any signalized intersection where right-of-way exists or can be acquired for the roundabout's circular footprint. Volume alone rarely disqualifies a location, since multi-lane and turbo-roundabout designs scale to high-volume conditions, but right-of-way constraints and adjacent property impacts are the most common practical limits.<Citation index={3} />
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 FHWA reports roundabouts reduce overall crashes by 35 percent, injury crashes by 76 percent, and fatal crashes by 90 to 100 percent compared to the signals or stop signs they replace.<Citation index={1} /> An Insurance Institute for Highway Safety empirical Bayes study of U.S. roundabout conversions found a crash modification factor of 0.801, an approximately 20 percent reduction in crashes overall.<Citation index={2} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
@@ -40,9 +52,15 @@ Cannot be meaningfully piloted or demonstrated. A roundabout requires real const
 
 An Intersection Control Evaluation is standard practice before this conversion, comparing the roundabout against retaining or upgrading the signal using the same safety and operational data. See [Decision & Evaluation Processes](/guide/decision-evaluation-processes/).
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 Typically a city, county, or state DOT capital project, given the construction scope and cost. Right-of-way needs may bring in acquisition or easement tools. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/) and [Funding & Financing Mechanisms](/guide/funding-financing-mechanisms/).
+
+</div>
+</div>
 
 ## Related retrofit strategies
 

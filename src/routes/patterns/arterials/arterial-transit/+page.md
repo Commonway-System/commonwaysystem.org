@@ -2,25 +2,28 @@
 title: Arterial Transit (BRT/LRT)
 description: An Arterial Typology with dedicated bus rapid transit or light rail treatment, reinforcing the Arterial base order rather than overriding it.
 patternId: ART-ATR-04
+status: recommended
 date: 2026-08-29
 llms: An Arterial street typology with dedicated bus rapid transit or light rail treatment, reinforcing rather than overriding the Arterial base modal hierarchy.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Arterial Transit (BRT/LRT)" classification="arterial" status="recommended">
 An Arterial with dedicated bus rapid transit or light rail infrastructure, most often a separated running way or exclusive lane.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="arterial" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -42,11 +45,20 @@ Arterial is the one Functional Classification where the base modal hierarchy alr
 
 ## Related patterns
 
-[Local Transit](/patterns/local-streets/local-transit/) (LOC-LTR-10) and [Collector Transit](/patterns/collectors/collector-transit/) (COL-CTR-05) (explicitly contrasted on this page: those two override their base order for Transit priority, while this pattern reinforces an order where Transit is already first)
+<div class="cw-links">
+
+- [Local Transit](/patterns/local-streets/local-transit/) <IdPill id="LOC-LTR-10" />
+- [Collector Transit](/patterns/collectors/collector-transit/) <IdPill id="COL-CTR-05" /> (explicitly contrasted on this page: those two override their base order for Transit priority, while this pattern reinforces an order where Transit is already first)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Transit priority lane retrofit](/retrofits/corridor/transit-priority-lane-retrofit/) (RFT-CDR-06)
+<div class="cw-links">
+
+- [Transit priority lane retrofit](/retrofits/corridor/transit-priority-lane-retrofit/) <IdPill id="RFT-CDR-06" />
+
+</div>
 
 ## References
 

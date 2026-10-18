@@ -2,26 +2,29 @@
 title: Yield Street
 description: A Local Typology narrow enough that opposing vehicles yield to each other, viable only where traffic volume genuinely stays low.
 patternId: LOC-YLD-07
+status: recommended
 date: 2026-08-29
 image: /patterns/loc-yld-07-yield-street.png
 llms: A narrow Local street typology where opposing vehicles yield to each other by design, viable only at genuinely low traffic volumes.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Yield Street" classification="local" status="recommended">
 A Local street narrow enough that two vehicles cannot pass without one yielding, using the street's width itself as a traffic-calming device.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
 
 Rural and Urban are edge cases. Undeveloped and Core are unlikely pairings, since local street volumes at Core density typically exceed what yield control can handle safely.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -43,7 +46,11 @@ This pattern only functions where traffic volume is genuinely low. It thins out 
 
 ## Related patterns
 
-[Living Street / Woonerf](/patterns/local-streets/living-street-woonerf/) (LOC-LSW-06) (the reciprocal pattern, sharing width-as-calming-device but going further to treat vehicles as guests)
+<div class="cw-links">
+
+- [Living Street / Woonerf](/patterns/local-streets/living-street-woonerf/) <IdPill id="LOC-LSW-06" /> (the reciprocal pattern, sharing width-as-calming-device but going further to treat vehicles as guests)
+
+</div>
 
 ## References
 

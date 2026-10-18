@@ -2,26 +2,29 @@
 title: Living Street / Woonerf
 description: A Local Typology where pedestrians and cyclists share the full street width with vehicles, who move at walking pace as guests. Includes NACTO's Home Zone.
 patternId: LOC-LSW-06
+status: recommended
 date: 2026-08-29
 image: /patterns/loc-lsw-06-living-street-woonerf.png
 llms: A Local street typology, including NACTO's Home Zone, where pedestrians and cyclists share the full street width and vehicles move as guests at walking pace.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Living Street / Woonerf" classification="local" status="recommended">
 A Local street with no separation between the pedestrian, bicycle, and vehicle space. Vehicles are guests, moving at walking pace and yielding to people on foot or bike by design, not by signage alone.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Suburban is an edge case. Undeveloped and Rural are unlikely pairings.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -43,11 +46,15 @@ NACTO's Home Zone is, strictly, an area-wide overlay rather than a distinct stre
 
 ## Related patterns
 
-[Yield Street](/patterns/local-streets/yield-street/) (LOC-YLD-07) (the other Local pattern using street geometry itself, rather than signage, as the calming mechanism)
+<div class="cw-links">
+
+- [Yield Street](/patterns/local-streets/yield-street/) <IdPill id="LOC-YLD-07" /> (the other Local pattern using street geometry itself, rather than signage, as the calming mechanism)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Superblock retrofit](/retrofits/network/superblock-retrofit/) (RFT-NET-02) applies *within* a multi-block area; this is one of the two typical results for its interior streets.
+[Superblock retrofit](/retrofits/network/superblock-retrofit/) <IdPill id="RFT-NET-02" /> applies *within* a multi-block area; this is one of the two typical results for its interior streets.
 
 ## References
 

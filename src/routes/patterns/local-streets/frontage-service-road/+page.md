@@ -2,26 +2,29 @@
 title: Frontage / Service Road
 description: A Local Typology running parallel to a faster Arterial or Freeway, keeping pedestrians and cyclists separated from that higher-speed traffic.
 patternId: LOC-FSR-04
+status: recommended
 date: 2026-08-29
 image: /patterns/loc-fsr-04-frontage-service-road.png
 llms: A Local street typology running parallel to a faster Arterial or Freeway, separating pedestrians and cyclists from the higher-speed roadway.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Frontage / Service Road" classification="local" status="recommended">
 A Local street running alongside a higher-speed Arterial or Freeway, giving property access and slower-mode movement a lane physically separated from the through traffic next to it.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 
 Undeveloped and Core are edge cases.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -43,7 +46,12 @@ The safety rationale is separation, not speed: keeping people walking and biking
 
 ## Related patterns
 
-[Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) (ART-DEF-01) (the Arterial-scale rule this pattern serves as the Local-scale companion to), [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) (ART-STD-05) (the Avoid pattern that results when this separation isn't provided)
+<div class="cw-links">
+
+- [Default (No Parking, No Direct Property Access)](/patterns/arterials/default/) <IdPill id="ART-DEF-01" /> (the Arterial-scale rule this pattern serves as the Local-scale companion to)
+- [Stroad (Commercial Arterial)](/patterns/arterials/stroad/) <IdPill id="ART-STD-05" /> (the Avoid pattern that results when this separation isn't provided)
+
+</div>
 
 ## References
 

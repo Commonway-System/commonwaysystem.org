@@ -2,17 +2,16 @@
 title: "Secure Bike Parking / Bike Station"
 description: "An enclosed or attended facility offering higher-security, longer-term bike parking than an open-air rack or corral, ranging from a lockable cage to a staffed bike station with additional services."
 patternId: FAC-SBP-10
+status: situational
 date: 2026-08-31
 llms: "An enclosed or attended facility offering higher-security, longer-term bike parking than an open-air rack or corral, ranging from a lockable cage to a staffed bike station with additional services."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Secure Bike Parking / Bike Station" classification="facility" status="situational">
 An enclosed or attended facility offering higher-security, longer-term bike parking than an open-air rack or corral, ranging from a lockable cage to a staffed bike station with additional services.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
@@ -30,7 +29,14 @@ Commuters and long-term parkers need protection from theft and weather that an o
 
 ## Related patterns
 
-[Bike Parking Corral](/patterns/facilities/bike-parking-corral/) (FAC-BPC-08), [Bike Parking / Rack](/patterns/elements/bike-parking-rack/) (ELM-BPR-40) (lower-security alternatives); [Bike-Share Station](/patterns/facilities/bike-share-station/) (FAC-BSS-09), [Transit Hub/Station](/patterns/facilities/transit-hub-station/) (FAC-THS-03) (common co-location sites)
+<div class="cw-links">
+
+- [Bike Parking Corral](/patterns/facilities/bike-parking-corral/) <IdPill id="FAC-BPC-08" />
+- [Bike Parking / Rack](/patterns/elements/bike-parking-rack/) <IdPill id="ELM-BPR-40" /> (lower-security alternatives)
+- [Bike-Share Station](/patterns/facilities/bike-share-station/) <IdPill id="FAC-BSS-09" />
+- [Transit Hub/Station](/patterns/facilities/transit-hub-station/) <IdPill id="FAC-THS-03" /> (common co-location sites)
+
+</div>
 
 ## References
 

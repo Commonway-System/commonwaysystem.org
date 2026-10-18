@@ -2,25 +2,28 @@
 title: Uncontrolled
 description: An intersection with no assigned right-of-way control, realistic only at the lowest density and traffic volumes.
 patternId: INT-UNC-07
+status: situational
 date: 2026-08-29
 llms: An uncontrolled intersection with no assigned right-of-way control, realistic only at the lowest density and traffic volume tiers.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Uncontrolled" classification="intersections" status="situational">
 An intersection with no stop, yield, signal, or roundabout control, right-of-way resolved informally by the drivers and other road users present.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" />
 
 Suburban is an edge case. Compact, Urban, and Core are unlikely pairings.
+
+</div>
 
 ## Design notes
 
@@ -28,7 +31,11 @@ Uncontrolled intersections are only realistic where traffic volume is low enough
 
 ## Related patterns
 
-[Stop / Yield (Two-Way)](/patterns/intersections/stop-yield/) (INT-SYD-05) (the next control tier up as volume exceeds informal right-of-way resolution, made explicit by the sentence added to this page's own Design notes)
+<div class="cw-links">
+
+- [Stop / Yield (Two-Way)](/patterns/intersections/stop-yield/) <IdPill id="INT-SYD-05" /> (the next control tier up as volume exceeds informal right-of-way resolution, made explicit by the sentence added to this page's own Design notes)
+
+</div>
 
 ## References
 

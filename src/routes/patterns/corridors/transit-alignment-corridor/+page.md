@@ -2,18 +2,17 @@
 title: "Transit Alignment Corridor"
 description: "A corridor built around a fixed transit line (light rail, streetcar, or dedicated BRT) running parallel to or within the roadway, addressing how the transit alignment shapes the corridor’s whole cross-section for its full length."
 patternId: CDR-TAC-06
+status: situational
 date: 2026-08-31
 image: /patterns/cdr-tac-06-transit-alignment-corridor.jpeg
 llms: "A corridor built around a fixed transit line (light rail, streetcar, or dedicated BRT) running parallel to or within the roadway, addressing how the transit alignment shapes the corridor’s whole cross-section for its full length."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Transit Alignment Corridor" classification="corridor" status="situational">
 A corridor built around a fixed transit line (light rail, streetcar, or dedicated BRT) running parallel to or within the roadway, addressing how the transit alignment shapes the corridor’s whole cross-section for its full length.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" />
 
@@ -31,7 +30,12 @@ A fixed transit alignment is not just another lane, it constrains cross-section 
 
 ## Related patterns
 
-Transit Corridor (Segment-scale character type, the segment-level treatment this corridor pattern coordinates); Modal Hierarchy mechanism (Guide)
+<div class="cw-links">
+
+- Transit Corridor (Segment-scale character type, the segment-level treatment this corridor pattern coordinates)
+- Modal Hierarchy mechanism (Guide)
+
+</div>
 
 ## References
 

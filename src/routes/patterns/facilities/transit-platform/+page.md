@@ -2,17 +2,16 @@
 title: "Transit Platform"
 description: "The boarding surface at a transit stop where passengers board and alight, varying by platform height (level or low), length (accommodating one or multiple vehicles), and configuration (island platform serving two directions, or side platforms serving one direction each)."
 patternId: FAC-TPL-02
+status: recommended
 date: 2026-08-31
 llms: "The boarding surface at a transit stop where passengers board and alight, varying by platform height (level or low), length (accommodating one or multiple vehicles), and configuration (island platform serving two directions, or side platforms serving one direction each)."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Transit Platform" classification="facility" status="recommended">
 The boarding surface at a transit stop where passengers board and alight, varying by platform height (level or low), length (accommodating one or multiple vehicles), and configuration (island platform serving two directions, or side platforms serving one direction each).
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
@@ -30,7 +29,13 @@ Boarding is where accessibility, dwell time, and safety concerns concentrate mos
 
 ## Related patterns
 
-[Transit Shelter](/patterns/facilities/transit-shelter/) (FAC-TSH-01) (typically paired amenity); [Transit Hub/Station](/patterns/facilities/transit-hub-station/) (FAC-THS-03) (compound facility); [Pedestrian Safety Island/Refuge](/patterns/elements/pedestrian-safety-island-refuge/) (ELM-PSI-09) (related Element pattern for reaching island platforms)
+<div class="cw-links">
+
+- [Transit Shelter](/patterns/facilities/transit-shelter/) <IdPill id="FAC-TSH-01" /> (typically paired amenity)
+- [Transit Hub/Station](/patterns/facilities/transit-hub-station/) <IdPill id="FAC-THS-03" /> (compound facility)
+- [Pedestrian Safety Island/Refuge](/patterns/elements/pedestrian-safety-island-refuge/) <IdPill id="ELM-PSI-09" /> (related Element pattern for reaching island platforms)
+
+</div>
 
 ## References
 

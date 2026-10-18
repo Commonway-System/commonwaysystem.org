@@ -2,17 +2,16 @@
 title: "Median Island"
 description: "A raised or landscaped island placed along the center of a roadway to narrow the effective travel width and separate opposing traffic, without a pedestrian crossing function."
 patternId: ELM-MDI-45
+status: recommended
 date: 2026-09-03
 llms: "A raised or landscaped island placed along the center of a roadway to narrow the effective travel width and separate opposing traffic, without a pedestrian crossing function, distinct from Pedestrian Safety Island/Refuge's crossing-assistance role."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Median Island" classification="element" status="recommended">
 A raised or landscaped island placed along the center of a roadway to narrow the effective travel width and separate opposing traffic, without a pedestrian crossing function.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -31,7 +30,13 @@ Narrowing a roadway's visual and physical width slows traffic and reduces opposi
 
 ## Related patterns
 
-[Pedestrian Safety Island / Refuge](/patterns/elements/pedestrian-safety-island-refuge/) (ELM-PSI-09) (a related but distinct treatment built specifically for two-stage pedestrian crossing), [Curb Extension](/patterns/elements/curb-extension/) (ELM-CBE-02) (a lateral narrowing approach rather than a center-of-roadway one), [Boulevard](/patterns/arterials/boulevard/) (ART-BLV-02) (the Arterial-scale corridor pattern this most often appears within)
+<div class="cw-links">
+
+- [Pedestrian Safety Island / Refuge](/patterns/elements/pedestrian-safety-island-refuge/) <IdPill id="ELM-PSI-09" /> (a related but distinct treatment built specifically for two-stage pedestrian crossing)
+- [Curb Extension](/patterns/elements/curb-extension/) <IdPill id="ELM-CBE-02" /> (a lateral narrowing approach rather than a center-of-roadway one)
+- [Boulevard](/patterns/arterials/boulevard/) <IdPill id="ART-BLV-02" /> (the Arterial-scale corridor pattern this most often appears within)
+
+</div>
 
 ## References
 

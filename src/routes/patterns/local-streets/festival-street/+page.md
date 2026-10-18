@@ -2,26 +2,29 @@
 title: Festival Street
 description: A Local Typology that closes to vehicle traffic during scheduled events and reverts to the base modal hierarchy off-hours.
 patternId: LOC-FES-08
+status: recommended
 date: 2026-08-29
 image: /patterns/loc-fes-08-festival-street.png
 llms: A Local street typology that closes to vehicle traffic during scheduled events and reverts to the base Local modal hierarchy off-hours.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Festival Street" classification="local" status="recommended">
 A Local street designed to convert between full vehicle access and a pedestrian-and-bicycle-only event space, on a schedule rather than permanently.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Compact is an edge case. Undeveloped, Rural, and Suburban are unlikely pairings.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -43,7 +46,12 @@ The dual-mode design, full street for events and normal Local operation otherwis
 
 ## Related patterns
 
-[Pedestrian-only Street / Plaza](/patterns/local-streets/pedestrian-plaza/) (LOC-PED-09) (the permanent version of what this pattern does on a schedule), [School Street](/patterns/local-streets/school-street/) (LOC-SCH-11) (shares this pattern's schedule-based structure, per both pages' Design notes)
+<div class="cw-links">
+
+- [Pedestrian-only Street / Plaza](/patterns/local-streets/pedestrian-plaza/) <IdPill id="LOC-PED-09" /> (the permanent version of what this pattern does on a schedule)
+- [School Street](/patterns/local-streets/school-street/) <IdPill id="LOC-SCH-11" /> (shares this pattern's schedule-based structure, per both pages' Design notes)
+
+</div>
 
 ## References
 

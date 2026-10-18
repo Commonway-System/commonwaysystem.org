@@ -28,10 +28,14 @@ Lanes are free to use, so the real price of driving is time. Add lanes and that 
 
 ## Why you should care
 
+<div class="cw-tiles">
+
 - **Your time.** The faster commute a widening promises fades within 3 to 10 years.<Citation index={5} />
 - **Your money.** One corridor cost $2.8 billion.<Citation index={1} /> Money spent on lanes that refill is money not spent on fixes that last.
 - **Your streets.** The extra driving spreads across the whole network, not just the new lanes.<Citation index={5} />
 - **Your town.** Homes and businesses spread outward to follow the road, which locks in longer drives.<Citation index={5} />
+
+</div>
 
 ## How it happens
 
@@ -65,9 +69,13 @@ The evidence is strongest for highways and major roads. The effect may be smalle
 
 ## What works
 
+<div class="cw-options cw-options--pair">
+
 **Price the road.** The national study names congestion pricing as the main remaining tool.<Citation index={6} /> New York began tolling vehicles entering Manhattan's central business district in January 2025. In the first year, 27 million fewer vehicles entered, an 11.7 percent drop, according to the MTA, which runs the program.<Citation index={7} />
 
 **Give road space to other modes.** Researchers reviewed more than 70 cases where road space moved from cars to buses, bikes, and walking. In 51 of 62 measured results, traffic fell, with a median drop of about 11 percent of the traffic that had used the treated road or area.<Citation index={8} /> Results depend on local conditions, and in some cases traffic crept back.<Citation index={8} />
+
+</div>
 
 Seoul tore down a 10-lane road and a 4-lane elevated highway that carried over 170,000 vehicles a day, and restored the stream beneath them. Bus ridership rose 15.1 percent and subway ridership 3.3 percent from 2003 to 2008, and cutting lane capacity cut traffic.<Citation index={9} />
 
@@ -77,9 +85,13 @@ Seoul tore down a 10-lane road and a 4-lane elevated highway that carried over 1
 
 The guidebook treats added lanes as a cost, not a cure. When a road is congested, it looks first at pricing, at moving road space to buses, bikes, and walking, and at a connected street network that gives trips more than one route. Widening is the last option, and any forecast for it should include the extra driving it will create.<Citation index={5} />
 
+<div class="cw-fields">
+
 **Arterials.** The [Arterial Default (ART-DEF-01)](/patterns/arterials/default/) keeps through traffic apart from parking and driveways. [Boulevard (ART-BLV-02)](/patterns/arterials/boulevard/) pairs through lanes with a frontage built for people. [Stroad (ART-STD-05)](/patterns/arterials/stroad/) is marked Avoid. [One-Way Street (ART-OWS-06)](/patterns/arterials/one-way-street/) and [Parkway (ART-PKY-07)](/patterns/arterials/parkway/) are Situational or Discouraged.
 
 **Freeways.** The [Freeway Default (FRE-DEF-01)](/patterns/freeways/default/), [Expressway (FRE-EXP-02)](/patterns/freeways/expressway/), and [Beltway or Ring Road (FRE-BLT-03)](/patterns/freeways/beltway-ring-road/) sit outside the guidebook's detailed design scope. This page states the guidebook's position on whether to widen them.
+
+</div>
 
 ## What you can do
 

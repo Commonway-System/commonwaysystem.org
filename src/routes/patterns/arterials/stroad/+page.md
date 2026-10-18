@@ -2,6 +2,7 @@
 title: Stroad (Commercial Arterial)
 description: An Arterial anti-pattern, Avoid status, mixing on-street parking or direct property access with through traffic. This page exists to help identify and replace it.
 patternId: ART-STD-05
+status: avoid
 date: 2026-08-29
 image: /patterns/art-std-05-stroad-commercial-arterial.png
 llms: An Arterial anti-pattern marked Avoid, formed by mixing on-street parking or direct property access with through traffic. This page exists to help identify and replace it with Boulevard or Default Arterial.
@@ -9,12 +10,10 @@ llms: An Arterial anti-pattern marked Avoid, formed by mixing on-street parking 
 
 <script>
   import viewerData from '$lib/data/street-configs/art-std-05'
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Stroad (Commercial Arterial)" classification="arterial" status="avoid">
 A street and Arterial hybrid, known under two common names, Stroad (coined by Strong Towns) and Commercial Arterial: through traffic mixed with on-street parking, frequent direct commercial driveway access, or both, along the same corridor.<Citation index={1} /> This is the exact combination the Arterial core safety rule prohibits: arterials should carry through traffic without direct property access or on-street parking competing for the same space.<Citation index={2} />
-</PatternCard>
 
 <PatternViewer data={viewerData} image={fm.image} title={fm.title} classification="arterial" />
 
@@ -53,7 +52,13 @@ This page exists to help readers identify a Stroad and replace it, with Boulevar
 
 ## Related patterns
 
-[Boulevard](/patterns/arterials/boulevard/) (ART-BLV-02), [Default (No Parking, No Direct Access)](/patterns/arterials/default/) (ART-DEF-01), [Frontage / Service Road](/patterns/local-streets/frontage-service-road/) (LOC-FSR-04)
+<div class="cw-links">
+
+- [Boulevard](/patterns/arterials/boulevard/) <IdPill id="ART-BLV-02" />
+- [Default (No Parking, No Direct Access)](/patterns/arterials/default/) <IdPill id="ART-DEF-01" />
+- [Frontage / Service Road](/patterns/local-streets/frontage-service-road/) <IdPill id="LOC-FSR-04" />
+
+</div>
 
 ## References
 

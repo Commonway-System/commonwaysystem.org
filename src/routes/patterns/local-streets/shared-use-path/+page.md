@@ -2,26 +2,29 @@
 title: Shared-Use Path
 description: An off-street Local Typology physically separated from the roadway, shared by pedestrians and bicyclists under roughly equal priority.
 patternId: LOC-SUP-13
+status: recommended
 date: 2026-08-31
 image: /patterns/loc-sup-13-shared-use-path.png
 llms: A Local street typology for an off-street path physically separated from the roadway, shared by pedestrians and bicyclists under roughly equal priority, connecting local-scale destinations.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Shared-Use Path" classification="local" status="recommended">
 An off-street path physically separated from the roadway, shared by pedestrians and bicyclists under roughly equal priority, connecting local-scale destinations.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Undeveloped and Rural contexts are unlikely to carry a purpose-built shared-use path.
+
+</div>
 
 ## Modal hierarchy
 
@@ -33,16 +36,20 @@ Pedestrian and Bicycle share top priority under this pattern's own equal-priorit
 
 ## Design notes
 
-Width should accommodate two-way pedestrian and bicycle travel without forcing conflict, with connections back to the street network at logical, safe, visible points rather than incidental gaps.<Citation index={1} /> Distinct from [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12), which shares an on-street roadway rather than separating off-street, and from [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06), which is longer-distance and destination-scale rather than local-connector scale.
+Width should accommodate two-way pedestrian and bicycle travel without forcing conflict, with connections back to the street network at logical, safe, visible points rather than incidental gaps.<Citation index={1} /> Distinct from [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) <IdPill id="LOC-BBG-12" />, which shares an on-street roadway rather than separating off-street, and from [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) <IdPill id="COL-MUT-06" />, which is longer-distance and destination-scale rather than local-connector scale.
 
 ## Related patterns
 
-- [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12)
-- [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06)
+<div class="cw-links">
+
+- [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) <IdPill id="LOC-BBG-12" />
+- [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) <IdPill id="COL-MUT-06" />
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Barrier-crossing / network reconnection retrofit](/retrofits/network/barrier-crossing-network-reconnection-retrofit/) (RFT-NET-03) commonly takes this form where it crosses a highway, rail line, or disconnected cul-de-sac pattern.
+[Barrier-crossing / network reconnection retrofit](/retrofits/network/barrier-crossing-network-reconnection-retrofit/) <IdPill id="RFT-NET-03" /> commonly takes this form where it crosses a highway, rail line, or disconnected cul-de-sac pattern.
 
 ## References
 

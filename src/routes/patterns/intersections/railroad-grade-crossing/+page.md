@@ -2,31 +2,36 @@
 title: Railroad Grade Crossing
 description: An at-grade crossing where a street meets an active rail line, with its own geometry, warning devices, and low-clearance-vehicle risk distinct from any road-to-road intersection.
 patternId: INT-RGC-15
+status: situational
 date: 2026-09-25
 llms: An at-grade crossing where any street type meets an active rail line, with its own geometry standard, required warning devices, sight-distance rules, and low-clearance-vehicle risk distinct from any road-to-road intersection.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Railroad Grade Crossing" classification="intersections" status="situational">
 An at-grade crossing where any street type meets an active rail line, with its own geometry, warning devices, and low-clearance-vehicle risk distinct from any road-to-road intersection.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
 
 Compact, Urban, and Core are also possible wherever an active rail line crosses a public street. The pattern is most common near industrial or agricultural rail spurs, but it is not exclusive to them.
 
+</div>
+
 ## Design notes
 
-This is its own pattern, not a row on another page, because it has its own geometry standard, its own required warning devices (distinct from any road-only intersection control), and its own sight-distance rules that vary by railroad company. It also applies across street types, not just [Industrial Collector](/patterns/collectors/industrial-collector/) (COL-IND-03) or [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) (COL-FTM-02), where an active spur is a realistic condition.
+This is its own pattern, not a row on another page, because it has its own geometry standard, its own required warning devices (distinct from any road-only intersection control), and its own sight-distance rules that vary by railroad company. It also applies across street types, not just [Industrial Collector](/patterns/collectors/industrial-collector/) <IdPill id="COL-IND-03" /> or [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) <IdPill id="COL-FTM-02" />, where an active spur is a realistic condition.
 
 The core hazard is a "humped" or high-profile crossing that can strand a low-ground-clearance or long-wheelbase vehicle on the tracks. This is a distinct failure mode from any other intersection risk in this guidebook.<Citation index={1} /><Citation index={2} />
+
+<div class="cw-tiles">
 
 - **Approach grade.** The maximum approach grade should not exceed 3 inches of rail elevation at a point 30 ft from the center of the nearest rail, on both sides.<Citation index={3} />
 - **Warning device.** Where an existing humped crossing cannot be corrected, the MUTCD W10-5 Low Ground Clearance sign, with its W10-5P plaque, is the required warning device.<Citation index={3} />
@@ -34,9 +39,17 @@ The core hazard is a "humped" or high-profile crossing that can strand a low-gro
 - **Storage and queuing.** A crossing located near a highway intersection carries a higher collision rate in part because of the short vehicle storage area between the crossing and the intersection. Queues can form across the crossing itself.<Citation index={4} />
 - **Pedestrians.** Pedestrian-specific treatments are a separate design discipline from vehicle treatments: inter-track fencing, pedestrian gates, swing gates, channelization, and detectable warning surfaces.<Citation index={5} />
 
+</div>
+
 ## Related patterns
 
-[Industrial Collector](/patterns/collectors/industrial-collector/) (COL-IND-03) (an active rail spur is a realistic condition on industrial land), [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) (COL-FTM-02) (rail spurs are plausible in agricultural contexts), [Signal](/patterns/intersections/signal/) (INT-SIG-03) (a nearby signalized intersection is the storage and queuing interaction described above)
+<div class="cw-links">
+
+- [Industrial Collector](/patterns/collectors/industrial-collector/) <IdPill id="COL-IND-03" /> (an active rail spur is a realistic condition on industrial land)
+- [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) <IdPill id="COL-FTM-02" /> (rail spurs are plausible in agricultural contexts)
+- [Signal](/patterns/intersections/signal/) <IdPill id="INT-SIG-03" /> (a nearby signalized intersection is the storage and queuing interaction described above)
+
+</div>
 
 ## References
 

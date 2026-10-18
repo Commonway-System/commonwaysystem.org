@@ -7,12 +7,10 @@ llms: "Also known as a Michigan U-turn, reroutes left-turn and through movements
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="Median U-Turn (MUT) retrofit" scale="intersection">
 Reroutes left-turn and through movements from a minor approach away from the main intersection, requiring drivers to turn right first, then complete a U-turn at a median opening downstream.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" retrofit />
 
@@ -24,15 +22,28 @@ Also known as a Michigan U-turn, this retrofit removes direct and unprotected le
 
 ## Where this leads: Target patterns
 
-[Median U-Turn (MUT)](/patterns/intersections/median-u-turn/) (INT-MUT-12)
+<div class="cw-links">
+
+- [Median U-Turn (MUT)](/patterns/intersections/median-u-turn/) <IdPill id="INT-MUT-12" />
+
+</div>
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Requires a wide enough median, or the ability to widen one, to accommodate the U-turn movement, sized to the corridor's design vehicle. Most commonly applied on divided arterials and highways with four or more lanes, where a conventional left turn from the minor approach would otherwise cross multiple lanes of opposing traffic at once.<Citation index={2} />
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 State DOT data (Indiana) shows a MUT-style retrofit improving traffic capacity by 20 to 50 percent at the retrofitted intersection, through more efficient signal phasing, timing, and progression with adjacent intersections, and reduces stops by a third or more.<Citation index={1} /><Citation index={3} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
@@ -40,13 +51,24 @@ Cannot be piloted informally. Retrofitting a standard intersection to this geome
 
 An Intersection Control Evaluation is standard practice, comparing this geometry against a conventional signal or other alternative intersection designs using safety and operational data. See [Decision & Evaluation Processes](/guide/decision-evaluation-processes/).
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 Typically a state DOT capital project, given the scale of median reconstruction involved, though a state highway running through a small city may still be responsive to local advocacy given the safety case. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/) and [Funding & Financing Mechanisms](/guide/funding-financing-mechanisms/).
 
+</div>
+</div>
+
 ## Related retrofit strategies
 
-[Restricted Crossing U-Turn (RCUT) retrofit](/retrofits/intersection/restricted-crossing-u-turn-rcut-retrofit/) (RFT-INT-03) (a closely related median U-turn geometry that also restricts the minor-road through movement), [Displaced Left-Turn (DLT) retrofit](/retrofits/intersection/displaced-left-turn-dlt-retrofit/) (RFT-INT-04) (an alternative approach to the same unprotected-left-turn problem)
+<div class="cw-links">
+
+- [Restricted Crossing U-Turn (RCUT) retrofit](/retrofits/intersection/restricted-crossing-u-turn-rcut-retrofit/) <IdPill id="RFT-INT-03" /> (a closely related median U-turn geometry that also restricts the minor-road through movement)
+- [Displaced Left-Turn (DLT) retrofit](/retrofits/intersection/displaced-left-turn-dlt-retrofit/) <IdPill id="RFT-INT-04" /> (an alternative approach to the same unprotected-left-turn problem)
+
+</div>
 
 ## References
 

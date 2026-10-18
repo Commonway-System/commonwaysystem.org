@@ -2,25 +2,28 @@
 title: Beltway / Ring Road
 description: A Freeway Typology circling a city or metro area rather than passing through its core. Out of the Commonway System's detailed design scope.
 patternId: FRE-BLT-03
+status: recommended
 date: 2026-08-29
 llms: A Freeway street typology circling a city or metro area rather than passing through its core. Out of the Commonway System's detailed design scope.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Beltway / Ring Road" classification="freeway" status="recommended">
 A limited-access Freeway circling a metro area's outer edge, connecting radial corridors without routing through-traffic into the urban core. Out of the Commonway System's detailed design scope.<Citation index={1} />
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="freeway" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
 
 Undeveloped, Compact, and Urban are edge cases. Core is an unlikely pairing.
+
+</div>
 
 ## Design notes
 
@@ -28,7 +31,12 @@ A Beltway's purpose, routing traffic around a metro area rather than through its
 
 ## Related patterns
 
-[Default (Freeway)](/patterns/freeways/default/) (FRE-DEF-01) (the base form this extends), [Radial](/patterns/network/radial/) (NET-RAD-03) (the Network topology a Beltway completes by connecting radial corridors around, rather than through, the core)
+<div class="cw-links">
+
+- [Default (Freeway)](/patterns/freeways/default/) <IdPill id="FRE-DEF-01" /> (the base form this extends)
+- [Radial](/patterns/network/radial/) <IdPill id="NET-RAD-03" /> (the Network topology a Beltway completes by connecting radial corridors around, rather than through, the core)
+
+</div>
 
 ## References
 

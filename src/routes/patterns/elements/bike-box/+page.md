@@ -2,17 +2,16 @@
 title: "Bike Box"
 description: "A designated waiting area marked at the head of a signalized intersection, positioned ahead of the vehicle stop line, allowing cyclists to position themselves in front of queued vehicles during a red signal for improved visibility and to enable a safer left turn or through movement."
 patternId: ELM-BKB-42
+status: recommended
 date: 2026-08-31
 llms: "A designated waiting area marked at the head of a signalized intersection, positioned ahead of the vehicle stop line, allowing cyclists to position themselves in front of queued vehicles during a red signal for improved visibility and to enable a safer left turn or through movement."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Bike Box" classification="element" status="recommended">
 A designated waiting area marked at the head of a signalized intersection, positioned ahead of the vehicle stop line, allowing cyclists to position themselves in front of queued vehicles during a red signal for improved visibility and to enable a safer left turn or through movement.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ At a signalized intersection, a cyclist stopped alongside or behind queued vehic
 
 ## Related patterns
 
-[Green Pavement/Conflict Marking](/patterns/elements/green-pavement-conflict-marking/) (ELM-GPM-38) (often used to highlight the box itself); [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) (ELM-PBL-37), [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34) (the facilities that typically lead into a bike box)
+<div class="cw-links">
+
+- [Green Pavement/Conflict Marking](/patterns/elements/green-pavement-conflict-marking/) <IdPill id="ELM-GPM-38" /> (often used to highlight the box itself)
+- [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) <IdPill id="ELM-PBL-37" />
+- [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) <IdPill id="ELM-CBL-34" /> (the facilities that typically lead into a bike box)
+
+</div>
 
 ## References
 

@@ -2,25 +2,28 @@
 title: Multi-Use Trail / Greenway
 description: An off-street Collector Typology shared by pedestrians and bicyclists under roughly equal priority, longer-distance and often a destination in its own right.
 patternId: COL-MUT-06
+status: recommended
 date: 2026-08-31
 llms: A Collector street typology for an off-street path shared by pedestrians and bicyclists under roughly equal priority, longer-distance and often a destination in its own right, such as a rail-trail or linear park path.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Multi-Use Trail / Greenway" classification="collector" status="recommended">
 An off-street path shared by pedestrians and bicyclists under roughly equal priority, similar to Shared-Use Path but longer-distance and often a destination in its own right, such as a rail-trail or linear park path.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Undeveloped contexts are an unlikely pairing.
+
+</div>
 
 ## Modal hierarchy
 
@@ -32,17 +35,21 @@ Pedestrian and Bicycle share top priority under this pattern's own equal-priorit
 
 ## Design notes
 
-Distinct from [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04), which is bicycle-priority rather than equal-priority, and longer-distance than [Shared-Use Path](/patterns/local-streets/shared-use-path/) (LOC-SUP-13), with wayfinding and rest amenities mattering more at this length. Appropriate where the trail itself is a recreational or civic destination, not just a through-corridor. Where it runs parallel to a road for a meaningful stretch, see [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) (CDR-RAG-05) for the corridor-scale relationship.<Citation index={1} />
+Distinct from [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) <IdPill id="COL-BHG-04" />, which is bicycle-priority rather than equal-priority, and longer-distance than [Shared-Use Path](/patterns/local-streets/shared-use-path/) <IdPill id="LOC-SUP-13" />, with wayfinding and rest amenities mattering more at this length. Appropriate where the trail itself is a recreational or civic destination, not just a through-corridor. Where it runs parallel to a road for a meaningful stretch, see [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) <IdPill id="CDR-RAG-05" /> for the corridor-scale relationship.<Citation index={1} />
 
 ## Related patterns
 
-- [Shared-Use Path](/patterns/local-streets/shared-use-path/) (LOC-SUP-13)
-- [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04)
-- [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) (CDR-RAG-05)
+<div class="cw-links">
+
+- [Shared-Use Path](/patterns/local-streets/shared-use-path/) <IdPill id="LOC-SUP-13" />
+- [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) <IdPill id="COL-BHG-04" />
+- [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) <IdPill id="CDR-RAG-05" />
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Barrier-crossing / network reconnection retrofit](/retrofits/network/barrier-crossing-network-reconnection-retrofit/) (RFT-NET-03) commonly takes this form where it crosses a highway, rail line, or disconnected cul-de-sac pattern.
+[Barrier-crossing / network reconnection retrofit](/retrofits/network/barrier-crossing-network-reconnection-retrofit/) <IdPill id="RFT-NET-03" /> commonly takes this form where it crosses a highway, rail line, or disconnected cul-de-sac pattern.
 
 ## References
 

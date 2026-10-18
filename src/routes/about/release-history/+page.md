@@ -62,12 +62,18 @@ Work that's planned but not yet built, grouped by area.
 
 ### New content
 
+<div class="cw-tiles">
+
 - **Traffic Calming page.** A new Guide page on traffic calming,
   connected to the patterns and retrofit strategies it relates to.
 - **Hoofdnet/Plusnet methodology page.** A new Guide page on the Dutch
   Hoofdnet/Plusnet road-network methodology.
 
+</div>
+
 ### Structure changes
+
+<div class="cw-tiles">
 
 - **Classification overview pages.** Landing pages for Local,
   Collector, Arterial, and Freeway, sitting between the Pattern Index
@@ -76,7 +82,11 @@ Work that's planned but not yet built, grouped by area.
 - **Dutch CROW reconciliation.** Folding an internal CROW-comparison
   reference into the actual Commonway System patterns.
 
+</div>
+
 ### Existing content
+
+<div class="cw-tiles">
 
 - **Brand Guide page update.** Finalizing `/about/brand-guide/` as the
   canonical brand reference, including documentation for components
@@ -84,6 +94,8 @@ Work that's planned but not yet built, grouped by area.
 - **Related Media placement decision.** Finalizing which page a
   specific Related Media item currently tagged to the Commonway System
   page actually belongs on.
+
+</div>
 
 ### Audits
 
@@ -94,6 +106,8 @@ Work that's planned but not yet built, grouped by area.
 
 ### New features
 
+<div class="cw-tiles">
+
 - **Find Your Pattern tool.** A two-part diagnostic tool plus an
   interactive, clickable hotspot map.
 - **Photo Gallery feature.** A new media type usable on any page:
@@ -102,7 +116,11 @@ Work that's planned but not yet built, grouped by area.
 - **Related Media refinements.** Improvements to how the Related Media
   component displays.
 
+</div>
+
 ### Standing / ongoing
+
+<div class="cw-tiles">
 
 - **Pattern viewer drawings rollout.** Drawn, interactive views for
   every pattern and Retrofit Strategy, beyond the five that have them
@@ -113,6 +131,8 @@ Work that's planned but not yet built, grouped by area.
   formal municipal adoption.
 - **More media items.** Ongoing additions to the Media Gallery as new
   sources come up.
+
+</div>
 
 ### External
 

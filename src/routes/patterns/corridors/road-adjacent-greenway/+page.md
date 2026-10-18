@@ -2,18 +2,17 @@
 title: "Road-Adjacent Greenway"
 description: "A corridor where a multi-use trail or linear park runs parallel to, but physically separated from, a road for some or all of its length, without an active rail line involved, addressing connection points and crossing treatment between the two."
 patternId: CDR-RAG-05
+status: recommended
 date: 2026-08-31
 image: /patterns/cdr-rag-05-road-adjacent-greenway.jpeg
 llms: "A corridor where a multi-use trail or linear park runs parallel to, but physically separated from, a road for some or all of its length, without an active rail line involved, addressing connection points and crossing treatment between the two."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Road-Adjacent Greenway" classification="corridor" status="recommended">
 A corridor where a multi-use trail or linear park runs parallel to, but physically separated from, a road for some or all of its length, without an active rail line involved, addressing connection points and crossing treatment between the two.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" />
 
@@ -31,7 +30,13 @@ A greenway running beside a road is a common and valuable configuration, but it 
 
 ## Related patterns
 
-[Rail-With-Trail Corridor](/patterns/corridors/rail-with-trail-corridor/) (CDR-RWT-04) (related but distinct: rail involved); [Multi-Use Trail/Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06) (Segment scale, the trail itself); relevant Crossing-family Element patterns
+<div class="cw-links">
+
+- [Rail-With-Trail Corridor](/patterns/corridors/rail-with-trail-corridor/) <IdPill id="CDR-RWT-04" /> (related but distinct: rail involved)
+- [Multi-Use Trail/Greenway](/patterns/collectors/multi-use-trail-greenway/) <IdPill id="COL-MUT-06" /> (Segment scale, the trail itself)
+- relevant Crossing-family Element patterns
+
+</div>
 
 ## References
 

@@ -2,17 +2,16 @@
 title: "Two-Stage Turn Queue Box"
 description: "A designated waiting area positioned in the far corner of an intersection, allowing a cyclist making a left turn (or right turn in left-driving contexts) to cross the intersection in two separate straight-through movements rather than merging across vehicle traffic to execute a conventional turn."
 patternId: ELM-TSQ-43
+status: recommended
 date: 2026-08-31
 llms: "A designated waiting area positioned in the far corner of an intersection, allowing a cyclist making a left turn (or right turn in left-driving contexts) to cross the intersection in two separate straight-through movements rather than merging across vehicle traffic to execute a conventional turn."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Two-Stage Turn Queue Box" classification="element" status="recommended">
 A designated waiting area positioned in the far corner of an intersection, allowing a cyclist making a left turn (or right turn in left-driving contexts) to cross the intersection in two separate straight-through movements rather than merging across vehicle traffic to execute a conventional turn.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ A conventional vehicle-style left turn asks a cyclist to merge across one or mor
 
 ## Related patterns
 
-[Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) (ELM-PBL-37), [Bike Box](/patterns/elements/bike-box/) (ELM-BKB-42) (related bike-specific intersection treatments); [Roundabout](/patterns/intersections/roundabout/) (INT-RAB-01) (a different intersection default this pattern complements at signalized locations specifically)
+<div class="cw-links">
+
+- [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) <IdPill id="ELM-PBL-37" />
+- [Bike Box](/patterns/elements/bike-box/) <IdPill id="ELM-BKB-42" /> (related bike-specific intersection treatments)
+- [Roundabout](/patterns/intersections/roundabout/) <IdPill id="INT-RAB-01" /> (a different intersection default this pattern complements at signalized locations specifically)
+
+</div>
 
 ## References
 

@@ -2,17 +2,16 @@
 title: "Parking Garage / Structure"
 description: "A multi-level parking structure, above-grade or underground, using ramp or helix circulation to move vehicles between levels."
 patternId: FAC-PGS-05
+status: situational
 date: 2026-08-31
 llms: "A multi-level parking structure, above-grade or underground, using ramp or helix circulation to move vehicles between levels."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Parking Garage / Structure" classification="facility" status="situational">
 A multi-level parking structure, above-grade or underground, using ramp or helix circulation to move vehicles between levels.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
@@ -30,7 +29,12 @@ Where land value or density makes surface parking impractical, a structure trade
 
 ## Related patterns
 
-[Surface Parking Lot](/patterns/facilities/surface-parking-lot/) (FAC-SPL-04) (lower-density alternative); [Park-and-Ride](/patterns/facilities/park-and-ride/) (FAC-PNR-06) (a specific use case that may take structured form)
+<div class="cw-links">
+
+- [Surface Parking Lot](/patterns/facilities/surface-parking-lot/) <IdPill id="FAC-SPL-04" /> (lower-density alternative)
+- [Park-and-Ride](/patterns/facilities/park-and-ride/) <IdPill id="FAC-PNR-06" /> (a specific use case that may take structured form)
+
+</div>
 
 ## References
 

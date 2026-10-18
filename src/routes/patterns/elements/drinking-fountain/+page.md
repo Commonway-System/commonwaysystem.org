@@ -2,17 +2,16 @@
 title: "Drinking Fountain"
 description: "A fixed water fountain installed in the public right-of-way or an adjacent public space, providing free public access to drinking water, sometimes paired with a lower-height accessible basin or a pet-watering feature."
 patternId: ELM-DRF-33
+status: situational
 date: 2026-08-31
 llms: "A fixed water fountain installed in the public right-of-way or an adjacent public space, providing free public access to drinking water, sometimes paired with a lower-height accessible basin or a pet-watering feature."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Drinking Fountain" classification="element" status="situational">
 A fixed water fountain installed in the public right-of-way or an adjacent public space, providing free public access to drinking water, sometimes paired with a lower-height accessible basin or a pet-watering feature.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ Public drinking water access supports comfort and public health, particularly in
 
 ## Related patterns
 
-[Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07), [Multi-Use Trail/Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06) (contexts where this pattern is most relevant); [Bench](/patterns/elements/bench/) (ELM-BCH-31) (common companion amenity)
+<div class="cw-links">
+
+- [Plaza/Parklet](/patterns/facilities/plaza-parklet/) <IdPill id="FAC-PLZ-07" />
+- [Multi-Use Trail/Greenway](/patterns/collectors/multi-use-trail-greenway/) <IdPill id="COL-MUT-06" /> (contexts where this pattern is most relevant)
+- [Bench](/patterns/elements/bench/) <IdPill id="ELM-BCH-31" /> (common companion amenity)
+
+</div>
 
 ## References
 

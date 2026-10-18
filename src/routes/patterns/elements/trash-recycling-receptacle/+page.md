@@ -2,17 +2,16 @@
 title: "Trash / Recycling Receptacle"
 description: "A fixed waste and recycling container installed in the public right-of-way or an adjacent public space, providing a designated disposal point for pedestrians and street users."
 patternId: ELM-TRR-32
+status: recommended
 date: 2026-08-31
 llms: "A fixed waste and recycling container installed in the public right-of-way or an adjacent public space, providing a designated disposal point for pedestrians and street users."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Trash / Recycling Receptacle" classification="element" status="recommended">
 A fixed waste and recycling container installed in the public right-of-way or an adjacent public space, providing a designated disposal point for pedestrians and street users.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Without a designated disposal point, litter accumulates in places people already
 
 ## Related patterns
 
-[Bench](/patterns/elements/bench/) (ELM-BCH-31), [Transit Shelter](/patterns/facilities/transit-shelter/) (FAC-TSH-01) (common companion elements and facilities)
+<div class="cw-links">
+
+- [Bench](/patterns/elements/bench/) <IdPill id="ELM-BCH-31" />
+- [Transit Shelter](/patterns/facilities/transit-shelter/) <IdPill id="FAC-TSH-01" /> (common companion elements and facilities)
+
+</div>
 
 ## References
 

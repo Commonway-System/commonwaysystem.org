@@ -2,18 +2,17 @@
 title: "Modal Filter / Point Closure"
 description: "A physical closure placed mid-block or at an intersection leg that blocks through motor vehicle travel while preserving passage for pedestrians and bicyclists, using bollards, planters, partial curb extensions, or a similar barrier."
 patternId: ELM-MFP-44
+status: recommended
 date: 2026-09-03
 image: /patterns/elm-mfp-44-modal-filter-point-closure.jpeg
 llms: "A physical closure placed mid-block or at an intersection leg that blocks through motor vehicle travel while preserving passage for pedestrians and bicyclists, using bollards, planters, partial curb extensions, or a similar barrier."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Modal Filter / Point Closure" classification="element" status="recommended">
 A physical closure placed mid-block or at an intersection leg that blocks through motor vehicle travel while preserving passage for pedestrians and bicyclists, using bollards, planters, partial curb extensions, or a similar barrier.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -32,11 +31,17 @@ A street network's permeability, how easily a route can be used for through trav
 
 ## Related patterns
 
-[Bollard](/patterns/elements/bollard/) (ELM-BOL-25) (the hardware most commonly used to build a filter), [Curb Extension](/patterns/elements/curb-extension/) (ELM-CBE-02) (an alternative geometry for narrowing or partially closing a street), [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12) (the Local Street pattern this is most frequently paired with)
+<div class="cw-links">
+
+- [Bollard](/patterns/elements/bollard/) <IdPill id="ELM-BOL-25" /> (the hardware most commonly used to build a filter)
+- [Curb Extension](/patterns/elements/curb-extension/) <IdPill id="ELM-CBE-02" /> (an alternative geometry for narrowing or partially closing a street)
+- [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) <IdPill id="LOC-BBG-12" /> (the Local Street pattern this is most frequently paired with)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-This Element is the direct physical product of [Modal filtering / Low Traffic Neighborhood retrofit](/retrofits/network/modal-filtering-low-traffic-neighborhood-retrofit/) (RFT-NET-01), the Network-scale strategy that places a coordinated set of these closures across an area.
+This Element is the direct physical product of [Modal filtering / Low Traffic Neighborhood retrofit](/retrofits/network/modal-filtering-low-traffic-neighborhood-retrofit/) <IdPill id="RFT-NET-01" />, the Network-scale strategy that places a coordinated set of these closures across an area.
 
 ## References
 

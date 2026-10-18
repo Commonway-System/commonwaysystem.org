@@ -2,24 +2,27 @@
 title: Bicycle Boulevard / Neighborhood Greenway
 description: A Local street where traffic calming and diversion discourage through car traffic while prioritizing bicycle through-movement in the shared roadway.
 patternId: LOC-BBG-12
+status: recommended
 date: 2026-08-29
 image: /patterns/loc-bbg-12-bicycle-boulevard-neighborhood-greenway.png
 llms: A Local street typology using traffic calming and diversion to discourage through car traffic while prioritizing bicycle through-movement in the shared roadway, distinguished from Bike Highway/Greenway's full physical separation.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Bicycle Boulevard / Neighborhood Greenway" classification="local" status="recommended">
 A Local street where traffic calming and diversion discourage through car traffic while prioritizing bicycle through-movement in the shared roadway.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="local" />
 
-Typical at: <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Suburban is an edge case, thinning for the same reason as [Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/): a disconnected, cul-de-sac-heavy grid gives it fewer parallel, low-traffic routes to use. Undeveloped and Rural are unlikely pairings.
+
+</div>
 
 <RelatedMedia id={fm.patternId} />
 
@@ -45,15 +48,15 @@ A comparison of Berkeley's bicycle boulevards to their parallel arterials found 
 
 ## Related patterns
 
-[Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04) — the Collector-scale pattern this one is explicitly distinguished from on that page: physical separation there, a shared, calmed roadway here.
+[Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) <IdPill id="COL-BHG-04" /> — the Collector-scale pattern this one is explicitly distinguished from on that page: physical separation there, a shared, calmed roadway here.
 
-[Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/) (INT-CSJ-06) — the Local-to-Collector intersection default, explicitly named alongside this pattern on that page as thinning in Suburban for the same grid-connectivity reason.
+[Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/) <IdPill id="INT-CSJ-06" /> — the Local-to-Collector intersection default, explicitly named alongside this pattern on that page as thinning in Suburban for the same grid-connectivity reason.
 
-[Modal Filter / Point Closure](/patterns/elements/modal-filter-point-closure/) (ELM-MFP-44) — the Element pattern most frequently paired with this one to build the diversion shown above.
+[Modal Filter / Point Closure](/patterns/elements/modal-filter-point-closure/) <IdPill id="ELM-MFP-44" /> — the Element pattern most frequently paired with this one to build the diversion shown above.
 
 ## Getting there: Retrofit path options
 
-[Parking-lane reallocation](/retrofits/corridor/parking-lane-reallocation/) (RFT-CDR-05), [Modal filtering / Low Traffic Neighborhood retrofit](/retrofits/network/modal-filtering-low-traffic-neighborhood-retrofit/) (RFT-NET-01, applies *within* this pattern rather than transforming it into something else)
+[Parking-lane reallocation](/retrofits/corridor/parking-lane-reallocation/) <IdPill id="RFT-CDR-05" />, [Modal filtering / Low Traffic Neighborhood retrofit](/retrofits/network/modal-filtering-low-traffic-neighborhood-retrofit/) (RFT-NET-01, applies *within* this pattern rather than transforming it into something else)
 
 ## References
 

@@ -2,17 +2,16 @@
 title: "Tree Pit / Tree Trench"
 description: "The below-grade excavated and engineered soil volume, either an individual pit or a shared linear trench connecting multiple planting locations, providing root space and often structural soil to support street tree growth beneath a sidewalk or paved surface."
 patternId: ELM-TPT-29
+status: recommended
 date: 2026-08-31
 llms: "The below-grade excavated and engineered soil volume, either an individual pit or a shared linear trench connecting multiple planting locations, providing root space and often structural soil to support street tree growth beneath a sidewalk or paved surface."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Tree Pit / Tree Trench" classification="element" status="recommended">
 The below-grade excavated and engineered soil volume, either an individual pit or a shared linear trench connecting multiple planting locations, providing root space and often structural soil to support street tree growth beneath a sidewalk or paved surface.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ A tree’s long-term health depends far more on below-grade soil volume and qual
 
 ## Related patterns
 
-[Street Tree](/patterns/elements/street-tree/) (ELM-STT-28) (the visible element this pattern supports); [Pervious Strip](/patterns/elements/pervious-strip/) (ELM-PVS-21), [Bioswale](/patterns/elements/bioswale/) (ELM-BIO-19) (related below-grade stormwater and soil treatments)
+<div class="cw-links">
+
+- [Street Tree](/patterns/elements/street-tree/) <IdPill id="ELM-STT-28" /> (the visible element this pattern supports)
+- [Pervious Strip](/patterns/elements/pervious-strip/) <IdPill id="ELM-PVS-21" />
+- [Bioswale](/patterns/elements/bioswale/) <IdPill id="ELM-BIO-19" /> (related below-grade stormwater and soil treatments)
+
+</div>
 
 ## References
 

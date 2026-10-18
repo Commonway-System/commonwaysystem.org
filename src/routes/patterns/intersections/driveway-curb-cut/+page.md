@@ -2,25 +2,28 @@
 title: Driveway / Curb Cut
 description: A minor access-point junction connecting a driveway or parking entrance to the street, realistic across nearly the full density range but dropping at Core.
 patternId: INT-DCC-09
+status: situational
 date: 2026-08-29
 llms: A minor access-point junction connecting a driveway or parking entrance to the street, realistic across nearly the full density range but dropping off at Core density.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Driveway / Curb Cut" classification="intersections" status="situational">
 A break in the curb and sidewalk giving a driveway or parking entrance access to the street, a minor junction rather than a full intersection.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 
 Core is an edge case.
+
+</div>
 
 ## Design notes
 
@@ -28,7 +31,12 @@ Driveways and curb cuts drop off at Core density, not because access needs disap
 
 ## Related patterns
 
-[Curb Cut / Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) (ELM-CCA-04) (the Element-scale counterpart to this junction-level pattern), [Alley](/patterns/local-streets/alley/) (LOC-ALY-02) (the Local Typology whose purpose is moving this kind of access to the rear)
+<div class="cw-links">
+
+- [Curb Cut / Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) <IdPill id="ELM-CCA-04" /> (the Element-scale counterpart to this junction-level pattern)
+- [Alley](/patterns/local-streets/alley/) <IdPill id="LOC-ALY-02" /> (the Local Typology whose purpose is moving this kind of access to the rear)
+
+</div>
 
 ## References
 

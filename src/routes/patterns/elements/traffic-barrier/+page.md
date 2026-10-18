@@ -2,17 +2,16 @@
 title: "Traffic Barrier"
 description: "A longitudinal barrier (guardrail, concrete barrier, or similar rigid or semi-rigid structure) installed to redirect an errant vehicle away from a roadside hazard or opposing traffic, rather than allowing the vehicle to travel further off-course."
 patternId: ELM-TRB-23
+status: situational
 date: 2026-08-31
 llms: "A longitudinal barrier (guardrail, concrete barrier, or similar rigid or semi-rigid structure) installed to redirect an errant vehicle away from a roadside hazard or opposing traffic, rather than allowing the vehicle to travel further off-course."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Traffic Barrier" classification="element" status="situational">
 A longitudinal barrier (guardrail, concrete barrier, or similar rigid or semi-rigid structure) installed to redirect an errant vehicle away from a roadside hazard or opposing traffic, rather than allowing the vehicle to travel further off-course.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Certain roadside conditions (a steep slope, a fixed object, an opposing travel l
 
 ## Related patterns
 
-[Crash Cushion/End Terminal](/patterns/elements/crash-cushion-end-terminal/) (ELM-CCT-24) (the treatment addressing this pattern’s exposed ends); [Bollard](/patterns/elements/bollard/) (ELM-BOL-25) (a related but functionally distinct barrier type)
+<div class="cw-links">
+
+- [Crash Cushion/End Terminal](/patterns/elements/crash-cushion-end-terminal/) <IdPill id="ELM-CCT-24" /> (the treatment addressing this pattern’s exposed ends)
+- [Bollard](/patterns/elements/bollard/) <IdPill id="ELM-BOL-25" /> (a related but functionally distinct barrier type)
+
+</div>
 
 ## References
 

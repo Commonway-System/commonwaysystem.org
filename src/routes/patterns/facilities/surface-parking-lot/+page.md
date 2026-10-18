@@ -2,17 +2,16 @@
 title: "Surface Parking Lot"
 description: "An at-grade, open-air parking area serving adjacent land uses, ranging from a small business lot to a large-format shared or municipal lot."
 patternId: FAC-SPL-04
+status: situational
 date: 2026-08-31
 llms: "An at-grade, open-air parking area serving adjacent land uses, ranging from a small business lot to a large-format shared or municipal lot."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Surface Parking Lot" classification="facility" status="situational">
 An at-grade, open-air parking area serving adjacent land uses, ranging from a small business lot to a large-format shared or municipal lot.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
@@ -30,7 +29,14 @@ Surface lots are the most common and land-intensive parking facility, and their 
 
 ## Related patterns
 
-[Parking Garage/Structure](/patterns/facilities/parking-garage-structure/) (FAC-PGS-05) (structural alternative for higher-density sites); [Pervious Pavement](/patterns/elements/pervious-pavement/) (ELM-PVP-22), [Bioswale](/patterns/elements/bioswale/) (ELM-BIO-19) (related Element patterns for stormwater treatment); [Park-and-Ride](/patterns/facilities/park-and-ride/) (FAC-PNR-06) (a specific use case of surface parking)
+<div class="cw-links">
+
+- [Parking Garage/Structure](/patterns/facilities/parking-garage-structure/) <IdPill id="FAC-PGS-05" /> (structural alternative for higher-density sites)
+- [Pervious Pavement](/patterns/elements/pervious-pavement/) <IdPill id="ELM-PVP-22" />
+- [Bioswale](/patterns/elements/bioswale/) <IdPill id="ELM-BIO-19" /> (related Element patterns for stormwater treatment)
+- [Park-and-Ride](/patterns/facilities/park-and-ride/) <IdPill id="FAC-PNR-06" /> (a specific use case of surface parking)
+
+</div>
 
 ## References
 

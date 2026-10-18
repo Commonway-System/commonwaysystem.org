@@ -2,17 +2,16 @@
 title: "Bike Parking Corral"
 description: "An on-street, curbside cluster of bike racks, typically installed in place of a single car parking space, providing multiple bike parking spots in the footprint one vehicle would otherwise occupy."
 patternId: FAC-BPC-08
+status: recommended
 date: 2026-08-31
 llms: "An on-street, curbside cluster of bike racks, typically installed in place of a single car parking space, providing multiple bike parking spots in the footprint one vehicle would otherwise occupy."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Bike Parking Corral" classification="facility" status="recommended">
 An on-street, curbside cluster of bike racks, typically installed in place of a single car parking space, providing multiple bike parking spots in the footprint one vehicle would otherwise occupy.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
@@ -30,7 +29,12 @@ Sidewalk-mounted bike racks compete with pedestrian clear-path space and other f
 
 ## Related patterns
 
-[Bike Parking / Rack](/patterns/elements/bike-parking-rack/) (ELM-BPR-40) (the Element-scale fixture used within the corral); [Curb Extension](/patterns/elements/curb-extension/) (ELM-CBE-02) (a related on-street space conversion)
+<div class="cw-links">
+
+- [Bike Parking / Rack](/patterns/elements/bike-parking-rack/) <IdPill id="ELM-BPR-40" /> (the Element-scale fixture used within the corral)
+- [Curb Extension](/patterns/elements/curb-extension/) <IdPill id="ELM-CBE-02" /> (a related on-street space conversion)
+
+</div>
 
 ## References
 

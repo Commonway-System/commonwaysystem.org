@@ -76,7 +76,11 @@ It is maintained in the open. Anyone can [report a problem](/about/reporting/) o
 
 ## Ways to read
 
+<div class="cw-tiles">
+
 - **Search** any page with Ctrl+K (Cmd+K on a Mac).
 - **Adjust the display** with the Aa button: text size, contrast, reading font, and more.
 - **Read it plain:** every page has a [text-only version](/text/guide/) and a markdown version for AI tools.
 - **See everything** on the [Site Map](/about/sitemap/).
+
+</div>

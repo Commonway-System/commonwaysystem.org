@@ -2,17 +2,16 @@
 title: "Flow-Through Planter"
 description: "A contained, structured planting box with an engineered soil and drainage layer that captures and filters stormwater runoff before releasing it through an underdrain, used where space or soil conditions do not allow for an open bioswale."
 patternId: ELM-FTP-20
+status: situational
 date: 2026-08-31
 llms: "A contained, structured planting box with an engineered soil and drainage layer that captures and filters stormwater runoff before releasing it through an underdrain, used where space or soil conditions do not allow for an open bioswale."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Flow-Through Planter" classification="element" status="situational">
 A contained, structured planting box with an engineered soil and drainage layer that captures and filters stormwater runoff before releasing it through an underdrain, used where space or soil conditions do not allow for an open bioswale.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Many streetscape contexts, a narrow sidewalk zone, a site with contaminated or c
 
 ## Related patterns
 
-[Bioswale](/patterns/elements/bioswale/) (ELM-BIO-19) (the open-channel alternative this pattern substitutes for in constrained sites); [Tree Pit/Tree Trench](/patterns/elements/tree-pit-tree-trench/) (ELM-TPT-29) (a related structured planting element)
+<div class="cw-links">
+
+- [Bioswale](/patterns/elements/bioswale/) <IdPill id="ELM-BIO-19" /> (the open-channel alternative this pattern substitutes for in constrained sites)
+- [Tree Pit/Tree Trench](/patterns/elements/tree-pit-tree-trench/) <IdPill id="ELM-TPT-29" /> (a related structured planting element)
+
+</div>
 
 ## References
 

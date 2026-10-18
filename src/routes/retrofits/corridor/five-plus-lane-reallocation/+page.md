@@ -7,12 +7,10 @@ llms: "Reduces the through-lane count on a roadway of five or more lanes, applyi
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="Five-plus lane reallocation" scale="corridor">
 Reduces the through-lane count on a roadway of five or more lanes, applying road diet principles at a larger scale than the standard four-to-three conversion.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
@@ -24,15 +22,29 @@ Wider roadways, five lanes and up, carry enough volume and turning complexity th
 
 ## Where this leads: Target patterns
 
-[Default (No Parking, No Direct Access)](/patterns/arterials/default/) (ART-DEF-01), [Boulevard](/patterns/arterials/boulevard/) (ART-BLV-02)
+<div class="cw-links">
+
+- [Default (No Parking, No Direct Access)](/patterns/arterials/default/) <IdPill id="ART-DEF-01" />
+- [Boulevard](/patterns/arterials/boulevard/) <IdPill id="ART-BLV-02" />
+
+</div>
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Evaluated specifically for roadways with five or more lanes in NCHRP-adjacent research, distinct from the four-to-three case. Sight-distance and conflict-point improvements follow the same underlying mechanism as a standard road diet, but volume thresholds run higher given the additional capacity these corridors typically carry.
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 Research on five-lane-and-larger road diet projects documents conflict-point reduction and improved sight distance for turning drivers, using the same two-stage reasoning as smaller road diets: fewer lanes to scan, and a dedicated turn lane separating through and turning movements.<Citation index={1} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
@@ -40,13 +52,23 @@ Can move through the construction spectrum, though the larger scope, more lanes,
 
 An Intersection Control Evaluation is worth considering where the corridor's intersections will also see a change in turn-lane configuration. See [Decision & Evaluation Processes](/guide/decision-evaluation-processes/).
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 Typically a city or county transportation department decision, though the larger scope and often-higher-classification roadway makes state DOT coordination more likely than with a simple four-to-three road diet. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/).
 
+</div>
+</div>
+
 ## Related retrofit strategies
 
-[Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) (RFT-CDR-01) (the smaller-scale equivalent this strategy extends)
+<div class="cw-links">
+
+- [Four-to-three lane road diet](/retrofits/corridor/four-to-three-lane-road-diet/) <IdPill id="RFT-CDR-01" /> (the smaller-scale equivalent this strategy extends)
+
+</div>
 
 ## References
 

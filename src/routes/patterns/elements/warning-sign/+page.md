@@ -2,17 +2,16 @@
 title: "Warning Sign"
 description: "A sign alerting drivers to an upcoming hazard or changed condition, such as a curve, a crossing, a narrowing roadway, or a stop ahead, advising caution without carrying the direct legal force of a regulatory sign."
 patternId: ELM-WNS-12
+status: recommended
 date: 2026-08-31
 llms: "A sign alerting drivers to an upcoming hazard or changed condition, such as a curve, a crossing, a narrowing roadway, or a stop ahead, advising caution without carrying the direct legal force of a regulatory sign."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Warning Sign" classification="element" status="recommended">
 A sign alerting drivers to an upcoming hazard or changed condition, such as a curve, a crossing, a narrowing roadway, or a stop ahead, advising caution without carrying the direct legal force of a regulatory sign.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ A warning sign gives a driver advance notice of a condition they need to react t
 
 ## Related patterns
 
-[Regulatory Sign](/patterns/elements/regulatory-sign/) (ELM-RGS-11), [Guide Sign](/patterns/elements/guide-sign/) (ELM-GDS-13) (related sign categories); [Rumble Strip](/patterns/elements/rumble-strip/) (ELM-RMS-07) (often paired ahead of a hazard this sign warns of)
+<div class="cw-links">
+
+- [Regulatory Sign](/patterns/elements/regulatory-sign/) <IdPill id="ELM-RGS-11" />
+- [Guide Sign](/patterns/elements/guide-sign/) <IdPill id="ELM-GDS-13" /> (related sign categories)
+- [Rumble Strip](/patterns/elements/rumble-strip/) <IdPill id="ELM-RMS-07" /> (often paired ahead of a hazard this sign warns of)
+
+</div>
 
 ## References
 

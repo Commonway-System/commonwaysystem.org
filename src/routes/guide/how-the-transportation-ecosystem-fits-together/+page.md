@@ -21,20 +21,30 @@ A design guide can recommend a wider, smoother sidewalk. Only a law can make a c
 
 Every document that shapes your street is one of three things:
 
+<div class="cw-tiles">
+
 - **Rules that bind.** Laws and regulations. If your city is subject to them, following them isn't optional.
 - **Guidance professionals follow by choice.** Manuals and design guides written by engineers and planners. Cities often adopt them, but nothing forces them to.
 - **Arguments advocates make.** Movements and nonprofits building public pressure for a different kind of street. Their power shows up in what voters demand and what gets funded.
 
+</div>
+
 The name on the cover won't tell you which is which. AASHTO's Green Book calls itself *A Policy on Geometric Design*, yet federal regulation makes it the required standard for National Highway System projects.<Citation index={3} /> NACTO's *Urban Street Design Guide* comes from an association of cities and transit agencies, and FHWA treats it as one of many sources to inform design, not a requirement.<Citation index={4} /><Citation index={5} />
 
 ## Why you should care
+
+<div class="cw-tiles">
 
 - **When the city says no.** "The manual won't allow it" is sometimes true. Sometimes the line being cited is only a recommendation, which an engineer may set aside when judgment or study supports it.<Citation index={6} />
 - **At a public meeting.** Citing a binding rule asks the city to comply. Citing guidance asks it to choose. Both can work, but they are different requests.
 - **When you read a pattern.** Every reference in the Commonway System carries a tier chip: Legal / regulatory, Evidence-based, or Precedent-based. This page explains the difference those chips mark.
 - **When a name gets dropped.** MUTCD, PROWAG, NACTO, AASHTO. After this page, you'll know which ones carry weight where you live.
 
+</div>
+
 ## How guidance becomes law
+
+<div class="cw-options">
 
 **Adoption turns a guide into a rule.** AASHTO is an association of state transportation departments, not a federal agency.<Citation index={7} /> Its Green Book becomes binding because federal regulation incorporates it by reference for National Highway System projects. Off that system, federal-aid projects follow state laws and standards instead.<Citation index={3} />
 
@@ -44,11 +54,15 @@ The name on the cover won't tell you which is which. AASHTO's Green Book calls i
 
 **Advocacy can become policy.** Complete Streets is an approach championed by an advocacy coalition: plan, design, and build streets so everyone who uses them can do so safely.<Citation index={12} /> By the end of 2020, almost 1,600 communities had adopted Complete Streets policies.<Citation index={13} />
 
+</div>
+
 :::note
 **Quick test:** When someone cites a document, ask two questions. Has a government adopted it where you live? And does the line they're citing say *shall*, *should*, or *may*?<Citation index={6} /><Citation index={11} />
 :::
 
 ## Fair questions
+
+<div class="cw-options">
 
 **If NACTO isn't law, why would my city follow it?** Because FHWA backs it. In 2013, FHWA expressed support for a flexible approach to bicycle and pedestrian facility design and noted that most treatments in NACTO's bikeway guide are allowed or not precluded by the MUTCD.<Citation index={5} /> In 2014, FHWA extended that support to NACTO's *Urban Street Design Guide* as one of many sources for planning and design.<Citation index={5} />
 
@@ -57,6 +71,8 @@ The name on the cover won't tell you which is which. AASHTO's Green Book calls i
 **Aren't advocacy groups biased?** They argue for an outcome; that's their job. The Commonway System cites advocates for what they argue, and looks to regulation and research for proof. The tier chip on each reference shows which is which.
 
 **Why use Dutch sources for American streets?** Because the Dutch have a deep bench of both research and practice. SWOV has researched road safety since 1962, and CROW publishes the practical guidelines Dutch designers use.<Citation index={14} /><Citation index={15} /> The Commonway System adapts their guidance to U.S. law rather than copying it.
+
+</div>
 
 ## Who's who
 

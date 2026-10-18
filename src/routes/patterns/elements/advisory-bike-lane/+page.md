@@ -2,17 +2,16 @@
 title: "Advisory Bike Lane"
 description: "A dashed-line bike lane marked on each side of a narrow, typically two-way, roadway with no dedicated centerline, where vehicles are expected to cross into the bike lane space temporarily to pass oncoming traffic, yielding to any cyclist present."
 patternId: ELM-ABL-36
+status: situational
 date: 2026-08-31
 llms: "A dashed-line bike lane marked on each side of a narrow, typically two-way, roadway with no dedicated centerline, where vehicles are expected to cross into the bike lane space temporarily to pass oncoming traffic, yielding to any cyclist present."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Advisory Bike Lane" classification="element" status="situational">
 A dashed-line bike lane marked on each side of a narrow, typically two-way, roadway with no dedicated centerline, where vehicles are expected to cross into the bike lane space temporarily to pass oncoming traffic, yielding to any cyclist present.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ On a roadway too narrow to accommodate a centerline plus two conventional bike l
 
 ## Related patterns
 
-[Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) (ELM-CBL-34) (a related but structurally distinct facility type); relevant Local Segment patterns where roadway width is most constrained
+<div class="cw-links">
+
+- [Conventional Bike Lane](/patterns/elements/conventional-bike-lane/) <IdPill id="ELM-CBL-34" /> (a related but structurally distinct facility type)
+- relevant Local Segment patterns where roadway width is most constrained
+
+</div>
 
 ## References
 

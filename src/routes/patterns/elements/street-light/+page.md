@@ -2,17 +2,16 @@
 title: "Street Light"
 description: "A pole-mounted luminaire providing illumination for the roadway, typically mounted at a height and spacing designed primarily to serve vehicle visibility and drivers, though its light also reaches the surrounding sidewalk and public realm."
 patternId: ELM-STL-26
+status: recommended
 date: 2026-08-31
 llms: "A pole-mounted luminaire providing illumination for the roadway, typically mounted at a height and spacing designed primarily to serve vehicle visibility and drivers, though its light also reaches the surrounding sidewalk and public realm."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Street Light" classification="element" status="recommended">
 A pole-mounted luminaire providing illumination for the roadway, typically mounted at a height and spacing designed primarily to serve vehicle visibility and drivers, though its light also reaches the surrounding sidewalk and public realm.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Adequate roadway illumination reduces nighttime crash risk by improving driver v
 
 ## Related patterns
 
-[Pedestrian-scale Lighting](/patterns/elements/pedestrian-scale-lighting/) (ELM-PSL-27) (the companion lighting pattern serving a different visual task and height); relevant Segment patterns this lighting serves
+<div class="cw-links">
+
+- [Pedestrian-scale Lighting](/patterns/elements/pedestrian-scale-lighting/) <IdPill id="ELM-PSL-27" /> (the companion lighting pattern serving a different visual task and height)
+- relevant Segment patterns this lighting serves
+
+</div>
 
 ## References
 

@@ -2,17 +2,16 @@
 title: "Conventional Bike Lane"
 description: "A striped, dedicated on-street lane for bicycle travel, separated from the adjacent vehicle travel lane by paint markings alone, with no physical buffer or barrier."
 patternId: ELM-CBL-34
+status: situational
 date: 2026-08-31
 llms: "A striped, dedicated on-street lane for bicycle travel, separated from the adjacent vehicle travel lane by paint markings alone, with no physical buffer or barrier."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Conventional Bike Lane" classification="element" status="situational">
 A striped, dedicated on-street lane for bicycle travel, separated from the adjacent vehicle travel lane by paint markings alone, with no physical buffer or barrier.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ A conventional bike lane provides a clearly delineated, expected space for cycli
 
 ## Related patterns
 
-[Buffered Bike Lane](/patterns/elements/buffered-bike-lane/) (ELM-BBL-35), [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) (ELM-PBL-37) (stronger-separation alternatives); [Sharrow](/patterns/elements/sharrow/) (ELM-SHR-39) (a lesser treatment for contexts where even this pattern is not feasible)
+<div class="cw-links">
+
+- [Buffered Bike Lane](/patterns/elements/buffered-bike-lane/) <IdPill id="ELM-BBL-35" />
+- [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) <IdPill id="ELM-PBL-37" /> (stronger-separation alternatives)
+- [Sharrow](/patterns/elements/sharrow/) <IdPill id="ELM-SHR-39" /> (a lesser treatment for contexts where even this pattern is not feasible)
+
+</div>
 
 ## References
 

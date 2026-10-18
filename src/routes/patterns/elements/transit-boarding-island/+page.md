@@ -2,17 +2,16 @@
 title: "Transit Boarding Island"
 description: "A raised platform positioned between a bike lane and the vehicle travel lane at a transit stop, allowing bus or streetcar passengers to board and alight without crossing the bike lane at grade, and without the transit vehicle needing to merge across the bike lane to reach the curb."
 patternId: ELM-TBI-41
+status: recommended
 date: 2026-08-31
 llms: "A raised platform positioned between a bike lane and the vehicle travel lane at a transit stop, allowing bus or streetcar passengers to board and alight without crossing the bike lane at grade, and without the transit vehicle needing to merge across the bike lane to reach the curb."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Transit Boarding Island" classification="element" status="recommended">
 A raised platform positioned between a bike lane and the vehicle travel lane at a transit stop, allowing bus or streetcar passengers to board and alight without crossing the bike lane at grade, and without the transit vehicle needing to merge across the bike lane to reach the curb.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,14 @@ Where a protected bike lane runs along a curb that also serves transit stops, a 
 
 ## Related patterns
 
-[Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) (ELM-PBL-37), [Transit Platform](/patterns/facilities/transit-platform/) (FAC-TPL-02) (the two facilities this pattern reconciles); [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) (ELM-DWS-10), [Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03) (companion accessibility elements)
+<div class="cw-links">
+
+- [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) <IdPill id="ELM-PBL-37" />
+- [Transit Platform](/patterns/facilities/transit-platform/) <IdPill id="FAC-TPL-02" /> (the two facilities this pattern reconciles)
+- [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) <IdPill id="ELM-DWS-10" />
+- [Curb Ramp](/patterns/elements/curb-ramp/) <IdPill id="ELM-CRP-03" /> (companion accessibility elements)
+
+</div>
 
 ## References
 

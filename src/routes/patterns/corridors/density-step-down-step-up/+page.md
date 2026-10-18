@@ -2,17 +2,16 @@
 title: "Density Step-Down / Step-Up"
 description: "The pattern governing how a road’s cross-section, speed, and character adjust where the surrounding density tier changes along its length."
 patternId: CDR-DSD-01
+status: recommended
 date: 2026-08-31
 llms: "The pattern governing how a road’s cross-section, speed, and character adjust where the surrounding density tier changes along its length."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Density Step-Down / Step-Up" classification="corridor" status="recommended">
 The pattern governing how a road’s cross-section, speed, and character adjust where the surrounding density tier changes along its length.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" />
 
@@ -30,7 +29,12 @@ A road built to Urban-tier standards does not automatically become wrong when th
 
 ## Related patterns
 
-[Rural-to-Town Gateway](/patterns/corridors/rural-to-town-gateway/) (CDR-RTG-02) (a special case of stepping down at a jurisdictional/settlement edge specifically, rather than a general tier change); relevant Segment-scale patterns at each density tier
+<div class="cw-links">
+
+- [Rural-to-Town Gateway](/patterns/corridors/rural-to-town-gateway/) <IdPill id="CDR-RTG-02" /> (a special case of stepping down at a jurisdictional/settlement edge specifically, rather than a general tier change)
+- relevant Segment-scale patterns at each density tier
+
+</div>
 
 ## References
 

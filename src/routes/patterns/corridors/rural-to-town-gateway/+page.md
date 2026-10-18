@@ -2,18 +2,17 @@
 title: "Rural-to-Town Gateway"
 description: "The specific transition zone where a highway or rural road enters a town, village, or settlement edge, marked by deliberate physical cues (narrowing, street trees, lighting change, surface texture) that signal to drivers that the road’s character and behavior expectations have changed."
 patternId: CDR-RTG-02
+status: recommended
 date: 2026-08-31
 image: /patterns/cdr-rtg-02-rural-to-town-gateway.jpeg
 llms: "The specific transition zone where a highway or rural road enters a town, village, or settlement edge, marked by deliberate physical cues (narrowing, street trees, lighting change, surface texture) that signal to drivers that the road’s character and behavior expectations have changed."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Rural-to-Town Gateway" classification="corridor" status="recommended">
 The specific transition zone where a highway or rural road enters a town, village, or settlement edge, marked by deliberate physical cues (narrowing, street trees, lighting change, surface texture) that signal to drivers that the road’s character and behavior expectations have changed.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" />
 
@@ -31,7 +30,12 @@ Drivers respond to the road they perceive, not the posted number.<Citation index
 
 ## Related patterns
 
-[Density Step-Down/Step-Up](/patterns/corridors/density-step-down-step-up/) (CDR-DSD-01) (parent pattern; this is the settlement-edge special case); relevant Local/Collector Segment patterns on the town side
+<div class="cw-links">
+
+- [Density Step-Down/Step-Up](/patterns/corridors/density-step-down-step-up/) <IdPill id="CDR-DSD-01" /> (parent pattern; this is the settlement-edge special case)
+- relevant Local/Collector Segment patterns on the town side
+
+</div>
 
 ## References
 

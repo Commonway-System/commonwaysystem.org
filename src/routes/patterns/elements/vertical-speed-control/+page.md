@@ -2,17 +2,16 @@
 title: "Vertical Speed Control"
 description: "A raised roadway feature (speed hump, speed table, or speed cushion) that slows vehicles through vertical deflection, forcing a driver to reduce speed to avoid an uncomfortable jolt."
 patternId: ELM-VSC-06
+status: recommended
 date: 2026-08-31
 llms: "A raised roadway feature (speed hump, speed table, or speed cushion) that slows vehicles through vertical deflection, forcing a driver to reduce speed to avoid an uncomfortable jolt."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Vertical Speed Control" classification="element" status="recommended">
 A raised roadway feature (speed hump, speed table, or speed cushion) that slows vehicles through vertical deflection, forcing a driver to reduce speed to avoid an uncomfortable jolt.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ Signage and paint alone rarely change driver speed on their own; a physical vert
 
 ## Related patterns
 
-[Rumble Strip](/patterns/elements/rumble-strip/) (ELM-RMS-07) (a related but distinct calming treatment using texture rather than vertical deflection); relevant Local and Collector Segment patterns where speed control applies; [Neighborhood Traffic Circle / Mini-Roundabout](/patterns/elements/neighborhood-traffic-circle-mini-roundabout/) (ELM-NTC-46) (an alternative Local-to-Local calming treatment)
+<div class="cw-links">
+
+- [Rumble Strip](/patterns/elements/rumble-strip/) <IdPill id="ELM-RMS-07" /> (a related but distinct calming treatment using texture rather than vertical deflection)
+- relevant Local and Collector Segment patterns where speed control applies
+- [Neighborhood Traffic Circle / Mini-Roundabout](/patterns/elements/neighborhood-traffic-circle-mini-roundabout/) <IdPill id="ELM-NTC-46" /> (an alternative Local-to-Local calming treatment)
+
+</div>
 
 ## References
 

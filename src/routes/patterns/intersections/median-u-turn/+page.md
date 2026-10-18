@@ -2,25 +2,28 @@
 title: "Median U-Turn (MUT)"
 description: "An intersection where left-turn movements from both the major and minor approaches are removed from the main crossing and rerouted through a downstream median crossover."
 patternId: INT-MUT-12
+status: situational
 date: 2026-09-03
 llms: "An intersection where left-turn movements from both approaches are removed from the main crossing and rerouted through a downstream median crossover, Situational on wide, higher-speed divided roads."
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Median U-Turn (MUT)" classification="intersections" status="situational">
 An intersection where left-turn movements from both the major and minor approaches are removed from the main crossing and rerouted through a downstream median crossover, requiring a driver to travel past the intersection, make a U-turn, then complete the turn from the opposite direction.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" />
 
 Compact is an edge case. Urban and Core are unlikely pairings.
+
+</div>
 
 ## Design notes
 
@@ -28,11 +31,17 @@ This geometry exists to remove unprotected left turns from a major intersection 
 
 ## Related patterns
 
-[Restricted Crossing U-Turn](/patterns/intersections/restricted-crossing-u-turn/) (INT-RCU-13) (the related, more restrictive geometry that also removes the minor road's direct through movement), [Displaced Left-Turn](/patterns/intersections/displaced-left-turn/) (INT-DLT-14) (an alternative approach to the same unprotected-left-turn problem), [Signal](/patterns/intersections/signal/) (INT-SIG-03) (the conventional intersection this pattern modifies rather than replaces outright)
+<div class="cw-links">
+
+- [Restricted Crossing U-Turn](/patterns/intersections/restricted-crossing-u-turn/) <IdPill id="INT-RCU-13" /> (the related, more restrictive geometry that also removes the minor road's direct through movement)
+- [Displaced Left-Turn](/patterns/intersections/displaced-left-turn/) <IdPill id="INT-DLT-14" /> (an alternative approach to the same unprotected-left-turn problem)
+- [Signal](/patterns/intersections/signal/) <IdPill id="INT-SIG-03" /> (the conventional intersection this pattern modifies rather than replaces outright)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Median U-Turn (MUT) retrofit](/retrofits/intersection/median-u-turn-mut-retrofit/) (RFT-INT-02) reroutes an existing conventional intersection's left-turn and through movements to this geometry.
+[Median U-Turn (MUT) retrofit](/retrofits/intersection/median-u-turn-mut-retrofit/) <IdPill id="RFT-INT-02" /> reroutes an existing conventional intersection's left-turn and through movements to this geometry.
 
 ## References
 

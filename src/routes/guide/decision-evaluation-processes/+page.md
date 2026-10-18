@@ -17,6 +17,8 @@ Both are procedural rather than physical or legal. Neither one is a Retrofit Str
 
 ## Intersection Control Evaluation (ICE)
 
+<div class="cw-fields">
+
 **What it is.** A staged, documented process for comparing intersection control and geometric alternatives, using quantifiable performance measures alongside qualitative community and multimodal considerations, before committing to a design.<Citation index={4} />
 
 **Who conducts it.** Public agency staff, typically state DOT or MPO engineers and planners, sometimes with consultant support. A growing number of agencies have adopted formal ICE policies requiring the process for defined project types.<Citation index={6} />
@@ -25,15 +27,23 @@ Both are procedural rather than physical or legal. Neither one is a Retrofit Str
 
 **The process:**
 
+</div>
+
+<div class="cw-ranked">
+
 1. **Scoping.** Identify the full range of intersection types that could plausibly serve the location, based on traffic volumes, crash history, and surrounding context.
 2. **Stage I screening.** Narrow the full range to a short list of alternatives that meet organizational goals and project needs and are practical to pursue. Alternatives that fail basic feasibility are screened out here.
 3. **Stage II analysis.** Evaluate the short-listed alternatives in detail, using quantifiable measures, safety performance, capacity, and cost, alongside qualitative measures like multimodal accommodation and community goals.<Citation index={5} />
 4. **Comparison and documentation.** Compare alternatives side by side using a transparent, traceable method. Some agencies use a dedicated tool for this step; the Safety Performance for Intersection Control Evaluation (SPICE) tool is one example, drawing on Highway Safety Manual crash prediction methods to compare predicted crash frequency and severity across control types.<Citation index={7} />
 5. **Selection.** Choose a preferred alternative, documented well enough that the reasoning is legible to anyone reviewing the decision later, including the public.
 
+</div>
+
 **Why it matters here.** ICE is the formal version of a question this publication raises informally throughout the Pattern catalog: given a choice of intersection control, which one actually performs better for this specific location. ICE is how a jurisdiction answers that question with evidence rather than habit.<Citation index={8} />
 
 ## Road Safety Audit (RSA)
+
+<div class="cw-fields">
 
 **What it is.** A formal safety performance examination of an existing or planned road or intersection, conducted by an independent, multidisciplinary team, resulting in a written report of safety issues and improvement opportunities.<Citation index={1} />
 
@@ -43,6 +53,10 @@ Both are procedural rather than physical or legal. Neither one is a Retrofit Str
 
 **The process:**
 
+</div>
+
+<div class="cw-ranked">
+
 1. **Identify the project or existing road to be audited.**
 2. **Select the audit team**, chosen specifically for independence from the original design work and for a range of relevant disciplines.
 3. **Conduct a pre-audit meeting** to review available project information, data, and materials with the audit team before fieldwork begins.
@@ -51,6 +65,8 @@ Both are procedural rather than physical or legal. Neither one is a Retrofit Str
 6. **Present the findings** to the project owner and design team.
 7. **Prepare a formal response** addressing each identified issue.
 8. **Incorporate accepted findings** into the project or into a plan for the existing road, as appropriate.<Citation index={2} />
+
+</div>
 
 **Why it matters here.** An RSA is one of the few tools in this publication that can be applied to a street that has no active project at all. It's how a safety issue on an existing Pattern gets surfaced in the first place, often the actual trigger that starts a jurisdiction looking at a Retrofit Strategy.<Citation index={3} />
 

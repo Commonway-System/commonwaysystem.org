@@ -25,21 +25,27 @@ Reserving land for a future road, or changing local law, is covered in [Legal & 
 
 ## Why requests stall
 
+<div class="cw-tiles">
+
 - **Wrong government.** The city may not own the road, or may own the pavement but not the signal. In Washington State, the state DOT runs the signals on state highways through smaller towns; larger cities run their own.<Citation index={4} />
 - **Wrong kind of ask.** Fixing a faded stripe and adding a stop sign take different tracks. One needs a work order. The other needs a study.
 - **Wrong expectation.** Neighborhood support starts a request. Engineers decide it.<Citation index={1} />
 - **Missed timing.** Some changes arrive without a request. When a city resurfaces a street, federal law requires curb ramps at its crossings.<Citation index={5} />
 
+</div>
+
 ## The four questions
 
 | Question | Why it matters |
 | --- | --- |
-| 1. What are you asking for? | Restoring, adding and changing a standard take different paths. |
-| 2. Is the road public or private? | A private road answers to its owner or HOA, not a government. |
-| 3. Which government has authority? | Ownership is the start. Signals, sidewalks and sovereignty can split it. |
-| 4. How does that government process it? | Seven tracks, from a work order to a capital project. |
+| <span class="cw-num">1<span class="cw-num__dot">.</span></span> What are you asking for? | Restoring, adding and changing a standard take different paths. |
+| <span class="cw-num">2<span class="cw-num__dot">.</span></span> Is the road public or private? | A private road answers to its owner or HOA, not a government. |
+| <span class="cw-num">3<span class="cw-num__dot">.</span></span> Which government has authority? | Ownership is the start. Signals, sidewalks and sovereignty can split it. |
+| <span class="cw-num">4<span class="cw-num__dot">.</span></span> How does that government process it? | Seven tracks, from a work order to a capital project. |
 
-## 1. What are you asking for?
+## <span class="cw-num">1<span class="cw-num__dot">.</span></span> What are you asking for?
+
+<div class="cw-options">
 
 **Restore something already there.** A faded stripe, a broken sign, a pothole. The need was proven when it went in, so it doesn't need proving again.
 
@@ -47,7 +53,9 @@ Reserving land for a future road, or changing local law, is covered in [Legal & 
 
 **Change the standard everywhere.** If the problem is the rule itself, not one street, the path runs through your local government's comprehensive plan or ordinances. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/). The rest of this page covers the first two.
 
-## 2. Is the road public or private?
+</div>
+
+## <span class="cw-num">2<span class="cw-num__dot">.</span></span> Is the road public or private?
 
 A private road has no government in charge of its design. The owner or homeowners' association decides, under the community's declaration and bylaws.
 
@@ -55,7 +63,9 @@ Private doesn't always mean outside traffic law. The national standard for signs
 
 Not sure which you have? Some states publish ownership lookups. Maryland's lets you search a road by name and see who maintains it.<Citation index={8} /> Otherwise, call your public works department and ask.
 
-## 3. Which government has authority?
+## <span class="cw-num">3<span class="cw-num__dot">.</span></span> Which government has authority?
+
+<div class="cw-options">
 
 **Start with ownership.** It varies more than most people expect. As of 2012, South Carolina's state government owned 63 percent of the state's roads; New Jersey's owned 6 percent.<Citation index={3} /> A road that looks like a city street may belong to the state.
 
@@ -65,9 +75,11 @@ Not sure which you have? Some states publish ownership lookups. Maryland's lets 
 
 **Ask each authority for its piece.** One call rarely covers a request two governments share.
 
+</div>
+
 If the answers keep getting stranger, your area may be one of the documented exceptions. See [When Jurisdiction Doesn't Follow the Pattern](/guide/make-it-happen/jurisdiction-variants/).
 
-## 4. How does that government process it?
+## <span class="cw-num">4<span class="cw-num__dot">.</span></span> How does that government process it?
 
 | Track | When it applies | Who decides | What to bring |
 | --- | --- | --- | --- |
@@ -78,6 +90,8 @@ If the answers keep getting stranger, your area may be one of the documented exc
 | Adopted-plan implementation | The change is already named in an adopted plan | Staff, folded into scheduled work<Citation index={14} /> | The plan page that names your street |
 | Compliance-triggered work | The law requires it when other work happens | Nobody; it's required<Citation index={5} /> | Nothing. Watch the project schedule. |
 | Accessibility request | A barrier for people with disabilities | A separate accessibility program, where one exists<Citation index={9} /> | A description of the barrier |
+
+<div class="cw-options">
 
 **Warrants protect the signs that matter.** The Manual on Uniform Traffic Control Devices (MUTCD) is the national standard for signs, signals and markings. States adopt it as is, add a supplement, or write their own manual in substantial conformance.<Citation index={6} /> A warrant is proof of need, before the device goes in. Compliance is poor at unwarranted stop signs, they can raise speeds between intersections, and removing them has improved compliance at the stop signs that are justified.<Citation index={15} />
 
@@ -91,6 +105,8 @@ If the answers keep getting stranger, your area may be one of the documented exc
 
 **Resurfacing is the moment.** Sacramento uses its bikeway plan to decide which streets get bike lanes when they're repaved.<Citation index={14} /> Resurfacing also triggers curb ramps under the ADA. Painting, crack sealing and patching don't.<Citation index={5} />
 
+</div>
+
 ## When jurisdiction gets strange
 
 In Baltimore, the city maintains every road, including the interstates and numbered state routes, except three toll roads run by the Maryland Transportation Authority.<Citation index={8} /> The state highway agency maintains none of the city's roads.<Citation index={18} /> A route number won't tell you whom to call.
@@ -101,6 +117,8 @@ These are real, documented structures, and there are more. [When Jurisdiction Do
 
 ## Fair questions
 
+<div class="cw-options">
+
 **My neighbors all agree. Why do we still need a study?** Because the study asks a different question: will the device work? Drivers ignore signs they see as unneeded.<Citation index={15} /> In Kansas City the council can overrule the engineers,<Citation index={1} /> but that is a political fight, not a shortcut.
 
 **Can we take our project straight to the MPO?** No. MPO funding goes to local public agencies, which apply and put up local money. Residents comment.<Citation index={12} /> Your first stop is the city or county that would sponsor it.
@@ -109,7 +127,11 @@ These are real, documented structures, and there are more. [When Jurisdiction Do
 
 **Why did a curb ramp appear when nobody asked?** Because the street was resurfaced. The ADA requires ramps whenever a street is altered that way.<Citation index={5} />
 
+</div>
+
 ## What you can do
+
+<div class="cw-ranked">
 
 1. **Name your request.** Restore, add, or change the standard.
 2. **Find the owner.** Use an ownership lookup or call public works. Ask who maintains the road and who controls its signs and signals.
@@ -118,6 +140,8 @@ These are real, documented structures, and there are more. [When Jurisdiction Do
 5. **Check for scheduled work.** Ask whether the street is due for resurfacing or named in an adopted plan.
 6. **Use the right channel for access barriers.** Ask whether your city runs a separate accessibility program.<Citation index={9} />
 7. **If the answer is no, ask why.** Ask which rule applied. Your council member can help move a request that stalls.<Citation index={1} />
+
+</div>
 
 <RelatedMedia id="/guide/make-it-happen/" />
 

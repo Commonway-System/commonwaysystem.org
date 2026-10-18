@@ -45,10 +45,14 @@ below is what every contribution gets held to.
 
 ## What you can contribute
 
+<div class="cw-tiles">
+
 - **A correction** to an existing pattern page: a wrong figure, an outdated citation, a broken link, an unclear description
 - **A missing citation** for a claim currently marked with the unsourced-claim flag<Citation unsourced />
 - **A new pattern proposal**, when you believe a Street Typology, an intersection treatment, or a related pattern is missing from the guidebook
 - **General improvements**: clearer wording, a better example, a fix to the publication itself
+
+</div>
 
 One thing worth knowing before you start on something large: foundational structure, the Functional Classification system, the pattern ID format, core safety rules like the Local speed cap, isn't open to change through a routine pull request. See [Project Governance](/about/governance/) for how that's decided. If you're proposing something that touches the guidebook's underlying structure rather than its content, open an issue to discuss it first, before putting in the work on a full pull request.
 

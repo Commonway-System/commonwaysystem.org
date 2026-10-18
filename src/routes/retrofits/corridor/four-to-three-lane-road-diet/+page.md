@@ -8,12 +8,10 @@ llms: "Converts a four-lane undivided roadway into three lanes, one through lane
 
 <script>
   import viewerData from '$lib/data/street-configs/rft-cdr-01'
-  import { Citation, EvidenceChip, RelatedMedia, RetrofitCard, PatternViewer } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="Four-to-three lane road diet" scale="corridor">
 Converts an existing four-lane undivided roadway (two through lanes each direction) into three lanes: one through lane each direction plus a center two-way left-turn lane, reclaiming the freed width for other uses.
-</RetrofitCard>
 
 <PatternViewer data={viewerData} image={fm.image} title={fm.title} classification="corridor" retrofit />
 
@@ -25,15 +23,30 @@ This is the classic road diet. A road built with more through capacity than its 
 
 ## Where this leads: Target patterns
 
-[Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01), [Default (No Parking, No Direct Access)](/patterns/arterials/default/) (ART-DEF-01), [Downtown Thoroughfare](/patterns/collectors/downtown-thoroughfare/) (COL-DTH-07)
+<div class="cw-links">
+
+- [Default (Standard Collector)](/patterns/collectors/default/) <IdPill id="COL-DEF-01" />
+- [Default (No Parking, No Direct Access)](/patterns/arterials/default/) <IdPill id="ART-DEF-01" />
+- [Downtown Thoroughfare](/patterns/collectors/downtown-thoroughfare/) <IdPill id="COL-DTH-07" />
+
+</div>
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Most effective below roughly 19,000 vehicles per day; can succeed up to about 23,000 to 25,000 with careful signal coordination, though more extensive redesign is typically needed above the lower threshold. Corridors with closely spaced signals need timing coordination to avoid queuing impacts at adjacent intersections.
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 FHWA reports an overall crash reduction of 19 to 47 percent for four-to-three lane road diets, driven by separating through and turning movements and reducing the speed variance between lanes that a four-lane cross-section otherwise creates.<Citation index={1} /><Citation index={2} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
@@ -41,13 +54,24 @@ Can move through the full construction spectrum. A road diet is frequently imple
 
 An Intersection Control Evaluation is not typically required unless the road diet is paired with a change in intersection control along the corridor. See [Decision & Evaluation Processes](/guide/decision-evaluation-processes/).
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 Usually a city or county public works or transportation department decision, often achievable without new legislation since it can be executed as a maintenance restriping project. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/) and [Funding & Financing Mechanisms](/guide/funding-financing-mechanisms/).
 
+</div>
+</div>
+
 ## Related retrofit strategies
 
-[Five-plus lane reallocation](/retrofits/corridor/five-plus-lane-reallocation/) (RFT-CDR-02) (the equivalent approach for wider roadways), [Lane diet](/retrofits/corridor/lane-diet/) (RFT-CDR-03) (a lighter-touch alternative that narrows lanes without removing one)
+<div class="cw-links">
+
+- [Five-plus lane reallocation](/retrofits/corridor/five-plus-lane-reallocation/) <IdPill id="RFT-CDR-02" /> (the equivalent approach for wider roadways)
+- [Lane diet](/retrofits/corridor/lane-diet/) <IdPill id="RFT-CDR-03" /> (a lighter-touch alternative that narrows lanes without removing one)
+
+</div>
 
 ## References
 

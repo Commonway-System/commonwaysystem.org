@@ -7,12 +7,10 @@ llms: "Also known as a J-turn or superstreet, reroutes both left-turn and throug
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="Restricted Crossing U-Turn (RCUT) retrofit" scale="intersection">
 Reroutes both left-turn and through movements from the minor road, requiring drivers to turn right onto the major road first, then complete a U-turn at a designated median crossover. Also known as a J-turn or superstreet.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" retrofit />
 
@@ -24,15 +22,28 @@ RCUT goes a step further than a standard median U-turn retrofit: it removes the 
 
 ## Where this leads: Target patterns
 
-[Restricted Crossing U-Turn (RCUT)](/patterns/intersections/restricted-crossing-u-turn/) (INT-RCU-13)
+<div class="cw-links">
+
+- [Restricted Crossing U-Turn (RCUT)](/patterns/intersections/restricted-crossing-u-turn/) <IdPill id="INT-RCU-13" />
+
+</div>
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Used primarily on high-speed, four-lane-or-larger divided highways, both signalized and unsignalized versions exist, with median width sized to the design vehicle's turning requirements.<Citation index={1} /> Particularly beneficial where large trucks are common, since the design gives them a single direction of traffic to focus on rather than requiring a gap-judgment across the full width of opposing traffic.
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 FHWA reports RCUT intersections reduce fatal and injury crashes substantially compared to the conventional intersections they replace, primarily by eliminating the right-angle and left-turn crash types associated with direct crossing and turning movements at a conventional design.<Citation index={3} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
@@ -40,13 +51,24 @@ Cannot be piloted informally. Wisconsin DOT notes RCUT designs are easily retrof
 
 An Intersection Control Evaluation is standard practice for this geometry. See [Decision & Evaluation Processes](/guide/decision-evaluation-processes/).
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 Typically a state DOT capital project, since RCUT is used almost exclusively on state-maintained highways rather than local streets. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/).
 
+</div>
+</div>
+
 ## Related retrofit strategies
 
-[Median U-Turn (MUT) retrofit](/retrofits/intersection/median-u-turn-mut-retrofit/) (RFT-INT-02) (the related, less restrictive geometry that still allows a direct minor-road through movement), [Displaced Left-Turn (DLT) retrofit](/retrofits/intersection/displaced-left-turn-dlt-retrofit/) (RFT-INT-04) (an alternative approach to the same unprotected-left-turn and through-crossing problem)
+<div class="cw-links">
+
+- [Median U-Turn (MUT) retrofit](/retrofits/intersection/median-u-turn-mut-retrofit/) <IdPill id="RFT-INT-02" /> (the related, less restrictive geometry that still allows a direct minor-road through movement)
+- [Displaced Left-Turn (DLT) retrofit](/retrofits/intersection/displaced-left-turn-dlt-retrofit/) <IdPill id="RFT-INT-04" /> (an alternative approach to the same unprotected-left-turn and through-crossing problem)
+
+</div>
 
 ## References
 

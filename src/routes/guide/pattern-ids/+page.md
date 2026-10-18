@@ -6,10 +6,10 @@ llms: Explains the Commonway System Pattern ID format (PREFIX-CTXCODE-##), the n
 ---
 
 <script>
-  import { RelatedMedia } from '$lib/theme/components'
+  import { IdPill, RelatedMedia } from '$lib/theme/components'
 </script>
 
-Every pattern in this guidebook carries a unique ID, shown on its Pattern ID card as described on the [How to Read a Pattern](/guide/how-to-read-a-pattern/) page. This page explains what each part of that ID means, why it's structured the way it is, and what the status badge next to it tells you.
+Every pattern in this guidebook carries a unique ID, shown in the header at the top of its page (its Pattern ID card) as described on the [How to Read a Pattern](/guide/how-to-read-a-pattern/) page. This page explains what each part of that ID means, why it's structured the way it is, and what the status badge next to it tells you.
 
 <RelatedMedia id="/guide/pattern-ids/" />
 
@@ -21,9 +21,13 @@ Every pattern ID follows a fixed format:
 
 For example, `LOC-BBG-12`, with an optional trailing `(DENSITY)` suffix once more than one page exists for the same Typology at different density tiers.
 
+<div class="cw-tiles">
+
 - **PREFIX** encodes Scale, covered in full below.
 - **CTXCODE** is a short mnemonic for the specific Typology. `BBG` stands for Bicycle Boulevard / Neighborhood Greenway, for example. `DEF` is reserved for each classification's baseline default entry.
 - **[##]** is a two-digit number assigned once, in the order the pattern was added to the guidebook. It never changes later, even if the pattern's position in the Pattern Index does.
+
+</div>
 
 ## Scale prefixes
 
@@ -47,12 +51,16 @@ See [Scale Hierarchy](/guide/scale-hierarchy/) for what each of the nine Scale p
 
 ## Status badges
 
-Every pattern carries a status, shown as a small badge next to the classification label on the Pattern ID card.
+Every pattern carries a status, shown as a small badge next to the ID in the header at the top of its page.
+
+<div class="cw-tiles">
 
 - **Recommended** is the quiet default, no color emphasis, since it's the unremarkable normal case.
 - **Situational / Discouraged** reuses the amber warning color, meaning the pattern is real but fits only certain contexts.
 - **Avoid** reuses the rose danger color, meaning the Commonway System actively recommends against it.
-- **Descriptive** uses a cool slate-blue, meaning the pattern documents an existing condition rather than weighing a design choice, such as [Organic / Irregular](/patterns/network/organic-irregular/) (NET-ORG-04).
+- **Descriptive** uses a cool slate-blue, meaning the pattern documents an existing condition rather than weighing a design choice, such as [Organic / Irregular](/patterns/network/organic-irregular/) <IdPill id="NET-ORG-04" />.
+
+</div>
 
 ## How this connects to the rest of the guidebook
 

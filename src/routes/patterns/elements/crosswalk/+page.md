@@ -2,17 +2,16 @@
 title: "Crosswalk"
 description: "A marked pedestrian crossing point, located at an intersection or midblock, delineated with pavement markings ranging from a simple two-line crosswalk to high-visibility continental or ladder striping."
 patternId: ELM-CRW-08
+status: recommended
 date: 2026-08-31
 llms: "A marked pedestrian crossing point, located at an intersection or midblock, delineated with pavement markings ranging from a simple two-line crosswalk to high-visibility continental or ladder striping."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Crosswalk" classification="element" status="recommended">
 A marked pedestrian crossing point, located at an intersection or midblock, delineated with pavement markings ranging from a simple two-line crosswalk to high-visibility continental or ladder striping.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,15 @@ A crosswalk establishes a legally and visually defined place for pedestrians to 
 
 ## Related patterns
 
-[Pedestrian Safety Island/Refuge](/patterns/elements/pedestrian-safety-island-refuge/) (ELM-PSI-09), [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) (ELM-DWS-10), [Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03) (companion elements at any crossing); [RRFB](/patterns/elements/rrfb/) (ELM-RRF-17), [Pedestrian Hybrid Beacon](/patterns/elements/pedestrian-hybrid-beacon/) (ELM-PHB-18) (supporting treatments for higher-speed or higher-volume crossings)
+<div class="cw-links">
+
+- [Pedestrian Safety Island/Refuge](/patterns/elements/pedestrian-safety-island-refuge/) <IdPill id="ELM-PSI-09" />
+- [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) <IdPill id="ELM-DWS-10" />
+- [Curb Ramp](/patterns/elements/curb-ramp/) <IdPill id="ELM-CRP-03" /> (companion elements at any crossing)
+- [RRFB](/patterns/elements/rrfb/) <IdPill id="ELM-RRF-17" />
+- [Pedestrian Hybrid Beacon](/patterns/elements/pedestrian-hybrid-beacon/) <IdPill id="ELM-PHB-18" /> (supporting treatments for higher-speed or higher-volume crossings)
+
+</div>
 
 ## References
 

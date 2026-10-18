@@ -26,15 +26,23 @@ Knowledge is power only when people can use it. The Commonway System is built so
 
 ## Why the name
 
+<div class="cw-options cw-options--pair">
+
 **System,** because it is one: classifications, patterns, IDs, and rules that fit together, so an answer in one place agrees with an answer in another.
 
 **Commonway** is the hope behind it: that this becomes the common way to understand street design, shared by neighbors and engineers alike.
 
+</div>
+
 ## What it is
+
+<div class="cw-tiles">
 
 - **{patternPageCount} [patterns](/patterns/)** describe what a street, intersection, facility, or street element should be.
 - **{retrofitStrategyCount} [retrofits](/retrofits/)** show how to move an existing street toward a pattern.
 - **The [Guide](/guide/)** explains the core concepts, how to use the system, and how to get a street changed.
+
+</div>
 
 Every recommendation cites its source. Plain language comes first, with the technical detail underneath, so the same page serves a first-time reader and a practicing engineer. One system, grounded in what's proven.
 
@@ -42,11 +50,15 @@ Every recommendation cites its source. Plain language comes first, with the tech
 
 The Commonway System doesn't just summarize other guidance. Where the evidence supports it, it takes a position:
 
+<div class="cw-tiles">
+
 - **Design speed always equals the posted speed limit.** A street should be built for the speed on its sign. ([Design Speed & Speed Limits](/guide/design-speed/))
 - **Local streets are 20 mph, with no exceptions.** ([Design Speed & Speed Limits](/guide/design-speed/))
 - **Roundabouts come first.** They are the default wherever two Collector-or-higher streets meet; signals are a documented last resort. ([Roundabout, INT-RAB-01](/patterns/intersections/roundabout/))
 - **Arterials move traffic, not parked cars.** The default Arterial has no on-street parking and no direct property access. ([Arterial Default, ART-DEF-01](/patterns/arterials/default/))
 - **Added lanes are a cost, not a cure.** For congestion, pricing, reallocated road space, and a connected network come first; widening comes last. ([Induced Demand](/guide/induced-demand/))
+
+</div>
 
 ## How it relates to NACTO, Complete Streets, and Strong Towns
 
@@ -64,11 +76,15 @@ When it does go further, it says so plainly. It names the baseline practice, the
 
 And you can check the work:
 
+<div class="cw-tiles">
+
 - **Evidence tiers.** Every source is labeled Legal / regulatory, Evidence-based, or Precedent-based, so you can see what kind of authority stands behind each claim. ([How disputes over evidence are resolved](/about/governance/#how-disputes-over-evidence-are-resolved))
 - **Visible gaps.** A claim still waiting for a source is flagged in amber instead of left looking settled.
 - **Dated versions.** Every change is logged in [What's New](/about/release-history/).
 - **Open correction.** Anyone can [report a problem](/about/reporting/) or [submit a change](/about/contributing/).
 - **Disclosed tools.** How AI was used, and how a human reviews every classification and citation, is set out in the [AI Policy](/about/ai-policy/).
+
+</div>
 
 ## How it's organized
 

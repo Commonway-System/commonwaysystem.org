@@ -2,17 +2,16 @@
 title: "Regulatory Sign"
 description: "A sign conveying a legally enforceable traffic rule, such as a stop sign, yield sign, speed limit sign, or turn restriction, whose message carries the force of law rather than merely advising or informing."
 patternId: ELM-RGS-11
+status: recommended
 date: 2026-08-31
 llms: "A sign conveying a legally enforceable traffic rule, such as a stop sign, yield sign, speed limit sign, or turn restriction, whose message carries the force of law rather than merely advising or informing."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Regulatory Sign" classification="element" status="recommended">
 A sign conveying a legally enforceable traffic rule, such as a stop sign, yield sign, speed limit sign, or turn restriction, whose message carries the force of law rather than merely advising or informing.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ Regulatory signs are how a jurisdiction communicates enforceable rules to the tr
 
 ## Related patterns
 
-[Warning Sign](/patterns/elements/warning-sign/) (ELM-WNS-12), [Guide Sign](/patterns/elements/guide-sign/) (ELM-GDS-13) (related but functionally distinct sign categories); relevant Segment and Intersection patterns the sign is regulating
+<div class="cw-links">
+
+- [Warning Sign](/patterns/elements/warning-sign/) <IdPill id="ELM-WNS-12" />
+- [Guide Sign](/patterns/elements/guide-sign/) <IdPill id="ELM-GDS-13" /> (related but functionally distinct sign categories)
+- relevant Segment and Intersection patterns the sign is regulating
+
+</div>
 
 ## References
 

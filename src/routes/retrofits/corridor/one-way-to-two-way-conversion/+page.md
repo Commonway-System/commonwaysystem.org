@@ -7,12 +7,10 @@ llms: "Converts a one-way street back to two-way operation, typically reducing l
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="One-way to two-way conversion" scale="corridor">
 Converts a one-way street back to two-way operation, typically reducing lane width and count in the process.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
@@ -24,15 +22,30 @@ Many one-way streets were converted from an original two-way configuration in th
 
 ## Where this leads: Target patterns
 
-[Default (No Parking, No Direct Access)](/patterns/arterials/default/) (ART-DEF-01), [Main Street](/patterns/local-streets/main-street/) (LOC-MST-05), [Downtown Thoroughfare](/patterns/collectors/downtown-thoroughfare/) (COL-DTH-07)
+<div class="cw-links">
+
+- [Default (No Parking, No Direct Access)](/patterns/arterials/default/) <IdPill id="ART-DEF-01" />
+- [Main Street](/patterns/local-streets/main-street/) <IdPill id="LOC-MST-05" />
+- [Downtown Thoroughfare](/patterns/collectors/downtown-thoroughfare/) <IdPill id="COL-DTH-07" />
+
+</div>
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Most commonly applied to downtown one-way pairs originally converted for vehicle throughput. A feasibility study is typically warranted first, since delivery access, transit routing, and turn restrictions all need re-evaluation under two-way operation.
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 Documented average speeds on one-way streets have measured roughly double those on comparable two-way streets in the same neighborhood.<Citation index={1} /> Separately, Louisville, Kentucky recorded a 23 percent decline in crime and a 42 percent reduction in robberies following conversion of a one-way pair to two-way, a result researchers attribute in part to slower speeds and increased pedestrian and cyclist presence.<Citation index={2} /><Citation index={3} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
@@ -40,9 +53,15 @@ Two-way conversion is harder to pilot informally than a simple road diet, since 
 
 An Intersection Control Evaluation is commonly warranted at each affected intersection, since signal phasing and turn movements change substantially. See [Decision & Evaluation Processes](/guide/decision-evaluation-processes/).
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 A city council or transportation department decision, often requiring coordination across multiple city departments (signals, signage, parking) given the corridor-wide scope of the change. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/).
+
+</div>
+</div>
 
 ## Related retrofit strategies
 

@@ -2,17 +2,16 @@
 title: "Detectable Warning Surface"
 description: "A textured ground surface, typically a grid of truncated domes, installed at the edge of a curb ramp or platform to alert pedestrians with vision impairments to an approaching street edge or crossing point through underfoot texture."
 patternId: ELM-DWS-10
+status: recommended
 date: 2026-08-31
 llms: "A textured ground surface, typically a grid of truncated domes, installed at the edge of a curb ramp or platform to alert pedestrians with vision impairments to an approaching street edge or crossing point through underfoot texture."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Detectable Warning Surface" classification="element" status="recommended">
 A textured ground surface, typically a grid of truncated domes, installed at the edge of a curb ramp or platform to alert pedestrians with vision impairments to an approaching street edge or crossing point through underfoot texture.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ A curb ramp removes the vertical cue (a step down) that traditionally signaled a
 
 ## Related patterns
 
-[Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03) (required companion element); [Transit Platform](/patterns/facilities/transit-platform/) (FAC-TPL-02) (Facility pattern where this also applies at platform edges)
+<div class="cw-links">
+
+- [Curb Ramp](/patterns/elements/curb-ramp/) <IdPill id="ELM-CRP-03" /> (required companion element)
+- [Transit Platform](/patterns/facilities/transit-platform/) <IdPill id="FAC-TPL-02" /> (Facility pattern where this also applies at platform edges)
+
+</div>
 
 ## References
 

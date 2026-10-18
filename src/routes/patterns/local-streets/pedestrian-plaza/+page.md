@@ -2,26 +2,29 @@
 title: Pedestrian-only Street / Plaza
 description: A Local Typology, Situational status, excluding vehicle traffic entirely in favor of pedestrians and, where permitted, bicycles.
 patternId: LOC-PED-09
+status: situational
 date: 2026-08-29
 image: /patterns/loc-ped-09-pedestrian-only-street-plaza.png
 llms: A Local street typology, marked Situational, that excludes vehicle traffic entirely in favor of pedestrians and, where permitted, bicycles.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Pedestrian-only Street / Plaza" classification="local" status="situational">
 A Local street or plaza space that excludes vehicle traffic permanently, not on an event schedule the way a Festival Street does.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="local" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Compact is an edge case. Undeveloped, Rural, and Suburban are unlikely pairings.
+
+</div>
 
 :::warning
 Pedestrian-only Street / Plaza carries Situational status. Full vehicle exclusion is only realistic where surrounding land use and network connectivity can absorb the displaced access, which concentrates this pattern at Urban and Core density.
@@ -41,11 +44,16 @@ Unlike Festival Street, which toggles between full and pedestrian-only operation
 
 ## Related patterns
 
-[Festival Street](/patterns/local-streets/festival-street/) (LOC-FES-08) (the scheduled version of this pattern's permanent vehicle exclusion), [Plaza / Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07) (the Facility-scale pattern for a comparable public-space treatment)
+<div class="cw-links">
+
+- [Festival Street](/patterns/local-streets/festival-street/) <IdPill id="LOC-FES-08" /> (the scheduled version of this pattern's permanent vehicle exclusion)
+- [Plaza / Parklet](/patterns/facilities/plaza-parklet/) <IdPill id="FAC-PLZ-07" /> (the Facility-scale pattern for a comparable public-space treatment)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Superblock retrofit](/retrofits/network/superblock-retrofit/) (RFT-NET-02) applies *within* a multi-block area; this is one of the two typical results for its interior streets.
+[Superblock retrofit](/retrofits/network/superblock-retrofit/) <IdPill id="RFT-NET-02" /> applies *within* a multi-block area; this is one of the two typical results for its interior streets.
 
 ## References
 

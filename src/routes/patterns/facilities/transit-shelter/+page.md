@@ -2,17 +2,16 @@
 title: "Transit Shelter"
 description: "A small- or large-format weather shelter installed at a transit stop, protecting waiting passengers from sun, rain, and wind, ranging from a simple lean-to canopy to a fully enclosed structure with seating and lighting."
 patternId: FAC-TSH-01
+status: recommended
 date: 2026-08-31
 llms: "A small- or large-format weather shelter installed at a transit stop, protecting waiting passengers from sun, rain, and wind, ranging from a simple lean-to canopy to a fully enclosed structure with seating and lighting."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Transit Shelter" classification="facility" status="recommended">
 A small- or large-format weather shelter installed at a transit stop, protecting waiting passengers from sun, rain, and wind, ranging from a simple lean-to canopy to a fully enclosed structure with seating and lighting.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
@@ -30,7 +29,12 @@ Passenger comfort and perceived safety at a stop directly affect transit ridersh
 
 ## Related patterns
 
-[Transit Platform](/patterns/facilities/transit-platform/) (FAC-TPL-02) (the boarding surface it typically pairs with); [Transit Hub/Station](/patterns/facilities/transit-hub-station/) (FAC-THS-03) (the compound facility this becomes part of at higher-order stops)
+<div class="cw-links">
+
+- [Transit Platform](/patterns/facilities/transit-platform/) <IdPill id="FAC-TPL-02" /> (the boarding surface it typically pairs with)
+- [Transit Hub/Station](/patterns/facilities/transit-hub-station/) <IdPill id="FAC-THS-03" /> (the compound facility this becomes part of at higher-order stops)
+
+</div>
 
 ## References
 

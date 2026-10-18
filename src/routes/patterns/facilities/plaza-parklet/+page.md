@@ -2,17 +2,16 @@
 title: "Plaza / Parklet"
 description: "A public gathering space reclaimed from roadway or parking space, ranging from a single parking-space-sized parklet to a full intersection-corner plaza."
 patternId: FAC-PLZ-07
+status: recommended
 date: 2026-08-31
 llms: "A public gathering space reclaimed from roadway or parking space, ranging from a single parking-space-sized parklet to a full intersection-corner plaza."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Plaza / Parklet" classification="facility" status="recommended">
 A public gathering space reclaimed from roadway or parking space, ranging from a single parking-space-sized parklet to a full intersection-corner plaza.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="facility" />
 
@@ -30,7 +29,13 @@ Streets historically allocate nearly all their space to vehicle movement and sto
 
 ## Related patterns
 
-[Curb Extension](/patterns/elements/curb-extension/) (ELM-CBE-02) (related Element pattern, since a plaza often anchors at a curb extension or corner); [Bench](/patterns/elements/bench/) (ELM-BCH-31), [Street Tree](/patterns/elements/street-tree/) (ELM-STT-28) (common furnishing elements)
+<div class="cw-links">
+
+- [Curb Extension](/patterns/elements/curb-extension/) <IdPill id="ELM-CBE-02" /> (related Element pattern, since a plaza often anchors at a curb extension or corner)
+- [Bench](/patterns/elements/bench/) <IdPill id="ELM-BCH-31" />
+- [Street Tree](/patterns/elements/street-tree/) <IdPill id="ELM-STT-28" /> (common furnishing elements)
+
+</div>
 
 ## References
 

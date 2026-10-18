@@ -2,17 +2,16 @@
 title: "Street Tree"
 description: "A tree planted along a street, typically within the sidewalk zone or a landscaped buffer, providing shade, stormwater interception, visual buffering from traffic, and streetscape character."
 patternId: ELM-STT-28
+status: recommended
 date: 2026-08-31
 llms: "A tree planted along a street, typically within the sidewalk zone or a landscaped buffer, providing shade, stormwater interception, visual buffering from traffic, and streetscape character."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Street Tree" classification="element" status="recommended">
 A tree planted along a street, typically within the sidewalk zone or a landscaped buffer, providing shade, stormwater interception, visual buffering from traffic, and streetscape character.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Street trees do measurable work beyond aesthetics, they reduce pedestrian-level 
 
 ## Related patterns
 
-[Tree Pit/Tree Trench](/patterns/elements/tree-pit-tree-trench/) (ELM-TPT-29) (the below-grade element supporting this pattern); [Landscaped Buffer Strip](/patterns/elements/landscaped-buffer-strip/) (ELM-LBS-30) (a common zone this pattern is planted within)
+<div class="cw-links">
+
+- [Tree Pit/Tree Trench](/patterns/elements/tree-pit-tree-trench/) <IdPill id="ELM-TPT-29" /> (the below-grade element supporting this pattern)
+- [Landscaped Buffer Strip](/patterns/elements/landscaped-buffer-strip/) <IdPill id="ELM-LBS-30" /> (a common zone this pattern is planted within)
+
+</div>
 
 ## References
 

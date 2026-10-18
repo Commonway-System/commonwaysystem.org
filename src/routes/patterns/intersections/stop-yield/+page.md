@@ -2,25 +2,28 @@
 title: Stop / Yield (Two-Way)
 description: The lowest-volume intersection control, common from Undeveloped through Compact density and tapering off past that as volumes rise.
 patternId: INT-SYD-05
+status: situational
 date: 2026-08-29
 llms: Two-way stop or yield intersection control, common from Undeveloped through Compact density and tapering off past that point as volumes rise.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Stop / Yield (Two-Way)" classification="intersections" status="situational">
 An intersection where only the minor-street approaches stop or yield, and the major street proceeds without control.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
 
 Urban is an edge case. Core is an unlikely pairing.
+
+</div>
 
 ## Design notes
 
@@ -28,7 +31,11 @@ Two-way stop or yield control is the lowest-volume intersection treatment in the
 
 ## Related patterns
 
-[All-Way Stop](/patterns/intersections/all-way-stop/) (INT-AWS-04) (the reciprocal pattern, explicitly named on this page as sharing the same taper logic one tier higher)
+<div class="cw-links">
+
+- [All-Way Stop](/patterns/intersections/all-way-stop/) <IdPill id="INT-AWS-04" /> (the reciprocal pattern, explicitly named on this page as sharing the same taper logic one tier higher)
+
+</div>
 
 ## References
 

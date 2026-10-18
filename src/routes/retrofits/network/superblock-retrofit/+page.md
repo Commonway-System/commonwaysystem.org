@@ -7,12 +7,10 @@ llms: "Groups several existing blocks into a single traffic cell, routing throug
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="Superblock retrofit" scale="network">
 Groups several existing blocks into a single traffic cell, routing through-traffic around the perimeter while reclaiming the interior streets for pedestrians, bicyclists, and local access only.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="network" retrofit />
 
@@ -24,27 +22,46 @@ Where modal filtering works point by point, a superblock works by treatment area
 
 ## Where this leads: Target patterns
 
-As with modal filtering, this doesn't necessarily produce a different destination pattern, it applies *within* an existing network's topology rather than replacing it. A superblock applied within a [Grid](/patterns/network/grid/) (NET-GRD-01) leaves it a Grid. Interior streets within the superblock typically become [Living Street / Woonerf](/patterns/local-streets/living-street-woonerf/) (LOC-LSW-06) or [Pedestrian-only Street / Plaza](/patterns/local-streets/pedestrian-plaza/) (LOC-PED-09), while perimeter streets retain or gain through-traffic capacity.
+As with modal filtering, this doesn't necessarily produce a different destination pattern, it applies *within* an existing network's topology rather than replacing it. A superblock applied within a [Grid](/patterns/network/grid/) <IdPill id="NET-GRD-01" /> leaves it a Grid. Interior streets within the superblock typically become [Living Street / Woonerf](/patterns/local-streets/living-street-woonerf/) <IdPill id="LOC-LSW-06" /> or [Pedestrian-only Street / Plaza](/patterns/local-streets/pedestrian-plaza/) <IdPill id="LOC-PED-09" />, while perimeter streets retain or gain through-traffic capacity.
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Requires a multi-block area with a genuine perimeter capable of absorbing the rerouted through-traffic without creating unacceptable congestion or diversion onto adjacent neighborhoods. A Grid topology is again the most amenable context, given its inherent route redundancy along the perimeter.
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 The superblock model is documented as reallocating street space from motorised traffic to active travel and public use at the scale of an entire neighborhood or set of residential blocks, a top-down urban planning model distinct from the more incremental, street-by-street approach of modal filtering alone.<Citation index={1} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
 Given its area-wide scope, this retrofit is rarely demonstrated at full scale in a single short pilot; a phased approach, testing perimeter rerouting and one or two interior streets before committing to the full superblock, is more typical than a citywide or neighborhood-wide launch. See [Construction Methodology & The Build Spectrum](/guide/construction-methodology-spectrum/).
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 Typically a city-level planning and transportation department initiative, given the scale, often requiring a dedicated area plan or district designation rather than a single project approval. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/).
 
+</div>
+</div>
+
 ## Related retrofit strategies
 
-[Modal filtering / Low Traffic Neighborhood retrofit](/retrofits/network/modal-filtering-low-traffic-neighborhood-retrofit/) (RFT-NET-01) (a related, more incremental approach that restricts through-traffic without necessarily rebuilding the interior streets themselves)
+<div class="cw-links">
+
+- [Modal filtering / Low Traffic Neighborhood retrofit](/retrofits/network/modal-filtering-low-traffic-neighborhood-retrofit/) <IdPill id="RFT-NET-01" /> (a related, more incremental approach that restricts through-traffic without necessarily rebuilding the interior streets themselves)
+
+</div>
 
 ## References
 

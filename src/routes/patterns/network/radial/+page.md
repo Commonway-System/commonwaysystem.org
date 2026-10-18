@@ -2,18 +2,17 @@
 title: "Radial"
 description: "A network topology in which routes converge toward and radiate outward from a central point, frequently supplemented by circumferential (ring) routes connecting the radial spokes at varying distances from the center."
 patternId: NET-RAD-03
+status: situational
 date: 2026-08-31
 image: /patterns/net-rad-03-radial.png
 llms: "A network topology in which routes converge toward and radiate outward from a central point, frequently supplemented by circumferential (ring) routes connecting the radial spokes at varying distances from the center."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Radial" classification="network" status="situational">
 A network topology in which routes converge toward and radiate outward from a central point, frequently supplemented by circumferential (ring) routes connecting the radial spokes at varying distances from the center.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="network" />
 
@@ -31,7 +30,13 @@ Radial networks arose historically and organically around a defined city center,
 
 ## Related patterns
 
-[Grid](/patterns/network/grid/) (NET-GRD-01), [Dendritic/Hierarchical](/patterns/network/dendritic-hierarchical/) (NET-DEN-02), [Organic/Irregular](/patterns/network/organic-irregular/) (NET-ORG-04) (contrasting Network topologies)
+<div class="cw-links">
+
+- [Grid](/patterns/network/grid/) <IdPill id="NET-GRD-01" />
+- [Dendritic/Hierarchical](/patterns/network/dendritic-hierarchical/) <IdPill id="NET-DEN-02" />
+- [Organic/Irregular](/patterns/network/organic-irregular/) <IdPill id="NET-ORG-04" /> (contrasting Network topologies)
+
+</div>
 
 ## References
 

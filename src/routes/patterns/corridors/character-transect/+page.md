@@ -2,17 +2,16 @@
 title: "Character Transect"
 description: "A corridor that deliberately passes through multiple Movement/Place contexts by design, for example a route that functions as a Highway at one end and a Main Street at the other, and the practice of sequencing the transitions between those contexts rather than treating the corridor as one uniform typology end to end."
 patternId: CDR-CTR-03
+status: recommended
 date: 2026-08-31
 llms: "A corridor that deliberately passes through multiple Movement/Place contexts by design, for example a route that functions as a Highway at one end and a Main Street at the other, and the practice of sequencing the transitions between those contexts rather than treating the corridor as one uniform typology end to end."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Character Transect" classification="corridor" status="recommended">
 A corridor that deliberately passes through multiple Movement/Place contexts by design, for example a route that functions as a Highway at one end and a Main Street at the other, and the practice of sequencing the transitions between those contexts rather than treating the corridor as one uniform typology end to end.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" />
 
@@ -30,7 +29,13 @@ Most corridor-planning guidance treats a road as belonging to one classification
 
 ## Related patterns
 
-[Density Step-Down/Step-Up](/patterns/corridors/density-step-down-step-up/) (CDR-DSD-01), [Rural-to-Town Gateway](/patterns/corridors/rural-to-town-gateway/) (CDR-RTG-02) (component transitions this pattern sequences); Movement/Place diagnostic (Guide)
+<div class="cw-links">
+
+- [Density Step-Down/Step-Up](/patterns/corridors/density-step-down-step-up/) <IdPill id="CDR-DSD-01" />
+- [Rural-to-Town Gateway](/patterns/corridors/rural-to-town-gateway/) <IdPill id="CDR-RTG-02" /> (component transitions this pattern sequences)
+- Movement/Place diagnostic (Guide)
+
+</div>
 
 ## References
 

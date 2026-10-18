@@ -2,25 +2,28 @@
 title: All-Way Stop
 description: A stop-controlled intersection where every approach stops, tapering off past Compact and Urban density as volumes exceed safe stop-control capacity.
 patternId: INT-AWS-04
+status: situational
 date: 2026-08-29
 llms: A stop-controlled intersection where every approach stops, tapering off past Compact and Urban density as intersection volumes exceed what stop control can safely handle.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="All-Way Stop" classification="intersections" status="situational">
 An intersection where every approach carries a stop sign, with right-of-way determined by arrival order.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="intersections" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" />
 
 Rural and Urban are edge cases. Undeveloped and Core are unlikely pairings.
+
+</div>
 
 ## Design notes
 
@@ -28,7 +31,12 @@ All-Way Stop tapers off past Compact and Urban density, as intersection volumes 
 
 ## Related patterns
 
-[Stop / Yield (Two-Way)](/patterns/intersections/stop-yield/) (INT-SYD-05) (explicitly named on this page as sharing the same density-taper logic, one tier lower), [Neighborhood Traffic Circle / Mini-Roundabout](/patterns/elements/neighborhood-traffic-circle-mini-roundabout/) (ELM-NTC-46) (a control type this pattern sometimes replaces at a Local intersection)
+<div class="cw-links">
+
+- [Stop / Yield (Two-Way)](/patterns/intersections/stop-yield/) <IdPill id="INT-SYD-05" /> (explicitly named on this page as sharing the same density-taper logic, one tier lower)
+- [Neighborhood Traffic Circle / Mini-Roundabout](/patterns/elements/neighborhood-traffic-circle-mini-roundabout/) <IdPill id="ELM-NTC-46" /> (a control type this pattern sometimes replaces at a Local intersection)
+
+</div>
 
 ## References
 

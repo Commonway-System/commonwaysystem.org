@@ -19,6 +19,8 @@ This page sits alongside [How Road Changes Actually Happen](/guide/make-it-happe
 
 Practitioners in this field, most consistently the Street Plans Collaborative<Citation index={1} /> and cities like Burlington, Vermont,<Citation index={2} /> describe a four-stage build spectrum. CS adopts this framing directly, since it's already well-tested in practice and gives a shared vocabulary for talking about how much commitment a given installation represents.<Citation index={3} />
 
+<div class="cw-fields">
+
 **Demonstration.** Hours to about a week. Low-cost, temporary materials: chalk, tape, cones, planters. Often led by residents, a business district, or a nonprofit rather than the public agency itself. The purpose is to show a possibility, not to test performance rigorously.
 
 **Pilot.** Roughly thirty days. Typically led by the public agency, using slightly more durable temporary materials. The purpose shifts from demonstration to genuine testing, gathering real data on how a design performs before committing further.
@@ -26,6 +28,8 @@ Practitioners in this field, most consistently the Street Plans Collaborative<Ci
 **Quick-build.** One to five years. Semi-permanent materials, durable enough to function as real infrastructure while still being reversible if the design doesn't work. This stage is where most of a project's real-world evidence gets generated, since it lasts long enough for genuine before-and-after comparison.<Citation index={4} />
 
 **Permanent.** Full capital construction: concrete, signal equipment, complete reconstruction. The final stage, typically undertaken once a design has been tested and proven, or where the strategy's scale makes anything short of full construction impractical from the outset.<Citation index={5} />
+
+</div>
 
 ## CS's position: test before you pour
 

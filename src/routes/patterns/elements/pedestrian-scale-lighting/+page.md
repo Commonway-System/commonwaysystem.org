@@ -2,17 +2,16 @@
 title: "Pedestrian-scale Lighting"
 description: "A lower-mounted luminaire, typically 10-15 feet in height, providing illumination calibrated to serve pedestrians on a sidewalk, sized and spaced to support the pedestrian visual task rather than the vehicle-oriented task a standard street light serves."
 patternId: ELM-PSL-27
+status: recommended
 date: 2026-08-31
 llms: "A lower-mounted luminaire, typically 10-15 feet in height, providing illumination calibrated to serve pedestrians on a sidewalk, sized and spaced to support the pedestrian visual task rather than the vehicle-oriented task a standard street light serves."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Pedestrian-scale Lighting" classification="element" status="recommended">
 A lower-mounted luminaire, typically 10-15 feet in height, providing illumination calibrated to serve pedestrians on a sidewalk, sized and spaced to support the pedestrian visual task rather than the vehicle-oriented task a standard street light serves.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Standard street lighting is mounted and spaced for vehicle sightlines, which oft
 
 ## Related patterns
 
-[Street Light](/patterns/elements/street-light/) (ELM-STL-26) (the companion vehicle-oriented lighting pattern); relevant Local and Collector Segment patterns where pedestrian activity is expected
+<div class="cw-links">
+
+- [Street Light](/patterns/elements/street-light/) <IdPill id="ELM-STL-26" /> (the companion vehicle-oriented lighting pattern)
+- relevant Local and Collector Segment patterns where pedestrian activity is expected
+
+</div>
 
 ## References
 

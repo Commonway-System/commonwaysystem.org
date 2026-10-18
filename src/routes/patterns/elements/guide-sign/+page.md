@@ -2,17 +2,16 @@
 title: "Guide Sign"
 description: "A sign providing wayfinding or informational content, such as destination names, distances, route numbers, or facility identification, helping travelers navigate rather than regulating or warning them."
 patternId: ELM-GDS-13
+status: recommended
 date: 2026-08-31
 llms: "A sign providing wayfinding or informational content, such as destination names, distances, route numbers, or facility identification, helping travelers navigate rather than regulating or warning them."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Guide Sign" classification="element" status="recommended">
 A sign providing wayfinding or informational content, such as destination names, distances, route numbers, or facility identification, helping travelers navigate rather than regulating or warning them.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,13 @@ Travelers, whether driving, cycling, or walking, need to know where they are and
 
 ## Related patterns
 
-[Regulatory Sign](/patterns/elements/regulatory-sign/) (ELM-RGS-11), [Warning Sign](/patterns/elements/warning-sign/) (ELM-WNS-12) (related sign categories); wayfinding provisions in relevant Guide-level content
+<div class="cw-links">
+
+- [Regulatory Sign](/patterns/elements/regulatory-sign/) <IdPill id="ELM-RGS-11" />
+- [Warning Sign](/patterns/elements/warning-sign/) <IdPill id="ELM-WNS-12" /> (related sign categories)
+- wayfinding provisions in relevant Guide-level content
+
+</div>
 
 ## References
 

@@ -2,18 +2,17 @@
 title: Default (Standard Local Street)
 description: The baseline Local street typology, carrying the base modal hierarchy and 20 mph speed cap with no named override.
 patternId: LOC-DEF-01
+status: recommended
 date: 2026-08-29
 llms: The baseline Local street, applying the base modal hierarchy and 20 mph design speed with no named override.
 ---
 
 <script>
   import viewerData from '$lib/data/street-configs/loc-def-01'
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Default (Standard Local Street)" classification="local" status="recommended">
 The baseline Local street. No special access pattern, event use, or dedicated mode gives it a name of its own, so it carries the base Local modal hierarchy and speed rule unmodified. Every other Local Typology is defined as a departure from this one: a Typology earns its own name only when its entire reason for existing is a specific access pattern, a specific event use, or a specific mode.
-</PatternCard>
 
 <PatternViewer data={viewerData} image={fm.image} title={fm.title} classification="local" />
 
@@ -21,9 +20,13 @@ The baseline Local street. No special access pattern, event use, or dedicated mo
 
 ## Where this pattern applies
 
-Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Rural is an edge case, not the norm. Farm and rural-residential contexts more often produce a [Rural Collector / Farm-to-Market Road](/patterns/collectors/rural-collector/) pattern instead, since a genuinely Local-scale street needs enough nearby development to serve. Undeveloped contexts are unlikely to carry a Local street at all, for the same reason.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -43,11 +46,15 @@ Modal hierarchy follows the Local base order without an override. This order fol
 
 This entry is the reference point, not one option among equals. Reading the other eleven Local Typologies as departures from this baseline makes the whole set easier to hold in mind:
 
+<div class="cw-tiles">
+
 - **Access-pattern departures:** [Alley](/patterns/local-streets/alley/), [Cul-de-sac](/patterns/local-streets/cul-de-sac/), [Frontage / Service Road](/patterns/local-streets/frontage-service-road/)
 - **Land-use departures:** [Main Street](/patterns/local-streets/main-street/)
 - **Traffic-model departures:** [Living Street / Woonerf](/patterns/local-streets/living-street-woonerf/), [Yield Street](/patterns/local-streets/yield-street/)
 - **Temporary or event-based departures:** [Festival Street](/patterns/local-streets/festival-street/), [School Street](/patterns/local-streets/school-street/)
 - **Full-time single-mode departures:** [Pedestrian-only Street / Plaza](/patterns/local-streets/pedestrian-plaza/), [Local Transit](/patterns/local-streets/local-transit/), [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/)
+
+</div>
 
 ## Where a Local street meets a bigger street
 
@@ -59,7 +66,12 @@ This entry is the standard against which every other Local Typology is defined a
 
 ## Related patterns
 
-[Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/) (INT-CSJ-06) (this pattern's own default intersection treatment where it meets a Collector), [Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) (the equivalent baseline one Functional Classification up)
+<div class="cw-links">
+
+- [Continuous Sidewalk / Raised Junction](/patterns/intersections/continuous-sidewalk/) <IdPill id="INT-CSJ-06" /> (this pattern's own default intersection treatment where it meets a Collector)
+- [Default (Standard Collector)](/patterns/collectors/default/) <IdPill id="COL-DEF-01" /> (the equivalent baseline one Functional Classification up)
+
+</div>
 
 ## References
 

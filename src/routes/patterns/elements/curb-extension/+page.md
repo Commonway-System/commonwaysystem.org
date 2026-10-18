@@ -2,17 +2,16 @@
 title: "Curb Extension"
 description: "A widened curb that narrows the roadway at a crossing or parking zone, taking gateway, pinchpoint, chicane, bus bulb, or conventional form depending on its purpose and location."
 patternId: ELM-CBE-02
+status: recommended
 date: 2026-08-31
 llms: "A widened curb that narrows the roadway at a crossing or parking zone, taking gateway, pinchpoint, chicane, bus bulb, or conventional form depending on its purpose and location."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Curb Extension" classification="element" status="recommended">
 A widened curb that narrows the roadway at a crossing or parking zone, taking gateway, pinchpoint, chicane, bus bulb, or conventional form depending on its purpose and location.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,16 @@ Narrowing the effective roadway width at a specific point shortens pedestrian cr
 
 ## Related patterns
 
-[Curb](/patterns/elements/curb/) (ELM-CRB-01), [Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (typical pairing at a crossing); [Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07) (Facility pattern this often anchors); [Transit Boarding Island](/patterns/elements/transit-boarding-island/) (ELM-TBI-41) (a related but distinct treatment for transit stops); [Modal Filter / Point Closure](/patterns/elements/modal-filter-point-closure/) (ELM-MFP-44) (an alternative geometry for narrowing or partially closing a street), [Median Island](/patterns/elements/median-island/) (ELM-MDI-45) (a center-of-roadway rather than lateral narrowing approach)
+<div class="cw-links">
+
+- [Curb](/patterns/elements/curb/) <IdPill id="ELM-CRB-01" />
+- [Crosswalk](/patterns/elements/crosswalk/) <IdPill id="ELM-CRW-08" /> (typical pairing at a crossing)
+- [Plaza/Parklet](/patterns/facilities/plaza-parklet/) <IdPill id="FAC-PLZ-07" /> (Facility pattern this often anchors)
+- [Transit Boarding Island](/patterns/elements/transit-boarding-island/) <IdPill id="ELM-TBI-41" /> (a related but distinct treatment for transit stops)
+- [Modal Filter / Point Closure](/patterns/elements/modal-filter-point-closure/) <IdPill id="ELM-MFP-44" /> (an alternative geometry for narrowing or partially closing a street)
+- [Median Island](/patterns/elements/median-island/) <IdPill id="ELM-MDI-45" /> (a center-of-roadway rather than lateral narrowing approach)
+
+</div>
 
 ## References
 

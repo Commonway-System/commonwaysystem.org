@@ -2,17 +2,16 @@
 title: "Wheel Stop"
 description: "A small barrier, typically a short raised block or bumper, placed at the end of a parking space to prevent a parked vehicle from overrunning a curb, sidewalk, or space limit."
 patternId: ELM-WHS-05
+status: situational
 date: 2026-08-31
 llms: "A small barrier, typically a short raised block or bumper, placed at the end of a parking space to prevent a parked vehicle from overrunning a curb, sidewalk, or space limit."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Wheel Stop" classification="element" status="situational">
 A small barrier, typically a short raised block or bumper, placed at the end of a parking space to prevent a parked vehicle from overrunning a curb, sidewalk, or space limit.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Vehicles routinely pull farther into a parking space than intended, and without 
 
 ## Related patterns
 
-[Curb](/patterns/elements/curb/) (ELM-CRB-01) (the element this pattern protects); [Surface Parking Lot](/patterns/facilities/surface-parking-lot/) (FAC-SPL-04) (Facility pattern where this most commonly applies)
+<div class="cw-links">
+
+- [Curb](/patterns/elements/curb/) <IdPill id="ELM-CRB-01" /> (the element this pattern protects)
+- [Surface Parking Lot](/patterns/facilities/surface-parking-lot/) <IdPill id="FAC-SPL-04" /> (Facility pattern where this most commonly applies)
+
+</div>
 
 ## References
 

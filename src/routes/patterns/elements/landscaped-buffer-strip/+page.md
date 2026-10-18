@@ -2,17 +2,16 @@
 title: "Landscaped Buffer Strip"
 description: "A planted zone running between the roadway and the sidewalk, providing separation, stormwater treatment opportunity, and space for street trees and other plantings, distinct from a hardscaped or paved separation."
 patternId: ELM-LBS-30
+status: recommended
 date: 2026-08-31
 llms: "A planted zone running between the roadway and the sidewalk, providing separation, stormwater treatment opportunity, and space for street trees and other plantings, distinct from a hardscaped or paved separation."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Landscaped Buffer Strip" classification="element" status="recommended">
 A planted zone running between the roadway and the sidewalk, providing separation, stormwater treatment opportunity, and space for street trees and other plantings, distinct from a hardscaped or paved separation.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,14 @@ A planted buffer between moving traffic and pedestrians provides psychological a
 
 ## Related patterns
 
-[Street Tree](/patterns/elements/street-tree/) (ELM-STT-28), [Tree Pit/Tree Trench](/patterns/elements/tree-pit-tree-trench/) (ELM-TPT-29) (elements typically located within this zone); [Bioswale](/patterns/elements/bioswale/) (ELM-BIO-19), [Pervious Strip](/patterns/elements/pervious-strip/) (ELM-PVS-21) (stormwater treatments that may occupy this zone instead)
+<div class="cw-links">
+
+- [Street Tree](/patterns/elements/street-tree/) <IdPill id="ELM-STT-28" />
+- [Tree Pit/Tree Trench](/patterns/elements/tree-pit-tree-trench/) <IdPill id="ELM-TPT-29" /> (elements typically located within this zone)
+- [Bioswale](/patterns/elements/bioswale/) <IdPill id="ELM-BIO-19" />
+- [Pervious Strip](/patterns/elements/pervious-strip/) <IdPill id="ELM-PVS-21" /> (stormwater treatments that may occupy this zone instead)
+
+</div>
 
 ## References
 

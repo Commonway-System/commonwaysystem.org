@@ -2,17 +2,16 @@
 title: "Pedestrian Hybrid Beacon"
 description: "A pedestrian-activated signal, sometimes called a HAWK beacon, that remains dark until activated, then displays a sequence progressing through flashing and solid indications to stop traffic and allow a pedestrian to cross, before returning to dark."
 patternId: ELM-PHB-18
+status: situational
 date: 2026-08-31
 llms: "A pedestrian-activated signal, sometimes called a HAWK beacon, that remains dark until activated, then displays a sequence progressing through flashing and solid indications to stop traffic and allow a pedestrian to cross, before returning to dark."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Pedestrian Hybrid Beacon" classification="element" status="situational">
 A pedestrian-activated signal, sometimes called a HAWK beacon, that remains dark until activated, then displays a sequence progressing through flashing and solid indications to stop traffic and allow a pedestrian to cross, before returning to dark.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,14 @@ A pedestrian hybrid beacon provides stronger, legally binding stop control than 
 
 ## Related patterns
 
-[RRFB](/patterns/elements/rrfb/) (ELM-RRF-17) (the lighter-control alternative this pattern exceeds); [Traffic Signal](/patterns/elements/traffic-signal/) (ELM-TFS-14) (the heavier-control alternative this pattern avoids); [Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08), [Pedestrian Safety Island/Refuge](/patterns/elements/pedestrian-safety-island-refuge/) (ELM-PSI-09) (companion crossing elements)
+<div class="cw-links">
+
+- [RRFB](/patterns/elements/rrfb/) <IdPill id="ELM-RRF-17" /> (the lighter-control alternative this pattern exceeds)
+- [Traffic Signal](/patterns/elements/traffic-signal/) <IdPill id="ELM-TFS-14" /> (the heavier-control alternative this pattern avoids)
+- [Crosswalk](/patterns/elements/crosswalk/) <IdPill id="ELM-CRW-08" />
+- [Pedestrian Safety Island/Refuge](/patterns/elements/pedestrian-safety-island-refuge/) <IdPill id="ELM-PSI-09" /> (companion crossing elements)
+
+</div>
 
 ## References
 

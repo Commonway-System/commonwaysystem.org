@@ -2,17 +2,16 @@
 title: "Bicycle Signal"
 description: "A signal indication, typically a bicycle-shaped symbol in red, yellow, and green, giving cyclists their own dedicated phase or right-of-way instruction distinct from vehicle and pedestrian signals."
 patternId: ELM-BCS-16
+status: situational
 date: 2026-08-31
 llms: "A signal indication, typically a bicycle-shaped symbol in red, yellow, and green, giving cyclists their own dedicated phase or right-of-way instruction distinct from vehicle and pedestrian signals."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Bicycle Signal" classification="element" status="situational">
 A signal indication, typically a bicycle-shaped symbol in red, yellow, and green, giving cyclists their own dedicated phase or right-of-way instruction distinct from vehicle and pedestrian signals.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Where a bicycle facility crosses or interacts with an intersection in a way that
 
 ## Related patterns
 
-[Traffic Signal](/patterns/elements/traffic-signal/) (ELM-TFS-14) (the vehicle control this pattern separates from); [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) (ELM-PBL-37) (the facility type most commonly paired with this treatment)
+<div class="cw-links">
+
+- [Traffic Signal](/patterns/elements/traffic-signal/) <IdPill id="ELM-TFS-14" /> (the vehicle control this pattern separates from)
+- [Protected Bike Lane/Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) <IdPill id="ELM-PBL-37" /> (the facility type most commonly paired with this treatment)
+
+</div>
 
 ## References
 

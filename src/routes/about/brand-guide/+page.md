@@ -7,7 +7,7 @@ llms: The Commonway System's full visual and editorial system, colors, typograph
 
 <script>
   import sampleViewer from '$lib/data/street-configs/_demo'
-  import { Button, Citation, ColorSwatch, ColorSymbolKey, DensityChip, EvidenceChip, ExampleCard, FormControlsPreview, GuideDiagram, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PatternCard, PatternIndexCard, PatternViewer, RetrofitCard, RetrofitIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
+  import { Button, Citation, ColorSwatch, ColorSymbolKey, DensityChip, EvidenceChip, ExampleCard, FormControlsPreview, GuideDiagram, IdPill, LogoPreview, ModalHierarchyRow, ModalHierarchySection, PageHeader, PatternIndexCard, PatternViewer, RetrofitIndexCard, SpeedLimitSection, SpeedModalHierarchyCard, TypeSample } from '$lib/theme/components'
 </script>
 
 The visual and editorial system behind the Commonway System (CS): how it looks, how it's written, and how its evidence is presented. This page transcribes the working brand reference; treat the color values and rules below as the source of truth over anything in the publication's theme.
@@ -216,7 +216,7 @@ Every Scale prefix in the Pattern ID scheme gets its own 6-step tint/shade ramp 
 
 ### Color symbols
 
-An optional reading aid, switched on from the Display settings panel (Color symbols). A small cream tab with near-black symbols appears in the bottom-left corner of the colored image area on Pattern and Retrofit index cards, and on the bottom-left of the Pattern ID and Retrofit ID cards, so a reader who cannot tell two hues apart can still tell them apart. The symbols come from [ColorSym](https://colorsym.com), a free color-identification system by Chris Eastridge and Luis Francisco (symbols under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), used here unmodified). ColorSym has three primary symbols (red is a dot, yellow is a line, blue is a chevron), and its combined colors join their parents.
+An optional reading aid, switched on from the Display settings panel (Color symbols). A small cream tab with near-black symbols appears in the bottom-left corner of the colored image area on Pattern and Retrofit index cards, and beside the ID in the header of each Pattern and Retrofit Strategy page, so a reader who cannot tell two hues apart can still tell them apart. The symbols come from [ColorSym](https://colorsym.com), a free color-identification system by Chris Eastridge and Luis Francisco (symbols under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), used here unmodified). ColorSym has three primary symbols (red is a dot, yellow is a line, blue is a chevron), and its combined colors join their parents.
 
 ColorSym has no symbol for yellow-green, teal, or magenta, and four of this publication's hues fall between its colors. Those are drawn as two symbols joined by a slash, dominant hue first. This is an extra affordance for people who can use it, not the way classification is communicated: every colored element already carries a text label. The tab is decorative (hidden from screen readers), fixed cream and near-black in both themes so it clears contrast over any card color, and scales with text size.
 
@@ -261,12 +261,10 @@ Clean flat vector illustration, NACTO-inspired, warmed by human figures at true 
 ### Pattern ID card
 
 <ExampleCard>
-  <PatternCard id="ART-UMS-09" title="Urban main street" classification="arterial">
-    An Urban main street is an Arterial typology combining retail frontage access with continuous pedestrian priority along both edges.
-  </PatternCard>
+  <PageHeader demo eyebrow="Patterns · Arterials" title="Urban main street" patternId="ART-UMS-09" status="recommended" accent="arterial" summary="An Urban main street is an Arterial typology combining retail frontage access with continuous pedestrian priority along both edges." />
 </ExampleCard>
 
-The colored left edge always matches the pattern's Scale/classification, using that ramp's own representative color from `tokens.css`: whichever tier is lightest while still clearing (or getting closest to) the 3:1 UI-component contrast minimum, which differs by hue (Core for Corridor, Local, Collector, Arterial, and Freeway; Compact for Intersections & Crossings and Facility; Urban for Network and Element). The ID text itself is always ink, per the guide: "a constant identity mark distinct from classification color."
+Since 2026.10.18 the ID card is the page header itself (`PageHeader.svelte`): a band tinted in the pattern's Scale/classification ramp, with the section and classification label, the ID and the status on the first line, then the title, then the page's one-sentence summary. The tint is the ramp's Undeveloped tier in light mode (a hand-picked dark tint in dark mode) and the top rule its Suburban tier (Compact in dark mode); the label text is a darkened Core tier in light mode and the Rural tier in dark mode, 6:1 or better on the tint in both. The ID itself always sits on a plain tag in ink, per the guide: "a constant identity mark distinct from classification color." Guide, About and other pages get the same band with just the label and title, in teal (indigo on About pages).
 
 ### Pattern Index card
 
@@ -284,18 +282,34 @@ Used on the Pattern Index (`/patterns/`) in place of a plain bulleted list, one 
 ### Retrofit Strategy card
 
 <ExampleCard>
-  <RetrofitCard id="RFT-CDR-01" title="Four-to-three lane road diet" scale="corridor">
-    Converts an existing four-lane undivided roadway into three lanes: one through lane each direction plus a center two-way left-turn lane, reclaiming the freed width for other uses.
-  </RetrofitCard>
+  <PageHeader demo eyebrow="Retrofits · Corridor" title="Four-to-three lane road diet" patternId="RFT-CDR-01" accent="corridor" summary="Converts an existing four-lane undivided roadway into three lanes: one through lane each direction plus a center two-way left-turn lane, reclaiming the freed width for other uses." />
 </ExampleCard>
 
 <ExampleCard>
-  <RetrofitCard id="RFT-INT-02" title="Median U-Turn (MUT) retrofit" scale="intersection">
-    Reroutes left-turn and through movements from a minor approach away from the main intersection, requiring drivers to turn right first, then complete a U-turn at a median opening downstream.
-  </RetrofitCard>
+  <PageHeader demo eyebrow="Retrofits · Intersection" title="Median U-Turn (MUT) retrofit" patternId="RFT-INT-02" accent="intersections" summary="Reroutes left-turn and through movements from a minor approach away from the main intersection, requiring drivers to turn right first, then complete a U-turn at a median opening downstream." />
 </ExampleCard>
 
-Same visual language as the Pattern ID card above, minus the status badge: a Retrofit Strategy is never Recommended, Situational, or Avoid, it's either applicable to a given street or it isn't, and that judgment lives in each entry's own Applicability and thresholds section rather than a badge. In place of a Functional Classification, the right-aligned label shows the strategy's Scale (Corridor, Intersection, or Network, matching the `RFT-SCALE-##` ID's own middle segment), and the left edge color follows whichever Pattern classification is that scale's functional peer rather than an invented Retrofit-only palette: Intersection strategies use the real Intersections & Crossings ramp, Corridor and Network strategies use Patterns' own real corridor/network ramps, now that all nine Scale prefixes have one (see the Scale ramps above). The ID text is always ink, same "constant identity mark" reasoning as the Pattern ID card.
+Same header as the pattern one above, minus the status badge: a Retrofit Strategy is never Recommended, Situational, or Avoid, it's either applicable to a given street or it isn't, and that judgment lives in each entry's own Applicability and thresholds section rather than a badge. In place of a Functional Classification, the label shows the strategy's Scale (Corridor, Intersection, or Network, matching the `RFT-SCALE-##` ID's own middle segment), and the band's color follows whichever Pattern classification is that scale's functional peer rather than an invented Retrofit-only palette: Intersection strategies use the real Intersections & Crossings ramp, Corridor and Network strategies use Patterns' own real corridor/network ramps, now that all nine Scale prefixes have one (see the Scale ramps above). The ID text is always ink, same "constant identity mark" reasoning as the Pattern ID card.
+
+### Content page structure
+
+Added 2026.10.18 to make long pages easier to scan without changing their words. Each page takes an accent color from what it is (teal for the Guide and most pages, indigo for About, the classification or Scale ramp on Pattern and Retrofit Strategy pages), and a few recurring shapes are drawn in it:
+
+- **Page header**: the tinted band with a section label above the title (see the ID card above). An opening line set entirely in italics joins it as a subtitle, and the first paragraph is set a little larger.
+- **Section headings**: a short accent bar instead of a full-width rule.
+- **Tables**: a rounded frame and a tinted header row.
+- **Callouts**: an icon before the label and a stronger left edge.
+- **Tiles**: a short list whose every item starts in bold.
+- **Side-ruled paragraphs**: a run of paragraphs that each start in bold, such as options or answers to common questions; two of them sit side by side.
+- **Field panels**: catalog fields like "What it is." and "Who controls it.", in one quiet panel with the labels in the accent color.
+- **Ranked lists**: steps or a ranking, with large numerals.
+- **Link cards**: Related patterns, Target patterns, Related retrofit strategies and Retrofit path options, one card per entry.
+- **ID pills**: a Pattern or Retrofit Strategy ID written in prose, like <IdPill id="LOC-ALY-02" />, with a dot in its classification's color. The dot is decoration; the ID's prefix already names the classification.
+- **Fact grid**: on Retrofit Strategy pages, Applicability and thresholds, Evidence and effectiveness, Getting it built, and Who can move this, as four cards with icons.
+- **Context strip**: the "Typical at" density chips on a pattern page, with their note.
+- **References**: a quiet tinted panel.
+
+The accent's text color clears 6:1 on its tint in both themes, and colored bars and dots are decoration only. Simplified view turns these shapes back into plain headings, paragraphs and lists. The markup behind them is described in `CLAUDE.md`.
 
 ### Retrofit Strategy Index card
 
@@ -364,7 +378,7 @@ Five named layout variations:
 
 A reusable component in its own right, not just a piece of the card above. Each pill pairs a small icon with the mode's name, one pill per mode across five modes: Pedestrian, Bicycle, Transit, Vehicle, and Freight.
 
-Background color is the pattern's own Functional Classification color, the same token the Pattern ID card's left edge uses above, not a fixed "Core tier" value: it's whichever tier of that classification's ramp the publication's `--cw-local`/`--cw-collector`/`--cw-arterial` tokens already point to (see the Pattern ID card entry above and `tokens.css`'s own comments), which differs by classification and shifts again between light and dark mode. Text and icon color is whichever of `#FFFFFF` or `#000000` clears contrast against that background by the larger margin, computed per classification and per theme rather than fixed to one value across all three, with one documented exception for Arterial; see Accessibility notes below.
+Background color is the pattern's own Functional Classification color, the same representative token the classification dot on an ID pill uses (see Content page structure below), not a fixed "Core tier" value: it's whichever tier of that classification's ramp the publication's `--cw-local`/`--cw-collector`/`--cw-arterial` tokens already point to (see the Pattern ID card entry above and `tokens.css`'s own comments), which differs by classification and shifts again between light and dark mode. Text and icon color is whichever of `#FFFFFF` or `#000000` clears contrast against that background by the larger margin, computed per classification and per theme rather than fixed to one value across all three, with one documented exception for Arterial; see Accessibility notes below.
 
 Two pills separated by a ">" means the left one strictly outranks the right, the first example row above. Two pills separated by an "=" means they're explicitly tied at the same rank, the second example row above, a real case on [Shared-Use Path](/patterns/local-streets/shared-use-path/) and [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/), where Pedestrian and Bicycle share top priority with no ranking between them.
 
@@ -384,7 +398,7 @@ Five props beyond the required `src`/`alt`, all optional and independent of each
 <PatternViewer data={sampleViewer} title="Sample street" classification="local" demo />
 </ExampleCard>
 
-Sits right after the Pattern ID card on every pattern page (and after the Retrofit Strategy card, as "Before and after"), in the same rounded, hairline-bordered card shell as the components above. The example is a made-up sample street. A control row holds one tab per view and an Expand button that opens a full-screen view; with a single view, a plain label replaces the tabs. The cross-section takes its own height from its width (the sky and objects at the street's true scale, then the dimension rows, the band and the top-down slice), using container query units so the page reserves the right space before the drawing lays itself out; other views are 16:9 once the card is wider than 560px and square below that. Both are measured on the card itself rather than the screen, since the content column is narrower than the screen and the reader's Text size setting doesn't move screen breakpoints. Full view fits the drawing to the screen.
+Sits right after the page header and its summary on every pattern page (and on Retrofit Strategy pages, as "Before and after"), in the same rounded, hairline-bordered card shell as the components above. The example is a made-up sample street. A control row holds one tab per view and an Expand button that opens a full-screen view; with a single view, a plain label replaces the tabs. The cross-section takes its own height from its width (the sky and objects at the street's true scale, then the dimension rows, the band and the top-down slice), using container query units so the page reserves the right space before the drawing lays itself out; other views are 16:9 once the card is wider than 560px and square below that. Both are measured on the card itself rather than the screen, since the content column is narrower than the screen and the reader's Text size setting doesn't move screen breakpoints. Full view fits the drawing to the screen.
 
 Configurations are a ladder of pill-shaped radio buttons in a fixed order (Federal / State minimum, NACTO, Complete Streets, Commonway System), the chosen one filled in `--cw-primary`, the Commonway rung in semibold. Dutch practice sits apart on a dashed rule under "For comparison", with a dashed pill, because it's a different system rather than a further step. How readers use the layers is explained on [How to Read a Pattern](/guide/how-to-read-a-pattern/#the-pattern-viewer).
 

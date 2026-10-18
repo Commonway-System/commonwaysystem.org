@@ -7,12 +7,10 @@ llms: "Installs a physically separated bike lane by removing or reconfiguring on
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="Protected bike lane retrofit via parking reduction" scale="corridor">
 Installs a physically separated bike lane by removing or reconfiguring on-street parking, often placing the bike lane where parking used to be and shifting parking, if retained, to the outside of a physical buffer.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
@@ -24,27 +22,53 @@ This is the parking-specific case of Parking-Lane Reallocation, applied to bike 
 
 ## Where this leads: Target patterns
 
-[Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) (COL-BHG-04), [Default (Standard Collector)](/patterns/collectors/default/) (COL-DEF-01) with [Protected Bike Lane / Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) (ELM-PBL-37)
+<div class="cw-links">
+
+- [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) <IdPill id="COL-BHG-04" />
+- [Default (Standard Collector)](/patterns/collectors/default/) <IdPill id="COL-DEF-01" /> with [Protected Bike Lane / Cycle Track](/patterns/elements/protected-bike-lane-cycle-track/) <IdPill id="ELM-PBL-37" />
+
+</div>
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Most applicable where on-street parking demand analysis shows capacity to reduce or relocate parking without materially harming adjacent businesses or residents, and where lane width or count changes alone don't recover sufficient space.
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 AASHTO identifies reconfiguring or reducing on-street parking as one of three established retrofit approaches for adding bike facilities without widening the road.<Citation index={1} /> Removing parking near intersections specifically has documented safety benefits beyond the bike facility itself, improving sightlines between drivers and other road users.<Citation index={2} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
 Can move through the construction spectrum starting with temporary channelizers and paint at the pilot stage, since testing community and business response to the parking change before committing to permanent curb reconstruction is common and often politically necessary. See [Construction Methodology & The Build Spectrum](/guide/construction-methodology-spectrum/).
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 Usually a city public works or planning department decision, though parking removal frequently requires more direct business and resident engagement than lane-width or lane-count retrofits, and may need city council involvement where removal is contested. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/).
 
+</div>
+</div>
+
 ## Related retrofit strategies
 
-[Protected bike lane retrofit via lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) (RFT-CDR-07), [Protected bike lane retrofit via lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) (RFT-CDR-08) (the other two approaches to the same underlying goal, distinguished by where the recovered width comes from); [Parking-lane reallocation](/retrofits/corridor/parking-lane-reallocation/) (RFT-CDR-05) (the general-purpose version of this same mechanism)
+<div class="cw-links">
+
+- [Protected bike lane retrofit via lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) <IdPill id="RFT-CDR-07" />
+- [Protected bike lane retrofit via lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) <IdPill id="RFT-CDR-08" /> (the other two approaches to the same underlying goal, distinguished by where the recovered width comes from)
+- [Parking-lane reallocation](/retrofits/corridor/parking-lane-reallocation/) <IdPill id="RFT-CDR-05" /> (the general-purpose version of this same mechanism)
+
+</div>
 
 ## References
 

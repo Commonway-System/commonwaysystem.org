@@ -2,17 +2,16 @@
 title: "Bollard"
 description: "A short, sturdy vertical post installed to block or control vehicle access to a specific area, protect pedestrians or infrastructure from vehicle intrusion, or delineate a boundary, ranging from fixed to removable or retractable designs."
 patternId: ELM-BOL-25
+status: recommended
 date: 2026-08-31
 llms: "A short, sturdy vertical post installed to block or control vehicle access to a specific area, protect pedestrians or infrastructure from vehicle intrusion, or delineate a boundary, ranging from fixed to removable or retractable designs."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Bollard" classification="element" status="recommended">
 A short, sturdy vertical post installed to block or control vehicle access to a specific area, protect pedestrians or infrastructure from vehicle intrusion, or delineate a boundary, ranging from fixed to removable or retractable designs.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,15 @@ Where a full barrier or curb is not warranted but vehicle access still needs to 
 
 ## Related patterns
 
-[Traffic Barrier](/patterns/elements/traffic-barrier/) (ELM-TRB-23), [Crash Cushion/End Terminal](/patterns/elements/crash-cushion-end-terminal/) (ELM-CCT-24) (related but functionally distinct safety hardware); [Plaza/Parklet](/patterns/facilities/plaza-parklet/) (FAC-PLZ-07), [Bike Parking Corral](/patterns/facilities/bike-parking-corral/) (FAC-BPC-08) (Facility patterns commonly protected by bollards); [Modal Filter / Point Closure](/patterns/elements/modal-filter-point-closure/) (ELM-MFP-44) (the pattern this hardware is most commonly used to build)
+<div class="cw-links">
+
+- [Traffic Barrier](/patterns/elements/traffic-barrier/) <IdPill id="ELM-TRB-23" />
+- [Crash Cushion/End Terminal](/patterns/elements/crash-cushion-end-terminal/) <IdPill id="ELM-CCT-24" /> (related but functionally distinct safety hardware)
+- [Plaza/Parklet](/patterns/facilities/plaza-parklet/) <IdPill id="FAC-PLZ-07" />
+- [Bike Parking Corral](/patterns/facilities/bike-parking-corral/) <IdPill id="FAC-BPC-08" /> (Facility patterns commonly protected by bollards)
+- [Modal Filter / Point Closure](/patterns/elements/modal-filter-point-closure/) <IdPill id="ELM-MFP-44" /> (the pattern this hardware is most commonly used to build)
+
+</div>
 
 ## References
 

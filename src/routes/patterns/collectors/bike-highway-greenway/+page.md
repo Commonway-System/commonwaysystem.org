@@ -2,26 +2,29 @@
 title: Bike Highway / Greenway
 description: A Collector-scale Typology providing a dedicated, physically separated bicycle path, distinct from Local's shared-roadway Bicycle Boulevard.
 patternId: COL-BHG-04
+status: recommended
 date: 2026-08-29
 image: /patterns/col-bhg-04-bike-highway-greenway.png
 llms: A Collector-scale street typology providing a dedicated, physically separated bicycle path, distinct from Local's shared-roadway Bicycle Boulevard.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Bike Highway / Greenway" classification="collector" status="recommended">
 A dedicated, physically separated bicycle path operating at Collector scale, prioritizing continuous, higher-speed bicycle through-movement over other modes.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Undeveloped" /> <DensityChip tier="Rural" /> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" />
 
 Core is an edge case, since a dedicated separated path competes for limited right-of-way with other demands at the highest density tier.
+
+</div>
 
 ## Modal hierarchy
 
@@ -37,11 +40,17 @@ Distinct from Local's Bicycle Boulevard, which shares the roadway with calmed ve
 
 ## Related patterns
 
-[Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12) (explicitly distinguished on this page: shared calmed roadway vs. this pattern's physical separation), [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) (COL-MUT-06) (a similarly-named Collector-scale pattern this one is specifically distinct from)
+[Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) <IdPill id="LOC-BBG-12" /> (explicitly distinguished on this page: shared calmed roadway vs. this pattern's physical separation), [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) <IdPill id="COL-MUT-06" /> (a similarly-named Collector-scale pattern this one is specifically distinct from)
 
 ## Getting there: Retrofit path options
 
-[Protected bike lane retrofit via lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) (RFT-CDR-07), via [lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) (RFT-CDR-08), via [parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) (RFT-CDR-09)
+<div class="cw-links">
+
+- [Protected bike lane retrofit via lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) <IdPill id="RFT-CDR-07" />
+- [Protected bike lane retrofit via lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) <IdPill id="RFT-CDR-08" />
+- [Protected bike lane retrofit via parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) <IdPill id="RFT-CDR-09" />
+
+</div>
 
 ## References
 

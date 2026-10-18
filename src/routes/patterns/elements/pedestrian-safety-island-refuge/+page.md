@@ -2,17 +2,16 @@
 title: "Pedestrian Safety Island / Refuge"
 description: "A protected median space within a roadway allowing a pedestrian to cross in two stages, stopping partway across to wait for a gap in the second direction of traffic rather than crossing the full width in one movement."
 patternId: ELM-PSI-09
+status: recommended
 date: 2026-08-31
 llms: "A protected median space within a roadway allowing a pedestrian to cross in two stages, stopping partway across to wait for a gap in the second direction of traffic rather than crossing the full width in one movement."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Pedestrian Safety Island / Refuge" classification="element" status="recommended">
 A protected median space within a roadway allowing a pedestrian to cross in two stages, stopping partway across to wait for a gap in the second direction of traffic rather than crossing the full width in one movement.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,14 @@ Wide or multi-lane crossings ask a pedestrian to judge gaps in traffic across th
 
 ## Related patterns
 
-[Crosswalk](/patterns/elements/crosswalk/) (ELM-CRW-08) (the crossing this pattern supports); [Curb Ramp](/patterns/elements/curb-ramp/) (ELM-CRP-03), [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) (ELM-DWS-10) (companion accessibility elements at the island itself); [Median Island](/patterns/elements/median-island/) (ELM-MDI-45) (a related but distinct treatment built for calming and access management rather than crossing assistance)
+<div class="cw-links">
+
+- [Crosswalk](/patterns/elements/crosswalk/) <IdPill id="ELM-CRW-08" /> (the crossing this pattern supports)
+- [Curb Ramp](/patterns/elements/curb-ramp/) <IdPill id="ELM-CRP-03" />
+- [Detectable Warning Surface](/patterns/elements/detectable-warning-surface/) <IdPill id="ELM-DWS-10" /> (companion accessibility elements at the island itself)
+- [Median Island](/patterns/elements/median-island/) <IdPill id="ELM-MDI-45" /> (a related but distinct treatment built for calming and access management rather than crossing assistance)
+
+</div>
 
 ## References
 

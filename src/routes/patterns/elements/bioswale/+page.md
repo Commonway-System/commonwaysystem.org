@@ -2,17 +2,16 @@
 title: "Bioswale"
 description: "A vegetated, shallow channel designed to collect, convey, and filter stormwater runoff from an adjacent roadway or hard surface, using soil and plant material to slow flow and remove pollutants before water reaches a storm drain or waterway."
 patternId: ELM-BIO-19
+status: recommended
 date: 2026-08-31
 llms: "A vegetated, shallow channel designed to collect, convey, and filter stormwater runoff from an adjacent roadway or hard surface, using soil and plant material to slow flow and remove pollutants before water reaches a storm drain or waterway."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Bioswale" classification="element" status="recommended">
 A vegetated, shallow channel designed to collect, convey, and filter stormwater runoff from an adjacent roadway or hard surface, using soil and plant material to slow flow and remove pollutants before water reaches a storm drain or waterway.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,14 @@ Conventional curb-and-gutter drainage moves runoff, and whatever pollutants it c
 
 ## Related patterns
 
-[Flow-Through Planter](/patterns/elements/flow-through-planter/) (ELM-FTP-20), [Pervious Strip](/patterns/elements/pervious-strip/) (ELM-PVS-21), [Pervious Pavement](/patterns/elements/pervious-pavement/) (ELM-PVP-22) (related green stormwater treatments); [Curb Cut/Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) (ELM-CCA-04) (relevant where a curb cut serves as the swale’s inlet)
+<div class="cw-links">
+
+- [Flow-Through Planter](/patterns/elements/flow-through-planter/) <IdPill id="ELM-FTP-20" />
+- [Pervious Strip](/patterns/elements/pervious-strip/) <IdPill id="ELM-PVS-21" />
+- [Pervious Pavement](/patterns/elements/pervious-pavement/) <IdPill id="ELM-PVP-22" /> (related green stormwater treatments)
+- [Curb Cut/Driveway Apron](/patterns/elements/curb-cut-driveway-apron/) <IdPill id="ELM-CCA-04" /> (relevant where a curb cut serves as the swale’s inlet)
+
+</div>
 
 ## References
 

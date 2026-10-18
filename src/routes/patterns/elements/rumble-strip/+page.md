@@ -2,17 +2,16 @@
 title: "Rumble Strip"
 description: "A textured roadway surface, typically a series of shallow grooves or raised bars, that alerts drivers through vibration and sound when a vehicle crosses it."
 patternId: ELM-RMS-07
+status: situational
 date: 2026-08-31
 llms: "A textured roadway surface, typically a series of shallow grooves or raised bars, that alerts drivers through vibration and sound when a vehicle crosses it."
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternCard, PatternViewer, RelatedMedia } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Rumble Strip" classification="element" status="situational">
 A textured roadway surface, typically a series of shallow grooves or raised bars, that alerts drivers through vibration and sound when a vehicle crosses it.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="element" />
 
@@ -30,7 +29,12 @@ Rumble strips address inattention and lane departure rather than speed directly,
 
 ## Related patterns
 
-[Vertical Speed Control](/patterns/elements/vertical-speed-control/) (ELM-VSC-06) (related but functionally distinct calming treatment); [Warning Sign](/patterns/elements/warning-sign/) (ELM-WNS-12) (often paired to alert of an upcoming condition)
+<div class="cw-links">
+
+- [Vertical Speed Control](/patterns/elements/vertical-speed-control/) <IdPill id="ELM-VSC-06" /> (related but functionally distinct calming treatment)
+- [Warning Sign](/patterns/elements/warning-sign/) <IdPill id="ELM-WNS-12" /> (often paired to alert of an upcoming condition)
+
+</div>
 
 ## References
 

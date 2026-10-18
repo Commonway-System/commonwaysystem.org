@@ -2,25 +2,28 @@
 title: Collector Transit
 description: A Collector Typology with a dedicated transit route, where transit is elevated above the rest of the Collector base order.
 patternId: COL-CTR-05
+status: recommended
 date: 2026-08-29
 llms: A Collector street typology carrying a dedicated transit route, with transit elevated above the rest of the Collector base modal hierarchy.
 ---
 
 <script>
-  import { Citation, DensityChip, EvidenceChip, ModalHierarchySection, PatternCard, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
+  import { Citation, DensityChip, EvidenceChip, IdPill, ModalHierarchySection, PatternViewer, RelatedMedia, SpeedLimitSection, SpeedModalHierarchyCard } from '$lib/theme/components'
 </script>
 
-<PatternCard id={fm.patternId} title="Collector Transit" classification="collector" status="recommended">
 A Collector street carrying a fixed transit route, where transit priority is layered onto the base pedestrian and bicycle priority rather than replacing it.
-</PatternCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="collector" />
 
 <RelatedMedia id={fm.patternId} />
 
-Typical at: <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
+<div class="cw-context">
+
+<span class="cw-context__label">Typical at:</span> <DensityChip tier="Suburban" /> <DensityChip tier="Compact" /> <DensityChip tier="Urban" /> <DensityChip tier="Core" />
 
 Rural is an edge case. Undeveloped is an unlikely pairing.
+
+</div>
 
 ## Speed and modal hierarchy
 
@@ -42,11 +45,21 @@ This entry is the Collector-scale sibling of Local Transit and Arterial Transit,
 
 ## Related patterns
 
-[Local Transit](/patterns/local-streets/local-transit/) (LOC-LTR-10) and [Arterial Transit (BRT/LRT)](/patterns/arterials/arterial-transit/) (ART-ATR-04) (this pattern's siblings across Functional Classification, per this page's own Design notes)
+<div class="cw-links">
+
+- [Local Transit](/patterns/local-streets/local-transit/) <IdPill id="LOC-LTR-10" />
+- [Arterial Transit (BRT/LRT)](/patterns/arterials/arterial-transit/) <IdPill id="ART-ATR-04" /> (this pattern's siblings across Functional Classification, per this page's own Design notes)
+
+</div>
 
 ## Getting there: Retrofit path options
 
-[Parking-lane reallocation](/retrofits/corridor/parking-lane-reallocation/) (RFT-CDR-05), [Transit priority lane retrofit](/retrofits/corridor/transit-priority-lane-retrofit/) (RFT-CDR-06)
+<div class="cw-links">
+
+- [Parking-lane reallocation](/retrofits/corridor/parking-lane-reallocation/) <IdPill id="RFT-CDR-05" />
+- [Transit priority lane retrofit](/retrofits/corridor/transit-priority-lane-retrofit/) <IdPill id="RFT-CDR-06" />
+
+</div>
 
 ## References
 

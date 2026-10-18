@@ -25,20 +25,30 @@ Every street has three speeds, and different people set each one.<Citation index
 
 <GuideDiagram priority src="/diagrams/design-speed-diagram.png" alt="Commonway System design speed diagram showing the relationship between design speed, operating speed, and posted speed limit." width={1280} height={720} />
 
+<div class="cw-tiles">
+
 - **Design speed** is set by engineers. It is a chosen number used to size the road's curves, sight lines, lane widths, and other geometry.<Citation index={6} /><Citation index={7} /> It appears on the plans, not on a sign.
 - **Operating speed** is set by drivers. Engineers usually measure it as the 85th-percentile speed: the speed that 85 percent of free-flowing drivers go at or below.<Citation index={8} />
 - **The posted speed limit** is set by a state or local agency. Federal guidance says it should fall within 5 mph of the 85th-percentile speed, and every state agency in one FHWA-cited survey used that measure.<Citation index={9} />
 
+</div>
+
 These three numbers often disagree.<Citation index={5} /> The strongest link among them runs between how fast people drive and the posted limit. Neither relates to design speed with anywhere near that confidence.<Citation index={10} />
 
 ## Why you should care
+
+<div class="cw-tiles">
 
 - **Your neighbors' lives.** A person on foot hit at 23 mph has about a 1 in 10 chance of dying. At 32 mph it is 1 in 4; at 42 mph, 1 in 2.<Citation index={11} />
 - **Your parents.** A 70-year-old hit at 25 mph faces about the same risk of severe injury or death as a 30-year-old hit at 35.<Citation index={11} />
 - **Your street.** A speed survey can push a street's limit up even when nothing about the street has changed.<Citation index={2} /><Citation index={9} />
 - **Your sidewalks and corners.** Higher design speeds bring wider lanes, wider turning curves, guardrails, broad clear zones, and lost parking, all of which make a street harder to walk.<Citation index={12} />
 
+</div>
+
 ## How it happens
+
+<div class="cw-options">
 
 **Roads are built for more speed than their design speed.** Geometry standards assume near-worst-case conditions, such as slow reaction times, so a road built to them carries more speed in good conditions.<Citation index={8} /><Citation index={9} /> Designers are also told to exceed the minimums where they can. The result is an *inferred design speed*, the fastest speed the finished geometry supports, often well above the number on the plans.<Citation index={7} /><Citation index={9} />
 
@@ -47,6 +57,8 @@ These three numbers often disagree.<Citation index={5} /> The strongest link amo
 **Nothing ties the numbers together.** A 1985 FHWA memo said design speed should equal or exceed the posted limit. Later FHWA memos softened that, calling the posted limit an operating decision for the road's owner. In 2001, AASHTO's Green Book redefined design speed as simply a number chosen to size the road's geometry, and its guidance on choosing one says nothing about speed limits. In 2015, FHWA stated that no regulation establishes a direct link between them.<Citation index={7} />
 
 **The limit ratchets up.** Posted limits are set near the 85th-percentile speed, so when a street invites faster driving, the next survey raises the limit.<Citation index={9} /> FHWA itself warns that raising limits to match speeds may push speeds higher still, in a cycle of escalation.<Citation index={9} /> In one FHWA example, a Pennsylvania highway opened at 40 mph and was raised to 50 after a review of actual speeds; both exceeded its design speed.<Citation index={9} /> NACTO sums up the pattern as higher speeds and higher limits over time.<Citation index={2} />
+
+</div>
 
 ## How strong is the evidence
 
@@ -60,6 +72,8 @@ The design side is less tidy. A federal research project found no reliable link 
 
 ## Fair questions
 
+<div class="cw-options">
+
 **Won't drivers just ignore a lower sign?** Often, yes. FHWA reports that research has repeatedly found changing the posted limit alone does little to actual speeds.<Citation index={9} /> Newer studies are more hopeful: after Toronto cut local-street limits from 40 to 30 km/h, pedestrian crashes fell 28 percent and serious and fatal injuries 67 percent, though the drop was not statistically larger than on comparison streets.<Citation index={14} /> A sign works best when the street agrees with it.
 
 **Why not just enforce the limit?** Enforcement works near the officer or camera, and the effect fades with distance and time.<Citation index={9} /> Street design keeps working when no one is watching.<Citation index={2} />
@@ -70,13 +84,19 @@ The design side is less tidy. A federal research project found no reliable link 
 
 **Won't slower streets make my trip longer?** Usually by little. When Seattle took a mile of Rainier Avenue South from four lanes to three and cut its limit to 25 mph, evening car trips along the corridor took 54 seconds to 1 minute 21 seconds longer, and northbound evening buses got 3 minutes faster.<Citation index={15} />
 
+</div>
+
 ## What works
+
+<div class="cw-options">
 
 **Build the speed into the street.** FHWA calls this a self-enforcing road: one designed so drivers choose the intended speed on their own. In that approach, the target speed sets the design speed and becomes the posted limit.<Citation index={13} /> NACTO's urban street guidance says the same: target speed, design speed, and posted speed should match.<Citation index={12} />
 
 **Example: Rainier Avenue South, Seattle.** In 2015, Seattle converted a mile of this four-lane arterial to one lane each way plus a center turn lane, and lowered the limit from 30 to 25 mph to match the project's 25 mph design speed.<Citation index={15} /> At one count point, the share of northbound drivers speeding fell from 84 to 40 percent, and northbound drivers going over 40 mph fell 81 percent. In the first year, crashes fell 15 percent, injury crashes 30 percent, and crashes involving people walking or biking 40 percent, with no serious-injury crashes against a prior average of 9 a year.<Citation index={15} />
 
 **Let cities set limits for safety.** California's AB 43, in 2021, let cities cut an extra 5 mph on their most dangerous streets and where many people walk and bike, and hold a limit steady when a new survey would have raised it.<Citation index={4} /> Los Angeles then approved 5 mph cuts on about 177 miles of streets; before the law, it had been required to raise limits on 200 miles.<Citation index={3} /> NACTO's *City Limits* gives cities a method that sets limits from conflict and activity levels rather than from current driving speeds.<Citation index={2} />
+
+</div>
 
 ## What the Commonway System does
 
@@ -138,9 +158,13 @@ No existing framework sets Arterial design speed the way CS needs, so this is or
 
 Core's baseline meets Collector's ceiling by design. In CS's densest tier, an Arterial's surroundings are closer to a Collector's than to a rural Arterial's, even though it still carries through traffic.
 
+<div class="cw-options cw-options--pair">
+
 **Noise modifier: minus 5 mph.** Where an Arterial segment runs within the noise zone (defined below) of homes, schools, or healthcare, subtract 5 mph from the baseline. Both sides of the Atlantic treat lower speed as a noise tool. Until 2024, the Dutch Noise Abatement Act (Wet geluidhinder) set road-noise limits and required abatement where they were exceeded.<Citation index={22} /> The N325 Pleyroute in Arnhem is reported to carry its 80 km/h limit for environmental and noise reasons.<Citation index={23} /> In the U.S., 23 CFR 772, the federal noise rule behind every state DOT's noise policy, lists modified speed limits among the traffic management measures eligible for noise abatement.<Citation index={24} /> AASHTO's environmental guidance adds that a speed cut of about 20 mph is needed for a readily noticeable drop in noise.<Citation index={25} /> CS's 5 mph step is smaller because it is one of two contributing modifiers, not a standalone noise fix.
 
 **Noise-sensitive adjacency is a distance, set the Dutch way.** Until 2024, Article 74 of the Dutch act gave every road a noise zone on each side, measured from the road's centerline and sized by lane count and by urban or rural setting:<Citation index={22} />
+
+</div>
 
 | Lanes | Urban zone | Rural zone |
 | --- | --- | --- |

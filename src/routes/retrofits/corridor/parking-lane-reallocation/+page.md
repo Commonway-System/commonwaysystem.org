@@ -7,12 +7,10 @@ llms: "Converts an existing on-street parking lane to another use, a bike lane, 
 ---
 
 <script>
-  import { Citation, EvidenceChip, PatternViewer, RelatedMedia, RetrofitCard } from '$lib/theme/components'
+  import { Citation, EvidenceChip, IdPill, PatternViewer, RelatedMedia } from '$lib/theme/components'
 </script>
 
-<RetrofitCard id={fm.patternId} title="Parking-lane reallocation" scale="corridor">
 Converts an existing on-street parking lane to another use: a bike lane, a transit lane, a parklet, or public plaza space.
-</RetrofitCard>
 
 <PatternViewer image={fm.image} title={fm.title} classification="corridor" retrofit />
 
@@ -24,15 +22,30 @@ A parking lane is curb space, not travel-lane space, so reallocating it changes 
 
 ## Where this leads: Target patterns
 
-[Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) (LOC-BBG-12), [Local Transit](/patterns/local-streets/local-transit/) (LOC-LTR-10), [Collector Transit](/patterns/collectors/collector-transit/) (COL-CTR-05)
+<div class="cw-links">
+
+- [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) <IdPill id="LOC-BBG-12" />
+- [Local Transit](/patterns/local-streets/local-transit/) <IdPill id="LOC-LTR-10" />
+- [Collector Transit](/patterns/collectors/collector-transit/) <IdPill id="COL-CTR-05" />
+
+</div>
+
+<div class="cw-facts">
+<div class="cw-fact">
 
 ## Applicability and thresholds
 
 Applicable wherever on-street parking exists and demand analysis shows the parking is underutilized relative to the corridor's other needs, or where the reallocated use (transit, bikes, public space) is judged a higher priority than parking supply at that location.
 
+</div>
+<div class="cw-fact">
+
 ## Evidence and effectiveness
 
 AASHTO identifies reconfiguring or reducing on-street parking as one of three established approaches to retrofitting bicycle facilities without widening the road, alongside reallocating travel-lane width and reducing the number of travel lanes.<Citation index={1} />
+
+</div>
+<div class="cw-fact">
 
 ## Getting it built
 
@@ -40,13 +53,23 @@ Well suited to the early stages of the construction spectrum. A parklet or bike 
 
 No formal decision process is typically required, though negotiation with affected business owners and residents is common practice, per FHWA guidance on parking removal.
 
+</div>
+<div class="cw-fact">
+
 ## Who can move this
 
 Usually a city public works or planning department decision, sometimes requiring business improvement district or city council coordination where displaced parking affects adjacent businesses. See [Legal & Planning Mechanisms](/guide/legal-planning-mechanisms/).
 
+</div>
+</div>
+
 ## Related retrofit strategies
 
-[Protected bike lane retrofit via parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) (RFT-CDR-09) (a specific application of this strategy aimed at bike facilities)
+<div class="cw-links">
+
+- [Protected bike lane retrofit via parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) <IdPill id="RFT-CDR-09" /> (a specific application of this strategy aimed at bike facilities)
+
+</div>
 
 ## References
 
