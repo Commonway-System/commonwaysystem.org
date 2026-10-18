@@ -755,7 +755,7 @@ svg {
    options: a list of link cards. */
 .cw-content .cw-links > ul {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   gap: 0.75rem;
   margin: 0 0 1.25rem;
   padding: 0;
@@ -788,6 +788,82 @@ svg {
 
 .cw-content .cw-links li > a:first-child::after {
   content: ' \2192';
+}
+
+/* Entries that link to a Pattern or Retrofit Strategy carry a featured image
+   on the left (added by markdown/link-cards.ts), tinted like the index cards,
+   and the whole card is the link. */
+.cw-content .cw-links li.cw-link-card {
+  --lc-img: max(22%, 5.5rem);
+  position: relative;
+  min-height: 5.5rem;
+  padding-left: calc(var(--lc-img) + 0.9rem);
+  overflow: hidden;
+}
+.cw-content .cw-links li.cw-link-card > a:first-child::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.cw-content .cw-links li.cw-link-card a:not(:first-child) {
+  position: relative;
+  z-index: 2;
+}
+.cw-content .cw-links li.cw-link-card:has(> a:first-child:focus-visible) {
+  outline: 3px solid var(--cw-focus, var(--cw-primary));
+  outline-offset: 2px;
+}
+.cw-content .cw-links li.cw-link-card > a:first-child:focus-visible {
+  outline: none;
+}
+.cw-link-card__img {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--lc-img);
+  overflow: hidden;
+  --lc-tint: var(--cw-freeway-suburban);
+}
+.cw-link-card__img[data-classification='local'] { --lc-tint: var(--cw-local-suburban); }
+.cw-link-card__img[data-classification='collector'] { --lc-tint: var(--cw-collector-suburban); }
+.cw-link-card__img[data-classification='arterial'] { --lc-tint: var(--cw-arterial-suburban); }
+.cw-link-card__img[data-classification='freeway'] { --lc-tint: var(--cw-freeway-suburban); }
+.cw-link-card__img[data-classification='intersections'] { --lc-tint: var(--cw-intersections-suburban); }
+.cw-link-card__img[data-classification='network'] { --lc-tint: var(--cw-network-suburban); }
+.cw-link-card__img[data-classification='corridor'] { --lc-tint: var(--cw-corridor-suburban); }
+.cw-link-card__img[data-classification='facility'] { --lc-tint: var(--cw-facility-suburban); }
+.cw-link-card__img[data-classification='element'] { --lc-tint: var(--cw-element-suburban); }
+.cw-link-card__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+  filter: brightness(90%);
+}
+.cw-link-card__tint {
+  position: absolute;
+  inset: 0;
+  background: var(--lc-tint);
+  mix-blend-mode: color;
+}
+html[data-view='simple'] .cw-content .cw-links li.cw-link-card {
+  min-height: 0;
+  padding: 0;
+  overflow: visible;
+}
+html[data-view='simple'] .cw-link-card__img {
+  display: none;
+}
+html[data-view='simple'] .cw-content .cw-links li.cw-link-card > a:first-child::before {
+  display: none;
+}
+@media print {
+  .cw-link-card__img { display: none; }
+  .cw-content .cw-links li.cw-link-card { padding-left: 1rem; }
 }
 
 /* An entry with no page of its own ("relevant Segment patterns ..."). */
