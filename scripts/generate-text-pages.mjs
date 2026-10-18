@@ -26,7 +26,7 @@ const SITE_URL = (siteSource.match(/SITE_URL\s*=\s*['"]([^'"]+)['"]/)?.[1] ?? ''
 const KEEP_ATTRS = new Set(['href', 'id', 'colspan', 'rowspan', 'scope', 'open', 'lang'])
 const DROP_SELECTORS = [
   'script', 'style', 'canvas', 'button', 'iframe', 'video', 'audio', 'form', 'input', 'select', 'textarea',
-  '.toc-mobile', '.page__meta', '.page__legal', '.pagenav', '.svp-heading-anchor',
+  '.toc-mobile', '.page__meta', '.page__legal', '.pagenav', '.svp-heading-anchor', '.page-head__eyebrow',
   '[hidden]', '.cw-external-indicator', 'a .cw-sr-only', '.cw-table-hint', '.hero__motion', '.hero-glow', '.ink-halftone',
   // Pattern viewer: controls and the live drawing have no meaning on a static
   // page; its description and "All configurations, in words" list stay.

@@ -118,3 +118,15 @@ html[data-symbols='on'] :is(.pattern-card, .retrofit-card)::after {
 html[data-view='simple'] :is(.pic__image, .ric__image)::after {
   display: none;
 }
+
+/* The page header's ID row (PageHeader.svelte) carries an inline tab. */
+.page-head__sym {
+  display: none !important;
+}
+html[data-symbols='on'] .page-head__sym {
+  display: inline-block !important;
+  font-size: 0.8rem;
+}
+html[data-view='simple'] .page-head__sym {
+  display: none !important;
+}

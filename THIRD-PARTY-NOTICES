@@ -15,6 +15,14 @@ Standing, Bike, Tram Front, Car, and Truck. None of these five are part
 of Lucide's Feather-derived subset, so only the ISC License below applies
 to this usage. Full license: https://lucide.dev/license
 
+Eight more Lucide icons are used as CSS mask images in
+src/lib/theme/styles/base.css: Info, Lightbulb, Triangle Alert and Octagon
+Alert on the callout labels (Note, Tip, Caution, Danger), and Target,
+Chart Column, Hammer and Landmark on the Retrofit Strategy fact cards.
+Some of these (Info, Triangle Alert, Octagon Alert, Target) descend from
+Feather icons, so the MIT License notice for Feather below applies to
+them as well as the ISC License.
+
 ISC License
 
 Copyright (c) 2026 Lucide Icons and Contributors
@@ -30,6 +38,28 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+The MIT License (MIT) (for portions derived from Feather)
+
+Copyright (c) 2013-2023 Cole Bemis
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 --------------------------------------------------------------------------
 

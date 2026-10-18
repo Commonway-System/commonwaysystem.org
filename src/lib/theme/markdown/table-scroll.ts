@@ -36,7 +36,7 @@ function wrapTable(table: Element): Element {
   return {
     type: 'element',
     tagName: 'div',
-    properties: { className: ['cw-table-wrap'] },
+    properties: { className: ['cw-table-wrap', 'cw-table-wrap--md'] },
     children: [
       scrollHint(),
       {

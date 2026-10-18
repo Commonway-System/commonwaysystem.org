@@ -10,8 +10,10 @@
   import { patternClassOf, searchSectionOf } from '../search-meta.js'
   import { buildBreadcrumbs } from '../schema/breadcrumbs.js'
   import { buildPageSchemas } from '../schema/page.js'
+  import { pageAccent, pageEyebrow } from '../page-header.js'
   import Icon from './Icon.svelte'
   import JsonLd from './JsonLd.svelte'
+  import PageHeader from './PageHeader.svelte'
   import PageNav from './PageNav.svelte'
   import TocMobile from './TocMobile.svelte'
   import ShareButtons from './ShareButtons.svelte'
@@ -71,6 +73,14 @@
     }),
   )
   const jsonLdSchemas = $derived([...(breadcrumbs ? [breadcrumbs] : []), ...pageSchemas])
+
+  // Page header: a tinted band with a small section label above the title,
+  // colored by the page's accent (see page-header.ts and the --cw-accent-*
+  // tokens). On Pattern and Retrofit pages it is also the page's ID card:
+  // the ID and status (frontmatter `status`) sit beside the label, and the
+  // paragraph right after it, the old card's summary, joins the band.
+  const accent = $derived(pageAccent(page.url.pathname, fm.patternId))
+  const eyebrow = $derived(pageEyebrow(page.url.pathname, fm.title, options.navbar ?? [], options.sidebar ?? {}))
 
   let contentEl: HTMLDivElement | undefined = $state()
 
@@ -137,7 +147,7 @@
 
 <!-- tabindex="-1" (not in the tab order) lets the skip link move focus here. -->
 <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-<main class="page" id="main-content" tabindex="-1" data-pagefind-body={searchable ? '' : undefined}>
+<main class="page" id="main-content" tabindex="-1" data-accent={accent} data-pagefind-body={searchable ? '' : undefined}>
   {#if searchable}
     <!-- Empty marker elements: Pagefind reads one filter/meta pair per attribute. -->
     <span data-pagefind-filter={`section:${searchSection}`}></span>
@@ -166,7 +176,7 @@
          markup renders the h1 itself, inside a custom section like Hero,
          instead of as a bare heading floating above the content. -->
     {#if fm.title && !fm.hideTitle}
-      <h1 data-pagefind-weight="10">{fm.title}</h1>
+      <PageHeader title={fm.title} {eyebrow} patternId={fm.patternId} status={fm.status} />
     {/if}
     {@render children?.()}
 

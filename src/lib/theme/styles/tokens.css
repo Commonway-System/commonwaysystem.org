@@ -483,3 +483,116 @@ html[data-contrast='high'][data-theme='dark'] {
   --cw-tip-ink: #d8ec9a;
   --cw-amber-ink: #ffe2b0;
 }
+
+
+/* ---------------------------------------------------------------------
+   Page accent (2026.10.18). PageLayout sets data-accent on <main> from the
+   page's Pattern ID or route (page-header.ts); the page header band,
+   section-heading bars and table headers read these three tokens.
+   --cw-accent-soft: background tint. --cw-accent-bar: decorative rules
+   only, never text. --cw-accent-ink: text on the tint (6:1 or better on
+   it, and on paper, in both themes; computed, see the 2026.10.18 notes).
+   Patterns use their classification ramp (soft = Undeveloped tier in light
+   mode, the hand-picked dark tint in dark mode; bar = Suburban light,
+   Compact dark; ink = a darkened Core tier light, the Rural tier dark).
+   --------------------------------------------------------------------- */
+[data-accent='primary'] {
+  --cw-accent-soft: var(--cw-primary-soft);
+  --cw-accent-bar: var(--cw-teal);
+  --cw-accent-ink: var(--cw-primary);
+}
+[data-accent='about'] {
+  --cw-accent-soft: #ecebfa;
+  --cw-accent-bar: #6d6ad6;
+  --cw-accent-ink: #3d3aab;
+}
+[data-accent='network'] {
+  --cw-accent-soft: var(--cw-network-soft);
+  --cw-accent-bar: var(--cw-network-suburban);
+  --cw-accent-ink: #841c19;
+}
+[data-accent='corridor'] {
+  --cw-accent-soft: var(--cw-corridor-soft);
+  --cw-accent-bar: var(--cw-corridor-suburban);
+  --cw-accent-ink: #6a5614;
+}
+[data-accent='local'] {
+  --cw-accent-soft: var(--cw-local-soft);
+  --cw-accent-bar: var(--cw-local-suburban);
+  --cw-accent-ink: #50611a;
+}
+[data-accent='collector'] {
+  --cw-accent-soft: var(--cw-collector-soft);
+  --cw-accent-bar: var(--cw-collector-suburban);
+  --cw-accent-ink: #256321;
+}
+[data-accent='arterial'] {
+  --cw-accent-soft: var(--cw-arterial-soft);
+  --cw-accent-bar: var(--cw-arterial-suburban);
+  --cw-accent-ink: #1d6442;
+}
+[data-accent='freeway'] {
+  --cw-accent-soft: var(--cw-freeway-soft);
+  --cw-accent-bar: var(--cw-freeway-suburban);
+  --cw-accent-ink: #245c72;
+}
+[data-accent='intersections'] {
+  --cw-accent-soft: var(--cw-intersections-soft);
+  --cw-accent-bar: var(--cw-intersections-suburban);
+  --cw-accent-ink: #21357c;
+}
+[data-accent='facility'] {
+  --cw-accent-soft: var(--cw-facility-soft);
+  --cw-accent-bar: var(--cw-facility-suburban);
+  --cw-accent-ink: #3f2677;
+}
+[data-accent='element'] {
+  --cw-accent-soft: var(--cw-element-soft);
+  --cw-accent-bar: var(--cw-element-suburban);
+  --cw-accent-ink: #791e7f;
+}
+[data-theme='dark'] [data-accent='about'] {
+  --cw-accent-soft: #22213f;
+  --cw-accent-bar: #8580f0;
+  --cw-accent-ink: #a79eff;
+}
+[data-theme='dark'] [data-accent='network'] {
+  --cw-accent-bar: var(--cw-network-compact);
+  --cw-accent-ink: var(--cw-network-rural);
+}
+[data-theme='dark'] [data-accent='corridor'] {
+  --cw-accent-bar: var(--cw-corridor-compact);
+  --cw-accent-ink: var(--cw-corridor-rural);
+}
+[data-theme='dark'] [data-accent='local'] {
+  --cw-accent-bar: var(--cw-local-compact);
+  --cw-accent-ink: var(--cw-local-rural);
+}
+[data-theme='dark'] [data-accent='collector'] {
+  --cw-accent-bar: var(--cw-collector-compact);
+  --cw-accent-ink: var(--cw-collector-rural);
+}
+[data-theme='dark'] [data-accent='arterial'] {
+  --cw-accent-bar: var(--cw-arterial-compact);
+  --cw-accent-ink: var(--cw-arterial-rural);
+}
+[data-theme='dark'] [data-accent='freeway'] {
+  --cw-accent-bar: var(--cw-freeway-compact);
+  --cw-accent-ink: var(--cw-freeway-rural);
+}
+[data-theme='dark'] [data-accent='intersections'] {
+  --cw-accent-bar: var(--cw-intersections-compact);
+  --cw-accent-ink: var(--cw-intersections-rural);
+}
+[data-theme='dark'] [data-accent='facility'] {
+  --cw-accent-bar: var(--cw-facility-compact);
+  --cw-accent-ink: var(--cw-facility-rural);
+}
+[data-theme='dark'] [data-accent='element'] {
+  --cw-accent-bar: var(--cw-element-compact);
+  --cw-accent-ink: var(--cw-element-rural);
+}
+/* High contrast: text on the tints goes to full ink. */
+html[data-contrast='high'] [data-accent] {
+  --cw-accent-ink: var(--cw-ink);
+}

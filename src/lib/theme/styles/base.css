@@ -441,6 +441,579 @@ svg {
   color: var(--cw-ink-soft);
 }
 
+/* ---- Page polish (2026.10.18) ------------------------------------------
+   Light visual structure for ordinary content pages, colored by the page's
+   accent (--cw-accent-* in tokens.css, set from data-accent on <main>).
+   Pure CSS on the markup pages already have; no words change. Simplified
+   view turns all of it off (see its block further down). */
+
+/* Page header: tinted band with a section label above the title
+   (PageLayout.svelte). Pattern and Retrofit pages don't get the band yet. */
+.cw-content .page-head {
+  margin: 0 0 2rem;
+  padding: 1.75rem 1.5rem 1.25rem;
+  border-top: 5px solid var(--cw-accent-bar);
+  border-radius: var(--cw-radius-lg);
+  background: linear-gradient(180deg, var(--cw-accent-soft), var(--cw-paper) 92%);
+}
+
+.cw-content .page-head h1 {
+  margin: 0;
+}
+
+.cw-content .page-head__eyebrow {
+  margin: 0 0 0.6rem;
+  font-family: var(--cw-font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cw-accent-ink);
+}
+
+/* An opening line set entirely in italics (`_Whose road it is..._`) is the
+   page's subtitle: it joins the band. The paragraph after it, or the first
+   paragraph when there's no subtitle, is set a little larger. */
+.cw-content .page-head:has(+ p > em:only-child) {
+  margin-bottom: 0;
+  padding-bottom: 0.6rem;
+  border-radius: var(--cw-radius-lg) var(--cw-radius-lg) 0 0;
+}
+
+.cw-content .page-head + p:has(> em:only-child) {
+  margin: 0 0 2rem;
+  padding: 0 1.5rem 0.25rem;
+  font-family: var(--cw-font-display);
+  font-size: var(--cw-text-xl);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--cw-ink-soft);
+}
+
+.cw-content .page-head + p:not(:has(> em:only-child)),
+.cw-content .page-head + p:has(> em:only-child) + p {
+  font-size: var(--cw-text-lg);
+  line-height: 1.6;
+}
+
+/* Phones: less side padding, so the band doesn't squeeze the title. */
+@media (max-width: 560px) {
+  .cw-content .page-head {
+    padding: 1.25rem 1.1rem 1rem;
+  }
+  .cw-content .page-head + p:has(> em:only-child) {
+    padding: 0 1.1rem 0.25rem;
+  }
+}
+
+/* Section headings: a short accent bar instead of the full-width rule.
+   Only the page's own headings (direct children of .cw-content), never a
+   heading inside a component. */
+.cw-content > h2 {
+  padding-top: 1.1rem;
+  border-top: 0;
+}
+
+.cw-content > h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.75rem;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--cw-accent-bar, var(--cw-teal));
+}
+
+/* Markdown tables (table-scroll.ts adds --md): a rounded frame and a
+   tinted header row. The frame sits on the scroll box, whose own
+   background carries the scroll shadows, so it's left alone. */
+.cw-content .cw-table-wrap--md .cw-table-scroll {
+  border: 1px solid var(--cw-hairline);
+  border-radius: var(--cw-radius-lg);
+}
+
+.cw-content .cw-table-wrap--md th {
+  background: var(--cw-accent-soft, var(--cw-primary-soft));
+  color: var(--cw-accent-ink, var(--cw-primary));
+  font-family: var(--cw-font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cw-content .cw-table-wrap--md td:first-child {
+  font-weight: 600;
+}
+
+.cw-content .cw-table-wrap--md tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Callouts: a stronger left edge and an icon before the label (Lucide
+   info, lightbulb, triangle-alert, octagon-alert; ISC, see
+   THIRD-PARTY-NOTICES). The icon is decorative: the label says the type. */
+.svp-admonition {
+  border-left-width: 4px;
+  border-left-color: var(--cw-note);
+}
+.svp-admonition--tip {
+  border-left-color: var(--cw-tip-ink);
+}
+.svp-admonition--warning {
+  border-left-color: var(--cw-amber);
+}
+.svp-admonition--danger {
+  border-left-color: var(--cw-danger);
+}
+.svp-admonition--unsourced {
+  border-left-color: var(--cw-amber);
+}
+
+.svp-admonition:not(.svp-admonition--unsourced) .svp-admonition__label::before {
+  content: '';
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  margin-right: 0.4em;
+  vertical-align: -0.22em;
+  background: currentColor;
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2a10 10 0 1 0 0 20a10 10 0 1 0 0-20z'/><path d='M12 16v-4'/><path d='M12 8h.01'/></svg>") center / contain no-repeat;
+}
+.svp-admonition--tip .svp-admonition__label::before {
+  mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5'/><path d='M9 18h6'/><path d='M10 22h4'/></svg>");
+}
+.svp-admonition--warning .svp-admonition__label::before {
+  mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/><path d='M12 9v4'/><path d='M12 17h.01'/></svg>");
+}
+.svp-admonition--danger .svp-admonition__label::before {
+  mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 16h.01'/><path d='M12 8v4'/><path d='M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z'/></svg>");
+}
+
+/* References: a quiet tinted panel, so the page ends calmly. */
+.cw-content > h2#references,
+.cw-content > h2#references + ol {
+  background: color-mix(in srgb, var(--cw-ink) 4%, var(--cw-paper));
+}
+
+.cw-content > h2#references {
+  margin-bottom: 0;
+  padding: 1.1rem 1.4rem 0.4rem;
+  border-radius: var(--cw-radius-lg) var(--cw-radius-lg) 0 0;
+  font-size: var(--cw-text-xl);
+}
+
+.cw-content > h2#references::before {
+  display: none;
+}
+
+.cw-content > h2#references + ol {
+  padding: 0.5rem 1.4rem 1.25rem 3rem;
+  border-radius: 0 0 var(--cw-radius-lg) var(--cw-radius-lg);
+  font-size: var(--cw-text-sm);
+  color: var(--cw-ink-soft);
+}
+
+@media (max-width: 560px) {
+  .cw-content > h2#references {
+    padding: 1rem 1.1rem 0.4rem;
+  }
+  .cw-content > h2#references + ol {
+    padding: 0.5rem 1.1rem 1.1rem 2.6rem;
+  }
+}
+
+
+/* ---- Page polish, pass 2 (2026.10.18): markup added to the pages once --
+   (a one-time edit, see CLAUDE.md), styled here. */
+
+/* Header as ID card (Pattern and Retrofit pages): ID tag and status beside
+   the section label; the paragraph right after the header (the old card's
+   summary) joins the band. PageHeader.svelte. */
+.cw-content .page-head__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.cw-content .page-head__row .page-head__eyebrow {
+  margin: 0 0.35rem 0 0;
+}
+
+.cw-content .page-head__row:empty {
+  display: none;
+}
+
+.cw-content .page-head__id {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  border: 1px solid var(--cw-hairline-strong);
+  border-radius: var(--cw-radius-sm);
+  background: var(--cw-paper-raised);
+  font-family: var(--cw-font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--cw-ink);
+}
+
+.cw-content .page-head--id:has(+ p) {
+  margin-bottom: 0;
+  padding-bottom: 0.6rem;
+  border-radius: var(--cw-radius-lg) var(--cw-radius-lg) 0 0;
+}
+
+.cw-content .page-head.page-head--id + p,
+.cw-content .page-head__summary {
+  max-width: 40rem;
+  margin: 0 0 2rem;
+  padding: 0 1.5rem 0.25rem;
+  font-family: var(--cw-font-body);
+  font-size: var(--cw-text-lg);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--cw-ink-soft);
+}
+
+.cw-content .page-head__summary {
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+/* Documentation sample: title drawn like the h1 without being one. */
+.cw-content .page-head--demo {
+  margin: 0;
+}
+
+.cw-content .page-head__title {
+  margin: 0;
+  font-family: var(--cw-font-display);
+  font-size: var(--cw-text-3xl);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--cw-ink);
+}
+
+@media (max-width: 560px) {
+  .cw-content .page-head.page-head--id + p {
+    padding: 0 1.1rem 0.25rem;
+  }
+}
+
+/* IDs in prose (IdPill.svelte): a small pill with a classification dot.
+   The parentheses stay in the text, visually hidden. */
+.cw-id {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 0.45rem;
+  border: 1px solid var(--cw-hairline-strong);
+  border-radius: 999px;
+  background: var(--cw-paper-raised);
+  font-family: var(--cw-font-mono);
+  font-size: 0.74em;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+  vertical-align: 0.08em;
+  color: var(--cw-ink);
+}
+
+.cw-id::before {
+  content: '';
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--cw-id-dot, var(--cw-teal));
+}
+
+.cw-id[data-kind='network'] { --cw-id-dot: var(--cw-network); }
+.cw-id[data-kind='corridor'] { --cw-id-dot: var(--cw-corridor); }
+.cw-id[data-kind='local'] { --cw-id-dot: var(--cw-local); }
+.cw-id[data-kind='collector'] { --cw-id-dot: var(--cw-collector); }
+.cw-id[data-kind='arterial'] { --cw-id-dot: var(--cw-arterial); }
+.cw-id[data-kind='freeway'] { --cw-id-dot: var(--cw-freeway); }
+.cw-id[data-kind='intersections'] { --cw-id-dot: var(--cw-intersections); }
+.cw-id[data-kind='facility'] { --cw-id-dot: var(--cw-facility); }
+.cw-id[data-kind='element'] { --cw-id-dot: var(--cw-element); }
+
+.cw-id__paren {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Related patterns, Target patterns, Related strategies, Retrofit path
+   options: a list of link cards. */
+.cw-content .cw-links > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.cw-content .cw-links li {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--cw-hairline);
+  border-radius: var(--cw-radius-lg);
+  background: var(--cw-paper-raised);
+  font-size: var(--cw-text-sm);
+  line-height: 1.5;
+  color: var(--cw-ink-soft);
+}
+
+.cw-content .cw-links li:has(a:hover) {
+  border-color: var(--cw-accent-bar, var(--cw-teal));
+}
+
+.cw-content .cw-links li > a:first-child {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--cw-font-display);
+  font-size: var(--cw-text-base);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.cw-content .cw-links li > a:first-child::after {
+  content: ' \2192';
+}
+
+/* An entry with no page of its own ("relevant Segment patterns ..."). */
+.cw-content .cw-links li:not(:has(a)) {
+  border-style: dashed;
+  background: transparent;
+}
+
+/* Retrofit Strategy pages: the four short reference sections as a grid of
+   cards, each heading with an icon (Lucide target, chart-column, hammer,
+   landmark; ISC, see THIRD-PARTY-NOTICES). */
+.cw-content .cw-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0 1rem;
+}
+
+.cw-content .cw-fact {
+  padding: 1.1rem 1.2rem 0.3rem;
+  border: 1px solid var(--cw-hairline);
+  border-radius: var(--cw-radius-lg);
+  background: var(--cw-paper-raised);
+}
+
+.cw-content .cw-fact h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  border: 0;
+  font-size: var(--cw-text-lg);
+}
+
+.cw-content .cw-fact h2::before {
+  content: '';
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--cw-accent-soft, var(--cw-primary-soft));
+}
+
+.cw-content .cw-fact h2::after {
+  content: '';
+  position: absolute;
+  left: 0.475rem;
+  top: 50%;
+  width: 1.05rem;
+  height: 1.05rem;
+  translate: 0 -50%;
+  background: var(--cw-accent-ink, var(--cw-primary));
+  mask: var(--cw-fact-mask) center / contain no-repeat;
+}
+
+.cw-content .cw-fact h2#applicability-and-thresholds { --cw-fact-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='6'/><circle cx='12' cy='12' r='2'/></svg>"); }
+.cw-content .cw-fact h2#evidence-and-effectiveness { --cw-fact-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 3v16a2 2 0 0 0 2 2h16'/><path d='M18 17V9'/><path d='M13 17V5'/><path d='M8 17v-3'/></svg>"); }
+.cw-content .cw-fact h2#getting-it-built { --cw-fact-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9'/><path d='m18 15 4-4'/><path d='m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5'/></svg>"); }
+.cw-content .cw-fact h2#who-can-move-this { --cw-fact-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M10 18v-7'/><path d='M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z'/><path d='M14 18v-7'/><path d='M18 18v-7'/><path d='M3 22h18'/><path d='M6 18v-7'/></svg>"); }
+
+.cw-content .cw-fact h2 .svp-heading-anchor {
+  display: none;
+}
+
+.cw-content .cw-fact p {
+  font-size: 0.97rem;
+}
+
+/* "Typical at" density chips and their note (pattern pages): a strip. */
+.cw-content .cw-context {
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--cw-radius-lg);
+  background: var(--cw-accent-soft, var(--cw-primary-soft));
+}
+
+.cw-content .cw-context > p {
+  margin: 0;
+}
+
+.cw-content .cw-context > p + p {
+  margin-top: 0.5rem;
+  font-size: var(--cw-text-sm);
+  color: var(--cw-ink-soft);
+}
+
+.cw-context__label {
+  margin-right: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cw-accent-ink, var(--cw-primary));
+}
+
+/* Catalog fields ("What it is." "Who controls it." ...): one quiet panel,
+   labels in the accent color. */
+.cw-content .cw-fields {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem 0.1rem;
+  border-left: 4px solid var(--cw-accent-bar, var(--cw-teal));
+  border-radius: 0 var(--cw-radius-lg) var(--cw-radius-lg) 0;
+  background: color-mix(in srgb, var(--cw-accent-soft, var(--cw-primary-soft)) 55%, transparent);
+}
+
+.cw-content .cw-fields > p > strong:first-child {
+  color: var(--cw-accent-ink, var(--cw-primary));
+}
+
+/* A list whose every item starts in bold: tiles. */
+.cw-content .cw-tiles > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.cw-content .cw-tiles li {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--cw-hairline);
+  border-top: 4px solid var(--cw-accent-bar, var(--cw-teal));
+  border-radius: var(--cw-radius-lg);
+  background: var(--cw-paper-raised);
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+
+.cw-content .cw-tiles li > strong:first-child {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--cw-font-display);
+  font-size: var(--cw-text-base);
+  color: var(--cw-ink);
+}
+
+/* Paragraphs that each start in bold (options, alternatives): a side rule;
+   two of them sit side by side. */
+.cw-content .cw-options > p {
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--cw-accent-bar, var(--cw-teal));
+  border-radius: 0 var(--cw-radius-md) var(--cw-radius-md) 0;
+  background: color-mix(in srgb, var(--cw-accent-soft, var(--cw-primary-soft)) 60%, transparent);
+}
+
+.cw-content .cw-options--pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.cw-content .cw-options--pair > p {
+  margin: 0;
+}
+
+/* An ordered list where the order means something (a ranking, steps):
+   large numerals. */
+.cw-content .cw-ranked > ol {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: cw-ranked;
+}
+
+.cw-content .cw-ranked > ol > li {
+  position: relative;
+  padding: 0.7rem 1rem 0.7rem 3.5rem;
+  border: 1px solid var(--cw-hairline);
+  border-radius: var(--cw-radius-lg);
+  background: var(--cw-paper-raised);
+  counter-increment: cw-ranked;
+}
+
+.cw-content .cw-ranked > ol > li + li {
+  margin-top: 0.5rem;
+}
+
+.cw-content .cw-ranked > ol > li::before {
+  content: counter(cw-ranked);
+  position: absolute;
+  left: 1rem;
+  top: 0.55rem;
+  font-family: var(--cw-font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--cw-accent-ink, var(--cw-primary));
+}
+
+/* A leading number in a heading or table cell ("1. What are you asking
+   for?"): a disc. The period stays in the text, visually hidden. */
+.cw-num {
+  display: inline-grid;
+  place-items: center;
+  width: 1.75em;
+  height: 1.75em;
+  margin-right: 0.45em;
+  border-radius: 50%;
+  background: var(--cw-accent-soft, var(--cw-primary-soft));
+  color: var(--cw-accent-ink, var(--cw-primary));
+  font-family: var(--cw-font-body);
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: 0.08em;
+}
+
+.cw-content h2 .cw-num,
+.cw-content h3 .cw-num {
+  width: 1.55em;
+  height: 1.55em;
+  font-size: 0.8em;
+}
+
+.cw-num__dot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
 /* ---- Layout utilities for Brand Guide-style previews ------------------ */
 
 .cw-content .swatch-grid {
@@ -694,6 +1267,101 @@ html[data-view='simple'] .hero-bleed {
 
 html[data-view='simple'] .toc-mobile {
   display: none;
+}
+
+/* Page polish off: plain title, plain heading rules, plain References. */
+html[data-view='simple'] .cw-content .page-head,
+html[data-view='simple'] .cw-content .page-head + p:has(> em:only-child) {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+html[data-view='simple'] .cw-content .page-head {
+  margin-bottom: 1.25rem;
+}
+html[data-view='simple'] .cw-content > h2 {
+  border-top: 1px solid var(--cw-hairline);
+}
+html[data-view='simple'] .cw-content > h2::before {
+  display: none;
+}
+html[data-view='simple'] .cw-content > h2#references,
+html[data-view='simple'] .cw-content > h2#references + ol {
+  background: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+html[data-view='simple'] .cw-content > h2#references + ol {
+  padding-left: 1.6rem;
+}
+
+/* Pass 2 structures back to plain text and lists in Simplified view. */
+html[data-view='simple'] .cw-content .page-head.page-head--id + p {
+  padding: 0;
+}
+html[data-view='simple'] .cw-id {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.85em;
+}
+html[data-view='simple'] .cw-content .cw-links li > a:first-child {
+  display: inline;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+html[data-view='simple'] .cw-id::before {
+  display: none;
+}
+html[data-view='simple'] .cw-id__paren,
+html[data-view='simple'] .cw-num__dot {
+  position: static;
+  width: auto;
+  height: auto;
+  clip-path: none;
+}
+html[data-view='simple'] .cw-num {
+  display: inline;
+  margin: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+html[data-view='simple'] .cw-content .cw-links > ul,
+html[data-view='simple'] .cw-content .cw-tiles > ul,
+html[data-view='simple'] .cw-content .cw-ranked > ol {
+  display: block;
+  padding-left: 1.6rem;
+  list-style: revert;
+}
+html[data-view='simple'] .cw-content .cw-links li,
+html[data-view='simple'] .cw-content .cw-tiles li,
+html[data-view='simple'] .cw-content .cw-ranked > ol > li,
+html[data-view='simple'] .cw-content .cw-fact,
+html[data-view='simple'] .cw-content .cw-context,
+html[data-view='simple'] .cw-content .cw-fields,
+html[data-view='simple'] .cw-content .cw-options > p {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+html[data-view='simple'] .cw-content .cw-ranked > ol > li::before,
+html[data-view='simple'] .cw-content .cw-fact h2::before,
+html[data-view='simple'] .cw-content .cw-fact h2::after,
+html[data-view='simple'] .cw-content .cw-links li > a:first-child::after {
+  display: none;
+}
+html[data-view='simple'] .cw-content .cw-facts,
+html[data-view='simple'] .cw-content .cw-options--pair {
+  display: block;
+}
+html[data-view='simple'] .cw-content .cw-options--pair > p {
+  margin-bottom: 1.1rem;
 }
 
 html[data-view='simple'] .cw-content,
