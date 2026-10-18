@@ -158,7 +158,7 @@
       <span hidden data-pagefind-weight="8">{fm.patternId}</span>
     {/if}
   {/if}
-  {#if page.url.pathname !== '/media/'}
+  {#if page.url.pathname !== '/media/' && page.url.pathname !== '/'}
     <TocMobile />
   {/if}
   <div class="cw-content" class:cw-content--wide={fm.wide} bind:this={contentEl}>

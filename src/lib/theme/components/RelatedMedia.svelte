@@ -136,7 +136,7 @@
 
 <style>
   /* Boxed callout treatment consistent with the site's other bordered
-     containers (e.g. EvidenceStrip's card), a soft-teal bordered box
+     containers, a soft-teal bordered box
      rather than a plain heading + grid, so it reads as a distinct
      "outside this guidebook" zone. */
   .related-media {

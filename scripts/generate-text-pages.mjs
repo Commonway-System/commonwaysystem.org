@@ -34,6 +34,9 @@ const DROP_SELECTORS = [
   // Release History changelog: the "Show the N changes" toggle of an older
   // release says nothing once every <details> is open.
   '.cl-more__summary', '.cl-chevron',
+  // Homepage: the before/after drawing's switch and its "Showing ..." live
+  // line, the decorative "Instead" between the two compared streets.
+  '.sba__live', '.hc__joiner', '.hpo__n',
 ]
 
 function findPages(dir, out = []) {

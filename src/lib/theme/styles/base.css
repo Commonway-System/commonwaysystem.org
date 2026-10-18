@@ -464,12 +464,11 @@ svg {
   gap: 0.75rem;
 }
 
-/* Pattern Index card grid (PatternIndexCard.svelte): same fixed-column
-   breakpoints as the homepage feature cards (FeatureGrid.svelte), for one
-   consistent card-grid behavior sitewide rather than a second grid
-   mechanism. A plain <div>, not <ul>/<li> like FeatureGrid: the cards here
-   sit under markdown ## headings as ordinary flow content, not as a
-   standalone list semantically. */
+/* Pattern Index card grid (PatternIndexCard.svelte), also used by the Media
+   Gallery and the homepage's media row: one consistent card-grid behavior
+   sitewide rather than a second grid mechanism. A plain <div>, not
+   <ul>/<li>: the cards here sit under markdown ## headings as ordinary flow
+   content, not as a standalone list semantically. */
 .cw-content .pattern-index-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -704,12 +703,16 @@ html[data-view='simple'] .cw-content--wide {
 
 /* The hero's text is fixed light-on-dark; with its art and dark background
    removed in simplified view it must follow the page colors instead. */
+html[data-view='simple'] .hero__eyebrow,
 html[data-view='simple'] .hero__title,
-html[data-view='simple'] .hero__tagline,
+html[data-view='simple'] .hero__accent,
 html[data-view='simple'] .hero__description,
+html[data-view='simple'] .hero__search,
 html[data-view='simple'] .hero__btn--secondary {
   color: var(--cw-ink) !important;
 }
+html[data-view='simple'] .hero__search,
+html[data-view='simple'] .hero__kbd,
 html[data-view='simple'] .hero__btn--secondary {
   border-color: var(--cw-ink) !important;
 }

@@ -1,6 +1,6 @@
 <script lang="ts">
   interface Props {
-    name: 'menu' | 'close' | 'chevron-down' | 'chevron-right' | 'sun' | 'moon' | 'arrow-left' | 'arrow-right' | 'github' | 'external' | 'x-twitter' | 'facebook' | 'linkedin' | 'reddit' | 'bluesky' | 'mail' | 'link' | 'check' | 'search'
+    name: 'menu' | 'close' | 'chevron-down' | 'chevron-right' | 'sun' | 'moon' | 'arrow-left' | 'arrow-right' | 'github' | 'external' | 'x-twitter' | 'facebook' | 'linkedin' | 'reddit' | 'bluesky' | 'mail' | 'link' | 'check' | 'search' | 'road' | 'grid' | 'retrofit' | 'question' | 'play' | 'shield-check'
     size?: number
     /**
      * Most icons here are line-drawn (stroke, fill="none"), the original
@@ -40,6 +40,13 @@
     'mail': 'M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM4 6l8 7 8-7',
     'link': 'M8 3h10a2 2 0 0 1 2 2v10M4 7h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z',
     'check': 'M5 13l4 4L19 7',
+    // Homepage "What brings you here?" cards. Simple original line marks.
+    'road': 'M8 3L4 21M16 3l4 18M12 4v3M12 10.5v3M12 17v3',
+    'grid': 'M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z',
+    'retrofit': 'M3 12h12M11 7l5 5-5 5M20 5v14',
+    'question': 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01',
+    'play': 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM10 8.5v7l6-3.5z',
+    'shield-check': 'M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6zM8.5 12l2.5 2.5 4.5-4.5',
   }
 </script>
 

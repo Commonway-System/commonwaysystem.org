@@ -29,9 +29,11 @@
      * the mix-blend-mode recolor below works the same either way.
      */
     image?: string
+    /** The numbered circle (the ID's own number within its section); off outside the Pattern Index, where neighbors come from different sections. */
+    showNumber?: boolean
   }
 
-  const { href, id, title, classification, status, image }: Props = $props()
+  const { href, id, title, classification, status, image, showNumber = true }: Props = $props()
 
   const source = $derived(image ?? (page.data.pageImages?.[href] as string | undefined))
   // The 480px copy (pnpm run thumbs); placeholder when the page has no image.
@@ -60,7 +62,9 @@
   <div class="pic__image">
     <img {src} alt="" loading="lazy" decoding="async" onerror={useOriginal} />
     <div class="pic__overlay"></div>
-    <span class="pic__number">{number}</span>
+    {#if showNumber}
+      <span class="pic__number">{number}</span>
+    {/if}
   </div>
   <div class="pic__body">
     <h3 class="pic__title">{title}</h3>
@@ -121,9 +125,9 @@
     --pic-hover-border: var(--cw-element-core);
   }
 
-  /* Border/radius/shadow/lift treatment matches the homepage feature cards
-     (FeatureGrid.svelte) for visual consistency, one card style sitewide
-     rather than a competing one. */
+  /* Border/radius/shadow/lift treatment shared with the site's other cards
+     (Retrofit and Media cards), one card style sitewide rather than a
+     competing one. */
   .pic {
     display: flex;
     flex-direction: column;

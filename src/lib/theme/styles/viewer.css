@@ -81,6 +81,17 @@
   --pvx-art-filter: none;
 }
 
+/* A box around a drawing that may be shorter than the box (the homepage's
+   before/after and Stroad/Boulevard pair): the spare space above it reads
+   as more sky instead of a blank band. Keep in step with --pvx-sky-top. */
+.pvx-sky {
+  background: #e3eeec;
+}
+
+[data-theme='dark'] .pvx-sky {
+  background: #16222a;
+}
+
 [data-theme='dark'] .pvx {
   --pvx-edge: rgba(255, 255, 255, 0.3);
   --pvx-highlight-fill: rgba(255, 159, 28, 0.2);

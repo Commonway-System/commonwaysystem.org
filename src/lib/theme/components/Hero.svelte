@@ -1,19 +1,39 @@
 <script lang="ts">
   import { onMount } from 'svelte'
+  import type { ViewerData } from '$lib/viewer/types'
+  import { openSearch } from '../search'
   import Icon from './Icon.svelte'
   import InkHalftone from './InkHalftone.svelte'
+  import StreetBeforeAfter from './StreetBeforeAfter.svelte'
+
+  interface Showcase {
+    data: ViewerData
+    before: string
+    after: string
+    title: string
+    caption: string
+    href: string
+    linkLabel: string
+  }
 
   interface Props {
+    eyebrow: string
+    /** First part of the h1. */
     title: string
-    tagline: string
-    description: string
+    /** Second part of the h1, set in the accent color and italic. */
+    titleAccent?: string
+    lede: string
     primaryHref: string
     primaryLabel: string
     secondaryHref: string
     secondaryLabel: string
+    /** Text on the search button. */
+    searchLabel?: string
+    /** A before/after street drawing beside the text (StreetBeforeAfter). */
+    showcase?: Showcase
   }
 
-  const { title, tagline, description, primaryHref, primaryLabel, secondaryHref, secondaryLabel }: Props = $props()
+  const { eyebrow, title, titleAccent, lede, primaryHref, primaryLabel, secondaryHref, secondaryLabel, searchLabel = 'Search the guidebook', showcase }: Props = $props()
 
   // WCAG 2.2.2 (Pause, Stop, Hide): the background animation plays
   // automatically for more than five seconds alongside other content, so
@@ -48,7 +68,7 @@
 <!--
   Renders its own h1 rather than relying on PageLayout's usual
   fm.title-driven one (see PageLayout.svelte's hideTitle flag): the title
-  needs to sit inside this section's own layout, next to the tagline,
+  needs to sit inside this section's own layout, next to the lede,
   description and actions, not as a bare heading above everything.
 
   Deliberately full-bleed and permanently dark, regardless of the site's
@@ -64,11 +84,11 @@
   <InkHalftone {paused} />
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-inner">
-    <div class="hero-grid">
+    <div class="hero-grid" class:hero-grid--showcase={showcase}>
       <div class="hero__text">
-        <h1 class="hero__title">{title}</h1>
-        <p class="hero__tagline">{tagline}</p>
-        <p class="hero__description">{description}</p>
+        <p class="hero__eyebrow">{eyebrow}</p>
+        <h1 class="hero__title">{title}{#if titleAccent}{' '}<em class="hero__accent">{titleAccent}</em>{/if}</h1>
+        <p class="hero__description">{lede}</p>
         <div class="hero__actions">
           <a class="hero__btn hero__btn--primary" href={primaryHref}>
             {primaryLabel}
@@ -76,19 +96,17 @@
           </a>
           <a class="hero__btn hero__btn--secondary" href={secondaryHref}>{secondaryLabel}</a>
         </div>
+        <button type="button" class="hero__search" onclick={openSearch} data-pagefind-ignore>
+          <Icon name="search" size={18} />
+          <span>{searchLabel}</span>
+          <kbd class="hero__kbd" aria-hidden="true">Ctrl K</kbd>
+        </button>
       </div>
-      <div class="hero__mark">
-        <!--
-          Decorative: the "Commonway System" title text sits right next to
-          this in the DOM, so the logomark's alt text would just duplicate
-          it for screen reader users. Always the light-on-dark logo
-          variant now (not swapped via the site's $isDark store like
-          Navbar.svelte's logo): this hero's background is permanently
-          dark in both site themes, so the light variant is always the
-          correct pairing, unlike the page background it used to sit on.
-        -->
-        <img class="hero__mark-img" src="/logos/logo-light-no-text.svg" alt="" />
-      </div>
+      {#if showcase}
+        <div class="hero__showcase">
+          <StreetBeforeAfter {...showcase} />
+        </div>
+      {/if}
     </div>
   </div>
   <button type="button" class="hero__motion" onclick={toggleMotion}>
@@ -117,7 +135,6 @@
     margin-left: -50vw;
     margin-right: -50vw;
     margin-top: -2.5rem;
-    margin-bottom: 3.5rem;
     overflow: hidden;
     --hero-bg: var(--cw-ink-fixed);
     background: var(--hero-bg);
@@ -198,80 +215,81 @@
   }
 
   /* 88rem to match Navbar.svelte's own .navbar__inner max-width, so the
-     hero's text/logo column lines up with the navbar above it, not the
-     46rem prose measure the rest of the site uses. min-height + flex
-     centering here (not on .hero-bleed) so the auto-margin centering
-     above stays a normal block-level calculation, not a flex-item one. */
+     hero lines up with the navbar above it and the homepage sections below. */
   .hero-inner {
     position: relative;
     z-index: 1;
     max-width: 88rem;
     margin: 0 auto;
-    padding: 3rem 1.5rem;
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
+    padding: 4.5rem 1.5rem 5rem;
   }
 
   .hero-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
     gap: 3rem;
-    width: 100%;
+  }
+
+  @media (min-width: 980px) {
+    .hero-grid--showcase {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      gap: 3.5rem;
+    }
   }
 
   .hero__text {
-    max-width: 34rem;
+    max-width: 38rem;
   }
 
-  /* :global(.hero-bleed) prefix on the title/tagline/description rules
-     below: base.css's generic .cw-content h1 / .cw-content p rules (sized
-     for prose, and colored for the page's own reactive ink/paper tokens)
-     outrank a single-class selector on specificity, and would otherwise
-     win out over both these margins and this fixed light-on-dark text
-     pairing that .hero-bleed's always-dark background needs. */
+  /* :global(.hero-bleed) prefix on the text rules below: base.css's
+     .cw-content h1 / p rules would otherwise compete on specificity, and
+     the hero's fixed light-on-dark pairing must win. The colors are the
+     dark theme's own --cw-primary and --cw-ink-soft values, fixed rather
+     than reactive because the hero is dark in both themes (10:1 or better). */
+  :global(.hero-bleed) .hero__eyebrow {
+    margin: 0 0 1rem;
+    font-family: var(--cw-font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4ddbc4;
+  }
+
   :global(.hero-bleed) .hero__title {
     font-family: var(--cw-font-display);
-    font-size: var(--cw-text-4xl);
+    font-size: clamp(2.375rem, 1.6rem + 3vw, 4rem);
     font-weight: 600;
-    line-height: 1.15;
+    line-height: 1.08;
     letter-spacing: -0.01em;
     color: var(--cw-paper-fixed);
-    margin: 0 0 0.75rem;
+    margin: 0;
   }
 
-  :global(.hero-bleed) .hero__tagline {
-    font-family: var(--cw-font-display);
-    font-size: var(--cw-text-xl);
-    font-weight: 500;
-    /* Dark theme's own --cw-primary value (not the light-mode one, which
-       is a dark teal tuned for light paper and would nearly disappear on
-       this always-dark background): 10.7:1 against --hero-bg either way. */
+  .hero__accent {
+    font-style: italic;
     color: #4ddbc4;
-    margin: 0 0 1rem;
   }
 
   :global(.hero-bleed) .hero__description {
     font-size: var(--cw-text-lg);
     line-height: 1.6;
-    /* Same reasoning as the tagline above: dark theme's own --cw-ink-soft
-       value, fixed rather than reactive, 10.6:1 against --hero-bg. */
     color: #c9c4b8;
-    margin: 0 0 2rem;
+    margin: 1.4rem 0 2rem;
   }
 
   .hero__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.9rem;
+    gap: 0.75rem;
   }
 
   .hero__btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.7rem 1.3rem;
+    padding: 0.8rem 1.3rem;
     border-radius: var(--cw-radius-md);
     font-family: var(--cw-font-body);
     font-size: var(--cw-text-base);
@@ -281,9 +299,7 @@
   }
 
   /* Self-contained fill + fixed text pairing, same reasoning as
-     Button.svelte's primary variant and Citation.svelte's badges: this
-     exact pairing is the one the Brand Guide verifies contrast for, not
-     "whichever ink the current theme happens to use." */
+     Button.svelte's primary variant and Citation.svelte's badges. */
   .hero__btn--primary {
     background: var(--cw-teal);
     color: var(--cw-ink-fixed);
@@ -294,9 +310,6 @@
     background: var(--cw-teal-hover);
   }
 
-  /* Fixed light-on-dark pairing, not the page's reactive ink/hairline
-     tokens: this button sits on --hero-bg, which is dark in both site
-     themes, not on the page background. */
   .hero__btn--secondary {
     background: transparent;
     color: var(--cw-paper-fixed);
@@ -308,14 +321,55 @@
     background: rgba(253, 250, 243, 0.08);
   }
 
-  .hero__mark {
-    flex: none;
-    position: relative;
+  .hero__search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    max-width: 30rem;
+    min-height: 44px;
+    margin-top: 1.5rem;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid rgba(253, 250, 243, 0.25);
+    border-radius: var(--cw-radius-md);
+    background: rgba(253, 250, 243, 0.06);
+    color: #c9c4b8;
+    font: inherit;
+    font-size: 0.9375rem;
+    text-align: left;
+    cursor: pointer;
   }
 
-  .hero__mark-img {
-    width: 10rem;
-    height: 10rem;
+  .hero__search:hover {
+    border-color: rgba(253, 250, 243, 0.5);
+    color: var(--cw-paper-fixed);
+  }
+
+  .hero__kbd {
+    margin-left: auto;
+    padding: 0.1rem 0.4rem;
+    border: 1px solid rgba(253, 250, 243, 0.3);
+    border-radius: 4px;
+    font-family: var(--cw-font-body);
+    font-size: 0.75rem;
+  }
+
+  @media (hover: none) {
+    .hero__kbd {
+      display: none;
+    }
+  }
+
+  .hero__showcase {
+    min-width: 0;
+  }
+
+  :global(html[data-view='simple']) .hero-inner {
+    max-width: 46rem;
+  }
+
+  :global(html[data-view='simple']) .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   @media (max-width: 900px) {
@@ -326,30 +380,12 @@
   }
 
   @media (max-width: 640px) {
-    /* Lower floor than the desktop 60vh: stacked (column-reverse) content
-       is already taller relative to a phone viewport, so 60vh here would
-       mostly just add dead space below the buttons rather than presence. */
     .hero-inner {
-      padding: 3.5rem 1.5rem;
-      min-height: 42vh;
+      padding: 3rem 1rem 4.5rem;
     }
 
     .hero-grid {
-      flex-direction: column-reverse;
-      align-items: flex-start;
-      gap: 1.5rem;
-    }
-
-    .hero__mark-img {
-      width: 5.5rem;
-      height: 5.5rem;
-    }
-
-    /* :global(.hero-bleed) prefix, matching the base rule above: without
-       it this loses the specificity tie against the base rule's 4xl
-       value regardless of which media query is active. */
-    :global(.hero-bleed) .hero__title {
-      font-size: var(--cw-text-3xl);
+      gap: 2.25rem;
     }
   }
 </style>

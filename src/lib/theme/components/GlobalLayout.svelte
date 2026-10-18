@@ -35,8 +35,8 @@
   const siteSchemas = [buildOrganization(), buildWebSite()]
 
   // The homepage has no sidebar entry (see vite.config.ts's `sidebar` map)
-  // and no page anchors for Toc to list, so both columns are always empty
-  // there anyway; collapsing the grid to a single full-width column lets
+  // and no Toc (its section headings aren't an article outline, see the
+  // markup below), so both side columns would be empty; collapsing the grid to a single full-width column lets
   // its hero go edge-to-edge instead of sitting in the narrower middle
   // track. Sidebar itself stays mounted regardless (see .shell--full
   // :global(.sidebar) below): it's still the mobile hamburger drawer.
@@ -150,7 +150,9 @@
   {@render children?.()}
   {#if isMedia}
     <MediaFilters variant="desktop" />
-  {:else}
+  {:else if !isHome}
+    <!-- The homepage's section headings are a landing page's, not an
+         article outline, and its single-column shell has no toc track. -->
     <Toc />
   {/if}
 </div>
