@@ -3,6 +3,7 @@ title: "Bike Box"
 description: "A designated waiting area marked at the head of a signalized intersection, positioned ahead of the vehicle stop line, allowing cyclists to position themselves in front of queued vehicles during a red signal for improved visibility and to enable a safer left turn or through movement."
 patternId: ELM-BKB-42
 status: recommended
+image: /patterns/elm-bkb-42-bike-box.png
 date: 2026-08-31
 llms: "A designated waiting area marked at the head of a signalized intersection, positioned ahead of the vehicle stop line, allowing cyclists to position themselves in front of queued vehicles during a red signal for improved visibility and to enable a safer left turn or through movement."
 ---
