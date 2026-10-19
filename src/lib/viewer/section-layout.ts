@@ -152,7 +152,7 @@ export function layoutAnnotations(o: AnnotationInput): AnnotationLayout {
   const labels: StripLabel[] = o.cols.map((c) => {
     const room = c.x1 - c.x0 - 6
     const full = o.labels ? segmentLabel(c.s).toUpperCase() : ''
-    const short = o.labels ? (c.s.label ? c.s.label.split(' ')[0] : SHORT[c.s.type]).toUpperCase() : ''
+    const short = o.labels ? (c.s.shortLabel ?? (c.s.label ? c.s.label.split(' ')[0] : SHORT[c.s.type])).toUpperCase() : ''
     const width = o.dimensions ? formatLength(c.wd, o.units) : ''
     if (!width || o.measure(width, num) <= room + 2) {
       const lines = full ? (across(full, room) ?? across(short, room)) : []

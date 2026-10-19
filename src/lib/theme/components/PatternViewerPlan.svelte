@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { barrierTop, bikeLaneSymbol, laneArrow, makeIds, makeStamps, seedOf, sharrow, streetItemTop } from '$lib/viewer/art'
-  import { breakpoints, FEATURE_LABELS, isRaised, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
+  import { breakpoints, FEATURE_LABELS, isRaised, levelOf, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
   import { formatLength } from '$lib/viewer/state'
   import type { RendererProps, Segment, StreetConfig, StreetFeature } from '$lib/viewer/types'
 
@@ -139,7 +139,7 @@
       const next = config.segments[i + 1]
       const pair = (a: Segment['type'], b: Segment['type']) => (s.type === a && next.type === b) || (s.type === b && next.type === a)
       const off = (d: number) => xs.map((x, k) => `${k ? 'L' : 'M'} ${X(x)} ${at[k][i].bottom + d}`).join(' ')
-      if (isRaised(s) !== isRaised(next))
+      if (levelOf(s) !== levelOf(next))
         return [{ d: edge, cls: 'curb-line', dash: '' }]
       if (LANES.has(s.type) && LANES.has(next.type)) {
         if (s.type === 'turn-lane' || next.type === 'turn-lane')

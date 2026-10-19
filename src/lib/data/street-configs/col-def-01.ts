@@ -1,4 +1,4 @@
-import type { ViewerData } from '$lib/viewer/types'
+import type { ConfigEntry, Segment, StreetConfig, ViewerData } from '$lib/viewer/types'
 
 // Default (Standard Collector), COL-DEF-01.
 // The descriptions follow this page's Layered guidance table (citation
@@ -6,13 +6,72 @@ import type { ViewerData } from '$lib/viewer/types'
 // [2], NACTO's 10 ft [3], 7 ft parking minimum and 8 ft desirable [13], PROWAG's
 // 4 ft sidewalk minimum [7], NACTO's 5 to 7 ft residential sidewalk [8], 2 ft
 // buffer minimum and 3 ft beside parking [5]. Not sourced, drawn as typical:
-// the 6 ft protected bike lanes, the 4 ft furnishing strips, the 7 ft cycle
-// tracks in the Dutch reference, and the crosswalk and curb extension
-// placement (Complete Streets lists curb extensions as typical [4]). NACTO's
-// parking width wasn't sourced, so its rungs keep the 7 ft baseline lane.
+// the 6 ft protected bike lanes, the 4 ft furnishing strips, the flexible
+// posts in NACTO's no-parking buffer, the 7 ft cycle tracks in the Dutch
+// reference, and the crosswalk and curb extension placement (Complete
+// Streets lists curb extensions as typical [4]). NACTO's parking width wasn't
+// sourced, so its rungs keep the 7 ft baseline lane.
+//
+// Two facets: on-street parking (none, left, right, both) on every rung but
+// the Dutch reference, and where the bike lane sits (next to the street or
+// next to the sidewalk) on the Commonway System rung only. The Commonway
+// System layouts are the publication's own: parked cars protect a bike lane,
+// so it needs only an empty 3 ft door buffer, no barrier; and a planting
+// strip of trees between a raised bike lane and the road is a buffer and
+// barrier in its own right, the same protection in another form. Every
+// combination is built from the side() parts below; segment ids are the same
+// in all of them, so "what changed" and "moved" line up.
 
-const sidewalk = (id: string, width: number) => ({ id, type: 'sidewalk' as const, width })
-const lane = (id: string, width: number, direction: 'inbound' | 'outbound') => ({ id, type: 'travel-lane' as const, width, direction })
+type Side = 'l' | 'r'
+type Parking = 'none' | 'left' | 'right' | 'both'
+type Bikes = 'street' | 'sidewalk'
+type Rung = 'baseline' | 'nacto' | 'complete-streets' | 'commonway'
+
+const PARKING: Parking[] = ['none', 'left', 'right', 'both']
+const BIKES: Bikes[] = ['street', 'sidewalk']
+
+const parkedOn = (p: Parking, side: Side) => p === 'both' || (side === 'l' ? p === 'left' : p === 'right')
+
+const sidewalk = (side: Side, width: number): Segment => ({ id: `sw-${side}`, type: 'sidewalk', width })
+const planting = (side: Side): Segment => ({ id: `fs-${side}`, type: 'furnishing', width: 4, items: [{ type: 'tree', spacing: 30 }, { type: 'street-light', spacing: 60, start: 15 }] })
+const parking = (side: Side, width: number): Segment => ({ id: `pk-${side}`, type: 'parking', width })
+const dir = (side: Side) => side === 'l' ? 'inbound' as const : 'outbound' as const
+
+/** One side of the street, from the property line in to the center line. */
+function side(rung: Rung, s: Side, parked: boolean, bikes: Bikes): Segment[] {
+  const bike = (extra: Partial<Segment> = {}): Segment => ({ id: `bk-${s}`, type: 'protected-bike-lane', width: 6, direction: dir(s), ...extra })
+  switch (rung) {
+    case 'baseline':
+      return [sidewalk(s, 4), ...(parked ? [parking(s, 7)] : [])]
+    case 'nacto':
+    case 'complete-streets': {
+      const buffer: Segment = parked
+        ? { id: `buf-${s}`, type: 'buffer', width: 3 }
+        : { id: `buf-${s}`, type: 'buffer', width: 2, items: [{ type: 'bollard' }] }
+      return [
+        sidewalk(s, 6),
+        ...(rung === 'complete-streets' ? [planting(s)] : []),
+        bike(parked ? {} : { variant: 'flex-post' }),
+        buffer,
+        ...(parked ? [parking(s, 7)] : []),
+      ]
+    }
+    case 'commonway': {
+      const pbl = { elementId: 'ELM-PBL-37' }
+      if (bikes === 'sidewalk') {
+        return [
+          sidewalk(s, 6),
+          bike({ ...pbl, level: 'intermediate', label: 'Raised bike lane', shortLabel: 'Bike lane' }),
+          planting(s),
+          ...(parked ? [parking(s, 8)] : []),
+        ]
+      }
+      return parked
+        ? [sidewalk(s, 6), planting(s), bike(pbl), { id: `buf-${s}`, type: 'buffer', width: 3 }, parking(s, 8)]
+        : [sidewalk(s, 6), planting(s), bike({ ...pbl, variant: 'rigid-barrier' }), { id: `buf-${s}`, type: 'buffer', width: 2, items: [{ type: 'barrier' }] }]
+    }
+  }
+}
 
 // Where the cross-section can be cut, and the crosswalk both upper rungs share.
 const sections = [
@@ -21,101 +80,132 @@ const sections = [
 ]
 const crosswalk = { id: 'xw', type: 'crosswalk' as const, at: 200, length: 10 }
 
+function street(rung: Rung, p: Parking, bikes: Bikes): StreetConfig {
+  const laneW = rung === 'baseline' ? 12 : 10
+  const segments = [
+    ...side(rung, 'l', parkedOn(p, 'l'), bikes),
+    { id: 'ln-l', type: 'travel-lane' as const, width: laneW, direction: 'inbound' as const },
+    { id: 'ln-r', type: 'travel-lane' as const, width: laneW, direction: 'outbound' as const },
+    ...side(rung, 'r', parkedOn(p, 'r'), bikes).reverse(),
+  ]
+  const config: StreetConfig = { kind: 'street', frontage: { left: 'lawn', right: 'lawn' }, segments }
+  if (rung === 'complete-streets' || rung === 'commonway') {
+    config.sections = sections
+    config.features = [crosswalk]
+  }
+  // Curb extensions take the parking lane's place at the crosswalk, so only on a parked side.
+  if (rung === 'complete-streets' && p !== 'none') {
+    const widths: Record<string, number> = {}
+    for (const s of ['l', 'r'] as Side[]) {
+      if (parkedOn(p, s))
+        Object.assign(widths, { [`pk-${s}`]: 0, [`fs-${s}`]: 11 })
+    }
+    config.overrides = [{ id: 'ce', type: 'curb-extension', from: 186, to: 214, taper: 6, widths, elementId: 'ELM-CBE-02' }]
+  }
+  return config
+}
+
+const rightOfWay = (c: StreetConfig) => `Right of way: ${c.segments.reduce((t, s) => t + s.width, 0)} ft.`
+
+/** "on both sides" / "on the left side only (as drawn)" */
+const where = (p: Parking) => p === 'both' ? 'on both sides' : `on the ${p} side only (as drawn)`
+const other = (p: Parking) => p === 'left' ? 'right' : 'left'
+
+function describe(rung: Rung, p: Parking, bikes: Bikes, c: StreetConfig): { description: string, cite?: number[] } {
+  const parked = p !== 'none'
+  switch (rung) {
+    case 'baseline':
+      return {
+        description: `Two travel lanes within the AASHTO Green Book's 10 to 12 ft Collector range, drawn at 12 ft. ${parked ? `Parking lanes ${where(p)}, 7 ft, the Green Book's urban minimum.` : 'No on-street parking.'} No bike facility is required. Sidewalks are drawn at 4 ft, the PROWAG minimum clear width, though federal rules don't require a sidewalk to be built at all. ${rightOfWay(c)}`,
+        cite: parked ? [2, 13, 7] : [2, 7],
+      }
+    case 'nacto':
+    case 'complete-streets': {
+      const parkedText = 'parked cars protect it, with a 3 ft buffer for opening car doors'
+      const postText = 'a 2 ft buffer with flexible posts protects it'
+      const protection = p === 'both'
+        ? `Parking lanes are 7 ft on both sides; ${parkedText}.`
+        : p === 'none'
+          ? `There's no on-street parking, so ${postText}.`
+          : `Parking is 7 ft, on the ${p} side only (as drawn). On that side ${parkedText}; on the ${other(p)} side ${postText}.`
+      if (rung === 'nacto') {
+        return {
+          description: `Travel lanes narrow to 10 ft, NACTO's urban recommendation. Each side gets a protected bike lane instead of a painted one. ${protection} The sidewalk widens to a 6 ft through zone, inside NACTO's 5 to 7 ft residential range. ${rightOfWay(c)}`,
+          cite: [3, 5, 8],
+        }
+      }
+      return {
+        description: `A Complete Streets policy lists sidewalks, bike lanes or wide shoulders, narrower travel lanes and curb extensions as typical elements, without setting widths. The drawing keeps the NACTO dimensions and adds a furnishing strip with street trees. ${protection} ${parked ? `Curb extensions take the parking lane's place where the sidewalk meets a marked crosswalk, ${where(p)}.` : 'No curb extensions are drawn, since there\'s no parking lane for them to take the place of.'} ${rightOfWay(c)}`,
+        cite: [4],
+      }
+    }
+    case 'commonway': {
+      const base = 'Two 10 ft travel lanes, one each way, and 6 ft sidewalks with a 4 ft planting strip of street trees on both sides.'
+      const decision = 'This layout is a Commonway System decision.'
+      if (bikes === 'street') {
+        const protection = p === 'none'
+          ? 'There\'s no on-street parking, so on each side a rigid barrier in a 2 ft buffer protects the bike lane.'
+          : p === 'both'
+            ? 'Parking lanes are 8 ft on both sides. The parked cars protect the bike lanes, so no barrier is needed, only an empty 3 ft buffer for opening car doors.'
+            : `Parking is 8 ft, on the ${p} side only (as drawn). On that side the parked cars protect the bike lane, so it needs no barrier, only an empty 3 ft buffer for opening car doors; on the ${other(p)} side a rigid barrier in a 2 ft buffer protects it.`
+        return {
+          description: `${base} The 6 ft protected bike lanes run next to the street. ${protection} ${decision} ${rightOfWay(c)}`,
+          cite: parked ? [3, 13, 5] : [3],
+        }
+      }
+      const protection = p === 'none'
+        ? 'There\'s no on-street parking, so the trees must be there: they are the barrier.'
+        : p === 'both'
+          ? 'Parking lanes are 8 ft on both sides, between the travel lanes and the planting strips; the parked cars protect the bike lanes too, so there the trees aren\'t what keeps riders safe.'
+          : `Parking is 8 ft, on the ${p} side only (as drawn), where the parked cars protect the bike lane too. On the ${other(p)} side the trees must be there: they are the barrier.`
+      return {
+        description: `${base} The 6 ft bike lanes run next to the sidewalk instead, raised a step below it, with a narrow sloped edge strip a rider can ride up onto safely if they drift. The planting strip and its trees are the buffer and the barrier between the bike lane and traffic: the same protection a rigid barrier gives, in another form. ${protection} ${decision} ${rightOfWay(c)}`,
+        cite: parked ? [3, 13] : [3],
+      }
+    }
+  }
+}
+
+function entries(rung: Rung): ConfigEntry[] {
+  const bikeChoices: Bikes[] = rung === 'commonway' ? BIKES : ['street']
+  return PARKING.flatMap(p => bikeChoices.map((bikes) => {
+    const config = street(rung, p, bikes)
+    const when: Record<string, string> = rung === 'commonway' ? { parking: p, bikes } : { parking: p }
+    return { id: rung, ...describe(rung, p, bikes, config), config, when }
+  }))
+}
+
 const data: ViewerData = {
   id: 'COL-DEF-01',
   views: [
     { id: 'section', label: 'Cross-section', kind: 'cross-section' },
     { id: 'plan', label: 'Top down', kind: 'plan' },
   ],
+  facets: [
+    {
+      id: 'parking',
+      label: 'On-street parking',
+      options: [
+        { id: 'none', label: 'None' },
+        { id: 'left', label: 'Left side' },
+        { id: 'right', label: 'Right side' },
+        { id: 'both', label: 'Both sides' },
+      ],
+    },
+    {
+      id: 'bikes',
+      label: 'Bike lane',
+      options: [
+        { id: 'street', label: 'Next to the street' },
+        { id: 'sidewalk', label: 'Next to the sidewalk' },
+      ],
+    },
+  ],
   configs: [
-    {
-      id: 'baseline',
-      description: 'Two travel lanes within the AASHTO Green Book\'s 10 to 12 ft Collector range, drawn at 12 ft, with 7 ft parking lanes, the Green Book\'s urban minimum. No bike facility is required. Sidewalks are drawn at 4 ft, the PROWAG minimum clear width, though federal rules don\'t require a sidewalk to be built at all.',
-      cite: [2, 13, 7],
-      config: {
-        kind: 'street',
-        frontage: { left: 'lawn', right: 'lawn' },
-        segments: [
-          sidewalk('sw-l', 4),
-          { id: 'pk-l', type: 'parking', width: 7 },
-          lane('ln-l', 12, 'inbound'),
-          lane('ln-r', 12, 'outbound'),
-          { id: 'pk-r', type: 'parking', width: 7 },
-          sidewalk('sw-r', 4),
-        ],
-      },
-    },
-    {
-      id: 'nacto',
-      description: 'Travel lanes narrow to 10 ft, NACTO\'s urban recommendation. Each side gets a protected bike lane instead of a painted one, with a buffer of at least 2 ft, 3 ft next to parking. The sidewalk widens to a 6 ft through zone, inside NACTO\'s 5 to 7 ft residential range.',
-      cite: [3, 5, 8],
-      config: {
-        kind: 'street',
-        frontage: { left: 'lawn', right: 'lawn' },
-        segments: [
-          sidewalk('sw-l', 6),
-          { id: 'bk-l', type: 'protected-bike-lane', width: 6, direction: 'inbound' },
-          { id: 'buf-l', type: 'buffer', width: 3 },
-          { id: 'pk-l', type: 'parking', width: 7 },
-          lane('ln-l', 10, 'inbound'),
-          lane('ln-r', 10, 'outbound'),
-          { id: 'pk-r', type: 'parking', width: 7 },
-          { id: 'buf-r', type: 'buffer', width: 3 },
-          { id: 'bk-r', type: 'protected-bike-lane', width: 6, direction: 'outbound' },
-          sidewalk('sw-r', 6),
-        ],
-      },
-    },
-    {
-      id: 'complete-streets',
-      description: 'A Complete Streets policy lists sidewalks, bike lanes or wide shoulders, narrower travel lanes and curb extensions as typical elements, without setting widths. The drawing keeps the NACTO dimensions and adds a furnishing strip with street trees, and curb extensions where the sidewalk meets a marked crosswalk.',
-      cite: [4],
-      config: {
-        kind: 'street',
-        frontage: { left: 'lawn', right: 'lawn' },
-        segments: [
-          sidewalk('sw-l', 6),
-          { id: 'fs-l', type: 'furnishing', width: 4, items: [{ type: 'tree', spacing: 30 }, { type: 'street-light', spacing: 60, start: 15 }] },
-          { id: 'bk-l', type: 'protected-bike-lane', width: 6, direction: 'inbound' },
-          { id: 'buf-l', type: 'buffer', width: 3 },
-          { id: 'pk-l', type: 'parking', width: 7 },
-          lane('ln-l', 10, 'inbound'),
-          lane('ln-r', 10, 'outbound'),
-          { id: 'pk-r', type: 'parking', width: 7 },
-          { id: 'buf-r', type: 'buffer', width: 3 },
-          { id: 'bk-r', type: 'protected-bike-lane', width: 6, direction: 'outbound' },
-          { id: 'fs-r', type: 'furnishing', width: 4, items: [{ type: 'tree', spacing: 30 }, { type: 'street-light', spacing: 60, start: 15 }] },
-          sidewalk('sw-r', 6),
-        ],
-        sections,
-        features: [crosswalk],
-        overrides: [
-          { id: 'ce', type: 'curb-extension', from: 186, to: 214, taper: 6, widths: { 'pk-l': 0, 'fs-l': 11, 'pk-r': 0, 'fs-r': 11 }, elementId: 'ELM-CBE-02' },
-        ],
-      },
-    },
-    {
-      id: 'commonway',
-      description: 'Two 10 ft travel lanes, one each way. A protected bike lane on each side behind a rigid barrier, which needs no minimum buffer width. Sidewalks on both sides sized to NACTO\'s range, with a furnishing strip. On-street parking is optional and left out here; where it is provided, it gets 8 ft.',
-      config: {
-        kind: 'street',
-        frontage: { left: 'lawn', right: 'lawn' },
-        segments: [
-          sidewalk('sw-l', 6),
-          { id: 'fs-l', type: 'furnishing', width: 4, items: [{ type: 'tree', spacing: 30 }, { type: 'street-light', spacing: 60, start: 15 }] },
-          { id: 'bk-l', type: 'protected-bike-lane', width: 6, direction: 'inbound', variant: 'rigid-barrier', elementId: 'ELM-PBL-37' },
-          { id: 'buf-l', type: 'buffer', width: 2, items: [{ type: 'barrier' }] },
-          lane('ln-l', 10, 'inbound'),
-          lane('ln-r', 10, 'outbound'),
-          { id: 'buf-r', type: 'buffer', width: 2, items: [{ type: 'barrier' }] },
-          { id: 'bk-r', type: 'protected-bike-lane', width: 6, direction: 'outbound', variant: 'rigid-barrier', elementId: 'ELM-PBL-37' },
-          { id: 'fs-r', type: 'furnishing', width: 4, items: [{ type: 'tree', spacing: 30 }, { type: 'street-light', spacing: 60, start: 15 }] },
-          sidewalk('sw-r', 6),
-        ],
-        sections,
-        features: [crosswalk],
-      },
-    },
+    ...entries('baseline'),
+    ...entries('nacto'),
+    ...entries('complete-streets'),
+    ...entries('commonway'),
     {
       id: 'dutch',
       description: 'The closest Dutch peer is a distributor road. Above 30 km/h (about 19 mph), cyclists get a physically separated cycle track, not a painted lane. There is no on-street parking and no direct property access; both belong on local access streets.',
@@ -124,14 +214,14 @@ const data: ViewerData = {
         kind: 'street',
         frontage: { left: 'lawn', right: 'lawn' },
         segments: [
-          sidewalk('sw-l', 6),
+          sidewalk('l', 6),
           { id: 'bk-l', type: 'protected-bike-lane', width: 7, direction: 'both', variant: 'cycle-track' },
           { id: 'fs-l', type: 'furnishing', width: 4, items: [{ type: 'tree', spacing: 30 }] },
-          lane('ln-l', 10, 'inbound'),
-          lane('ln-r', 10, 'outbound'),
+          { id: 'ln-l', type: 'travel-lane', width: 10, direction: 'inbound' },
+          { id: 'ln-r', type: 'travel-lane', width: 10, direction: 'outbound' },
           { id: 'fs-r', type: 'furnishing', width: 4, items: [{ type: 'tree', spacing: 30 }] },
           { id: 'bk-r', type: 'protected-bike-lane', width: 7, direction: 'both', variant: 'cycle-track' },
-          sidewalk('sw-r', 6),
+          sidewalk('r', 6),
         ],
       },
     },

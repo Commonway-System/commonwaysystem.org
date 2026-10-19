@@ -3,7 +3,7 @@
 // "what changed" comparison. Pure functions, no DOM, so they run during
 // prerendering too.
 import { formatLength } from './state.js'
-import type { Change, ConfigEntry, FeatureType, ItemType, Marking, Segment, SegmentType, ShapeOverride, StreetConfig, Surface, Units } from './types.js'
+import type { Change, ConfigEntry, FeatureType, ItemType, Level, Marking, Segment, SegmentType, ShapeOverride, StreetConfig, Surface, Units } from './types.js'
 
 export const SEGMENT_LABELS: Record<SegmentType, string> = {
   'sidewalk': 'Sidewalk',
@@ -85,10 +85,21 @@ export function segmentLabel(s: Segment): string {
   return s.label ?? SEGMENT_LABELS[s.type]
 }
 
-/** Segments raised to sidewalk level (drawn above the road surface). */
-export function isRaised(s: Segment): boolean {
-  return s.type === 'sidewalk' || s.type === 'furnishing' || s.type === 'median' || s.variant === 'raised' || s.variant === 'cycle-track'
+/** A strip's surface height: its own `level`, or the default for its type. */
+export function levelOf(s: Segment): Level {
+  if (s.level)
+    return s.level
+  if (s.type === 'sidewalk' || s.type === 'furnishing' || s.type === 'median' || s.type === 'curb' || s.variant === 'raised' || s.variant === 'cycle-track')
+    return 'sidewalk'
+  return 'road'
 }
+
+/** Segments above the road surface (sidewalk level or a step below it): outside the curb-to-curb roadway. */
+export function isRaised(s: Segment): boolean {
+  return levelOf(s) !== 'road'
+}
+
+const LEVEL_WORDS: Record<Level, string> = { 'road': 'at road level', 'intermediate': 'raised a step below the sidewalk', 'sidewalk': 'at sidewalk level' }
 
 export function totalWidth(config: StreetConfig, at?: number): number {
   return widthsAt(config, at).reduce((a, b) => a + b, 0)
@@ -153,6 +164,7 @@ export function diffStreets(current: StreetConfig, previous: StreetConfig, units
   const prevById = new Map(previous.segments.map(s => [s.id, s]))
   const curIds = new Set(current.segments.map(s => s.id))
   const len = (ft: number) => formatLength(ft, units)
+  const moved = movedIds(current.segments, previous.segments)
 
   for (const seg of current.segments) {
     const old = prevById.get(seg.id)
@@ -172,6 +184,10 @@ export function diffStreets(current: StreetConfig, previous: StreetConfig, units
       parts.push(`now ${SURFACE_WORDS[surfaceOf(seg)]}`)
     if (old.type === seg.type && markingOf(old) !== markingOf(seg))
       parts.push(markingOf(seg) === 'none' ? 'markings removed' : `adds ${MARKING_WORDS[markingOf(seg)]}`)
+    if (segmentLabel(old) === segmentLabel(seg) && levelOf(old) !== levelOf(seg))
+      parts.push(`now ${LEVEL_WORDS[levelOf(seg)]}`)
+    if (moved.has(seg.id))
+      parts.unshift(`moved, now ${placeOf(current.segments, seg.id)}`)
     const added = itemTypes(seg).filter(t => !itemTypes(old).includes(t))
     const removed = itemTypes(old).filter(t => !itemTypes(seg).includes(t))
     if (added.length)
@@ -201,6 +217,12 @@ export function diffStreets(current: StreetConfig, previous: StreetConfig, units
         raw.push({ kind: 'removed', text: `Removed: ${label(old).toLowerCase()}` })
     }
   }
+  // The whole street getting wider or narrower (adding parking, say).
+  const was = totalWidth(previous)
+  const now = totalWidth(current)
+  if (Math.abs(was - now) > 0.05)
+    raw.push({ kind: 'changed', text: `Right of way: ${len(was)} to ${len(now)}` })
+
   compareMarks(current.features ?? [], previous.features ?? [], f => f.label ?? FEATURE_LABELS[f.type], (a, b) => JSON.stringify(a) === JSON.stringify(b))
   compareMarks(current.overrides ?? [], previous.overrides ?? [], o => o.label ?? OVERRIDE_LABELS[o.type], (a, b) => JSON.stringify(a) === JSON.stringify(b))
 
@@ -217,6 +239,63 @@ export function diffStreets(current: StreetConfig, previous: StreetConfig, units
       c.marks.push(r.mark)
   }
   return changes
+}
+
+/**
+ * Which kept segments changed places. The segments both lists share are
+ * matched in order (a heaviest common subsequence); whatever falls outside
+ * the match moved. Travel modes weigh least, so when a bike lane and a
+ * planting strip swap, the bike lane is the one reported as moved.
+ */
+const STAY_WEIGHT: Partial<Record<SegmentType, number>> = { 'sidewalk': 4, 'travel-lane': 4, 'turn-lane': 4, 'transit-lane': 4, 'median': 3, 'furnishing': 2, 'buffer': 2, 'curb': 2, 'parking': 1.5 }
+
+function movedIds(current: Segment[], previous: Segment[]): Set<string> {
+  const prevIds = new Set(previous.map(s => s.id))
+  const curIds = new Set(current.map(s => s.id))
+  const a = current.filter(s => prevIds.has(s.id))
+  const b = previous.filter(s => curIds.has(s.id))
+  const wt = (s: Segment) => STAY_WEIGHT[s.type] ?? 1
+  const n = a.length
+  const m = b.length
+  const dp = Array.from({ length: n + 1 }, () => Array.from<number>({ length: m + 1 }).fill(0))
+  for (let i = n - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) {
+      dp[i][j] = a[i].id === b[j].id
+        ? dp[i + 1][j + 1] + wt(a[i])
+        : Math.max(dp[i + 1][j], dp[i][j + 1])
+    }
+  }
+  const kept = new Set<string>()
+  for (let i = 0, j = 0; i < n && j < m;) {
+    if (a[i].id === b[j].id) {
+      kept.add(a[i].id)
+      i++
+      j++
+    }
+    else if (dp[i + 1][j] >= dp[i][j + 1]) {
+      i++
+    }
+    else {
+      j++
+    }
+  }
+  return new Set(a.filter(s => !kept.has(s.id)).map(s => s.id))
+}
+
+/**
+ * "between the sidewalk and the furnishing strip", from the segment's
+ * neighbors, the one nearer its own property line first, so a lane that
+ * moved the same way on both sides gets the same words (and one number).
+ */
+function placeOf(segments: Segment[], id: string): string {
+  const i = segments.findIndex(s => s.id === id)
+  const total = segments.reduce((t, s) => t + s.width, 0)
+  const center = segments.slice(0, i).reduce((t, s) => t + s.width, 0) + segments[i].width / 2
+  const name = (s?: Segment) => s ? `the ${segmentLabel(s).toLowerCase()}` : 'the property line'
+  const pair = [name(segments[i - 1]), name(segments[i + 1])]
+  if (center > total / 2)
+    pair.reverse()
+  return `between ${pair[0]} and ${pair[1]}`
 }
 
 /** Changes between two entries, or none when either isn't a street (intersections compare later). */

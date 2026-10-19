@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Annotations, ConfigId, Facet, Units } from '$lib/viewer/types'
+  import type { Annotations, CompareTarget, ConfigId, Facet, Units } from '$lib/viewer/types'
   import { CONFIG_SHORT_LABELS } from '$lib/viewer/types'
 
   // The controls under (or, in full view, beside) the drawing: the
@@ -19,10 +19,14 @@
     onconfig: (id: ConfigId) => void
     /** Offer compare mode at all (this view allows it and there are two or more configurations). */
     canCompare: boolean
-    compare: ConfigId | undefined
-    oncompare: (id: ConfigId | undefined) => void
+    compare: CompareTarget | undefined
+    oncompare: (id: CompareTarget | undefined) => void
     compareDefault: ConfigId | undefined
+    /** The same configuration with one facet set otherwise ("parking:both"), offered in the compare list. */
+    optionTargets?: { value: CompareTarget, label: string }[]
     facets: Facet[]
+    /** Whether a facet changes anything on the configuration on show. */
+    facetApplicable?: (facetId: string) => boolean
     facetValues: Record<string, string>
     onfacet: (id: string, value: string) => void
     annotations: Annotations
@@ -51,7 +55,9 @@
     compare,
     oncompare,
     compareDefault,
+    optionTargets = [],
     facets,
+    facetApplicable = () => true,
     facetValues,
     onfacet,
     annotations,
@@ -131,34 +137,47 @@
     </div>
   {/if}
 
-  {#if facets.length}
-    <div class="pvc__row">
-      {#each facets as facet (facet.id)}
-        <label class="pvc__field">
-          <span>{facet.label}</span>
-          <select value={facetValues[facet.id]} onchange={e => onfacet(facet.id, e.currentTarget.value)}>
-            {#each facet.options as option (option.id)}
-              <option value={option.id}>{option.label}</option>
-            {/each}
-          </select>
-        </label>
-      {/each}
-    </div>
-  {/if}
+  <!-- One row of buttons per facet. Disabled, with a note, where the
+       configuration on show doesn't vary that way (no bike lane to move on
+       the Federal / State minimum). -->
+  {#each facets as facet (facet.id)}
+    {@const applies = facetApplicable(facet.id)}
+    <fieldset class="pvc__group pvc__facet" disabled={!applies} aria-describedby={applies ? undefined : `${idPrefix}-na-${facet.id}`}>
+      <legend class="pvc__legend">{facet.label}</legend>
+      <div class="pvc__choices">
+        {#each facet.options as option (option.id)}
+          <label class="pvc__choice">
+            <input type="radio" name="{idPrefix}-facet-{facet.id}" value={option.id} checked={facetValues[facet.id] === option.id} onchange={() => onfacet(facet.id, option.id)} />
+            <span>{option.label}</span>
+          </label>
+        {/each}
+      </div>
+      {#if !applies && config}
+        <p class="pvc__na" id="{idPrefix}-na-{facet.id}">Doesn't apply to {labelFor(config)}.</p>
+      {/if}
+    </fieldset>
+  {/each}
 
   <div class="pvc__row">
-    {#if canCompare && compareOptions.length}
+    {#if canCompare && (compareOptions.length || optionTargets.length)}
       <label class="pvc__check">
-        <input type="checkbox" checked={compare !== undefined} onchange={e => oncompare(e.currentTarget.checked ? (compareDefault && compareDefault !== config ? compareDefault : compareOptions[0]) : undefined)} />
+        <input type="checkbox" checked={compare !== undefined} onchange={e => oncompare(e.currentTarget.checked ? (compareDefault && compareDefault !== config ? compareDefault : compareOptions[0] ?? optionTargets[0]?.value) : undefined)} />
         <span>Compare side by side</span>
       </label>
       {#if compare !== undefined}
         <label class="pvc__field">
           <span>with</span>
-          <select value={compare} onchange={e => oncompare(e.currentTarget.value as ConfigId)}>
+          <select value={compare} onchange={e => oncompare(e.currentTarget.value as CompareTarget)}>
             {#each compareOptions as id (id)}
               <option value={id}>{labelFor(id)}</option>
             {/each}
+            {#if optionTargets.length}
+              <optgroup label="{config ? labelFor(config) : 'This configuration'}, with">
+                {#each optionTargets as t (t.value)}
+                  <option value={t.value}>{t.label}</option>
+                {/each}
+              </optgroup>
+            {/if}
           </select>
         </label>
       {/if}
@@ -387,6 +406,95 @@
 
     .pvc__tip {
       border: 1px solid CanvasText;
+    }
+  }
+
+  /* Facet choices: a row of pill buttons, wrapping on a narrow viewer. */
+  .pvc__choices {
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    max-width: 100%;
+    border: 1px solid var(--cw-hairline-strong);
+    border-radius: var(--cw-radius-md);
+    background: var(--cw-hairline-strong);
+    gap: 1px;
+    overflow: hidden;
+  }
+
+  .pvc__choices:has(input:focus-visible) {
+    outline: 2px solid var(--cw-primary);
+    outline-offset: 2px;
+  }
+
+  .pvc__choice {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    cursor: pointer;
+  }
+
+  .pvc__choice input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .pvc__choice span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    padding: 0.25rem 0.7rem;
+    white-space: nowrap;
+    color: var(--cw-ink);
+    background: var(--cw-paper);
+  }
+
+  .pvc__choice input:checked + span {
+    background: var(--cw-primary);
+    color: var(--cw-paper);
+  }
+
+  .pvc__choice input:focus-visible + span {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  /* Not applicable: the chosen option stays visible, quietly. */
+  .pvc__facet:disabled .pvc__choice {
+    cursor: not-allowed;
+  }
+
+  .pvc__facet:disabled .pvc__choice span {
+    color: var(--cw-ink-soft);
+  }
+
+  .pvc__facet:disabled .pvc__choice input:checked + span {
+    background: var(--cw-hairline);
+    color: var(--cw-ink-soft);
+  }
+
+  .pvc__na {
+    margin: 0.3rem 0 0;
+    color: var(--cw-ink-soft);
+    font-size: 0.8125rem;
+  }
+
+  @media (forced-colors: active) {
+    .pvc__choice input:checked + span {
+      forced-color-adjust: none;
+      background: Highlight;
+      color: HighlightText;
+    }
+
+    .pvc__facet:disabled .pvc__choice input:checked + span {
+      background: GrayText;
+      color: Canvas;
     }
   }
 

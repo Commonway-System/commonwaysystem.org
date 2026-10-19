@@ -1,16 +1,18 @@
 <script lang="ts">
   import { onDestroy, onMount, tick } from 'svelte'
   import { replaceState } from '$app/navigation'
-  import type { Annotations, ConfigEntry, ConfigId, Units, ViewerData, ViewSpec } from '$lib/viewer/types'
+  import type { Annotations, Change, CompareTarget, ConfigEntry, ConfigId, Units, ViewerData, ViewSpec } from '$lib/viewer/types'
   import { CONFIG_LABELS, CONFIG_SHORT_LABELS } from '$lib/viewer/types'
   import { diffEntries } from '$lib/viewer/geometry'
   import {
     configIds,
     defaultCompare,
     defaultConfig,
+    facetApplies,
     facetDefaults,
     ladderIds,
     loadUnits,
+    parseOptionTarget,
     readUrlState,
     referenceIds,
     RESERVED_PARAMS,
@@ -105,11 +107,35 @@
   let chosenConfig = $state<ConfigId | undefined>()
   const config = $derived(chosenConfig && allIds.includes(chosenConfig) ? chosenConfig : baseConfig)
 
-  let compare = $state<ConfigId | undefined>()
-  const compareActive = $derived(isConfigView && view.compare !== false && compare !== undefined && compare !== config && allIds.includes(compare) ? compare : undefined)
-
   let chosenFacets = $state<Record<string, string>>({})
   const facetValues = $derived({ ...facetDefaults(data?.facets), ...chosenFacets })
+
+  // Compare against another configuration, or against this one with one
+  // facet set to another option ("parking:both").
+  let compare = $state<CompareTarget | undefined>()
+  const compareActive = $derived.by((): CompareTarget | undefined => {
+    if (!isConfigView || !data || view.compare === false || compare === undefined)
+      return undefined
+    const opt = parseOptionTarget(compare)
+    if (opt) {
+      const facet = data.facets?.find(f => f.id === opt.facet)
+      const ok = facet?.options.some(o => o.id === opt.option) && opt.option !== facetValues[opt.facet] && facetApplies(data, opt.facet, config)
+      return ok ? compare : undefined
+    }
+    return compare !== config && allIds.includes(compare as ConfigId) ? compare : undefined
+  })
+
+  /** "On-street parking: Both sides" */
+  function choiceText(facetId: string, optionId: string | undefined) {
+    const facet = data?.facets?.find(f => f.id === facetId)
+    return `${facet?.label ?? facetId}: ${facet?.options.find(o => o.id === optionId)?.label ?? optionId}`
+  }
+
+  // The other choices compare mode can show for the configuration on show.
+  const optionTargets = $derived((data?.facets ?? [])
+    .filter(f => data && facetApplies(data, f.id, config))
+    .flatMap(f => f.options.filter(o => o.id !== facetValues[f.id]).map(o => ({ value: `${f.id}:${o.id}` as CompareTarget, label: `${f.label}: ${o.label}` }))))
+  const facetApplicable = (facetId: string) => Boolean(data && facetApplies(data, facetId, config))
 
   let annotations = $state<Annotations>({ labels: true, dimensions: true, changes: true, slice: true })
 
@@ -124,11 +150,29 @@
     return data ? resolveEntry(data, id, facetValues) : undefined
   }
 
-  // One pane, or two in compare mode with the lower rung (or Before) first.
-  const panes = $derived.by(() => {
+  interface Pane { key: string, entry: ConfigEntry, changedFrom?: ConfigEntry, changedLabel?: string, caption: string, changes: Change[] }
+
+  // One pane, or two in compare mode: the lower rung (or Before) first, or,
+  // comparing two choices, the one on show first and the other choice
+  // second, its changes counted from the first.
+  const panes = $derived.by((): Pane[] => {
     if (!isConfigView || !data)
       return []
-    const ids = (compareActive ? [config, compareActive] : [config])
+    const opt = parseOptionTarget(compareActive)
+    if (opt && config) {
+      const a = entryFor(config)
+      const b = resolveEntry(data, config, { ...facetValues, [opt.facet]: opt.option })
+      if (!a || !b)
+        return []
+      const below = entryFor(rungBelow(data, config))
+      const capA = `${labelFor(config)} (${choiceText(opt.facet, facetValues[opt.facet])})`
+      const capB = `${labelFor(config)} (${choiceText(opt.facet, opt.option)})`
+      return [
+        { key: 'a', entry: a, changedFrom: below, changedLabel: below ? labelFor(below.id) : undefined, caption: capA, changes: annotations.changes ? diffEntries(a, below, $units) : [] },
+        { key: 'b', entry: b, changedFrom: a, changedLabel: capA, caption: capB, changes: annotations.changes ? diffEntries(b, a, $units) : [] },
+      ]
+    }
+    const ids = (compareActive ? [config, compareActive as ConfigId] : [config])
       .filter((id): id is ConfigId => Boolean(id))
       .sort((a, b) => allIds.indexOf(a) - allIds.indexOf(b))
     return ids.flatMap((id) => {
@@ -137,7 +181,7 @@
         return []
       const changedFrom = entryFor(rungBelow(data, id))
       const changes = annotations.changes ? diffEntries(entry, changedFrom, $units) : []
-      return [{ entry, changedFrom, caption: labelFor(id), changes }]
+      return [{ key: id, entry, changedFrom, changedLabel: changedFrom ? labelFor(changedFrom.id) : undefined, caption: labelFor(id), changes }]
     })
   })
 
@@ -321,17 +365,15 @@
       allDetails.open = true
   }
 
+  /** "On-street parking: None; Bike lane: Next to the street" */
   function whenText(entry: ConfigEntry) {
     if (!entry.when || !data?.facets)
       return ''
-    const parts = Object.entries(entry.when).map(([k, v]) => {
-      const facet = data.facets?.find(f => f.id === k)
-      return facet?.options.find(o => o.id === v)?.label ?? v
-    })
-    return parts.length ? ` (${parts.join(', ')})` : ''
+    return Object.entries(entry.when).map(([k, v]) => choiceText(k, v)).join('; ')
   }
 
-  const describedEntries = $derived(data ? [...data.configs].sort((a, b) => allIds.indexOf(a.id) - allIds.indexOf(b.id)) : [])
+  // Grouped by configuration, each group's variants (one per facet choice) listed under it.
+  const describedGroups = $derived(data ? allIds.map(id => ({ id, entries: data.configs.filter(e => e.id === id) })) : [])
 </script>
 
 {#snippet description(entry: ConfigEntry, label: string)}
@@ -379,11 +421,13 @@
             {shortLabelFor}
             {config}
             onconfig={setConfig}
-            canCompare={view.compare !== false && allIds.length > 1}
+            canCompare={view.compare !== false && (allIds.length > 1 || optionTargets.length > 0)}
             compare={compareActive}
             oncompare={(id) => { compare = id }}
             compareDefault={data ? defaultCompare(data, config) : undefined}
+            {optionTargets}
             facets={data?.facets ?? []}
+            {facetApplicable}
             {facetValues}
             onfacet={(id, value) => { chosenFacets = { ...chosenFacets, [id]: value } }}
             {annotations}
@@ -400,10 +444,10 @@
       {/if}
       <div class="pv__desc" id={descriptionId}>
         {#if isConfigView}
-          {#each panes as pane (pane.entry.id)}
+          {#each panes as pane (pane.key)}
             {@render description(pane.entry, pane.caption)}
             {#if pane.changes.length && pane.changedFrom}
-              <p class="pv__changes-h">What changed from {labelFor(pane.changedFrom.id)}:</p>
+              <p class="pv__changes-h">What changed from {pane.changedLabel}:</p>
               <ol class="pv__changes">
                 {#each pane.changes as change (change.n)}
                   <li value={change.n}>{change.text}</li>
@@ -432,13 +476,27 @@
     {/if}
   </div>
 
-  {#if describedEntries.length}
+  {#snippet allText(entry: ConfigEntry)}
+    {entry.description}{#each entry.cite ?? [] as n (n)}<Citation index={n} />{/each}{#if entry.link}{' '}<a href={entry.link.href}>{entry.link.label}</a>{/if}
+  {/snippet}
+
+  {#if describedGroups.length}
     <details class="pv__all" bind:this={allDetails}>
       <summary>All configurations, in words</summary>
       <dl>
-        {#each describedEntries as entry, i (i)}
-          <dt>{labelFor(entry.id)}{whenText(entry)}</dt>
-          <dd>{entry.description}{#each entry.cite ?? [] as n (n)}<Citation index={n} />{/each}{#if entry.link}{' '}<a href={entry.link.href}>{entry.link.label}</a>{/if}</dd>
+        {#each describedGroups as group (group.id)}
+          <dt>{labelFor(group.id)}</dt>
+          {#if group.entries.length === 1 && !group.entries[0].when}
+            <dd>{@render allText(group.entries[0])}</dd>
+          {:else}
+            <dd>
+              <ul class="pv__variants">
+                {#each group.entries as entry, i (i)}
+                  <li>{#if entry.when}<strong>{whenText(entry)}.</strong>{' '}{/if}{@render allText(entry)}</li>
+                {/each}
+              </ul>
+            </dd>
+          {/if}
         {/each}
       </dl>
     </details>
@@ -651,6 +709,15 @@
 
   .pv__all dd {
     margin: 0.15rem 0 0;
+  }
+
+  .pv__variants {
+    margin: 0.25rem 0 0;
+    padding-left: 1.2rem;
+  }
+
+  .pv__variants li + li {
+    margin-top: 0.35rem;
   }
 
   /* Full view: the whole viewport, phone safe areas respected. */

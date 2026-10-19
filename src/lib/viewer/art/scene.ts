@@ -4,7 +4,7 @@
 // and passes them in; objects standing in the scene are placed in feet with
 // place() at the glyph scale.
 
-import { surfaceOf } from '../geometry'
+import { levelOf, surfaceOf } from '../geometry'
 import type { FrontageType, Segment } from '../types'
 import type { Ids } from './core'
 import { ellipse, place, r2, rect, rng, seedOf } from './core'
@@ -38,9 +38,9 @@ export interface SceneBox {
   gs: number
 }
 
-/** Strips raised to curb height. */
+/** Strips above the road surface (sidewalk level or a step below it). */
 export function isRaisedSegment(s: Segment): boolean {
-  return s.type === 'sidewalk' || s.type === 'furnishing' || s.type === 'median' || s.type === 'curb' || s.variant === 'raised' || s.variant === 'cycle-track'
+  return levelOf(s) !== 'road'
 }
 
 /** Strips that are planted rather than paved. */
@@ -52,7 +52,31 @@ export function surfacePaint(s: Segment): string {
 }
 
 /** Surface y of a column, px. */
-export const surfaceY = (c: SceneColumn, b: SceneBox): number => isRaisedSegment(c.s) ? b.road - b.curbH : b.road
+export const surfaceY = (c: SceneColumn, b: SceneBox): number => {
+  const level = levelOf(c.s)
+  return level === 'sidewalk' ? b.road - b.curbH : level === 'intermediate' ? b.road - b.curbH * INTERMEDIATE : b.road
+}
+
+/** An intermediate strip's height as a share of the curb (a little under half, so the step up to the sidewalk reads). */
+const INTERMEDIATE = 0.4
+
+/**
+ * Where a raised bike lane meets a sidewalk, the edge between them is a
+ * narrow sloped edge strip (a mountable curb) rather than a step: a rider
+ * who drifts onto it can ride up to the sidewalk without falling. Returns
+ * which side of the pair is the lower one, or undefined for any other edge.
+ */
+export function edgeStripLow(a: Segment, c: Segment): 'left' | 'right' | undefined {
+  const walk = (s: Segment) => (s.type === 'sidewalk' || s.type === 'curb') && levelOf(s) === 'sidewalk'
+  if (levelOf(a) === 'intermediate' && walk(c))
+    return 'left'
+  if (levelOf(c) === 'intermediate' && walk(a))
+    return 'right'
+  return undefined
+}
+
+/** Width of the edge strip, px (a little over a foot, so the slope reads). */
+export const edgeStripW = (b: { S: number }) => Math.max(1.2 * b.S, 5)
 
 // ---------------------------------------------------------------------------
 
@@ -126,21 +150,46 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
     }
   }
 
-  // Curbs: a concrete section at every edge between a raised strip and the road.
+  // Curbs: a concrete section at every edge between two heights, from the
+  // higher surface down into the base; a sloped edge strip where a raised
+  // bike lane meets a sidewalk.
   const curbW = Math.max(0.5 * b.S, 3)
   const curbDeep = b.road + Math.max(1.5 * b.S, 10)
+  const esW = edgeStripW(b)
+  const bevelL = new Set<number>()
+  const bevelR = new Set<number>()
   for (let i = 0; i < cols.length - 1; i++) {
     const a = cols[i]
     const c = cols[i + 1]
-    if (isRaisedSegment(a.s) === isRaisedSegment(c.s))
+    const ya = surfaceY(a, b)
+    const yc = surfaceY(c, b)
+    if (ya === yc)
       continue
-    const x = isRaisedSegment(a.s) ? a.x1 - curbW : c.x0
-    s += `<path d="M${r2(x)} ${r2(top)} L${r2(x + curbW)} ${r2(top)} L${r2(x + curbW)} ${r2(curbDeep)} L${r2(x)} ${r2(curbDeep)} Z" style="fill:var(--pvx-concrete);stroke:var(--pvx-cut-line);stroke-width:0.75"/>`
+    const low = edgeStripLow(a.s, c.s)
+    if (low) {
+      const x = a.x1
+      const xi = low === 'left' ? x - esW : x + esW
+      const yHigh = Math.min(ya, yc)
+      const yLow = Math.max(ya, yc)
+      const deep = yLow + Math.max(0.6 * b.S, 4)
+      s += `<path d="M${r2(xi)} ${r2(yLow)} L${r2(x)} ${r2(yHigh)} L${r2(x)} ${r2(deep)} L${r2(xi)} ${r2(deep)} Z" style="fill:var(--pvx-concrete);stroke:var(--pvx-cut-line);stroke-width:0.75"/>`
+      if (low === 'left')
+        bevelR.add(i)
+      else
+        bevelL.add(i + 1)
+      continue
+    }
+    const x = ya < yc ? a.x1 - curbW : c.x0
+    s += `<path d="M${r2(x)} ${r2(Math.min(ya, yc))} L${r2(x + curbW)} ${r2(Math.min(ya, yc))} L${r2(x + curbW)} ${r2(curbDeep)} L${r2(x)} ${r2(curbDeep)} Z" style="fill:var(--pvx-concrete);stroke:var(--pvx-cut-line);stroke-width:0.75"/>`
   }
 
-  // Ground profile line, then a fade into the page at the bottom of the cut.
+  // Ground profile line (sloping across each edge strip), then a fade into
+  // the page at the bottom of the cut.
   let d = `M0 ${r2(top)} L${r2(b.left)} ${r2(top)}`
-  for (const c of cols) d += ` L${r2(c.x0)} ${r2(surfaceY(c, b))} L${r2(c.x1)} ${r2(surfaceY(c, b))}`
+  cols.forEach((c, i) => {
+    const y = surfaceY(c, b)
+    d += ` L${r2(bevelL.has(i) ? c.x0 + esW : c.x0)} ${r2(y)} L${r2(bevelR.has(i) ? c.x1 - esW : c.x1)} ${r2(y)}`
+  })
   d += ` L${r2(b.w)} ${r2(top)}`
   s += `<path d="${d}" style="fill:none;stroke:var(--pvx-cut-line);stroke-width:1"/>`
   const fade = ids.next('fade')

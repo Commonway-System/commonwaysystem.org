@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import type { CyclistVariant, Measure, PedestrianVariant, SceneBox, SceneColumn, SliceColumn, VehicleVariant } from '$lib/viewer/art'
-  import { cyclist, frontage, groundCut, isRaisedSegment, laneVehicle, makeIds, measureText, measureWith, PEDESTRIAN_POOL, PEDESTRIAN_WIDTH, pedestrian, place, plainCyclist, plainItem, plainPedestrian, plainVehicle, rng, seedOf, sky, slice, streetItem, vehicle } from '$lib/viewer/art'
+  import { cyclist, frontage, groundCut, isRaisedSegment, surfaceY, laneVehicle, makeIds, measureText, measureWith, PEDESTRIAN_POOL, PEDESTRIAN_WIDTH, pedestrian, place, plainCyclist, plainItem, plainPedestrian, plainVehicle, rng, seedOf, sky, slice, streetItem, vehicle } from '$lib/viewer/art'
   import { spread, widthsAt } from '$lib/viewer/geometry'
   import { layoutAnnotations } from '$lib/viewer/section-layout'
   import { formatLength } from '$lib/viewer/state'
@@ -124,7 +124,7 @@
     // unless the tallest wouldn't fit under the badge row.
     const gs = Math.min(scale, Math.max(road - curbH - top - 4, 10) / TALLEST)
     const b: SceneBox = { w: width, left, right, road, curbH, cutBottom: road + cutH, S: scale, gs }
-    const placed = cols.map(c => ({ ...c, y: isRaisedSegment(c.s) ? road - curbH : road }))
+    const placed = cols.map(c => ({ ...c, y: surfaceY(c, b) }))
     const ay = b.cutBottom
     const sliceY = ay + ann.height + SLICE_GAP
     const H = sliceH ? sliceY + sliceH + SLICE_CAPTION : ay + ann.height

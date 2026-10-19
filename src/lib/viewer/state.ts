@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import type { ConfigEntry, ConfigId, Facet, Units, ViewerData } from './types.js'
+import type { CompareTarget, ConfigEntry, ConfigId, Facet, Units, ViewerData } from './types.js'
 import { REFERENCES, RETROFIT_STATES, RUNGS } from './types.js'
 
 // ---------------------------------------------------------------------------
@@ -99,6 +99,17 @@ export function resolveEntry(data: ViewerData, id: ConfigId | undefined, facets:
   return best
 }
 
+/** Whether a facet changes anything on this configuration (some entry for it names the facet in `when`). */
+export function facetApplies(data: ViewerData, facetId: string, id: ConfigId | undefined): boolean {
+  return data.configs.some(e => e.id === id && e.when?.[facetId] !== undefined)
+}
+
+/** A "facet:option" compare target, split; undefined for a plain configuration id. */
+export function parseOptionTarget(target: CompareTarget | undefined): { facet: string, option: string } | undefined {
+  const i = target?.indexOf(':') ?? -1
+  return target && i > 0 ? { facet: target.slice(0, i), option: target.slice(i + 1) } : undefined
+}
+
 /** One rung down the ladder, for the "what changed" highlight. References and the lowest rung have none. */
 export function rungBelow(data: ViewerData, id: ConfigId | undefined): ConfigId | undefined {
   const ladder = ladderIds(data)
@@ -114,7 +125,7 @@ export function rungBelow(data: ViewerData, id: ConfigId | undefined): ConfigId 
 export interface ViewerUrlState {
   view?: string
   config?: ConfigId
-  compare?: ConfigId
+  compare?: CompareTarget
   facets: Record<string, string>
 }
 
@@ -122,7 +133,9 @@ export function readUrlState(params: URLSearchParams, data: ViewerData | undefin
   const ids = data ? configIds(data) : []
   const view = params.get('view') ?? undefined
   const config = params.get('config') as ConfigId | null
-  const compare = params.get('compare') as ConfigId | null
+  const compare = params.get('compare') as CompareTarget | null
+  const option = parseOptionTarget(compare ?? undefined)
+  const optionOk = option && data?.facets?.some(f => f.id === option.facet && f.options.some(o => o.id === option.option))
   const facets: Record<string, string> = {}
   for (const f of data?.facets ?? []) {
     const v = params.get(f.id)
@@ -132,7 +145,7 @@ export function readUrlState(params: URLSearchParams, data: ViewerData | undefin
   return {
     view: view && viewIds.includes(view) ? view : undefined,
     config: config && ids.includes(config) ? config : undefined,
-    compare: compare && ids.includes(compare) ? compare : undefined,
+    compare: compare && (ids.includes(compare as ConfigId) || optionOk) ? compare : undefined,
     facets,
   }
 }

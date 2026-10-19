@@ -125,6 +125,17 @@ export type Surface = 'asphalt' | 'green' | 'red' | 'concrete' | 'pavers'
 export type Marking = 'bike-symbol' | 'sharrow' | 'none'
 
 /**
+ * How high a strip's surface sits. Defaults by type (levelOf in
+ * geometry.ts): sidewalks, furnishing strips, medians and curbs at sidewalk
+ * level, everything else at road level ('raised' and 'cycle-track' variants
+ * at sidewalk level too). 'intermediate' is a raised bike lane, a step below
+ * the sidewalk: where it meets a sidewalk the edge is drawn as a narrow
+ * sloped edge strip a rider can ride up onto safely; where it meets anything
+ * else at sidewalk level, as a short curb.
+ */
+export type Level = 'road' | 'intermediate' | 'sidewalk'
+
+/**
  * The people drawn on a sidewalk. Normally chosen for you (seeded, and one
  * wheelchair user per drawing); list them only where who's there is the
  * point: children for a School Street, a crowd for a Festival Street.
@@ -143,6 +154,8 @@ export interface Segment {
   items?: SegmentItem[]
   /** Overrides the type's default label in the drawing. */
   label?: string
+  /** The name used where the strip is too narrow for `label` ("Bike lane" for "Raised bike lane"). */
+  shortLabel?: string
   elementId?: ElementId
   /** Citation numbers from the page's own References list. */
   cite?: number[]
@@ -150,6 +163,8 @@ export interface Segment {
   surface?: Surface
   /** Pavement marking in the top-down views; defaults by type. */
   marking?: Marking
+  /** Surface height; defaults by type. */
+  level?: Level
   /** Sidewalks: the people drawn, in order across the strip (only as many as fit). */
   people?: PersonVariant[]
 }
@@ -280,7 +295,13 @@ export interface IntersectionConfig {
 export type Configuration = StreetConfig | IntersectionConfig
 
 // ---------------------------------------------------------------------------
-// Facets: other dimensions (density tier, time of day)
+// Facets: other ways the same configuration can vary (on-street parking,
+// where the bike lane sits, density tier, time of day). Shown as a row of
+// buttons each. A facet applies to a configuration when at least one of that
+// configuration's entries names it in `when`; on any other configuration its
+// buttons are disabled with a note ("Doesn't apply to ..."). Build the many
+// combinations with a small function in the data file rather than by hand
+// (see col-def-01.ts), and keep segment ids stable across all of them.
 
 export interface Facet {
   id: string
@@ -289,6 +310,13 @@ export interface Facet {
   /** Option id; the first option if omitted. */
   default?: string
 }
+
+/**
+ * What compare mode sets beside the configuration on show: another
+ * configuration, or the same one with one facet set to another option,
+ * written "facet:option" (in the URL too, ?compare=parking:both).
+ */
+export type CompareTarget = ConfigId | `${string}:${string}`
 
 // ---------------------------------------------------------------------------
 // Configuration entries, views, and the whole data file

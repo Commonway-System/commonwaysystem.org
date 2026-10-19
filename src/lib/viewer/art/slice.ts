@@ -15,7 +15,10 @@ import type { CyclistVariant, PedestrianVariant } from './people'
 import { cyclistTop, PEDESTRIAN_WIDTH, pedestrianTop } from './people'
 import type { VehicleVariant } from './vehicles'
 import { VEHICLE_LENGTH, VEHICLE_WIDTH, vehicleTop } from './vehicles'
-import { isRaisedSegment } from './scene'
+import { levelOf } from '../geometry'
+import { edgeStripLow, edgeStripW, isRaisedSegment } from './scene'
+
+const HEIGHT = { road: 0, intermediate: 1, sidewalk: 2 } as const
 
 export interface SliceColumn {
   s: Segment
@@ -150,9 +153,18 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
   for (let i = 0; i < cols.length - 1; i++) {
     const a = cols[i]
     const c = cols[i + 1]
-    if (isRaisedSegment(a.s) === isRaisedSegment(c.s))
+    const low = edgeStripLow(a.s, c.s)
+    if (low) {
+      // The sloped edge strip: a light concrete band, no shadow.
+      const ew = edgeStripW(b)
+      s += rect(low === 'left' ? a.x1 - ew : a.x1, b.y, ew, b.h, 'p-concrete-2') + rect(a.x1 - 0.5, b.y, 1, b.h, 'p-joint')
       continue
-    const leftRaised = isRaisedSegment(a.s)
+    }
+    const ha = HEIGHT[levelOf(a.s)]
+    const hc = HEIGHT[levelOf(c.s)]
+    if (ha === hc)
+      continue
+    const leftRaised = ha > hc
     const x = leftRaised ? a.x1 - curbW : c.x0
     s += rect(x, b.y, curbW, b.h, 'p-curb') + rect(leftRaised ? x + curbW : x - 2, b.y, 2, b.h, 'shadow')
   }

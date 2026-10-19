@@ -12,6 +12,8 @@
   // below and hands it the same RendererProps whatever kind it is, so an SVG
   // cross-section and a later canvas/3D view plug in the same way.
   interface Pane {
+    /** Unique among the panes (two panes can show the same configuration with different choices). */
+    key: string
     entry: ConfigEntry
     changedFrom?: ConfigEntry
     /** Visible caption in compare mode ("NACTO enhancement"). */
@@ -107,7 +109,7 @@
       <figcaption class="pvs__placeholder-text">Illustration in progress</figcaption>
     </figure>
   {:else}
-    {#each panes as pane (pane.entry.id)}
+    {#each panes as pane (pane.key)}
       <figure class="pvs__pane">
         {#if panes.length > 1}
           <figcaption class="pvs__caption">{pane.caption}</figcaption>

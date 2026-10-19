@@ -33,6 +33,23 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    date: "2026.10.19",
+    changes: [
+      { type: "new", area: "site",
+        summary: "The Pattern viewer can show choices within a layer, such as on-street parking and where the bike lane runs.",
+        details: "Each choice is a row of buttons under the configuration ladder. A choice that doesn't change the configuration on show is disabled, with a note saying so. Compare side by side can now set the same configuration with another choice beside the current one. The \"What changed\" list now says when a strip moved and where it is now, and lists a change in the street's total width as a change to the right of way. \"All configurations, in words\" groups each configuration's variants under it. Choices are kept in the address bar like the view and configuration."
+      },
+      { type: "new", area: "site",
+        summary: "The Pattern viewer can draw a raised bike lane, a step below the sidewalk, with a sloped edge strip where it meets the sidewalk.",
+        details: "The edge strip is a narrow sloped curb a rider who drifts can ride up onto safely. It shows in the cross-section, the top-down slice and the Top down view."
+      },
+      { type: "improved", area: "content",
+        summary: "Default (Standard Collector)'s viewer shows on-street parking (none, left side, right side or both sides) on every layer, and the bike lane next to the street or next to the sidewalk on the Commonway System layer.",
+        details: "The Commonway System layouts: next to the street, a bike lane with no parking beside it is protected by a rigid barrier in a 2 ft buffer, and one beside parking by the parked cars, with only an empty 3 ft buffer for opening car doors. Next to the sidewalk, the bike lane is raised a step below the sidewalk and the planting strip and its trees between it and the road are the buffer and the barrier; where there's no parking, the trees must be there. NACTO's and Complete Streets' layers keep 7 ft parking and a 3 ft buffer beside it; without parking they show a 2 ft buffer with flexible posts, and Complete Streets' curb extensions appear only on a parked side. Each layout's description now ends with its right-of-way width."
+      },
+    ],
+  },
+  {
     date: "2026.10.18",
     changes: [
       { type: "new", area: "content",
