@@ -470,6 +470,15 @@ The cross-section and both top-down views are drawn in an illustrated style appr
 - **Media batch notes** live with each batch above (MED-141 to MED-155 is the eleventh). The table's `Source` for a video may name the agency rather than the uploader; `mqdefault` is the clean 16:9 fallback when `maxresdefault` doesn't exist; an image URL from a table can 404 while the page's own `og:image` works.
 
 
+## Session practice notes, 2026.10.19
+
+- **Before a push, check `git log origin/main..HEAD` as well as `git status`:** other sessions may have committed (not pushed) work with no changelog entry of its own. Add a change for each to that day's entry (on 2026.10.19: MED-156 to MED-164, the Bike Box image, the segmented ladder). Read the commits' diffs to write them; don't guess.
+- **Media batch MED-156 to MED-164** (2026.10.19, another session): 3 videos, 5 articles, 1 podcast for Bollard, Curb Ramp, Detectable Warning Surface, Curb Cut / Driveway Apron and Drinking Fountain. The gallery holds 164 items.
+- **Puppeteer console errors from Svelte arrive as `JSHandle@error`** with an empty message; listen for `page.on('pageerror')` instead, which gives the real text (that's how `effect_update_depth_exceeded` was found).
+- **A Svelte 5 `$effect` that measures the DOM and then sets state it also reads will loop.** Run the measurement with `untrack()` and re-run it only from a `ResizeObserver` or `document.fonts.ready`.
+- **Quick headless checks that held up:** a throwaway puppeteer-core script in the scratchpad (borrowed with `createRequire` as `qa.mjs` does) that loads a page at a given width, clicks `.pv__expand` for full view, and prints `scrollWidth`/`clientWidth` and `getBoundingClientRect()` values. Measuring caught overflow of 1 to 3px that screenshots hid.
+- **`qa.mjs --setup="document.querySelector('.pv__expand').click()"`** scans the Pattern viewer in full view.
+
 ## Content model notes
 
 - **`PageLayout.svelte` renders an `<h1>` from the page's frontmatter `title` automatically** (see `{#if fm.title}<h1>{fm.title}</h1>{/if}` in `PageLayout.svelte`). Do not start a `+page.md` body with a `# Heading` that repeats the title, it duplicates the h1. Existing pages (`guide/` bare root, `guide/how-to-read-a-pattern`, etc.) go straight from frontmatter into body text or an `##` subheading; follow that pattern for new pages.

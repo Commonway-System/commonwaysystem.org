@@ -35,6 +35,18 @@ export const releases: Release[] = [
   {
     date: "2026.10.19",
     changes: [
+      { type: "new", area: "content",
+        summary: "Nine new items in the Media Gallery for the Bollard, Curb Ramp, Detectable Warning Surface, Curb Cut / Driveway Apron and Drinking Fountain pages.",
+        details: "MED-156 to MED-164, bringing the gallery to 164 items: 3 videos (Not Just Bikes; Rooted in Rights, from Disability Rights Washington; Google), 5 articles (Strong Towns, the National Center for Safe Routes to School, Stanford Social Innovation Review, the Victoria and Albert Museum, Bunk History) and 1 podcast episode (99% Invisible). The Bunk History article on drinking fountains is Context only; the rest are Aligned. Preview images are self-hosted, with small thumbnails."
+      },
+      { type: "improved", area: "content",
+        summary: "Bike Box now has its own illustration.",
+        details: "The illustration shows on the Bike Box page (ELM-BKB-42), its Pattern Index card, link cards and search results, with small thumbnails for the cards."
+      },
+      { type: "improved", area: "site",
+        summary: "The Pattern viewer's configuration ladder is one segmented control, and full view on a phone gives the drawing the whole screen.",
+        details: "The configurations sit in one row of chevron-shaped buttons with short labels (Baseline, NACTO, Complete Streets, Commonway System, Dutch); the full name is the tooltip and what a screen reader reads. Stroad's top rung reads \"Boulevard instead\". In full view on a phone the drawing fills the screen below the tabs, with the controls and description below it, and the Top down view turns to run vertically."
+      },
       { type: "fixed", area: "site",
         summary: "The Pattern viewer's configuration buttons fit in full view, and their tooltips are no longer cut off.",
         details: "Where the usual labels don't fit, as in full view's side panel or on a phone, the buttons switch to shorter ones (Base, NACTO, Complete, Commonway, Dutch) with slightly tighter chevrons; the full name stays in the tooltip and is what a screen reader reads. The switch is measured, so it follows the column width and the Text size setting. Tooltips now stay inside the panel's width, and in full view they open below the buttons, where the scrolling panel would otherwise clip them."
@@ -50,6 +62,14 @@ export const releases: Release[] = [
       { type: "improved", area: "content",
         summary: "Default (Standard Collector)'s viewer shows on-street parking (none, left side, right side or both sides) on every layer, and the bike lane next to the street or next to the sidewalk on the Commonway System layer.",
         details: "The Commonway System layouts: next to the street, a bike lane with no parking beside it is protected by a rigid barrier in a 2 ft buffer, and one beside parking by the parked cars, with only an empty 3 ft buffer for opening car doors. Next to the sidewalk, the bike lane is raised a step below the sidewalk and the planting strip and its trees between it and the road are the buffer and the barrier; where there's no parking, the trees must be there. NACTO's and Complete Streets' layers keep 7 ft parking and a 3 ft buffer beside it; without parking they show a 2 ft buffer with flexible posts, and Complete Streets' curb extensions appear only on a parked side. Each layout's description now ends with its right-of-way width."
+      },
+      { type: "note",
+        summary: "Accessibility check of the Pattern viewer choices and compact labels: no violations.",
+        details: "Axe (WCAG 2.2 AA plus best practice) found no violations on Default (Standard Collector) in five states (no choice made, parking on the right with the bike lane next to the sidewalk, NACTO with parking on the left, comparing the two bike lane positions, and the Top down view), How to Read a Pattern, the Accessibility Policy and Release History & Roadmap, in light and dark at desktop and 375px; on Collector Default with high contrast and the largest text, and in Simplified view with OpenDyslexic, color symbols and the enhanced focus outline; and on Collector Default and Stroad with full view open. Not tested: a screen reader, forced-colors mode, real touch devices."
+      },
+      { type: "note",
+        summary: "Choices within a layer exist only on Default (Standard Collector) so far, and some of its widths are drawn as typical rather than sourced.",
+        details: "Where the bike lane runs is a choice on the Commonway System layer only; NACTO's and Complete Streets' raised bike lanes weren't researched for this page. The 6 ft bike lanes, 4 ft planting strips, the flexible posts in NACTO's buffer without parking, and the raised bike lane's height and edge strip are drawn as typical, not sourced. Other patterns get choices as their data is written."
       },
     ],
   },
