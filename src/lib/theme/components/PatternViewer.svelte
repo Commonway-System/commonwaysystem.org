@@ -2,7 +2,7 @@
   import { onDestroy, onMount, tick } from 'svelte'
   import { replaceState } from '$app/navigation'
   import type { Annotations, ConfigEntry, ConfigId, Units, ViewerData, ViewSpec } from '$lib/viewer/types'
-  import { CONFIG_LABELS } from '$lib/viewer/types'
+  import { CONFIG_LABELS, CONFIG_SHORT_LABELS } from '$lib/viewer/types'
   import { diffEntries } from '$lib/viewer/geometry'
   import {
     configIds,
@@ -114,6 +114,11 @@
   let annotations = $state<Annotations>({ labels: true, dimensions: true, changes: true, slice: true })
 
   const labelFor = (id: ConfigId) => (data ? resolveEntry(data, id, facetValues)?.label : undefined) ?? CONFIG_LABELS[id]
+
+  const shortLabelFor = (id: ConfigId) => {
+    const entry = data ? resolveEntry(data, id, facetValues) : undefined
+    return entry?.shortLabel ?? (entry?.label ? entry.label : CONFIG_SHORT_LABELS[id])
+  }
 
   function entryFor(id: ConfigId | undefined): ConfigEntry | undefined {
     return data ? resolveEntry(data, id, facetValues) : undefined
@@ -371,6 +376,7 @@
             {ladder}
             {references}
             {labelFor}
+            {shortLabelFor}
             {config}
             onconfig={setConfig}
             canCompare={view.compare !== false && allIds.length > 1}
@@ -686,6 +692,28 @@
     flex: 0 1 auto;
     max-height: 45%;
     overflow-y: auto;
+  }
+
+  /* Full view on a phone: the drawing takes the whole screen below the tab
+     bar, tall, and the controls and description sit below it, reached by
+     scrolling the full view. (Capping the panel at 45% left the drawing close
+     to a square.) */
+  @container pv (max-width: 559px) {
+    .pv__box--expanded .pv__body {
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    .pv__box--expanded .pv__stage {
+      flex: 0 0 auto;
+      height: calc(100dvh - 5.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    }
+
+    .pv__box--expanded .pv__panel {
+      flex: 0 0 auto;
+      max-height: none;
+      overflow-y: visible;
+    }
   }
 
   /* Wide full view: drawing on the left, controls and description beside it. */

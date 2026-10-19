@@ -10,20 +10,27 @@
   // the same configuration as the cross-section, plus the things that sit
   // at a spot along the street (features) and the stretches where the shape
   // changes (overrides, e.g. a curb extension).
-  const { entry, units, annotations, cut, changes, descriptionId, label }: RendererProps = $props()
+  const { entry, units, annotations, cut, changes, descriptionId, label, expanded }: RendererProps = $props()
   const uid = $props.id()
 
   let box: HTMLDivElement | undefined = $state()
-  let w = $state(720)
-  let h = $state(405)
+  let boxW = $state(720)
+  let boxH = $state(405)
+  // In full view on a tall, narrow screen (a phone held upright) the street
+  // is drawn running up and down so it fills the screen. The layout is done
+  // in landscape, in a box with width and height swapped, then turned a
+  // quarter turn (left edge of the cross-section stays on the left).
+  const portrait = $derived(expanded && boxH > boxW * 1.15)
+  const w = $derived(portrait ? boxH : boxW)
+  const h = $derived(portrait ? boxW : boxH)
 
   onMount(() => {
     if (!box)
       return
     const ro = new ResizeObserver(([e]) => {
       if (e.contentRect.width > 0 && e.contentRect.height > 0) {
-        w = e.contentRect.width
-        h = e.contentRect.height
+        boxW = e.contentRect.width
+        boxH = e.contentRect.height
       }
     })
     ro.observe(box)
@@ -287,7 +294,8 @@
 
 <div class="pvx" bind:this={box}>
   {#if config && P}
-    <svg viewBox="0 0 {w} {h}" width={w} height={h} role="img" aria-label={label} aria-describedby={descriptionId}>
+    <svg viewBox="0 0 {boxW} {boxH}" width={boxW} height={boxH} role="img" aria-label={label} aria-describedby={descriptionId}>
+      <g transform={portrait ? `translate(0 ${boxH}) rotate(-90)` : undefined}>
       <defs>
         <clipPath id="pvx-street-{entry.id}">
           <rect x={P.x0} y={P.streetTop - 40} width={P.length * P.scale} height={P.streetBottom - P.streetTop + 80} />
@@ -419,6 +427,7 @@
         <path class="dim" d="M {bx} {by - 5} V {by} H {bx + bw} V {by - 5}" />
         <text class="t" x={bx + bw + 6} y={by} font-size={P.font - 1}>{formatLength(P.barFt, units)}</text>
       {/if}
+      </g>
     </svg>
   {/if}
 </div>

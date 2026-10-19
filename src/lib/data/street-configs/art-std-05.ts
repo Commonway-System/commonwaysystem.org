@@ -26,6 +26,7 @@ const data: ViewerData = {
     {
       id: 'baseline',
       label: 'Stroad as built',
+      shortLabel: 'As built',
       description: 'Through traffic and local access share one road: two wide lanes each way and a center turn lane, on-street parking along the curb, and a driveway into a business every 100 to 200 ft, with no frontage road to gather them. Every driveway is a conflict point; corridors with dense access run about three times the crash rate of well-managed ones.',
       cite: [1, 3],
       config: {
@@ -48,6 +49,7 @@ const data: ViewerData = {
     {
       id: 'commonway',
       label: 'Commonway System: a Boulevard instead',
+      shortLabel: 'Boulevard instead',
       description: 'The Commonway System doesn\'t improve a Stroad, it replaces it. Where a pedestrian-first frontage fits the corridor, the replacement is a Boulevard: through traffic in the center lanes, local access and parking moved to slow side lanes behind tree-lined medians. Where it doesn\'t fit, the alternative is Default Arterial with a separate Local or Frontage / Service Road.',
       link: { href: '/patterns/arterials/boulevard/', label: 'See Boulevard (ART-BLV-02)' },
       config: multiwayBoulevard,

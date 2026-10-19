@@ -53,12 +53,12 @@ export const CONFIG_LABELS: Record<ConfigId, string> = {
   'after': 'After',
 }
 
-/** Short labels for the ladder steps at narrow widths. */
+/** Short labels shown on the ladder buttons; the full label is the tooltip and accessible name. */
 export const CONFIG_SHORT_LABELS: Record<ConfigId, string> = {
-  'baseline': 'Minimum',
+  'baseline': 'Baseline',
   'nacto': 'NACTO',
   'complete-streets': 'Complete Streets',
-  'commonway': 'Commonway',
+  'commonway': 'Commonway System',
   'dutch': 'Dutch',
   'before': 'Before',
   'after': 'After',
@@ -304,6 +304,8 @@ export interface ConfigEntry {
   config?: Configuration
   /** Overrides CONFIG_LABELS[id]. */
   label?: string
+  /** Overrides the short name on the ladder button when `label` is set (the full label stays the tooltip). */
+  shortLabel?: string
   cite?: number[]
   /** A related page to send the reader to (Stroad's top rung links to Boulevard). */
   link?: { href: string, label: string }

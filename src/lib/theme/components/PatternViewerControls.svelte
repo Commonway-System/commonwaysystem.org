@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Annotations, ConfigId, Facet, Units } from '$lib/viewer/types'
+  import { CONFIG_SHORT_LABELS } from '$lib/viewer/types'
 
   // The controls under (or, in full view, beside) the drawing: the
   // configuration ladder, any reference configurations, compare mode,
@@ -12,6 +13,8 @@
     ladder: ConfigId[]
     references: ConfigId[]
     labelFor: (id: ConfigId) => string
+    /** The short name shown on the ladder button. */
+    shortLabelFor: (id: ConfigId) => string
     config: ConfigId | undefined
     onconfig: (id: ConfigId) => void
     /** Offer compare mode at all (this view allows it and there are two or more configurations). */
@@ -41,6 +44,7 @@
     ladder,
     references,
     labelFor,
+    shortLabelFor,
     config,
     onconfig,
     canCompare,
@@ -63,32 +67,54 @@
 
   const all = $derived([...ladder, ...references])
   const compareOptions = $derived(all.filter(id => id !== config))
+
+  // The ladder shows short names; the full name is the control's accessible
+  // name and the tooltip.
+  const tipFor = (id: ConfigId) => labelFor(id) + (references.includes(id) ? ' (for comparison)' : '')
+
+  // One shared tooltip, outside the clipped ladder: shown on hover and on
+  // keyboard focus, dismissed with Escape (WCAG 1.4.13).
+  let tip = $state<{ id: ConfigId, left: number } | undefined>()
+  function showTip(id: ConfigId, el: HTMLElement) {
+    tip = { id, left: el.offsetLeft + el.offsetWidth / 2 }
+  }
+  const hideTip = () => { tip = undefined }
+  function onladderkey(event: KeyboardEvent) {
+    if (event.key === 'Escape' && tip) {
+      hideTip()
+      event.stopPropagation()
+    }
+  }
 </script>
 
 <div class="pvc">
   {#if all.length > 1}
     <fieldset class="pvc__group">
       <legend class="pvc__legend">{retrofit ? 'Show' : 'Configuration'}</legend>
-      <div class="pvc__ladder">
-        {#each ladder as id, i (id)}
-          {#if i > 0}<span class="pvc__step" aria-hidden="true">›</span>{/if}
-          <label class="pvc__rung" class:pvc__rung--top={!retrofit && i === ladder.length - 1}>
-            <input type="radio" name="{idPrefix}-config" value={id} checked={config === id} onchange={() => onconfig(id)} />
-            <span>{labelFor(id)}</span>
-          </label>
-        {/each}
-      </div>
-      {#if references.length}
-        <div class="pvc__refs">
-          <span class="pvc__refs-label" aria-hidden="true">For comparison</span>
-          {#each references as id (id)}
-            <label class="pvc__rung pvc__rung--ref">
-              <input type="radio" name="{idPrefix}-config" value={id} checked={config === id} onchange={() => onconfig(id)} />
-              <span>{labelFor(id)}<span class="cw-sr-only"> (for comparison, outside the ladder)</span></span>
+      <!-- svelte-ignore a11y_no_static_element_interactions -->
+      <div class="pvc__ladder-wrap" onkeydown={onladderkey}>
+        <div class="pvc__ladder" onpointerleave={hideTip}>
+          {#each [...ladder, ...references] as id, i (id)}
+            {@const isRef = i >= ladder.length}
+            <label
+              class="pvc__seg"
+              class:pvc__seg--notch={!isRef && i > 0}
+              class:pvc__seg--point={!isRef && i < ladder.length - 1}
+              class:pvc__seg--ref={isRef}
+              class:pvc__seg--top={!retrofit && i === ladder.length - 1}
+              onpointerenter={e => showTip(id, e.currentTarget)}
+              onfocusin={e => showTip(id, e.currentTarget)}
+              onfocusout={hideTip}
+            >
+              <input type="radio" name="{idPrefix}-config" value={id} aria-label={tipFor(id)} checked={config === id} onchange={() => onconfig(id)} />
+              <span class="pvc__face">{#if id === 'commonway' && shortLabelFor(id) === CONFIG_SHORT_LABELS[id]}Commonway<span class="pvc__sys">&nbsp;System</span>{:else}{shortLabelFor(id)}{/if}</span>
             </label>
           {/each}
         </div>
-      {/if}
+        {#if tip}
+          <span class="pvc__tip" aria-hidden="true" style:left="{tip.left}px">{tipFor(tip.id)}</span>
+        {/if}
+      </div>
     </fieldset>
   {/if}
 
@@ -211,39 +237,54 @@
     margin: 0 0.25rem 0 0;
   }
 
-  .pvc__ladder,
-  .pvc__refs {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.35rem;
-  }
-
-  .pvc__refs {
-    margin-top: 0.5rem;
-    padding-top: 0.5rem;
-    border-top: 1px dashed var(--cw-hairline-strong);
-  }
-
-  .pvc__refs-label {
-    font-size: 0.75rem;
-    color: var(--cw-ink-soft);
-    margin-right: 0.25rem;
-  }
-
-  .pvc__step {
-    color: var(--cw-ink-faint);
-  }
-
-  /* A radio styled as a pill; the real input stays in the accessibility
-     tree and keyboard order, visually replaced by the pill's own state. */
-  .pvc__rung {
+  /* One segmented control. The group's own background shows through the
+     gaps between faces, which makes the dividers; faces between two rungs
+     are clipped to chevrons (notch on the left, point on the right) so the
+     points read "better than". Dutch practice is outside the ladder, so it
+     has straight edges. The real radio inputs stay in the accessibility tree
+     and keyboard order. */
+  .pvc__ladder-wrap {
     position: relative;
-    display: inline-flex;
+    --pvc-d: 0.45rem;
+  }
+
+  .pvc__ladder {
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    border: 1px solid var(--cw-hairline-strong);
+    border-radius: 999px;
+    background: var(--cw-hairline-strong);
+    overflow: hidden;
+  }
+
+  .pvc__ladder:has(input:focus-visible) {
+    outline: 2px solid var(--cw-primary);
+    outline-offset: 2px;
+  }
+
+  .pvc__seg {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
     cursor: pointer;
   }
 
-  .pvc__rung input {
+  .pvc__seg + .pvc__seg {
+    margin-left: 1px;
+  }
+
+  .pvc__seg--notch {
+    margin-left: calc(1px - var(--pvc-d));
+  }
+
+  .pvc__seg--ref {
+    flex: 0 1 auto;
+  }
+
+  .pvc__seg input {
     position: absolute;
     inset: 0;
     margin: 0;
@@ -251,34 +292,102 @@
     cursor: pointer;
   }
 
-  .pvc__rung > span {
-    display: inline-flex;
+  .pvc__face {
+    flex: 1;
+    display: flex;
     align-items: center;
+    justify-content: center;
     min-height: 2rem;
-    padding: 0.25rem 0.75rem;
-    border: 1px solid var(--cw-hairline-strong);
-    border-radius: 999px;
+    padding: 0.25rem 0.6rem;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.15;
     color: var(--cw-ink);
     background: var(--cw-paper);
   }
 
-  .pvc__rung--top > span {
+  .pvc__seg--notch .pvc__face {
+    padding-left: calc(var(--pvc-d) + 0.35rem);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, var(--pvc-d) 50%);
+  }
+
+  .pvc__seg--point .pvc__face {
+    padding-right: calc(var(--pvc-d) + 0.35rem);
+    clip-path: polygon(0 0, calc(100% - var(--pvc-d)) 0, 100% 50%, calc(100% - var(--pvc-d)) 100%, 0 100%);
+  }
+
+  .pvc__seg--notch.pvc__seg--point .pvc__face {
+    clip-path: polygon(0 0, calc(100% - var(--pvc-d)) 0, 100% 50%, calc(100% - var(--pvc-d)) 100%, 0 100%, var(--pvc-d) 50%);
+  }
+
+  .pvc__seg--top .pvc__face {
     font-weight: 600;
   }
 
-  .pvc__rung--ref > span {
-    border-style: dashed;
-  }
-
-  .pvc__rung input:checked + span {
-    border-color: var(--cw-primary);
+  .pvc__seg input:checked + .pvc__face {
     background: var(--cw-primary);
     color: var(--cw-paper);
   }
 
-  .pvc__rung input:focus-visible + span {
-    outline: 2px solid var(--cw-primary);
-    outline-offset: 2px;
+  .pvc__seg input:focus-visible + .pvc__face {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .pvc__tip {
+    position: absolute;
+    bottom: calc(100% + 0.35rem);
+    transform: translateX(-50%);
+    z-index: 5;
+    max-width: 16rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--cw-radius-md, 0.5rem);
+    background: var(--cw-ink);
+    color: var(--cw-paper);
+    font-size: 0.8125rem;
+    line-height: 1.3;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  @media (max-width: 480px) {
+    .pvc__ladder-wrap {
+      --pvc-d: 0.3rem;
+    }
+
+    .pvc__seg--top .pvc__face {
+      font-weight: 500;
+    }
+
+    .pvc__sys {
+      display: none;
+    }
+
+    .pvc__face {
+      padding-inline: 0.1rem;
+      font-size: 0.6875rem;
+    }
+
+    .pvc__seg--notch .pvc__face {
+      padding-left: calc(var(--pvc-d) + 0.05rem);
+    }
+
+    .pvc__seg--point .pvc__face {
+      padding-right: calc(var(--pvc-d) + 0.05rem);
+    }
+  }
+
+  @media (forced-colors: active) {
+    .pvc__seg input:checked + .pvc__face {
+      forced-color-adjust: none;
+      background: Highlight;
+      color: HighlightText;
+    }
+
+    .pvc__tip {
+      border: 1px solid CanvasText;
+    }
   }
 
   .pvc__row {
@@ -367,7 +476,6 @@
   /* Forced colors drop background fills, which is how a chosen pill shows;
      use the system highlight colors instead. */
   @media (forced-colors: active) {
-    .pvc__rung input:checked + span,
     .pvc__unit input:checked + span {
       forced-color-adjust: none;
       background: Highlight;
