@@ -439,6 +439,7 @@ Facets now drive real choices; first used on Collector Default (`col-def-01.ts`:
 - `diffStreets` now reports **moved** strips (heaviest common subsequence by `STAY_WEIGHT`, so travel modes are the ones reported) with their new neighbors, nearer-property-line first so both sides share one number, and a **right-of-way** change line. Level changes are reported too.
 - **`Segment.level`** (`road | intermediate | sidewalk`, default from `levelOf()` in `geometry.ts`; `isRaised` and the art's `isRaisedSegment` both derive from it). `intermediate` sits at 0.4 of the curb; where it meets a sidewalk, `edgeStripLow()` draws a sloped edge strip (section, slice) instead of a curb. `Segment.shortLabel` names a strip too narrow for its `label`.
 - Descriptions end with the right of way ("Right of way: 60 ft."), since widths now change with the choices.
+- **The ladder switches to `CONFIG_COMPACT_LABELS`** (Base, Complete...) when its short labels overflow, measured in `PatternViewerControls` (run the check with `untrack`, or it loops: `effect_update_depth_exceeded`). Its tooltip is clamped to the ladder's width and flips below it inside a scrolling panel (full view).
 - **Puppeteer element screenshots** of the controls once painted the first button row as a blank gray box; a full-page screenshot showed it fine. Don't chase that.
 
 ## Pattern viewer art (2026.10.17, Phases 1-6 of the cross-section redesign)

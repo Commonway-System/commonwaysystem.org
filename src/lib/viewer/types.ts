@@ -64,6 +64,17 @@ export const CONFIG_SHORT_LABELS: Record<ConfigId, string> = {
   'after': 'After',
 }
 
+/** Shorter still, used when the short labels don't fit the ladder's width (full view's side panel, phones). */
+export const CONFIG_COMPACT_LABELS: Record<ConfigId, string> = {
+  'baseline': 'Base',
+  'nacto': 'NACTO',
+  'complete-streets': 'Complete',
+  'commonway': 'Commonway',
+  'dutch': 'Dutch',
+  'before': 'Before',
+  'after': 'After',
+}
+
 // ---------------------------------------------------------------------------
 // Layer 1: segments and the items inside them
 

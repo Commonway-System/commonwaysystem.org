@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Annotations, CompareTarget, ConfigId, Facet, Units } from '$lib/viewer/types'
-  import { CONFIG_SHORT_LABELS } from '$lib/viewer/types'
+  import { untrack } from 'svelte'
+  import { CONFIG_COMPACT_LABELS, CONFIG_SHORT_LABELS } from '$lib/viewer/types'
 
   // The controls under (or, in full view, beside) the drawing: the
   // configuration ladder, any reference configurations, compare mode,
@@ -78,13 +79,66 @@
   // name and the tooltip.
   const tipFor = (id: ConfigId) => labelFor(id) + (references.includes(id) ? ' (for comparison)' : '')
 
+  // Compact labels ("Base", "Complete") whenever the short ones don't fit:
+  // full view's side panel, a phone, a narrow column. Measured, not a
+  // breakpoint, since the room depends on the column and the Text size
+  // setting. `needed` remembers the full ladder's width so it switches back
+  // once there's room again.
+  let wrapEl: HTMLDivElement | undefined = $state()
+  let ladderEl: HTMLDivElement | undefined = $state()
+  let compact = $state(false)
+  let needed = 0
+  $effect(() => {
+    if (!wrapEl || !ladderEl)
+      return
+    const check = () => {
+      if (!wrapEl || !ladderEl)
+        return
+      const room = wrapEl.clientWidth
+      if (!compact && ladderEl.scrollWidth > ladderEl.clientWidth) {
+        // Content plus the ladder's own border.
+        needed = ladderEl.scrollWidth + ladderEl.offsetWidth - ladderEl.clientWidth
+        compact = true
+      }
+      else if (compact && room >= needed) {
+        compact = false
+      }
+    }
+    // Untracked: the check reads `compact` and must not re-run itself when it changes.
+    untrack(check)
+    document.fonts?.ready.then(check)
+    const ro = new ResizeObserver(check)
+    ro.observe(wrapEl)
+    return () => ro.disconnect()
+  })
+  /** The label on a ladder button: a pattern's own short label wins over the compact default. */
+  function faceLabel(id: ConfigId) {
+    const short = shortLabelFor(id)
+    return compact && short === CONFIG_SHORT_LABELS[id] ? CONFIG_COMPACT_LABELS[id] : short
+  }
+
   // One shared tooltip, outside the clipped ladder: shown on hover and on
-  // keyboard focus, dismissed with Escape (WCAG 1.4.13).
-  let tip = $state<{ id: ConfigId, left: number } | undefined>()
+  // keyboard focus, dismissed with Escape (WCAG 1.4.13). Kept inside the
+  // ladder's width, and shown below the ladder where a scrolling panel (full
+  // view) would clip it above.
+  let tip = $state<{ id: ConfigId, x: number } | undefined>()
+  let tipEl: HTMLSpanElement | undefined = $state()
+  let tipLeft = $state(0)
+  let tipBelow = $state(false)
   function showTip(id: ConfigId, el: HTMLElement) {
-    tip = { id, left: el.offsetLeft + el.offsetWidth / 2 }
+    tip = { id, x: el.offsetLeft + el.offsetWidth / 2 }
   }
   const hideTip = () => { tip = undefined }
+  $effect(() => {
+    if (!tip || !tipEl || !wrapEl)
+      return
+    const half = tipEl.offsetWidth / 2
+    const room = wrapEl.clientWidth
+    tipLeft = half * 2 >= room ? room / 2 : Math.min(Math.max(tip.x, half), room - half)
+    const panel = wrapEl.closest('.pv__panel')
+    const clips = panel && getComputedStyle(panel).overflowY !== 'visible'
+    tipBelow = Boolean(clips && panel && wrapEl.getBoundingClientRect().top - panel.getBoundingClientRect().top < tipEl.offsetHeight + 8)
+  })
   function onladderkey(event: KeyboardEvent) {
     if (event.key === 'Escape' && tip) {
       hideTip()
@@ -98,8 +152,8 @@
     <fieldset class="pvc__group">
       <legend class="pvc__legend">{retrofit ? 'Show' : 'Configuration'}</legend>
       <!-- svelte-ignore a11y_no_static_element_interactions -->
-      <div class="pvc__ladder-wrap" onkeydown={onladderkey}>
-        <div class="pvc__ladder" onpointerleave={hideTip}>
+      <div class="pvc__ladder-wrap" class:pvc__ladder-wrap--compact={compact} bind:this={wrapEl} onkeydown={onladderkey}>
+        <div class="pvc__ladder" bind:this={ladderEl} onpointerleave={hideTip}>
           {#each [...ladder, ...references] as id, i (id)}
             {@const isRef = i >= ladder.length}
             <label
@@ -113,12 +167,12 @@
               onfocusout={hideTip}
             >
               <input type="radio" name="{idPrefix}-config" value={id} aria-label={tipFor(id)} checked={config === id} onchange={() => onconfig(id)} />
-              <span class="pvc__face">{#if id === 'commonway' && shortLabelFor(id) === CONFIG_SHORT_LABELS[id]}Commonway<span class="pvc__sys">&nbsp;System</span>{:else}{shortLabelFor(id)}{/if}</span>
+              <span class="pvc__face">{#if !compact && id === 'commonway' && shortLabelFor(id) === CONFIG_SHORT_LABELS[id]}Commonway<span class="pvc__sys">&nbsp;System</span>{:else}{faceLabel(id)}{/if}</span>
             </label>
           {/each}
         </div>
         {#if tip}
-          <span class="pvc__tip" aria-hidden="true" style:left="{tip.left}px">{tipFor(tip.id)}</span>
+          <span class="pvc__tip" class:pvc__tip--below={tipBelow} aria-hidden="true" bind:this={tipEl} style:left="{tipLeft || tip.x}px">{tipFor(tip.id)}</span>
         {/if}
       </div>
     </fieldset>
@@ -368,6 +422,28 @@
     line-height: 1.3;
     white-space: nowrap;
     pointer-events: none;
+  }
+
+  .pvc__tip--below {
+    bottom: auto;
+    top: calc(100% + 0.35rem);
+  }
+
+  /* Compact labels: a little less padding too, so five fit a 22rem panel. */
+  .pvc__ladder-wrap--compact {
+    --pvc-d: 0.35rem;
+  }
+
+  .pvc__ladder-wrap--compact .pvc__face {
+    padding-inline: 0.3rem;
+  }
+
+  .pvc__ladder-wrap--compact .pvc__seg--notch .pvc__face {
+    padding-left: calc(var(--pvc-d) + 0.15rem);
+  }
+
+  .pvc__ladder-wrap--compact .pvc__seg--point .pvc__face {
+    padding-right: calc(var(--pvc-d) + 0.15rem);
   }
 
   @media (max-width: 480px) {

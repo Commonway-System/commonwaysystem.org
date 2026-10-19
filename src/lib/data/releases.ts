@@ -35,6 +35,10 @@ export const releases: Release[] = [
   {
     date: "2026.10.19",
     changes: [
+      { type: "fixed", area: "site",
+        summary: "The Pattern viewer's configuration buttons fit in full view, and their tooltips are no longer cut off.",
+        details: "Where the usual labels don't fit, as in full view's side panel or on a phone, the buttons switch to shorter ones (Base, NACTO, Complete, Commonway, Dutch) with slightly tighter chevrons; the full name stays in the tooltip and is what a screen reader reads. The switch is measured, so it follows the column width and the Text size setting. Tooltips now stay inside the panel's width, and in full view they open below the buttons, where the scrolling panel would otherwise clip them."
+      },
       { type: "new", area: "site",
         summary: "The Pattern viewer can show choices within a layer, such as on-street parking and where the bike lane runs.",
         details: "Each choice is a row of buttons under the configuration ladder. A choice that doesn't change the configuration on show is disabled, with a note saying so. Compare side by side can now set the same configuration with another choice beside the current one. The \"What changed\" list now says when a strip moved and where it is now, and lists a change in the street's total width as a change to the right of way. \"All configurations, in words\" groups each configuration's variants under it. Choices are kept in the address bar like the view and configuration."
