@@ -86,7 +86,7 @@ llms: The baseline Collector street, applying the base modal hierarchy and 30 mp
     {
       label: 'On-street parking',
       cells: [
-        { summary: 'Optional; 8 ft if provided.', content: ['Optional and context-dependent, not a required element. Where provided, use AASHTO\'s 8 ft desirable width rather than the 7 ft minimum, since the extra width also protects the door-swing zone the bicycle-facility answer depends on.'] },
+        { summary: 'Optional; 8 ft beside a street-level bike lane, 7 ft when the bike lane is next to the sidewalk. Raised brick or permeable pavers.', content: ['Optional and context-dependent, not a required element. Where provided beside a street-level bike lane, use AASHTO\'s 8 ft desirable width rather than the 7 ft minimum, since the extra width also protects the door-swing zone the bicycle-facility answer depends on. Where the bike lane runs next to the sidewalk, behind the planting strip, no rider passes the car doors, so the 7 ft minimum is enough.', { cite: 13 }, ' Either way, the parking lane follows Dutch practice: brick or permeable pavers that let rain soak in, raised partway to sidewalk height behind a mountable curb, with a white brick T at each stall line. Next to the street, the bike lane and door buffer beside the parking are raised with it.', { cite: 20 }, { cite: 21 }] },
         { summary: '7 ft minimum, 8 ft desirable.', content: ['Most vehicles park 6 to 12 inches from the curb and occupy roughly 7 ft. The Green Book recommends a 7 ft minimum on urban streets and 8 ft as the desirable width where parking is provided.', { cite: 13 }] },
         { summary: 'Not yet sourced.', content: [{ note: 'Open gap: not independently sourced.' }] },
         { summary: 'Not treated as essential.', content: ['Absent from the typical-elements list. On-street parking is not treated as a completeness requirement the way sidewalks and bike facilities are.', { cite: 4 }] },
@@ -144,6 +144,18 @@ The Commonway System column comes first: it is the answer. The four columns afte
 
 This entry is the standard against which every other Collector Typology is defined as an override, the same role Default plays within Local.
 
+### Parking lanes
+
+Where a Collector has on-street parking, the Commonway System borrows from recent Dutch practice. Dutch streets of this class carry no parking (see the guidance table above), so the idea comes from Dutch local streets that do, such as Haarlem's Harmenjansweg: the parking was moved up off the roadway behind an angled curb, and each space is marked in the paving.<Citation index={20} />
+
+The parking lane is paved in brick or permeable pavers. Rain soaks through into the ground instead of running off into drains, which helps against flooding. Dutch national guidance pairs permeable paving with a base that stores water under the street, and names parking spaces as a place to hold water from heavy downpours.<Citation index={21} /> In a U.S. field test, permeable pavement in a parking area sharply cut surface runoff.<Citation index={22} /> No standard sets the brick color: the tan in the drawings is only an illustration.
+
+The parking lane is raised partway to sidewalk height, with a mountable curb between it and the travel lane so cars can pull up onto it comfortably. The raised parking narrows the roadway drivers see, which encourages slower driving, and when the spaces are empty it reads as part of the walking space rather than the road. A regular curb still separates it from the planting strip or sidewalk, so a blind pedestrian's cane finds the edge and cars stay off the sidewalk. A white T at each stall line, laid in white bricks along the edge nearest the travel lane, marks the spaces.
+
+Where the bike lane runs next to the street, the bike lane and the door buffer beside the parking are raised to the same height, with the buffer paved in the same brick. On a side without parking, the drawings keep the bike lane at road level behind its rigid barrier. Raising it there too is an option, not a recommendation.
+
+Two practical points for installers: the gutter moves to the mountable curb at the edge of the travel lane, and where streets are plowed, the mountable curb and the pavers should be checked against the local plow equipment.
+
 ## Related patterns
 
 <div class="cw-links">
@@ -185,3 +197,6 @@ This entry is the standard against which every other Collector Typology is defin
 17. <span id="ref-17"></span><EvidenceChip tier="precedent" /> [NACTO, "Traffic Circle," *Urban Street Design Guide*.](https://nacto.org/publication/urban-street-design-guide/intersections/traffic-circle/)
 18. <span id="ref-18"></span><EvidenceChip tier="legal" /> [Federal Highway Administration, "Corridor Access Management," Proven Safety Countermeasures.](https://highways.dot.gov/sites/fhwa.dot.gov/files/2022-06/12_Corridor%20Access%20Management_508.pdf)
 19. <span id="ref-19"></span><EvidenceChip tier="precedent" /> [City of Minneapolis, Street Design Guide, "Driveways" section (Boulevards and Furnishings).](https://sdg.minneapolismn.gov/design-guidance/boulevards-and-furnishings/driveways)
+20. <span id="ref-20"></span><EvidenceChip tier="precedent" /> [Build the Lanes, "This Dutch Street is Brand New," video on the rebuilt Harmenjansweg in Haarlem, the Netherlands: parking raised off the roadway behind an angled curb, with each space marked in the paving.](https://www.youtube.com/watch?v=M9_bf6UZYi0)
+21. <span id="ref-21"></span><EvidenceChip tier="legal" /> [Rijksdienst voor Ondernemend Nederland (RVO), "Inrichting/groot onderhoud openbare ruimte," climate adaptation guidance: permeable paving with a water-storing base, and water storage in parking spaces for heavy downpours (in Dutch).](https://www.rvo.nl/onderwerpen/klimaatadaptatie-dossier/financiering/slim-combineren/inrichtinggroot-onderhoud)
+22. <span id="ref-22"></span><EvidenceChip tier="evidence" /> [U.S. EPA, *Field Evaluation of Permeable Pavements for Stormwater Management, Olympia, Washington* (EPA-841-B-00-005B, October 2000).](https://archive.epa.gov/water/test/web/pdf/pavements.pdf)

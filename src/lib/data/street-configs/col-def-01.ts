@@ -12,6 +12,14 @@ import type { ConfigEntry, Segment, StreetConfig, ViewerData } from '$lib/viewer
 // Streets lists curb extensions as typical [4]). NACTO's parking width wasn't
 // sourced, so its rungs keep the 7 ft baseline lane.
 //
+// Commonway System parking lanes follow Dutch practice on streets that have
+// parking (Haarlem's Harmenjansweg is the precedent [20]): brick or permeable
+// pavers [21, 22], raised partway to the sidewalk behind a mountable curb,
+// with a white brick T at each stall line. Next to the street, the bike lane
+// and door buffer beside parking are raised with it, the buffer paved in the
+// same brick; a side without parking stays at road level (raising it too is
+// optional, said in the text only). The tan brick is only an illustration.
+//
 // Two facets: on-street parking (none, left, right, both) on every rung but
 // the Dutch reference, and where the bike lane sits (next to the street or
 // next to the sidewalk) on the Commonway System rung only. The Commonway
@@ -20,7 +28,9 @@ import type { ConfigEntry, Segment, StreetConfig, ViewerData } from '$lib/viewer
 // strip of trees between a raised bike lane and the road is a buffer and
 // barrier in its own right, the same protection in another form. Every
 // combination is built from the side() parts below; segment ids are the same
-// in all of them, so "what changed" and "moved" line up.
+// in all of them, so "what changed" and "moved" line up. Commonway System
+// parking lanes are 8 ft beside a street-level bike lane and 7 ft when the
+// bike lane is next to the sidewalk.
 
 type Side = 'l' | 'r'
 type Parking = 'none' | 'left' | 'right' | 'both'
@@ -35,6 +45,8 @@ const parkedOn = (p: Parking, side: Side) => p === 'both' || (side === 'l' ? p =
 const sidewalk = (side: Side, width: number): Segment => ({ id: `sw-${side}`, type: 'sidewalk', width })
 const planting = (side: Side): Segment => ({ id: `fs-${side}`, type: 'furnishing', width: 4, items: [{ type: 'tree', spacing: 30 }, { type: 'street-light', spacing: 60, start: 15 }] })
 const parking = (side: Side, width: number): Segment => ({ id: `pk-${side}`, type: 'parking', width })
+// The Commonway System's parking lane: brick, raised partway, T-marked stalls.
+const brickParking = (side: Side, width: number): Segment => ({ ...parking(side, width), level: 'intermediate', surface: 'brick', marking: 'stalls' })
 const dir = (side: Side) => side === 'l' ? 'inbound' as const : 'outbound' as const
 
 /** One side of the street, from the property line in to the center line. */
@@ -63,11 +75,11 @@ function side(rung: Rung, s: Side, parked: boolean, bikes: Bikes): Segment[] {
           sidewalk(s, 6),
           bike({ ...pbl, level: 'intermediate', label: 'Raised bike lane', shortLabel: 'Bike lane' }),
           planting(s),
-          ...(parked ? [parking(s, 8)] : []),
+          ...(parked ? [brickParking(s, 7)] : []),
         ]
       }
       return parked
-        ? [sidewalk(s, 6), planting(s), bike(pbl), { id: `buf-${s}`, type: 'buffer', width: 3 }, parking(s, 8)]
+        ? [sidewalk(s, 6), planting(s), bike({ ...pbl, level: 'intermediate' }), { id: `buf-${s}`, type: 'buffer', width: 3, level: 'intermediate', surface: 'brick' }, brickParking(s, 8)]
         : [sidewalk(s, 6), planting(s), bike({ ...pbl, variant: 'rigid-barrier' }), { id: `buf-${s}`, type: 'buffer', width: 2, items: [{ type: 'barrier' }] }]
     }
   }
@@ -142,6 +154,8 @@ function describe(rung: Rung, p: Parking, bikes: Bikes, c: StreetConfig): { desc
     case 'commonway': {
       const base = 'Two 10 ft travel lanes, one each way, and 6 ft sidewalks with a 4 ft planting strip of street trees on both sides.'
       const decision = 'This layout is a Commonway System decision.'
+      const brick = `${p === 'both' ? 'The parking lanes are' : 'The parking lane is'} brick or permeable pavers, which let rain soak into the ground instead of running off, raised partway to sidewalk height behind a mountable curb that cars pull up over. The raised parking narrows the roadway drivers see, which slows them, and when no cars are parked it reads as part of the walking space. A white T, laid in white bricks, marks each stall line. No standard sets the brick color; the tan drawn here is only an illustration.`
+      const parkedCite = [20, 21, 22]
       if (bikes === 'street') {
         const protection = p === 'none'
           ? 'There\'s no on-street parking, so on each side a rigid barrier in a 2 ft buffer protects the bike lane.'
@@ -149,18 +163,18 @@ function describe(rung: Rung, p: Parking, bikes: Bikes, c: StreetConfig): { desc
             ? 'Parking lanes are 8 ft on both sides. The parked cars protect the bike lanes, so no barrier is needed, only an empty 3 ft buffer for opening car doors.'
             : `Parking is 8 ft, on the ${p} side only (as drawn). On that side the parked cars protect the bike lane, so it needs no barrier, only an empty 3 ft buffer for opening car doors; on the ${other(p)} side a rigid barrier in a 2 ft buffer protects it.`
         return {
-          description: `${base} The 6 ft protected bike lanes run next to the street. ${protection} ${decision} ${rightOfWay(c)}`,
-          cite: parked ? [3, 13, 5] : [3],
+          description: `${base} The 6 ft protected bike lanes run next to the street. ${protection}${parked ? ` ${brick} Beside parking, the bike lane and the door buffer are raised to the same height, the buffer paved in the same brick.${p === 'both' ? '' : ` On the ${other(p)} side, without parking, they're drawn at road level; raising them there too is an option, not a recommendation.`}` : ''} ${decision} ${rightOfWay(c)}`,
+          cite: parked ? [3, 13, 5, ...parkedCite] : [3],
         }
       }
       const protection = p === 'none'
         ? 'There\'s no on-street parking, so the trees must be there: they are the barrier.'
         : p === 'both'
-          ? 'Parking lanes are 8 ft on both sides, between the travel lanes and the planting strips; the parked cars protect the bike lanes too, so there the trees aren\'t what keeps riders safe.'
-          : `Parking is 8 ft, on the ${p} side only (as drawn), where the parked cars protect the bike lane too. On the ${other(p)} side the trees must be there: they are the barrier.`
+          ? 'Parking lanes are 7 ft on both sides, between the travel lanes and the planting strips; the parked cars protect the bike lanes too, so there the trees aren\'t what keeps riders safe.'
+          : `Parking is 7 ft, on the ${p} side only (as drawn), where the parked cars protect the bike lane too. On the ${other(p)} side the trees must be there: they are the barrier.`
       return {
-        description: `${base} The 6 ft bike lanes run next to the sidewalk instead, raised a step below it, with a narrow sloped edge strip a rider can ride up onto safely if they drift. The planting strip and its trees are the buffer and the barrier between the bike lane and traffic: the same protection a rigid barrier gives, in another form. ${protection} ${decision} ${rightOfWay(c)}`,
-        cite: parked ? [3, 13] : [3],
+        description: `${base} The 6 ft bike lanes run next to the sidewalk instead, raised partway to sidewalk height, with a narrow sloped edge strip a rider can ride up onto safely if they drift. The planting strip and its trees are the buffer and the barrier between the bike lane and traffic: the same protection a rigid barrier gives, in another form. ${protection}${parked ? ` ${brick}` : ''} ${decision} ${rightOfWay(c)}`,
+        cite: parked ? [3, 13, ...parkedCite] : [3],
       }
     }
   }

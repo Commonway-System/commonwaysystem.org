@@ -63,6 +63,22 @@ export const releases: Release[] = [
         summary: "Default (Standard Collector)'s viewer shows on-street parking (none, left side, right side or both sides) on every layer, and the bike lane next to the street or next to the sidewalk on the Commonway System layer.",
         details: "The Commonway System layouts: next to the street, a bike lane with no parking beside it is protected by a rigid barrier in a 2 ft buffer, and one beside parking by the parked cars, with only an empty 3 ft buffer for opening car doors. Next to the sidewalk, the bike lane is raised a step below the sidewalk and the planting strip and its trees between it and the road are the buffer and the barrier; where there's no parking, the trees must be there. NACTO's and Complete Streets' layers keep 7 ft parking and a 3 ft buffer beside it; without parking they show a 2 ft buffer with flexible posts, and Complete Streets' curb extensions appear only on a parked side. Each layout's description now ends with its right-of-way width."
       },
+      { type: "fixed", area: "content",
+        summary: "Default (Standard Collector)'s Commonway System parking lanes are 7 ft when the bike lane runs next to the sidewalk; they stay 8 ft beside a bike lane next to the street.",
+        details: "The 8 ft desirable width is there to protect the door zone a street-level bike lane depends on; with the bike lane behind the planting strip, the 7 ft minimum is enough. The viewer, its descriptions and the guidance table's parking cell all match."
+      },
+      { type: "improved", area: "content",
+        summary: "Default (Standard Collector)'s Commonway System parking lanes now follow Dutch practice: brick or permeable pavers, raised partway to sidewalk height behind a mountable curb, with a white brick T at each stall.",
+        details: "Haarlem's rebuilt Harmenjansweg is the precedent. Permeable paving lets rain soak in instead of running off, and the raised parking narrows the roadway drivers see. Next to the street, the bike lane and door buffer beside parking are raised with it, the buffer in the same brick; a side without parking stays at road level, and the page says raising it too is an option, not a recommendation. A new Parking lanes section in Design notes explains it, with three new references (a Build the Lanes video on Harmenjansweg, Dutch national climate adaptation guidance from RVO, and EPA's permeable pavement field study). The tan brick is only an illustration; no standard sets a color."
+      },
+      { type: "new", area: "site",
+        summary: "The Pattern viewer can draw brick paving (tan and red), a raised parking lane behind a mountable curb, and T marks at each parking stall.",
+        details: "Brick shows its joints in the top-down slice and Top down view and its ends in the cross-section. A mountable curb is a sloped edge inside the raised parking lane, so the travel lane keeps its full width, and curb to curb is measured between the mountable curbs. The T marks are laid in white bricks along the edge nearest the travel lane, 22 ft apart, and parked cars in the slice sit inside a stall. The red brick isn't used on any page yet."
+      },
+      { type: "fixed", area: "site",
+        summary: "Every buffer in the Pattern viewer now has a white stripe down both sides, separating it from the strips next to it.",
+        details: "Before, some buffers showed a stripe on one side only, or none, depending on what was beside them. The stripes now show in the cross-section, the top-down slice and the Top down view, on asphalt and brick buffers alike, and with or without a barrier or posts."
+      },
       { type: "note",
         summary: "Accessibility check of the Pattern viewer choices and compact labels: no violations.",
         details: "Axe (WCAG 2.2 AA plus best practice) found no violations on Default (Standard Collector) in five states (no choice made, parking on the right with the bike lane next to the sidewalk, NACTO with parking on the left, comparing the two bike lane positions, and the Top down view), How to Read a Pattern, the Accessibility Policy and Release History & Roadmap, in light and dark at desktop and 375px; on Collector Default with high contrast and the largest text, and in Simplified view with OpenDyslexic, color symbols and the enhanced focus outline; and on Collector Default and Stroad with full view open. Not tested: a screen reader, forced-colors mode, real touch devices."
