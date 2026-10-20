@@ -16,7 +16,7 @@ The visual and editorial system behind the Commonway System (CS): how it looks, 
 
 | CS voice is...                                          | CS voice is not...                                    |
 | ------------------------------------------------------- | ----------------------------------------------------- |
-| Encyclopedic                                            | Conversational or chatty                              |
+| Plain-spoken and direct                                 | Chatty, cute, or padded                               |
 | Evidence-led (claims trace to citations)                | Opinion-led or persuasive                             |
 | Layered (plain language first, technical depth beneath) | Dumbed-down, or gatekept behind jargon                |
 | Precise (specific numbers, named sources)               | Vague or hand-wavy                                    |
@@ -24,13 +24,22 @@ The visual and editorial system behind the Commonway System (CS): how it looks, 
 | Neutral and descriptive                                 | Salesy, urgent, or marketing-toned                    |
 | Inclusive of total beginners                            | Exclusionary of experts who already know the material |
 
+### Two kinds of page
+
+The voice is the same everywhere. The structure depends on the page.
+
+- **Guide and About pages are reader-first.** They open with a real case, then say why it matters to the reader, then explain. They answer the questions a skeptic would ask, and end with what the reader can do. They speak to the reader as "you."
+- **Pattern and Retrofit pages are reference pages.** They follow their fixed structure, stay descriptive, and speak about the street, not to the reader.
+
+The opening case on a reader-first page is always real and verified against primary sources. Never a composite or an invented scenario.
+
 ### The disagreement-phrasing pattern
 
 Every place CS takes a position against, or beyond, conventional practice uses the same underlying shape: name the origin (an intentional baseline practice, or an emergent structural pattern), then close with a classification backed by specific evidence. A baseline source is never called "wrong," "outdated," or "flawed."
 
 - **Opening A** (intentional practice): "[Baseline source] recommends/practices [X]."
 - **Opening B** (emergent/structural): "[Pattern] emerges when [structural cause]."
-- **Closer, always:** "CS classifies this as [Default / Situational-Discouraged / Avoid], informed by [specific evidence source and finding]."
+- **Closer, always:** "CS classifies this as [Recommended, Situational / Discouraged, or Avoid], informed by [specific evidence source and finding]." Descriptive patterns describe without classifying, so they don't take this closer.
 
 <ExampleCard label="Correct" tone="good">
 NACTO's guidance allows Local street design speeds up to 25 mph in many contexts. CS sets a 20 mph hard maximum with no exceptions, informed by Dutch Sustainable Safety research linking pedestrian survival rates to impact speed.
@@ -48,6 +57,10 @@ No em-dashes, ever, anywhere in CS content. This is a standing, non-negotiable r
 :::
 
 - **Plain-language-first terminology.** The first time a technical term appears in a plain-language passage, it's introduced in accessible language before the formal term is used, not the reverse.
+- **Base style.** *The Chicago Manual of Style*, 18th edition, with two house exceptions: the citation format below and the em-dash ban.
+- **Self-reference.** The publication calls itself "the publication," "the guidebook," or "the system." Never "the guide," which means the Guide section.
+- **Status labels.** Wherever statuses are explained, name all four: Recommended, Situational / Discouraged, Avoid, and Descriptive.
+- **Sources by role.** Advocacy organizations are cited for what they argue, not as proof that it works. Regulation and research carry the proof. The evidence-tier chip on each reference shows which is which.
 
 ## Color system
 
@@ -450,7 +463,7 @@ Focus state on text inputs and selects uses a teal outline ring, not a color cha
 
 ## Citation format
 
-The house citation format is modeled on agency-reference conventions: source name, year, title, publisher (when distinct from the source), and URL. Entries are numbered to match their inline badges, sorted by publication date, and, within a single source cited multiple times, ordered by where the content appears in that source, not by citation number or alphabetically.
+The house citation format is modeled on agency-reference conventions: source name, year, title, publisher (when distinct from the source), and URL. Entries are numbered in order of first appearance on the page, matching their inline badges. A source cited more than once keeps one number. Every entry carries an evidence-tier chip: Legal / regulatory, Evidence-based, or Precedent-based. A claim confirmed only through a secondary source carries the ⚠ unsourced flag and a note naming what was read instead.
 
 **Link maintenance**
 

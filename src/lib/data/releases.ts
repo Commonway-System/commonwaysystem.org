@@ -33,6 +33,22 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    date: "2026.10.20",
+    changes: [
+      { type: "improved", area: "content",
+        summary: "Brand Guide voice rules now match how the publication is written.",
+        details: "Voice attributes: \"Encyclopedic\" became \"Plain-spoken and direct.\" New \"Two kinds of page\" subsection: Guide and About pages are reader-first and open with a real, verified case; Pattern and Retrofit pages are reference pages. The disagreement-phrasing closer now uses the current status labels (Recommended, Situational / Discouraged, Avoid), with a note that Descriptive patterns take no closer. Editorial standards add the base style (CMOS 18th edition), self-reference terms, the four status labels and how advocacy sources are cited."
+      },
+      { type: "fixed", area: "content",
+        summary: "Brand Guide citation format now describes how references are actually numbered.",
+        details: "References are numbered by first appearance on the page, not by publication date. The section now also describes evidence-tier chips and the unsourced flag."
+      },
+      { type: "note",
+        summary: "Accessibility check on the Brand Guide: axe (WCAG 2.2 AA plus best practice) found 0 violations in light and dark at 1280px and 375px; not tested with a screen reader."
+      },
+    ],
+  },
+  {
     date: "2026.10.19",
     changes: [
       { type: "new", area: "content",
