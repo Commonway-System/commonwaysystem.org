@@ -112,8 +112,8 @@
     margin: 0;
   }
 
-  /* Each Scale's own ramp: Core-tier top bar (the same token PatternCard's
-     left edge uses), the soft Undeveloped tier behind the text. */
+  /* Each Scale's own ramp: Core-tier top bar (the Scale's single
+     representative token), the soft Undeveloped tier behind the text. */
   .hp__scale {
     display: flex;
     flex-direction: column;

@@ -1234,9 +1234,7 @@ html[data-contrast='high'] .navbar {
 /* Cards and panels: solid, visible edges instead of near-invisible hairlines. */
 html[data-contrast='high'] .pic,
 html[data-contrast='high'] .ric,
-html[data-contrast='high'] .mc,
-html[data-contrast='high'] .pattern-card,
-html[data-contrast='high'] .retrofit-card {
+html[data-contrast='high'] .mc {
   border-color: var(--cw-ink);
   box-shadow: none;
 }
@@ -1496,8 +1494,6 @@ html[data-font='opendyslexic'] {
   .pic,
   .ric,
   .mc,
-  .pattern-card,
-  .retrofit-card,
   .consent,
   .cw-table-wrap {
     outline: 1px solid CanvasText;

@@ -140,8 +140,8 @@
      Full 6-step tint/shade ramp per Scale prefix, lightest at
      Undeveloped, darkest at Core (see file-header comment for the
      2026.09.23 full recolor this replaced). --cw-local etc. below are
-     single representative colors for simple UI chrome (PatternCard
-     border, sidebar accents) that isn't density-aware; --cw-*-soft
+     single representative colors for simple UI chrome (the homepage
+     Scale bars, the ID pill's dot, modal hierarchy pills) that isn't density-aware; --cw-*-soft
      reuses each ramp's own Undeveloped tier as a light tint, so nothing
      is invented outside the ramp itself. */
   --cw-network-undeveloped: #f7d5d4;

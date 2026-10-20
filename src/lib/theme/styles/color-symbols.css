@@ -65,7 +65,7 @@
    contrast (near-black symbols on cream is over 15:1, and the ink border
    separates it from the colored area). Sized in em so it scales with text
    size; hosts can set font-size to shrink it. */
-html[data-symbols='on'] :is(.pic__image, .ric__image, .pattern-card, .retrofit-card)::after,
+html[data-symbols='on'] :is(.pic__image, .ric__image)::after,
 .cw-symtab {
   content: '';
   position: absolute;
@@ -86,7 +86,7 @@ html[data-symbols='on'] :is(.pic__image, .ric__image, .pattern-card, .retrofit-c
 }
 
 /* One symbol: centered. Two: first left, slash in the middle, second right. */
-html[data-symbols='on'] :is(.pic__image, .ric__image, .pattern-card, .retrofit-card)::after,
+html[data-symbols='on'] :is(.pic__image, .ric__image)::after,
 .cw-symtab {
   background-position: var(--sym-pos, center, -100em -100em, -100em -100em);
 }
@@ -103,18 +103,7 @@ html[data-symbols='on'] :is(.pic__image, .ric__image)::after {
   flex: none;
 }
 
-/* Cards with a colored left edge: the tab sits in the bottom-left corner, so
-   leave room for it below the content. */
-html[data-symbols='on'] :is(.pattern-card, .retrofit-card) {
-  position: relative;
-  padding-bottom: calc(1.1rem + 1.9rem);
-}
-html[data-symbols='on'] :is(.pattern-card, .retrofit-card)::after {
-  border-bottom-left-radius: calc(var(--cw-radius-lg) - 4px);
-  font-size: 0.875rem;
-}
-
-/* Simplified view removes the images the tabs sit on; cards keep theirs. */
+/* Simplified view removes the images the tabs sit on. */
 html[data-view='simple'] :is(.pic__image, .ric__image)::after {
   display: none;
 }

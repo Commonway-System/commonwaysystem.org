@@ -99,7 +99,7 @@ for (const file of findPages(buildDir)) {
     }
   }
 
-  const status = doc.querySelector('.pattern-card .status-badge')?.text.replace(/\s+/g, ' ').trim()
+  const status = doc.querySelector('.page-head .status-badge')?.text.replace(/\s+/g, ' ').trim()
   pages.push({ route, title, description, nodes, modified: page.dateModified, id: page.identifier, sources, status })
 }
 
