@@ -9,8 +9,10 @@ llms: Explains the Commonway System's CalVer versioning, the current version, th
   import { patternPageCount, retrofitStrategyCount } from '$lib/pattern-count'
   import { releases } from '$lib/data/releases'
   import Changelog from '$lib/theme/components/Changelog.svelte'
+  import Roadmap from '$lib/theme/components/Roadmap.svelte'
 
-  // The changelog itself lives in src/lib/data/releases.ts (newest first).
+  // The changelog itself lives in src/lib/data/releases.ts (newest first),
+  // the Roadmap's open items in src/lib/data/roadmap.ts.
   const currentVersion = releases[0]
 </script>
 
@@ -60,81 +62,4 @@ The build note becomes that day's changelog entry, and the summaries double as t
 
 Work that's planned but not yet built, grouped by area.
 
-### New content
-
-<div class="cw-tiles">
-
-- **Traffic Calming page.** A new Guide page on traffic calming,
-  connected to the patterns and retrofit strategies it relates to.
-- **Hoofdnet/Plusnet methodology page.** A new Guide page on the Dutch
-  Hoofdnet/Plusnet road-network methodology.
-
-</div>
-
-### Structure changes
-
-<div class="cw-tiles">
-
-- **Classification overview pages.** Landing pages for Local,
-  Collector, Arterial, and Freeway, sitting between the Pattern Index
-  and individual Street Typology pages, which currently jump straight
-  from one to the other.
-- **Dutch CROW reconciliation.** Folding an internal CROW-comparison
-  reference into the actual Commonway System patterns.
-
-</div>
-
-### Existing content
-
-<div class="cw-tiles">
-
-- **Brand Guide page update.** Finalizing `/about/brand-guide/` as the
-  canonical brand reference, including documentation for components
-  not yet covered there.
-- **Related Media placement decision.** Finalizing which page a
-  specific Related Media item currently tagged to the Commonway System
-  page actually belongs on.
-
-</div>
-
-### Audits
-
-- **Website specification audit, remaining items.** The first full
-  pass against the checklist at specification.website is published on
-  the [Website Audit](/about/website-audit/) page; the items still
-  marked Partial, Fail or Not yet reviewed there are what's left.
-
-### New features
-
-<div class="cw-tiles">
-
-- **Find Your Pattern tool.** A two-part diagnostic tool plus an
-  interactive, clickable hotspot map.
-- **Photo Gallery feature.** A new media type usable on any page:
-  ordinary photos, before/after comparison sliders, and map-based
-  street-level photos.
-- **Related Media refinements.** Improvements to how the Related Media
-  component displays.
-
-</div>
-
-### Standing / ongoing
-
-<div class="cw-tiles">
-
-- **Pattern viewer drawings rollout.** Drawn, interactive views for
-  every pattern and Retrofit Strategy, beyond the five that have them
-  now; the rest show their illustration or a placeholder until then.
-- **Bike Highway / Downtown Thoroughfare content pass.** A future
-  revision pass on these two pattern pages.
-- **Binding-adoption template.** A future, separate model template for
-  formal municipal adoption.
-- **More media items.** Ongoing additions to the Media Gallery as new
-  sources come up.
-
-</div>
-
-### External
-
-- **Rosetta Places citation.** Rosetta Places will cite the Commonway
-  System by name once it reaches a citable state.
+<Roadmap />
