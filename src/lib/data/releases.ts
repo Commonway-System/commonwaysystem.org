@@ -35,6 +35,39 @@ export const releases: Release[] = [
   {
     date: "2026.10.20",
     changes: [
+      { type: "new", area: "content",
+        summary: "Twelve new items in the Media Gallery for the Flow-Through Planter, Guide Sign, Landscaped Buffer Strip, Pedestrian-scale Lighting and Pervious Pavement pages.",
+        details: "MED-165 to MED-176: 2 videos and 10 articles, each tagged to the pages it supports and shown in their Related Media. Nine have their own cover image; three use the shared placeholder. The gallery now holds 176 items." },
+      { type: "fixed", area: "content",
+        summary: "Default (Standard Collector)'s Commonway System parking lanes are 7 ft when the bike lane runs next to the sidewalk; they stay 8 ft beside a bike lane next to the street.",
+        details: "The 8 ft desirable width is there to protect the door zone a street-level bike lane depends on; with the bike lane behind the planting strip, the 7 ft minimum is enough. The viewer, its descriptions and the guidance table's parking cell all match."
+      },
+      { type: "improved", area: "content",
+        summary: "Default (Standard Collector)'s Commonway System parking lanes now follow Dutch practice: brick or permeable pavers, raised partway to sidewalk height behind a mountable curb, with a white brick T at each stall.",
+        details: "Haarlem's rebuilt Harmenjansweg is the precedent. Permeable paving lets rain soak in instead of running off, and the raised parking narrows the roadway drivers see. Next to the street, the bike lane and door buffer beside parking are raised with it, the buffer in the same brick; a side without parking stays at road level, and the page says raising it too is an option, not a recommendation. A new Parking lanes section in Design notes explains it, with three new references (a Build the Lanes video on Harmenjansweg, Dutch national climate adaptation guidance from RVO, and EPA's permeable pavement field study). The tan brick is only an illustration; no standard sets a color."
+      },
+      { type: "new", area: "site",
+        summary: "The Pattern viewer can draw brick paving (tan and red), a raised parking lane behind a mountable curb, and T marks at each parking stall.",
+        details: "Brick shows its joints in the top-down slice and Top down view and its ends in the cross-section. A mountable curb is a sloped edge inside the raised parking lane, so the travel lane keeps its full width, and curb to curb is measured between the mountable curbs. The T marks are laid in white bricks along the edge nearest the travel lane, 22 ft apart, and parked cars in the slice sit inside a stall. The red brick isn't used on any page yet."
+      },
+      { type: "fixed", area: "site",
+        summary: "Every buffer in the Pattern viewer now has a white stripe down both sides, separating it from the strips next to it.",
+        details: "Before, some buffers showed a stripe on one side only, or none, depending on what was beside them. The stripes now show in the cross-section, the top-down slice and the Top down view, on asphalt and brick buffers alike, and with or without a barrier or posts."
+      },
+      { type: "removed", area: "site",
+        summary: "The old Pattern and Retrofit ID card components, unused since the page header took over their job.",
+        details: "`PatternCard` and `RetrofitCard` had not been used on any page since 2026.10.18, when the page header became the ID card. Both components and the styles that targeted them (high contrast, forced colors, Color symbols) were removed." },
+      { type: "fixed", area: "site",
+        summary: "Pattern statuses are back in the downloadable knowledge bundle.",
+        details: "Since 2026.10.18 the OKF bundle (`/okf/`) had left out every pattern's status, because the build script still looked for it in the old ID card. It now reads it from the page header, so all pattern pages list their status again." },
+      { type: "improved", area: "site",
+        summary: "The Roadmap now renders from a data file, so it always matches the open items list.",
+        details: "The open items list moved into `src/lib/data/roadmap.ts`, and the Roadmap on this page renders from it. It gains one item: Layered guidance across sources rollout, under Standing / ongoing." },
+      { type: "improved", area: "site",
+        summary: "Contributor docs reorganized: locked decisions in `docs/decisions.md`, a Guide page workflow skill, and a shorter CLAUDE.md.",
+        details: "CLAUDE.md is now a short index; engineering detail moved to `docs/engineering/` and path-scoped rules in `.claude/rules/`. A `/guide-page` skill holds the research-and-write workflow for Guide and About pages." },
+      { type: "note",
+        summary: "Accessibility check: axe (WCAG 2.2 AA plus best practice) found no violations on Release History, and on Stroad, Default (Standard Collector), the road diet strategy, the Pattern and Retrofit indexes, the Brand Guide, How to read a retrofit strategy, the Media Gallery and the five pages that gained media (Flow-Through Planter, Guide Sign, Landscaped Buffer Strip, Pedestrian-scale Lighting, Pervious Pavement), in light and dark at desktop and 375px, also with Color symbols and high contrast on; not tested with a screen reader or in forced-colors mode." },
       { type: "improved", area: "content",
         summary: "Brand Guide voice rules now match how the publication is written.",
         details: "Voice attributes: \"Encyclopedic\" became \"Plain-spoken and direct.\" New \"Two kinds of page\" subsection: Guide and About pages are reader-first and open with a real, verified case; Pattern and Retrofit pages are reference pages. The disagreement-phrasing closer now uses the current status labels (Recommended, Situational / Discouraged, Avoid), with a note that Descriptive patterns take no closer. Editorial standards add the base style (CMOS 18th edition), self-reference terms, the four status labels and how advocacy sources are cited."
@@ -78,22 +111,6 @@ export const releases: Release[] = [
       { type: "improved", area: "content",
         summary: "Default (Standard Collector)'s viewer shows on-street parking (none, left side, right side or both sides) on every layer, and the bike lane next to the street or next to the sidewalk on the Commonway System layer.",
         details: "The Commonway System layouts: next to the street, a bike lane with no parking beside it is protected by a rigid barrier in a 2 ft buffer, and one beside parking by the parked cars, with only an empty 3 ft buffer for opening car doors. Next to the sidewalk, the bike lane is raised a step below the sidewalk and the planting strip and its trees between it and the road are the buffer and the barrier; where there's no parking, the trees must be there. NACTO's and Complete Streets' layers keep 7 ft parking and a 3 ft buffer beside it; without parking they show a 2 ft buffer with flexible posts, and Complete Streets' curb extensions appear only on a parked side. Each layout's description now ends with its right-of-way width."
-      },
-      { type: "fixed", area: "content",
-        summary: "Default (Standard Collector)'s Commonway System parking lanes are 7 ft when the bike lane runs next to the sidewalk; they stay 8 ft beside a bike lane next to the street.",
-        details: "The 8 ft desirable width is there to protect the door zone a street-level bike lane depends on; with the bike lane behind the planting strip, the 7 ft minimum is enough. The viewer, its descriptions and the guidance table's parking cell all match."
-      },
-      { type: "improved", area: "content",
-        summary: "Default (Standard Collector)'s Commonway System parking lanes now follow Dutch practice: brick or permeable pavers, raised partway to sidewalk height behind a mountable curb, with a white brick T at each stall.",
-        details: "Haarlem's rebuilt Harmenjansweg is the precedent. Permeable paving lets rain soak in instead of running off, and the raised parking narrows the roadway drivers see. Next to the street, the bike lane and door buffer beside parking are raised with it, the buffer in the same brick; a side without parking stays at road level, and the page says raising it too is an option, not a recommendation. A new Parking lanes section in Design notes explains it, with three new references (a Build the Lanes video on Harmenjansweg, Dutch national climate adaptation guidance from RVO, and EPA's permeable pavement field study). The tan brick is only an illustration; no standard sets a color."
-      },
-      { type: "new", area: "site",
-        summary: "The Pattern viewer can draw brick paving (tan and red), a raised parking lane behind a mountable curb, and T marks at each parking stall.",
-        details: "Brick shows its joints in the top-down slice and Top down view and its ends in the cross-section. A mountable curb is a sloped edge inside the raised parking lane, so the travel lane keeps its full width, and curb to curb is measured between the mountable curbs. The T marks are laid in white bricks along the edge nearest the travel lane, 22 ft apart, and parked cars in the slice sit inside a stall. The red brick isn't used on any page yet."
-      },
-      { type: "fixed", area: "site",
-        summary: "Every buffer in the Pattern viewer now has a white stripe down both sides, separating it from the strips next to it.",
-        details: "Before, some buffers showed a stripe on one side only, or none, depending on what was beside them. The stripes now show in the cross-section, the top-down slice and the Top down view, on asphalt and brick buffers alike, and with or without a barrier or posts."
       },
       { type: "note",
         summary: "Accessibility check of the Pattern viewer choices and compact labels: no violations.",
