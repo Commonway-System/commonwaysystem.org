@@ -123,17 +123,21 @@ export interface SegmentItem {
  * What a strip's surface is painted or paved with. Defaults by type (see
  * surfaceOf in geometry.ts): bike lanes green, as NACTO recommends; transit
  * lanes red; walks concrete; everything else asphalt. Set it to say
- * otherwise, e.g. 'asphalt' for a bike lane left unpainted.
+ * otherwise, e.g. 'asphalt' for a bike lane left unpainted. 'brick' and
+ * 'brick-red' are brick or permeable pavers, drawn tan and red; no standard
+ * sets a color, so the tan is only an illustration.
  */
-export type Surface = 'asphalt' | 'green' | 'red' | 'concrete' | 'pavers'
+export type Surface = 'asphalt' | 'green' | 'red' | 'concrete' | 'pavers' | 'brick' | 'brick-red'
 
 /**
  * The pavement marking drawn in a lane in the top-down views. Defaults by
  * type (markingOf in geometry.ts): bike lanes get the bike lane symbol with
  * an arrow; nothing else is marked. 'sharrow' is the shared lane marking for
- * a travel lane bicycles share with cars (a bicycle boulevard).
+ * a travel lane bicycles share with cars (a bicycle boulevard). 'stalls' is
+ * for a parking lane: a white T at each stall line (STALL_LENGTH apart), on
+ * the edge nearest the travel lane.
  */
-export type Marking = 'bike-symbol' | 'sharrow' | 'none'
+export type Marking = 'bike-symbol' | 'sharrow' | 'stalls' | 'none'
 
 /**
  * How high a strip's surface sits. Defaults by type (levelOf in

@@ -49,6 +49,11 @@
   --pvx-paint-green: #4f9a55;
   --pvx-paint-red: #b0573f;
   --pvx-pavers: #b98c6e;
+  /* Brick pavers: tan for parking lanes (only an illustration, no standard
+     sets a color) and red for later uses; joints as a translucent overlay. */
+  --pvx-brick: #a87b52;
+  --pvx-brick-red: #a34a3a;
+  --pvx-brick-joint: rgba(60, 35, 20, 0.3);
   --pvx-bldg-a: #c58a6a;
   --pvx-bldg-b: #d8ccb4;
   --pvx-bldg-trim: #efe7d6;
@@ -68,6 +73,8 @@
   --pvx-p-green: #4f9650;
   --pvx-p-red: #b0573f;
   --pvx-p-pavers: #c99d7e;
+  --pvx-p-brick: #c09469;
+  --pvx-p-brick-red: #b2513f;
   --pvx-p-white: #fbfbf8;
   --pvx-p-yellow: #f0c02e;
   /* Zone band: dark text on light fills here, light text on dark fills in
@@ -125,6 +132,9 @@
   --pvx-paint-green: #2f6236;
   --pvx-paint-red: #7d3a29;
   --pvx-pavers: #6b4f3d;
+  --pvx-brick: #6c5034;
+  --pvx-brick-red: #6b2f25;
+  --pvx-brick-joint: rgba(0, 0, 0, 0.32);
   --pvx-bldg-a: #6b4636;
   --pvx-bldg-b: #625b4f;
   --pvx-bldg-trim: #857d6f;
@@ -144,6 +154,8 @@
   --pvx-p-green: #2f5a33;
   --pvx-p-red: #6e3324;
   --pvx-p-pavers: #73574a;
+  --pvx-p-brick: #76593d;
+  --pvx-p-brick-red: #73362a;
   --pvx-p-white: #dcdcd8;
   --pvx-p-yellow: #c9a02a;
   --pvx-z-ped: #8a5a2b;
@@ -198,6 +210,8 @@ html[data-contrast='high'] .pvx {
 .pvx .sf-red { fill: var(--pvx-p-red); }
 .pvx .sf-concrete { fill: var(--pvx-p-concrete); }
 .pvx .sf-pavers { fill: var(--pvx-p-pavers); }
+.pvx .sf-brick { fill: var(--pvx-p-brick); }
+.pvx .sf-brick-red { fill: var(--pvx-p-brick-red); }
 .pvx .s-joint { stroke: var(--pvx-p-joint); stroke-width: 1; fill: none; }
 
 .pvx .edge { stroke: var(--pvx-edge); stroke-width: 1; fill: none; }

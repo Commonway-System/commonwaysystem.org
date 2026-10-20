@@ -5,10 +5,10 @@
 // street by spacing land where the data puts them. Pixels, with objects
 // placed in feet at the street's own scale.
 
-import { markingOf, surfaceOf } from '../geometry'
+import { isBrick, markingOf, STALL_LENGTH, surfaceOf } from '../geometry'
 import type { FrontageType, ItemType, Segment, StreetFeature } from '../types'
 import type { Ids } from './core'
-import { makeStamps, place, r2, rect, rng, seedOf } from './core'
+import { brickJoints, makeStamps, place, r2, rect, rng, seedOf } from './core'
 import { barrierTop, bikeLaneSymbol, laneArrow, sharrow, streetItemTop } from './items'
 import { crownRadius, shrubTop } from './nature'
 import type { CyclistVariant, PedestrianVariant } from './people'
@@ -16,7 +16,7 @@ import { cyclistTop, PEDESTRIAN_WIDTH, pedestrianTop } from './people'
 import type { VehicleVariant } from './vehicles'
 import { VEHICLE_LENGTH, VEHICLE_WIDTH, vehicleTop } from './vehicles'
 import { levelOf } from '../geometry'
-import { edgeStripLow, edgeStripW, isRaisedSegment } from './scene'
+import { edgeStrip, edgeStripW, isRaisedSegment } from './scene'
 
 const HEIGHT = { road: 0, intermediate: 1, sidewalk: 2 } as const
 
@@ -51,7 +51,7 @@ function surface(s: Segment): string {
     return 'p-grass'
   if (s.type === 'curb')
     return 'p-curb'
-  return { asphalt: 'p-asphalt', green: 'p-green', red: 'p-red', concrete: 'p-concrete', pavers: 'p-pavers' }[surfaceOf(s)]
+  return { 'asphalt': 'p-asphalt', 'green': 'p-green', 'red': 'p-red', 'concrete': 'p-concrete', 'pavers': 'p-pavers', 'brick': 'p-brick', 'brick-red': 'p-brick-red' }[surfaceOf(s)]
 }
 
 /** Seeded speckles of groundcover over a planted area. */
@@ -118,10 +118,16 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
   }
 
   // Strip surfaces.
+  const bricks = cols.some(c => isBrick(c.s)) ? brickJoints(ids, b.S) : undefined
+  if (bricks)
+    s += bricks.def
   for (const c of cols) {
     const t = c.s.type
     const w = c.x1 - c.x0
     s += rect(c.x0, b.y, w, b.h, surface(c.s))
+    if (bricks && isBrick(c.s))
+      s += rect(c.x0, b.y, w, b.h, bricks.fill)
+    // A brick buffer still gets its painted chevrons, below.
     if (surfaceOf(c.s) === 'pavers' && t !== 'furnishing' && t !== 'median') {
       // A running-bond paving grid, 1 by 2 ft units.
       for (let a = Math.floor(a0); a < a0 + L; a += 1) {
@@ -142,9 +148,11 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       s += speckles(c.x0, c.x1, b.y, y1, b.S, seedOf(c.s.id, 'grass'))
     }
     else if (t === 'buffer' && !c.items.some(i => i.type === 'barrier')) {
-      // A painted buffer: chevrons between two solid lines.
+      // A painted buffer: chevrons between its two edge stripes (drawn
+      // with the markings below, centered `sm` inside each edge), ending on them.
+      const sm = Math.max(0.33 * b.S, 1.4)
       for (let a = Math.floor(a0 / 8) * 8; a < a0 + L + 8; a += 8)
-        s += `<path d="M${r2(c.x0)} ${r2(Y(a) + w)} L${r2(c.x1)} ${r2(Y(a))}" style="fill:none;stroke:var(--pvx-p-white);stroke-width:${r2(Math.max(1, 0.33 * b.S))}"/>`
+        s += `<path d="M${r2(c.x0 + sm)} ${r2(Y(a) + w - sm)} L${r2(c.x1 - sm)} ${r2(Y(a) + sm)}" style="fill:none;stroke:var(--pvx-p-white);stroke-width:${r2(Math.max(1, 0.33 * b.S))}"/>`
     }
   }
 
@@ -153,11 +161,11 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
   for (let i = 0; i < cols.length - 1; i++) {
     const a = cols[i]
     const c = cols[i + 1]
-    const low = edgeStripLow(a.s, c.s)
-    if (low) {
+    const e = edgeStrip(a.s, c.s)
+    if (e) {
       // The sloped edge strip: a light concrete band, no shadow.
       const ew = edgeStripW(b)
-      s += rect(low === 'left' ? a.x1 - ew : a.x1, b.y, ew, b.h, 'p-concrete-2') + rect(a.x1 - 0.5, b.y, 1, b.h, 'p-joint')
+      s += rect(e.within === 'left' ? a.x1 - ew : a.x1, b.y, ew, b.h, 'p-concrete-2') + rect(a.x1 - 0.5, b.y, 1, b.h, 'p-joint')
       continue
     }
     const ha = HEIGHT[levelOf(a.s)]
@@ -177,7 +185,14 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     const c = cols[i + 1].s
     const x = cols[i].x1
     const lane = (t: Segment['type']) => LANES.has(t)
-    if (lane(a.type) && lane(c.type)) {
+    // Every buffer has a white stripe down each side, just inside its edge.
+    if (a.type === 'buffer' || c.type === 'buffer') {
+      if (a.type === 'buffer')
+        s += solid(x - mw, 'p-white')
+      if (c.type === 'buffer')
+        s += solid(x + mw, 'p-white')
+    }
+    else if (lane(a.type) && lane(c.type)) {
       if (a.type === 'turn-lane' || c.type === 'turn-lane')
         s += solid(x - mw, 'p-yellow') + solid(x + mw, 'p-yellow')
       else if ((a.direction ?? 'outbound') !== (c.direction ?? 'outbound'))
@@ -190,6 +205,28 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       s += solid(lane(a.type) ? x - mw : x + mw, 'p-white')
     }
   }
+
+  // Parking stalls: a white T at each stall line, laid in white bricks on
+  // the edge nearest the travel lane (inside the mountable curb, if any).
+  cols.forEach((c, i) => {
+    if (c.s.type !== 'parking' || markingOf(c.s) !== 'stalls')
+      return
+    const left = cols[i - 1]
+    const right = cols[i + 1]
+    const streetLeft = left && !isRaisedSegment(left.s)
+    const streetRight = right && !isRaisedSegment(right.s)
+    if (streetLeft === streetRight)
+      return
+    const other = streetLeft ? left : right
+    const inset = edgeStrip(streetLeft ? other.s : c.s, streetLeft ? c.s : other.s) ? edgeStripW(b) : 0
+    const tb = Math.max(b.S / 2, 4)
+    const barX = streetLeft ? c.x0 + inset : c.x1 - inset - tb
+    const stemX = streetLeft ? barX + tb : barX - 2.5 * b.S
+    for (let a = Math.floor(a0 / STALL_LENGTH) * STALL_LENGTH; a <= a0 + L + 2; a += STALL_LENGTH) {
+      for (const [x, y, w, h] of [[barX, Y(a - 2), tb, 4 * b.S], [stemX, Y(a) - tb / 2, 2.5 * b.S, tb]])
+        s += rect(x, y, w, h, 'p-white') + (bricks ? rect(x, y, w, h, bricks.fill) : '')
+    }
+  })
 
   // Crosswalks inside the window: continental bars, parallel to traffic.
   // Their span stays clear of vehicles and of lane markings.
@@ -282,7 +319,10 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     else if (u?.kind === 'vehicle') {
       const len = VEHICLE_LENGTH[u.variant]
       if (VEHICLE_WIDTH[u.variant] * b.S <= c.x1 - c.x0 + 2 * b.S) {
-        const a = findSpot(cx, len, [...taken, ...crossings], `${c.s.id}|veh`, true)
+        // A car in a marked parking lane sits in the stall nearest the cut.
+        const a = t === 'parking' && markingOf(c.s) === 'stalls'
+          ? Math.round((b.at - STALL_LENGTH / 2) / STALL_LENGTH) * STALL_LENGTH + STALL_LENGTH / 2
+          : findSpot(cx, len, [...taken, ...crossings], `${c.s.id}|veh`, true)
         if (a !== null) {
           taken.push([a - len / 2, a + len / 2])
           users += place(cx, Y(a), b.S, vehicleTop(u.variant, seedOf(c.s.id, 'car'), u.toward))

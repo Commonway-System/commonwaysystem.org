@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import { barrierTop, bikeLaneSymbol, laneArrow, makeIds, makeStamps, seedOf, sharrow, streetItemTop } from '$lib/viewer/art'
-  import { breakpoints, FEATURE_LABELS, isRaised, levelOf, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
+  import { barrierTop, bikeLaneSymbol, brickJoints, laneArrow, makeIds, makeStamps, seedOf, sharrow, streetItemTop } from '$lib/viewer/art'
+  import { breakpoints, FEATURE_LABELS, isBrick, isRaised, levelOf, STALL_LENGTH, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
   import { formatLength } from '$lib/viewer/state'
   import type { RendererProps, Segment, StreetConfig, StreetFeature } from '$lib/viewer/types'
 
@@ -139,6 +139,14 @@
       const next = config.segments[i + 1]
       const pair = (a: Segment['type'], b: Segment['type']) => (s.type === a && next.type === b) || (s.type === b && next.type === a)
       const off = (d: number) => xs.map((x, k) => `${k ? 'L' : 'M'} ${X(x)} ${at[k][i].bottom + d}`).join(' ')
+      // Every buffer has a white stripe down each side, just inside its edge.
+      if (s.type === 'buffer' || next.type === 'buffer') {
+        return [
+          ...(levelOf(s) !== levelOf(next) ? [{ d: edge, cls: 'curb-line', dash: '' }] : []),
+          ...(s.type === 'buffer' ? [{ d: off(-1.6), cls: 'mk-white', dash: '' }] : []),
+          ...(next.type === 'buffer' ? [{ d: off(1.6), cls: 'mk-white', dash: '' }] : []),
+        ]
+      }
       if (levelOf(s) !== levelOf(next))
         return [{ d: edge, cls: 'curb-line', dash: '' }]
       if (LANES.has(s.type) && LANES.has(next.type)) {
@@ -148,11 +156,32 @@
           return [{ d: off(-1.6), cls: 'mk-yellow', dash: '' }, { d: off(1.6), cls: 'mk-yellow', dash: '' }]
         return [{ d: edge, cls: 'mk-white', dash: `${10 * scale} ${30 * scale}` }]
       }
-      if ([s.type, next.type].some(t => LANES.has(t)) && [s.type, next.type].some(t => t === 'bike-lane' || t === 'buffer' || t === 'parking'))
+      if ([s.type, next.type].some(t => LANES.has(t)) && [s.type, next.type].some(t => t === 'bike-lane' || t === 'parking'))
         return [{ d: edge, cls: 'mk-white', dash: '' }]
-      if (pair('bike-lane', 'parking') || pair('buffer', 'parking') || pair('buffer', 'bike-lane'))
+      if (pair('bike-lane', 'parking'))
         return [{ d: edge, cls: 'mk-white', dash: '' }]
       return [{ d: edge, cls: 'edge', dash: '' }]
+    })
+
+    // Parking stalls: a white T at each stall line, on the edge nearest the
+    // travel lane; none where the lane narrows (a curb extension).
+    const stalls = bands.filter(b => b.s.type === 'parking' && markingOf(b.s) === 'stalls').flatMap((b) => {
+      const prev = config.segments[b.i - 1]
+      const next = config.segments[b.i + 1]
+      const streetTop = prev !== undefined && !isRaised(prev)
+      if (streetTop === (next !== undefined && !isRaised(next)))
+        return []
+      const tb = Math.max(scale / 2, 1.5)
+      const out = []
+      for (let ft = STALL_LENGTH; ft < length; ft += STALL_LENGTH) {
+        const band = bandAt(b.i, ft)
+        if (band.bottom - band.top < b.s.width * scale * 0.95)
+          continue
+        const edgeY = streetTop ? band.top + 1.2 * scale : band.bottom - 1.2 * scale - tb
+        const stemY = streetTop ? edgeY + tb : edgeY - 2.5 * scale
+        out.push({ key: `${b.s.id}-${ft}`, bar: { x: X(ft - 2), y: edgeY, w: 4 * scale, h: tb }, stem: { x: X(ft) - tb / 2, y: stemY, w: tb, h: 2.5 * scale } })
+      }
+      return out
     })
 
     // Direction arrows, every 80 ft, starting clear of the strip labels.
@@ -234,6 +263,7 @@
         art += turn(a.x - ahead * 0.8, a.y, bikeLaneSymbol(toward)) + turn(a.x + ahead, a.y, laneArrow(4.2, toward))
     }
     art = stamps.defs() + art
+    const bricks = config.segments.some(isBrick) ? brickJoints(ids, Math.max(scale, 3), true) : undefined
     // Sidewalk score joints every 5 ft.
     const joints = bands.filter(b => b.s.type === 'sidewalk').flatMap((b) => {
       const out = []
@@ -270,7 +300,7 @@
     const steps = units === 'm' ? [2 / 0.3048, 5 / 0.3048, 10 / 0.3048, 20 / 0.3048, 50 / 0.3048] : [5, 10, 20, 50, 100]
     const barFt = steps.find(s => s >= target * 0.6) ?? steps[steps.length - 1]
 
-    return { m, font, scale, length, X, x0, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' || !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
+    return { m, font, scale, length, X, x0, bricks, stalls, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' || !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
   })
 
   function defaultLength(f: StreetFeature): number {
@@ -305,14 +335,29 @@
       <g clip-path="url(#pvx-street-{entry.id})">
         {#each P.bands as b (b.s.id)}
           <polygon class="s-{b.s.type}{b.s.surface && b.s.type !== 'furnishing' && b.s.type !== 'median' ? ` sf-${b.s.surface}` : ''}" points={b.points} />
+          {#if P.bricks && isBrick(b.s)}
+            <polygon points={b.points} style="fill:{P.bricks.fill}" />
+          {/if}
           {#if b.s.type === 'buffer' && !(b.s.items ?? []).some(i => i.type === 'barrier')}
             {#each Array.from({ length: Math.ceil(P.length / 8) }) as _, k (k)}
               {@const xx = P.X(k * 8)}
-              <path class="hatch" d="M {xx} {b.base.bottom} L {xx + (b.base.bottom - b.base.top)} {b.base.top}" />
+              <!-- Ends on the edge stripes, 1.6 px inside each edge -->
+              <path class="hatch" d="M {xx + 1.6} {b.base.bottom - 1.6} L {xx + (b.base.bottom - b.base.top) - 1.6} {b.base.top + 1.6}" />
             {/each}
           {/if}
         {/each}
 
+        {#if P.bricks}
+          <g aria-hidden="true">{@html P.bricks.def}</g>
+        {/if}
+        {#each P.stalls as st (st.key)}
+          {#each [st.bar, st.stem] as q, k (k)}
+            <rect class="mk-fill-white" x={q.x} y={q.y} width={q.w} height={q.h} />
+            {#if P.bricks}
+              <rect x={q.x} y={q.y} width={q.w} height={q.h} style="fill:{P.bricks.fill}" />
+            {/if}
+          {/each}
+        {/each}
         {#each P.joints as j (j.key)}
           <path class="s-joint" d={j.d} />
         {/each}

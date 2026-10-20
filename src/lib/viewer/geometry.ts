@@ -78,8 +78,14 @@ export function markingOf(s: Segment): Marking {
   return s.type === 'bike-lane' || s.type === 'protected-bike-lane' ? 'bike-symbol' : 'none'
 }
 
-const SURFACE_WORDS: Record<Surface, string> = { asphalt: 'plain asphalt', green: 'green paint', red: 'red paint', concrete: 'concrete', pavers: 'pavers' }
-const MARKING_WORDS: Record<Marking, string> = { 'bike-symbol': 'bike lane markings', 'sharrow': 'shared lane markings', 'none': 'no markings' }
+const SURFACE_WORDS: Record<Surface, string> = { 'asphalt': 'plain asphalt', 'green': 'green paint', 'red': 'red paint', 'concrete': 'concrete', 'pavers': 'pavers', 'brick': 'brick pavers', 'brick-red': 'red brick pavers' }
+const MARKING_WORDS: Record<Marking, string> = { 'bike-symbol': 'bike lane markings', 'sharrow': 'shared lane markings', 'stalls': 'T marks at each parking stall', 'none': 'no markings' }
+
+/** Length of one parallel parking stall, ft (where a parking lane's marking is 'stalls'). */
+export const STALL_LENGTH = 22
+
+/** Brick or permeable pavers (either color). */
+export const isBrick = (s: Segment): boolean => surfaceOf(s) === 'brick' || surfaceOf(s) === 'brick-red'
 
 export function segmentLabel(s: Segment): string {
   return s.label ?? SEGMENT_LABELS[s.type]
@@ -99,7 +105,7 @@ export function isRaised(s: Segment): boolean {
   return levelOf(s) !== 'road'
 }
 
-const LEVEL_WORDS: Record<Level, string> = { 'road': 'at road level', 'intermediate': 'raised a step below the sidewalk', 'sidewalk': 'at sidewalk level' }
+const LEVEL_WORDS: Record<Level, string> = { 'road': 'at road level', 'intermediate': 'raised partway to sidewalk height', 'sidewalk': 'at sidewalk level' }
 
 export function totalWidth(config: StreetConfig, at?: number): number {
   return widthsAt(config, at).reduce((a, b) => a + b, 0)

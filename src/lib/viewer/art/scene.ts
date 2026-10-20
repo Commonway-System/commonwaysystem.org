@@ -4,7 +4,7 @@
 // and passes them in; objects standing in the scene are placed in feet with
 // place() at the glyph scale.
 
-import { levelOf, surfaceOf } from '../geometry'
+import { isBrick, levelOf, surfaceOf } from '../geometry'
 import type { FrontageType, Segment } from '../types'
 import type { Ids } from './core'
 import { ellipse, place, r2, rect, rng, seedOf } from './core'
@@ -48,7 +48,7 @@ const isPlanted = (s: Segment) => s.type === 'furnishing' || s.type === 'median'
 
 /** Palette token for a strip's surface in section (see surfaceOf). */
 export function surfacePaint(s: Segment): string {
-  return { asphalt: 'asphalt', green: 'paint-green', red: 'paint-red', concrete: 'concrete', pavers: 'pavers' }[surfaceOf(s)]
+  return { 'asphalt': 'asphalt', 'green': 'paint-green', 'red': 'paint-red', 'concrete': 'concrete', 'pavers': 'pavers', 'brick': 'brick', 'brick-red': 'brick-red' }[surfaceOf(s)]
 }
 
 /** Surface y of a column, px. */
@@ -60,18 +60,31 @@ export const surfaceY = (c: SceneColumn, b: SceneBox): number => {
 /** An intermediate strip's height as a share of the curb (a little under half, so the step up to the sidewalk reads). */
 const INTERMEDIATE = 0.4
 
+/** A sloped edge between two heights: which side is lower, and which strip the slope sits in. */
+export interface EdgeStrip {
+  low: 'left' | 'right'
+  within: 'left' | 'right'
+}
+
 /**
- * Where a raised bike lane meets a sidewalk, the edge between them is a
- * narrow sloped edge strip (a mountable curb) rather than a step: a rider
- * who drifts onto it can ride up to the sidewalk without falling. Returns
- * which side of the pair is the lower one, or undefined for any other edge.
+ * Edges drawn as a narrow sloped strip (a mountable curb) rather than a
+ * step. Where a raised bike lane meets a sidewalk, a rider who drifts onto
+ * it can ride up without falling; the slope is in the bike lane. Where a
+ * parking lane raised partway to the sidewalk meets the road, cars pull up
+ * over it; the slope is in the parking lane, so the travel lane keeps its
+ * full width. Undefined for any other edge.
  */
-export function edgeStripLow(a: Segment, c: Segment): 'left' | 'right' | undefined {
+export function edgeStrip(a: Segment, c: Segment): EdgeStrip | undefined {
   const walk = (s: Segment) => (s.type === 'sidewalk' || s.type === 'curb') && levelOf(s) === 'sidewalk'
   if (levelOf(a) === 'intermediate' && walk(c))
-    return 'left'
+    return { low: 'left', within: 'left' }
   if (levelOf(c) === 'intermediate' && walk(a))
-    return 'right'
+    return { low: 'right', within: 'right' }
+  const raisedParking = (s: Segment) => s.type === 'parking' && levelOf(s) === 'intermediate'
+  if (raisedParking(a) && levelOf(c) === 'road')
+    return { low: 'right', within: 'left' }
+  if (raisedParking(c) && levelOf(a) === 'road')
+    return { low: 'left', within: 'right' }
   return undefined
 }
 
@@ -96,12 +109,16 @@ export function sky(ids: Ids, b: SceneBox, seed: number): string {
 }
 
 /** Patterns for soil, gravel and asphalt texture; returns their ids. */
-function textures(ids: Ids): { defs: string, soil: string, gravel: string } {
+function textures(ids: Ids, S: number): { defs: string, soil: string, gravel: string, brick: string } {
   const soil = ids.next('soil')
   const gravel = ids.next('gravel')
+  const brick = ids.next('brick')
+  // Brick ends seen in section: a joint every brick width (4 in), never under 4 px.
+  const bw = Math.max(S / 3, 4)
   const defs = `<defs><pattern id="${soil}" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r="0.9" style="fill:var(--pvx-soil-dot)"/><circle cx="6.5" cy="7" r="0.7" style="fill:var(--pvx-soil-dot)"/><circle cx="7" cy="1.5" r="0.5" style="fill:var(--pvx-soil-dot)"/></pattern>`
-    + `<pattern id="${gravel}" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" style="fill:var(--pvx-gravel-dot)"/><circle cx="4.5" cy="4" r="0.8" style="fill:var(--pvx-gravel-dot)"/></pattern></defs>`
-  return { defs, soil: `url(#${soil})`, gravel: `url(#${gravel})` }
+    + `<pattern id="${gravel}" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" style="fill:var(--pvx-gravel-dot)"/><circle cx="4.5" cy="4" r="0.8" style="fill:var(--pvx-gravel-dot)"/></pattern>`
+    + `<pattern id="${brick}" width="${r2(bw)}" height="40" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="0.8" height="40" style="fill:var(--pvx-brick-joint)"/></pattern></defs>`
+  return { defs, soil: `url(#${soil})`, gravel: `url(#${gravel})`, brick: `url(#${brick})` }
 }
 
 /**
@@ -111,8 +128,13 @@ function textures(ids: Ids): { defs: string, soil: string, gravel: string } {
  * curbs at every raised edge, and the ground profile line on top.
  */
 export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
-  const t = textures(ids)
+  const t = textures(ids, b.S)
   const top = b.road - b.curbH
+  const esW = edgeStripW(b)
+  // Sloped edges, found first: a slope inside a strip shortens that strip's slab.
+  const edges = cols.slice(0, -1).map((a, i) => surfaceY(a, b) === surfaceY(cols[i + 1], b) ? undefined : edgeStrip(a.s, cols[i + 1].s))
+  const insetL = (i: number) => (edges[i - 1]?.within === 'right' && surfaceY(cols[i], b) < surfaceY(cols[i - 1], b) ? esW : 0)
+  const insetR = (i: number) => (edges[i]?.within === 'left' && surfaceY(cols[i], b) < surfaceY(cols[i + 1], b) ? esW : 0)
   let s = t.defs
   s += rect(0, top, b.w, b.cutBottom - top, 'soil') + rect(0, top, b.w, b.cutBottom - top, t.soil)
 
@@ -120,7 +142,7 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
   const walkBase = Math.max(0.5 * b.S, 3)
   const asphaltT = Math.max(0.35 * b.S, 2.5)
   const roadBase = Math.max(0.8 * b.S, 5)
-  for (const c of cols) {
+  cols.forEach((c, ci) => {
     const y = surfaceY(c, b)
     const w = c.x1 - c.x0
     if (isPlanted(c.s)) {
@@ -137,25 +159,31 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
         s += `<path d="M${r2(tx - hw)} ${r2(y)} L${r2(tx - hw * 0.3)} ${r2(y - th)} L${r2(tx)} ${r2(y - th * 0.5)} L${r2(tx + hw * 0.35)} ${r2(y - th * 0.9)} L${r2(tx + hw)} ${r2(y)} Z" style="fill:var(--pvx-${i % 2 ? 'grass' : 'grass-dk'})"/>`
       }
     }
-    else if (surfaceOf(c.s) === 'concrete' || surfaceOf(c.s) === 'pavers') {
-      s += rect(c.x0, y + slabT, w, walkBase, 'gravel') + rect(c.x0, y + slabT, w, walkBase, t.gravel)
-      s += rect(c.x0, y, w, slabT, surfacePaint(c.s)) + rect(c.x0, y + slabT - 1, w, 1, 'concrete-shade')
+    else if (surfaceOf(c.s) === 'concrete' || surfaceOf(c.s) === 'pavers' || isBrick(c.s)) {
+      // Brick and pavers sit on a sand and gravel bed like a walk's slab.
+      const x0 = c.x0 + insetL(ci)
+      const sw = w - insetL(ci) - insetR(ci)
+      s += rect(x0, y + slabT, sw, walkBase, 'gravel') + rect(x0, y + slabT, sw, walkBase, t.gravel)
+      s += rect(x0, y, sw, slabT, surfacePaint(c.s)) + rect(x0, y + slabT - 1, sw, 1, 'concrete-shade')
+      if (isBrick(c.s))
+        s += rect(x0, y, sw, slabT, t.brick)
     }
     else {
       s += rect(c.x0, y + asphaltT, w, roadBase, 'base') + rect(c.x0, y + asphaltT, w, roadBase, t.gravel)
       s += rect(c.x0, y, w, asphaltT, surfacePaint(c.s))
-      // A painted buffer shows its two edge lines in section.
-      if (c.s.type === 'buffer' && !(c.s.items ?? []).some(i => i.type === 'barrier'))
-        s += rect(c.x0 + 1, y - 0.5, Math.max(2, 0.33 * b.S), 1.5, 'p-white') + rect(c.x1 - 1 - Math.max(2, 0.33 * b.S), y - 0.5, Math.max(2, 0.33 * b.S), 1.5, 'p-white')
     }
-  }
+    // Every buffer shows its two white edge stripes in section.
+    if (c.s.type === 'buffer') {
+      const lw = Math.max(2, 0.33 * b.S)
+      s += rect(c.x0 + 1, y - 0.5, lw, 1.5, 'p-white') + rect(c.x1 - 1 - lw, y - 0.5, lw, 1.5, 'p-white')
+    }
+  })
 
   // Curbs: a concrete section at every edge between two heights, from the
   // higher surface down into the base; a sloped edge strip where a raised
-  // bike lane meets a sidewalk.
+  // bike lane meets a sidewalk, or raised parking meets the road.
   const curbW = Math.max(0.5 * b.S, 3)
   const curbDeep = b.road + Math.max(1.5 * b.S, 10)
-  const esW = edgeStripW(b)
   const bevelL = new Set<number>()
   const bevelR = new Set<number>()
   for (let i = 0; i < cols.length - 1; i++) {
@@ -165,15 +193,19 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
     const yc = surfaceY(c, b)
     if (ya === yc)
       continue
-    const low = edgeStripLow(a.s, c.s)
-    if (low) {
+    const e = edges[i]
+    if (e) {
+      // The slope runs from the low end to the high end across esW, inside
+      // the strip named by `within`.
       const x = a.x1
-      const xi = low === 'left' ? x - esW : x + esW
+      const toward = e.within === 'left' ? -1 : 1
+      const xLowEnd = e.within === e.low ? x + toward * esW : x
+      const xHighEnd = e.within === e.low ? x : x + toward * esW
       const yHigh = Math.min(ya, yc)
       const yLow = Math.max(ya, yc)
       const deep = yLow + Math.max(0.6 * b.S, 4)
-      s += `<path d="M${r2(xi)} ${r2(yLow)} L${r2(x)} ${r2(yHigh)} L${r2(x)} ${r2(deep)} L${r2(xi)} ${r2(deep)} Z" style="fill:var(--pvx-concrete);stroke:var(--pvx-cut-line);stroke-width:0.75"/>`
-      if (low === 'left')
+      s += `<path d="M${r2(xLowEnd)} ${r2(yLow)} L${r2(xHighEnd)} ${r2(yHigh)} L${r2(xHighEnd)} ${r2(deep)} L${r2(xLowEnd)} ${r2(deep)} Z" style="fill:var(--pvx-concrete);stroke:var(--pvx-cut-line);stroke-width:0.75"/>`
+      if (e.within === 'left')
         bevelR.add(i)
       else
         bevelL.add(i + 1)

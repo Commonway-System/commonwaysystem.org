@@ -137,3 +137,21 @@ export function makeStamps(ids: Ids): Stamps {
     defs: () => (defs ? `<defs>${defs}</defs>` : ''),
   }
 }
+
+/**
+ * Brick joints seen from above, as a pattern to lay over any fill (the
+ * brick color, or white for the bricks of a T mark): a running bond with
+ * the long side along the street, which runs down the page (+y). Bricks are
+ * 8 by 4 in at `S` px per foot, never under 10 by 5 px so the joints don't
+ * turn to a gray blur. Pass `turned` for art that runs left to right.
+ */
+export function brickJoints(ids: Ids, S: number, turned = false): { def: string, fill: string } {
+  const id = ids.next('brick')
+  const bl = Math.max((2 / 3) * S, 10)
+  const bw = bl / 2
+  const j = 0.75
+  const joint = (x: number, y: number, w: number, h: number) => `<rect x="${r2(x)}" y="${r2(y)}" width="${r2(w)}" height="${r2(h)}"/>`
+  const lines = joint(0, 0, j, bl) + joint(bw, 0, j, bl) + joint(0, 0, bw, j) + joint(bw, bl / 2, bw, j)
+  const def = `<defs><pattern id="${id}" width="${r2(2 * bw)}" height="${r2(bl)}" patternUnits="userSpaceOnUse"${turned ? ' patternTransform="rotate(90)"' : ''}><g style="fill:var(--pvx-brick-joint)">${lines}</g></pattern></defs>`
+  return { def, fill: `url(#${id})` }
+}
