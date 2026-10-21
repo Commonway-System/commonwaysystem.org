@@ -35,6 +35,9 @@ export const releases: Release[] = [
   {
     date: "2026.10.21",
     changes: [
+      { type: "improved", area: "content",
+        summary: "Default (Standard Collector)'s Pattern viewer now opens with the Commonway System's bike lanes next to the sidewalk; next to the street is still one click away.",
+        details: "A link with `?bikes=street` opens the other layout." },
       { type: "fixed", area: "site",
         summary: "In the Pattern viewer's cross-section at a crosswalk, people on the walkways are now seen from the side, crossing the street, instead of facing the reader.",
         details: "This covers the walkways through curb extensions and through planting strips. Each person heads toward the road, and there are side views of a walker, a walker in a dress, a person with a cane and a wheelchair user (at most one wheelchair user among the people crossing), with matching outline figures in Simplified view. People on the sidewalks still face the reader, since they walk along the street." },

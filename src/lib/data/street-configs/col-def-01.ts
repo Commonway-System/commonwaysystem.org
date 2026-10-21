@@ -246,6 +246,7 @@ const data: ViewerData = {
     {
       id: 'bikes',
       label: 'Bike lane',
+      default: 'sidewalk',
       options: [
         { id: 'street', label: 'Next to the street' },
         { id: 'sidewalk', label: 'Next to the sidewalk' },

@@ -34,7 +34,7 @@ Moved from CLAUDE.md on 2026.10.20 without rewriting. Words like "above" and "be
 
 ## Pattern viewer choices within a layer (2026.10.19)
 
-Facets now drive real choices; first used on Collector Default (`col-def-01.ts`: `parking` none/left/right/both on every rung but Dutch, `bikes` street/sidewalk on the Commonway rung only). Rules:
+Facets now drive real choices; first used on Collector Default (`col-def-01.ts`: `parking` none/left/right/both on every rung but Dutch, `bikes` street/sidewalk on the Commonway rung only, defaulting to `sidewalk` since 2026.10.21 via the facet's `default`). Rules:
 - **A facet applies to a configuration when one of its entries names it in `when`** (`facetApplies()` in `state.ts`); elsewhere its buttons are disabled with "Doesn't apply to ...". No separate flag.
 - **Generate the combinations in the data file** with small `side()`/`street()`/`describe()` helpers, never by hand; keep segment ids identical in every combination (the diff and "moved" match by id). `when` must be typed `Record<string, string>` or svelte-check rejects the union.
 - Facets render as button rows (`.pvc__choices`), not dropdowns. Compare can target `facet:option` (`CompareTarget`, also `?compare=parking:both` in the URL): pane two is the same rung with that choice, and its "What changed" counts from pane one. Panes carry a `key` (two panes can share an entry id).
