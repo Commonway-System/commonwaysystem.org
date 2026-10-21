@@ -32,3 +32,10 @@ Moved from CLAUDE.md on 2026.10.20 without rewriting. Words like "above" and "be
 ## Guide restructure, rewrites and ticket workflow (2026.10.15) (continued)
 
 - **Link checking:** curl 403s from NACTO, AASHTO, SWOV and highways.dot.gov are the known bot walls, not dead links; a real 404 (checked in the Browser pane, not curl alone) is the signal.
+
+## Research access notes (2026.10.21)
+
+- **Unreachable from this machine:** swov.nl and TU Delft's hosts (journals.open.tudelft.nl, repository.tudelft.nl) time out from curl, WebFetch and the Browser pane alike. That is a network block, not a dead link: don't report the existing ref-6/ref-9 links as broken on that basis. Ask Kevin for the page text instead.
+- **Readable:** FHWA's *Separated Bike Lane Planning and Design Guide* (Collector Default ref 1) as HTML chapters, `.../separated_bikelane_pdg/page00.cfm` to `page20.cfm`, which curl fetches fine (Chapter 5, page07, has the one-way and two-way widths). CROW Kennisbank pages under `/public/gastgebruiker/` open in the Browser pane (the ASVV distributor-road page, ref 28, lists characteristics A to S for ideal and minimum layouts).
+- **A route to paywalled studies:** FHWA's CMF Clearinghouse (`cmfclearinghouse.fhwa.dot.gov/study_detail.php?stid=N`, plus `detail.php?facid=N` per factor) reproduces a study's abstract and records its crash modification factors with base condition and standard error. Cite it as "as recorded in FHWA's CMF Clearinghouse" and add a `{ note }` saying the paper itself wasn't read (the secondary-source rule in `docs/decisions.md`). Check the entry's fields against the abstract: Schepers 2011's two-way factor is labelled "Vehicle/pedestrian" though the study counts bicycle crashes.
+- **NACTO text from Kevin:** NACTO's bot wall stays; Kevin pastes the passage when it matters (he did for two-way bike lane markings, Collector Default ref 5). Treat pasted text as read from the cited page.

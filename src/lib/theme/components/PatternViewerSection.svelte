@@ -323,7 +323,17 @@
         const seed = seedOf(c.s.id, 'bike')
         const v = cyclistFor(seed, c.wd)
         sc.users = { kind: 'cyclist', variant: v, toward: c.s.direction !== 'outbound' }
-        put(c.cx, c.y, cyclist(seed, c.s.direction !== 'outbound', v), plainCyclist(v))
+        if (c.s.direction === 'both') {
+          // A two-way bike lane: one rider each way, each keeping right, so
+          // the one coming toward the reader rides in the left half.
+          const q = (c.x1 - c.x0) / 4
+          const v2 = cyclistFor(seedOf(c.s.id, 'bike2'), c.wd / 2)
+          put(c.cx - q, c.y, cyclist(seed, true, v), plainCyclist(v))
+          put(c.cx + q, c.y, cyclist(seedOf(c.s.id, 'bike2'), false, v2), plainCyclist(v2))
+        }
+        else {
+          put(c.cx, c.y, cyclist(seed, c.s.direction !== 'outbound', v), plainCyclist(v))
+        }
       }
     })
     const sliceArt = L.sliceH && config

@@ -45,6 +45,9 @@ export interface SliceBox {
 }
 
 const LANES = new Set<Segment['type']>(['travel-lane', 'turn-lane', 'transit-lane'])
+/** A two-way bike lane's dotted center line, in feet: 2 ft dots every 6 ft (the spacing is only drawn as typical). */
+const BIKE_CENTER_DASH = 2
+const BIKE_CENTER_STEP = 6
 
 function surface(s: Segment): string {
   if (s.type === 'furnishing' || s.type === 'median')
@@ -218,6 +221,19 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     }
   }
 
+  // A two-way bike lane: a dotted yellow center line between the two
+  // directions (NACTO's Urban Bikeway Design Guide), stopping short of any
+  // crosswalk.
+  for (const c of cols) {
+    if ((c.s.type !== 'bike-lane' && c.s.type !== 'protected-bike-lane') || c.s.direction !== 'both')
+      continue
+    const x = (c.x0 + c.x1) / 2
+    for (let a2 = Math.floor(a0 / BIKE_CENTER_STEP) * BIKE_CENTER_STEP; a2 < a0 + L; a2 += BIKE_CENTER_STEP) {
+      if (!onCrosswalk(features, a2 - 1, a2 + BIKE_CENTER_DASH + 1))
+        s += rect(x - mw / 2, Y(a2), mw, BIKE_CENTER_DASH * b.S, 'p-yellow')
+    }
+  }
+
   // Parking stalls: a white T at each stall line, laid in white bricks on
   // the edge nearest the travel lane (inside the mountable curb, if any).
   cols.forEach((c, i) => {
@@ -381,20 +397,32 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       }
     }
     else if (u?.kind === 'cyclist') {
-      const a = findSpot(cx, 6.5, taken, `${c.s.id}|bike`, false, true)
-      if (a !== null) {
-        taken.push([a - 3.25, a + 3.25])
-        users += place(cx, Y(a), b.S, cyclistTop(seedOf(c.s.id, 'bike'), u.toward, u.variant))
+      // One rider and one marking per direction: a two-way bike lane gets one
+      // each way, each keeping right (toward the reader in the left half).
+      const ride = (x: number, toward: boolean, variant: CyclistVariant, key: string, spots: [number, number][]) => {
+        const a = findSpot(x, 6.5, spots, `${c.s.id}|${key}`, false, true)
+        if (a !== null) {
+          spots.push([a - 3.25, a + 3.25])
+          users += place(x, Y(a), b.S, cyclistTop(seedOf(c.s.id, key), toward, variant))
+        }
+        // The lane's marking, if there's room: the bike lane symbol with its
+        // arrow ahead of it, or a sharrow.
+        const mark = markingOf(c.s)
+        const g = mark === 'none' ? null : findSpot(x, mark === 'sharrow' ? 9.5 : 10.5, spots, `${c.s.id}|${key === 'bike' ? 'symbol' : `${key}|symbol`}`)
+        if (g !== null) {
+          if (mark === 'sharrow')
+            users += place(x, Y(g), b.S, sharrow(toward))
+          else
+            users += place(x, Y(g + (toward ? -2.6 : 2.6)), b.S, bikeLaneSymbol(toward)) + place(x, Y(g + (toward ? 3.2 : -3.2)), b.S, laneArrow(4.2, toward))
+        }
       }
-      // The lane's marking, if there's room: the bike lane symbol with its
-      // arrow ahead of it, or a sharrow.
-      const mark = markingOf(c.s)
-      const g = mark === 'none' ? null : findSpot(cx, mark === 'sharrow' ? 9.5 : 10.5, taken, `${c.s.id}|symbol`)
-      if (g !== null) {
-        if (mark === 'sharrow')
-          users += place(cx, Y(g), b.S, sharrow(u.toward))
-        else
-          users += place(cx, Y(g + (u.toward ? -2.6 : 2.6)), b.S, bikeLaneSymbol(u.toward)) + place(cx, Y(g + (u.toward ? 3.2 : -3.2)), b.S, laneArrow(4.2, u.toward))
+      if (c.s.direction === 'both') {
+        const q = (c.x1 - c.x0) / 4
+        ride(cx - q, true, u.variant, 'bike', taken)
+        ride(cx + q, false, u.variant === 'cargo' ? 'commuter' : u.variant, 'bike2', [])
+      }
+      else {
+        ride(cx, u.toward, u.variant, 'bike', taken)
       }
     }
   }

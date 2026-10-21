@@ -127,6 +127,7 @@
       return { top: y, bottom: y + ws[i] * scale }
     }
 
+    const isBike = (t: Segment['type']) => t === 'bike-lane' || t === 'protected-bike-lane'
     const bands = config.segments.map((s, i) => {
       const top = xs.map((x, k) => `${X(x)},${at[k][i].top}`)
       const bottom = xs.map((x, k) => `${X(x)},${at[k][i].bottom}`).reverse()
@@ -181,6 +182,12 @@
         return [{ d: edge, cls: 'mk-white', dash: '' }]
       return [{ d: edge, cls: 'edge', dash: '' }]
     })
+    // A two-way bike lane: a dotted yellow center line between the two
+    // directions (NACTO's Urban Bikeway Design Guide): 2 ft dots every 6 ft.
+    for (const b of bands) {
+      if (isBike(b.s.type) && b.s.direction === 'both')
+        markings.push({ d: xs.map((x, k) => `${k ? 'L' : 'M'} ${X(x)} ${(at[k][b.i].top + at[k][b.i].bottom) / 2}`).join(' '), cls: 'mk-yellow', dash: `${2 * scale} ${4 * scale}` })
+    }
 
     // A crosswalk paves every planting strip it crosses (a curb extension's,
     // or the strip beside the sidewalk) as a walkway to the sidewalk.
@@ -222,7 +229,6 @@
       : 0
     const firstArrow = Math.max(30, (labelChars * font * 0.56 + 40) / scale)
     const arrowStep = Math.min(80, Math.max(30, length - firstArrow - 10))
-    const isBike = (t: Segment['type']) => t === 'bike-lane' || t === 'protected-bike-lane'
     const arrows = bands.filter(b => ARROWED.has(b.s.type)).flatMap((b) => {
       const out = []
       for (let ft = firstArrow; ft < length - 10; ft += arrowStep) {
@@ -286,6 +292,13 @@
       // Two-way shared lane: one sharrow each way, inbound in the upper half.
       const q = a.bh / 4
       art += turn(a.x, a.y - q, sharrow(true)) + turn(a.x, a.y + q, sharrow(false))
+    }
+    // Two-way bike lane: the symbol and arrow once each way, inbound in the upper half.
+    for (const a of arrows.filter(a => a.dir === 'both' && a.bike && a.marking === 'bike-symbol')) {
+      const q = a.bh / 4
+      const ahead = 3.2 * scale
+      art += turn(a.x + ahead * 0.8, a.y - q, bikeLaneSymbol(true)) + turn(a.x - ahead, a.y - q, laneArrow(4.2, true))
+      art += turn(a.x - ahead * 0.8, a.y + q, bikeLaneSymbol(false)) + turn(a.x + ahead, a.y + q, laneArrow(4.2, false))
     }
     for (const a of arrows.filter(a => a.dir !== 'both' && (a.bike || a.marking === 'sharrow'))) {
       const toward = a.dir === 'inbound'
@@ -357,7 +370,7 @@
     const steps = units === 'm' ? [2 / 0.3048, 5 / 0.3048, 10 / 0.3048, 20 / 0.3048, 50 / 0.3048] : [5, 10, 20, 50, 100]
     const barFt = steps.find(s => s >= target * 0.6) ?? steps[steps.length - 1]
 
-    return { m, font, scale, length, X, x0, bricks, walks, stalls, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' || !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
+    return { m, font, scale, length, X, x0, bricks, walks, stalls, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' ? !(a.bike && a.marking === 'bike-symbol') : !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
   })
 
   function defaultLength(f: StreetFeature): number {

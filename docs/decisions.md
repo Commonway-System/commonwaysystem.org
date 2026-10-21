@@ -26,6 +26,7 @@ Decisions Kevin has locked. Don't reopen one without his say-so. When a session 
 - The Arterial access modifier triggers at 3 or more crossing points per quarter mile (NACTO *City Limits*, "high crossing-point density"). (2026-10-15)
 - Pedestrian survival figures come from Tefft (AAA Foundation, 2011) alone; the WHO 2004 figures are dropped. (2026-10-15)
 - When a page needs more than one speed- or volume-based threshold, reuse one evidence-based number across all of them rather than letting each row pick its own.
+- Protected bike lanes are one-way, one on each side of the street, 7 ft wide (FHWA's preferred width); next to the sidewalk is the preferred position. A two-way bike lane on one side is a discouraged fallback everywhere, including where NACTO gives guidance for it: 12 ft, a dotted yellow center line, both ends planned. (2026-10-21)
 - Freight-scale roundabouts are a design-vehicle and truck-apron note on INT-RAB-01, not a separate pattern (NCHRP Research Report 1043).
 - Industrial Collector bicycle facility trigger: required wherever general population falls within a 3-mile bike or 0.5-mile walk catchment of the segment (FTA 2011 policy statement). Public right-of-way serves everyone, so it's a population catchment, not a jobs catchment.
 
