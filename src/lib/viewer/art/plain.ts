@@ -22,6 +22,17 @@ export function plainPedestrian(variant: PedestrianVariant): string {
   }
 }
 
+/** A pedestrian crossing the street, from the side, walking toward +x (`towardRight`) or -x. */
+export function plainPedestrianSide(variant: PedestrianVariant, towardRight: boolean): string {
+  let s: string
+  if (variant === 'wheelchair')
+    s = '<circle class="g" cx="0.05" cy="-4.4" r="0.42"/><path class="g-line" d="M0 -3.95 V -1.95 H 0.55 L 0.65 -0.6 M 0 -3.6 L 0.3 -1.9"/><circle class="g-line" cx="-0.3" cy="-1.05" r="1"/>'
+  else
+    s = '<circle class="g" cx="0.05" cy="-5.15" r="0.45"/><path class="g-line" d="M0 -4.65 V -2.6 M0 -2.6 L -0.5 0 M0 -2.6 L 0.45 0 M 0 -4.3 L 0.4 -2.95 M 0 -4.3 L -0.35 -2.95"/>'
+      + (variant === 'cane' ? '<path class="g-line" d="M0.42 -2.98 L0.8 0"/>' : '')
+  return towardRight ? s : `<g transform="scale(-1 1)">${s}</g>`
+}
+
 export function plainCyclist(variant: CyclistVariant): string {
   const s = '<rect class="g-solid" x="-0.16" y="-2.3" width="0.32" height="2.3" rx="0.16"/><circle class="g" cx="0" cy="-5.1" r="0.45"/><path class="g-line" d="M0 -4.6 V -2.6 M -1.1 -3.5 H 1.1 M 0 -4.3 L -0.9 -3.5 M 0 -4.3 L 0.9 -3.5"/>'
   if (variant === 'cargo')

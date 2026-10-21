@@ -36,6 +36,9 @@ export const releases: Release[] = [
     date: "2026.10.21",
     changes: [
       { type: "fixed", area: "site",
+        summary: "In the Pattern viewer's cross-section at a crosswalk, people on the walkways are now seen from the side, crossing the street, instead of facing the reader.",
+        details: "This covers the walkways through curb extensions and through planting strips. Each person heads toward the road, and there are side views of a walker, a walker in a dress, a person with a cane and a wheelchair user (at most one wheelchair user among the people crossing), with matching outline figures in Simplified view. People on the sidewalks still face the reader, since they walk along the street." },
+      { type: "fixed", area: "site",
         summary: "In the Pattern viewer, a rigid barrier beside a bike lane now stops at each crosswalk instead of running straight across it.",
         details: "It ends 1 ft short of each edge of the crosswalk in the Top down view and the slice, and a cross-section cut at the crosswalk no longer draws it. Seen on Default (Standard Collector)'s Commonway System configuration with the bike lanes beside the street." },
       { type: "improved", area: "site",

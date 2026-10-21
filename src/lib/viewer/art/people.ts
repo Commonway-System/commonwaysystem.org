@@ -198,6 +198,103 @@ export function pedestrian(variant: PedestrianVariant, seed: number): string {
   }
 }
 
+/** The variants that can be drawn crossing the street, seen from the side. */
+export const CROSSING_POOL: readonly PedestrianVariant[] = ['walker', 'walker-dress', 'cane', 'wheelchair']
+
+/** Width across the strip, in feet, that each side view needs (stride, cane, wheels). */
+export const CROSSING_WIDTH: Partial<Record<PedestrianVariant, number>> = { 'walker': 1.7, 'walker-dress': 1.6, 'cane': 2.0, 'wheelchair': 2.6 }
+
+/** A head in profile facing +x: nose forward, hair over the top and back. */
+function headSide(o: Look, y: number): string {
+  let s = rect(-0.14, y + 0.27, 0.26, 0.4, shade(o.skin, -0.18))
+  s += ellipse(0.02, y, 0.31, 0.41, o.skin)
+  s += path(`M0.3 ${y - 0.02} L0.4 ${y + 0.1} L0.3 ${y + 0.14} Z`, o.skin)
+  s += o.hairLong
+    ? path(`M0.3 ${y - 0.2} Q0.2 ${y - 0.5} -0.08 ${y - 0.46} Q-0.42 ${y - 0.4} -0.38 ${y + 0.1} L-0.44 ${y + 0.85} L-0.08 ${y + 0.85} L-0.06 ${y + 0.1} Q0.1 ${y - 0.22} 0.3 ${y - 0.2} Z`, o.hair)
+    : path(`M0.3 ${y - 0.2} Q0.2 ${y - 0.5} -0.08 ${y - 0.46} Q-0.42 ${y - 0.4} -0.34 ${y + 0.2} Q-0.2 ${y + 0.12} -0.08 ${y - 0.04} Q0.1 ${y - 0.22} 0.3 ${y - 0.2} Z`, o.hair)
+  return s
+}
+
+/** An adult walking toward +x, seen from the side, 5.6 ft before scaling to `h`. */
+function figureSide(o: Look, h: number, pose: Pose = {}): string {
+  const skinB = shade(o.skin, -0.18)
+  const legC = pose.dress ? o.skin : o.pants
+  const legW = pose.dress ? 0.24 : 0.36
+  let s = ellipse(0, 0, 0.95, 0.12, 'shadow')
+  // Far leg behind, near leg ahead, mid-stride; shoes point forward.
+  s += limb([[-0.02, -2.8], [-0.28, -1.45], [-0.5, -0.2]], shade(legC, -0.2), legW)
+  s += ellipse(-0.38, -0.1, 0.24, 0.11, '#2b2b2b')
+  s += limb([[0.02, -2.8], [0.26, -1.5], [0.4, -0.2]], legC, legW)
+  s += ellipse(0.52, -0.1, 0.24, 0.11, '#2b2b2b')
+  // The far arm swings forward (or holds the cane), the near arm back.
+  const farArm: [number, number][] = [[0.02, -4.35], [0.22, -3.6], [0.42, -2.95]]
+  s += limb(farArm, skinB, 0.22)
+  if (pose.cane)
+    s += limb([[0.42, -2.98], [0.8, 0]], '#4a3a2c', 0.09) + limb([[0.3, -3.0], [0.46, -2.98]], '#4a3a2c', 0.09)
+  if (pose.dress) {
+    s += path('M-0.26 -4.6 Q-0.44 -4.5 -0.38 -4.1 L-0.32 -3.1 L-0.62 -1.55 L0.66 -1.55 L0.36 -3.1 L0.38 -4.0 Q0.38 -4.5 0.18 -4.6 Z', o.shirt)
+  }
+  else {
+    s += path('M-0.32 -2.95 L0.34 -2.95 L0.36 -2.5 L-0.34 -2.5 Z', o.pants)
+    s += path('M-0.26 -4.6 Q-0.44 -4.5 -0.38 -4.1 L-0.32 -2.75 L0.34 -2.75 L0.38 -4.0 Q0.38 -4.5 0.18 -4.6 Z', o.shirt)
+  }
+  if (o.bag && !pose.cane) {
+    s += limb([[0.14, -4.5], [-0.3, -3.1]], shade(o.bag, -0.2), 0.07)
+    s += rect(-0.62, -3.4, 0.42, 0.62, o.bag, 'rx="0.1"')
+  }
+  const nearArm: [number, number][] = [[-0.02, -4.35], [-0.2, -3.6], [-0.38, -2.95]]
+  s += limb(nearArm, o.skin, 0.24)
+  s += limb([nearArm[0], [-0.11, -3.97]], o.shirt, 0.3)
+  s += headSide(o, -5.12)
+  return `<g transform="scale(${(h / 5.6).toFixed(3)})">${s}</g>`
+}
+
+/** A wheelchair user rolling toward +x, seen from the side (about 4.9 ft to the top of the head). */
+function wheelchairSide(o: Look): string {
+  let s = ellipse(0, 0, 1.3, 0.13, 'shadow')
+  // Frame: backrest, seat, footrest down to the caster.
+  s += limb([[-0.7, -3.25], [-0.62, -1.75], [0.55, -1.75], [0.72, -0.5]], '#4b5055', 0.1)
+  s += ellipse(0.78, -0.18, 0.18, 0.18, '#262626')
+  // Seated: thigh forward, shin down to the footrest, torso upright.
+  s += limb([[-0.3, -1.95], [0.5, -1.95], [0.62, -0.62]], o.pants, 0.36)
+  s += ellipse(0.78, -0.55, 0.22, 0.1, '#2b2b2b')
+  s += path('M-0.5 -3.85 Q-0.66 -3.75 -0.6 -3.4 L-0.52 -1.95 L0.1 -1.95 L0.22 -3.3 Q0.24 -3.8 0.02 -3.85 Z', o.shirt)
+  // The big wheel in front of the body, its push rim, and the hand on it.
+  s += `<circle cx="-0.3" cy="-1.05" r="1.02" style="fill:none;stroke:#262626;stroke-width:0.14"/>`
+  s += `<circle cx="-0.3" cy="-1.05" r="0.86" style="fill:none;stroke:#a7adb2;stroke-width:0.05"/>`
+  s += limb([[-0.3, -1.05], [-0.3, -0.2], [-0.3, -1.9]], '#a7adb2', 0.03)
+  s += limb([[-0.16, -3.65], [0.1, -2.75], [0.3, -1.85]], o.skin, 0.22)
+  s += limb([[-0.16, -3.65], [-0.04, -3.25]], o.shirt, 0.28)
+  s += headSide({ ...o, hairLong: false }, -4.42)
+  return s
+}
+
+/**
+ * A pedestrian crossing the street, seen from the side and walking toward +x
+ * (`towardRight`) or -x. For walkways cut at a crosswalk, where people walk
+ * across the drawing rather than along the street. Only CROSSING_POOL variants
+ * have a side view; anything else falls back to a walker.
+ */
+export function pedestrianSide(variant: PedestrianVariant, seed: number, towardRight: boolean): string {
+  const o = look(seed)
+  const r = rng(seed + 3)
+  let s: string
+  switch (variant) {
+    case 'walker-dress':
+      s = figureSide({ ...o, hairLong: true }, 5.4 + (seed % 4) * 0.06, { dress: true })
+      break
+    case 'cane':
+      s = figureSide({ ...o, hair: pick(GRAY, r), bag: undefined }, 5.35, { cane: true })
+      break
+    case 'wheelchair':
+      s = wheelchairSide(o)
+      break
+    default:
+      s = figureSide({ ...o, hairLong: false }, 5.6 + (seed % 5) * 0.06)
+  }
+  return towardRight ? s : `<g transform="scale(-1 1)">${s}</g>`
+}
+
 function personTopBody(shirt: string, hair: string): string {
   return ellipse(0.35, 0.35, 0.85, 0.45, 'shadow') + ellipse(0, 0, 0.8, 0.4, shirt) + `<circle cx="0" cy="0.08" r="0.33" style="fill:${hair}"/>`
 }

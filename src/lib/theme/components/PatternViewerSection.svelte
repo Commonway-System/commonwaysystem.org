@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import type { CyclistVariant, Measure, PedestrianVariant, SceneBox, SceneColumn, SliceColumn, VehicleVariant } from '$lib/viewer/art'
-  import { cyclist, frontage, groundCut, isRaisedSegment, surfaceY, laneVehicle, makeIds, measureText, measureWith, PEDESTRIAN_POOL, PEDESTRIAN_WIDTH, pedestrian, place, plainCyclist, plainItem, plainPedestrian, plainVehicle, rng, seedOf, sky, slice, streetItem, vehicle } from '$lib/viewer/art'
+  import { CROSSING_POOL, CROSSING_WIDTH, cyclist, frontage, groundCut, isRaisedSegment, surfaceY, laneVehicle, makeIds, measureText, measureWith, PEDESTRIAN_POOL, PEDESTRIAN_WIDTH, pedestrian, pedestrianSide, place, plainCyclist, plainItem, plainPedestrian, plainPedestrianSide, plainVehicle, rng, seedOf, sky, slice, streetItem, vehicle } from '$lib/viewer/art'
   import { crossing, onCrosswalk, spread, WARNING_DEPTH, widthsAt } from '$lib/viewer/geometry'
   import { layoutAnnotations } from '$lib/viewer/section-layout'
   import { formatLength } from '$lib/viewer/state'
@@ -167,13 +167,19 @@
   /** A dimension tick: an architectural slash plus a short extension line. */
   const tick = (x: number, y: number) => `M ${x - 3.5} ${y + 3.5} L ${x + 3.5} ${y - 3.5} M ${x} ${y - 5} V ${y + 5}`
 
-  /** Pedestrians for one sidewalk: the data's own `people` if listed, else seeded; as many as fit. */
-  function walkers(s: Segment, wd: number, wantWheelchair: boolean): PedestrianVariant[] {
-    if (s.people?.length) {
+  /**
+   * Pedestrians for one sidewalk: the data's own `people` if listed, else
+   * seeded; as many as fit. On a walkway cut at a crosswalk (`crossing`),
+   * only the variants with a side view, since those people cross the street.
+   */
+  function walkers(s: Segment, wd: number, wantWheelchair: boolean, crossing = false, noWheelchair = false): PedestrianVariant[] {
+    const W = (v: PedestrianVariant) => (crossing ? CROSSING_WIDTH[v] : undefined) ?? PEDESTRIAN_WIDTH[v]
+    const people = crossing ? s.people?.filter(v => CROSSING_POOL.includes(v)) : s.people
+    if (people?.length) {
       const out: PedestrianVariant[] = []
       let used = 0
-      for (const v of s.people) {
-        const need = PEDESTRIAN_WIDTH[v] + (out.length ? 0.4 : 0)
+      for (const v of people) {
+        const need = W(v) + (out.length ? 0.4 : 0)
         if (used + need > wd - 0.8)
           break
         out.push(v)
@@ -182,19 +188,19 @@
       return out
     }
     const r = rng(seedOf(s.id, 'walkers'))
-    const pool = PEDESTRIAN_POOL
+    const pool = crossing ? CROSSING_POOL.filter(v => !(noWheelchair && v === 'wheelchair')) : PEDESTRIAN_POOL
     const out: PedestrianVariant[] = []
     let used = 0
     const room = wd - 0.8
-    if (wantWheelchair && PEDESTRIAN_WIDTH.wheelchair <= room) {
+    if (wantWheelchair && W('wheelchair') <= room) {
       out.push('wheelchair')
-      used += PEDESTRIAN_WIDTH.wheelchair
+      used += W('wheelchair')
     }
     for (let tries = 0; tries < 4 && out.length < 2; tries++) {
       const v = pool[Math.floor(r() * pool.length)]
-      if (used + PEDESTRIAN_WIDTH[v] + (out.length ? 0.4 : 0) <= room) {
+      if (used + W(v) + (out.length ? 0.4 : 0) <= room) {
         out.push(v)
-        used += PEDESTRIAN_WIDTH[v] + (out.length > 1 ? 0.4 : 0)
+        used += W(v) + (out.length > 1 ? 0.4 : 0)
       }
     }
     return out
@@ -254,6 +260,7 @@
       plain += place(x, y, gs, simple)
     }
     let wheelchairPlaced = false
+    let crossingWheelchair = false
     // Who's on each strip, so the slice below shows the same people and vehicles.
     const sliceCols: SliceColumn[] = []
     // Which way a parked car faces: the nearest travel lane's direction.
@@ -278,15 +285,27 @@
         put(it.x, c.y, streetItem(ids, it.type, seedOf(c.s.id, it.type), toward), plainItem(it.type, toward))
       }
       if (t === 'sidewalk') {
-        const vs = walkers(c.s, c.wd, !wheelchairPlaced && c.wd >= 4)
-        if (vs.includes('wheelchair'))
-          wheelchairPlaced = true
-        const widths = vs.map(v => PEDESTRIAN_WIDTH[v] * L.scale)
+        // A walkway cut at a crosswalk: the people on it are crossing the
+        // street, so they're drawn from the side, heading toward the road.
+        const crossing = c.s !== c.src
+        const toRight = (c.x0 + c.x1) / 2 < roadMid
+        // Crossers include at most one wheelchair user per drawing.
+        const vs = walkers(c.s, c.wd, !crossing && !wheelchairPlaced && c.wd >= 4, crossing, crossingWheelchair)
+        if (vs.includes('wheelchair')) {
+          if (crossing)
+            crossingWheelchair = true
+          else
+            wheelchairPlaced = true
+        }
+        const widths = vs.map(v => ((crossing ? CROSSING_WIDTH[v] : undefined) ?? PEDESTRIAN_WIDTH[v]) * L.scale)
         const gap = (c.x1 - c.x0 - widths.reduce((a, v) => a + v, 0)) / (vs.length + 1)
         let px = c.x0 + gap
         sc.users = { kind: 'pedestrians', variants: vs }
         vs.forEach((v, k) => {
-          put(px + widths[k] / 2, c.y, pedestrian(v, seedOf(c.s.id, 'p', k)), plainPedestrian(v))
+          if (crossing)
+            put(px + widths[k] / 2, c.y, pedestrianSide(v, seedOf(c.s.id, 'p', k), toRight), plainPedestrianSide(v, toRight))
+          else
+            put(px + widths[k] / 2, c.y, pedestrian(v, seedOf(c.s.id, 'p', k)), plainPedestrian(v))
           px += widths[k] + gap
         })
       }
