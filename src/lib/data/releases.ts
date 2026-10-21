@@ -35,6 +35,9 @@ export const releases: Release[] = [
   {
     date: "2026.10.21",
     changes: [
+      { type: "new", area: "content",
+        summary: "The Media Gallery has 13 new items (MED-177 to MED-189): 2 videos, 10 articles and 1 podcast episode, for Regulatory Sign, Rumble Strip, Sharrow, Street Light and Trash / Recycling Receptacle.",
+        details: "Sources include FHWA, NACTO, the League of American Bicyclists, Strong Towns, Streetsblog, Utah State University Extension and the NYC Department of Transportation. Three items are Context only: the FHWA sign-materials page (it cites the 2009 MUTCD), the FHWA lighting handbook chapter (2012) and the NACTO shared-lane-marking page. The gallery now holds 189 items." },
       { type: "improved", area: "site",
         summary: "In the Pattern viewer, crosswalk stripes now continue across every bike lane, including raised ones, and stop at walkways and medians.",
         details: "Riders see where people cross. Before, the stripes covered only road-level strips as one block, so they skipped raised bike lanes and painted over walkways between them." },
