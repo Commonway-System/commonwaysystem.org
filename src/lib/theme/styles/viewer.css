@@ -77,6 +77,10 @@
   --pvx-p-brick-red: #b2513f;
   --pvx-p-white: #fbfbf8;
   --pvx-p-yellow: #f0c02e;
+  /* Detectable warning surface: yellow truncated domes (contrast is what the
+     rule asks for; yellow is the usual US choice). */
+  --pvx-p-dw: #e8b923;
+  --pvx-p-dw-dome: #b88a10;
   /* Zone band: dark text on light fills here, light text on dark fills in
      dark mode; every pair clears 4.5:1. */
   --pvx-z-ped: #f4b97a;
@@ -158,6 +162,8 @@
   --pvx-p-brick-red: #73362a;
   --pvx-p-white: #dcdcd8;
   --pvx-p-yellow: #c9a02a;
+  --pvx-p-dw: #c99a1c;
+  --pvx-p-dw-dome: #8f6a0c;
   --pvx-z-ped: #8a5a2b;
   --pvx-z-bike: #3f7a3a;
   --pvx-z-transit: #2f5a8a;
@@ -194,6 +200,7 @@ html[data-contrast='high'] .pvx {
 /* Strip surfaces in the Top down view: the same paint as the slice under
    the cross-section (green bike lanes, red transit lanes, planted strips). */
 .pvx .s-sidewalk { fill: var(--pvx-p-concrete); }
+.pvx .s-dw { fill: var(--pvx-p-dw); }
 .pvx .s-furnishing { fill: var(--pvx-p-grass); }
 .pvx .s-curb { fill: var(--pvx-p-curb); }
 .pvx .s-parking { fill: var(--pvx-p-asphalt); }

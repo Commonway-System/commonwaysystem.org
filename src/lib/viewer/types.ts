@@ -211,6 +211,12 @@ export interface StreetFeature {
   length?: number
   /** Segment ids the feature spans; omit for the whole width. */
   across?: string[]
+  /**
+   * Crosswalks only: a detectable warning surface (truncated domes, 2 ft
+   * deep) on each walkable strip where the crosswalk leaves it, as US
+   * accessibility guidelines require at curb ramps (PROWAG R205, R305).
+   */
+  detectableWarnings?: boolean
   elementId?: ElementId
   label?: string
   cite?: number[]

@@ -3,7 +3,7 @@
 // "what changed" comparison. Pure functions, no DOM, so they run during
 // prerendering too.
 import { formatLength } from './state.js'
-import type { Change, ConfigEntry, FeatureType, ItemType, Level, Marking, Segment, SegmentType, ShapeOverride, StreetConfig, Surface, Units } from './types.js'
+import type { Change, ConfigEntry, FeatureType, ItemType, Level, Marking, Segment, SegmentType, ShapeOverride, StreetConfig, StreetFeature, Surface, Units } from './types.js'
 
 export const SEGMENT_LABELS: Record<SegmentType, string> = {
   'sidewalk': 'Sidewalk',
@@ -83,6 +83,50 @@ const MARKING_WORDS: Record<Marking, string> = { 'bike-symbol': 'bike lane marki
 
 /** Length of one parallel parking stall, ft (where a parking lane's marking is 'stalls'). */
 export const STALL_LENGTH = 22
+
+/** Strips people walk on: a crosswalk paints no stripes there. */
+export function isWalkable(s: Segment): boolean {
+  return s.type === 'sidewalk' || s.type === 'furnishing' || s.type === 'curb' || s.type === 'median'
+}
+
+/** Detectable warning surfaces are 24 inches deep in the direction of travel (PROWAG R305.1.4). */
+export const WARNING_DEPTH = 2
+
+/**
+ * How a crosswalk meets the strips it crosses, given the strips actually
+ * there (in order, by index into the street's segments). Its stripes mark
+ * every strip a vehicle or bicycle uses, at any height, and skip the strips
+ * people walk on. With detectable warnings, each walkable strip gets one at
+ * every edge where the crosswalk leaves it for a crossed strip.
+ */
+export function crossing(f: StreetFeature, shown: { i: number, s: Segment }[]): { crossed: number[], warnings: { i: number, edge: 'start' | 'end' }[] } {
+  const crossed = shown.filter(x => f.across?.length ? f.across.includes(x.s.id) : !isWalkable(x.s)).map(x => x.i)
+  const warnings: { i: number, edge: 'start' | 'end' }[] = []
+  if (f.detectableWarnings) {
+    for (let n = 0; n < shown.length - 1; n++) {
+      const [a, b] = [shown[n], shown[n + 1]]
+      if (isWalkable(a.s) && crossed.includes(b.i))
+        warnings.push({ i: a.i, edge: 'end' })
+      if (crossed.includes(a.i) && isWalkable(b.s))
+        warnings.push({ i: b.i, edge: 'start' })
+    }
+  }
+  return { crossed, warnings }
+}
+
+/**
+ * Whether a stretch along the street overlaps a crosswalk. Nobody may park
+ * on a crosswalk (state vehicle codes), so the drawings never put a parked
+ * car or a stall mark there.
+ */
+export function onCrosswalk(features: StreetFeature[] | undefined, from: number, to = from): boolean {
+  return (features ?? []).some((f) => {
+    if (f.type !== 'crosswalk' && f.type !== 'raised-crosswalk')
+      return false
+    const half = (f.length ?? 10) / 2
+    return to >= f.at - half && from <= f.at + half
+  })
+}
 
 /** Brick or permeable pavers (either color). */
 export const isBrick = (s: Segment): boolean => surfaceOf(s) === 'brick' || surfaceOf(s) === 'brick-red'
@@ -166,6 +210,10 @@ function itemTypes(s?: Segment) {
  * number, so the drawing and the list stay short.
  */
 export function diffStreets(current: StreetConfig, previous: StreetConfig, units: Units): Change[] {
+  // A zero-wide strip only appears inside a shape override (a curb
+  // extension's planting); the override's own change line covers it.
+  current = { ...current, segments: current.segments.filter(sg => sg.width > 0) }
+  previous = { ...previous, segments: previous.segments.filter(sg => sg.width > 0) }
   const raw: { kind: Change['kind'], text: string, segment?: string, mark?: string }[] = []
   const prevById = new Map(previous.segments.map(s => [s.id, s]))
   const curIds = new Set(current.segments.map(s => s.id))

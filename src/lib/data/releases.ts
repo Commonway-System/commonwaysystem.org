@@ -33,6 +33,35 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    date: "2026.10.21",
+    changes: [
+      { type: "improved", area: "site",
+        summary: "In the Pattern viewer, crosswalk stripes now continue across every bike lane, including raised ones, and stop at walkways and medians.",
+        details: "Riders see where people cross. Before, the stripes covered only road-level strips as one block, so they skipped raised bike lanes and painted over walkways between them." },
+      { type: "new", area: "site",
+        summary: "The Pattern viewer can draw the yellow detectable warning strips (raised domes) where a crosswalk leaves a curb or walkway.",
+        details: "A crosswalk can be marked as having them; each is 2 ft deep and spans the crosswalk, on every walkable strip at each edge where the crossing begins, in the Top down view, the slice and a cross-section cut at the crosswalk. US accessibility guidelines (PROWAG R205 and R305) require them at curb ramps at crosswalks; they must contrast with the walk, and yellow is the usual choice." },
+      { type: "improved", area: "content",
+        summary: "Default (Standard Collector)'s Pattern viewer shows detectable warnings at the crosswalk and parking stall marks on every configuration, not just the Commonway System.",
+        details: "The Federal / State, NACTO, Complete Streets and Commonway System configurations all have the warning strips, and every parking lane has its white T marks so it reads as parking. One new reference: the U.S. Access Board's Public Right-of-Way Accessibility Guidelines (2023)." },
+      { type: "improved", area: "site",
+        summary: "The Pattern viewer never draws a parked car or a parking stall mark on a crosswalk.",
+        details: "Parking on a crosswalk is illegal everywhere, so the cross-section, the top-down slice and the Top down view all leave a parking lane empty where a crosswalk crosses it." },
+      { type: "improved", area: "site",
+        summary: "In the Pattern viewer, a curb extension is planted, with a paved walkway along the crosswalk through it to the sidewalk.",
+        details: "Curb extensions used to take the surface of the strip they widened (a buffer or the parking lane); each is now its own planting strip that appears only where the parking ends and takes the place of both the parking lane and the door buffer beside it. Wherever a crosswalk crosses a planting strip, the strip is paved as a walkway, in the Top down view, the slice and a cross-section cut at the crosswalk. On Default (Standard Collector) this also stops the Complete Streets bike lane from shifting toward traffic at the crossing." },
+      { type: "improved", area: "content",
+        summary: "Default (Standard Collector)'s Pattern viewer shows how each configuration handles parking at the crosswalk, and every configuration now has the crosswalk.",
+        details: "Federal / State minimum: parking runs right up to a midblock crosswalk, which a typical state code (Texas Transportation Code 545.302) allows. NACTO and Complete Streets: a curb extension daylights the crossing (NACTO's Midblock Crosswalks guidance gives no length, so it is drawn at a typical one). Commonway System: parking stops 30 ft before the crosswalk on both approaches, FHWA's setback at 26 to 35 mph, and a curb extension takes its place. NACTO's 7 ft parking lane is now sourced: NACTO recommends 7 to 9 ft generally and typically 7 ft beside a protected bike lane. The guidance table's NACTO and Federal / State parking cells say so too. Two new references." },
+      { type: "improved", area: "content",
+        summary: "Default (Standard Collector) now discourages on-street parking, most of all on both sides of the street, and keeps it 30 ft back from crosswalks; the guidance table's parking row is sourced in every column.",
+        details: "Parking stays allowed. The evidence: the NCHRP research behind the Highway Safety Manual's arterial crash method, where parallel parking along both curbs of a two-lane street means about 47% more crashes on residential streets and about twice as many on commercial ones, scaled by the share of curb parked; FHWA's uncontrolled-crossing guide, which sets a 30 ft parking setback at 26 to 35 mph and credits it with about 30% fewer pedestrian crashes; NACTO's Curb Appeal, which puts transit and bikeways first at the curb; and CROW's ASVV 2021, whose ideal distributor road has no parking on or along the roadway. The NACTO and Dutch cells, a gap and an uncited claim before, now have sources. Four new references." },
+      { type: "new", area: "content",
+        summary: "Default (Standard Collector)'s guidance table has a new Traffic volume row: the Commonway System sets about 1,500 to 6,000 vehicles per day, following NACTO.",
+        details: "Both ends come from NACTO's Designing for All Ages & Abilities (2017): above 1,000 to 2,000 vehicles a day most people only ride in the street below 20 mph, and above about 6,000 only a protected bike lane serves all ages and abilities. FHWA's Highway Functional Classification guidelines (2023 Edition, Table 3-6) give 1,100 to 6,300 for urban collectors and are shown alongside. Complete Streets sets no volume range, and the Dutch cell is an open gap: CROW's distributor-road volumes are in paid publications that weren't read. Two new references." },
+    ],
+  },
+  {
     date: "2026.10.20",
     changes: [
       { type: "new", area: "content",

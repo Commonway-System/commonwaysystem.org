@@ -5,7 +5,7 @@
 // street by spacing land where the data puts them. Pixels, with objects
 // placed in feet at the street's own scale.
 
-import { isBrick, markingOf, STALL_LENGTH, surfaceOf } from '../geometry'
+import { crossing, isBrick, markingOf, onCrosswalk, STALL_LENGTH, surfaceOf, WARNING_DEPTH } from '../geometry'
 import type { FrontageType, ItemType, Segment, StreetFeature } from '../types'
 import type { Ids } from './core'
 import { brickJoints, makeStamps, place, r2, rect, rng, seedOf } from './core'
@@ -146,6 +146,18 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     }
     else if (t === 'furnishing' || t === 'median') {
       s += speckles(c.x0, c.x1, b.y, y1, b.S, seedOf(c.s.id, 'grass'))
+      // A crosswalk paves a planting strip it crosses: the walkway to the sidewalk.
+      if (t === 'furnishing') {
+        for (const f of features) {
+          if (f.type !== 'crosswalk' && f.type !== 'raised-crosswalk')
+            continue
+          const half = (f.length ?? 10) / 2
+          const ya = Math.max(b.y, Y(f.at - half))
+          const yb = Math.min(y1, Y(f.at + half))
+          if (yb > ya)
+            s += rect(c.x0, ya, w, yb - ya, 'p-concrete')
+        }
+      }
     }
     else if (t === 'buffer' && !c.items.some(i => i.type === 'barrier')) {
       // A painted buffer: chevrons between its two edge stripes (drawn
@@ -213,8 +225,11 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       return
     const left = cols[i - 1]
     const right = cols[i + 1]
-    const streetLeft = left && !isRaisedSegment(left.s)
-    const streetRight = right && !isRaisedSegment(right.s)
+    // The T goes on the edge toward the travel lane (or, failing that, the road-level side).
+    const laneLeft = !!left && LANES.has(left.s.type)
+    const laneRight = !!right && LANES.has(right.s.type)
+    const streetLeft = laneLeft || laneRight ? laneLeft : !!left && !isRaisedSegment(left.s)
+    const streetRight = laneLeft || laneRight ? laneRight : !!right && !isRaisedSegment(right.s)
     if (streetLeft === streetRight)
       return
     const other = streetLeft ? left : right
@@ -223,8 +238,10 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     const barX = streetLeft ? c.x0 + inset : c.x1 - inset - tb
     const stemX = streetLeft ? barX + tb : barX - 2.5 * b.S
     for (let a = Math.floor(a0 / STALL_LENGTH) * STALL_LENGTH; a <= a0 + L + 2; a += STALL_LENGTH) {
+      if (onCrosswalk(features, a - 2, a + 2))
+        continue
       for (const [x, y, w, h] of [[barX, Y(a - 2), tb, 4 * b.S], [stemX, Y(a) - tb / 2, 2.5 * b.S, tb]])
-        s += rect(x, y, w, h, 'p-white') + (bricks ? rect(x, y, w, h, bricks.fill) : '')
+        s += rect(x, y, w, h, 'p-white') + (bricks && isBrick(c.s) ? rect(x, y, w, h, bricks.fill) : '')
     }
   })
 
@@ -237,14 +254,35 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     const len = f.length ?? 10
     if (f.at + len / 2 < a0 || f.at - len / 2 > a0 + L)
       continue
-    const road = cols.filter(c => !isRaisedSegment(c.s))
-    if (!road.length)
+    // Stripes every 4 ft across the strips the crosswalk crosses (bike lanes
+    // too, at any height), none on the strips people walk on.
+    const { crossed, warnings } = crossing(f, cols.map((c, i) => ({ i, s: c.s })))
+    if (!crossed.length)
       continue
     crossings.push([f.at - len / 2 - 1, f.at + len / 2 + 1])
-    const xa = road[0].x0
-    const xb = road.at(-1)!.x1
-    for (let x = xa + b.S; x < xb - b.S; x += 4 * b.S)
-      s += rect(x, Y(f.at - len / 2), 2 * b.S, len * b.S, 'p-white')
+    const xa = cols[crossed[0]].x0
+    const xb = cols[crossed.at(-1)!].x1
+    for (let x = xa + b.S; x < xb - b.S; x += 4 * b.S) {
+      for (const i of crossed) {
+        const x0 = Math.max(x, cols[i].x0 + 0.5 * b.S)
+        const x1 = Math.min(x + 2 * b.S, cols[i].x1 - 0.5 * b.S)
+        if (x1 - x0 > 0.4 * b.S)
+          s += rect(x0, Y(f.at - len / 2), x1 - x0, len * b.S, 'p-white')
+      }
+    }
+    // Detectable warnings: yellow truncated domes, 2 ft deep, at each edge
+    // where the crosswalk leaves a walkable strip.
+    for (const { i, edge } of warnings) {
+      const c = cols[i]
+      const d = Math.min(WARNING_DEPTH * b.S, c.x1 - c.x0)
+      const x0 = edge === 'end' ? c.x1 - d : c.x0
+      s += rect(x0, Y(f.at - len / 2), d, len * b.S, 'p-dw')
+      const step = Math.max(0.5 * b.S, 4)
+      for (let dx = step / 2; dx < d; dx += step) {
+        for (let dy = step / 2; dy < len * b.S; dy += step)
+          s += `<circle cx="${r2(x0 + dx)}" cy="${r2(Y(f.at - len / 2) + dy)}" r="${r2(step * 0.28)}" style="fill:var(--pvx-p-dw-dome)"/>`
+      }
+    }
   }
 
   // Items at their spacing, and the crowns they cast. Each strip's item is
@@ -320,8 +358,9 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       const len = VEHICLE_LENGTH[u.variant]
       if (VEHICLE_WIDTH[u.variant] * b.S <= c.x1 - c.x0 + 2 * b.S) {
         // A car in a marked parking lane sits in the stall nearest the cut.
+        const stall = Math.round((b.at - STALL_LENGTH / 2) / STALL_LENGTH) * STALL_LENGTH + STALL_LENGTH / 2
         const a = t === 'parking' && markingOf(c.s) === 'stalls'
-          ? Math.round((b.at - STALL_LENGTH / 2) / STALL_LENGTH) * STALL_LENGTH + STALL_LENGTH / 2
+          ? (onCrosswalk(features, stall - len / 2, stall + len / 2) ? null : stall)
           : findSpot(cx, len, [...taken, ...crossings], `${c.s.id}|veh`, true)
         if (a !== null) {
           taken.push([a - len / 2, a + len / 2])

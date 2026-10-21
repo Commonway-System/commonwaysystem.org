@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { barrierTop, bikeLaneSymbol, brickJoints, laneArrow, makeIds, makeStamps, seedOf, sharrow, streetItemTop } from '$lib/viewer/art'
-  import { breakpoints, FEATURE_LABELS, isBrick, isRaised, levelOf, STALL_LENGTH, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
+  import { breakpoints, crossing, FEATURE_LABELS, isBrick, isRaised, levelOf, onCrosswalk, WARNING_DEPTH, STALL_LENGTH, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
   import { formatLength } from '$lib/viewer/state'
   import type { RendererProps, Segment, StreetConfig, StreetFeature } from '$lib/viewer/types'
 
@@ -134,11 +134,30 @@
       return { s, i, points: [...top, ...bottom].join(' '), edge, base: at[0][i] }
     })
 
-    // Markings on the boundary between segment i and i + 1.
-    const markings = bands.slice(0, -1).flatMap(({ s, i, edge }) => {
-      const next = config.segments[i + 1]
+    // Markings on the boundary between two neighboring strips. A strip can be
+    // zero wide over part of the street (a curb extension's planting exists
+    // only inside its stretch), so neighbors are found stretch by stretch,
+    // between breakpoints, among the strips actually there; a pair's
+    // consecutive stretches are joined into one line so dashes run on.
+    const runs: { i: number, j: number, k0: number, k1: number }[] = []
+    for (let k = 0; k < xs.length - 1; k++) {
+      const ws = widthsAt(config, (xs[k] + xs[k + 1]) / 2)
+      const shown = ws.flatMap((wd, i) => wd > 0.05 ? [i] : [])
+      for (let n = 0; n < shown.length - 1; n++) {
+        const [i, j] = [shown[n], shown[n + 1]]
+        const last = runs.findLast(r => r.i === i && r.j === j)
+        if (last && last.k1 === k)
+          last.k1 = k + 1
+        else
+          runs.push({ i, j, k0: k, k1: k + 1 })
+      }
+    }
+    const markings = runs.flatMap(({ i, j, k0, k1 }) => {
+      const s = config.segments[i]
+      const next = config.segments[j]
       const pair = (a: Segment['type'], b: Segment['type']) => (s.type === a && next.type === b) || (s.type === b && next.type === a)
-      const off = (d: number) => xs.map((x, k) => `${k ? 'L' : 'M'} ${X(x)} ${at[k][i].bottom + d}`).join(' ')
+      const off = (d: number) => xs.slice(k0, k1 + 1).map((x, n) => `${n ? 'L' : 'M'} ${X(x)} ${at[k0 + n][i].bottom + d}`).join(' ')
+      const edge = off(0)
       // Every buffer has a white stripe down each side, just inside its edge.
       if (s.type === 'buffer' || next.type === 'buffer') {
         return [
@@ -163,23 +182,36 @@
       return [{ d: edge, cls: 'edge', dash: '' }]
     })
 
+    // A crosswalk paves every planting strip it crosses (a curb extension's,
+    // or the strip beside the sidewalk) as a walkway to the sidewalk.
+    const walks = bands.filter(b => b.s.type === 'furnishing').flatMap(b => (config.features ?? [])
+      .filter(f => f.type === 'crosswalk' || f.type === 'raised-crosswalk')
+      .flatMap((f) => {
+        const half = (f.length ?? 10) / 2
+        const band = bandAt(b.i, f.at)
+        return band.bottom - band.top > 0.5 ? [{ key: `${b.s.id}-${f.id}`, x: X(f.at - half), w: 2 * half * scale, y: band.top, h: band.bottom - band.top }] : []
+      }))
+
     // Parking stalls: a white T at each stall line, on the edge nearest the
     // travel lane; none where the lane narrows (a curb extension).
     const stalls = bands.filter(b => b.s.type === 'parking' && markingOf(b.s) === 'stalls').flatMap((b) => {
-      const prev = config.segments[b.i - 1]
-      const next = config.segments[b.i + 1]
-      const streetTop = prev !== undefined && !isRaised(prev)
-      if (streetTop === (next !== undefined && !isRaised(next)))
+      // The nearest strips with width on each side; the T goes on the edge
+      // toward the travel lane (or, failing that, the road-level side).
+      const prev = config.segments.slice(0, b.i).findLast(sg => sg.width > 0)
+      const next = config.segments.slice(b.i + 1).find(sg => sg.width > 0)
+      const lane = (sg?: Segment) => sg !== undefined && LANES.has(sg.type)
+      const streetTop = lane(prev) || lane(next) ? lane(prev) : prev !== undefined && !isRaised(prev)
+      if (!lane(prev) && !lane(next) && streetTop === (next !== undefined && !isRaised(next)))
         return []
       const tb = Math.max(scale / 2, 1.5)
       const out = []
       for (let ft = STALL_LENGTH; ft < length; ft += STALL_LENGTH) {
         const band = bandAt(b.i, ft)
-        if (band.bottom - band.top < b.s.width * scale * 0.95)
+        if (band.bottom - band.top < b.s.width * scale * 0.95 || onCrosswalk(config.features, ft - 2, ft + 2))
           continue
         const edgeY = streetTop ? band.top + 1.2 * scale : band.bottom - 1.2 * scale - tb
         const stemY = streetTop ? edgeY + tb : edgeY - 2.5 * scale
-        out.push({ key: `${b.s.id}-${ft}`, bar: { x: X(ft - 2), y: edgeY, w: 4 * scale, h: tb }, stem: { x: X(ft) - tb / 2, y: stemY, w: tb, h: 2.5 * scale } })
+        out.push({ key: `${b.s.id}-${ft}`, brick: isBrick(b.s), bar: { x: X(ft - 2), y: edgeY, w: 4 * scale, h: tb }, stem: { x: X(ft) - tb / 2, y: stemY, w: tb, h: 2.5 * scale } })
       }
       return out
     })
@@ -275,10 +307,34 @@
       return out
     })
     const feats = (config.features ?? []).map((f) => {
+      const len = (f.length ?? defaultLength(f)) * scale
+      if (f.type === 'crosswalk' || f.type === 'raised-crosswalk') {
+        // Stripes every 4 ft across the strips the crosswalk crosses (bike
+        // lanes too, at any height), none on the strips people walk on.
+        const ws = widthsAt(config, f.at)
+        const shown = config.segments.flatMap((sg, i) => ws[i] > 0.05 ? [{ i, s: sg }] : [])
+        const { crossed, warnings } = crossing(f, shown)
+        const strips = crossed.map(i => bandAt(i, f.at))
+        const top = strips.length ? Math.min(...strips.map(b => b.top)) : bandAt(0, f.at).top
+        const bottom = strips.length ? Math.max(...strips.map(b => b.bottom)) : bandAt(config.segments.length - 1, f.at).bottom
+        const bars: { y: number, h: number }[] = []
+        for (let y = top + scale; y < bottom - scale; y += 4 * scale) {
+          for (const b of strips) {
+            const y0 = Math.max(y, b.top + 0.5 * scale)
+            const y1 = Math.min(y + 2 * scale, b.bottom - 0.5 * scale)
+            if (y1 - y0 > 0.4 * scale)
+              bars.push({ y: y0, h: y1 - y0 })
+          }
+        }
+        const depth = WARNING_DEPTH * scale
+        const dws = warnings.map(({ i, edge }) => {
+          const b = bandAt(i, f.at)
+          return { y: edge === 'end' ? b.bottom - depth : b.top, h: Math.min(depth, b.bottom - b.top) }
+        })
+        return { f, top, bottom, x: X(f.at), len, bars, dws }
+      }
       const [a, b] = spanOf(config, f)
-      const top = bandAt(a, f.at).top
-      const bottom = bandAt(b, f.at).bottom
-      return { f, top, bottom, x: X(f.at), len: (f.length ?? defaultLength(f)) * scale }
+      return { f, top: bandAt(a, f.at).top, bottom: bandAt(b, f.at).bottom, x: X(f.at), len, bars: [], dws: [] }
     })
     const overrides = (config.overrides ?? []).map(o => ({ o, x: X((o.from + o.to) / 2), x0: X(o.from), x1: X(o.to) }))
 
@@ -300,7 +356,7 @@
     const steps = units === 'm' ? [2 / 0.3048, 5 / 0.3048, 10 / 0.3048, 20 / 0.3048, 50 / 0.3048] : [5, 10, 20, 50, 100]
     const barFt = steps.find(s => s >= target * 0.6) ?? steps[steps.length - 1]
 
-    return { m, font, scale, length, X, x0, bricks, stalls, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' || !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
+    return { m, font, scale, length, X, x0, bricks, walks, stalls, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' || !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
   })
 
   function defaultLength(f: StreetFeature): number {
@@ -315,6 +371,11 @@
       case 'driveway': return 12
       default: return 2
     }
+  }
+
+  /** Whether strip i has its full width at a distance along the street (no shape override narrowing it there). */
+  function fullAt(i: number, ft: number) {
+    return !config || widthsAt(config, ft)[i] >= config.segments[i].width * 0.95
   }
 
   function bandLabel(s: Segment) {
@@ -341,19 +402,24 @@
           {#if b.s.type === 'buffer' && !(b.s.items ?? []).some(i => i.type === 'barrier')}
             {#each Array.from({ length: Math.ceil(P.length / 8) }) as _, k (k)}
               {@const xx = P.X(k * 8)}
-              <!-- Ends on the edge stripes, 1.6 px inside each edge -->
-              <path class="hatch" d="M {xx + 1.6} {b.base.bottom - 1.6} L {xx + (b.base.bottom - b.base.top) - 1.6} {b.base.top + 1.6}" />
+              <!-- Ends on the edge stripes, 1.6 px inside each edge; none where the buffer narrows (a curb extension) -->
+              {#if fullAt(b.i, k * 8) && fullAt(b.i, k * 8 + (b.base.bottom - b.base.top) / P.scale)}
+                <path class="hatch" d="M {xx + 1.6} {b.base.bottom - 1.6} L {xx + (b.base.bottom - b.base.top) - 1.6} {b.base.top + 1.6}" />
+              {/if}
             {/each}
           {/if}
         {/each}
 
+        {#each P.walks as wk (wk.key)}
+          <rect class="s-sidewalk" x={wk.x} y={wk.y} width={wk.w} height={wk.h} />
+        {/each}
         {#if P.bricks}
           <g aria-hidden="true">{@html P.bricks.def}</g>
         {/if}
         {#each P.stalls as st (st.key)}
           {#each [st.bar, st.stem] as q, k (k)}
             <rect class="mk-fill-white" x={q.x} y={q.y} width={q.w} height={q.h} />
-            {#if P.bricks}
+            {#if P.bricks && st.brick}
               <rect x={q.x} y={q.y} width={q.w} height={q.h} style="fill:{P.bricks.fill}" />
             {/if}
           {/each}
@@ -383,8 +449,11 @@
             {#if f.type === 'raised-crosswalk'}
               <rect class="s-sidewalk" x={ft.x - ft.len / 2 - 3 * P.scale} y={ft.top} width={ft.len + 6 * P.scale} height={ft.bottom - ft.top} opacity="0.55" />
             {/if}
-            {#each Array.from({ length: Math.floor((ft.bottom - ft.top) / (4 * P.scale)) }) as _, k (k)}
-              <rect class="mk-fill-white" x={ft.x - ft.len / 2} y={ft.top + (k + 0.5) * 4 * P.scale} width={ft.len} height={2 * P.scale} />
+            {#each ft.bars as bar, k (k)}
+              <rect class="mk-fill-white" x={ft.x - ft.len / 2} y={bar.y} width={ft.len} height={bar.h} />
+            {/each}
+            {#each ft.dws as dw, k (k)}
+              <rect class="s-dw" x={ft.x - ft.len / 2} y={dw.y} width={ft.len} height={dw.h} />
             {/each}
           {:else if f.type === 'speed-hump' || f.type === 'speed-table' || f.type === 'speed-cushion'}
             <rect class="mk-fill-white" x={ft.x - ft.len / 2} y={ft.top} width={ft.len} height={ft.bottom - ft.top} opacity="0.35" />

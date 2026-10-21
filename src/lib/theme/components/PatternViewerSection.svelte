@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
   import type { CyclistVariant, Measure, PedestrianVariant, SceneBox, SceneColumn, SliceColumn, VehicleVariant } from '$lib/viewer/art'
   import { cyclist, frontage, groundCut, isRaisedSegment, surfaceY, laneVehicle, makeIds, measureText, measureWith, PEDESTRIAN_POOL, PEDESTRIAN_WIDTH, pedestrian, place, plainCyclist, plainItem, plainPedestrian, plainVehicle, rng, seedOf, sky, slice, streetItem, vehicle } from '$lib/viewer/art'
-  import { spread, widthsAt } from '$lib/viewer/geometry'
+  import { crossing, onCrosswalk, spread, WARNING_DEPTH, widthsAt } from '$lib/viewer/geometry'
   import { layoutAnnotations } from '$lib/viewer/section-layout'
   import { formatLength } from '$lib/viewer/state'
   import type { RendererProps, Segment } from '$lib/viewer/types'
@@ -76,7 +76,14 @@
     if (!config)
       return undefined
     const widths = widthsAt(config, section?.at)
-    const segs = config.segments.map((s, i) => ({ s, wd: widths[i] })).filter(x => x.wd > 0.05)
+    // Cut on a crosswalk, a planting strip it crosses is paved as the walkway
+    // to the sidewalk; the slice below still gets the strip as it is.
+    const onWalk = onCrosswalk(config.features, section?.at ?? -1)
+    const segs = config.segments.map((s, i) => ({
+      s: onWalk && s.type === 'furnishing' ? { ...s, type: 'sidewalk' as const, items: [], label: 'Walkway' } : s,
+      src: s,
+      wd: widths[i],
+    })).filter(x => x.wd > 0.05)
     const total = segs.reduce((a, x) => a + x.wd, 0)
     const front = { left: config.frontage?.left ?? 'lawn', right: config.frontage?.right ?? 'lawn' } as const
     const frontW = (kind: string) => kind === 'buildings' ? Math.max(16, Math.min(width * 0.08, 90)) : Math.max(12, Math.min(width * 0.05, 64))
@@ -86,10 +93,10 @@
     const scale = (right - left) / Math.max(total, 1)
 
     let x = left
-    const cols = segs.map(({ s, wd }) => {
+    const cols = segs.map(({ s, src, wd }) => {
       const x0 = x
       x += wd * scale
-      return { s, wd, x0, x1: x, cx: (x0 + x) / 2 }
+      return { s, src, wd, x0, x1: x, cx: (x0 + x) / 2 }
     })
     const ann = layoutAnnotations({
       cols,
@@ -224,6 +231,19 @@
     scene += groundCut(ids, sceneCols, b)
     scene += frontage(ids, L.front.left, 'left', b, cols[0]?.s, seedOf('front-l', L.total))
     scene += frontage(ids, L.front.right, 'right', b, cols.at(-1)?.s, seedOf('front-r', L.total))
+    // Cut on a crosswalk: its detectable warnings, a yellow band on the
+    // walking surface 2 ft wide at each edge where the crosswalk leaves it.
+    for (const f of config?.features ?? []) {
+      if (!onCrosswalk([f], section?.at ?? -1))
+        continue
+      for (const { i, edge } of crossing(f, cols.map((c, n) => ({ i: n, s: c.s }))).warnings) {
+        const c = cols[i]
+        const d = Math.min(WARNING_DEPTH * L.scale, c.x1 - c.x0)
+        const t = Math.max(1.5, 0.12 * L.scale)
+        const y = surfaceY(c, b)
+        scene += `<rect x="${(edge === 'end' ? c.x1 - d : c.x0).toFixed(2)}" y="${(y - t).toFixed(2)}" width="${d.toFixed(2)}" height="${t.toFixed(2)}" style="fill:var(--pvx-p-dw)"/>`
+      }
+    }
 
     // Two object layers from the same placements: the illustrated one, and
     // the plain outline symbols Simplified view shows instead.
@@ -249,10 +269,11 @@
     }
     cols.forEach((c, i) => {
       const t = c.s.type
-      const sc: SliceColumn = { s: c.s, x0: c.x0, x1: c.x1, items: itemXs(c, L.scale) }
+      const sc: SliceColumn = { s: c.src, x0: c.x0, x1: c.x1, items: itemXs({ ...c, s: c.src }, L.scale) }
       sliceCols.push(sc)
       // Items first, so people and vehicles stand in front of trees and poles.
-      for (const it of sc.items) {
+      // A walkway (a planting strip cut at a crosswalk) stands empty in front view.
+      for (const it of c.s === c.src ? sc.items : itemXs(c, L.scale)) {
         const toward = it.x < roadMid ? 1 : -1
         put(it.x, c.y, streetItem(ids, it.type, seedOf(c.s.id, it.type), toward), plainItem(it.type, toward))
       }
@@ -268,6 +289,9 @@
           put(px + widths[k] / 2, c.y, pedestrian(v, seedOf(c.s.id, 'p', k)), plainPedestrian(v))
           px += widths[k] + gap
         })
+      }
+      else if (t === 'parking' && onCrosswalk(config?.features, section?.at ?? -1)) {
+        // No one parks on a crosswalk: the lane is drawn empty there.
       }
       else if (t === 'travel-lane' || t === 'turn-lane' || t === 'parking' || t === 'transit-lane') {
         const seed = seedOf(c.s.id, 'car')
