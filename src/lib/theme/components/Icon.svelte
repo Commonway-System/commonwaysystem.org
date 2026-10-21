@@ -1,6 +1,6 @@
 <script lang="ts">
   interface Props {
-    name: 'menu' | 'close' | 'chevron-down' | 'chevron-right' | 'sun' | 'moon' | 'arrow-left' | 'arrow-right' | 'github' | 'external' | 'x-twitter' | 'facebook' | 'linkedin' | 'reddit' | 'bluesky' | 'mail' | 'link' | 'check' | 'search' | 'road' | 'grid' | 'retrofit' | 'question' | 'play' | 'shield-check'
+    name: 'menu' | 'close' | 'chevron-down' | 'chevron-right' | 'sun' | 'moon' | 'arrow-left' | 'arrow-right' | 'github' | 'external' | 'x-twitter' | 'facebook' | 'linkedin' | 'reddit' | 'bluesky' | 'mail' | 'link' | 'check' | 'search' | 'road' | 'grid' | 'retrofit' | 'question' | 'play' | 'shield-check' | 'caution' | 'stop'
     size?: number
     /**
      * Most icons here are line-drawn (stroke, fill="none"), the original
@@ -47,6 +47,13 @@
     'question': 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01',
     'play': 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM10 8.5v7l6-3.5z',
     'shield-check': 'M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6zM8.5 12l2.5 2.5 4.5-4.5',
+    // Pattern viewer: a discouraged choice (warning triangle) and a highly
+    // discouraged one (stop-sign octagon), so the two differ in shape, not
+    // only in color.
+    'caution': 'M12 3.5L2.5 20h19zM12 10v4.5M12 17.5v.01',
+    // Filled, with the exclamation mark cut out, so it reads heavier than
+    // the outlined triangle (use with `filled`).
+    'stop': 'M8.1 2h7.8L22 8.1v7.8L15.9 22H8.1L2 15.9V8.1zM10.8 6h2.4v8.5h-2.4zM10.8 16.3h2.4v2.4h-2.4z',
   }
 </script>
 

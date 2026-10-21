@@ -324,12 +324,30 @@ export type Configuration = StreetConfig | IntersectionConfig
 // combinations with a small function in the data file rather than by hand
 // (see col-def-01.ts), and keep segment ids stable across all of them.
 
+/**
+ * How the system rates a facet option. Preferred options get a check mark;
+ * discouraged ones a warning triangle and, when chosen, a caution-colored
+ * button and their `note`; highly discouraged ones a stop-sign octagon, a
+ * red button and a bolder note. Unrated options show nothing extra.
+ */
+export type FacetAdvice = 'preferred' | 'discouraged' | 'highly-discouraged'
+
+export interface FacetOption {
+  id: string
+  label: string
+  advice?: FacetAdvice
+  /** Shown under the buttons while this option is chosen: why it's discouraged, in a sentence or two. */
+  note?: string
+}
+
 export interface Facet {
   id: string
   label: string
-  options: { id: string, label: string }[]
+  options: FacetOption[]
   /** Option id; the first option if omitted. */
   default?: string
+  /** Where a note links for the full reasoning (a heading on the page). */
+  why?: { href: string, label: string }
 }
 
 /**

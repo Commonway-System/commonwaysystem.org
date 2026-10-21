@@ -61,6 +61,11 @@ import type { ConfigEntry, Segment, StreetConfig, ViewerData } from '$lib/viewer
 // midblock crossing. The cycle tracks are one-way, one per side: two-way
 // tracks bring more crashes at side streets [32].
 
+// The notes the viewer shows under the buttons while a discouraged choice is
+// on (the Design notes' reasons, shortened; the ratings follow the page).
+const TWO_WAY_NOTE = 'The Commonway System discourages two-way bike lanes. Drivers turning across one look for riders coming the usual way and miss the ones coming the other way, so it brings more crashes at side streets and driveways.'
+const PARKING_NOTE = "The Commonway System discourages on-street parking on a Collector. Parked cars bring more crashes, and the curb has better uses first: bikeways, transit stops, loading and green space. Use it only where it's truly needed."
+
 type Side = 'l' | 'r'
 type Parking = 'none' | 'left' | 'right' | 'both'
 type Bikes = 'street' | 'sidewalk'
@@ -341,21 +346,23 @@ const data: ViewerData = {
       id: 'parking',
       label: 'On-street parking',
       options: [
-        { id: 'none', label: 'None' },
-        { id: 'left', label: 'Left side' },
-        { id: 'right', label: 'Right side' },
-        { id: 'both', label: 'Both sides' },
+        { id: 'none', label: 'None', advice: 'preferred' },
+        { id: 'left', label: 'Left side', advice: 'discouraged', note: PARKING_NOTE },
+        { id: 'right', label: 'Right side', advice: 'discouraged', note: PARKING_NOTE },
+        { id: 'both', label: 'Both sides', advice: 'highly-discouraged', note: 'The Commonway System strongly discourages parking on both sides. It doubles the added crash risk of parking on one side. Use it only in rare cases.' },
       ],
+      why: { href: '#parking-lanes', label: 'More on parking lanes' },
     },
     {
       id: 'bikeway',
       label: 'Bike lanes',
       default: 'one-way',
       options: [
-        { id: 'one-way', label: 'One-way, both sides' },
-        { id: 'two-way-left', label: 'Two-way, left side' },
-        { id: 'two-way-right', label: 'Two-way, right side' },
+        { id: 'one-way', label: 'One-way, both sides', advice: 'preferred' },
+        { id: 'two-way-left', label: 'Two-way, left side', advice: 'discouraged', note: TWO_WAY_NOTE },
+        { id: 'two-way-right', label: 'Two-way, right side', advice: 'discouraged', note: TWO_WAY_NOTE },
       ],
+      why: { href: '#two-way-bike-lanes', label: 'More on two-way bike lanes' },
     },
     {
       id: 'bikes',
@@ -363,7 +370,7 @@ const data: ViewerData = {
       default: 'sidewalk',
       options: [
         { id: 'street', label: 'Next to the street' },
-        { id: 'sidewalk', label: 'Next to the sidewalk' },
+        { id: 'sidewalk', label: 'Next to the sidewalk', advice: 'preferred' },
       ],
     },
   ],

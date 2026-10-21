@@ -267,6 +267,13 @@
      both fails 4.5:1 text contrast and doesn't read as "danger." */
   --cw-danger: #9c2848;
   --cw-danger-soft: #f7e1e7;
+  /* Caution (2026.10.21): marks a choice the system discourages, such as
+     a Pattern viewer option (two-way bike lane, on-street parking). A
+     burnt orange, hue 22 to amber's 35, darker, so it reads as a warning
+     without borrowing reserved amber. Used as text on paper (5.21:1) and
+     as a fill under --cw-paper text (the same 5.21:1). "Highly
+     discouraged" uses --cw-danger instead (7.17:1). */
+  --cw-caution: #b54708;
 
   /* ---- Layout -------------------------------------------------------- */
   --cw-navbar-height: 4rem;
@@ -433,6 +440,8 @@
   --cw-warning-soft: var(--cw-amber-soft);
   --cw-danger: #ef7a93;
   --cw-danger-soft: #3a1420;
+  /* 7.82:1 on dark paper, and under --cw-paper (dark) text as a fill. */
+  --cw-caution: #ef9254;
 
   --cw-shadow-drawer: 0 12px 32px rgba(0, 0, 0, 0.45);
 }
@@ -464,6 +473,7 @@ html[data-contrast='high'] {
   --cw-descriptive-ink: #1c3550;
   --cw-tip-ink: #2f3d0a;
   --cw-amber-ink: #4a2a00;
+  --cw-caution: #8a3305;
 }
 
 html[data-contrast='high'][data-theme='dark'] {
@@ -482,6 +492,7 @@ html[data-contrast='high'][data-theme='dark'] {
   --cw-descriptive-ink: #d3e3f5;
   --cw-tip-ink: #d8ec9a;
   --cw-amber-ink: #ffe2b0;
+  --cw-caution: #ffc199;
 }
 
 

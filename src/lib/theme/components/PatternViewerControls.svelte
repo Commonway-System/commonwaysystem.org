@@ -2,6 +2,7 @@
   import type { Annotations, CompareTarget, ConfigId, Facet, Units } from '$lib/viewer/types'
   import { untrack } from 'svelte'
   import { CONFIG_COMPACT_LABELS, CONFIG_SHORT_LABELS } from '$lib/viewer/types'
+  import Icon from './Icon.svelte'
 
   // The controls under (or, in full view, beside) the drawing: the
   // configuration ladder, any reference configurations, compare mode,
@@ -219,21 +220,46 @@
 
   <!-- One row of buttons per facet. Disabled, with a note, where the
        configuration on show doesn't vary that way (no bike lane to move on
-       the Federal / State minimum). -->
+       the Federal / State minimum). An option the system rates carries an
+       icon and its rating in words for screen readers; a discouraged one,
+       while chosen, turns caution orange (red when highly discouraged) and
+       shows its note under the buttons. The note sits in a live region that
+       is always there, so a screen reader hears it appear. -->
   {#each facets as facet (facet.id)}
     {@const applies = facetApplicable(facet.id)}
-    <fieldset class="pvc__group pvc__facet" disabled={!applies} aria-describedby={applies ? undefined : `${idPrefix}-na-${facet.id}`}>
+    {@const chosen = facet.options.find(o => o.id === facetValues[facet.id])}
+    {@const note = applies && chosen?.note ? chosen : undefined}
+    <fieldset class="pvc__group pvc__facet" disabled={!applies} aria-describedby={applies ? (note ? `${idPrefix}-advice-${facet.id}` : undefined) : `${idPrefix}-na-${facet.id}`}>
       <legend class="pvc__legend">{facet.label}</legend>
       <div class="pvc__choices">
         {#each facet.options as option (option.id)}
-          <label class="pvc__choice">
+          <label class="pvc__choice" class:pvc__choice--discouraged={option.advice === 'discouraged'} class:pvc__choice--highly={option.advice === 'highly-discouraged'}>
             <input type="radio" name="{idPrefix}-facet-{facet.id}" value={option.id} checked={facetValues[facet.id] === option.id} onchange={() => onfacet(facet.id, option.id)} />
-            <span>{option.label}</span>
+            <span>
+              {option.label}
+              {#if option.advice}
+                <span class="pvc__advice-icon"><Icon name={option.advice === 'preferred' ? 'check' : option.advice === 'discouraged' ? 'caution' : 'stop'} filled={option.advice === 'highly-discouraged'} size={16} /></span>
+                <span class="cw-sr-only">({option.advice === 'highly-discouraged' ? 'highly discouraged' : option.advice})</span>
+              {/if}
+            </span>
           </label>
         {/each}
       </div>
       {#if !applies && config}
         <p class="pvc__na" id="{idPrefix}-na-{facet.id}">Doesn't apply to {labelFor(config)}.</p>
+      {/if}
+      {#if facet.options.some(o => o.note)}
+        <div class="pvc__advice" id="{idPrefix}-advice-{facet.id}" aria-live="polite">
+          {#if note}
+            <p class="pvc__note" class:pvc__note--highly={note.advice === 'highly-discouraged'}>
+              <span class="pvc__note-icon"><Icon name={note.advice === 'highly-discouraged' ? 'stop' : 'caution'} filled={note.advice === 'highly-discouraged'} size={18} /></span>
+              <span>
+                {note.note}
+                {#if facet.why}<a href={facet.why.href}>{facet.why.label}</a>{/if}
+              </span>
+            </p>
+          {/if}
+        </div>
       {/if}
     </fieldset>
   {/each}
@@ -582,13 +608,14 @@
     cursor: pointer;
   }
 
-  .pvc__choice span {
+  .pvc__choice > span {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 2rem;
     padding: 0.25rem 0.7rem;
+    gap: 0.3rem;
     white-space: nowrap;
     color: var(--cw-ink);
     background: var(--cw-paper);
@@ -597,6 +624,61 @@
   .pvc__choice input:checked + span {
     background: var(--cw-primary);
     color: var(--cw-paper);
+  }
+
+  /* Ratings: the icon takes the rating's color on an unchosen button and
+     the text color on a chosen one. */
+  .pvc__advice-icon {
+    display: inline-flex;
+    color: var(--cw-primary);
+  }
+
+  .pvc__choice--discouraged .pvc__advice-icon {
+    color: var(--cw-caution);
+  }
+
+  .pvc__choice--highly .pvc__advice-icon {
+    color: var(--cw-danger);
+  }
+
+  .pvc__choice input:checked + span .pvc__advice-icon {
+    color: inherit;
+  }
+
+  .pvc__choice--discouraged input:checked + span {
+    background: var(--cw-caution);
+  }
+
+  .pvc__choice--highly input:checked + span {
+    background: var(--cw-danger);
+    font-weight: 600;
+  }
+
+  .pvc__note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    max-width: 40rem;
+    margin: 0.4rem 0 0;
+    color: var(--cw-caution);
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+
+  .pvc__note--highly {
+    color: var(--cw-danger);
+    font-weight: 600;
+  }
+
+  .pvc__note-icon {
+    display: inline-flex;
+    flex: none;
+    margin-top: 0.05rem;
+  }
+
+  .pvc__note a {
+    color: var(--cw-link);
+    font-weight: 400;
   }
 
   .pvc__choice input:focus-visible + span {
@@ -610,7 +692,8 @@
     cursor: not-allowed;
   }
 
-  .pvc__facet:disabled .pvc__choice span {
+  .pvc__facet:disabled .pvc__choice > span,
+  .pvc__facet:disabled .pvc__advice-icon {
     color: var(--cw-ink-soft);
   }
 

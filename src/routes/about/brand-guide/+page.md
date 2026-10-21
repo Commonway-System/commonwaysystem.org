@@ -72,11 +72,14 @@ No em-dashes, ever, anywhere in CS content. This is a standing, non-negotiable r
   <ColorSwatch hex="#00A896" label="Commonway teal" />
   <ColorSwatch hex="#3D3AAB" label="Deep indigo" />
   <ColorSwatch hex="#FF9F1C" label="Amber (reserved)" />
+  <ColorSwatch hex="#B54708" label="Caution (site-only)" />
 </div>
 
 :::warning
 Amber is reserved exclusively for the unsourced-claim flag and pattern-illustration highlighting. It never appears anywhere else in the system.
 :::
+
+Caution (`--cw-caution`, added October 21, 2026) is a site-only burnt orange for a choice the Commonway System discourages, such as a discouraged option in the Pattern viewer. It sits well away from amber in hue and is much darker, so it reads as a warning without borrowing the reserved color. It's `#B54708` in light mode and `#EF9254` in dark mode, with darker and lighter values in high contrast. For a choice that's highly discouraged, the site's danger red (`--cw-danger`, still a placeholder) takes its place.
 
 ### Evidence tiers (one hue, three depths)
 
@@ -415,6 +418,8 @@ Sits right after the page header and its summary on every pattern page (and on R
 
 Configurations are one row of radio buttons that fills the width of its column, in a fixed order (Federal / State minimum, NACTO, Complete Streets, Commonway System), the chosen one filled in `--cw-primary`, the Commonway rung in semibold. The buttons between two rungs are chevrons, joined by a 1px line, so each step reads as "better than" the one before. Dutch practice sits apart in its own box after a 3px gap, with straight edges on both sides of the gap, because it's a different system shown for comparison rather than a further step. Where the full names don't fit (the full view's side panel, a phone) the row switches to short ones (Base, Complete, Commonway); only where even those don't fit, as with five buttons on a phone, does the text drop one step, to 13px, at a larger Text size Dutch practice moves to a line of its own, and at the largest sizes the rungs break evenly over two lines, two to a line, each line ending square. How readers use the layers is explained on [How to Read a Pattern](/guide/how-to-read-a-pattern/#the-pattern-viewer).
 
+Choices within a configuration (on-street parking, bike lanes) are a row of buttons each, and the pattern's data can rate each option. A preferred option carries a check mark. A discouraged one carries a warning triangle, turns caution orange when chosen, and shows a short note under the buttons saying why, in caution orange, ending with a link to the design note that explains it. A highly discouraged one carries a solid stop-sign octagon, turns red when chosen, and its note is red and semibold. The icon's shape, a hidden word for screen readers ("discouraged") and the note all carry the rating, so color is never the only signal.
+
 The drawings are built from each pattern's data, not hand-drawn, in an illustrated style of their own (approved October 17, 2026) that deliberately departs from the Illustration & photography rules above: people are in full color, a drawing can show more than three of them, and context isn't grayscale. Those rules still govern the hand-drawn pattern illustrations. The cross-section is a cut through the ground (soil, gravel base, concrete curbs, tree pits) under a sky with clouds, with the frontage past the property lines drawn as lawn, buildings, a parking lot or open land. Under it sit three rows of architectural dimensions (each strip, curb to curb, right of way) and a zone band saying who each strip is for, then a top-down slice of the same street with every strip under its column. People, cyclists, vehicles, trees and street furniture are drawn at true scale; each is seeded from its strip, so a street looks the same on every visit and every rung. The range runs across ages and mobility: a wheelchair user appears in every drawing that has a sidewalk, alongside an older walker with a cane, a parent with a stroller, a child holding a hand, a dog walker and a runner. Bike lanes are painted green, as NACTO recommends, and transit lanes red.
 
 Colors are site-only tokens (`--pvx-*` in `viewer.css`), with dark-mode and high-contrast values, and the illustrations are dimmed slightly in dark mode. Color is never the only signal: every strip is named in the dimension row, and the zone band carries words (shortened, or dropped where a strip is too narrow, with the strip's name above still saying what it is). Simplified view replaces the illustrations with plain outline symbols drawn from the same placements. Amber marks only what changed from the layer below, which keeps it inside the Brand Guide's rule that amber is reserved for pattern highlighting: an outline plus a numbered amber badge, and the same number in the "What changed" list under the drawing.
@@ -514,6 +519,10 @@ A contrast issue was caught and fixed during design: the citation badge and Evid
 | Pattern viewer zone band, Bicycle (light / dark) | 10.06:1 / 4.97:1 | Pass |
 | Pattern viewer zone band, Transit (light / dark) | 8.50:1 / 6.83:1 | Pass |
 | Pattern viewer zone band, Vehicle (light / dark) | 5.95:1 / 6.12:1 | Pass |
+| Pattern viewer discouraged choice, paper on caution (light / dark) | 5.21:1 / 7.82:1 | Pass |
+| Pattern viewer discouraged note, caution text (light / dark) | 5.43:1 / 7.05:1 | Pass |
+| Pattern viewer highly discouraged choice, paper on danger (light / dark) | 7.17:1 / 6.91:1 | Pass |
+| Pattern viewer highly discouraged note, danger text (light / dark) | 7.47:1 / 6.24:1 | Pass |
 
 The Pattern viewer's amber change outline is below the 3:1 non-text minimum on light paper, so it never carries meaning alone: every outlined change also gets a numbered badge with a dark ring (8.97:1) and the same number in a written "What changed" list. In dark mode the outline itself reaches 8.97:1.
 
