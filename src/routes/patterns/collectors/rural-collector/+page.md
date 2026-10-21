@@ -4,6 +4,7 @@ description: A Collector Typology moving vehicle and freight traffic through low
 patternId: COL-FTM-02
 status: recommended
 date: 2026-08-29
+image: /patterns/col-ftm-02-rural-collector-farm-to-market-road.png
 llms: A Collector street typology serving vehicle and freight movement through low-density agricultural or undeveloped land, the norm at Undeveloped and Rural density and effectively absent past Suburban.
 ---
 

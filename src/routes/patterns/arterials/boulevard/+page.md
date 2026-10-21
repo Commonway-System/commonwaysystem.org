@@ -4,6 +4,7 @@ description: An Arterial Typology combining through traffic with a pedestrian-fi
 patternId: ART-BLV-02
 status: recommended
 date: 2026-08-29
+image: /patterns/art-blv-02-boulevard.png
 llms: An Arterial street typology combining through traffic with a pedestrian-first frontage, including the Multiway Boulevard variant, which separates frontage roads from through lanes with planted medians.
 ---
 

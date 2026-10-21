@@ -4,6 +4,7 @@ description: A stop-controlled intersection where every approach stops, tapering
 patternId: INT-AWS-04
 status: situational
 date: 2026-08-29
+image: /patterns/int-aws-04-all-way-stop.png
 llms: A stop-controlled intersection where every approach stops, tapering off past Compact and Urban density as intersection volumes exceed what stop control can safely handle.
 ---
 

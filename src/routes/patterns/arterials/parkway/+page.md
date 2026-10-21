@@ -4,6 +4,7 @@ description: "A roadway historically designed as a scenic, landscaped route, typ
 patternId: ART-PKY-07
 status: situational
 date: 2026-08-31
+image: /patterns/art-pky-07-parkway.png
 llms: "A roadway historically designed as a scenic, landscaped route, typically featuring a planted median and limited access, whose modern implementations vary widely between two distinct traditions: a limited-access, freeway-like facility, and a slower, arterial-scale boulevard-like facility running through or alongside parkland."
 ---
 

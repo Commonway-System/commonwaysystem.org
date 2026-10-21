@@ -4,6 +4,7 @@ description: An Arterial Typology with dedicated bus rapid transit or light rail
 patternId: ART-ATR-04
 status: recommended
 date: 2026-08-29
+image: /patterns/art-atr-04-arterial-transit-brt-lrt.jpeg
 llms: An Arterial street typology with dedicated bus rapid transit or light rail treatment, reinforcing rather than overriding the Arterial base modal hierarchy.
 ---
 

@@ -4,6 +4,7 @@ description: The Commonway System's locked default treatment for Local-to-Collec
 patternId: INT-CSJ-06
 status: recommended
 date: 2026-08-29
+image: /patterns/int-csj-06-continuous-sidewalk-raised-junction.png
 llms: The Commonway System's locked default for Local-to-Collector intersections, where the sidewalk and bike path stay uninterrupted and the roadway ramps up to meet them.
 ---
 

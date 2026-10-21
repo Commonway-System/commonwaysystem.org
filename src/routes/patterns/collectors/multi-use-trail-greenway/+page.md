@@ -4,6 +4,7 @@ description: An off-street Collector Typology shared by pedestrians and bicyclis
 patternId: COL-MUT-06
 status: recommended
 date: 2026-08-31
+image: /patterns/col-mut-06-multi-use-trail-greenway.png
 llms: A Collector street typology for an off-street path shared by pedestrians and bicyclists under roughly equal priority, longer-distance and often a destination in its own right, such as a rail-trail or linear park path.
 ---
 

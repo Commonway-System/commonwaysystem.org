@@ -4,6 +4,7 @@ description: A low-density, low-development-pressure Arterial Typology, the norm
 patternId: ART-SCB-03
 status: recommended
 date: 2026-08-29
+image: /patterns/art-scb-03-scenic-highway-byway.png
 llms: A low-density, low-development-pressure Arterial street typology, the norm at Undeveloped and Rural density, an unlikely pairing past Compact density.
 ---
 

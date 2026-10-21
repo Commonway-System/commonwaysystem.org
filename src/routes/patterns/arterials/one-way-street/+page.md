@@ -4,6 +4,7 @@ description: An Arterial Typology, Situational/Discouraged status, retaining the
 patternId: ART-OWS-06
 status: situational
 date: 2026-08-29
+image: /patterns/art-ows-06-one-way-street.png
 llms: An Arterial street typology marked Situational/Discouraged, since one-way operation tends to encourage speeding even though it retains the Arterial base modal hierarchy on paper.
 ---
 

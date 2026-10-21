@@ -4,6 +4,7 @@ description: "A collector-scale street running through a dense downtown or town-
 patternId: COL-DTH-07
 status: situational
 date: 2026-08-31
+image: /patterns/col-dth-07-downtown-thoroughfare.png
 llms: "A collector-scale street running through a dense downtown or town-center context, carrying meaningful through-traffic volume while also serving frequent pedestrian activity, on-street parking, and ground-floor commercial frontage along its length."
 ---
 

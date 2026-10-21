@@ -113,6 +113,9 @@ export const releases: Release[] = [
       { type: "new", area: "content",
         summary: "Default (Standard Collector)'s guidance table has a new Traffic volume row: the Commonway System sets about 1,500 to 6,000 vehicles per day, following NACTO.",
         details: "Both ends come from NACTO's Designing for All Ages & Abilities (2017): above 1,000 to 2,000 vehicles a day most people only ride in the street below 20 mph, and above about 6,000 only a protected bike lane serves all ages and abilities. FHWA's Highway Functional Classification guidelines (2023 Edition, Table 3-6) give 1,100 to 6,300 for urban collectors and are shown alongside. Complete Streets sets no volume range, and the Dutch cell is an open gap: CROW's distributor-road volumes are in paid publications that weren't read. Two new references." },
+      { type: "new", area: "content",
+        summary: "Rural Collector / Farm-to-Market Road, Multi-Use Trail / Greenway, Downtown Thoroughfare, Scenic Highway / Byway, Parkway, One-Way Street, Boulevard, Arterial Transit (BRT/LRT), All-Way Stop and Continuous Sidewalk / Raised Junction now have their featured images.",
+        details: "Each image shows on the page's index card, in search results, in link previews and on the link cards under Related patterns on other pages. Small copies were generated for each use." },
     ],
   },
   {
