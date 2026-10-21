@@ -35,6 +35,18 @@ export const releases: Release[] = [
   {
     date: "2026.10.21",
     changes: [
+      { type: "improved", area: "site",
+        summary: "The Pattern viewer's configuration buttons now fill the width of their column, on the page, in full view and on phones.",
+        details: "Before, the row was only as wide as its labels, so it often stopped short of the column's edge." },
+      { type: "fixed", area: "site",
+        summary: "The chevrons between the Pattern viewer's configuration buttons are now a 1px line, as designed, instead of a gap about 8px wide.",
+        details: "A CSS rule meant to overlap each chevron with its neighbor was being overridden by a more specific one." },
+      { type: "improved", area: "site",
+        summary: "Dutch practice sits in its own box after a small gap in the Pattern viewer's configuration buttons, so it reads as a comparison rather than another step up.",
+        details: "Both edges facing the gap are straight, and each box has its own 1px border." },
+      { type: "improved", area: "site",
+        summary: "On phones, the Pattern viewer's configuration buttons use the short names from full view (Base, Complete, Commonway) instead of 11px text.",
+        details: "Short names come first; only when even those don't fit, as with five buttons on a 375px phone, does the text drop to 13px. At a larger Text size, Dutch practice moves to a line of its own, full width, and at the largest sizes the configurations break evenly over two lines, so no label is cut off. It is measured, not tied to a screen width, so a pattern with fewer configurations keeps its full names and normal size." },
       { type: "new", area: "content",
         summary: "The Media Gallery has 13 new items (MED-177 to MED-189): 2 videos, 10 articles and 1 podcast episode, for Regulatory Sign, Rumble Strip, Sharrow, Street Light and Trash / Recycling Receptacle.",
         details: "Sources include FHWA, NACTO, the League of American Bicyclists, Strong Towns, Streetsblog, Utah State University Extension and the NYC Department of Transportation. Three items are Context only: the FHWA sign-materials page (it cites the 2009 MUTCD), the FHWA lighting handbook chapter (2012) and the NACTO shared-lane-marking page. The gallery now holds 189 items." },

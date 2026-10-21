@@ -82,29 +82,51 @@
   // Compact labels ("Base", "Complete") whenever the short ones don't fit:
   // full view's side panel, a phone, a narrow column. Measured, not a
   // breakpoint, since the room depends on the column and the Text size
-  // setting. `needed` remembers the full ladder's width so it switches back
-  // once there's room again.
+  // setting. The ladder fills its column, so a label that doesn't fit shows
+  // as a face narrower than its text. `needed` remembers the room the short
+  // labels took so it switches back once there's room again.
   let wrapEl: HTMLDivElement | undefined = $state()
   let ladderEl: HTMLDivElement | undefined = $state()
-  let compact = $state(false)
-  let needed = 0
+  // Each step keeps the ones before it: compact labels; less padding and
+  // 13px text (a phone with five rungs); the references (Dutch) on a line of
+  // their own (a phone at a larger Text size); the rungs split evenly over
+  // two lines (a phone at the largest Text sizes). A step that wouldn't
+  // change anything (no references, two rungs) is left out.
+  type FitStep = 'short' | 'compact' | 'tight' | 'wrap' | 'split'
+  const steps = $derived<FitStep[]>(['short', 'compact', 'tight',
+    ...(references.length ? ['wrap' as const] : []),
+    ...(ladder.length > 2 ? ['split' as const] : [])])
+  let fit = $state(0)
+  const reached = (step: FitStep) => steps.indexOf(step) !== -1 && fit >= steps.indexOf(step)
+  const compact = $derived(fit > 0)
+  const maxFit = $derived(steps.length - 1)
+  const needed = [0, 0, 0, 0, 0]
+  // The second line of a split ladder starts here (two to a line at most).
+  const breakAt = $derived(Math.ceil(ladder.length / 2))
   $effect(() => {
     if (!wrapEl || !ladderEl)
       return
     const check = () => {
       if (!wrapEl || !ladderEl)
         return
-      const room = wrapEl.clientWidth
-      if (!compact && ladderEl.scrollWidth > ladderEl.clientWidth) {
-        // Content plus the ladder's own border.
-        needed = ladderEl.scrollWidth + ladderEl.offsetWidth - ladderEl.clientWidth
-        compact = true
+      // In rem, since the labels scale with the Text size setting and the
+      // column may not.
+      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+      const room = wrapEl.clientWidth / rem
+      const short = [...ladderEl.querySelectorAll<HTMLElement>('.pvc__face')]
+        .reduce((sum, face) => sum + Math.max(0, face.scrollWidth - face.clientWidth), 0) / rem
+      if (fit < maxFit && short > 0) {
+        needed[fit] = room + short
+        fit += 1
+        // The column hasn't changed size, so look again once the new labels are in.
+        requestAnimationFrame(check)
       }
-      else if (compact && room >= needed) {
-        compact = false
+      else if (fit > 0 && room >= needed[fit - 1]) {
+        fit -= 1
+        requestAnimationFrame(check)
       }
     }
-    // Untracked: the check reads `compact` and must not re-run itself when it changes.
+    // Untracked: the check reads `fit` and must not re-run itself when it changes.
     untrack(check)
     document.fonts?.ready.then(check)
     const ro = new ResizeObserver(check)
@@ -152,23 +174,27 @@
     <fieldset class="pvc__group">
       <legend class="pvc__legend">{retrofit ? 'Show' : 'Configuration'}</legend>
       <!-- svelte-ignore a11y_no_static_element_interactions -->
-      <div class="pvc__ladder-wrap" class:pvc__ladder-wrap--compact={compact} bind:this={wrapEl} onkeydown={onladderkey}>
+      <div class="pvc__ladder-wrap" class:pvc__ladder-wrap--compact={compact} class:pvc__ladder-wrap--tight={reached('tight')} class:pvc__ladder-wrap--wrapped={reached('wrap')} class:pvc__ladder-wrap--split={reached('split')} bind:this={wrapEl} onkeydown={onladderkey}>
         <div class="pvc__ladder" bind:this={ladderEl} onpointerleave={hideTip}>
-          {#each [...ladder, ...references] as id, i (id)}
-            {@const isRef = i >= ladder.length}
-            <label
-              class="pvc__seg"
-              class:pvc__seg--notch={!isRef && i > 0}
-              class:pvc__seg--point={!isRef && i < ladder.length - 1}
-              class:pvc__seg--ref={isRef}
-              class:pvc__seg--top={!retrofit && i === ladder.length - 1}
-              onpointerenter={e => showTip(id, e.currentTarget)}
-              onfocusin={e => showTip(id, e.currentTarget)}
-              onfocusout={hideTip}
-            >
-              <input type="radio" name="{idPrefix}-config" value={id} aria-label={tipFor(id)} checked={config === id} onchange={() => onconfig(id)} />
-              <span class="pvc__face">{#if !compact && id === 'commonway' && shortLabelFor(id) === CONFIG_SHORT_LABELS[id]}Commonway<span class="pvc__sys">&nbsp;System</span>{:else}{faceLabel(id)}{/if}</span>
-            </label>
+          {#each [ladder, references] as group, g (g)}
+            {#if group.length}
+              <div class="pvc__rungs" class:pvc__rungs--refs={g === 1} class:pvc__rungs--split={g === 0 && references.length > 0} style:flex-grow={group.length}>
+                {#each group as id, i (id)}
+                  <label
+                    class="pvc__seg"
+                    class:pvc__seg--notch={g === 0 && i > 0 && !(i === breakAt && reached('split'))}
+                    class:pvc__seg--point={g === 0 && i < ladder.length - 1 && !(i === breakAt - 1 && reached('split'))}
+                    class:pvc__seg--top={g === 0 && !retrofit && i === ladder.length - 1}
+                    onpointerenter={e => showTip(id, e.currentTarget)}
+                    onfocusin={e => showTip(id, e.currentTarget)}
+                    onfocusout={hideTip}
+                  >
+                    <input type="radio" name="{idPrefix}-config" value={id} aria-label={tipFor(id)} checked={config === id} onchange={() => onconfig(id)} />
+                    <span class="pvc__face">{faceLabel(id)}</span>
+                  </label>
+                {/each}
+              </div>
+            {/if}
           {/each}
         </div>
         {#if tip}
@@ -310,12 +336,14 @@
     margin: 0 0.25rem 0 0;
   }
 
-  /* One segmented control. The group's own background shows through the
-     gaps between faces, which makes the dividers; faces between two rungs
-     are clipped to chevrons (notch on the left, point on the right) so the
-     points read "better than". Dutch practice is outside the ladder, so it
-     has straight edges. The real radio inputs stay in the accessibility tree
-     and keyboard order. */
+  /* One segmented control. Each group's own background shows through the
+     1px gaps between faces, which makes the dividers; faces between two
+     rungs are clipped to chevrons (notch on the left, point on the right,
+     overlapping by the chevron's depth less 1px) so the points read "better
+     than". Dutch practice is outside the ladder, so it sits apart in its own
+     box, with straight edges on both sides of the gap. The ladder fills its
+     column. The real radio inputs stay in the accessibility tree and
+     keyboard order. */
   .pvc__ladder-wrap {
     position: relative;
     --pvc-d: 0.45rem;
@@ -323,18 +351,32 @@
 
   .pvc__ladder {
     display: flex;
-    width: fit-content;
-    max-width: 100%;
-    flex-wrap: nowrap;
+    gap: 3px;
+    width: 100%;
+    border-radius: 999px;
+  }
+
+  .pvc__ladder:has(input:focus-visible) {
+    outline: 2px solid var(--cw-primary);
+    outline-offset: 2px;
+  }
+
+  .pvc__rungs {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
     border: 1px solid var(--cw-hairline-strong);
     border-radius: 999px;
     background: var(--cw-hairline-strong);
     overflow: hidden;
   }
 
-  .pvc__ladder:has(input:focus-visible) {
-    outline: 2px solid var(--cw-primary);
-    outline-offset: 2px;
+  .pvc__rungs--split {
+    border-radius: 999px 0 0 999px;
+  }
+
+  .pvc__rungs--refs {
+    border-radius: 0 999px 999px 0;
   }
 
   .pvc__seg {
@@ -349,12 +391,8 @@
     margin-left: 1px;
   }
 
-  .pvc__seg--notch {
+  .pvc__seg + .pvc__seg--notch {
     margin-left: calc(1px - var(--pvc-d));
-  }
-
-  .pvc__seg--ref {
-    flex: 0 1 auto;
   }
 
   .pvc__seg input {
@@ -370,8 +408,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 0;
     min-height: 2rem;
     padding: 0.25rem 0.6rem;
+    overflow: hidden;
     white-space: nowrap;
     text-align: center;
     line-height: 1.15;
@@ -446,31 +486,55 @@
     padding-right: calc(var(--pvc-d) + 0.15rem);
   }
 
-  @media (max-width: 480px) {
-    .pvc__ladder-wrap {
-      --pvc-d: 0.3rem;
-    }
+  /* Tight: compact labels still too wide (five rungs on a phone), so the
+     padding goes and the text drops one step, to 13px. */
+  .pvc__ladder-wrap--tight {
+    --pvc-d: 0.3rem;
+  }
 
-    .pvc__seg--top .pvc__face {
-      font-weight: 500;
-    }
+  .pvc__ladder-wrap--tight .pvc__face {
+    padding-inline: 0.15rem;
+    font-size: 0.8125rem;
+  }
 
-    .pvc__sys {
-      display: none;
-    }
+  .pvc__ladder-wrap--tight .pvc__seg--notch .pvc__face {
+    padding-left: calc(var(--pvc-d) + 0.05rem);
+  }
 
-    .pvc__face {
-      padding-inline: 0.1rem;
-      font-size: 0.6875rem;
-    }
+  .pvc__ladder-wrap--tight .pvc__seg--point .pvc__face {
+    padding-right: calc(var(--pvc-d) + 0.05rem);
+  }
 
-    .pvc__seg--notch .pvc__face {
-      padding-left: calc(var(--pvc-d) + 0.05rem);
-    }
+  /* Wrapped: still too wide (a larger Text size on a phone), so Dutch
+     practice moves to a line of its own, full width, both ends rounded. */
+  .pvc__ladder-wrap--wrapped .pvc__ladder {
+    flex-wrap: wrap;
+    border-radius: 1.25rem;
+  }
 
-    .pvc__seg--point .pvc__face {
-      padding-right: calc(var(--pvc-d) + 0.05rem);
-    }
+  .pvc__ladder-wrap--wrapped .pvc__rungs {
+    flex-basis: 100%;
+    border-radius: 999px;
+  }
+
+  /* Split: the rungs themselves too wide (a phone at the largest Text
+     sizes), so they break evenly over two lines, at most two to a line (a
+     ladder has at most four rungs). The 1px row gap shows the group's
+     background, like the dividers. Each line ends square and its buttons
+     share it evenly, unless one label needs more. */
+  .pvc__ladder-wrap--split .pvc__ladder {
+    border-radius: 1.25rem;
+  }
+
+  .pvc__ladder-wrap--split .pvc__rungs:not(.pvc__rungs--refs) {
+    flex-wrap: wrap;
+    row-gap: 1px;
+    border-radius: 1.25rem;
+  }
+
+  .pvc__ladder-wrap--split .pvc__rungs:not(.pvc__rungs--refs) .pvc__seg {
+    flex: 1 1 34%;
+    min-width: max-content;
   }
 
   @media (forced-colors: active) {
