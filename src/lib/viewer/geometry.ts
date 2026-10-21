@@ -128,6 +128,32 @@ export function onCrosswalk(features: StreetFeature[] | undefined, from: number,
   })
 }
 
+/** Clear gap between a barrier's end and the crosswalk's edge, in feet. */
+export const BARRIER_GAP = 1
+
+/**
+ * The stretches of [from, to] a continuous barrier covers: it stops short of
+ * every crosswalk, since people on the crosswalk walk through it.
+ */
+export function barrierRuns(features: StreetFeature[] | undefined, from: number, to: number): [number, number][] {
+  const cuts = (features ?? [])
+    .filter(f => f.type === 'crosswalk' || f.type === 'raised-crosswalk')
+    .map(f => [f.at - (f.length ?? 10) / 2 - BARRIER_GAP, f.at + (f.length ?? 10) / 2 + BARRIER_GAP] as [number, number])
+    .sort((p, q) => p[0] - q[0])
+  const runs: [number, number][] = []
+  let a = from
+  for (const [c0, c1] of cuts) {
+    if (c1 <= a || c0 >= to)
+      continue
+    if (c0 > a)
+      runs.push([a, c0])
+    a = Math.max(a, c1)
+  }
+  if (a < to)
+    runs.push([a, to])
+  return runs
+}
+
 /** Brick or permeable pavers (either color). */
 export const isBrick = (s: Segment): boolean => surfaceOf(s) === 'brick' || surfaceOf(s) === 'brick-red'
 

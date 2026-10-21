@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { barrierTop, bikeLaneSymbol, brickJoints, laneArrow, makeIds, makeStamps, seedOf, sharrow, streetItemTop } from '$lib/viewer/art'
-  import { breakpoints, crossing, FEATURE_LABELS, isBrick, isRaised, levelOf, onCrosswalk, WARNING_DEPTH, STALL_LENGTH, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
+  import { barrierRuns, breakpoints, crossing, FEATURE_LABELS, isBrick, isRaised, levelOf, onCrosswalk, WARNING_DEPTH, STALL_LENGTH, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
   import { formatLength } from '$lib/viewer/state'
   import type { RendererProps, Segment, StreetConfig, StreetFeature } from '$lib/viewer/types'
 
@@ -270,7 +270,8 @@
     let art = ''
     for (const it of items) {
       if (it.type === 'barrier' && it.continuous) {
-        art += turn(x0 + (length * scale) / 2, it.y, barrierTop(length))
+        for (const [r0, r1] of barrierRuns(config.features, 0, length))
+          art += turn(X((r0 + r1) / 2), it.y, barrierTop(r1 - r0))
         continue
       }
       // Toward the street's middle: art +x becomes plan +y after the turn.

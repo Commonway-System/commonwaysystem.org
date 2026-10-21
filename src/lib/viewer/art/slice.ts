@@ -5,7 +5,7 @@
 // street by spacing land where the data puts them. Pixels, with objects
 // placed in feet at the street's own scale.
 
-import { crossing, isBrick, markingOf, onCrosswalk, STALL_LENGTH, surfaceOf, WARNING_DEPTH } from '../geometry'
+import { barrierRuns, crossing, isBrick, markingOf, onCrosswalk, STALL_LENGTH, surfaceOf, WARNING_DEPTH } from '../geometry'
 import type { FrontageType, ItemType, Segment, StreetFeature } from '../types'
 import type { Ids } from './core'
 import { brickJoints, makeStamps, place, r2, rect, rng, seedOf } from './core'
@@ -296,7 +296,8 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       const spec = list.find(i => i.type === it.type)
       const toward = it.x < (b.left + b.right) / 2 ? 1 : -1
       if (it.type === 'barrier') {
-        itemsMarkup += place(it.x, b.y + b.h / 2, b.S, barrierTop(L + 2))
+        for (const [r0, r1] of barrierRuns(features, a0 - 1, a0 + L + 1))
+          itemsMarkup += place(it.x, Y((r0 + r1) / 2), b.S, barrierTop(r1 - r0))
         continue
       }
       const step = spec?.spacing

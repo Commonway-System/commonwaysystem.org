@@ -80,7 +80,7 @@
     // to the sidewalk; the slice below still gets the strip as it is.
     const onWalk = onCrosswalk(config.features, section?.at ?? -1)
     const segs = config.segments.map((s, i) => ({
-      s: onWalk && s.type === 'furnishing' ? { ...s, type: 'sidewalk' as const, items: [], label: 'Walkway' } : s,
+      s: !onWalk ? s : s.type === 'furnishing' ? { ...s, type: 'sidewalk' as const, items: [], label: 'Walkway' } : s.type === 'buffer' ? { ...s, items: (s.items ?? []).filter(it => it.type !== 'barrier') } : s,
       src: s,
       wd: widths[i],
     })).filter(x => x.wd > 0.05)

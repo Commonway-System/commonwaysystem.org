@@ -35,6 +35,9 @@ export const releases: Release[] = [
   {
     date: "2026.10.21",
     changes: [
+      { type: "fixed", area: "site",
+        summary: "In the Pattern viewer, a rigid barrier beside a bike lane now stops at each crosswalk instead of running straight across it.",
+        details: "It ends 1 ft short of each edge of the crosswalk in the Top down view and the slice, and a cross-section cut at the crosswalk no longer draws it. Seen on Default (Standard Collector)'s Commonway System configuration with the bike lanes beside the street." },
       { type: "improved", area: "site",
         summary: "The Pattern viewer's configuration buttons now fill the width of their column, on the page, in full view and on phones.",
         details: "Before, the row was only as wide as its labels, so it often stopped short of the column's edge." },
