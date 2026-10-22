@@ -12,7 +12,7 @@ const item: MediaItem = {
   endorsementStatus: 'aligned',
   patternTaxonomyTags: ['Local', 'Collector', 'Arterial'],
   mediaTags: ['Explainer'],
-  relatedTo: ['ELM-LBS-30', 'ELM-STT-28'],
+  relatedTo: ['ELM-LBS-30', 'ELM-STT-28', 'ELM-TPT-29'],
   dateAdded: '2026-10-20',
 }
 
