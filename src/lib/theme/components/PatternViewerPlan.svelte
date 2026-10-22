@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import { barrierTop, bikeLaneSymbol, brickJoints, laneArrow, makeIds, makeStamps, seedOf, sharrow, streetItemTop } from '$lib/viewer/art'
-  import { barrierRuns, breakpoints, crossing, FEATURE_LABELS, isBrick, isRaised, levelOf, onCrosswalk, WARNING_DEPTH, STALL_LENGTH, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
+  import { APRON_FLARE, barrierTop, bikeLaneSymbol, brickJoints, CONFLICT_DASH, CONFLICT_GAP, drivewaysBeside, laneArrow, makeIds, makeStamps, seedOf, sharrow, streetItemTop } from '$lib/viewer/art'
+  import { barrierRuns, blocksDriveway, breakpoints, crossing, drivewaySpan, FEATURE_LABELS, isBrick, isRaised, levelOf, onWalkway, parkingBarred, WARNING_DEPTH, STALL_LENGTH, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
   import { formatLength } from '$lib/viewer/state'
   import type { RendererProps, Segment, StreetConfig, StreetFeature } from '$lib/viewer/types'
 
@@ -153,18 +153,46 @@
           runs.push({ i, j, k0: k, k1: k + 1 })
       }
     }
+    // Driveway openings (ft along the street) on a strip's side of the street.
+    const features = config.features ?? []
+    const openings = (idx: number) => drivewaysBeside(features, config.segments, idx).map(({ f }) => drivewaySpan(f))
     const markings = runs.flatMap(({ i, j, k0, k1 }) => {
       const s = config.segments[i]
       const next = config.segments[j]
       const pair = (a: Segment['type'], b: Segment['type']) => (s.type === a && next.type === b) || (s.type === b && next.type === a)
-      const off = (d: number) => xs.slice(k0, k1 + 1).map((x, n) => `${n ? 'L' : 'M'} ${X(x)} ${at[k0 + n][i].bottom + d}`).join(' ')
+      const pts = (d: number) => xs.slice(k0, k1 + 1).map((x, n) => [x, at[k0 + n][i].bottom + d] as const)
+      const off = (d: number) => pts(d).map(([x, y], n) => `${n ? 'L' : 'M'} ${X(x)} ${y}`).join(' ')
+      // The same line, but only outside (or only inside) the given stretches.
+      const piece = (d: number, gaps: [number, number][], inside: boolean) => {
+        const p = pts(d)
+        let out = ''
+        for (let n = 0; n < p.length - 1; n++) {
+          const [[xa, ya], [xb, yb]] = [p[n], p[n + 1]]
+          const yAt = (x: number) => ya + ((yb - ya) * (x - xa)) / Math.max(xb - xa, 1e-6)
+          // Cut [xa, xb] at the gaps' ends, keeping the pieces on the wanted side.
+          const cuts = [xa, ...gaps.flat().filter(g => g > xa && g < xb), xb].sort((u, v) => u - v)
+          for (let c = 0; c < cuts.length - 1; c++) {
+            const mid = (cuts[c] + cuts[c + 1]) / 2
+            if (gaps.some(([g0, g1]) => mid > g0 && mid < g1) === inside)
+              out += `M ${X(cuts[c])} ${yAt(cuts[c])} L ${X(cuts[c + 1])} ${yAt(cuts[c + 1])} `
+          }
+        }
+        return out.trim()
+      }
       const edge = off(0)
+      // A driveway opening interrupts the painted lines of a parking lane or
+      // buffer on its side; a buffer's stripes turn dashed across it.
+      const gaps = [...(s.type === 'parking' || s.type === 'buffer' ? openings(i) : []), ...(next.type === 'parking' || next.type === 'buffer' ? openings(j) : [])]
+      const dashed = `${2 * scale} ${2 * scale}`
       // Every buffer has a white stripe down each side, just inside its edge.
       if (s.type === 'buffer' || next.type === 'buffer') {
+        const stripe = (d: number) => gaps.length
+          ? [{ d: piece(d, gaps, false), cls: 'mk-white', dash: '' }, { d: piece(d, gaps, true), cls: 'mk-white', dash: dashed }]
+          : [{ d: off(d), cls: 'mk-white', dash: '' }]
         return [
           ...(levelOf(s) !== levelOf(next) ? [{ d: edge, cls: 'curb-line', dash: '' }] : []),
-          ...(s.type === 'buffer' ? [{ d: off(-1.6), cls: 'mk-white', dash: '' }] : []),
-          ...(next.type === 'buffer' ? [{ d: off(1.6), cls: 'mk-white', dash: '' }] : []),
+          ...(s.type === 'buffer' ? stripe(-1.6) : []),
+          ...(next.type === 'buffer' ? stripe(1.6) : []),
         ]
       }
       if (levelOf(s) !== levelOf(next))
@@ -177,9 +205,9 @@
         return [{ d: edge, cls: 'mk-white', dash: `${10 * scale} ${30 * scale}` }]
       }
       if ([s.type, next.type].some(t => LANES.has(t)) && [s.type, next.type].some(t => t === 'bike-lane' || t === 'parking'))
-        return [{ d: edge, cls: 'mk-white', dash: '' }]
+        return [{ d: gaps.length ? piece(0, gaps, false) : edge, cls: 'mk-white', dash: '' }]
       if (pair('bike-lane', 'parking'))
-        return [{ d: edge, cls: 'mk-white', dash: '' }]
+        return [{ d: gaps.length ? piece(0, gaps, false) : edge, cls: 'mk-white', dash: '' }]
       return [{ d: edge, cls: 'edge', dash: '' }]
     })
     // A two-way bike lane: a dotted yellow center line between the two
@@ -199,6 +227,39 @@
         return band.bottom - band.top > 0.5 ? [{ key: `${b.s.id}-${f.id}`, x: X(f.at - half), w: 2 * half * scale, y: band.top, h: band.bottom - band.top }] : []
       }))
 
+    // A driveway paves each planting strip on its side as its apron, flared
+    // toward the road; a bike lane there gets the conflict marking.
+    const aprons = bands.filter(b => b.s.type === 'furnishing').flatMap(b => drivewaysBeside(features, config.segments, b.i).flatMap(({ f, roadAfter }) => {
+      const [d0, d1] = drivewaySpan(f)
+      const band = bandAt(b.i, f.at)
+      if (band.bottom - band.top < 0.5)
+        return []
+      const fl = Math.min(APRON_FLARE, (d1 - d0) / 2)
+      const [yFar, yRoad] = roadAfter ? [band.top, band.bottom] : [band.bottom, band.top]
+      return [{ key: `${b.s.id}-${f.id}`, points: `${X(d0)},${yFar} ${X(d0 - fl)},${yRoad} ${X(d1 + fl)},${yRoad} ${X(d1)},${yFar}` }]
+    }))
+    // The driveway opening's two edges, a white line across each parking lane on its side.
+    const openingLines = bands.filter(b => b.s.type === 'parking').flatMap(b => openings(b.i).flatMap(([d0, d1]) => {
+      const band = bandAt(b.i, (d0 + d1) / 2)
+      return band.bottom - band.top < 0.5 ? [] : [d0, d1].map(d => ({ key: `${b.s.id}-${d}`, d: `M ${X(d)} ${band.top} V ${band.bottom}` }))
+    }))
+    // A brick parking lane or buffer is plain asphalt across a driveway opening on its side.
+    const openingAsphalt = bands.filter(b => (b.s.type === 'parking' || b.s.type === 'buffer') && isBrick(b.s)).flatMap(b => openings(b.i).flatMap(([d0, d1]) => {
+      const band = bandAt(b.i, (d0 + d1) / 2)
+      return band.bottom - band.top < 0.5 ? [] : [{ key: `${b.s.id}-${d0}`, x: X(d0), w: (d1 - d0) * scale, y: band.top, h: band.bottom - band.top }]
+    }))
+    const conflicts = bands.filter(b => isBike(b.s.type)).flatMap(b => drivewaysBeside(features, config.segments, b.i).flatMap(({ f }) => {
+      if (!f.conflictMarking)
+        return []
+      const [d0, d1] = drivewaySpan(f)
+      const band = bandAt(b.i, f.at)
+      const gaps: { x: number, w: number }[] = []
+      for (let a = d0 + CONFLICT_DASH; a < d1; a += CONFLICT_DASH + CONFLICT_GAP)
+        gaps.push({ x: X(a), w: Math.min(CONFLICT_GAP, d1 - a) * scale })
+      const inset = Math.max(1.2, 0.4 * scale)
+      return [{ key: `${b.s.id}-${f.id}`, gaps, top: band.top, bottom: band.bottom, x0: X(d0), x1: X(d1), lines: [band.top + inset, band.bottom - inset] }]
+    }))
+
     // Parking stalls: a white T at each stall line, on the edge nearest the
     // travel lane; none where the lane narrows (a curb extension).
     const stalls = bands.filter(b => b.s.type === 'parking' && markingOf(b.s) === 'stalls').flatMap((b) => {
@@ -214,7 +275,7 @@
       const out = []
       for (let ft = STALL_LENGTH; ft < length; ft += STALL_LENGTH) {
         const band = bandAt(b.i, ft)
-        if (band.bottom - band.top < b.s.width * scale * 0.95 || onCrosswalk(config.features, ft - 2, ft + 2))
+        if (band.bottom - band.top < b.s.width * scale * 0.95 || parkingBarred(config.features, config.segments, b.i, ft - 2, ft + 2))
           continue
         const edgeY = streetTop ? band.top + 1.2 * scale : band.bottom - 1.2 * scale - tb
         const stemY = streetTop ? edgeY + tb : edgeY - 2.5 * scale
@@ -234,7 +295,8 @@
       for (let ft = firstArrow; ft < length - 10; ft += arrowStep) {
         const band = bandAt(b.i, ft)
         const bh = band.bottom - band.top
-        if (bh < 6)
+        // No bike lane symbol on a driveway's conflict marking.
+        if (bh < 6 || (isBike(b.s.type) && drivewaysBeside(features, config.segments, b.i).some(({ f }) => ft >= drivewaySpan(f)[0] - 6 && ft <= drivewaySpan(f)[1] + 6)))
           continue
         out.push({ x: X(ft), y: (band.top + band.bottom) / 2, size: Math.min(bh * 0.32, 9), dir: b.s.direction ?? 'outbound', key: `${b.s.id}-${ft}`, bike: isBike(b.s.type), marking: markingOf(b.s), bh })
       }
@@ -253,6 +315,11 @@
           const band = bandAt(b.i, ft)
           const bw = (band.bottom - band.top) / scale
           if (bw < 0.5)
+            continue
+          // Nothing stands on a crosswalk's walkway or a driveway apron, and no tree within the clear-view distance beside a driveway.
+          if (b.s.type === 'furnishing' && onWalkway(config.features, ft))
+            continue
+          if (drivewaysBeside(features, config.segments, b.i).some(({ f }) => (b.s.type === 'furnishing' && ft >= drivewaySpan(f)[0] - APRON_FLARE && ft <= drivewaySpan(f)[1] + APRON_FLARE) || (it.type === 'tree' && blocksDriveway([f], config.segments, b.i, ft))))
             continue
           const across = it.offset !== undefined ? it.offset : types.length > 1 && it.type !== 'tree' ? ((j + 1) * bw) / (types.length + 1) : bw / 2
           out.push({ type: it.type, x: X(ft), y: band.top + across * scale, key: `${b.s.id}-${it.type}-${ft}`, continuous: !it.spacing && it.type === 'barrier' })
@@ -370,7 +437,9 @@
     const steps = units === 'm' ? [2 / 0.3048, 5 / 0.3048, 10 / 0.3048, 20 / 0.3048, 50 / 0.3048] : [5, 10, 20, 50, 100]
     const barFt = steps.find(s => s >= target * 0.6) ?? steps[steps.length - 1]
 
-    return { m, font, scale, length, X, x0, bricks, walks, stalls, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' ? !(a.bike && a.marking === 'bike-symbol') : !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
+    /** Whether a stretch of strip i overlaps a driveway opening on its side. */
+    const inOpening = (idx: number, a: number, b2: number) => openings(idx).some(([d0, d1]) => b2 >= d0 && a <= d1)
+    return { m, font, scale, length, X, x0, inOpening, bricks, walks, aprons, conflicts, openingLines, openingAsphalt, stalls, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' ? !(a.bike && a.marking === 'bike-symbol') : !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
   })
 
   function defaultLength(f: StreetFeature): number {
@@ -417,7 +486,7 @@
             {#each Array.from({ length: Math.ceil(P.length / 8) }) as _, k (k)}
               {@const xx = P.X(k * 8)}
               <!-- Ends on the edge stripes, 1.6 px inside each edge; none where the buffer narrows (a curb extension) -->
-              {#if fullAt(b.i, k * 8) && fullAt(b.i, k * 8 + (b.base.bottom - b.base.top) / P.scale)}
+              {#if fullAt(b.i, k * 8) && fullAt(b.i, k * 8 + (b.base.bottom - b.base.top) / P.scale) && !P.inOpening(b.i, k * 8, k * 8 + (b.base.bottom - b.base.top) / P.scale)}
                 <path class="hatch" d="M {xx + 1.6} {b.base.bottom - 1.6} L {xx + (b.base.bottom - b.base.top) - 1.6} {b.base.top + 1.6}" />
               {/if}
             {/each}
@@ -426,6 +495,23 @@
 
         {#each P.walks as wk (wk.key)}
           <rect class="s-sidewalk" x={wk.x} y={wk.y} width={wk.w} height={wk.h} />
+        {/each}
+        {#each P.aprons as ap (ap.key)}
+          <polygon class="s-sidewalk" points={ap.points} />
+        {/each}
+        {#each P.openingAsphalt as oa (oa.key)}
+          <rect class="s-travel-lane" x={oa.x} y={oa.y} width={oa.w} height={oa.h} />
+        {/each}
+        {#each P.openingLines as ol (ol.key)}
+          <path class="mk-white" stroke-width="1.5" d={ol.d} />
+        {/each}
+        {#each P.conflicts as cf (cf.key)}
+          {#each cf.gaps as g, k (k)}
+            <rect class="s-travel-lane" x={g.x} y={cf.top} width={g.w} height={cf.bottom - cf.top} />
+          {/each}
+          {#each cf.lines as ly, k (k)}
+            <path class="mk-white" stroke-width="1.5" stroke-dasharray="{2 * P.scale} {2 * P.scale}" d="M {cf.x0} {ly} H {cf.x1}" />
+          {/each}
         {/each}
         {#if P.bricks}
           <g aria-hidden="true">{@html P.bricks.def}</g>
@@ -485,7 +571,7 @@
           {:else if f.type === 'bus-stop'}
             <rect class="g" x={ft.x - ft.len / 2} y={ft.top} width={ft.len} height={ft.bottom - ft.top} />
           {:else if f.type === 'driveway'}
-            <rect class="s-curb" x={ft.x - ft.len / 2} y={ft.top} width={ft.len} height={ft.bottom - ft.top} />
+            <!-- Drawn as its apron and conflict marking, above -->
           {:else}
             <!-- Beacons, signals and signs: a post at each edge of what they span -->
             {#each [ft.top, ft.bottom] as yy (yy)}

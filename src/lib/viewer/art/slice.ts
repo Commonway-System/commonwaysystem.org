@@ -5,7 +5,7 @@
 // street by spacing land where the data puts them. Pixels, with objects
 // placed in feet at the street's own scale.
 
-import { barrierRuns, crossing, isBrick, markingOf, onCrosswalk, STALL_LENGTH, surfaceOf, WARNING_DEPTH } from '../geometry'
+import { barrierRuns, blocksDriveway, crossing, drivewaySpan, isBrick, markingOf, onCrosswalk, onWalkway, parkingBarred, sideStrips, STALL_LENGTH, surfaceOf, WARNING_DEPTH } from '../geometry'
 import type { FrontageType, ItemType, Segment, StreetFeature } from '../types'
 import type { Ids } from './core'
 import { brickJoints, makeStamps, place, r2, rect, rng, seedOf } from './core'
@@ -77,12 +77,40 @@ function crownSpan(cx: number, tx: number, ta: number, R: number, S: number): [n
   return [ta - h, ta + h]
 }
 
-export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { left: FrontageType, right: FrontageType }, features: StreetFeature[], seed: number): string {
+/** A driveway apron's flare at each end, on the road side, ft. */
+export const APRON_FLARE = 3
+
+/** A driveway's dashed green conflict marking across a bike lane: green 6 ft, gap 3 ft (typical). */
+export const CONFLICT_DASH = 6
+export const CONFLICT_GAP = 3
+
+/**
+ * The driveways on strip i's side of the street, with whether the road lies
+ * to the strip's right (higher index) or left. `segments` is the street's
+ * full strip list; strips missing from it (the section's walkway copies)
+ * never match.
+ */
+export function drivewaysBeside(features: StreetFeature[], segments: Segment[], i: number): { f: StreetFeature, roadAfter: boolean }[] {
+  return features.flatMap((f) => {
+    if (f.type !== 'driveway' || i < 0)
+      return []
+    const strips = sideStrips(segments, f.side)
+    if (!strips.includes(i))
+      return []
+    const lane = segments.findIndex(s => s.type === 'travel-lane' || s.type === 'turn-lane' || s.type === 'transit-lane')
+    return [{ f, roadAfter: i < lane }]
+  })
+}
+
+export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { left: FrontageType, right: FrontageType }, features: StreetFeature[], seed: number, segments: Segment[] = cols.map(c => c.s)): string {
   const L = b.h / b.S
   const a0 = b.at - L / 2
   const Y = (along: number) => b.y + (along - a0) * b.S
   const y1 = b.y + b.h
   const clip = ids.next('slice')
+  const idx = (c: SliceColumn) => segments.indexOf(c.s)
+  /** Driveway openings (ft along the street) on strip i's side of the street. */
+  const openings = (i: number) => drivewaysBeside(features, segments, i).map(({ f }) => drivewaySpan(f))
   let s = ''
 
   // Frontage past the property lines.
@@ -149,6 +177,16 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     }
     else if (t === 'furnishing' || t === 'median') {
       s += speckles(c.x0, c.x1, b.y, y1, b.S, seedOf(c.s.id, 'grass'))
+      // A driveway paves a planting strip on its side as its apron, flared
+      // toward the road.
+      if (t === 'furnishing') {
+        for (const { f, roadAfter } of drivewaysBeside(features, segments, idx(c))) {
+          const [d0, d1] = drivewaySpan(f)
+          const fl = Math.min(APRON_FLARE, (d1 - d0) / 2)
+          const [xFar, xRoad] = roadAfter ? [c.x0, c.x1] : [c.x1, c.x0]
+          s += `<path d="M${r2(xFar)} ${r2(Y(d0))} L${r2(xRoad)} ${r2(Y(d0 - fl))} L${r2(xRoad)} ${r2(Y(d1 + fl))} L${r2(xFar)} ${r2(Y(d1))} Z" style="fill:var(--pvx-p-concrete)"/>`
+        }
+      }
       // A crosswalk paves a planting strip it crosses: the walkway to the sidewalk.
       if (t === 'furnishing') {
         for (const f of features) {
@@ -164,11 +202,24 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     }
     else if (t === 'buffer' && !c.items.some(i => i.type === 'barrier')) {
       // A painted buffer: chevrons between its two edge stripes (drawn
-      // with the markings below, centered `sm` inside each edge), ending on them.
+      // with the markings below, centered `sm` inside each edge), ending on
+      // them; none across a driveway opening.
       const sm = Math.max(0.33 * b.S, 1.4)
-      for (let a = Math.floor(a0 / 8) * 8; a < a0 + L + 8; a += 8)
+      const open = openings(idx(c))
+      for (let a = Math.floor(a0 / 8) * 8; a < a0 + L + 8; a += 8) {
+        if (open.some(([d0, d1]) => a + w / b.S >= d0 && a <= d1))
+          continue
         s += `<path d="M${r2(c.x0 + sm)} ${r2(Y(a) + w - sm)} L${r2(c.x1 - sm)} ${r2(Y(a) + sm)}" style="fill:none;stroke:var(--pvx-p-white);stroke-width:${r2(Math.max(1, 0.33 * b.S))}"/>`
+      }
     }
+  }
+
+  // A brick parking lane or buffer is plain asphalt across a driveway opening on its side.
+  for (const c of cols) {
+    if ((c.s.type !== 'parking' && c.s.type !== 'buffer') || !isBrick(c.s))
+      continue
+    for (const [d0, d1] of openings(idx(c)))
+      s += rect(c.x0, Y(d0), c.x1 - c.x0, (d1 - d0) * b.S, 'p-asphalt')
   }
 
   // Curbs: the top of the curb, and its shadow on the road side.
@@ -195,17 +246,38 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
   // Lane markings, by the pair of strips either side of each edge.
   const mw = Math.max(0.33 * b.S, 1.4)
   const solid = (x: number, color: string) => rect(x - mw / 2, b.y, mw, b.h, color)
+  // A line broken at the given stretches along the street; with `dash`, the
+  // breaks are filled with 2 ft dashes every 4 ft instead (a buffer's stripes
+  // across a driveway opening).
+  const broken = (x: number, color: string, gaps: [number, number][], dash = false) => {
+    if (!gaps.length)
+      return solid(x, color)
+    let out = ''
+    const ends = [a0, ...gaps.flat().filter(g => g > a0 && g < a0 + L), a0 + L].sort((p, q) => p - q)
+    for (let k = 0; k < ends.length - 1; k++) {
+      const [p, q] = [ends[k], ends[k + 1]]
+      const inside = gaps.some(([g0, g1]) => (p + q) / 2 > g0 && (p + q) / 2 < g1)
+      if (!inside)
+        out += rect(x - mw / 2, Y(p), mw, (q - p) * b.S, color)
+      else if (dash)
+        for (let a = p; a < q; a += 4)
+          out += rect(x - mw / 2, Y(a), mw, Math.min(2, q - a) * b.S, color)
+    }
+    return out
+  }
   for (let i = 0; i < cols.length - 1; i++) {
     const a = cols[i].s
     const c = cols[i + 1].s
     const x = cols[i].x1
     const lane = (t: Segment['type']) => LANES.has(t)
     // Every buffer has a white stripe down each side, just inside its edge.
+    // A driveway opening breaks the painted lines of a parking lane or buffer on its side.
+    const gaps = [...(a.type === 'parking' || a.type === 'buffer' ? openings(idx(cols[i])) : []), ...(c.type === 'parking' || c.type === 'buffer' ? openings(idx(cols[i + 1])) : [])]
     if (a.type === 'buffer' || c.type === 'buffer') {
       if (a.type === 'buffer')
-        s += solid(x - mw, 'p-white')
+        s += broken(x - mw, 'p-white', gaps, true)
       if (c.type === 'buffer')
-        s += solid(x + mw, 'p-white')
+        s += broken(x + mw, 'p-white', gaps, true)
     }
     else if (lane(a.type) && lane(c.type)) {
       if (a.type === 'turn-lane' || c.type === 'turn-lane')
@@ -217,7 +289,16 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
           s += rect(x - mw / 2, Y(a2), mw, 10 * b.S, 'p-white')
     }
     else if ((lane(a.type) && !isRaisedSegment(c)) || (lane(c.type) && !isRaisedSegment(a))) {
-      s += solid(lane(a.type) ? x - mw : x + mw, 'p-white')
+      s += broken(lane(a.type) ? x - mw : x + mw, 'p-white', gaps)
+    }
+  }
+  // The driveway opening's two edges, a white line across each parking lane on its side.
+  for (const c of cols) {
+    if (c.s.type !== 'parking')
+      continue
+    for (const [d0, d1] of openings(idx(c))) {
+      for (const d of [d0, d1])
+        s += rect(c.x0, Y(d) - mw / 2, c.x1 - c.x0, mw, 'p-white')
     }
   }
 
@@ -231,6 +312,24 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     for (let a2 = Math.floor(a0 / BIKE_CENTER_STEP) * BIKE_CENTER_STEP; a2 < a0 + L; a2 += BIKE_CENTER_STEP) {
       if (!onCrosswalk(features, a2 - 1, a2 + BIKE_CENTER_DASH + 1))
         s += rect(x - mw / 2, Y(a2), mw, BIKE_CENTER_DASH * b.S, 'p-yellow')
+    }
+  }
+
+  // A driveway's conflict marking where a bike lane on its side crosses it:
+  // the green broken into dashes, with dotted white lines along both edges.
+  for (const c of cols) {
+    if (c.s.type !== 'bike-lane' && c.s.type !== 'protected-bike-lane')
+      continue
+    for (const { f } of drivewaysBeside(features, segments, idx(c))) {
+      if (!f.conflictMarking)
+        continue
+      const [d0, d1] = drivewaySpan(f)
+      for (let a = d0 + CONFLICT_DASH; a < d1; a += CONFLICT_DASH + CONFLICT_GAP)
+        s += rect(c.x0, Y(a), c.x1 - c.x0, Math.min(CONFLICT_GAP, d1 - a) * b.S, 'p-asphalt')
+      for (let a = d0; a < d1; a += 4) {
+        for (const x of [c.x0 + mw, c.x1 - 2 * mw])
+          s += rect(x, Y(a), mw, Math.min(2, d1 - a) * b.S, 'p-white')
+      }
     }
   }
 
@@ -254,7 +353,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     const barX = streetLeft ? c.x0 + inset : c.x1 - inset - tb
     const stemX = streetLeft ? barX + tb : barX - 2.5 * b.S
     for (let a = Math.floor(a0 / STALL_LENGTH) * STALL_LENGTH; a <= a0 + L + 2; a += STALL_LENGTH) {
-      if (onCrosswalk(features, a - 2, a + 2))
+      if (parkingBarred(features, segments, idx(c), a - 2, a + 2))
         continue
       for (const [x, y, w, h] of [[barX, Y(a - 2), tb, 4 * b.S], [stemX, Y(a) - tb / 2, 2.5 * b.S, tb]])
         s += rect(x, y, w, h, 'p-white') + (bricks && isBrick(c.s) ? rect(x, y, w, h, bricks.fill) : '')
@@ -308,6 +407,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
   let itemsMarkup = ''
   for (const c of cols) {
     const list = c.s.items ?? []
+    const t2 = c.s.type
     for (const it of c.items) {
       const spec = list.find(i => i.type === it.type)
       const toward = it.x < (b.left + b.right) / 2 ? 1 : -1
@@ -326,7 +426,13 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       else {
         positions.push(b.at)
       }
-      for (const a of positions) {
+      // Nothing stands on a crosswalk's walkway or a driveway apron, and no
+      // tree within the clear-view distance beside a driveway.
+      const keep = (a: number) => !(t2 === 'furnishing' && onWalkway(features, a)) && !drivewaysBeside(features, segments, idx(c)).some(({ f }) => {
+        const [d0, d1] = drivewaySpan(f)
+        return (t2 === 'furnishing' && a >= d0 - APRON_FLARE && a <= d1 + APRON_FLARE) || (it.type === 'tree' && blocksDriveway([f], segments, idx(c), a))
+      })
+      for (const a of positions.filter(keep)) {
         if (it.type === 'tree')
           crowns.push({ x: it.x, along: a, R: crownRadius(22) })
         itemsMarkup += place(it.x, Y(a), b.S, stamps.use(`${c.s.id}|${it.type}|${toward}`, () => streetItemTop(ids, it.type, seedOf(c.s.id, it.type), toward)))
@@ -377,7 +483,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
         // A car in a marked parking lane sits in the stall nearest the cut.
         const stall = Math.round((b.at - STALL_LENGTH / 2) / STALL_LENGTH) * STALL_LENGTH + STALL_LENGTH / 2
         const a = t === 'parking' && markingOf(c.s) === 'stalls'
-          ? (onCrosswalk(features, stall - len / 2, stall + len / 2) ? null : stall)
+          ? (parkingBarred(features, segments, idx(c), stall - len / 2, stall + len / 2) ? null : stall)
           : findSpot(cx, len, [...taken, ...crossings], `${c.s.id}|veh`, true)
         if (a !== null) {
           taken.push([a - len / 2, a + len / 2])
@@ -408,7 +514,9 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
         // The lane's marking, if there's room: the bike lane symbol with its
         // arrow ahead of it, or a sharrow.
         const mark = markingOf(c.s)
-        const g = mark === 'none' ? null : findSpot(x, mark === 'sharrow' ? 9.5 : 10.5, spots, `${c.s.id}|${key === 'bike' ? 'symbol' : `${key}|symbol`}`)
+        // Kept off a driveway's conflict marking.
+        const drives = drivewaysBeside(features, segments, idx(c)).map(({ f }) => drivewaySpan(f))
+        const g = mark === 'none' ? null : findSpot(x, mark === 'sharrow' ? 9.5 : 10.5, [...spots, ...drives], `${c.s.id}|${key === 'bike' ? 'symbol' : `${key}|symbol`}`)
         if (g !== null) {
           if (mark === 'sharrow')
             users += place(x, Y(g), b.S, sharrow(toward))

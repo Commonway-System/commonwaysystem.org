@@ -157,6 +157,14 @@ export type Level = 'road' | 'intermediate' | 'sidewalk'
  */
 export type PersonVariant = 'walker' | 'walker-dress' | 'adult-child' | 'wheelchair' | 'cane' | 'stroller' | 'dog-walker' | 'runner'
 
+/**
+ * The vehicle drawn in a travel lane, turn lane or parking lane. Normally
+ * chosen for you (seeded: mostly sedans, some SUVs; a bus in a transit
+ * lane); set it only where what drives there is the point, a delivery truck
+ * on an Industrial Collector.
+ */
+export type LaneVehicle = 'sedan' | 'suv' | 'bus' | 'truck'
+
 export interface Segment {
   /** Stable within a pattern's data file: the "what changed" comparison matches segments by id. */
   id: string
@@ -182,6 +190,8 @@ export interface Segment {
   level?: Level
   /** Sidewalks: the people drawn, in order across the strip (only as many as fit). */
   people?: PersonVariant[]
+  /** Lanes: the vehicle drawn in the cross-section and its slice. */
+  vehicle?: LaneVehicle
 }
 
 // ---------------------------------------------------------------------------
@@ -217,6 +227,20 @@ export interface StreetFeature {
    * accessibility guidelines require at curb ramps (PROWAG R205, R305).
    */
   detectableWarnings?: boolean
+  /**
+   * Driveways only: the side of the street it serves (omit for both). Its
+   * strips on that side, from the property line to the travel lanes, are
+   * changed over its length: a planting strip or buffer is paved as the
+   * driveway apron, a ramp between its neighbors' heights; sidewalks and
+   * bike lanes keep their own level and run straight across.
+   */
+  side?: 'left' | 'right'
+  /** Driveways only: feet either side of the driveway kept clear of parking (no parked car or stall mark). */
+  noParking?: number
+  /** Driveways only: feet either side of the driveway kept clear of trees, so drivers and riders see each other. */
+  clearView?: number
+  /** Driveways only: a dashed green conflict marking, with dotted white edge lines, where a bike lane crosses. */
+  conflictMarking?: boolean
   elementId?: ElementId
   label?: string
   cite?: number[]

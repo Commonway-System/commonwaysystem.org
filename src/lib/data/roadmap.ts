@@ -60,7 +60,7 @@ export const roadmap: RoadmapItem[] = [
   { id: 15, category: 'New features', title: 'Related Media refinements',
     description: 'Improvements to how the Related Media component displays.' },
   { id: 24, category: 'Standing / ongoing', title: 'Pattern viewer drawings rollout',
-    description: 'Drawn, interactive views for every pattern and Retrofit Strategy, beyond the five that have them now; the rest show their illustration or a placeholder until then.' },
+    description: 'Drawn, interactive views for every pattern and Retrofit Strategy, beyond the six that have them now; the rest show their illustration or a placeholder until then.' },
   { id: 36, category: 'Standing / ongoing', title: 'Layered guidance across sources rollout',
     description: 'A side-by-side table of what the Commonway System, federal and state baselines, NACTO, Complete Streets and Dutch Sustainable Safety each recommend, added to every Local, Collector, Arterial, and Intersections & Crossings pattern page.',
     next: 'Done on Collector Default, Rural Collector and Industrial Collector; Local Default and Arterial Default not started.' },

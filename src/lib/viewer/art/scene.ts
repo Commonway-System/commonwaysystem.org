@@ -43,8 +43,11 @@ export function isRaisedSegment(s: Segment): boolean {
   return levelOf(s) !== 'road'
 }
 
+/** A planting strip paved as a driveway apron where a section is cut through a driveway. */
+export const isApron = (s: Segment) => s.variant === 'apron'
+
 /** Strips that are planted rather than paved. */
-const isPlanted = (s: Segment) => s.type === 'furnishing' || s.type === 'median'
+const isPlanted = (s: Segment) => (s.type === 'furnishing' && !isApron(s)) || s.type === 'median'
 
 /** Palette token for a strip's surface in section (see surfaceOf). */
 export function surfacePaint(s: Segment): string {
@@ -132,7 +135,11 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
   const top = b.road - b.curbH
   const esW = edgeStripW(b)
   // Sloped edges, found first: a slope inside a strip shortens that strip's slab.
-  const edges = cols.slice(0, -1).map((a, i) => surfaceY(a, b) === surfaceY(cols[i + 1], b) ? undefined : edgeStrip(a.s, cols[i + 1].s))
+  // A driveway apron ramps between its neighbors' heights, with no curb or edge strip either side.
+  const nextToApron = (i: number) => isApron(cols[i].s) || isApron(cols[i + 1].s)
+  const edges = cols.slice(0, -1).map((a, i) => surfaceY(a, b) === surfaceY(cols[i + 1], b) || nextToApron(i) ? undefined : edgeStrip(a.s, cols[i + 1].s))
+  /** An apron's surface height at its left and right ends: its neighbors' (the sidewalk level at a property line). */
+  const apronY = (i: number): [number, number] => [cols[i - 1] ? surfaceY(cols[i - 1], b) : top, cols[i + 1] ? surfaceY(cols[i + 1], b) : top]
   const insetL = (i: number) => (edges[i - 1]?.within === 'right' && surfaceY(cols[i], b) < surfaceY(cols[i - 1], b) ? esW : 0)
   const insetR = (i: number) => (edges[i]?.within === 'left' && surfaceY(cols[i], b) < surfaceY(cols[i + 1], b) ? esW : 0)
   let s = t.defs
@@ -145,7 +152,13 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
   cols.forEach((c, ci) => {
     const y = surfaceY(c, b)
     const w = c.x1 - c.x0
-    if (isPlanted(c.s)) {
+    if (isApron(c.s)) {
+      // A concrete ramp from one neighbor's height to the other's, on a gravel base.
+      const [yl, yr] = apronY(ci)
+      s += `<path d="M${r2(c.x0)} ${r2(yl + slabT)} L${r2(c.x1)} ${r2(yr + slabT)} L${r2(c.x1)} ${r2(yr + slabT + walkBase)} L${r2(c.x0)} ${r2(yl + slabT + walkBase)} Z" style="fill:var(--pvx-gravel)"/>`
+      s += `<path d="M${r2(c.x0)} ${r2(yl)} L${r2(c.x1)} ${r2(yr)} L${r2(c.x1)} ${r2(yr + slabT)} L${r2(c.x0)} ${r2(yl + slabT)} Z" style="fill:var(--pvx-concrete)"/>`
+    }
+    else if (isPlanted(c.s)) {
       const trees = (c.s.items ?? []).some(i => i.type === 'tree')
       if (trees)
         s += ellipse(c.x0 + w / 2, y + (b.cutBottom - y) * 0.45, w * 0.42, (b.cutBottom - y) * 0.35, 'root', 'opacity="0.45"')
@@ -191,7 +204,7 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
     const c = cols[i + 1]
     const ya = surfaceY(a, b)
     const yc = surfaceY(c, b)
-    if (ya === yc)
+    if (ya === yc || nextToApron(i))
       continue
     const e = edges[i]
     if (e) {
@@ -219,8 +232,8 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
   // the page at the bottom of the cut.
   let d = `M0 ${r2(top)} L${r2(b.left)} ${r2(top)}`
   cols.forEach((c, i) => {
-    const y = surfaceY(c, b)
-    d += ` L${r2(bevelL.has(i) ? c.x0 + esW : c.x0)} ${r2(y)} L${r2(bevelR.has(i) ? c.x1 - esW : c.x1)} ${r2(y)}`
+    const [yl, yr] = isApron(c.s) ? apronY(i) : [surfaceY(c, b), surfaceY(c, b)]
+    d += ` L${r2(bevelL.has(i) ? c.x0 + esW : c.x0)} ${r2(yl)} L${r2(bevelR.has(i) ? c.x1 - esW : c.x1)} ${r2(yr)}`
   })
   d += ` L${r2(b.w)} ${r2(top)}`
   s += `<path d="${d}" style="fill:none;stroke:var(--pvx-cut-line);stroke-width:1"/>`

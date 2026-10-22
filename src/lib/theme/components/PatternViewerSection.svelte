@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
   import type { CyclistVariant, Measure, PedestrianVariant, SceneBox, SceneColumn, SliceColumn, VehicleVariant } from '$lib/viewer/art'
   import { CROSSING_POOL, CROSSING_WIDTH, cyclist, frontage, groundCut, isRaisedSegment, surfaceY, laneVehicle, makeIds, measureText, measureWith, PEDESTRIAN_POOL, PEDESTRIAN_WIDTH, pedestrian, pedestrianSide, place, plainCyclist, plainItem, plainPedestrian, plainPedestrianSide, plainVehicle, rng, seedOf, sky, slice, streetItem, vehicle } from '$lib/viewer/art'
-  import { crossing, onCrosswalk, spread, WARNING_DEPTH, widthsAt } from '$lib/viewer/geometry'
+  import { crossing, drivewaysAt, isBrick, onCrosswalk, parkingBarred, spread, WARNING_DEPTH, widthsAt } from '$lib/viewer/geometry'
   import { layoutAnnotations } from '$lib/viewer/section-layout'
   import { formatLength } from '$lib/viewer/state'
   import type { RendererProps, Segment } from '$lib/viewer/types'
@@ -79,8 +79,15 @@
     // Cut on a crosswalk, a planting strip it crosses is paved as the walkway
     // to the sidewalk; the slice below still gets the strip as it is.
     const onWalk = onCrosswalk(config.features, section?.at ?? -1)
+    // Cut through a driveway, a planting strip on its side is the driveway
+    // apron, and a buffer there loses its posts and barrier.
+    const onDrive = (i: number) => drivewaysAt(config.features, config.segments, i, section?.at ?? -1).length > 0
     const segs = config.segments.map((s, i) => ({
-      s: !onWalk ? s : s.type === 'furnishing' ? { ...s, type: 'sidewalk' as const, items: [], label: 'Walkway' } : s.type === 'buffer' ? { ...s, items: (s.items ?? []).filter(it => it.type !== 'barrier') } : s,
+      s: onWalk
+        ? s.type === 'furnishing' ? { ...s, type: 'sidewalk' as const, items: [], label: 'Walkway' } : s.type === 'buffer' ? { ...s, items: (s.items ?? []).filter(it => it.type !== 'barrier') } : s
+        : onDrive(i)
+          ? s.type === 'furnishing' ? { ...s, variant: 'apron', items: [], label: 'Driveway apron', shortLabel: 'Apron' } : s.type === 'buffer' ? { ...s, items: [], ...(isBrick(s) ? { surface: 'asphalt' as const } : {}) } : s.type === 'parking' && isBrick(s) ? { ...s, surface: 'asphalt' as const } : s
+          : s,
       src: s,
       wd: widths[i],
     })).filter(x => x.wd > 0.05)
@@ -309,12 +316,13 @@
           px += widths[k] + gap
         })
       }
-      else if (t === 'parking' && onCrosswalk(config?.features, section?.at ?? -1)) {
-        // No one parks on a crosswalk: the lane is drawn empty there.
+      else if (t === 'parking' && config && parkingBarred(config.features, config.segments, config.segments.indexOf(c.src), section?.at ?? -1)) {
+        // No one parks on a crosswalk, or across a driveway and the stretch
+        // kept clear beside it: the lane is drawn empty there.
       }
       else if (t === 'travel-lane' || t === 'turn-lane' || t === 'parking' || t === 'transit-lane') {
         const seed = seedOf(c.s.id, 'car')
-        const v: VehicleVariant = t === 'transit-lane' ? 'bus' : laneVehicle(seed)
+        const v: VehicleVariant = c.s.vehicle ?? (t === 'transit-lane' ? 'bus' : laneVehicle(seed))
         const toward = t === 'parking' ? laneDir(i) : c.s.direction !== 'outbound'
         sc.users = { kind: 'vehicle', variant: v, toward }
         put(c.cx, c.y, vehicle(v, seed, toward), plainVehicle(v))
@@ -337,7 +345,7 @@
       }
     })
     const sliceArt = L.sliceH && config
-      ? slice(ids, sliceCols, { w: b.w, left: L.left, right: L.right, y: L.sliceY, h: L.sliceH, S: L.scale, at: section?.at ?? 0 }, L.front, config.features ?? [], seedOf('slice', L.total))
+      ? slice(ids, sliceCols, { w: b.w, left: L.left, right: L.right, y: L.sliceY, h: L.sliceH, S: L.scale, at: section?.at ?? 0 }, L.front, config.features ?? [], seedOf('slice', L.total), config.segments)
       : ''
     return { scene, objects, plain, slice: sliceArt }
   })

@@ -128,6 +128,78 @@ export function onCrosswalk(features: StreetFeature[] | undefined, from: number,
   })
 }
 
+/** A driveway's opening along the street, ft (its `length`, 12 ft if unset). */
+export function drivewaySpan(f: StreetFeature): [number, number] {
+  const half = (f.length ?? 12) / 2
+  return [f.at - half, f.at + half]
+}
+
+/**
+ * Indexes of the strips on one side of the street: from that property line
+ * in to the first travel, turn or transit lane. A driveway changes only these.
+ */
+export function sideStrips(segments: Segment[], side: 'left' | 'right' | undefined): number[] {
+  const lanes = segments.flatMap((s, i) => s.type === 'travel-lane' || s.type === 'turn-lane' || s.type === 'transit-lane' ? [i] : [])
+  if (!lanes.length)
+    return []
+  const first = lanes[0]
+  const last = lanes.at(-1)!
+  return segments.flatMap((_, i) => (side !== 'right' && i < first) || (side !== 'left' && i > last) ? [i] : [])
+}
+
+/** The driveways (if any) whose opening covers a spot along the street, on strip i's side. */
+export function drivewaysAt(features: StreetFeature[] | undefined, segments: Segment[], i: number, from: number, to = from): StreetFeature[] {
+  return (features ?? []).filter((f) => {
+    if (f.type !== 'driveway' || !sideStrips(segments, f.side).includes(i))
+      return false
+    const [d0, d1] = drivewaySpan(f)
+    return to >= d0 && from <= d1
+  })
+}
+
+/**
+ * Whether strip i (a parking lane) is kept clear of parking over a stretch:
+ * on a crosswalk anywhere, or across a driveway on its side and the
+ * driveway's `noParking` distance either side of it.
+ */
+export function parkingBarred(features: StreetFeature[] | undefined, segments: Segment[], i: number, from: number, to = from): boolean {
+  if (onCrosswalk(features, from, to))
+    return true
+  return (features ?? []).some((f) => {
+    if (f.type !== 'driveway' || !sideStrips(segments, f.side).includes(i))
+      return false
+    const [d0, d1] = drivewaySpan(f)
+    const n = f.noParking ?? 0
+    return to >= d0 - n && from <= d1 + n
+  })
+}
+
+/** Whether a tree on strip i at a spot along the street would block the view at a driveway (inside its opening or its `clearView` distance). */
+export function blocksDriveway(features: StreetFeature[] | undefined, segments: Segment[], i: number, at: number): boolean {
+  return (features ?? []).some((f) => {
+    if (f.type !== 'driveway' || !sideStrips(segments, f.side).includes(i))
+      return false
+    const [d0, d1] = drivewaySpan(f)
+    const n = f.clearView ?? 0
+    return at >= d0 - n && at <= d1 + n
+  })
+}
+
+/** Strips a driveway paves as its apron: planting strips and buffers. */
+export const isApronStrip = (s: Segment): boolean => s.type === 'furnishing' || s.type === 'buffer'
+
+/** Clearance between a crosswalk's walkway and a tree or pole beside it in a planting strip, ft. */
+export const WALKWAY_CLEARANCE = 2
+
+/**
+ * Whether an item in a planting strip at a spot along the street would stand
+ * on (or crowd) a crosswalk's walkway, which the crosswalk paves through
+ * every planting strip it crosses.
+ */
+export function onWalkway(features: StreetFeature[] | undefined, at: number): boolean {
+  return onCrosswalk(features, at - WALKWAY_CLEARANCE, at + WALKWAY_CLEARANCE)
+}
+
 /** Clear gap between a barrier's end and the crosswalk's edge, in feet. */
 export const BARRIER_GAP = 1
 
