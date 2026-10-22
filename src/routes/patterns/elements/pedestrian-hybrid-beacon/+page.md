@@ -4,6 +4,7 @@ description: "A pedestrian-activated signal, sometimes called a HAWK beacon, tha
 patternId: ELM-PHB-18
 status: situational
 date: 2026-08-31
+image: /patterns/elm-phb-18-pedestrian-hybrid-beacon.png
 llms: "A pedestrian-activated signal, sometimes called a HAWK beacon, that remains dark until activated, then displays a sequence progressing through flashing and solid indications to stop traffic and allow a pedestrian to cross, before returning to dark."
 ---
 

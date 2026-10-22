@@ -36,6 +36,8 @@ export const releases: Release[] = [
     date: "2026.10.22",
     changes: [
       { type: "new", area: "content",
+        summary: "Bike Parking Corral, Pedestrian Hybrid Beacon, Bioswale, Pervious Strip, Street Tree and Tree Pit / Tree Trench now have featured images." },
+      { type: "new", area: "content",
         summary: "The Media Gallery gains 15 items (MED-190 to MED-204: 4 videos, 10 articles, 1 podcast episode) for Tree Pit / Tree Trench, Warning Sign, Wheel Stop, Bike Parking Corral and Bike-Share Station, pages that had no Related Media.",
         details: "Videos: Root Cause Seattle on why city trees struggle, PBS SoCal's Earth Focus on Los Angeles tree canopy, Seattle Streets Alliance on requesting a bike rack, and About Here's \"The Bike Share Dilemma.\" Articles: the ISA structural soil versus suspended pavement study, Cornell's CU-Structural Soil guide, Iowa State's \"Children at Play\" sign FAQ, the MUTCD Part 2 Chapter 2A text (a Wikisource transcription), the Department of Justice parking-lot restriping brief, CCOHS on wheel-stop tripping hazards, NACTO's Activating the Curb and station-spacing paper, San Francisco's bike corral guidance, and Next City on bike-share siting. Podcast: Talking Headways on Seattle's bike share. City Beautiful's \"The Hidden Benefits of Street Trees\" (MED-166) is also now tagged to Tree Pit / Tree Trench. Vendor-produced videos are left out of the Gallery. Most items without a publisher image use the shared placeholder." },
     ],

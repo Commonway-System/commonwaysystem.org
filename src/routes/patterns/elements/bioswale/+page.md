@@ -4,6 +4,7 @@ description: "A vegetated, shallow channel designed to collect, convey, and filt
 patternId: ELM-BIO-19
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-bio-19-bioswale.png
 llms: "A vegetated, shallow channel designed to collect, convey, and filter stormwater runoff from an adjacent roadway or hard surface, using soil and plant material to slow flow and remove pollutants before water reaches a storm drain or waterway."
 ---
 

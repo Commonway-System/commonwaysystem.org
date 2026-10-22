@@ -4,6 +4,7 @@ description: "The below-grade excavated and engineered soil volume, either an in
 patternId: ELM-TPT-29
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-tpt-29-tree-pit-tree-trench.png
 llms: "The below-grade excavated and engineered soil volume, either an individual pit or a shared linear trench connecting multiple planting locations, providing root space and often structural soil to support street tree growth beneath a sidewalk or paved surface."
 ---
 

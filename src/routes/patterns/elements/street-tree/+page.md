@@ -4,6 +4,7 @@ description: "A tree planted along a street, typically within the sidewalk zone 
 patternId: ELM-STT-28
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-stt-28-street-tree.png
 llms: "A tree planted along a street, typically within the sidewalk zone or a landscaped buffer, providing shade, stormwater interception, visual buffering from traffic, and streetscape character."
 ---
 

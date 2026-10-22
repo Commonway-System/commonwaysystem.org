@@ -4,6 +4,7 @@ description: "An on-street, curbside cluster of bike racks, typically installed 
 patternId: FAC-BPC-08
 status: recommended
 date: 2026-08-31
+image: /patterns/fac-bpc-08-bike-parking-corral.png
 llms: "An on-street, curbside cluster of bike racks, typically installed in place of a single car parking space, providing multiple bike parking spots in the footprint one vehicle would otherwise occupy."
 ---
 

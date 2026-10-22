@@ -4,6 +4,7 @@ description: "A linear strip of permeable surface (gravel, permeable pavers, or 
 patternId: ELM-PVS-21
 status: situational
 date: 2026-08-31
+image: /patterns/elm-pvs-21-pervious-strip.png
 llms: "A linear strip of permeable surface (gravel, permeable pavers, or open-graded aggregate), allowing stormwater to infiltrate directly into the ground rather than running off to a drain, typically installed within a parking lane, shoulder, or buffer zone."
 ---
 
