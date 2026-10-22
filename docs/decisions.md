@@ -51,6 +51,7 @@ Decisions Kevin has locked. Don't reopen one without his say-so. When a session 
 - Where research turns up only one precedent for a rule, find a second before treating it as settled.
 - Advocacy sources are cited for what they argue, not as evidence.
 - Recheck a Related Media item's endorsement status (Aligned or Context-only) whenever its page is substantially re-researched. A media item belongs on the page it supports most; propose untagging off-topic items rather than leaving them.
+- No vendor-produced media in the Gallery: skip videos, podcasts and articles whose point is to sell a product (for example a tree-soil manufacturer's own videos). A university, agency, journal or independent-creator item on the same topic is fine. (2026-10-22)
 - Never get past a bot wall (Cloudflare checks and the like). Use another source, or ask Kevin for the page text.
 
 ## Open items

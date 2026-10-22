@@ -35,16 +35,14 @@ export const releases: Release[] = [
   {
     date: "2026.10.22",
     changes: [
+      { type: "note",
+        summary: "Accessibility check for the new media items and featured images: axe found no violations on the Media Gallery, Release History and the nine pattern pages that gained media or images, in light and dark at desktop and 375px widths.",
+        details: "Pages: Street Tree, Tree Pit / Tree Trench, Bike Parking Corral, Bike-Share Station, Bioswale, Pervious Strip, Pedestrian Hybrid Beacon, Warning Sign and Wheel Stop. Checked with axe (WCAG 2.0 to 2.2 A and AA plus best practice) on the built site. Not done: a manual keyboard and screen reader pass on the carousels, and a full-site scan." },
       { type: "new", area: "content",
         summary: "Bike Parking Corral, Pedestrian Hybrid Beacon, Bioswale, Pervious Strip, Street Tree and Tree Pit / Tree Trench now have featured images." },
       { type: "new", area: "content",
         summary: "The Media Gallery gains 15 items (MED-190 to MED-204: 4 videos, 10 articles, 1 podcast episode) for Tree Pit / Tree Trench, Warning Sign, Wheel Stop, Bike Parking Corral and Bike-Share Station, pages that had no Related Media.",
         details: "Videos: Root Cause Seattle on why city trees struggle, PBS SoCal's Earth Focus on Los Angeles tree canopy, Seattle Streets Alliance on requesting a bike rack, and About Here's \"The Bike Share Dilemma.\" Articles: the ISA structural soil versus suspended pavement study, Cornell's CU-Structural Soil guide, Iowa State's \"Children at Play\" sign FAQ, the MUTCD Part 2 Chapter 2A text (a Wikisource transcription), the Department of Justice parking-lot restriping brief, CCOHS on wheel-stop tripping hazards, NACTO's Activating the Curb and station-spacing paper, San Francisco's bike corral guidance, and Next City on bike-share siting. Podcast: Talking Headways on Seattle's bike share. City Beautiful's \"The Hidden Benefits of Street Trees\" (MED-166) is also now tagged to Tree Pit / Tree Trench. Vendor-produced videos are left out of the Gallery. Most items without a publisher image use the shared placeholder." },
-    ],
-  },
-  {
-    date: "2026.10.21",
-    changes: [
       { type: "new", area: "content",
         summary: "Industrial Collector now has a drawn Pattern viewer: a cross-section and a top-down view, with Baseline, NACTO, Complete Streets and Commonway System configurations and a Dutch practice comparison.",
         details: "The baseline is a typical US industrial street (12 ft lanes, a 10 ft parking and loading lane, a 5 ft planting strip and a 6 ft sidewalk, from Portland and Raleigh). NACTO adds protected bike lanes, which it asks for on truck routes regardless of speed and volume; Complete Streets adds curb extensions at the crosswalk. On every configuration with bike lanes, a bike lane with no parking beside it runs next to the sidewalk, raised partway, behind the planting strip (at least 6.5 ft wide on the Commonway System), and one beside parking runs behind the parked cars and a 3 ft door buffer. Choices: On-street parking and loading (none by default, the others discouraged) and Bike lanes (a two-way lane on one side is highly discouraged, offered on the NACTO, Complete Streets and Commonway System configurations). The cross-section can be cut Midblock, At the crosswalk or At the driveway. The Dutch drawing is CROW's general distributor road, labelled as not industrial-specific. A link with `?parking=left`, `?bikeway=two-way-right` or `?cut=driveway` opens a choice." },
@@ -86,6 +84,14 @@ export const releases: Release[] = [
       { type: "note",
         summary: "Accessibility check for the Pattern viewer choice ratings: axe found no violations on Default (Standard Collector) with discouraged choices on and off, light and dark, at 1280 and 375 px, and again in high contrast.",
         details: "States checked: the default view, parking on both sides with a two-way bike lane (Commonway System), and parking on one side on the NACTO configuration. By hand: the ratings are in each button's accessible name, the note is the choice group's description and sits in a live region, the note disappears when a preferred choice is made and on Dutch practice, where the choices don't apply, every new color pairing was computed with the WCAG formula in all four theme and contrast modes (lowest 5.21:1), the icons differ in shape, and nothing scrolls sideways at 375 px. Not tested: a screen reader reading the live note, and forced-colors mode, where the chosen button takes the system highlight color like the other choices and the icons and note still carry the rating." },
+      { type: "new", area: "content",
+        summary: "Rural Collector / Farm-to-Market Road, Multi-Use Trail / Greenway, Downtown Thoroughfare, Scenic Highway / Byway, Parkway, One-Way Street, Boulevard, Arterial Transit (BRT/LRT), All-Way Stop and Continuous Sidewalk / Raised Junction now have their featured images.",
+        details: "Each image shows on the page's index card, in search results, in link previews and on the link cards under Related patterns on other pages. Small copies were generated for each use." },
+    ],
+  },
+  {
+    date: "2026.10.21",
+    changes: [
       { type: "new", area: "content",
         summary: "Default (Standard Collector)'s Pattern viewer has a new Bike lanes choice: one-way lanes on both sides (the default), or a two-way bike lane on the left or right side as a fallback.",
         details: "It is offered on the NACTO, Complete Streets and Commonway System configurations, since NACTO gives guidance for two-way protected bike lanes, and works with every parking choice and, on the Commonway System configuration, both bike lane positions. The two-way lane is 12 ft, FHWA's preferred combined width, with a dotted yellow center line, as NACTO calls for. Every description, NACTO's and Complete Streets' included, says the Commonway System discourages it (drivers turning across it miss riders coming the unexpected way), when it can still make sense, and how little right of way it saves. The old Bike lane choice is now called Bike lane position. A link with `?bikeway=two-way-left` (or `two-way-right`) opens it." },
@@ -155,9 +161,6 @@ export const releases: Release[] = [
       { type: "new", area: "content",
         summary: "Default (Standard Collector)'s guidance table has a new Traffic volume row: the Commonway System sets about 1,500 to 6,000 vehicles per day, following NACTO.",
         details: "Both ends come from NACTO's Designing for All Ages & Abilities (2017): above 1,000 to 2,000 vehicles a day most people only ride in the street below 20 mph, and above about 6,000 only a protected bike lane serves all ages and abilities. FHWA's Highway Functional Classification guidelines (2023 Edition, Table 3-6) give 1,100 to 6,300 for urban collectors and are shown alongside. Complete Streets sets no volume range, and the Dutch cell is an open gap: CROW's distributor-road volumes are in paid publications that weren't read. Two new references." },
-      { type: "new", area: "content",
-        summary: "Rural Collector / Farm-to-Market Road, Multi-Use Trail / Greenway, Downtown Thoroughfare, Scenic Highway / Byway, Parkway, One-Way Street, Boulevard, Arterial Transit (BRT/LRT), All-Way Stop and Continuous Sidewalk / Raised Junction now have their featured images.",
-        details: "Each image shows on the page's index card, in search results, in link previews and on the link cards under Related patterns on other pages. Small copies were generated for each use." },
     ],
   },
   {

@@ -1,6 +1,6 @@
 # Working conventions in full
 
-How work on the Commonway System gets done, as of 2026.10.20. CLAUDE.md carries the short version. The earlier version of this file, written when most work arrived as tickets from a separate planning chat, is in `history.md` under "Superseded: conventions.md".
+How work on the Commonway System gets done, as of 2026.10.22. CLAUDE.md carries the short version. The earlier version of this file, written when most work arrived as tickets from a separate planning chat, is in `history.md` under "Superseded: conventions.md".
 
 ## How work arrives and gets decided
 
