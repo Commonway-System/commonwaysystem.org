@@ -22,7 +22,7 @@ A network can be well-connected on paper and still function poorly for anyone no
 
 ## Where this leads: Target patterns
 
-Like the other two Network-scale retrofits, this doesn't necessarily change a network's overall topology classification, it applies *within* it. A [Dendritic / Hierarchical](/patterns/network/dendritic-hierarchical/) <IdPill id="NET-DEN-02" /> network with a new cross-connection added is measurably more connected for active travel, without becoming a Grid outright. The connection itself typically takes the form of a [Shared-Use Path](/patterns/local-streets/shared-use-path/) <IdPill id="LOC-SUP-13" /> or [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) <IdPill id="COL-MUT-06" /> at the Local or Collector scale.
+Like the other two Network-scale retrofits, this doesn't necessarily change a network's overall topology classification, it applies *within* it. A [Dendritic / Hierarchical](/patterns/network/dendritic-hierarchical/) <IdPill id="NET-DEN-02" /> network with a new cross-connection added is measurably more connected for active travel, without becoming a Grid outright. The connection itself typically takes the form of a [Shared-Use Path](/patterns/local-streets/shared-use-path/) <IdPill id="LOC-SUP-13" /> or [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) <IdPill id="COL-MUT-06" /> at the Local or Collector scale, crossing the barrier as a [Grade-Separated Walk and Bike Crossing](/patterns/intersections/grade-separated-walk-bike-crossing/) <IdPill id="INT-GSW-16" />.
 
 <div class="cw-facts">
 <div class="cw-fact">
@@ -57,7 +57,12 @@ Varies significantly by barrier type. A local street reconnection is often a cit
 
 ## Related retrofit strategies
 
-None currently cataloged.
+<div class="cw-links">
+
+- [Freeway cap](/retrofits/network/freeway-cap/) <IdPill id="RFT-NET-04" /> (reconnects across a whole stretch of sunken freeway)
+- [Bridge replacement cross-section](/retrofits/corridor/bridge-replacement-cross-section/) <IdPill id="RFT-CDR-13" /> (adds walking and biking space to an existing crossing when it is rebuilt)
+
+</div>
 
 ## References
 

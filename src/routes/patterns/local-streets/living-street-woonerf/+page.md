@@ -44,6 +44,8 @@ Vehicle ranks third as a guest in this order, not a peer road user: it moves at 
 
 NACTO's Home Zone is, strictly, an area-wide overlay rather than a distinct street type of its own, but the Commonway System folds it into this single entry rather than tracking it separately, since the on-the-ground design treatment is the same shared, no-separation street.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

@@ -44,6 +44,8 @@ Whether Freight should be excluded outright rather than simply ranked last is an
 
 This entry follows the same shape as Rural Collector/Farm-to-Market Road: a low-density, low-development-pressure pattern that is the norm where it applies and effectively disappears as density rises.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

@@ -64,6 +64,8 @@ The default intersection treatment where this pattern meets a Collector is a [Co
 
 This entry is the standard against which every other Local Typology is defined as an override. A Typology only departs from the base modal order when its entire reason for existing is a specific mode.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

@@ -44,6 +44,8 @@ Marked as needing confirmation rather than fully locked.
 
 This pattern only functions where traffic volume is genuinely low. It thins out toward Urban and Core, where local street volumes typically outgrow what a shared, yield-controlled width can safely absorb.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

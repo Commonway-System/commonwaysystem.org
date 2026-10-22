@@ -43,6 +43,8 @@ An override of the Collector base order justified by the Typology's stated purpo
 
 This entry is the Collector-scale sibling of Local Transit and Arterial Transit, following the same override logic across all three Functional Classifications.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

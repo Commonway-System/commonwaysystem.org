@@ -56,6 +56,7 @@ Patterns are the destination. Retrofits are the route. The Guide is the map.
 - [Density Tiers](/guide/density-tiers/)
 - [Pattern IDs](/guide/pattern-ids/)
 - [Find Your Pattern](/guide/find-your-pattern/)
+- [Streets on Bridges](/guide/streets-on-bridges/)
 
 **[Make It Happen](/guide/make-it-happen/).** How local road decisions get made, who to ask, and how to push one forward.
 

@@ -37,6 +37,14 @@ Streets historically allocate nearly all their space to vehicle movement and sto
 
 </div>
 
+## Getting there: Retrofit path options
+
+<div class="cw-links">
+
+- [Freeway cap](/retrofits/network/freeway-cap/) <IdPill id="RFT-NET-04" /> (a park built on a deck over a freeway)
+
+</div>
+
 ## References
 
 1. <span id="ref-1"></span><EvidenceChip tier="precedent" /> [WSDOT Design Manual, Chapter 1238, "Parklets and Plazas." Drainage, catch-basin avoidance, and railing/planter separation from traffic.](https://wsdot.wa.gov/publications/manuals/fulltext/m22-01/1238.pdf)

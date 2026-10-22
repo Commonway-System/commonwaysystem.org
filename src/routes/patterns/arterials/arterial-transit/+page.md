@@ -44,6 +44,8 @@ Unlike Local Transit and Collector Transit, this ordering reinforces the Arteria
 
 Arterial is the one Functional Classification where the base modal hierarchy already puts Transit first, ahead of Pedestrian. Dedicated BRT or LRT treatment strengthens that existing priority with physical infrastructure rather than reordering it.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

@@ -45,6 +45,8 @@ A judgment call reasoned from the Typology's purpose rather than derived cleanly
 
 Multiway Boulevard is confirmed as a named variant folded into this single entry rather than split into its own Typology, since both share the same underlying logic: separating slower, frontage-facing movement from faster through traffic within one right-of-way.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

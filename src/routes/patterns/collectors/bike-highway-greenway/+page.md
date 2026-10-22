@@ -38,6 +38,8 @@ An override justified because the Typology's stated purpose is dedicated bicycle
 
 Distinct from Local's Bicycle Boulevard, which shares the roadway with calmed vehicle traffic, this Typology is physically separated infrastructure, closer in function to a linear park path or a rail-trail than to a shared street. It is realistic across nearly the full density range, since a separated path is not dependent on the surrounding street grid the way a shared-roadway Typology is.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) <IdPill id="LOC-BBG-12" /> (explicitly distinguished on this page: shared calmed roadway vs. this pattern's physical separation), [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) <IdPill id="COL-MUT-06" /> (a similarly-named Collector-scale pattern this one is specifically distinct from)

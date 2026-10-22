@@ -44,6 +44,8 @@ This pattern carries two separate modal hierarchies depending on time of day, no
 
 The dual-mode design, full street for events and normal Local operation otherwise, is what distinguishes this from a permanent Pedestrian-only Street or Plaza. It requires enough event demand and foot traffic to justify the conversion, which is why it concentrates at Urban and Core density.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

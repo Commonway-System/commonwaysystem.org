@@ -43,6 +43,8 @@ Modal hierarchy follows the Arterial base order. This gives vehicles and freight
 
 The no-parking, no-direct-access rule is the load-bearing distinction between this entry and Stroad. It positions the Commonway System closer to the Dutch functional-homogeneity principle than to conventional NACTO or ITE-CNU practice, where Arterials more commonly do mix through traffic with driveway access and curbside parking.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">
@@ -61,6 +63,8 @@ The no-parking, no-direct-access rule is the load-bearing distinction between th
 - [Lane diet](/retrofits/corridor/lane-diet/) <IdPill id="RFT-CDR-03" />
 - [One-way to two-way conversion](/retrofits/corridor/one-way-to-two-way-conversion/) <IdPill id="RFT-CDR-04" />
 - [Protected bike lane retrofit via lane removal](/retrofits/corridor/protected-bike-lane-lane-removal/) <IdPill id="RFT-CDR-08" />
+- [Bridge deck reallocation](/retrofits/corridor/bridge-deck-reallocation/) <IdPill id="RFT-CDR-12" />
+- [Bridge replacement cross-section](/retrofits/corridor/bridge-replacement-cross-section/) <IdPill id="RFT-CDR-13" /> (where this street crosses a bridge)
 
 </div>
 

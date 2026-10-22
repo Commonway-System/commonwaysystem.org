@@ -42,6 +42,8 @@ Where permitted, Bicycle ranks second. All other modes are excluded rather than 
 
 Unlike Festival Street, which toggles between full and pedestrian-only operation, this Typology's exclusion of vehicles is permanent. That makes it a heavier commitment, appropriate only where the surrounding block can genuinely support it.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

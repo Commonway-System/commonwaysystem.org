@@ -48,6 +48,8 @@ The Local base order minus Transit, since a dead-end street rarely carries a tra
 
 A cul-de-sac trades network connectivity for a quiet, low-through-traffic environment. That trade only holds up at lower densities, where a disconnected street grid does not yet conflict with pedestrian and bicycle route continuity.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

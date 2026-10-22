@@ -44,6 +44,8 @@ This pattern carries two separate modal hierarchies depending on time of day, no
 
 This Typology and Festival Street share the same schedule-based structure, full closure or restriction during a defined window, base operation otherwise. Both were added to the system after a NACTO gap-check identified time-restricted street patterns not otherwise covered by the core Local set.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

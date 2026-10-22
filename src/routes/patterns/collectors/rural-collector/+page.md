@@ -186,6 +186,8 @@ The Commonway System column comes first: it is the answer. The four columns afte
 
 This entry is the mirror image of Main Street: the norm at Undeveloped and Rural density, and effectively disappearing past Suburban as land use shifts away from agricultural or undeveloped character. The speed rule, and the terrain-by-volume ranges behind it, are laid out in the Layered guidance across sources section above.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

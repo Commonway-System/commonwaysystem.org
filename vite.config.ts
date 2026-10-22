@@ -70,6 +70,7 @@ const theme = commonwayTheme({
           { title: 'Density Tiers', to: '/guide/density-tiers/' },
           { title: 'Pattern IDs', to: '/guide/pattern-ids/' },
           { title: 'Find Your Pattern', to: '/guide/find-your-pattern/' },
+          { title: 'Streets on Bridges', to: '/guide/streets-on-bridges/' },
         ],
       },
       {
@@ -353,6 +354,14 @@ const theme = commonwayTheme({
             title: 'Railroad Grade Crossing',
             to: '/patterns/intersections/railroad-grade-crossing/',
           },
+          {
+            title: 'Grade-Separated Walk and Bike Crossing',
+            to: '/patterns/intersections/grade-separated-walk-bike-crossing/',
+          },
+          {
+            title: 'Walk and Bike Overpass',
+            to: '/patterns/intersections/walk-bike-overpass/',
+          },
         ],
       },
       {
@@ -547,6 +556,7 @@ const theme = commonwayTheme({
             title: 'Barrier-crossing / network reconnection retrofit',
             to: '/retrofits/network/barrier-crossing-network-reconnection-retrofit/',
           },
+          { title: 'Freeway cap', to: '/retrofits/network/freeway-cap/' },
         ],
       },
       {
@@ -593,6 +603,14 @@ const theme = commonwayTheme({
           {
             title: '2+1 road with cable median barrier',
             to: '/retrofits/corridor/two-plus-one-road-cable-barrier/',
+          },
+          {
+            title: 'Bridge deck reallocation',
+            to: '/retrofits/corridor/bridge-deck-reallocation/',
+          },
+          {
+            title: 'Bridge replacement cross-section',
+            to: '/retrofits/corridor/bridge-replacement-cross-section/',
           },
         ],
       },

@@ -48,6 +48,8 @@ The modal hierarchy is retained at the Arterial base order rather than reassigne
 
 Discouraged status here does not mean the pattern is banned; it means adopting it requires weighing the speeding tendency against whatever benefit, often traffic flow or signal progression, motivated the one-way conversion in the first place.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

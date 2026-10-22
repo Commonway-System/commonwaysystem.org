@@ -38,6 +38,8 @@ Pedestrian and Bicycle share top priority under this pattern's own equal-priorit
 
 Distinct from [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) <IdPill id="COL-BHG-04" />, which is bicycle-priority rather than equal-priority, and longer-distance than [Shared-Use Path](/patterns/local-streets/shared-use-path/) <IdPill id="LOC-SUP-13" />, with wayfinding and rest amenities mattering more at this length. Appropriate where the trail itself is a recreational or civic destination, not just a through-corridor. Where it runs parallel to a road for a meaningful stretch, see [Road-Adjacent Greenway](/patterns/corridors/road-adjacent-greenway/) <IdPill id="CDR-RAG-05" /> for the corridor-scale relationship.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

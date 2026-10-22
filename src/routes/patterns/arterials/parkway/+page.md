@@ -42,6 +42,8 @@ Follows the Arterial base order without an override. A Parkway meeting genuine f
 
 The term "parkway" carries genuinely conflicting meanings across American road-building history, spanning a limited-access freeway-like facility and a slower boulevard-like facility through or alongside parkland.<Citation index={1} /> A Parkway built to genuine freeway standards falls outside CS's Functional Classification system entirely and should be read as a Freeway pattern instead; this page's guidance does not apply to it. The more historically common case, a Parkway that does not meet freeway standards, must be classified and designed as an Arterial, subject to all Arterial standards including the no-direct-access, no-on-street-parking rule, since AASHTO's own functional classification system carries no separate parkway category.<Citation index={2} /> The scenic, landscaped character historically associated with parkways can and should be retained through median plantings, tree canopy, and generous right-of-way, but character alone does not exempt the facility from Arterial access-management rules. This classification ambiguity, not a design tradeoff, is why the pattern carries the stronger Discouraged caution rather than an ordinary Situational one; it renders under the publication's combined Situational/Discouraged badge since Discouraged is not yet a distinct status value.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

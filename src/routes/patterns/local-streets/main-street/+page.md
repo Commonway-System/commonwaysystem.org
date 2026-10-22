@@ -44,6 +44,8 @@ This ordering is a judgment call, reasoned from the Typology's purpose rather th
 
 Main Street is the clearest case where a Local street's identity comes from its edge condition, retail frontage, rather than from a special traffic control treatment. It shares its defining density range with Stroad, the Arterial-scale pattern for commercial frontage done wrong.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

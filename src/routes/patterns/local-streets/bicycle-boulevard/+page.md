@@ -46,6 +46,8 @@ Traffic calming and diverters discourage through car traffic while retaining loc
 
 A comparison of Berkeley's bicycle boulevards to their parallel arterials found bicyclist collision rates two to eight times lower on the boulevards.<Citation index={2} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 [Bike Highway / Greenway](/patterns/collectors/bike-highway-greenway/) <IdPill id="COL-BHG-04" /> — the Collector-scale pattern this one is explicitly distinguished from on that page: physical separation there, a shared, calmed roadway here.

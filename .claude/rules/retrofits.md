@@ -35,10 +35,10 @@ Every strategy page has the same shape:
 7. `## Related retrofit strategies` as a `cw-links` list.
 8. `## References`, with `EvidenceChip` and `ref-N` anchors as on every page.
 
-All 18 strategies follow this order. Pages get `TechArticle` JSON-LD with `identifier` from `patternId`.
+All 21 strategies follow this order. Pages get `TechArticle` JSON-LD with `identifier` from `patternId`.
 
 ## Linking strategies and patterns
 
-- Every Target pattern a strategy names should carry a `## Getting there: Retrofit path options` section pointing back to it (right after `## Related patterns`, before `## References`). 22 pattern pages have one. Don't add an empty one to a pattern nothing retrofits into. Default (No Parking, No Direct Property Access) and Scenic Highway / Byway don't yet link back to `RFT-CDR-11`.
-- **Network strategies** (`RFT-NET-01` to `03`) change a property of the area they're applied to (permeability, interior-street use, connectivity) rather than producing a new pattern. Keep the standard headings; the prose says the strategy applies *within* a pattern rather than leading to one. Network topology patterns (Grid, Dendritic) get no "Getting there" entry; the Local patterns these strategies produce do.
+- Every Target pattern a strategy names should carry a `## Getting there: Retrofit path options` section pointing back to it (right after `## Related patterns`, before `## References`). 24 pattern pages have one. Don't add an empty one to a pattern nothing retrofits into. Default (No Parking, No Direct Property Access) and Scenic Highway / Byway don't yet link back to `RFT-CDR-11`.
+- **Network strategies** (`RFT-NET-01` to `04`) change a property of the area they're applied to (permeability, interior-street use, connectivity) rather than producing a new pattern. Keep the standard headings; the prose says the strategy applies *within* a pattern rather than leading to one. Network topology patterns (Grid, Dendritic) get no "Getting there" entry; the Local patterns these strategies produce do.
 - A target can be a Segment pattern plus an Element, written as one entry, for example "Default (No Parking, No Direct Access) `ART-DEF-01` with Protected Bike Lane / Cycle Track `ELM-PBL-37`" on the protected bike lane retrofits. That's the one case where a `cw-links` entry holds two links.

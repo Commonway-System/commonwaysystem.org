@@ -178,6 +178,8 @@ Where the bike lane runs next to the street, the bike lane and the door buffer b
 
 Two practical points for installers: the gutter moves to the mountable curb at the edge of the travel lane, and where streets are plowed, the mountable curb and the pavers should be checked against the local plow equipment.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">
@@ -195,6 +197,8 @@ Two practical points for installers: the gutter moves to the mountable curb at t
 - [Lane diet](/retrofits/corridor/lane-diet/) <IdPill id="RFT-CDR-03" />
 - [Protected bike lane retrofit via lane-width reallocation](/retrofits/corridor/protected-bike-lane-width-reallocation/) <IdPill id="RFT-CDR-07" />
 - [Protected bike lane retrofit via parking reduction](/retrofits/corridor/protected-bike-lane-parking-reduction/) <IdPill id="RFT-CDR-09" />
+- [Bridge deck reallocation](/retrofits/corridor/bridge-deck-reallocation/) <IdPill id="RFT-CDR-12" />
+- [Bridge replacement cross-section](/retrofits/corridor/bridge-replacement-cross-section/) <IdPill id="RFT-CDR-13" /> (where this street crosses a bridge)
 
 </div>
 

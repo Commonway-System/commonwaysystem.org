@@ -35,6 +35,7 @@ Midblock crossings supplement, rather than replace, intersection-level crossing 
 
 - [Crosswalk](/patterns/elements/crosswalk/) <IdPill id="ELM-CRW-08" /> (the Element-scale pattern this is a specific placement context for)
 - [Pedestrian Hybrid Beacon](/patterns/elements/pedestrian-hybrid-beacon/) <IdPill id="ELM-PHB-18" /> (the Element most often used to control this crossing type at higher speeds or volumes)
+- [Grade-Separated Walk and Bike Crossing](/patterns/intersections/grade-separated-walk-bike-crossing/) <IdPill id="INT-GSW-16" /> (the fallback where no street-level crossing can be made safe)
 
 </div>
 

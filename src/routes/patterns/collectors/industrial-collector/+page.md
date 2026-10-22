@@ -188,6 +188,8 @@ On-street parking is discouraged on this street, and off-street parking and load
 
 Where this pattern's street crosses an active rail spur, an increasingly common condition on industrial land, see [Railroad Grade Crossing](/patterns/intersections/railroad-grade-crossing/) <IdPill id="INT-RGC-15" />, which covers the geometry and warning devices this page does not.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

@@ -114,6 +114,8 @@ Intersections aren't tied to one Functional Classification, since any two street
   <PatternIndexCard href="/patterns/intersections/restricted-crossing-u-turn/" id="INT-RCU-13" title="Restricted Crossing U-Turn (RCUT)" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/displaced-left-turn/" id="INT-DLT-14" title="Displaced Left-Turn (DLT)" classification="intersections" status="situational" />
   <PatternIndexCard href="/patterns/intersections/railroad-grade-crossing/" id="INT-RGC-15" title="Railroad Grade Crossing" classification="intersections" status="situational" />
+  <PatternIndexCard href="/patterns/intersections/grade-separated-walk-bike-crossing/" id="INT-GSW-16" title="Grade-Separated Walk and Bike Crossing" classification="intersections" status="situational" />
+  <PatternIndexCard href="/patterns/intersections/walk-bike-overpass/" id="INT-OVP-17" title="Walk and Bike Overpass" classification="intersections" status="situational" />
 </div>
 
 ## Facility level patterns

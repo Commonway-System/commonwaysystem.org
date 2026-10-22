@@ -42,6 +42,8 @@ Follows the Collector base order without an override. The downtown context sharp
 
 Distinct from Main Street <IdPill id="LOC-MST-05" />, a Local-scale, slower, retail-frontage-first pattern, and from Default Collector <IdPill id="COL-DEF-01" />, which doesn't assume a downtown context, Downtown Thoroughfare balances meaningful through-traffic volume against the frequent pedestrian activity, crossings, and access needs of a dense commercial core. This is a recognized NACTO street type distinct from both.<Citation index={1} /> On-street parking is typically retained here, unlike the Arterial no-parking rule, since Collector classification carries no such restriction. Crossing frequency and intersection treatment should prioritize pedestrian activity given the downtown context, even while accommodating through-traffic volume.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

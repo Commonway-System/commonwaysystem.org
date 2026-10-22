@@ -36,6 +36,7 @@ This is an acknowledged fallback for genuinely Freeway-scale volume or speed bey
 - [Default (Freeway)](/patterns/freeways/default/) <IdPill id="FRE-DEF-01" /> (reciprocal link to the Freeway-scale pattern this connects into)
 - [Turbo-Roundabout](/patterns/intersections/turbo-roundabout/) <IdPill id="INT-TRB-02" /> (explicitly named on this page as the tier just below it)
 - [Displaced Left-Turn](/patterns/intersections/displaced-left-turn/) <IdPill id="INT-DLT-14" /> (the faster, lower-cost alternative often chosen over this pattern at high-volume urban and suburban intersections)
+- [Grade-Separated Walk and Bike Crossing](/patterns/intersections/grade-separated-walk-bike-crossing/) <IdPill id="INT-GSW-16" /> (grade separation for people walking and biking)
 
 </div>
 

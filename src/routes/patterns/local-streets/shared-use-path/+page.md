@@ -38,6 +38,8 @@ Pedestrian and Bicycle share top priority under this pattern's own equal-priorit
 
 Width should accommodate two-way pedestrian and bicycle travel without forcing conflict, with connections back to the street network at logical, safe, visible points rather than incidental gaps.<Citation index={1} /> Distinct from [Bicycle Boulevard / Neighborhood Greenway](/patterns/local-streets/bicycle-boulevard/) <IdPill id="LOC-BBG-12" />, which shares an on-street roadway rather than separating off-street, and from [Multi-Use Trail / Greenway](/patterns/collectors/multi-use-trail-greenway/) <IdPill id="COL-MUT-06" />, which is longer-distance and destination-scale rather than local-connector scale.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">
@@ -49,7 +51,7 @@ Width should accommodate two-way pedestrian and bicycle travel without forcing c
 
 ## Getting there: Retrofit path options
 
-[Barrier-crossing / network reconnection retrofit](/retrofits/network/barrier-crossing-network-reconnection-retrofit/) <IdPill id="RFT-NET-03" /> commonly takes this form where it crosses a highway, rail line, or disconnected cul-de-sac pattern.
+[Barrier-crossing / network reconnection retrofit](/retrofits/network/barrier-crossing-network-reconnection-retrofit/) <IdPill id="RFT-NET-03" /> commonly takes this form where it crosses a highway, rail line, or disconnected cul-de-sac pattern. A [Freeway cap](/retrofits/network/freeway-cap/) <IdPill id="RFT-NET-04" /> often carries one across a freeway at ground level.
 
 ## References
 

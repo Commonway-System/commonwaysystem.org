@@ -44,6 +44,8 @@ Alley inverts the Local base order. The override is justified because the Typolo
 
 Because an alley is not a through-route for people walking or biking, its narrow width and service function do not conflict with the 20 mph Local speed cap. The override applies to mode priority, not to the speed rule.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

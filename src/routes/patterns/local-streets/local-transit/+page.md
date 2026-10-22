@@ -44,6 +44,8 @@ This is an override of the Local base order, justified by the Typology's stated 
 
 This entry is the Local-scale sibling of Collector Transit and Arterial Transit. All three follow the same override logic, moving Transit to the top of their respective base order once a route is designated, rather than treating transit priority as automatic on every street a bus happens to use.<Citation index={1} />
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

@@ -44,6 +44,8 @@ Follows the Local base order. Flagged for confirmation rather than fully locked.
 
 The safety rationale is separation, not speed: keeping people walking and biking off a roadway designed for faster through traffic.<Citation index={1} /> This is the Local-scale companion to the Arterial safety rule that access needs are served by a separate road rather than mixed into through lanes.
 
+On a bridge, or where it passes under a rail viaduct, this pattern carries through unchanged: its sidewalks, bike lanes, separation and speed continue across the structure. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">

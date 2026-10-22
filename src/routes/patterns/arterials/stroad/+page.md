@@ -50,6 +50,8 @@ Every direct driveway or curb cut along the corridor is a conflict point undermi
 
 This page exists to help readers identify a Stroad and replace it, with Boulevard where a pedestrian-first frontage fits the corridor, or with Default Arterial paired with a separate Local or Frontage/Service Road where it does not.
 
+A stroad that crosses a bridge, or passes under a rail viaduct, keeps its problems there. When the structure is reworked, it should take the pattern the street is moving toward, not the stroad's. See [Streets on Bridges](/guide/streets-on-bridges/).
+
 ## Related patterns
 
 <div class="cw-links">
