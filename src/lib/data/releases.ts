@@ -40,11 +40,9 @@ export const releases: Release[] = [
         details: "Park-and-Ride: Not Just Bikes on GO Transit's commuter parking (a counterexample), TCRP Report 95's park-and-ride chapter, and SSTI's summary of Dutch research finding that city park-and-ride lots can add driving. Depaving: Minnesota GreenStep Cities' traffic-calming action and Prince Edward County, Ontario's 2024 return-to-gravel pilot. Also tagged to Transit Hub / Station, Surface Parking Lot and Rural Collector." },
       { type: "new", area: "content",
         summary: "Curb, Curb Ramp, Curb Cut / Driveway Apron, Wheel Stop, Vertical Speed Control, Rumble Strip, Crosswalk, Pedestrian Safety Island / Refuge and Traffic Signal now have featured images." },
-    ],
-  },
-  {
-    date: "2026.10.22",
-    changes: [
+      { type: "note",
+        summary: "Accessibility check for the new media items and featured images: axe found no violations on Park-and-Ride, Depaving, Transit Hub / Station, Surface Parking Lot, Rural Collector, the nine element pages with new images, the Pattern index, the Media Gallery and Release History, in light and dark at desktop and 375px.",
+        details: "Checked with axe (WCAG 2.0 to 2.2 A and AA plus best practice). Not checked by hand at the largest text size, in high contrast or Simplified view, or with a screen reader; the changes are data and images shown by existing components." },
       { type: "note",
         summary: "Accessibility check for the bridge pages: axe found no violations on Streets on Bridges, the two new patterns, the three new Retrofit Strategies and the 27 street patterns that gained the bridge line, in light and dark at desktop and 375px widths.",
         details: "The six new pages were also checked with high contrast, the largest text size and Simplified view on: no axe violations, no sideways scrolling at phone width, headings in order with no skipped levels, no images, no vague link text, and keyboard focus visible (a 2px outline) and clear of the sticky header. The only small target found is the sitewide heading anchor, already part of every page. All 21 outbound links resolve; the Bend and UCL pages refuse scripted checks and were confirmed in a browser." },
@@ -70,6 +68,11 @@ export const releases: Release[] = [
         details: "From FHWA's 2022 report to Congress (60 projects in 22 states, about $18 to $21 million per acre, displacement concerns) and the Atlanta Fed's look at Dallas's Klyde Warren Park. The page says a cap never justifies widening the freeway beneath it." },
       { type: "improved", area: "content",
         summary: "Collector and Arterial Default, Shared-Use Path, Plaza / Parklet, Midblock Pedestrian Crossing, Grade-Separated Interchange and the Barrier-crossing retrofit now link to the new bridge patterns and retrofits." },
+    ],
+  },
+  {
+    date: "2026.10.22",
+    changes: [
       { type: "note",
         summary: "Accessibility check for the new media items and featured images: axe found no violations on the Media Gallery, Release History and the nine pattern pages that gained media or images, in light and dark at desktop and 375px widths.",
         details: "Pages: Street Tree, Tree Pit / Tree Trench, Bike Parking Corral, Bike-Share Station, Bioswale, Pervious Strip, Pedestrian Hybrid Beacon, Warning Sign and Wheel Stop. Checked with axe (WCAG 2.0 to 2.2 A and AA plus best practice) on the built site. Not done: a manual keyboard and screen reader pass on the carousels, and a full-site scan." },
