@@ -33,6 +33,14 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    date: "2026.10.23",
+    changes: [
+      { type: "new", area: "content",
+        summary: "The Media Gallery gains 5 items (MED-205 to MED-209: 1 video, 4 articles) for Park-and-Ride and Depaving / pavement-to-gravel conversion, pages that had no Related Media.",
+        details: "Park-and-Ride: Not Just Bikes on GO Transit's commuter parking (a counterexample), TCRP Report 95's park-and-ride chapter, and SSTI's summary of Dutch research finding that city park-and-ride lots can add driving. Depaving: Minnesota GreenStep Cities' traffic-calming action and Prince Edward County, Ontario's 2024 return-to-gravel pilot. Also tagged to Transit Hub / Station, Surface Parking Lot and Rural Collector." },
+    ],
+  },
+  {
     date: "2026.10.22",
     changes: [
       { type: "note",
