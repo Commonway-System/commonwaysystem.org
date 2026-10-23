@@ -4,6 +4,7 @@ description: "A sloped transition cut into a curb, providing an accessible path 
 patternId: ELM-CRP-03
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-crp-03-curb-ramp.png
 llms: "A sloped transition cut into a curb, providing an accessible path between the sidewalk and street surface for wheelchair users, strollers, and anyone unable to step up or down a vertical curb face."
 ---
 

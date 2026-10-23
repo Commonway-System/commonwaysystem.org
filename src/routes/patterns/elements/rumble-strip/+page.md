@@ -4,6 +4,7 @@ description: "A textured roadway surface, typically a series of shallow grooves 
 patternId: ELM-RMS-07
 status: situational
 date: 2026-08-31
+image: /patterns/elm-rms-07-rumble-strip.png
 llms: "A textured roadway surface, typically a series of shallow grooves or raised bars, that alerts drivers through vibration and sound when a vehicle crosses it."
 ---
 

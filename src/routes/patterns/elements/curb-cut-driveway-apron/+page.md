@@ -4,6 +4,7 @@ description: "The break in a curb allowing vehicle access from the roadway to an
 patternId: ELM-CCA-04
 status: situational
 date: 2026-08-31
+image: /patterns/elm-cca-04-curb-cut-driveway-apron.png
 llms: "The break in a curb allowing vehicle access from the roadway to an adjacent driveway, typically formed with a sloped apron transitioning between street grade and driveway grade."
 ---
 

@@ -4,6 +4,7 @@ description: "A small barrier, typically a short raised block or bumper, placed 
 patternId: ELM-WHS-05
 status: situational
 date: 2026-08-31
+image: /patterns/elm-whs-05-wheel-stop.png
 llms: "A small barrier, typically a short raised block or bumper, placed at the end of a parking space to prevent a parked vehicle from overrunning a curb, sidewalk, or space limit."
 ---
 

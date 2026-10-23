@@ -4,6 +4,7 @@ description: "A signal-controlled device using red, yellow, and green indication
 patternId: ELM-TFS-14
 status: situational
 date: 2026-08-31
+image: /patterns/elm-tfs-14-traffic-signal.png
 llms: "A signal-controlled device using red, yellow, and green indications to assign right-of-way among conflicting vehicle movements at an intersection."
 ---
 

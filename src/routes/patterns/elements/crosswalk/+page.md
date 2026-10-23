@@ -4,6 +4,7 @@ description: "A marked pedestrian crossing point, located at an intersection or 
 patternId: ELM-CRW-08
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-crw-08-crosswalk.png
 llms: "A marked pedestrian crossing point, located at an intersection or midblock, delineated with pavement markings ranging from a simple two-line crosswalk to high-visibility continental or ladder striping."
 ---
 

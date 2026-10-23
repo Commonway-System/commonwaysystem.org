@@ -4,6 +4,7 @@ description: "The raised edge separating the roadway from the sidewalk or should
 patternId: ELM-CRB-01
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-crb-01-curb.jpeg
 llms: "The raised edge separating the roadway from the sidewalk or shoulder, marking the physical boundary between space allocated to vehicles and space allocated to pedestrians or the roadway edge condition."
 ---
 

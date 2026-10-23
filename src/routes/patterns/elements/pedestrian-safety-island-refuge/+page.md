@@ -4,6 +4,7 @@ description: "A protected median space within a roadway allowing a pedestrian to
 patternId: ELM-PSI-09
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-psi-09-pedestrian-safety-island-refuge.png
 llms: "A protected median space within a roadway allowing a pedestrian to cross in two stages, stopping partway across to wait for a gap in the second direction of traffic rather than crossing the full width in one movement."
 ---
 

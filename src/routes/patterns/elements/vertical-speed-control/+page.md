@@ -4,6 +4,7 @@ description: "A raised roadway feature (speed hump, speed table, or speed cushio
 patternId: ELM-VSC-06
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-vsc-06-vertical-speed-control.png
 llms: "A raised roadway feature (speed hump, speed table, or speed cushion) that slows vehicles through vertical deflection, forcing a driver to reduce speed to avoid an uncomfortable jolt."
 ---
 
