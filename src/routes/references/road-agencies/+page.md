@@ -2,11 +2,13 @@
 title: Road Agency Directory
 description: Find the government office that can change your street. A searchable, filterable list of road agencies at the federal, state, regional, county, city and tribal levels, with links checked on each agency's own site.
 date: 2026-10-26
-llms: "A searchable, filterable directory of road agencies, starting with the United States: federal agencies (USDOT, FHWA, Federal Lands Highway, the Bureau of Indian Affairs Division of Transportation, the National Park Service) and every state, District of Columbia and territorial transportation department except American Samoa's. Each entry lists the agency's level, where it serves, and contact links checked on its own site, with the date checked. Counties, cities, metropolitan planning organizations and tribal transportation departments are added as they're researched; Canada comes next. Companion to How Road Changes Actually Happen and When Jurisdiction Doesn't Follow the Pattern."
+llms: "A searchable, filterable directory of road agencies, with list, card and map views, starting with the United States: federal agencies (USDOT, FHWA, Federal Lands Highway, the Bureau of Indian Affairs Division of Transportation, the National Park Service) and every state, District of Columbia and territorial transportation department except American Samoa's. Each entry lists the agency's level, where it serves, and contact links checked on its own site, with the date checked. Counties, cities, metropolitan planning organizations and tribal transportation departments are added as they're researched; Canada comes next. Companion to How Road Changes Actually Happen and When Jurisdiction Doesn't Follow the Pattern."
 ---
 
 <script>
-  import { RoadAgencyDirectory } from '$lib/theme/components'
+  // Imported directly, not from the components index: everything exported
+  // there ships in a chunk every page loads.
+  import RoadAgencyDirectory from '$lib/theme/components/RoadAgencyDirectory.svelte'
 </script>
 
 _Find the government office that can change your street_
@@ -20,7 +22,7 @@ Each entry links to the agency's website. Over time, entries will add the contac
 <div class="cw-ranked">
 
 1. **Work out who owns the road.** A state route number usually means the state DOT. In some places the answer is stranger; see [When Jurisdiction Doesn't Follow the Pattern](/guide/make-it-happen/jurisdiction-variants/).
-2. **Filter by level and by state or territory.** Choosing a state also keeps the federal agencies in the list, since they cover every state.
+2. **Filter by level and by state or territory,** or pick a place on the Map view. Choosing a state also keeps the federal agencies in the list, since they cover every state.
 3. **Use the most specific contact.** A request form is tracked; a main phone line often isn't.
 
 </div>

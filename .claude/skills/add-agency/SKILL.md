@@ -38,7 +38,7 @@ Check each URL in the Browser pane when curl returns 403 or times out (many .gov
 - `level`, `region`, and `area` (the place served, for county, local, regional and tribal entries).
 - `handles`: one plain sentence on what to contact it about, only when that isn't obvious from the level (a county road commission, a district that owns the streets). Follow the brand guide's editorial rules: plain words, no em-dashes.
 - `checked`: today's date. On a recheck, update it only after every contact on the entry has been confirmed; give a contact its own `checked` when only that one was confirmed later.
-- Location (`[lat, lng]` of the main office) when it's easy to confirm; the map view will use it.
+- Location (`[lat, lng]` of the main office) when it's easy to confirm (not drawn yet; kept for pins on the map later).
 
 ## 3. Verify and report
 

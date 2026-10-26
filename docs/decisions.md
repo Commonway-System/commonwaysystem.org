@@ -45,6 +45,13 @@ Decisions Kevin has locked. Don't reopen one without his say-so. When a session 
 - Descriptive patterns show no status badge, on purpose.
 - Pattern IDs are permanent. One recorded exception: ART-PKY-07, after an index renumbering.
 
+## Road Agency Directory
+
+- The directory (`/references/road-agencies/`) lists only researched agencies, each contact checked on the agency's own site; no placeholder rows. (2026-10-26)
+- Scope: the United States now, including territories and tribal governments; Canada next, then other countries. The data model stays country-neutral. (2026-10-26)
+- Corrections and suggestions come in through a GitHub issue form, not email. (2026-10-26)
+- The Map view draws real state outlines (Census boundaries, Alaska, Hawaii and territories inset), not a tile grid. (2026-10-26)
+
 ## Sources
 
 - Cite a primary source, read directly. A search snippet or a summary is not a source.

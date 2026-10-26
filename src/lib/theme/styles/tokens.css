@@ -275,6 +275,19 @@
      discouraged" uses --cw-danger instead (7.17:1). */
   --cw-caution: #b54708;
 
+  /* Road Agency Directory map (site-only, 2026.10.26): how much of each
+     state or territory has been researched, on the brand's teal hue. The
+     map's labels and focus outline are ink, which clears 3.5:1 or more on
+     every step in all four themes; the fills are never the only signal
+     (each state's count is in its link name, the legend and the list), and
+     "none yet" is also hatched. */
+  --cw-map-0: #ffffff;
+  --cw-map-1: #d5efe9;
+  --cw-map-2: #7cc8ba;
+  --cw-map-3: #2e9c8b;
+  --cw-map-stroke: #8a8577;
+  --cw-map-hatch: #b8b2a3;
+
   /* ---- Layout -------------------------------------------------------- */
   --cw-navbar-height: 4rem;
   --cw-sidebar-width: 17rem;
@@ -442,6 +455,12 @@
   --cw-danger-soft: #3a1420;
   /* 7.82:1 on dark paper, and under --cw-paper (dark) text as a fill. */
   --cw-caution: #ef9254;
+  --cw-map-0: #201e1b;
+  --cw-map-1: #28524a;
+  --cw-map-2: #2c7064;
+  --cw-map-3: #348c7e;
+  --cw-map-stroke: #6b675e;
+  --cw-map-hatch: #4a463f;
 
   --cw-shadow-drawer: 0 12px 32px rgba(0, 0, 0, 0.45);
 }
@@ -474,6 +493,12 @@ html[data-contrast='high'] {
   --cw-tip-ink: #2f3d0a;
   --cw-amber-ink: #4a2a00;
   --cw-caution: #8a3305;
+  --cw-map-0: #ffffff;
+  --cw-map-1: #d5efe9;
+  --cw-map-2: #6cbfb1;
+  --cw-map-3: #1f7c6e;
+  --cw-map-stroke: #333333;
+  --cw-map-hatch: #666666;
 }
 
 html[data-contrast='high'][data-theme='dark'] {
@@ -493,6 +518,12 @@ html[data-contrast='high'][data-theme='dark'] {
   --cw-tip-ink: #d8ec9a;
   --cw-amber-ink: #ffe2b0;
   --cw-caution: #ffc199;
+  --cw-map-0: #000000;
+  --cw-map-1: #28524a;
+  --cw-map-2: #2c7064;
+  --cw-map-3: #348c7e;
+  --cw-map-stroke: #d9d9d9;
+  --cw-map-hatch: #999999;
 }
 
 

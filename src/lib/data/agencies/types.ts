@@ -85,6 +85,6 @@ export interface Agency {
   contacts: AgencyContact[]
   /** YYYY-MM-DD, when the entry was last confirmed on the agency's own site. */
   checked: string
-  /** [latitude, longitude] of the main office, for the future map view. */
+  /** [latitude, longitude] of the main office. Not drawn yet; kept for pins on the map later. */
   location?: [number, number]
 }

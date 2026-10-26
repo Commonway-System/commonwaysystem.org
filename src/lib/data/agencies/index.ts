@@ -7,7 +7,8 @@ import { countries } from './countries.js'
 // build time, so a new file needs no change here. Same mechanism as the
 // media entries; not under $lib/server/ because the directory component
 // filters on the client.
-const modules = import.meta.glob('./*/*.ts', { eager: true }) as Record<string, { default: Agency[] }>
+// maps/ holds the map view's outlines, not agencies.
+const modules = import.meta.glob(['./*/*.ts', '!./maps/*.ts'], { eager: true }) as Record<string, { default: Agency[] }>
 
 const allAgencies: Agency[] = Object.values(modules).flatMap(mod => mod.default)
 

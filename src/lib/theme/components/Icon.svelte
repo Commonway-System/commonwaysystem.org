@@ -1,6 +1,6 @@
 <script lang="ts">
   interface Props {
-    name: 'menu' | 'close' | 'chevron-down' | 'chevron-right' | 'sun' | 'moon' | 'arrow-left' | 'arrow-right' | 'github' | 'external' | 'x-twitter' | 'facebook' | 'linkedin' | 'reddit' | 'bluesky' | 'mail' | 'link' | 'check' | 'search' | 'road' | 'grid' | 'list' | 'retrofit' | 'question' | 'play' | 'shield-check' | 'caution' | 'stop'
+    name: 'menu' | 'close' | 'chevron-down' | 'chevron-right' | 'sun' | 'moon' | 'arrow-left' | 'arrow-right' | 'github' | 'external' | 'x-twitter' | 'facebook' | 'linkedin' | 'reddit' | 'bluesky' | 'mail' | 'link' | 'check' | 'search' | 'road' | 'grid' | 'list' | 'map' | 'retrofit' | 'question' | 'play' | 'shield-check' | 'caution' | 'stop'
     size?: number
     /**
      * Most icons here are line-drawn (stroke, fill="none"), the original
@@ -27,6 +27,7 @@
     'github': 'M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.4 7 9.8.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.1-1.6-1.1-1.6-.9-.6.1-.6.1-.6 1 .1 1.5 1.1 1.5 1.1.9 1.5 2.3 1.1 2.9.8.1-.7.4-1.1.6-1.4-2.3-.3-4.7-1.2-4.7-5.2 0-1.1.4-2 1.1-2.8-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10 10 0 015.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.8 0 4-2.4 4.9-4.7 5.2.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5 4.1-1.4 7-5.3 7-9.8C22 6.6 17.5 2 12 2z',
     'external': 'M7 17L17 7M8 7h9v9',
     'list': 'M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01',
+    'map': 'M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14',
     // A simple crossed-line X, matching the platform's own current wordmark.
     'x-twitter': 'M4 4l16 16M20 4L4 20',
     'facebook': 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l.5-4H14V7a1 1 0 0 1 1-1h3z',

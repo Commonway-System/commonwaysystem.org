@@ -1,24 +1,27 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
+  import { onMount, tick } from 'svelte'
   import { replaceState } from '$app/navigation'
   import { page } from '$app/state'
   import { agencyLevels, contactLabels, countries, getAgencies, regionName } from '$lib/data/agencies/index.js'
   import type { Agency, AgencyContact, AgencyLevel, ContactType } from '$lib/data/agencies/index.js'
   import { externalLinkAttrs, isExternalHref } from '$lib/site.js'
+  import { mapLoaders } from '$lib/data/agencies/maps/index.js'
+  import type { RegionMap } from '$lib/data/agencies/maps/index.js'
   import Icon from './Icon.svelte'
+  import RoadAgencyMap from './RoadAgencyMap.svelte'
 
   // The Road Agency Directory on /references/road-agencies/. The full list
   // prerenders as a plain table, so it works with JavaScript off and lands
   // in the text-only and markdown copies; the search, filters, sort and the
-  // List / Cards switch appear once the page hydrates. Filter state lives in
+  // List / Cards / Map switch appear once the page hydrates. Filter state lives in
   // the URL (?q=, level=, region=, has=, sort=, view=), so a filtered view
-  // can be shared. A map view comes later (Roadmap).
+  // can be shared. The map view is RoadAgencyMap.svelte.
 
   const REPO = 'https://github.com/Commonway-System/commonwaysystem.org'
   const all = getAgencies()
 
   type SortKey = 'name' | 'level' | 'region' | 'checked'
-  type View = 'list' | 'cards'
+  type View = 'list' | 'cards' | 'map'
   const sortOptions: { value: SortKey, label: string }[] = [
     { value: 'name', label: 'Name (A to Z)' },
     { value: 'level', label: 'Level (federal first)' },
@@ -37,6 +40,7 @@
   let has = $state<Set<ContactType>>(new Set())
   let sort = $state<SortKey>('name')
   let view = $state<View>('list')
+  let countEl: HTMLParagraphElement | undefined = $state()
 
   const countryCodes = [...new Set(all.map(a => a.country))].sort()
   // With one country there's nothing to choose; its labels apply directly.
@@ -95,8 +99,34 @@
       region: (x, y) => regionName(x).localeCompare(regionName(y)) || levelRank(x) - levelRank(y) || byName(x, y),
       checked: (x, y) => y.checked.localeCompare(x.checked) || byName(x, y),
     }
-    return items.sort(compare[sort])
+    // With a place chosen, its own agencies come before the federal ones
+    // listed alongside them, whatever the sort.
+    const local = (a: Agency) => (region && a.region === region ? 0 : 1)
+    return items.sort((x, y) => local(x) - local(y) || compare[sort](x, y))
   })
+
+  // The map view needs one country with a map; its outlines load on first use.
+  const hasMap = $derived(!!activeCountry && !!mapLoaders[activeCountry])
+  let loadedMap = $state<{ country: string, map: RegionMap }>()
+  const activeMap = $derived(loadedMap?.country === activeCountry ? loadedMap.map : undefined)
+  $effect(() => {
+    const cc = activeCountry
+    if (view === 'map' && hasMap && loadedMap?.country !== cc)
+      mapLoaders[cc]().then(m => (loadedMap = { country: cc, map: m.default }))
+  })
+  const regionCounts: Record<string, number> = {}
+  for (const a of all)
+    if (a.region)
+      regionCounts[a.region] = (regionCounts[a.region] ?? 0) + 1
+
+  // Choosing a place on the map lists its agencies and moves focus to the
+  // result count, so keyboard and screen-reader users land on the change.
+  async function chooseRegion(code: string) {
+    region = code
+    view = 'list'
+    await tick()
+    countEl?.focus()
+  }
 
   const filtersActive = $derived(query.trim() !== '' || levels.size > 0 || region !== '' || has.size > 0 || country !== '')
 
@@ -129,6 +159,8 @@
       sort = s as SortKey
     if (p.get('view') === 'cards')
       view = 'cards'
+    if (p.get('view') === 'map' && mapLoaders[region.slice(0, 2) || activeCountry])
+      view = 'map'
     mounted = true
   })
 
@@ -279,25 +311,37 @@
     </form>
 
     <div class="rad__bar">
-      <p class="rad__count" role="status">{filtered.length} of {all.length} agencies</p>
+      <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+      <p class="rad__count" role="status" tabindex="-1" bind:this={countEl}>{filtered.length} of {all.length} agencies</p>
       {#if filtersActive}
         <button type="button" class="rad__btn" onclick={clearFilters}>Clear filters</button>
       {/if}
       <div class="rad__views" role="group" aria-label="View">
         <button type="button" class="rad__btn" aria-pressed={view === 'list'} onclick={() => (view = 'list')}><Icon name="list" size={16} /> List</button>
         <button type="button" class="rad__btn" aria-pressed={view === 'cards'} onclick={() => (view = 'cards')}><Icon name="grid" size={16} /> Cards</button>
+        {#if hasMap}
+          <button type="button" class="rad__btn" aria-pressed={view === 'map'} onclick={() => (view = 'map')}><Icon name="map" size={16} /> Map</button>
+        {/if}
       </div>
     </div>
   {:else}
     <p class="rad__count">{all.length} agencies</p>
   {/if}
 
-  {#if filtered.length === 0}
+  {#if view === 'map' && hasMap}
+    <p class="rad__map-intro">Choose a state or territory to list its agencies; federal agencies are listed with every one. The shading shows how many agencies based there have been researched so far.</p>
+    {#if activeMap}
+      <RoadAgencyMap map={activeMap} names={countries[activeCountry].regions} counts={regionCounts} selected={region} onselect={chooseRegion} />
+    {:else}
+      <p class="rad__map-intro">Loading the map…</p>
+    {/if}
+    <p class="rad__map-small">On a small screen, the {regionNoun} menu above does the same thing and is easier to use.</p>
+  {:else if filtered.length === 0}
     <div class="rad__empty">
       <p>No agencies match these filters yet. The directory lists only agencies whose contacts have been checked on their own sites, so many places aren't in it yet.</p>
       <p><a href="{REPO}/issues/new?template=road-agency.yml" {...externalLinkAttrs(REPO)}>Suggest an agency<span class="cw-external-indicator"><Icon name="external" size={12} /><span class="cw-sr-only"> (opens in new tab)</span></span></a></p>
     </div>
-  {:else if view === 'list'}
+  {:else if view !== 'cards'}
     <!-- Focusable so keyboard users can scroll the table sideways at narrow widths. -->
     <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
     <div class="rad__scroll" role="region" aria-label="Road agencies" tabindex="0">
@@ -435,6 +479,29 @@
     align-items: center;
     gap: 0.75rem 1rem;
     margin: 1.25rem 0 1rem;
+  }
+
+  .rad__count:focus {
+    outline: none;
+  }
+
+  .rad__map-intro {
+    margin: 0 0 0.75rem;
+    font-size: var(--cw-text-sm);
+    color: var(--cw-ink-soft);
+  }
+
+  .rad__map-small {
+    display: none;
+    margin: 0.75rem 0 0;
+    font-size: var(--cw-text-sm);
+    color: var(--cw-ink-soft);
+  }
+
+  @media (max-width: 39.99rem) {
+    .rad__map-small {
+      display: block;
+    }
   }
 
   .rad__count {
