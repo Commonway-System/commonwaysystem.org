@@ -22,7 +22,12 @@ const agencies: Agency[] = [
     country: 'US',
     level: 'national',
     handles: 'Federal highway rules and funding, through a division office in each state; state DOTs carry out the work.',
-    contacts: [{ type: 'website', url: 'https://highways.dot.gov/' }],
+    contacts: [
+      { type: 'website', url: 'https://highways.dot.gov/' },
+      { type: 'contact', url: 'https://highways.dot.gov/about/contact-us', label: 'Contact FHWA headquarters' },
+      { type: 'contact', url: 'https://highways.dot.gov/about/field-offices', label: 'Field and division offices (one in each state)' },
+      { type: 'phone', phone: '202-366-4000', label: 'U.S. DOT mainline, as listed by FHWA' },
+    ],
     checked: '2026-10-26',
   },
   {
@@ -32,7 +37,13 @@ const agencies: Agency[] = [
     country: 'US',
     level: 'national',
     handles: 'Roads that serve national parks, forests, wildlife refuges and tribal lands, built with the land agencies that own them.',
-    contacts: [{ type: 'website', url: 'https://highways.dot.gov/federal-lands' }],
+    contacts: [
+      { type: 'website', url: 'https://highways.dot.gov/federal-lands' },
+      { type: 'contact', url: 'https://highways.dot.gov/federal-lands/about/contacts', label: 'Headquarters and the three division offices' },
+      { type: 'plan', url: 'https://highways.dot.gov/federal-lands/planning/tip', label: 'Transportation Improvement Program' },
+      { type: 'phone', phone: '(202) 366-9494', label: 'Headquarters' },
+      { type: 'email', email: 'federallands.fhwa@dot.gov', label: 'Headquarters inbox' },
+    ],
     checked: '2026-10-26',
   },
   {
@@ -42,7 +53,11 @@ const agencies: Agency[] = [
     country: 'US',
     level: 'national',
     handles: 'The federal side of the Tribal Transportation Program, for roads serving tribal lands.',
-    contacts: [{ type: 'website', url: 'https://www.bia.gov/bia/ois/division-transportation' }],
+    contacts: [
+      { type: 'website', url: 'https://www.bia.gov/bia/ois/division-transportation' },
+      { type: 'contact', url: 'https://www.bia.gov/regional-offices', label: 'BIA regional offices' },
+      { type: 'phone', phone: '(505) 563-3320', label: 'Division of Transportation, West (Albuquerque)' },
+    ],
     checked: '2026-10-26',
   },
   {
