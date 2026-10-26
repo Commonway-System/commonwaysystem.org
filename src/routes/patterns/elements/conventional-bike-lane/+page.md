@@ -4,6 +4,7 @@ description: "A striped, dedicated on-street lane for bicycle travel, separated 
 patternId: ELM-CBL-34
 status: situational
 date: 2026-08-31
+image: /patterns/elm-cbl-34-conventional-bike-lane.png
 llms: "A striped, dedicated on-street lane for bicycle travel, separated from the adjacent vehicle travel lane by paint markings alone, with no physical buffer or barrier."
 ---
 

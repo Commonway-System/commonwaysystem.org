@@ -4,6 +4,7 @@ description: "A colored pavement treatment, typically green, applied at a bike f
 patternId: ELM-GPM-38
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-gpm-38-green-pavement-conflict-marking.png
 llms: "A colored pavement treatment, typically green, applied at a bike facility’s conflict point with a driveway, turn lane, or intersection, to increase driver awareness that a cyclist may be present or crossing through that space."
 ---
 

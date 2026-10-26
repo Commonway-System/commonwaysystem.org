@@ -4,6 +4,7 @@ description: "A planted zone running between the roadway and the sidewalk, provi
 patternId: ELM-LBS-30
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-lbs-30-landscaped-buffer-strip.png
 llms: "A planted zone running between the roadway and the sidewalk, providing separation, stormwater treatment opportunity, and space for street trees and other plantings, distinct from a hardscaped or paved separation."
 ---
 

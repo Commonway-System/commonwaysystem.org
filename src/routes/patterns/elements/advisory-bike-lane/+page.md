@@ -4,6 +4,7 @@ description: "A dashed-line bike lane marked on each side of a narrow, typically
 patternId: ELM-ABL-36
 status: situational
 date: 2026-08-31
+image: /patterns/elm-abl-36-advisory-bike-lane.png
 llms: "A dashed-line bike lane marked on each side of a narrow, typically two-way, roadway with no dedicated centerline, where vehicles are expected to cross into the bike lane space temporarily to pass oncoming traffic, yielding to any cyclist present."
 ---
 

@@ -4,6 +4,7 @@ description: "A raised platform positioned between a bike lane and the vehicle t
 patternId: ELM-TBI-41
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-tbi-41-transit-boarding-island.png
 llms: "A raised platform positioned between a bike lane and the vehicle travel lane at a transit stop, allowing bus or streetcar passengers to board and alight without crossing the bike lane at grade, and without the transit vehicle needing to merge across the bike lane to reach the curb."
 ---
 

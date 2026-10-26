@@ -4,6 +4,7 @@ description: "A fixed rack or set of racks, most commonly an inverted-U or simil
 patternId: ELM-BPR-40
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-bpr-40-bike-parking-rack.png
 llms: "A fixed rack or set of racks, most commonly an inverted-U or similar design, providing a place to lock a bicycle, typically installed on a sidewalk or in a dedicated on-street corral."
 ---
 

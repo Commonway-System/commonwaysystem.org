@@ -4,6 +4,7 @@ description: "A striped bike lane with an additional painted buffer zone, typica
 patternId: ELM-BBL-35
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-bbl-35-buffered-bike-lane.png
 llms: "A striped bike lane with an additional painted buffer zone, typically hatched or cross-hatched markings, separating it from the adjacent vehicle travel lane or parking lane by more distance than a conventional bike lane alone provides."
 ---
 

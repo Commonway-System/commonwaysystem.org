@@ -4,6 +4,7 @@ description: "A designated waiting area positioned in the far corner of an inter
 patternId: ELM-TSQ-43
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-tsq-43-two-stage-turn-queue-box.png
 llms: "A designated waiting area positioned in the far corner of an intersection, allowing a cyclist making a left turn (or right turn in left-driving contexts) to cross the intersection in two separate straight-through movements rather than merging across vehicle traffic to execute a conventional turn."
 ---
 

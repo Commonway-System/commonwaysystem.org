@@ -4,6 +4,7 @@ description: "A raised or landscaped island placed along the center of a roadway
 patternId: ELM-MDI-45
 status: recommended
 date: 2026-09-03
+image: /patterns/elm-mdi-45-median-island.png
 llms: "A raised or landscaped island placed along the center of a roadway to narrow the effective travel width and separate opposing traffic, without a pedestrian crossing function, distinct from Pedestrian Safety Island/Refuge's crossing-assistance role."
 ---
 

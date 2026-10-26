@@ -69,6 +69,8 @@ export const releases: Release[] = [
       { type: "note",
         summary: "Accessibility: axe scans of the Reference overview, the Road Agency Directory (list, cards, map and empty results), How Road Changes Actually Happen and When Jurisdiction Doesn't Follow the Pattern, in light and dark at 1280 and 375 pixels and in high contrast, found no violations.",
         details: "Also checked by hand: the filters are labeled form controls, the result count is announced as a status, the List and Cards buttons show their pressed state by border weight and fill, not color alone, and below 640 pixels the list folds its Level and Where columns into the agency cell so the table fits without sideways scrolling. On the map: a keyboard walk (alphabetical order, a dashed ink focus outline), ink outlines measured at 3.47:1 or more against every shade in all four themes, map labels on a paper halo, and the Simplified view and high-contrast scans. Not yet tested with a screen reader." },
+      { type: "new", area: "content",
+        summary: "Landscaped Buffer Strip, Bike Parking Rack, Transit Boarding Island, Two-Stage Turn Queue Box, Neighborhood Traffic Circle, Median Island, Green Pavement / Conflict Marking, Protected Bike Lane, Advisory Bike Lane, Buffered Bike Lane and Conventional Bike Lane now have featured images." },
     ],
   },
   {

@@ -4,6 +4,7 @@ description: "A small raised or landscaped island placed at the center of a Loca
 patternId: ELM-NTC-46
 status: recommended
 date: 2026-09-03
+image: /patterns/elm-ntc-46-neighborhood-traffic-circle-mini-roundabout.png
 llms: "A small raised or landscaped island placed at the center of a Local-to-Local intersection, around which traffic circulates at low speed, used for calming rather than volume control, distinct from the sized, engineered Roundabout pattern."
 ---
 

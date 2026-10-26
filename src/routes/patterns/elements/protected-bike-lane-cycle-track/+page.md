@@ -4,6 +4,7 @@ description: "A bike facility physically separated from adjacent vehicle traffic
 patternId: ELM-PBL-37
 status: recommended
 date: 2026-08-31
+image: /patterns/elm-pbl-37-protected-bike-lane-cycle-track.png
 llms: "A bike facility physically separated from adjacent vehicle traffic by a barrier, curb, parked cars, bollards, or planters, rather than paint markings alone, providing the highest level of separation among on-street bike facility types."
 ---
 
