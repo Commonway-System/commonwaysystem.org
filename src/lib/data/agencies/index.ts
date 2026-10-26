@@ -42,7 +42,12 @@ export function regionName(a: Pick<Agency, 'country' | 'region'>): string {
   return a.region ? countries[a.country]?.regions[a.region] ?? a.region : ''
 }
 
+/** The agency's other names, each with its language when it isn't English. */
+export function altNames(a: Pick<Agency, 'aka'>): { name: string, lang?: string }[] {
+  return (a.aka ?? []).map(n => (typeof n === 'string' ? { name: n } : n))
+}
+
 export { contactLabels, countries } from './countries.js'
 export type { CountryInfo } from './countries.js'
 export { agencyLevels } from './types.js'
-export type { Agency, AgencyContact, AgencyLevel, ContactType } from './types.js'
+export type { Agency, AgencyAltName, AgencyContact, AgencyLevel, ContactType } from './types.js'

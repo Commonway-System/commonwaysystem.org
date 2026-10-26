@@ -90,7 +90,8 @@ export async function searchSite(
     detail: d.meta?.detail ?? '',
     thumb: thumbFor(d),
     headings: (d.sub_results ?? [])
-      .filter((s: any) => typeof s.url === 'string' && s.url.includes('#'))
+      // A custom record whose own URL has a #hash (a directory agency) comes back as its own sub-result.
+      .filter((s: any) => typeof s.url === 'string' && s.url.includes('#') && s.url !== d.url)
       .slice(0, 3)
       .map((s: any) => ({ title: s.title, url: s.url })),
   }))

@@ -1,7 +1,9 @@
 // Search filter values shared by PageLayout.svelte (which writes them into
 // each page as Pagefind filter/meta markers) and SearchPanel.svelte (which
-// labels them). Keep in sync with the custom Media records in
-// scripts/build-search-index.mjs, which use the same 'Media' section value.
+// labels them). Keep in sync with the custom records in
+// scripts/build-search-index.mjs: Media items use the same 'Media' section
+// value; Road Agency Directory records use their own 'Agencies' value, which
+// no page carries.
 
 const SECTIONS: Record<string, string> = {
   '': 'Home',

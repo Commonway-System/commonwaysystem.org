@@ -35,6 +35,7 @@ Check each URL in the Browser pane when curl returns 403 or times out (many .gov
 
 - `id`: `<country>-<region>-<short name>` in lower case, permanent, never reused (`us-or-multnomah-county`). Check it's unique.
 - `name`: the official name, written out. `abbr` only if the agency uses one.
+- `aka`: other names the agency uses for itself on its own site (a second-language name, a longer abbreviation like "Alaska DOT&PF"), so site search finds them. Not nicknames others coin. A name in another language goes in as `{ name: '...', lang: 'es' }`.
 - `level`, `region`, and `area` (the place served, for county, local, regional and tribal entries).
 - `handles`: one plain sentence on what to contact it about, only when that isn't obvious from the level (a county road commission, a district that owns the streets). Follow the brand guide's editorial rules: plain words, no em-dashes.
 - `checked`: today's date. On a recheck, update it only after every contact on the entry has been confirmed; give a contact its own `checked` when only that one was confirmed later.

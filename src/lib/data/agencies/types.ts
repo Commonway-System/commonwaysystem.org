@@ -66,6 +66,11 @@ export interface AgencyContact {
   checked?: string
 }
 
+export interface AgencyAltName {
+  name: string
+  lang: string
+}
+
 export interface Agency {
   /** Permanent, never reused: country, region, then a short name, e.g. "us-or-odot". */
   id: string
@@ -73,6 +78,14 @@ export interface Agency {
   name: string
   /** The abbreviation the agency uses for itself, e.g. "ODOT". */
   abbr?: string
+  /**
+   * Other names the agency uses for itself, read on its own site: a
+   * second-language name, a longer abbreviation ("Alaska DOT&PF"). Shown on
+   * the entry and searched by the directory and site search. Not nicknames
+   * others coin. A name in another language takes its BCP 47 tag, e.g.
+   * { name: 'Departamento de …', lang: 'es' }, so screen readers say it right.
+   */
+  aka?: (string | AgencyAltName)[]
   /** ISO 3166-1 alpha-2, e.g. "US". */
   country: string
   /** ISO 3166-2, e.g. "US-OR". Omit for a national agency. */

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { onMount, tick } from 'svelte'
-  import { replaceState } from '$app/navigation'
+  import { onMount, tick, untrack } from 'svelte'
+  import { afterNavigate, replaceState } from '$app/navigation'
   import { page } from '$app/state'
-  import { agencyLevels, contactLabels, countries, getAgencies, regionName } from '$lib/data/agencies/index.js'
+  import { agencyLevels, altNames, contactLabels, countries, getAgencies, regionName } from '$lib/data/agencies/index.js'
   import type { Agency, AgencyContact, AgencyLevel, ContactType } from '$lib/data/agencies/index.js'
   import { externalLinkAttrs, isExternalHref } from '$lib/site.js'
   import { mapLoaders } from '$lib/data/agencies/maps/index.js'
@@ -15,7 +15,9 @@
   // in the text-only and markdown copies; the search, filters, sort and the
   // List / Cards / Map switch appear once the page hydrates. Filter state lives in
   // the URL (?q=, level=, region=, has=, sort=, view=), so a filtered view
-  // can be shared. The map view is RoadAgencyMap.svelte.
+  // can be shared. Each entry is also an anchor (#us-or-odot) that site
+  // search and other pages link to; arriving at one clears the filters that
+  // would hide it. The map view is RoadAgencyMap.svelte.
 
   const REPO = 'https://github.com/Commonway-System/commonwaysystem.org'
   const all = getAgencies()
@@ -41,6 +43,8 @@
   let sort = $state<SortKey>('name')
   let view = $state<View>('list')
   let countEl: HTMLParagraphElement | undefined = $state()
+  /** The agency named by the URL's #hash, highlighted and given focus. */
+  let target = $state('')
 
   const countryCodes = [...new Set(all.map(a => a.country))].sort()
   // With one country there's nothing to choose; its labels apply directly.
@@ -85,7 +89,7 @@
         if (!a.contacts.some(c => c.type === t))
           return false
       if (q) {
-        const haystack = `${a.name} ${a.abbr ?? ''} ${a.area ?? ''} ${regionName(a)} ${a.handles ?? ''} ${levelLabel(a)}`.toLowerCase()
+        const haystack = `${a.name} ${a.abbr ?? ''} ${altNames(a).map(n => n.name).join(' ')} ${a.area ?? ''} ${regionName(a)} ${a.handles ?? ''} ${levelLabel(a)}`.toLowerCase()
         if (!haystack.includes(q))
           return false
       }
@@ -144,7 +148,7 @@
     country = ''
   }
 
-  onMount(() => {
+  function readUrl() {
     const p = page.url.searchParams
     query = p.get('q') ?? ''
     const validLevels = (p.get('level') ?? '').split(',').filter((l): l is AgencyLevel => agencyLevels.includes(l as AgencyLevel))
@@ -155,13 +159,51 @@
     region = Object.values(countries).some(info => r in info.regions) ? r : ''
     has = new Set((p.get('has') ?? '').split(',').filter((t): t is ContactType => filterableContacts.includes(t as ContactType)))
     const s = p.get('sort')
-    if (sortOptions.some(o => o.value === s))
-      sort = s as SortKey
+    sort = sortOptions.some(o => o.value === s) ? s as SortKey : 'name'
+    view = 'list'
     if (p.get('view') === 'cards')
       view = 'cards'
     if (p.get('view') === 'map' && mapLoaders[region.slice(0, 2) || activeCountry])
       view = 'map'
+  }
+
+  onMount(() => {
+    readUrl()
     mounted = true
+  })
+
+  // A link to this page from this page (a site search result opened here,
+  // the browser's back button) keeps the component, so read the URL again.
+  // The URL sync below uses replaceState, which doesn't come through here.
+  afterNavigate(({ type }) => {
+    if (mounted && type !== 'enter')
+      readUrl()
+  })
+
+  // Links to #agency-id: from site search, other pages, or an entry's own
+  // "Link to this agency". Make sure the entry is on screen, then move focus
+  // to it so keyboard and screen-reader users land there too.
+  async function showTarget(hash: string) {
+    const id = decodeURIComponent(hash.slice(1))
+    if (!id || !all.some(a => a.id === id))
+      return
+    target = id
+    if (!filtered.some(a => a.id === id))
+      clearFilters()
+    if (view === 'map')
+      view = 'list'
+    await tick()
+    const el = document.getElementById(id)
+    el?.scrollIntoView({ block: 'start', behavior: 'instant' })
+    el?.focus({ preventScroll: true })
+  }
+
+  // On load and on every change of #hash, including a same-page link,
+  // which SvelteKit's afterNavigate doesn't report.
+  $effect(() => {
+    const hash = page.url.hash
+    if (mounted && hash)
+      untrack(() => showTarget(hash))
   })
 
   // Keep the URL in step with the controls, without adding history entries.
@@ -184,14 +226,23 @@
     if (view !== 'list')
       params.set('view', view)
     const search = params.toString()
-    if (`?${search}` === page.url.search || (!search && !page.url.search))
-      return
-    try {
-      replaceState(search ? `?${search}` : page.url.pathname, page.state)
-    }
-    catch {
-      // Router not ready yet; the controls still work.
-    }
+    // Compare with location, untracked: reading page.url here would rerun
+    // this on every navigation, with the old filters, and write them back
+    // over the new URL before readUrl() picks it up.
+    untrack(() => {
+      if (`?${search}` === location.search || (!search && !location.search))
+        return
+      // Keep #agency only while the filters still show that agency.
+      const keepHash = !!target && filtered.some(a => a.id === target)
+      if (!keepHash)
+        target = ''
+      try {
+        replaceState(`${search ? `?${search}` : location.pathname}${keepHash ? location.hash : ''}`, page.state)
+      }
+      catch {
+        // Router not ready yet; the controls still work.
+      }
+    })
   })
 
   function contactHref(c: AgencyContact): string | undefined {
@@ -238,6 +289,14 @@
       </li>
     {/each}
   </ul>
+{/snippet}
+
+{#snippet altNameList(a: Agency)}
+  Also: {#each altNames(a) as n, i (i)}{#if i > 0}, {/if}<span lang={n.lang}>{n.name}</span>{/each}
+{/snippet}
+
+{#snippet permalink(a: Agency)}
+  <a class="rad__fix" href="#{a.id}">Link to this agency<span class="cw-sr-only">: {a.name}</span></a>
 {/snippet}
 
 {#snippet correction(a: Agency)}
@@ -356,10 +415,11 @@
         </thead>
         <tbody>
           {#each filtered as a (a.id)}
-            <tr>
+            <tr id={a.id} class:is-target={target === a.id} tabindex={target === a.id ? -1 : undefined}>
               <th scope="row" class="rad__name">
                 <span class="rad__title">{a.name}</span>
                 {#if a.abbr}<span class="rad__abbr">{a.abbr}</span>{/if}
+                {#if a.aka?.length}<span class="rad__aka">{@render altNameList(a)}</span>{/if}
                 <span class="rad__narrow">{levelLabel(a)} · {where(a)}</span>
                 {#if a.handles}<span class="rad__handles">{a.handles}</span>{/if}
                 <span class="rad__checked">Checked {formatDate(a.checked)}</span>
@@ -368,7 +428,10 @@
               <td class="rad__wide">{where(a)}</td>
               <td>
                 {@render contactList(a)}
-                {@render correction(a)}
+                <span class="rad__links">
+                  {@render permalink(a)}
+                  {@render correction(a)}
+                </span>
               </td>
             </tr>
           {/each}
@@ -378,14 +441,20 @@
   {:else}
     <ul class="rad__cards">
       {#each filtered as a (a.id)}
-        <li class="rad__card">
+        <!-- tabindex is only ever -1 (focus target for a #link), never in the tab order. -->
+        <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+        <li class="rad__card" id={a.id} class:is-target={target === a.id} tabindex={target === a.id ? -1 : undefined}>
           <h3 class="rad__card-title">{a.name}{#if a.abbr}<span class="rad__abbr">{a.abbr}</span>{/if}</h3>
+          {#if a.aka?.length}<p class="rad__aka">{@render altNameList(a)}</p>{/if}
           <p class="rad__meta">{levelLabel(a)} · {where(a)}</p>
           {#if a.handles}<p class="rad__handles">{a.handles}</p>{/if}
           {@render contactList(a)}
           <p class="rad__foot">
             <span class="rad__checked">Checked {formatDate(a.checked)}</span>
-            {@render correction(a)}
+            <span class="rad__links">
+              {@render permalink(a)}
+              {@render correction(a)}
+            </span>
           </p>
         </li>
       {/each}
@@ -640,6 +709,30 @@
     .rad__name {
       width: 62%;
     }
+  }
+
+  .rad__aka {
+    margin: 0;
+    font-size: var(--cw-text-sm);
+    color: var(--cw-ink-soft);
+  }
+
+  .rad__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+  }
+
+  /* The entry a #link points to. The tint marks it; focus moves there too. */
+  .rad__table tr.is-target,
+  .rad__card.is-target {
+    background: var(--cw-primary-soft);
+  }
+
+  .rad__table tr.is-target:focus,
+  .rad__card.is-target:focus {
+    outline: 2px solid var(--cw-primary);
+    outline-offset: -2px;
   }
 
   .rad__handles {

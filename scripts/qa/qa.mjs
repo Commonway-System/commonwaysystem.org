@@ -3,7 +3,8 @@
 // (QA_MODULES, default pro-how-com's scripts/qa) and drives the installed Google Chrome.
 //   node scripts/qa/qa.mjs http://localhost:5180 / /about/ --modes=1280:light,375:dark
 //   --storage='{"commonway-display-settings":"{\"contrast\":\"high\"}"}'  (localStorage before load)
-//   --setup="document.querySelector('.dsb__toggle').click()"             (JS run before scanning)
+//   --setup="document.querySelector('.dsb__toggle').click()"             (JS run before scanning;
+//      an expression, so wrap code that awaits as --setup="(async()=>{ ... })()")
 // Prints axe violations plus any console warning/error (CSP violations and
 // "Failed to hydrate" show up there). Exit summary: "axe violations: N".
 

@@ -15,7 +15,7 @@ _Find the government office that can change your street_
 
 [How Road Changes Actually Happen](/guide/make-it-happen/) asks four questions. The third, which government has authority, is where many requests stall. This directory is the next step: once you know which government it is, find where to reach it.
 
-Each entry links to the agency's website. Over time, entries will add the contacts that get a street changed: request forms, problem reporting, maps of who maintains which road, bike and pedestrian programs, ADA coordinators and safety plans.
+Each entry links to the agency's website. Over time, entries will add the contacts that get a street changed: request forms, places to report a problem like a pothole or a broken signal, maps of who maintains which road, bike and pedestrian programs, ADA coordinators and safety plans.
 
 ## How to use it
 

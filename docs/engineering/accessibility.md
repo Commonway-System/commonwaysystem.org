@@ -81,7 +81,7 @@ One long session. The public-facing summary is the 2026.09.26 changelog entry an
 
 ## Guide restructure, rewrites and ticket workflow (2026.10.15) (continued)
 
-- **`scripts/qa/qa.mjs` already runs all four combinations by default (light and dark at 1280 and 375)**, so one run covers the whole-page accessibility rule's themes and widths; it does not replace the mindset review or a screen reader.
+- **`scripts/qa/qa.mjs` already runs all four combinations by default (light and dark at 1280 and 375)**, so one run covers the whole-page accessibility rule's themes and widths; it does not replace the mindset review or a screen reader. Its `--setup` string is passed to `page.evaluate` as an expression, so code that needs `await` must be an async IIFE (`--setup="(async()=>{ ... })()"`); a bare `await` throws. A URL with a `#hash` scans the page with that entry targeted (how the directory's highlighted entry was checked).
 
 ## Session practice notes from the Display settings additions (2026.09.26, later)
 
