@@ -637,6 +637,19 @@ const theme = commonwayTheme({
         ],
       },
     ],
+    // Reference: lookup material beside the guidebook. The pattern
+    // technical reference lives on the landing page until its first
+    // entries exist.
+    '/references/': [
+      {
+        title: 'Reference',
+        collapsible: false,
+        items: [
+          { title: 'Overview', to: '/references/' },
+          { title: 'Road Agency Directory', to: '/references/road-agencies/' },
+        ],
+      },
+    ],
     '/about/': [
       {
         title: 'About',

@@ -12,7 +12,7 @@
 //   next         optional: the next 5-to-10-minute step; not rendered
 //   hidden       optional: true keeps an item on the list but off the page
 
-export const highestIdAssigned = 37
+export const highestIdAssigned = 39
 
 export const roadmapCategories = [
   'New content',
@@ -59,6 +59,12 @@ export const roadmap: RoadmapItem[] = [
     description: 'A new media type usable on any page: ordinary photos, before/after comparison sliders, and map-based street-level photos.' },
   { id: 15, category: 'New features', title: 'Related Media refinements',
     description: 'Improvements to how the Related Media component displays.' },
+  { id: 38, category: 'New features', title: 'Road Agency Directory map view',
+    description: 'A third way to browse the [Road Agency Directory](/references/road-agencies/): a map of the states and territories, each one a link that filters the list, shaded by how much of it has been researched. The list stays the full text alternative.',
+    next: 'Self-hosted SVG map, no map tiles or third-party hosts. Canada and other countries need their own outlines later.' },
+  { id: 39, category: 'Standing / ongoing', title: 'Road Agency Directory research',
+    description: 'Filling in the [Road Agency Directory](/references/road-agencies/) a few agencies at a time: request forms, bike and pedestrian programs, ADA coordinators and road-ownership maps for state DOTs, then metropolitan planning organizations, counties, cities and tribal transportation departments, then Canada.',
+    next: 'Use /add-agency. Start with each state DOT\'s bike and pedestrian coordinator and road-ownership map. American Samoa\'s public works department is still missing.' },
   { id: 24, category: 'Standing / ongoing', title: 'Pattern viewer drawings rollout',
     description: 'Drawn, interactive views for every pattern and Retrofit Strategy, beyond the six that have them now; the rest show their illustration or a placeholder until then.' },
   { id: 36, category: 'Standing / ongoing', title: 'Layered guidance across sources rollout',

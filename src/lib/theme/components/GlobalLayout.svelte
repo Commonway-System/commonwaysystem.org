@@ -43,7 +43,7 @@
   const isHome = $derived(page.url.pathname === '/')
 
   // /media/ has no sidebar entry (single top-level page, same as
-  // /references/ and /blog/) and its own headings give Toc nothing useful
+  // /blog/) and its own headings give Toc nothing useful
   // to list either. Rather than the isHome treatment (collapse to one
   // column, hide both side columns), this route repurposes the toc
   // column for MediaFilters's always-expanded desktop variant instead of

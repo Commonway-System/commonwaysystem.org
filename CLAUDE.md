@@ -69,6 +69,8 @@ python3 scripts/qa/check-headers.py                  # after a build: flags any 
 
 Use `/guide-page <route or topic> [new]` for any new Guide or About page, or any substantial rewrite of one. It holds the full workflow (diagnose and propose, stop for Kevin's answers, research every source, draft with a review notes file, revise, close out). File: `.claude/skills/guide-page/SKILL.md`.
 
+Use `/add-agency <agency and state>` to research and add or recheck a Road Agency Directory entry (`.claude/skills/add-agency/SKILL.md`).
+
 ## Pointer index
 
 Locked decisions and source rules: `docs/decisions.md` (imported above). Open items: `src/lib/data/roadmap.ts`.

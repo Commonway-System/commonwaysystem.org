@@ -1,0 +1,41 @@
+name: Road Agency Directory
+description: Suggest a correction to an agency's entry, or an agency to add.
+title: "[Road agency]: "
+labels: ["road-agency-directory"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping fill in the [Road Agency Directory](https://commonwaysystem.org/references/road-agencies/). Issues are public, so share an office's contacts (its website, request form, main phone or general inbox), not a person's own email or phone.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is this?
+      options:
+        - A correction to an existing entry
+        - A new contact for an existing entry
+        - A new agency to add
+    validations:
+      required: true
+  - type: input
+    id: agency
+    attributes:
+      label: Agency ID or name
+      description: Filled in for you when you use an entry's "Suggest a correction" link. For a new agency, its official name and the state or territory.
+      placeholder: us-or-odot, or Multnomah County Transportation Division, Oregon
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What should change?
+      description: The link, phone number or inbox, and what it's for (requesting a street change, reporting a problem, a bike and pedestrian program, an ADA coordinator, a map of who maintains which road).
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Where you found it
+      description: A page on the agency's own official site that shows this contact.
+    validations:
+      required: true

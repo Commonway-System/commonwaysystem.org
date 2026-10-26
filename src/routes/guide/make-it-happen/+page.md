@@ -79,6 +79,8 @@ Not sure which you have? Some states publish ownership lookups. Maryland's lets 
 
 If the answers keep getting stranger, your area may be one of the documented exceptions. See [When Jurisdiction Doesn't Follow the Pattern](/guide/make-it-happen/jurisdiction-variants/).
 
+Once you know which government it is, look up its website and request channels in the [Road Agency Directory](/references/road-agencies/).
+
 ## <span class="cw-num">4<span class="cw-num__dot">.</span></span> How does that government process it?
 
 | Track | When it applies | Who decides | What to bring |
@@ -134,7 +136,7 @@ These are real, documented structures, and there are more. [When Jurisdiction Do
 <div class="cw-ranked">
 
 1. **Name your request.** Restore, add, or change the standard.
-2. **Find the owner.** Use an ownership lookup or call public works. Ask who maintains the road and who controls its signs and signals.
+2. **Find the owner.** Use an ownership lookup or call public works. Ask who maintains the road and who controls its signs and signals. The [Road Agency Directory](/references/road-agencies/) lists where to reach each agency.
 3. **File it where it's tracked.** Use 311 or the formal request channel, and keep the reference number. Kansas City's advice is not to skip this step.<Citation index={1} />
 4. **Ask what the decision turns on.** A warrant, a petition, a count? Get the criteria in writing.
 5. **Check for scheduled work.** Ask whether the street is due for resurfacing or named in an adopted plan.

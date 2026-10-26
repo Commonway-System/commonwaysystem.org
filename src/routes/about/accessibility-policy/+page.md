@@ -86,6 +86,10 @@ Every pattern and Retrofit Strategy page opens with a Pattern viewer: drawings o
 
 Known limitations: the drawing's labels keep their size when you change Text size in Display settings (browser zoom and full view do enlarge them). In forced-colors mode the drawings keep their own colors, including a dark fade under the ground in dark mode. The drawings themselves are images, so the detail of where each item sits is only in the drawing, while the descriptions give the widths and what's there. Not yet tested: a screen reader, a real Windows high-contrast session (only Chrome's emulation), and real touch devices beyond the phone-width scans.
 
+## Road Agency Directory
+
+The [Road Agency Directory](/references/road-agencies/) is a list you can search, filter and sort. Without JavaScript, it shows every agency in a plain table, and the text-only page carries the same table. The search box, menus and checkboxes are ordinary labeled form controls, and the number of matching agencies is announced as it changes. The List and Cards buttons say which is selected to a screen reader, and on screen with a heavier border and a fill, not color alone. At phone width, the list folds its Level and Where columns into the agency cell, so the table never scrolls sideways. Each entry's links name the agency to a screen reader, so a list of links isn't a row of identical "Website" links. A map view is planned, and the list will remain its full text alternative. It has been checked with automated tools (October 26, 2026: light and dark, desktop and 375px, high contrast) and by hand with a keyboard, not yet with a screen reader.
+
 ## What we're planning
 
 Further accessibility work will be added here as testing turns up issues. This page will be updated to reflect the current state rather than the intended one.

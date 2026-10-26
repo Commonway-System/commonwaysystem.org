@@ -33,6 +33,35 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    date: "2026.10.26",
+    changes: [
+      { type: "new", area: "content",
+        summary: "The Road Agency Directory, a searchable, filterable list of road agencies, is the first page in the Reference section.",
+        details: "It starts with 60 U.S. agencies, each with its website checked on the agency's own site: 5 federal agencies (USDOT, FHWA, Federal Lands Highway, the Bureau of Indian Affairs Division of Transportation and the National Park Service) and the transportation departments of every state, the District of Columbia, Puerto Rico, Guam, the U.S. Virgin Islands and the Northern Mariana Islands. American Samoa's is left out until its public works department's site is found. Only researched agencies are listed; counties, cities, metropolitan planning organizations and tribal transportation departments come next, then Canada." },
+      { type: "new", area: "site",
+        summary: "The directory can be searched, filtered by level, by state or territory and by contact type, sorted, and shown as a list or as cards, and a filtered view's URL can be shared.",
+        details: "Without JavaScript it shows the full list as a plain table, which is also what the text-only and Markdown copies carry. The data model is built for more than one country: each country has its own names for its levels and subdivisions, and agencies use ISO country and subdivision codes. A map view is on the Roadmap." },
+      { type: "new", area: "site",
+        summary: "A GitHub issue form for suggesting a directory correction or a new agency, linked from every entry."
+      },
+      { type: "improved", area: "content",
+        summary: "The Reference landing page now introduces the section as lookup material and links the Road Agency Directory; the pattern technical reference is described as planned."
+      },
+      { type: "improved", area: "content",
+        summary: "How Road Changes Actually Happen and When Jurisdiction Doesn't Follow the Pattern link to the Road Agency Directory."
+      },
+      { type: "improved", area: "site",
+        summary: "Reference has its own sidebar, listing the overview and the Road Agency Directory."
+      },
+      { type: "improved", area: "content",
+        summary: "The Accessibility Policy has a Road Agency Directory section describing how the directory works without sight, without JavaScript and at phone width."
+      },
+      { type: "note",
+        summary: "Accessibility: axe scans of the Reference overview, the Road Agency Directory (list, cards and empty results), How Road Changes Actually Happen and When Jurisdiction Doesn't Follow the Pattern, in light and dark at 1280 and 375 pixels and in high contrast, found no violations.",
+        details: "Also checked by hand: the filters are labeled form controls, the result count is announced as a status, the List and Cards buttons show their pressed state by border weight and fill, not color alone, and below 640 pixels the list folds its Level and Where columns into the agency cell so the table fits without sideways scrolling. Not yet tested with a screen reader." },
+    ],
+  },
+  {
     date: "2026.10.23",
     changes: [
       { type: "new", area: "content",
