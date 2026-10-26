@@ -78,6 +78,8 @@ export const releases: Release[] = [
       { type: "improved", area: "content",
         summary: "The Road Agency Directory entries for the California, Colorado, Connecticut and Delaware transportation departments and the Northern Mariana Islands Department of Public Works now carry more contacts: 7 for California, 8 for Colorado, 7 for Connecticut, 10 for Delaware and 3 for the Northern Marianas." },
       { type: "improved", area: "content",
+        summary: "The Road Agency Directory entries for Guam, Puerto Rico, the Virgin Islands and the 40 state transportation departments from Hawaii through Wyoming now carry researched contacts (419 in all, up from the website alone), each read on the agency's own site." },
+      { type: "improved", area: "content",
         summary: "Site search now finds Road Agency Directory entries, with a result for each agency and one for each state or territory, under a new Agencies filter.",
         details: "An agency result opens the directory at that agency; a place result opens it filtered to that state or territory. Searches match an agency's name, abbreviation, other names, level, place and what it handles, and \"Ohio DOT\" style searches find each state's transportation department whatever its official name. Contact labels aren't indexed, so a search like \"ADA\" still finds the site's own pages first." },
       { type: "new", area: "site",
