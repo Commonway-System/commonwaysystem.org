@@ -51,6 +51,7 @@ Decisions Kevin has locked. Don't reopen one without his say-so. When a session 
 - Scope: the United States now, including territories and tribal governments; Canada next, then other countries. The data model stays country-neutral. (2026-10-26)
 - Corrections and suggestions come in through a GitHub issue form, not email. (2026-10-26)
 - The Map view draws real state outlines (Census boundaries, Alaska, Hawaii and territories inset), not a tile grid. (2026-10-26)
+- Exception to the researched-agencies rule: a municipality with no working official website gets a phone-only entry, using the town hall phone, address and link from the Municipal Association of South Carolina's directory, labeled as coming from there. Used for 58 South Carolina towns. Replace the entry with a full one when the town publishes a site. (2026-10-27)
 
 ## Sources
 

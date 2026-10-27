@@ -33,6 +33,14 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    date: "2026.10.27",
+    changes: [
+      { type: "new", area: "content",
+        summary: "The Road Agency Directory now lists all 271 South Carolina cities and towns, from Columbia and Charleston to towns of a few hundred people.",
+        details: "For 213 of them, every contact (website, report or request form, street ownership map, ADA page, meetings, phone, email) was read on the municipality's own official site; 917 contacts in all. Small towns often have only a town hall page, so their entries are short. The remaining 58 have no working official website (the SC Municipal Association lists none for 54 of them, and the sites listed for four more don't work), so each gets a phone-only entry with the town hall phone, address and a link to its Municipal Association page, labeled as coming from there. Each can be upgraded when the town publishes a site." },
+    ],
+  },
+  {
     date: "2026.10.26",
     changes: [
       { type: "improved", area: "site",
