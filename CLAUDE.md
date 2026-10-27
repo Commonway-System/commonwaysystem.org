@@ -69,7 +69,7 @@ python3 scripts/qa/check-headers.py                  # after a build: flags any 
 
 Use `/guide-page <route or topic> [new]` for any new Guide or About page, or any substantial rewrite of one. It holds the full workflow (diagnose and propose, stop for Kevin's answers, research every source, draft with a review notes file, revise, close out). File: `.claude/skills/guide-page/SKILL.md`.
 
-Use `/add-agency <agency and state>` to research and add or recheck a Road Agency Directory entry (`.claude/skills/add-agency/SKILL.md`).
+Use `/add-agency <agency and state>` to research and add or recheck a Road Agency Directory entry (`.claude/skills/add-agency/SKILL.md`). It also has the recipe for bulk runs (a whole state's cities and towns) and the phone-only exception for towns with no website.
 
 ## Pointer index
 

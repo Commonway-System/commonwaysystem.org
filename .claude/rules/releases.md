@@ -29,3 +29,10 @@ The Release History changelog is data, `src/lib/data/releases.ts` (typed, read i
 ## Moving unpublished entries at push time (2026.10.22)
 
 Several sessions filed their entries under 2026.10.21 and left them unpushed, while origin already had a 2026.10.21 entry. The fix that worked: compare the working file's 2026.10.21 block with `git show origin/main:src/lib/data/releases.ts`, match changes by their `summary` text, keep the ones origin has, and move the rest into today's block (a short Python script; do this before adding today's own lines so nothing is lost). Then check every unpushed commit (`git log origin/main..HEAD`) has a line, including ones that only touched data or docs.
+
+## Push-day checklist, as run on 2026.10.27
+
+1. `git status`, `git log origin/main..HEAD --format='%h %ad %s'` (five directory commits were unpushed).
+2. Compare the working file's blocks with `git show origin/main:src/lib/data/releases.ts` by `summary` text; move every change origin lacks out of earlier dates into today's block (a short Python split on `^      \{ type:` works), then confirm each unpushed commit has a line.
+3. `pnpm run build` green, then commit and push per CLAUDE.md. The commit message is the build note: today's summaries, one per line.
+

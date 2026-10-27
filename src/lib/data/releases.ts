@@ -38,11 +38,9 @@ export const releases: Release[] = [
       { type: "new", area: "content",
         summary: "The Road Agency Directory now lists all 271 South Carolina cities and towns, from Columbia and Charleston to towns of a few hundred people.",
         details: "For 213 of them, every contact (website, report or request form, street ownership map, ADA page, meetings, phone, email) was read on the municipality's own official site; 917 contacts in all. Small towns often have only a town hall page, so their entries are short. The remaining 58 have no working official website (the SC Municipal Association lists none for 54 of them, and the sites listed for four more don't work), so each gets a phone-only entry with the town hall phone, address and a link to its Municipal Association page, labeled as coming from there. Each can be upgraded when the town publishes a site." },
-    ],
-  },
-  {
-    date: "2026.10.26",
-    changes: [
+      { type: "improved", area: "content",
+        summary: "The Road Agency Directory page's \"What's in it today\" section now matches what the directory holds.",
+        details: "It lists the 177 tribal transportation departments and South Carolina's counties, regional bodies, cities and towns, says state entries now carry more than a website, and no longer says there are no placeholder rows, since 58 small South Carolina towns list only a town hall phone." },
       { type: "improved", area: "site",
         summary: "The Road Agency Directory page is about 17 percent smaller and its Cards view draws faster.",
         details: "The small \"opens in new tab\" arrow on each of the directory's 1,300-plus external links was a full inline SVG; it is now drawn once in CSS (`.cw-external-indicator--css`), which takes the page's HTML from 1.60 MB to 1.32 MB and from about 14,600 elements to about 12,000. In the Cards view, the browser now skips layout and paint for cards far off screen (`content-visibility: auto`), so with 304 agencies it draws about 6 cards up front instead of all of them. Every entry stays in the page, so find-in-page, links to a single agency, the text-only copy and screen readers still reach all of them. The List view's table rows can't use this (browsers don't apply it to table rows), so List is unchanged apart from the lighter icons." },
@@ -55,6 +53,13 @@ export const releases: Release[] = [
       { type: "new", area: "content",
         summary: "The Road Agency Directory covers all 46 South Carolina counties and 21 regional agencies: 11 metropolitan planning organizations and 10 councils of governments.",
         details: "About 390 contacts, each read on the agency's own site. Nearly every county has its own roads or public works department, which the entry names; Allendale and Clarendon show no roads department on their sites, and their entries say so. State-numbered roads stay with SCDOT. Contacts that were only a generic map portal or a website accessibility statement were left out rather than labeled as an ownership map or ADA coordinator. Union County's site, gearupunionsc.com, doesn't say outright that it is the official county site." },
+      { type: "improved", area: "content",
+        summary: "The Road Agency Directory entries for Guam, Puerto Rico, the Virgin Islands and the 40 state transportation departments from Hawaii through Wyoming now carry researched contacts (419 in all, up from the website alone), each read on the agency's own site." },
+    ],
+  },
+  {
+    date: "2026.10.26",
+    changes: [
       { type: "new", area: "content",
         summary: "The Road Agency Directory, a searchable, filterable list of road agencies, is the first page in the Reference section.",
         details: "It starts with 60 U.S. agencies, each with its website checked on the agency's own site: 5 federal agencies (USDOT, FHWA, Federal Lands Highway, the Bureau of Indian Affairs Division of Transportation and the National Park Service) and the transportation departments of every state, the District of Columbia, Puerto Rico, Guam, the U.S. Virgin Islands and the Northern Mariana Islands. American Samoa's is left out until its public works department's site is found. Only researched agencies are listed; counties, cities, metropolitan planning organizations and tribal transportation departments come next, then Canada." },
@@ -97,8 +102,6 @@ export const releases: Release[] = [
         summary: "The Road Agency Directory entries for the Alaska, Arizona and Arkansas transportation departments and the Bureau of Indian Affairs Division of Transportation now carry more contacts: 10 for Alaska, 9 each for Arizona and Arkansas, and 3 for the Bureau." },
       { type: "improved", area: "content",
         summary: "The Road Agency Directory entries for the California, Colorado, Connecticut and Delaware transportation departments and the Northern Mariana Islands Department of Public Works now carry more contacts: 7 for California, 8 for Colorado, 7 for Connecticut, 10 for Delaware and 3 for the Northern Marianas." },
-      { type: "improved", area: "content",
-        summary: "The Road Agency Directory entries for Guam, Puerto Rico, the Virgin Islands and the 40 state transportation departments from Hawaii through Wyoming now carry researched contacts (419 in all, up from the website alone), each read on the agency's own site." },
       { type: "improved", area: "content",
         summary: "Site search now finds Road Agency Directory entries, with a result for each agency and one for each state or territory, under a new Agencies filter.",
         details: "An agency result opens the directory at that agency; a place result opens it filtered to that state or territory. Searches match an agency's name, abbreviation, other names, level, place and what it handles, and \"Ohio DOT\" style searches find each state's transportation department whatever its official name. Contact labels aren't indexed, so a search like \"ADA\" still finds the site's own pages first." },

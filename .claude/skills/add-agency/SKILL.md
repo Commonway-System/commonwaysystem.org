@@ -47,3 +47,12 @@ Check each URL in the Browser pane when curl returns 403 or times out (many .gov
 - Open `/references/road-agencies/` in the dev server, filter to the new entry, and confirm every link opens the right page.
 - Add one line to today's entry in `src/lib/data/releases.ts` (format: `.claude/rules/releases.md`): which agencies were added or updated, and how many contacts.
 - Report to Kevin: what was added, anything you couldn't find, and any link you left out because it was walled or broken.
+
+## Bulk runs: a whole state's cities and towns (learned 2026.10.27, South Carolina)
+
+- **Get the roster first.** A state municipal league's directory (South Carolina: `masc.sc/municipality/<town>`) lists every municipality with its website, town hall phone and address; Wikipedia infoboxes give websites too. Use them to find the official site only, then read the contacts on that site.
+- **Parallel subagents share one web-search budget.** Split the roster into groups of about 25 and give each agent the website list so it fetches pages instead of searching. Have agents write entries to a scratch file, then merge them yourself and recount (an agent's reported count can be off).
+- **Sites that wall scripted fetches** (Cloudflare "Just a moment", Client Challenge) are read in the Browser pane only if they load normally there; never get past a challenge. A town whose site won't load gets the phone-only entry below.
+- **Phone-only entry (locked exception, `docs/decisions.md`, 2026-10-27):** only when the town has no working official website. `contacts` is the municipal-league town hall `phone` (label says where it came from, plus the address) and a `contact` link to the league's page; `handles` says no official site was found. Upgrade it when a site appears; the town list is in `docs/engineering/known-gaps.md`.
+- **Check hosts after merging:** a site may have moved (Conway: `cityofconway.com` to `conwaysc.gov`). Confirm each redirect target, don't trust the roster's URL.
+- **Afterwards:** the directory page's "What's in it today" section (`src/routes/references/road-agencies/+page.md`) and its `llms:` frontmatter state what is covered; update both with every batch.
