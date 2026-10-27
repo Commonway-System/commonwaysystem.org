@@ -35,6 +35,12 @@ export const releases: Release[] = [
   {
     date: "2026.10.26",
     changes: [
+      { type: "improved", area: "site",
+        summary: "The Road Agency Directory page is about 17 percent smaller and its Cards view draws faster.",
+        details: "The small \"opens in new tab\" arrow on each of the directory's 1,300-plus external links was a full inline SVG; it is now drawn once in CSS (`.cw-external-indicator--css`), which takes the page's HTML from 1.60 MB to 1.32 MB and from about 14,600 elements to about 12,000. In the Cards view, the browser now skips layout and paint for cards far off screen (`content-visibility: auto`), so with 304 agencies it draws about 6 cards up front instead of all of them. Every entry stays in the page, so find-in-page, links to a single agency, the text-only copy and screen readers still reach all of them. The List view's table rows can't use this (browsers don't apply it to table rows), so List is unchanged apart from the lighter icons." },
+      { type: "note",
+        summary: "Accessibility check of the Road Agency Directory after the lighter-page change: axe found no violations in either view, in light and dark at 1280 and 375 px, or in high contrast.",
+        details: "The external-link arrow uses the link's own color as before, with a forced-colors fallback to the system link color (not tested in Windows High Contrast). A link to the last card in the Cards view still scrolls to it, focuses it and highlights it, even though off-screen cards start as placeholders." },
       { type: "new", area: "content",
         summary: "The Road Agency Directory lists 177 tribal transportation, roads and transit departments in 29 states, from the Navajo Nation to Alaska villages and consortia.",
         details: "Each tribe is listed under the state where its government is headquartered, and only where the tribe's own site shows a roads, transportation or public works office. This is not the full 574 federally recognized tribes: most tribes either have no such office on their site or have no findable site, and a number of sites could not be reached (expired certificates, domains that no longer resolve, tribes whose only findable site was spam). Eight of the entries are transit-only offices (for example Ute Indian Tribe Transit and Kiowa Fastrans), which say so in their description. Sites that blocked automated access were left out rather than bypassed." },

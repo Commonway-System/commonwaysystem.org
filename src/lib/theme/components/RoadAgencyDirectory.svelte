@@ -282,7 +282,7 @@
       {@const href = contactHref(c)}
       <li>
         {#if href}
-          <a {href} {...externalLinkAttrs(href)}>{contactText(c)}<span class="cw-sr-only">, {a.abbr ?? a.name}</span>{#if isExternalHref(href)}<span class="cw-external-indicator"><Icon name="external" size={12} /><span class="cw-sr-only"> (opens in new tab)</span></span>{/if}</a>
+          <a {href} {...externalLinkAttrs(href)}>{contactText(c)}<span class="cw-sr-only">, {a.abbr ?? a.name}</span>{#if isExternalHref(href)}<span class="cw-external-indicator cw-external-indicator--css"><span class="cw-sr-only"> (opens in new tab)</span></span>{/if}</a>
         {:else}
           {contactText(c)}
         {/if}
@@ -300,7 +300,7 @@
 {/snippet}
 
 {#snippet correction(a: Agency)}
-  <a class="rad__fix" href={correctionHref(a)} {...externalLinkAttrs(REPO)}>Suggest a correction<span class="cw-sr-only"> for {a.name}</span><span class="cw-external-indicator"><Icon name="external" size={12} /><span class="cw-sr-only"> (opens in new tab)</span></span></a>
+  <a class="rad__fix" href={correctionHref(a)} {...externalLinkAttrs(REPO)}>Suggest a correction<span class="cw-sr-only"> for {a.name}</span><span class="cw-external-indicator cw-external-indicator--css"><span class="cw-sr-only"> (opens in new tab)</span></span></a>
 {/snippet}
 
 <div class="rad" data-pagefind-ignore="all">
@@ -398,7 +398,7 @@
   {:else if filtered.length === 0}
     <div class="rad__empty">
       <p>No agencies match these filters yet. The directory lists only agencies whose contacts have been checked on their own sites, so many places aren't in it yet.</p>
-      <p><a href="{REPO}/issues/new?template=road-agency.yml" {...externalLinkAttrs(REPO)}>Suggest an agency<span class="cw-external-indicator"><Icon name="external" size={12} /><span class="cw-sr-only"> (opens in new tab)</span></span></a></p>
+      <p><a href="{REPO}/issues/new?template=road-agency.yml" {...externalLinkAttrs(REPO)}>Suggest an agency<span class="cw-external-indicator cw-external-indicator--css"><span class="cw-sr-only"> (opens in new tab)</span></span></a></p>
     </div>
   {:else if view !== 'cards'}
     <!-- Focusable so keyboard users can scroll the table sideways at narrow widths. -->
@@ -788,6 +788,19 @@
     border: 1px solid var(--cw-hairline-strong);
     border-radius: var(--cw-radius-lg);
     background: var(--cw-paper-raised);
+  }
+
+  /* The browser skips layout and paint for entries far off screen, so a
+     long list costs little until it's scrolled to. Unlike loading rows in
+     batches, every entry stays in the page: find-in-page, #links and screen
+     readers still reach all of them. The size is a placeholder until an
+     entry has been drawn once; `auto` then remembers its real height. Paint
+     is clipped to each entry, so focus outlines must stay inside its padding.
+     Cards only: browsers don't apply it to table rows, and on cells it
+     misbehaves (in Chrome every cell counted as skipped, on screen or not). */
+  .rad__card {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 7rem;
   }
 
   .rad__card-title {

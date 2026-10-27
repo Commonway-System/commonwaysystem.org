@@ -127,6 +127,27 @@ svg {
   vertical-align: -0.05em;
 }
 
+/* The same arrow as Icon's "external", drawn once in CSS instead of an
+   inline <svg> per link. For long lists, where the svgs add up (the Road
+   Agency Directory has over a thousand). Use it on the wrapper with no
+   <Icon> inside; the .cw-sr-only text stays. Forced-colors mode replaces
+   background colors, which would blank a masked icon, so it opts out and
+   uses the link color. */
+.cw-external-indicator--css::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (forced-colors: active) {
+  .cw-external-indicator--css::before {
+    forced-color-adjust: none;
+    background-color: LinkText;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
