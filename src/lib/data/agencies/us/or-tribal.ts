@@ -1,0 +1,138 @@
+import type { Agency } from '../types.js'
+
+// Tribal transportation departments in the state, listed under the state
+// where the tribal government is headquartered. Only tribes whose own site
+// shows a roads or transportation office are listed.
+
+const agencies: Agency[] = [
+  {
+    id: 'us-or-ctuir-public-works',
+    name: 'Confederated Tribes of the Umatilla Indian Reservation Public Works, Roads',
+    aka: ['CTUIR Public Works'],
+    country: 'US',
+    region: 'US-OR',
+    level: 'tribal',
+    area: 'Umatilla Indian Reservation',
+    handles: 'Maintains the tribal and BIA roads on the reservation, including snow removal, grading and culverts; ODOT and Umatilla County keep their own roads there.',
+    contacts: [
+      { type: 'website', url: 'https://ctuir.org/departments/public-works/' },
+      { type: 'safety-plan', url: 'https://files.ctuir.org/PublicWorks/TransportationSafetyPlan.pdf', label: 'Transportation Safety Plan (2025 update)' },
+      { type: 'plan', url: 'https://ctuir.org/departments/tribal-planning-office/transportation-system-plan-update-2022/', label: 'Transportation System Plan update' },
+      { type: 'phone', phone: '541-276-3165', label: 'Public Works' },
+      { type: 'email', email: 'publicworks@ctuir.org', label: 'Public Works inbox' },
+    ],
+    checked: '2026-10-26',
+  },
+  {
+    id: 'us-or-grand-ronde-transportation',
+    name: 'Confederated Tribes of Grand Ronde Tribal Transportation Programs',
+    country: 'US',
+    region: 'US-OR',
+    level: 'tribal',
+    area: 'Grand Ronde Reservation',
+    handles: 'Runs transportation planning, road maintenance, transit and road safety on tribal lands and nearby roads; OR 18 and OR 22 are state highways.',
+    contacts: [
+      { type: 'website', url: 'https://www.grandronde.org/government/engineering-and-community-development/transportation-projects/', label: 'Transportation Projects' },
+      { type: 'plan', url: 'https://www.grandronde.org/media/b5rhbnv3/2024-grand-ronde-tip.pdf', label: '2024 Transportation Improvement Program' },
+      { type: 'safety-plan', url: 'https://www.grandronde.org/media/e1wbnf4p/2018-local-road-safety-plan.pdf', label: 'Local Road Safety Plan (2018)' },
+      { type: 'phone', phone: '503-879-2400', label: 'Transportation Programs' },
+    ],
+    checked: '2026-10-26',
+  },
+  {
+    id: 'us-or-siletz-transportation',
+    name: 'Confederated Tribes of Siletz Indians Planning Department, Transportation Program',
+    country: 'US',
+    region: 'US-OR',
+    level: 'tribal',
+    area: 'Siletz Reservation',
+    handles: 'Keeps the Siletz Reservation transportation plan and the Indian Reservation Road inventory under the Tribes\' BIA roads contract.',
+    contacts: [
+      { type: 'website', url: 'https://ctsi.nsn.us/planning/', label: 'Planning and Transportation Program' },
+      { type: 'plan', url: 'https://ctsi.nsn.us/wp-content/uploads/2026/09/2026-2-21_24-081_T3_CTSI-2025-Final-LRTP-SMALLER3.pdf', label: 'Long-Range Transportation Plan' },
+      { type: 'phone', phone: '541-444-2532', label: 'Tribal offices' },
+    ],
+    checked: '2026-10-26',
+  },
+  {
+    id: 'us-or-klamath-transportation',
+    name: 'Klamath Tribes Transportation Program',
+    country: 'US',
+    region: 'US-OR',
+    level: 'tribal',
+    area: 'Klamath Tribes lands and service area (Chiloquin, Klamath County)',
+    handles: 'Part of the Planning and Enterprise Department; maintains the Klamath Tribes\' routes listed in the National Tribal Transportation Facility Inventory.',
+    contacts: [
+      { type: 'website', url: 'https://klamathtribes.org/planning-and-enterprise-department/', label: 'Planning and Enterprise Department' },
+      { type: 'phone', phone: '541-783-2219 ext. 185', label: 'Transportation Program' },
+    ],
+    checked: '2026-10-26',
+  },
+  {
+    id: 'us-or-burns-paiute-roads',
+    name: 'Burns Paiute Tribe BIA Roads Planning Program',
+    country: 'US',
+    region: 'US-OR',
+    level: 'tribal',
+    area: 'Burns Paiute Reservation',
+    handles: 'Plans, designs and builds tribal roads and safety features; the Tribe\'s Tribal Transit runs a separate bus service.',
+    contacts: [
+      { type: 'website', url: 'https://burnspaiute-nsn.gov/administration/', label: 'Administration (describes the roads program)' },
+      { type: 'phone', phone: '(541) 573-2088', label: 'Tribal offices' },
+      { type: 'email', email: 'info@burnspaiute-nsn.gov', label: 'General tribal inbox' },
+    ],
+    checked: '2026-10-26',
+  },
+  {
+    id: 'us-or-ctclusi-planning',
+    name: 'Confederated Tribes of Coos, Lower Umpqua and Siuslaw Indians Planning Department',
+    aka: ['CTCLUSI'],
+    country: 'US',
+    region: 'US-OR',
+    level: 'tribal',
+    area: 'Confederated Tribes of Coos, Lower Umpqua and Siuslaw Indians lands',
+    handles: 'Tribal Planning lists transportation and transit among its programs and publishes a long-range transportation plan.',
+    contacts: [
+      { type: 'website', url: 'https://ctclusi.org/planning-department/' },
+      { type: 'plan', url: 'https://ctclusi.org/wp-content/uploads/2020/09/LRTP-FY-2010.pdf', label: 'Long-Range Transportation Plan (2010)' },
+      { type: 'contact', url: 'https://ctclusi.org/contact-us/' },
+      { type: 'phone', phone: '(541) 888-9577', label: 'Tribal administration, Coos Bay' },
+    ],
+    checked: '2026-10-26',
+  },
+  {
+    id: 'us-or-coquille-transportation',
+    name: 'Coquille Indian Tribe Transportation Program',
+    country: 'US',
+    region: 'US-OR',
+    level: 'tribal',
+    area: 'Coquille Indian Tribe lands and five-county service area',
+    handles: 'Runs member transportation help and publishes a roadway inventory and long range transportation plan for managing the Tribe\'s roads.',
+    contacts: [
+      { type: 'website', url: 'https://www.coquilletribe.org/2-20-transportation/' },
+      { type: 'plan', url: 'https://www.coquilletribe.org/wp-content/uploads/2017/06/FINAL-2016-LRTP.pdf', label: 'Roadway Inventory and Long Range Transportation Plan (2016)' },
+      { type: 'contact', url: 'https://www.coquilletribe.org/7-0-contact-us/' },
+      { type: 'phone', phone: '(541) 756-0904', label: 'Tribal administration, Coos Bay' },
+    ],
+    checked: '2026-10-26',
+  },
+  {
+    id: 'us-or-warm-springs-planning',
+    name: 'Confederated Tribes of Warm Springs Planning Department',
+    aka: ['CTWS Planning'],
+    country: 'US',
+    region: 'US-OR',
+    level: 'tribal',
+    area: 'Warm Springs Reservation',
+    handles: 'Plans transportation, transit and infrastructure for the Reservation; the Transit program is a separate page and contracts bus service to Madras.',
+    contacts: [
+      { type: 'website', url: 'https://warmsprings-nsn.gov/program/planning/' },
+      { type: 'plan', url: 'https://warmsprings-nsn.gov/program/transit/', label: 'Transit program' },
+      { type: 'contact', url: 'https://warmsprings-nsn.gov/contact/' },
+      { type: 'phone', phone: '(541) 553-1161', label: 'Tribal general number' },
+    ],
+    checked: '2026-10-26',
+  },
+]
+
+export default agencies

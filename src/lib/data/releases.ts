@@ -36,6 +36,9 @@ export const releases: Release[] = [
     date: "2026.10.26",
     changes: [
       { type: "new", area: "content",
+        summary: "The Road Agency Directory lists 177 tribal transportation, roads and transit departments in 29 states, from the Navajo Nation to Alaska villages and consortia.",
+        details: "Each tribe is listed under the state where its government is headquartered, and only where the tribe's own site shows a roads, transportation or public works office. This is not the full 574 federally recognized tribes: most tribes either have no such office on their site or have no findable site, and a number of sites could not be reached (expired certificates, domains that no longer resolve, tribes whose only findable site was spam). Eight of the entries are transit-only offices (for example Ute Indian Tribe Transit and Kiowa Fastrans), which say so in their description. Sites that blocked automated access were left out rather than bypassed." },
+      { type: "new", area: "content",
         summary: "The Road Agency Directory covers all 46 South Carolina counties and 21 regional agencies: 11 metropolitan planning organizations and 10 councils of governments.",
         details: "About 390 contacts, each read on the agency's own site. Nearly every county has its own roads or public works department, which the entry names; Allendale and Clarendon show no roads department on their sites, and their entries say so. State-numbered roads stay with SCDOT. Contacts that were only a generic map portal or a website accessibility statement were left out rather than labeled as an ownership map or ADA coordinator. Union County's site, gearupunionsc.com, doesn't say outright that it is the official county site." },
       { type: "new", area: "content",
