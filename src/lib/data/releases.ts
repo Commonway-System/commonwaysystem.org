@@ -36,6 +36,9 @@ export const releases: Release[] = [
     date: "2026.10.26",
     changes: [
       { type: "new", area: "content",
+        summary: "The Road Agency Directory covers all 46 South Carolina counties and 21 regional agencies: 11 metropolitan planning organizations and 10 councils of governments.",
+        details: "About 390 contacts, each read on the agency's own site. Nearly every county has its own roads or public works department, which the entry names; Allendale and Clarendon show no roads department on their sites, and their entries say so. State-numbered roads stay with SCDOT. Contacts that were only a generic map portal or a website accessibility statement were left out rather than labeled as an ownership map or ADA coordinator. Union County's site, gearupunionsc.com, doesn't say outright that it is the official county site." },
+      { type: "new", area: "content",
         summary: "The Road Agency Directory, a searchable, filterable list of road agencies, is the first page in the Reference section.",
         details: "It starts with 60 U.S. agencies, each with its website checked on the agency's own site: 5 federal agencies (USDOT, FHWA, Federal Lands Highway, the Bureau of Indian Affairs Division of Transportation and the National Park Service) and the transportation departments of every state, the District of Columbia, Puerto Rico, Guam, the U.S. Virgin Islands and the Northern Mariana Islands. American Samoa's is left out until its public works department's site is found. Only researched agencies are listed; counties, cities, metropolitan planning organizations and tribal transportation departments come next, then Canada." },
       { type: "new", area: "site",
