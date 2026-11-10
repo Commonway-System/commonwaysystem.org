@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
-  import { replaceState } from '$app/navigation'
+  import { onMount, untrack } from 'svelte'
+  import { goto } from '$app/navigation'
   import { page } from '$app/state'
   import { SEARCH_FILTER_GROUPS } from '../search-meta.js'
   import { searchSite } from '../search.js'
@@ -43,7 +43,10 @@
 
   onMount(() => {
     if (variant === 'page') {
-      const params = page.url.searchParams
+      // The address bar, not page.url: coming Back to this page after the
+      // search rewrote the URL, page.url is the address it was first opened
+      // at, and reading it would wipe the reader's search.
+      const params = new URLSearchParams(location.search)
       query = params.get('q') ?? ''
       selected = Object.fromEntries(
         SEARCH_FILTER_GROUPS.map(g => [g.key, params.getAll(g.key)]).filter(([, v]) => v.length),
@@ -107,18 +110,21 @@
     const next = searchUrl(q, filters)
     // Compare as parsed parameters, not raw text: the address bar may encode
     // the same query differently ("%20" vs "+"), and an unchanged search must
-    // not touch history at all (this effect first runs during startup, before
-    // SvelteKit's router is ready, when replaceState throws).
-    const current = new URLSearchParams(page.url.search).toString()
-    const wanted = new URLSearchParams(next.split('?')[1] ?? '').toString()
-    if (current === wanted)
-      return
-    try {
-      replaceState(next, page.state)
-    }
-    catch {
-      // Router not ready yet; the next change to the search will sync the URL.
-    }
+    // not touch history at all.
+    // Read the address bar itself, untracked, not page.url: a shallow goto
+    // doesn't change page.url, so comparing against it never settled and
+    // this effect rewrote the URL in an endless loop.
+    untrack(() => {
+      const current = new URLSearchParams(location.search).toString()
+      const wanted = new URLSearchParams(next.split('?')[1] ?? '').toString()
+      if (current === wanted)
+        return
+      // Rewrite the address in place: no history entry, no load, and scroll
+      // and focus stay put (shallow defaults to reset: false).
+      goto(next, { shallow: true, replace: true, state: page.state }).catch(() => {
+        // Router not ready yet; the next change to the search will sync the URL.
+      })
+    })
   }
 
   function toggle(key: string, value: string, on: boolean) {

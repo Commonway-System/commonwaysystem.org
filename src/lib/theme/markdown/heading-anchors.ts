@@ -1,4 +1,4 @@
-import type { Root } from 'hast'
+import type { Element } from 'hast'
 import { visit } from 'unist-util-visit'
 
 const HEADING_TAGS = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
@@ -10,9 +10,11 @@ const HEADING_TAGS = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
  * options object, since SveltePress's rehype pipeline only calls
  * `.use(plugin)` and does not unwrap `[plugin, options]` tuples for rehype.
  */
-export function headingAnchors(): ReturnType<Plugin<[], Root>> {
-  return (tree: any) => {
-    visit(tree, 'element', (node: any) => {
+export function headingAnchors() {
+  // Typed as a transformer over any unist node (not hast `Root`), the shape
+  // unified's `Plugin` expects, so it fits SveltePress's `Plugin[]`.
+  return (tree: { type: string }) => {
+    visit(tree as Parameters<typeof visit>[0], 'element', (node: Element) => {
       if (!HEADING_TAGS.has(node.tagName) || !node.properties?.id)
         return
 

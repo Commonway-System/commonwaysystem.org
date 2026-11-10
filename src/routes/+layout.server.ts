@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process'
-import { dev } from '$app/environment'
+import { dev } from '$app/env'
+import { lastCommitDate, pageSourcePath } from '$lib/server/git-dates.js'
 import { formatCalVer } from '$lib/site.js'
 import type { LayoutServerLoad } from './$types'
 
@@ -77,27 +78,17 @@ function siteVersion(): string {
  * isn't available, rather than showing a wrong or misleading date.
  */
 export const load: LayoutServerLoad = ({ route }) => {
-  const relPath = route.id === '/' ? 'src/routes/+page.md' : `src/routes${route.id}/+page.md`
+  const output = route.id === null ? null : lastCommitDate(pageSourcePath(route.id))
   const version = siteVersion()
 
-  try {
-    const output = execFileSync('git', ['log', '-1', '--format=%cI', '--', relPath], {
-      cwd: process.cwd(),
-      encoding: 'utf-8',
-    }).trim()
-
-    // lastModifiedISO keeps the raw "YYYY-MM-DD" slice (not the full %cI
-    // offset-bearing timestamp) so it's a plain schema.org-valid date, and
-    // reads from the exact same git call as the human-formatted string
-    // above, one source of truth for both the visible "Last updated" text
-    // and any JSON-LD dateModified field.
-    return {
-      lastModified: output ? formatCommitDate(output) : null,
-      lastModifiedISO: output ? output.slice(0, 10) : null,
-      siteVersion: version,
-    }
-  }
-  catch {
-    return { lastModified: null, lastModifiedISO: null, siteVersion: version }
+  // lastModifiedISO keeps the raw "YYYY-MM-DD" slice (not the full %cI
+  // offset-bearing timestamp) so it's a plain schema.org-valid date, and
+  // reads from the exact same git call as the human-formatted string
+  // above, one source of truth for both the visible "Last updated" text
+  // and any JSON-LD dateModified field.
+  return {
+    lastModified: output ? formatCommitDate(output) : null,
+    lastModifiedISO: output ? output.slice(0, 10) : null,
+    siteVersion: version,
   }
 }

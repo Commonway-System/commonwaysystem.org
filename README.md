@@ -376,7 +376,7 @@ serves them as markdown and asks search engines not to index them.
 Because `adapter-static` prerenders everything ahead of time, the endpoints
 compile down to plain files in `build/`, same as any other route, no server
 required at runtime. Nothing on the publication links to some of them, so they
-are listed explicitly in `svelte.config.js`'s `kit.prerender.entries`, otherwise
+are listed explicitly in `vite.config.ts`'s `svelteKitOptions`' `prerender.entries`, otherwise
 the prerender crawler would never find them. The canonical domain used for
 absolute URLs lives in `src/lib/site.ts` (`SITE_URL`).
 

@@ -7,7 +7,7 @@ How the publication is built, as of 2026.10.20. The earlier version of this file
 - **Package manager is pnpm.** `pnpm-lock.yaml` and `pnpm-workspace.yaml` exist and `README.md` says the same. `npm run <script>` works (it only runs `package.json` scripts), but never `npm install`: it re-resolves the whole tree against a pnpm lockfile, slowly and wrongly.
 - **`ERR_PNPM_IGNORED_BUILDS`** comes from a dependency with a native build script (for example `sharp`). `pnpm approve-builds` needs a TTY; the non-interactive fix is an entry in `pnpm-workspace.yaml`'s `allowBuilds:` map (`sharp: true` is already there).
 - **Node 24** (Netlify uses `NODE_VERSION=24`). Several build scripts import `.ts` files directly with Node's type stripping, so those files can't use syntax it can't erase (enums, parameter properties).
-- **No test suite, no lint.** `pnpm run check` (svelte-check) is the only automated check, with a known baseline of three errors (`vite.config.ts` theme type, `admonitions.ts`, `heading-anchors.ts`). A broken internal link or `#id` only shows up in `pnpm run build`, because `adapter-static` runs with `strict: true`.
+- **No test suite, no lint.** `pnpm run check` (svelte-check) is the only automated check, which passes with zero errors and zero warnings as of 2026.11.10 (the three old baseline errors in `vite.config.ts`, `admonitions.ts` and `heading-anchors.ts` were fixed that day). A broken internal link or `#id` only shows up in `pnpm run build`, because `adapter-static` runs with `strict: true`.
 
 ## Stack and theme registration
 
@@ -21,7 +21,7 @@ The publication is a [SveltePress](https://sveltepress.site/) site (SvelteKit pl
 - runs rehype plugins in this order: `rehype-slug`, `headingAnchors` (the "#" links), `externalLinks` (new tab, `nofollow`, icon and screen-reader text on every off-site link), `tableScroll` (wraps every markdown table in `.cw-table-wrap > .cw-table-scroll`), `linkCards` (adds images to `cw-links` cards). All five live in `src/lib/theme/markdown/`;
 - exposes the theme options (site title, navbar, sidebar, GitHub and edit links, footer note, GA ID) as the virtual module `virtual:commonway/options`.
 
-`vite.config.ts` also holds `devSearchIndex()`, which serves the last build's `build/pagefind/` at `/pagefind/` under `pnpm run dev`.
+`vite.config.ts` also holds `devSearchIndex()`, which serves the last build's `build/pagefind/` at `/pagefind/` under `pnpm run dev`; `sideEffectFreeBarrel()`, which marks `src/lib/theme/components/index.ts` side-effect free so each page bundles only the components it imports; and `svelteKitOptions`, the SvelteKit config (adapter, prerender entries, `inlineStyleThreshold`, the `$lib` alias), which `sveltepress()` forwards to the `sveltekit()` plugin it sets up. SvelteKit 3 dropped `svelte.config.js` and the automatic `$lib` alias; the alias is declared there so the existing `$lib/...` imports keep working (Kit marks `alias` deprecated in favour of `#lib` subpath imports, and `svelte-kit sync` prints a warning for it). `tsconfig.json` extends `$app/tsconfig`.
 
 ## Site structure
 
@@ -63,7 +63,7 @@ Frontmatter fields it reads: `title`, `description`, `date`, `llms`, `image`, `p
 
 ## Endpoints
 
-All prerender to static files; every one that nothing links to is listed in `svelte.config.js`'s `kit.prerender.entries`:
+All prerender to static files; every one that nothing links to is listed in `vite.config.ts`'s `svelteKitOptions`' `prerender.entries`:
 
 - `/robots.txt`, `/sitemap.xml` (with `image:image` entries), `/llms.txt`, `/rss.xml` (the Blog feed);
 - `/.well-known/agent-skills/index.json`, `/.well-known/agent-skills/commonway-system/SKILL.md`, `/.well-known/ai-catalog.json`;
@@ -73,7 +73,7 @@ The section labels in `llms.txt` come from `SECTION_LABELS` in `src/routes/llms.
 
 ## Adapter and static constraints
 
-`@sveltejs/adapter-static` with `strict: true` and `fallback: '404.html'` (rendered by `src/routes/+error.svelte`), output to `build/`. `src/routes/+layout.ts` turns on prerendering and trailing slashes. `svelte.config.js` also sets `inlineStyleThreshold: 100000` (all CSS inlined) and a `prerender.handleHttpError` that ignores 404s for `/text/`, `.md` and `/llms-full.txt` links, which only exist after the post-build scripts.
+`@sveltejs/adapter-static` with `strict: true` and `fallback: '404.html'` (rendered by `src/routes/+error.svelte`), output to `build/`. `src/routes/+layout.ts` turns on prerendering and trailing slashes. `vite.config.ts`'s `svelteKitOptions` (SvelteKit 3 reads no `svelte.config.js`; until 2026.11.10 these lived there) also sets `inlineStyleThreshold: 100000` (all CSS inlined) and a `prerender.handleHttpError` that ignores 404s for `/text/`, `.md` and `/llms-full.txt` links, which only exist after the post-build scripts.
 
 There is no server at runtime:
 
@@ -97,3 +97,5 @@ There is no server at runtime:
 ## Deployment
 
 Live at **commonwaysystem.org**. Cloudflare holds the domain and DNS and proxies traffic (SSL/TLS Full (strict), DNSSEC, CAA records, Crawler Hints, Early Hints, and a "Redirect-By on redirects" response header rule). Netlify hosts and builds from `netlify.toml` (`pnpm run build`, publish `build`, `NODE_VERSION=24`). The source is [github.com/Commonway-System/commonwaysystem.org](https://github.com/Commonway-System/commonwaysystem.org) (public), branch `main`. There is no staging site and no separate CI: a push to `main` is a publish. The push procedure is in CLAUDE.md.
+
+**GitHub tags and Releases** follow the CalVer version automatically. `.github/workflows/release.yml` runs on every push to `main`: it takes HEAD's commit date (`scripts/release-notes.mjs --version`, the same rule as `siteVersion`), force-moves the tag `v<date>` (for example `v2026.10.27`) to that commit, and creates or rewrites the Release titled `2026.10.27`, marked Latest, with notes built from that date's entry in `src/lib/data/releases.ts` (grouped New, Improved, Fixed, Removed, Checks and notes, ending with a link to that date on Release History). Several pushes on one day share a version, so the tag moves and the notes are rewritten each time. If `releases.ts` has no entry for the date, the job logs a warning and writes a short fallback note; it never affects the Netlify build. **`package.json`'s `version`** carries the same CalVer: `pnpm run build` runs `scripts/stamp-version.mjs` first, which sets it to today's date locally (skipped when `NETLIFY` or `CI` is set) but doesn't stage it, so the push checklist commits it. The Action never commits it back (that would add a commit and a second Netlify build per push); it only warns when `package.json` and the tag disagree. The zero-padded month and day aren't strict semver, which pnpm accepts for this private, unpublished package. A git pre-commit hook was considered and turned down on 2026.10.27. Don't create tags or Releases by hand. All 26 earlier publish dates were backfilled on 2026.10.27, each tagged at the last commit of its day; the six launch-week dates (2026.08.28 to 2026.09.02), whose commits were all imported on 2026.09.03, were matched by commit subject. GitHub shows those backfilled Releases as published on 2026.10.27, since it can't backdate a Release; the tag and title carry the real date.

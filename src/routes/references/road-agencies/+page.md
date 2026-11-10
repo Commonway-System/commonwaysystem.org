@@ -6,10 +6,20 @@ llms: "A searchable, filterable directory of road agencies, with list, card and 
 ---
 
 <script>
-  // Imported directly, not from the components index: everything exported
-  // there ships in a chunk every page loads.
+  // Imported directly, not from the components index (the index is marked
+  // side-effect free, so this is a convention now, not a size fix).
   import RoadAgencyDirectory from '$lib/theme/components/RoadAgencyDirectory.svelte'
+  // This page's JSON-LD (a CollectionPage listing every agency) is built
+  // here, not in schema/page.ts, so the agency data stays off every other
+  // page. PageLayout still emits the breadcrumbs; `fm` is the frontmatter
+  // SveltePress defines for this page.
+  import { page } from '$app/state'
+  import JsonLd from '$lib/theme/components/JsonLd.svelte'
+  import { buildAgencyDirectorySchemas } from '$lib/theme/schema/agencies.js'
+  const agencySchemas = buildAgencyDirectorySchemas(fm, page.data.lastModifiedISO ?? null)
 </script>
+
+<JsonLd schemas={agencySchemas} />
 
 _Find the government office that can change your street_
 

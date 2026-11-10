@@ -11,7 +11,7 @@
 //
 // Run automatically by `pnpm run build` (see package.json). Nothing here
 // runs at request time; the result is static files like everything else.
-import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parse } from 'node-html-parser'

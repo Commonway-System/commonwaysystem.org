@@ -1,5 +1,7 @@
 import { existsSync, readFileSync, statSync } from 'node:fs'
 import { extname, resolve } from 'node:path'
+import adapter from '@sveltejs/adapter-static'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { sveltepress } from '@sveltepress/vite'
 import { defineConfig } from 'vite'
 import type { Plugin } from 'vite'
@@ -710,15 +712,88 @@ function devSearchIndex(): Plugin {
   }
 }
 
+// The components barrel (src/lib/theme/components/index.ts) only re-exports.
+// Compiled Svelte components count as having side effects, so without this
+// the bundler keeps every component the barrel names in one shared chunk that
+// every page preloads, including single-page ones like MediaGallery and
+// PatternViewer. Telling it the barrel itself has no side effects lets each
+// page pull in only the components it imports.
+function sideEffectFreeBarrel(): Plugin {
+  const barrel = resolve(process.cwd(), 'src/lib/theme/components/index.ts')
+  return {
+    name: 'commonway-side-effect-free-barrel',
+    transform(code, id) {
+      if (id.split('?')[0] === barrel)
+        return { code, map: null, moduleSideEffects: false }
+    },
+  }
+}
+
+// SvelteKit 3 no longer reads svelte.config.js: its options go to the
+// sveltekit() plugin, which sveltepress() sets up internally and forwards
+// svelteKitOptions to.
+const svelteKitOptions = {
+  extensions: ['.svelte', '.md'],
+  preprocess: vitePreprocess(),
+  // Kit 3 dropped the automatic $lib alias (its replacement is #lib through
+  // package.json imports). Declaring it here keeps every existing $lib
+  // import working, for Vite and for the generated tsconfig paths.
+  alias: { $lib: 'src/lib' },
+  // Inline every stylesheet into the page (about 95 KB raw, around 15 KB
+  // compressed) so no CSS request blocks first paint. Measured with
+  // Lighthouse (mobile, slow 4G) on 2026.10.14: Lighthouse performance
+  // 87-91 became 91-93, and LCP on Design Speed fell from 6.4 s to 2.9 s.
+  inlineStyleThreshold: 100000,
+  // Static adapter builds the whole guidebook to plain HTML/CSS/JS, which is
+  // what commonwaysystem.org needs: no server required, easy to host anywhere,
+  // and every pattern page is a real crawlable, linkable URL.
+  adapter: adapter({
+    pages: 'build',
+    assets: 'build',
+    // Netlify serves build/404.html, with a real 404 status, for any URL
+    // that has no file. It is SvelteKit's app shell, so the router renders
+    // src/routes/+error.svelte inside the normal navbar/sidebar layout.
+    fallback: '404.html',
+    precompress: false,
+    strict: true,
+  }),
+  prerender: {
+    // '*' crawls every page reachable by a link, same as the default.
+    // robots.txt, llms.txt, and sitemap.xml are +server.ts routes nothing
+    // links to, so they need listing explicitly or the crawler never
+    // finds them.
+    entries: ['*', '/robots.txt', '/llms.txt', '/sitemap.xml', '/rss.xml', '/.well-known/agent-skills/index.json', '/.well-known/agent-skills/commonway-system/SKILL.md', '/.well-known/ai-catalog.json'],
+    // Same for each page's JSON-LD copy (<page>.jsonld), /schemamap.xml and
+    // the OKF bundle (/okf/, /okf.tar.gz), written by
+    // scripts/generate-agent-files.mjs after this prerender.
+    // Every page links to its text-only version under /text/ and its
+    // markdown version (<page>.md, via <link rel="alternate">), and the Site Map
+    // links /llms-full.txt. All are
+    // written by scripts/generate-text-pages.mjs AFTER this prerender
+    // finishes, so the crawler can't find those targets yet. Anything else
+    // that 404s still fails the build.
+    handleHttpError: ({ path, message }) => {
+      if (path.startsWith('/text/') || path.endsWith('.md') || path.endsWith('.jsonld') || ['/llms-full.txt', '/schemamap.xml', '/okf.tar.gz'].includes(path) || path.startsWith('/okf/'))
+        return
+      throw new Error(message)
+    },
+  },
+} satisfies NonNullable<Parameters<typeof sveltepress>[0]>['svelteKitOptions']
+
 export default defineConfig({
   plugins: [
     devSearchIndex(),
+    sideEffectFreeBarrel(),
     sveltepress({
-      theme,
+      // Narrow cast: the rehype plugins are typed against hast `Root` (and
+      // rehype-external-links' own types), while SveltePress's `ResolvedTheme`
+      // wants unified's generic `Plugin`. Same functions at runtime.
+      theme: theme as unknown as NonNullable<Parameters<typeof sveltepress>[0]>['theme'],
       siteConfig: {
         title: 'Commonway System',
         description: 'A Pattern Language for Roads and Streets',
       },
+      svelteKitOptions,
     }),
   ],
 })

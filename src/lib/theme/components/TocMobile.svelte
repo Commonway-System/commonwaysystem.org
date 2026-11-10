@@ -9,7 +9,9 @@
 
   const currentText = $derived($pageAnchors.find((a) => a.id === $tocState.current)?.text ?? 'Jump to a section')
 
-  afterNavigate(() => {
+  afterNavigate(({ type, shallow }) => {
+    if (type === 'goto' && shallow)
+      return
     open = false
   })
 

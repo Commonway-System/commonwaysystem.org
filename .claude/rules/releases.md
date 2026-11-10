@@ -34,5 +34,6 @@ Several sessions filed their entries under 2026.10.21 and left them unpushed, wh
 
 1. `git status`, `git log origin/main..HEAD --format='%h %ad %s'` (five directory commits were unpushed).
 2. Compare the working file's blocks with `git show origin/main:src/lib/data/releases.ts` by `summary` text; move every change origin lacks out of earlier dates into today's block (a short Python split on `^      \{ type:` works), then confirm each unpushed commit has a line.
-3. `pnpm run build` green, then commit and push per CLAUDE.md. The commit message is the build note: today's summaries, one per line.
+3. `pnpm run build` green, then commit and push per CLAUDE.md. The build sets `package.json`'s `version` to today's CalVer (`scripts/stamp-version.mjs`); stage `package.json` with the rest so the pushed commit carries it. The commit message is the build note: today's summaries, one per line.
+4. Nothing to tag: `.github/workflows/release.yml` tags `v<date>` and writes the GitHub Release from today's `releases.ts` block on the push (check the repo's Actions tab if it didn't appear). Preview the notes locally with `node scripts/release-notes.mjs`.
 

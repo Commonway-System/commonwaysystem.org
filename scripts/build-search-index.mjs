@@ -12,8 +12,8 @@
 //      here from src/lib/data/media/entries/*.ts. A media result links to
 //      /media/?q=<title>, which the Gallery reads into its own search box.
 //   3. Road Agency Directory records, from src/lib/data/agencies/<country>/*.ts
-//      (the directory itself is data-pagefind-ignore, so its 60-odd entries
-//      don't swamp the page's own excerpt). One record per agency, linking to
+//      (the directory itself is data-pagefind-ignore, so its hundreds of
+//      entries don't swamp the page's own excerpt). One record per agency, linking to
 //      its #id on /references/road-agencies/, and one per state or territory
 //      that has agencies of its own ("Road agencies in Oregon"), linking to
 //      ?region=US-OR. The per-place records keep a search for a state to a

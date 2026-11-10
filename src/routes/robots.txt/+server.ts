@@ -1,7 +1,7 @@
 import { SITE_URL } from '$lib/site.js'
 
-// Prerendered to a plain static file (see kit.prerender.entries in
-// svelte.config.js, nothing links to this route so it needs listing
+// Prerendered to a plain static file (see prerender.entries in
+// vite.config.ts's svelteKitOptions, nothing links to this route so it needs listing
 // explicitly). The whole guidebook is public, and AI use is welcome:
 // search, AI answers that cite the publication, and model training
 // (decided 2026.10.14, see /about/website-audit/). The named AI crawlers

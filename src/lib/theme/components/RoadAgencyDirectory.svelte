@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount, tick, untrack } from 'svelte'
-  import { afterNavigate, replaceState } from '$app/navigation'
+  import { afterNavigate, goto } from '$app/navigation'
   import { page } from '$app/state'
   import { agencyLevels, altNames, contactLabels, countries, getAgencies, regionName } from '$lib/data/agencies/index.js'
   import type { Agency, AgencyContact, AgencyLevel, ContactType } from '$lib/data/agencies/index.js'
@@ -149,7 +149,10 @@
   }
 
   function readUrl() {
-    const p = page.url.searchParams
+    // The address bar, not page.url: coming Back to this page after the
+    // controls rewrote the URL (a shallow goto), page.url is the address it
+    // was first opened at.
+    const p = new URLSearchParams(location.search)
     query = p.get('q') ?? ''
     const validLevels = (p.get('level') ?? '').split(',').filter((l): l is AgencyLevel => agencyLevels.includes(l as AgencyLevel))
     levels = new Set(validLevels)
@@ -174,9 +177,10 @@
 
   // A link to this page from this page (a site search result opened here,
   // the browser's back button) keeps the component, so read the URL again.
-  // The URL sync below uses replaceState, which doesn't come through here.
-  afterNavigate(({ type }) => {
-    if (mounted && type !== 'enter')
+  // The URL sync below is a shallow goto, which does come through here;
+  // skip it, or every keystroke would read the URL back over the controls.
+  afterNavigate(({ type, shallow }) => {
+    if (mounted && type !== 'enter' && !(type === 'goto' && shallow))
       readUrl()
   })
 
@@ -236,12 +240,9 @@
       const keepHash = !!target && filtered.some(a => a.id === target)
       if (!keepHash)
         target = ''
-      try {
-        replaceState(`${search ? `?${search}` : location.pathname}${keepHash ? location.hash : ''}`, page.state)
-      }
-      catch {
+      goto(`${search ? `?${search}` : location.pathname}${keepHash ? location.hash : ''}`, { shallow: true, replace: true, state: page.state }).catch(() => {
         // Router not ready yet; the controls still work.
-      }
+      })
     })
   })
 

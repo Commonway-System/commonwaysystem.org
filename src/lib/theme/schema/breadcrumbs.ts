@@ -7,7 +7,7 @@ interface Crumb { name: string, url: string }
 /**
  * Walks a sidebar[...] array looking for `pathname`, building the chain of
  * navigable ancestors along the way. A group header with no `to` of its own
- * (e.g. "Local Streets", "Foundations", "Development") is real in the
+ * (e.g. "Local Streets", "Core Concepts", "Development") is real in the
  * sidebar tree but isn't a real page anyone can land on, unlike what the
  * classification-landing-page example in the original plan draft assumed
  * (see CLAUDE.md's "Known gaps": those landing pages don't exist yet). A

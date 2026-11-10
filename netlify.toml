@@ -7,6 +7,6 @@
 
 # Unknown addresses: Netlify serves build/404.html with a 404 status. That
 # file is SvelteKit's app shell (adapter-static `fallback` in
-# svelte.config.js), which renders src/routes/+error.svelte inside the normal
+# vite.config.ts's svelteKitOptions), which renders src/routes/+error.svelte inside the normal
 # navigation. Headers (security, caching) live in static/_headers, redirects
 # in static/_redirects.

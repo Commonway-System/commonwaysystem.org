@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { tick } from 'svelte'
-  import { replaceState } from '$app/navigation'
+  import { tick, untrack } from 'svelte'
+  import { goto } from '$app/navigation'
   import { page } from '$app/state'
   import { getMediaItems } from '$lib/data/media/index.js'
   import type { MediaItem } from '$lib/data/media/types.js'
@@ -20,11 +20,18 @@
 
   // A site-search result for a media item lands here as /media/?q=<title>.
   // Effects don't run during prerendering, so reading the query is safe.
+  // Rerun on each navigation (page.url), but read the address bar itself:
+  // coming Back here after "Show all media" rewrote the URL, page.url is
+  // still the address the page was first opened at.
   $effect(() => {
-    const q = page.url.searchParams.get('q')
-    if (q !== null)
-      mediaSearch.set(q)
-    mediaForPage.set(page.url.searchParams.get('for'))
+    void page.url
+    untrack(() => {
+      const params = new URLSearchParams(location.search)
+      const q = params.get('q')
+      if (q !== null)
+        mediaSearch.set(q)
+      mediaForPage.set(params.get('for'))
+    })
   })
 
   const mediaPages = $derived(page.data.mediaPages as Record<string, { title: string, href: string }> | undefined)
@@ -37,15 +44,13 @@
     // The banner (and the button just pressed) disappears; move focus to the
     // count line so keyboard and screen-reader users aren't dropped to <body>.
     tick().then(() => countEl?.focus())
-    const params = new URLSearchParams(page.url.search)
+    // The address bar, not page.url, which a shallow goto leaves alone.
+    const params = new URLSearchParams(location.search)
     params.delete('for')
     const query = params.toString()
-    try {
-      replaceState(query ? `?${query}` : page.url.pathname, page.state)
-    }
-    catch {
+    goto(query ? `?${query}` : location.pathname, { shallow: true, replace: true, state: page.state }).catch(() => {
       // Router not ready; the filter is already cleared.
-    }
+    })
   }
 
   // Filter controls themselves live in MediaFilters.svelte, rendered in a

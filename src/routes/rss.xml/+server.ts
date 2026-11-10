@@ -3,7 +3,7 @@ import { SITE_URL } from '$lib/site.js'
 import { getBlogPosts } from '$lib/theme/blog.js'
 
 // RSS 2.0 feed of the Blog, prerendered to /rss.xml (listed in
-// svelte.config.js's prerender entries) and advertised with
+// vite.config.ts's svelteKitOptions prerender entries) and advertised with
 // <link rel="alternate"> in src/app.html. Built from the same glob the Blog
 // index uses, so a new post appears here automatically.
 export const prerender = true

@@ -27,6 +27,22 @@
         r.dataset.pointer = s.largePointer ? 'large' : 'default'
         r.dataset.halo = s.pointerHalo ? 'on' : 'off'
       } catch (e) {}
+      // Apply the color scheme before first paint (mirror of src/lib/theme/layout.ts's
+      // initColorScheme()): a saved choice wins, otherwise the system preference.
+      // Separate try/catch so blocked storage still falls back to the system preference.
+      var dark = false
+      try {
+        dark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      } catch (e) {}
+      try {
+        var c = localStorage.getItem('commonway-color-scheme')
+        if (c) dark = c === 'dark'
+      } catch (e) {}
+      try {
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+        var i = document.querySelector('link[rel="icon"][type="image/svg+xml"]')
+        if (i) i.setAttribute('href', dark ? '/favicons/light-favicon.svg' : '/favicons/dark-favicon.svg')
+      } catch (e) {}
     </script>
     <!-- Speculation Rules: prefetch same-site pages on hover/pointer-down intent.
          Markdown copies, text-only pages and the search index are left out. -->

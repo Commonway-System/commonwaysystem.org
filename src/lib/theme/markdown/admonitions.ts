@@ -24,8 +24,10 @@ const KIND_LABELS: Record<string, string> = {
  * CSS styles. Unrecognized directive names are left alone.
  */
 export function admonitions() {
-  return (tree: Root) => {
-    visit(tree, (node) => node.type === 'containerDirective', (node: any) => {
+  // Typed as a transformer over any unist node (not mdast `Root`), the shape
+  // unified's `Plugin` expects, so it fits SveltePress's `Plugin[]`.
+  return (tree: { type: string }) => {
+    visit(tree as Root, (node: { type: string }) => node.type === 'containerDirective', (node: any) => {
       const kind = node.name
       if (!KNOWN_KINDS.has(kind))
         return

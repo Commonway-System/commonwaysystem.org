@@ -58,7 +58,7 @@ const sections: Record<string, Row[]> = {
   ],
   'SEO': [
     ['robots.txt', C, 'pass', 'Served at /robots.txt with a Sitemap line. Only the search index\'s data files are disallowed.'],
-    ['XML sitemaps', C, 'partial', 'Generated at /sitemap.xml from every page at build time. Every <lastmod> is the build date rather than each page\'s own last change, which makes it a weak freshness signal.'],
+    ['XML sitemaps', C, 'pass', 'Generated at /sitemap.xml from every page at build time. Each <lastmod> is the date that page last changed, the same date as its "Last updated" line.'],
     ['Sitemap index files', C, 'na', 'About 170 URLs, far below the 50,000 a single sitemap can hold.'],
     ['Image and video sitemap extensions', O, 'pass', 'The sitemap lists each page\'s featured illustration with the image extension. The publication hosts no video.'],
     ['URL structure', C, 'pass', 'Lowercase, hyphenated, readable, organized by section (/patterns/collectors/default/), always with a trailing slash.'],

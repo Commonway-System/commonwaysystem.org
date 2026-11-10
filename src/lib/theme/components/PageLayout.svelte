@@ -106,7 +106,11 @@
   }
 
   onMount(collectAnchors)
-  afterNavigate(collectAnchors)
+  // A shallow goto (a filter control rewriting the address) changes no headings.
+  afterNavigate(({ type, shallow }) => {
+    if (!(type === 'goto' && shallow))
+      collectAnchors()
+  })
 </script>
 
 <svelte:head>

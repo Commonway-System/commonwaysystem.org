@@ -14,19 +14,33 @@ export const isDark = writable(false)
 
 const STORAGE_KEY = 'commonway-color-scheme'
 
-/** Call once on mount in the browser: applies saved/system preference before first paint jank. */
+/**
+ * Call once on mount in the browser. The inline script in src/app.html has
+ * already set the theme before first paint using this same rule (saved choice
+ * wins, otherwise system preference); this re-applies it and syncs the
+ * `isDark` store. Storage may be blocked, so a failed read falls back to the
+ * system preference.
+ */
 export function initColorScheme() {
-  const saved = localStorage.getItem(STORAGE_KEY)
+  let saved: string | null = null
+  try {
+    saved = localStorage.getItem(STORAGE_KEY)
+  }
+  catch {}
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
   const dark = saved ? saved === 'dark' : prefersDark
   applyColorScheme(dark)
 }
 
+/** Flips the scheme and saves it; if storage is blocked the theme still changes for this visit. */
 export function toggleColorScheme() {
   isDark.update((current) => {
     const next = !current
     applyColorScheme(next)
-    localStorage.setItem(STORAGE_KEY, next ? 'dark' : 'light')
+    try {
+      localStorage.setItem(STORAGE_KEY, next ? 'dark' : 'light')
+    }
+    catch {}
     return next
   })
 }
@@ -34,8 +48,9 @@ export function toggleColorScheme() {
 function applyColorScheme(dark: boolean) {
   isDark.set(dark)
   document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+  // The SVG icon link (not the .ico one); the dark theme uses the light icon.
   document
-    .querySelector<HTMLLinkElement>('link[rel="icon"]')
+    .querySelector<HTMLLinkElement>('link[rel="icon"][type="image/svg+xml"]')
     ?.setAttribute('href', dark ? '/favicons/light-favicon.svg' : '/favicons/dark-favicon.svg')
 }
 

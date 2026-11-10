@@ -70,7 +70,7 @@ const sources = new Set([
   ...IMAGE_DIRS.flatMap(d => listRaster(join(staticDir, d))),
   ...frontmatterImages(join(root, 'src/routes')),
 ])
-// Full-width Foundations diagrams (GuideDiagram.svelte): 768 and 1280 px WebP
+// Full-width Core Concepts diagrams (GuideDiagram.svelte): 768 and 1280 px WebP
 // for its srcset, in place of the 300-600 KB PNG originals.
 const diagrams = new Set(listRaster(join(staticDir, 'diagrams')))
 for (const d of diagrams) sources.add(d)

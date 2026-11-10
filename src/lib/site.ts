@@ -1,7 +1,7 @@
 /**
  * Canonical production origin, used to build absolute URLs for llms.txt
  * and anywhere else that needs one (not just the relative paths links
- * elsewhere in the theme use). Update this when the real domain is set.
+ * elsewhere in the theme use).
  */
 export const SITE_URL = 'https://commonwaysystem.org'
 

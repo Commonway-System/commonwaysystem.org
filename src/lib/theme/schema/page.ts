@@ -4,7 +4,6 @@ import type {
   BlogPosting,
   CollectionPage,
   DefinedTerm,
-  GovernmentOrganization,
   ListItem,
   Organization,
   Person,
@@ -14,8 +13,6 @@ import type {
   WithContext,
 } from 'schema-dts'
 import { getMediaItems } from '$lib/data/media/index.js'
-import { altNames, countries, getAgencies, regionName } from '$lib/data/agencies/index.js'
-import type { Agency } from '$lib/data/agencies/index.js'
 import { buildAuthorPerson } from './organization.js'
 import { SITE_URL } from '$lib/site.js'
 import type { SidebarLink } from '../config.js'
@@ -96,38 +93,6 @@ function buildAboutPage(fm: Record<string, any>): WithContext<AboutPage> {
     'name': fm.title,
     ...(fm.description ? { description: fm.description } : {}),
     'about': { '@type': 'Organization', name: 'Commonway System' },
-  }
-}
-
-/**
- * One Road Agency Directory entry as a GovernmentOrganization. Its @id is the
- * entry's anchor on the directory page; `url` is the agency's own site.
- * Office phone and email only (the data never holds a named person's), and
- * only unlabeled ones.
- */
-function buildAgency(a: Agency): GovernmentOrganization {
-  const website = a.contacts.find(c => c.type === 'website')?.url
-  // Only a general line or inbox: a labeled one is for something narrower
-  // (Alabama's planning inbox), not the agency's own number.
-  const phone = a.contacts.find(c => c.type === 'phone' && !c.label)?.phone
-  const email = a.contacts.find(c => c.type === 'email' && !c.label)?.email
-  const alternateName = [a.abbr, ...altNames(a).map(n => n.name)].filter((n): n is string => !!n)
-  const country = countries[a.country]?.name ?? a.country
-  const region = regionName(a)
-  return {
-    '@type': 'GovernmentOrganization',
-    '@id': `${SITE_URL}/references/road-agencies/#${a.id}`,
-    'name': a.name,
-    ...(alternateName.length ? { alternateName } : {}),
-    ...(website ? { url: website } : {}),
-    ...(a.handles ? { description: a.handles } : {}),
-    'areaServed': a.area
-      ? { '@type': 'AdministrativeArea', 'name': `${a.area}, ${region}` }
-      : region
-        ? { '@type': 'AdministrativeArea', 'name': region, 'containedInPlace': { '@type': 'Country', name: country } }
-        : { '@type': 'Country', 'name': country },
-    ...(phone ? { telephone: phone } : {}),
-    ...(email ? { email } : {}),
   }
 }
 
@@ -233,24 +198,12 @@ export function buildPageSchemas({ pathname, fm, dateModifiedISO, sidebar }: Pag
     return [collectionPage]
   }
 
-  // Every agency is in the prerendered table, so marking them up here
-  // describes what the page already shows.
-  if (pathname === '/references/road-agencies/') {
-    const agencies = [...getAgencies()].sort((x, y) => x.name.localeCompare(y.name, 'en'))
-    const collectionPage: WithContext<CollectionPage> = {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      'name': fm.title,
-      ...(fm.description ? { description: fm.description } : {}),
-      ...(dateModifiedISO ? { dateModified: dateModifiedISO } : {}),
-      'mainEntity': {
-        '@type': 'ItemList',
-        'numberOfItems': agencies.length,
-        'itemListElement': agencies.map((a, i) => ({ '@type': 'ListItem', 'position': i + 1, 'item': buildAgency(a) })),
-      },
-    }
-    return [collectionPage]
-  }
+  // The Road Agency Directory's CollectionPage is built by schema/agencies.ts
+  // and rendered by its own +page.md. Never import $lib/data/agencies here:
+  // PageLayout imports this file on every page, so the whole directory would
+  // ship in a chunk every page preloads.
+  if (pathname === '/references/road-agencies/')
+    return []
 
   if (pathname.startsWith('/guide/') || pathname === '/references/')
     return [buildTechArticle(fm, dateModifiedISO)]

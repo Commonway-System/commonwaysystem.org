@@ -18,7 +18,7 @@
 <span class="status-badge" data-status={status}>{labels[status]}</span>
 
 <style>
-  /* Extracted from PatternCard's own status pill so PatternIndexCard can
+  /* Extracted from the former PatternCard's status pill (removed 2026.10.20; PageHeader's ID row now) so PatternIndexCard can
      reuse the exact same badge rather than re-declaring these rules a
      second time (Svelte's CSS scoping means a class name alone can't be
      shared across components). Quiet by design, per the Brand Guide's

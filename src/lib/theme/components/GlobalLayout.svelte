@@ -92,8 +92,12 @@
 
   // Page-to-page navigation cross-fades with the View Transitions API where
   // supported. Skipped under reduced motion, in Simplified view, and in a
-  // hidden tab (where the browser would skip it anyway).
+  // hidden tab (where the browser would skip it anyway). Not for a shallow
+  // goto either: that's a filter or search control rewriting the address
+  // in place (SearchPanel, MediaGallery, RoadAgencyDirectory, PatternViewer).
   onNavigate((navigation) => {
+    if (navigation.type === 'goto' && navigation.shallow)
+      return
     if (!document.startViewTransition || document.visibilityState !== 'visible')
       return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches)
@@ -124,7 +128,9 @@
     }
   })
 
-  afterNavigate(() => {
+  afterNavigate(({ type, shallow }) => {
+    if (type === 'goto' && shallow)
+      return
     sidebarOpen.set(false)
     searchOpen.set(false)
     if (document.documentElement.dataset.view === 'simple')

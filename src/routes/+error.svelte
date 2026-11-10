@@ -3,7 +3,7 @@
   import options from 'virtual:commonway/options'
 
   // Custom error page. On the live site this is what build/404.html shows
-  // (svelte.config.js's `fallback`): Netlify serves that file with a 404
+  // (adapter `fallback` in vite.config.ts's svelteKitOptions): Netlify serves that file with a 404
   // status for any address that has no page, and the router renders this
   // inside the normal navbar and sidebar. <main id="main-content"> keeps the
   // skip link and landmarks working the same as on every content page.

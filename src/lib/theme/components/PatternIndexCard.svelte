@@ -16,7 +16,7 @@
      * Omit for Recommended (the unremarkable default, no badge at all here,
      * unlike the Pattern ID card's own quiet "Recommended" pill). As of
      * 2026.09.02, Intersections & Crossings entries carry a status too
-     * (see PatternCard.svelte) - this prop applies to them the same as
+     * (as on the pattern pages' ID row) - this prop applies to them the same as
      * any other classification now.
      */
     status?: Status
@@ -78,8 +78,8 @@
 </a>
 
 <style>
-  /* Same overlay-tier and hover-border-tier reasoning as PatternCard's own
-     left-edge accent (see tokens.css): Core is the darkest step in each
+  /* Same overlay-tier and hover-border-tier reasoning as the former PatternCard's
+     (removed 2026.10.20) left-edge accent (see tokens.css): Core is the darkest step in each
      6-tier ramp, so it's what a thin colored line clears the 3:1
      UI-component contrast minimum with regardless of classification.
      Suburban (the ramp's midpoint) is deliberately one step lighter for
@@ -227,7 +227,7 @@
   }
 
   .pic__id {
-    /* Same ink-color override as PatternCard's own ID text, for the exact
+    /* Same ink-color override as the former PatternCard's ID text (PageHeader's ID row now), for the exact
        same reason: "a constant identity mark distinct from classification
        color" (Brand Guide). Background/padding/font/radius all come from
        base.css's global .cw-content code rule, the real reuse this is

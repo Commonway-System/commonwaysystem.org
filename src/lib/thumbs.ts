@@ -9,7 +9,7 @@ export type ThumbWidth = 160 | 480 | 768 | 1280
 
 export const THUMB_WIDTHS: readonly ThumbWidth[] = [160, 480]
 
-/** Foundations diagrams (static/diagrams/) are shown full column width, so they get larger WebP copies instead. */
+/** Core Concepts diagrams (static/diagrams/) are shown full column width, so they get larger WebP copies instead. */
 export const DIAGRAM_WIDTHS: readonly ThumbWidth[] = [768, 1280]
 
 /** Pattern illustrations (static/patterns/) also get a 1280 copy, for the Pattern viewer's Overview view. */

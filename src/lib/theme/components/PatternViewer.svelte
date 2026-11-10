@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onDestroy, onMount, tick } from 'svelte'
-  import { replaceState } from '$app/navigation'
+  import { goto } from '$app/navigation'
   import type { Annotations, Change, CompareTarget, ConfigEntry, ConfigId, Units, ViewerData, ViewSpec } from '$lib/viewer/types'
   import { CONFIG_LABELS, CONFIG_SHORT_LABELS } from '$lib/viewer/types'
   import { diffEntries } from '$lib/viewer/geometry'
@@ -202,7 +202,7 @@
 
   // ---------------------------------------------------------------------
   // Deep links (?view=&config=&compare=&<facet>=), read once on mount,
-  // written back with replaceState so Back isn't flooded with every click.
+  // written back with a shallow, replacing goto so Back isn't flooded with every click.
 
   let ready = $state(false)
 
@@ -247,12 +247,9 @@
     else
       next.searchParams.delete('cut')
     if (next.href !== current.href) {
-      try {
-        replaceState(next, {})
-      }
-      catch {
+      goto(next, { shallow: true, replace: true, state: {} }).catch(() => {
         // The router isn't ready yet on a first paint; the next change writes it.
-      }
+      })
     }
   })
 
