@@ -27,6 +27,11 @@
         r.dataset.pointer = s.largePointer ? 'large' : 'default'
         r.dataset.halo = s.pointerHalo ? 'on' : 'off'
       } catch (e) {}
+      // Pattern viewer drawing style (mirror of src/lib/viewer/state.ts's loadArtStyle()).
+      try {
+        var a = localStorage.getItem('commonway-viewer-art')
+        document.documentElement.dataset.art = a === 'ink' || a === 'print' ? a : 'muted'
+      } catch (e) {}
       // Apply the color scheme before first paint (mirror of src/lib/theme/layout.ts's
       // initColorScheme()): a saved choice wins, otherwise the system preference.
       // Separate try/catch so blocked storage still falls back to the system preference.

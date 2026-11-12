@@ -1,184 +1,483 @@
+/* Figure palettes (people, vehicles, street furniture) live in their own file. */
+@import './viewer-figures.css';
+
 /* Pattern viewer drawing palette, shared by the cross-section and top-down
    renderers (PatternViewerSection.svelte, PatternViewerPlan.svelte).
    Site-only colors, not Brand Guide tokens: pavement, paint and planting
    need to read as what they are, in both themes. Meaning never rests on
    color alone: every strip carries a text label, and edges are drawn. The
    change highlight uses the reserved amber, which the Brand Guide keeps for
-   pattern-illustration highlighting. */
+   pattern-illustration highlighting, in every drawing style.
 
+   Three drawing styles share one markup (see "Drawing styles" below): the
+   base .pvx blocks are Muted render, the default; html[data-art='ink'] and
+   html[data-art='print'] override every token that changes. */
+
+/* ---- Muted render, light (the default) -------------------------------- */
 .pvx {
   --pvx-edge: rgba(20, 20, 20, 0.35);
   --pvx-glyph-stroke: var(--cw-ink-soft);
   --pvx-glyph-fill: var(--cw-paper-raised);
   --pvx-text: var(--cw-ink);
+  --pvx-text-soft: var(--cw-ink-soft);
   --pvx-text-bg: var(--cw-paper-raised);
+  --pvx-dim: var(--cw-ink-soft);
   --pvx-highlight: var(--cw-amber);
   --pvx-highlight-fill: rgba(255, 159, 28, 0.16);
   --pvx-badge-text: var(--cw-ink-fixed);
+  /* The box behind the drawing: the stage shows through in Muted. */
+  --pvx-bg: transparent;
 
-  /* Illustrated art (src/lib/viewer/art/): sky, ground cut, materials,
-     plants, buildings, paint, and the top-down slice. Approved from the
-     2026.10.17 mockup. Meaning never rests on these colors alone: strips are
-     labeled, and the zone band carries text. */
-  --pvx-sky-top: #e3eeec;
-  --pvx-sky-bottom: #f7f5ee;
+  /* Contract tokens (see "Drawing styles"): the drawing's ink and paper,
+     and its one accent color. In Muted they're the page's own. */
+  --pvx-ink: var(--cw-ink);
+  --pvx-ink-soft: var(--cw-ink-soft);
+  --pvx-paper: var(--cw-paper-raised);
+  --pvx-accent: var(--cw-teal);
+  --pvx-wash: #ebe6da;
+  --pvx-accent-wash: #c7ebe5;
+  /* Two-ink print's inks; only print's overlays use them. */
+  --pvx-print-1: #005f52;
+  --pvx-print-2: #00a896;
+  --pvx-cut: #005f52;
+  /* Per-style switches for art that may be stamped (placed with <use>),
+     where class selectors don't reach: display values and crown strokes,
+     read through custom properties, which do inherit into a <use>. */
+  --pvx-d-muted: inline;
+  --pvx-d-ink: none;
+  --pvx-d-print: none;
+  --pvx-d-no-muted: none;
+  --pvx-crown-front: none;
+  --pvx-crown-front-w: 0;
+  --pvx-crown-top: none;
+  --pvx-crown-top-w: 0;
+  --pvx-crown-in: none;
+
+  /* Sky, ground cut, materials, plants, buildings (section). */
+  --pvx-sky-top: #dfe8ea;
+  --pvx-sky-bottom: #f5f2ea;
   --pvx-cloud: #ffffff;
-  --pvx-cloud-a: 0.75;
-  --pvx-soil: #b89c79;
-  --pvx-soil-dot: #9f835f;
-  --pvx-root: #8e7354;
-  --pvx-gravel: #c9c2b4;
-  --pvx-gravel-dot: #a49c8c;
-  --pvx-concrete: #dedad1;
-  --pvx-concrete-shade: #c3beb2;
-  --pvx-asphalt: #4f5052;
-  --pvx-base: #9b968b;
-  --pvx-grass: #86ad5e;
-  --pvx-grass-dk: #6c9447;
-  --pvx-mulch: #7a5b3e;
-  --pvx-canopy-dk: #3f6d30;
-  --pvx-canopy-md: #5f9140;
-  --pvx-canopy-lt: #9cc463;
-  --pvx-trunk: #6a4f3d;
-  --pvx-pole: #6e7378;
+  --pvx-cloud-a: 0.7;
+  --pvx-soil: #8d7f6e;
+  --pvx-pit: #6f6355;
+  --pvx-gravel: #b3ac9f;
+  --pvx-base: #a59e91;
+  --pvx-concrete: #d7d3ca;
+  --pvx-concrete-shade: #b9b4a9;
+  --pvx-curb: #c9c4ba;
+  --pvx-asphalt: #565b60;
+  --pvx-turf: #93a981;
+  --pvx-groundcover: #7f9f7a;
+  --pvx-grass: #93a981;
+  --pvx-grass-dk: #7d9570;
+  --pvx-canopy-dk: #5d7e62;
+  --pvx-canopy-md: #7f9f7a;
+  --pvx-canopy-lt: #abc39c;
+  --pvx-canopy-plain: #7f9f7a;
+  --pvx-canopy-a: 0.92;
+  --pvx-trunk: #4d433b;
+  --pvx-branch: #4d433b;
+  --pvx-branch-w: 0.13;
+  --pvx-branch-a: 0.35;
   --pvx-glass: #3b4853;
   --pvx-shadow: rgba(0, 0, 0, 0.16);
   --pvx-shadow-a: 0.2;
-  --pvx-cut-line: rgba(20, 20, 20, 0.45);
+  --pvx-cut-line: rgba(20, 20, 20, 0.4);
+  --pvx-cut-mark: #f4f2ec;
   --pvx-guide: rgba(20, 20, 20, 0.22);
-  --pvx-paint-green: #4f9a55;
-  --pvx-paint-red: #b0573f;
-  --pvx-pavers: #b98c6e;
+  --pvx-paint-green: #4d977f;
+  --pvx-paint-red: #a8574a;
+  --pvx-pavers: #b0907a;
   /* Brick pavers: tan for parking lanes (only an illustration, no standard
      sets a color) and red for later uses; joints as a translucent overlay. */
-  --pvx-brick: #a87b52;
-  --pvx-brick-red: #a34a3a;
-  --pvx-brick-joint: rgba(60, 35, 20, 0.3);
-  --pvx-bldg-a: #c58a6a;
-  --pvx-bldg-b: #d8ccb4;
-  --pvx-bldg-trim: #efe7d6;
-  --pvx-window: #8fa6b3;
-  --pvx-window-lit: #8fa6b3;
-  --pvx-roof: #bab5ab;
-  --pvx-roof-dk: #a29d92;
-  --pvx-awning: #2f6f6a;
-  --pvx-p-asphalt: #6f7073;
-  --pvx-p-concrete: #e6e2d9;
-  --pvx-p-concrete-2: #dcd7cc;
-  --pvx-p-joint: rgba(0, 0, 0, 0.13);
-  --pvx-p-grass: #9cbf70;
-  --pvx-p-grass-dk: #7fa656;
-  --pvx-p-grass-lt: #b7d38c;
-  --pvx-p-curb: #f1eee7;
-  --pvx-p-green: #4f9650;
-  --pvx-p-red: #b0573f;
-  --pvx-p-pavers: #c99d7e;
-  --pvx-p-brick: #c09469;
-  --pvx-p-brick-red: #b2513f;
-  --pvx-p-white: #fbfbf8;
-  --pvx-p-yellow: #f0c02e;
+  --pvx-brick: #a3825f;
+  --pvx-brick-red: #9a4f42;
+  --pvx-brick-joint: rgba(50, 35, 25, 0.3);
+  --pvx-bldg-a: #cdc6b8;
+  --pvx-bldg-b: #c2b9a8;
+  --pvx-bldg-trim: #b3ab9c;
+  --pvx-window: #8a939c;
+  --pvx-window-lit: #8a939c;
+  --pvx-storefront: #5d656c;
+  --pvx-awning: #5f8580;
+  --pvx-roof: #c4beb3;
+  --pvx-roof-dk: #b3ada2;
+
+  /* Top down: the slice under the section and the Top down view. */
+  --pvx-p-asphalt: #5d6166;
+  --pvx-p-concrete: #e2ded5;
+  --pvx-p-concrete-2: #dad5cb;
+  --pvx-p-joint: rgba(0, 0, 0, 0.12);
+  --pvx-p-grass: #a3b68f;
+  --pvx-p-grass-dk: #8ea37a;
+  --pvx-p-grass-lt: #b9c9a6;
+  --pvx-p-curb: #ece9e2;
+  --pvx-p-green: #4f8f79;
+  --pvx-p-red: #b06656;
+  --pvx-p-pavers: #c4a48d;
+  --pvx-p-brick: #b89772;
+  --pvx-p-brick-red: #a85a4b;
+  --pvx-p-white: #f4f2ec;
+  /* Paint on a green bike lane (see onBikePaint in art/core.ts): the same
+     as any other paint except in Two-ink print. */
+  --pvx-on-bike-white: var(--pvx-p-white);
+  --pvx-on-bike-yellow: var(--pvx-p-yellow);
+  --pvx-p-yellow: #e2bd4c;
   /* Detectable warning surface: yellow truncated domes (contrast is what the
      rule asks for; yellow is the usual US choice). */
-  --pvx-p-dw: #e8b923;
-  --pvx-p-dw-dome: #b88a10;
-  /* Zone band: dark text on light fills here, light text on dark fills in
-     dark mode; every pair clears 4.5:1. */
-  --pvx-z-ped: #f4b97a;
-  --pvx-z-bike: #93cf7f;
-  --pvx-z-transit: #8fb3e0;
-  --pvx-z-car: #ec6a5c;
+  --pvx-p-dw: #d9b444;
+  --pvx-p-dw-dome: #a8862a;
+
+  /* Zone band: every text/fill pair clears 4.5:1 (computed). */
+  --pvx-z-ped: #d4b48e;
+  --pvx-z-bike: #7dbaa5;
+  --pvx-z-transit: #9db4cf;
+  --pvx-z-car: #d68a7c;
+  --pvx-z-sep: #e4dfd3;
   --pvx-z-text: #141414;
-  --pvx-z-sep: #ebe6da;
   --pvx-art-filter: none;
 }
 
-/* A box around a drawing that may be shorter than the box (the homepage's
-   before/after and Stroad/Boulevard pair): the spare space above it reads
-   as more sky instead of a blank band. Keep in step with --pvx-sky-top. */
-.pvx-sky {
-  background: #e3eeec;
-}
-
-[data-theme='dark'] .pvx-sky {
-  background: #16222a;
-}
-
+/* ---- Muted render, dark ------------------------------------------------ */
 [data-theme='dark'] .pvx {
   --pvx-edge: rgba(255, 255, 255, 0.3);
   --pvx-highlight-fill: rgba(255, 159, 28, 0.2);
+  --pvx-wash: #2b2a27;
+  --pvx-accent-wash: #12423c;
 
-  --pvx-sky-top: #16222a;
-  --pvx-sky-bottom: #24313a;
-  --pvx-cloud: #3a4a55;
-  --pvx-cloud-a: 0.55;
-  --pvx-soil: #5a4734;
-  --pvx-soil-dot: #6d5841;
-  --pvx-root: #4a3a2a;
-  --pvx-gravel: #5d5a53;
-  --pvx-gravel-dot: #77736a;
-  --pvx-concrete: #8f8b83;
-  --pvx-concrete-shade: #75716a;
-  --pvx-asphalt: #2c2d2e;
-  --pvx-base: #55524c;
-  --pvx-grass: #4d6e3c;
-  --pvx-grass-dk: #3e5c30;
-  --pvx-mulch: #4a3828;
-  --pvx-canopy-dk: #2a4a22;
-  --pvx-canopy-md: #3f6a30;
-  --pvx-canopy-lt: #6c9447;
-  --pvx-trunk: #4f3b2e;
-  --pvx-pole: #8a8f94;
+  --pvx-sky-top: #1d262c;
+  --pvx-sky-bottom: #24292c;
+  --pvx-cloud: #ffffff;
+  --pvx-cloud-a: 0.06;
+  --pvx-soil: #403930;
+  --pvx-pit: #2e2922;
+  --pvx-gravel: #56524b;
+  --pvx-base: #4a463f;
+  --pvx-concrete: #77746d;
+  --pvx-concrete-shade: #5b5852;
+  --pvx-curb: #6a675f;
+  --pvx-asphalt: #2f3337;
+  --pvx-turf: #4d6048;
+  --pvx-groundcover: #557257;
+  --pvx-grass: #4d6048;
+  --pvx-grass-dk: #435540;
+  --pvx-canopy-dk: #3c5642;
+  --pvx-canopy-md: #557257;
+  --pvx-canopy-lt: #73906e;
+  --pvx-canopy-plain: #557257;
+  --pvx-trunk: #8a7d70;
+  --pvx-branch: #8a7d70;
   --pvx-glass: #26303a;
-  --pvx-shadow: rgba(0, 0, 0, 0.38);
+  --pvx-shadow: rgba(0, 0, 0, 0.35);
   --pvx-shadow-a: 0.45;
-  --pvx-cut-line: rgba(255, 255, 255, 0.35);
+  --pvx-cut-line: rgba(255, 255, 255, 0.3);
+  --pvx-cut-mark: #d9d6ce;
   --pvx-guide: rgba(255, 255, 255, 0.2);
-  --pvx-paint-green: #2f6236;
-  --pvx-paint-red: #7d3a29;
-  --pvx-pavers: #6b4f3d;
-  --pvx-brick: #6c5034;
-  --pvx-brick-red: #6b2f25;
+  --pvx-paint-green: #2f7a66;
+  --pvx-paint-red: #7d3f35;
+  --pvx-pavers: #6b5546;
+  --pvx-brick: #6a5238;
+  --pvx-brick-red: #6b3229;
   --pvx-brick-joint: rgba(0, 0, 0, 0.32);
-  --pvx-bldg-a: #6b4636;
-  --pvx-bldg-b: #625b4f;
-  --pvx-bldg-trim: #857d6f;
-  --pvx-window: #2c3840;
-  --pvx-window-lit: #c9a85a;
-  --pvx-roof: #4a4843;
-  --pvx-roof-dk: #3d3b37;
-  --pvx-awning: #24524e;
-  --pvx-p-asphalt: #3b3c3e;
-  --pvx-p-concrete: #8c8981;
-  --pvx-p-concrete-2: #827f77;
-  --pvx-p-joint: rgba(0, 0, 0, 0.25);
-  --pvx-p-grass: #4e6c3d;
-  --pvx-p-grass-dk: #3f5a31;
-  --pvx-p-grass-lt: #5f7f4b;
-  --pvx-p-curb: #a3a098;
-  --pvx-p-green: #2f5a33;
-  --pvx-p-red: #6e3324;
-  --pvx-p-pavers: #73574a;
-  --pvx-p-brick: #76593d;
-  --pvx-p-brick-red: #73362a;
-  --pvx-p-white: #dcdcd8;
-  --pvx-p-yellow: #c9a02a;
-  --pvx-p-dw: #c99a1c;
-  --pvx-p-dw-dome: #8f6a0c;
-  --pvx-z-ped: #8a5a2b;
-  --pvx-z-bike: #3f7a3a;
-  --pvx-z-transit: #2f5a8a;
-  --pvx-z-car: #a8392e;
-  --pvx-z-text: #fdfaf3;
+  --pvx-bldg-a: #3b3a37;
+  --pvx-bldg-b: #45423d;
+  --pvx-bldg-trim: #2f2e2c;
+  --pvx-window: #5b646d;
+  --pvx-window-lit: #b9a36a;
+  --pvx-storefront: #262c31;
+  --pvx-awning: #35524e;
+  --pvx-roof: #3a3935;
+  --pvx-roof-dk: #31302d;
+  --pvx-p-asphalt: #34383c;
+  --pvx-p-concrete: #85827a;
+  --pvx-p-concrete-2: #7d7a72;
+  --pvx-p-joint: rgba(0, 0, 0, 0.22);
+  --pvx-p-grass: #556a4f;
+  --pvx-p-grass-dk: #485c43;
+  --pvx-p-grass-lt: #627a5b;
+  --pvx-p-curb: #9b988f;
+  --pvx-p-green: #347a68;
+  --pvx-p-red: #7a3e33;
+  --pvx-p-pavers: #786152;
+  --pvx-p-brick: #77603f;
+  --pvx-p-brick-red: #763a2e;
+  --pvx-p-white: #d9d6ce;
+  --pvx-p-yellow: #c9a53c;
+  --pvx-p-dw: #bf9a2a;
+  --pvx-p-dw-dome: #8a6c16;
+  --pvx-z-ped: #b3936c;
+  --pvx-z-bike: #58a088;
+  --pvx-z-transit: #7d98b8;
+  --pvx-z-car: #c27869;
   --pvx-z-sep: #3a3936;
-  --pvx-art-filter: brightness(0.82) saturate(0.9);
+  --pvx-z-text: #141414;
 }
 
-html[data-contrast='high'] .pvx {
+/* ---- Drafting ink, light ----------------------------------------------- */
+/* Ink line on paper. The ground cut is solid ink (poché); surfaces seen
+   from above are paper, a gray wash for roadway and a teal tint for bike
+   lanes (the only color); hatch, stipple and line style stand in for hue. */
+html[data-art='ink'] .pvx {
+  --pvx-d-muted: none;
+  --pvx-d-ink: inline;
+  --pvx-d-no-muted: inline;
+  --pvx-crown-front: var(--pvx-ink);
+  --pvx-crown-front-w: 1.1;
+  --pvx-crown-top: var(--pvx-ink);
+  --pvx-crown-top-w: 1.1;
+  --pvx-crown-in: var(--pvx-ink-soft);
+  --pvx-ink: #1a1a1a;
+  --pvx-ink-soft: #7b766b;
+  --pvx-paper: #fdfaf3;
+  --pvx-accent: #00a896;
+  --pvx-wash: #ebe6da;
+  --pvx-accent-wash: #c7ebe5;
+  --pvx-bg: var(--pvx-paper);
+  --pvx-text: var(--pvx-ink);
+  --pvx-text-soft: #4a4a4a;
+  --pvx-text-bg: var(--pvx-paper);
+  --pvx-dim: var(--pvx-ink);
+  --pvx-edge: var(--pvx-ink);
+  --pvx-glyph-stroke: var(--pvx-ink);
+  --pvx-glyph-fill: var(--pvx-paper);
+  --pvx-guide: rgba(26, 26, 26, 0.3);
+
+  --pvx-sky-top: var(--pvx-paper);
+  --pvx-sky-bottom: var(--pvx-paper);
+  --pvx-cloud: transparent;
+  --pvx-soil: var(--pvx-ink);
+  --pvx-pit: var(--pvx-paper);
+  --pvx-gravel: var(--pvx-ink);
+  --pvx-base: var(--pvx-ink);
+  --pvx-concrete: var(--pvx-ink);
+  --pvx-concrete-shade: var(--pvx-ink);
+  --pvx-curb: var(--pvx-ink);
+  --pvx-asphalt: var(--pvx-ink);
+  --pvx-turf: var(--pvx-ink);
+  --pvx-groundcover: var(--pvx-paper);
+  --pvx-grass: var(--pvx-paper);
+  --pvx-grass-dk: var(--pvx-paper);
+  --pvx-canopy-dk: rgba(253, 250, 243, 0.62);
+  --pvx-canopy-md: transparent;
+  --pvx-canopy-lt: transparent;
+  --pvx-canopy-plain: rgba(253, 250, 243, 0.62);
+  --pvx-canopy-a: 1;
+  --pvx-trunk: var(--pvx-paper);
+  --pvx-branch: var(--pvx-ink);
+  --pvx-branch-w: 0.06;
+  --pvx-branch-a: 0.6;
+  --pvx-shadow: transparent;
+  --pvx-shadow-a: 0;
+  --pvx-cut-line: var(--pvx-ink);
+  --pvx-cut-mark: var(--pvx-paper);
+  --pvx-paint-green: var(--pvx-accent);
+  --pvx-paint-red: var(--pvx-ink-soft);
+  --pvx-pavers: var(--pvx-ink);
+  --pvx-brick: var(--pvx-ink);
+  --pvx-brick-red: var(--pvx-ink);
+  --pvx-brick-joint: var(--pvx-ink-soft);
+  --pvx-bldg-a: var(--pvx-paper);
+  --pvx-bldg-b: var(--pvx-paper);
+  --pvx-bldg-trim: var(--pvx-ink-soft);
+  --pvx-window: var(--pvx-wash);
+  --pvx-window-lit: var(--pvx-wash);
+  --pvx-storefront: var(--pvx-wash);
+  --pvx-awning: var(--pvx-paper);
+  --pvx-roof: var(--pvx-paper);
+  --pvx-roof-dk: var(--pvx-paper);
+
+  --pvx-p-asphalt: var(--pvx-wash);
+  --pvx-p-concrete: var(--pvx-paper);
+  --pvx-p-concrete-2: var(--pvx-paper);
+  --pvx-p-joint: var(--pvx-ink-soft);
+  --pvx-p-grass: var(--pvx-paper);
+  --pvx-p-grass-dk: var(--pvx-paper);
+  --pvx-p-grass-lt: var(--pvx-paper);
+  --pvx-p-curb: var(--pvx-paper);
+  --pvx-p-green: var(--pvx-accent-wash);
+  --pvx-p-red: var(--pvx-wash);
+  --pvx-p-pavers: var(--pvx-paper);
+  --pvx-p-brick: var(--pvx-paper);
+  --pvx-p-brick-red: var(--pvx-paper);
+  --pvx-p-white: var(--pvx-ink);
+  --pvx-p-yellow: var(--pvx-ink);
+  --pvx-p-dw: var(--pvx-paper);
+  --pvx-p-dw-dome: var(--pvx-ink);
+
+  --pvx-z-ped: var(--pvx-paper);
+  --pvx-z-bike: var(--pvx-accent-wash);
+  --pvx-z-transit: #d9d3c5;
+  --pvx-z-car: var(--pvx-wash);
+  --pvx-z-sep: var(--pvx-paper);
+  --pvx-z-text: var(--pvx-ink);
+}
+
+/* ---- Drafting ink, dark ------------------------------------------------ */
+html[data-art='ink'][data-theme='dark'] .pvx {
+  --pvx-ink: #ebe6da;
+  --pvx-ink-soft: #8d887e;
+  --pvx-paper: #171615;
+  --pvx-accent: #2cc4b1;
+  --pvx-wash: #2b2a27;
+  --pvx-accent-wash: #12423c;
+  --pvx-text-soft: #c9c4b8;
+  --pvx-guide: rgba(235, 230, 218, 0.3);
+  --pvx-canopy-dk: rgba(23, 22, 21, 0.62);
+  --pvx-canopy-plain: rgba(23, 22, 21, 0.62);
+  --pvx-z-transit: #3a3833;
+}
+
+/* ---- Two-ink print, light ---------------------------------------------- */
+/* A screen print in the brand's two greens on paper, shaded with halftone.
+   Big filled areas (the ground cut, the road) use --pvx-cut and --pvx-road,
+   which stay dark in dark mode; --pvx-print-1 is the first ink for lines,
+   trunks and dots (light mint in dark mode). Pattern density stands in for
+   hue. */
+html[data-art='print'] .pvx {
+  --pvx-d-muted: none;
+  --pvx-d-print: inline;
+  --pvx-d-no-muted: inline;
+  --pvx-crown-top: var(--pvx-ink);
+  --pvx-crown-top-w: 1.4;
+  --pvx-ink: #00382f;
+  --pvx-ink-soft: #3d7a70;
+  --pvx-paper: #fdfaf3;
+  --pvx-accent: #00a896;
+  --pvx-print-1: #005f52;
+  --pvx-print-2: #00a896;
+  --pvx-cut: #005f52;
+  --pvx-road: #005f52;
+  --pvx-pop: #fdfaf3;
+  --pvx-bg: var(--pvx-paper);
+  --pvx-text: var(--pvx-ink);
+  --pvx-text-soft: var(--pvx-ink-soft);
+  --pvx-text-bg: var(--pvx-paper);
+  --pvx-dim: var(--pvx-ink);
+  --pvx-edge: var(--pvx-print-1);
+  --pvx-glyph-stroke: var(--pvx-ink);
+  --pvx-glyph-fill: var(--pvx-paper);
+  --pvx-guide: rgba(0, 95, 82, 0.35);
+
+  --pvx-sky-top: var(--pvx-paper);
+  --pvx-sky-bottom: var(--pvx-paper);
+  --pvx-cloud: transparent;
+  --pvx-soil: var(--pvx-cut);
+  --pvx-pit: var(--pvx-paper);
+  --pvx-gravel: var(--pvx-cut);
+  --pvx-base: var(--pvx-cut);
+  --pvx-concrete: var(--pvx-cut);
+  --pvx-concrete-shade: var(--pvx-cut);
+  --pvx-curb: var(--pvx-cut);
+  --pvx-asphalt: var(--pvx-cut);
+  --pvx-turf: var(--pvx-print-2);
+  --pvx-groundcover: var(--pvx-print-2);
+  --pvx-grass: var(--pvx-print-2);
+  --pvx-grass-dk: var(--pvx-print-1);
+  --pvx-canopy-dk: var(--pvx-print-2);
+  --pvx-canopy-md: var(--pvx-print-2);
+  --pvx-canopy-lt: transparent;
+  --pvx-canopy-plain: var(--pvx-print-2);
+  --pvx-canopy-a: 1;
+  --pvx-trunk: var(--pvx-print-1);
+  --pvx-branch: var(--pvx-print-1);
+  --pvx-branch-w: 0.16;
+  --pvx-branch-a: 1;
+  --pvx-shadow: transparent;
+  --pvx-shadow-a: 0;
+  --pvx-cut-line: var(--pvx-print-1);
+  --pvx-cut-mark: var(--pvx-pop);
+  --pvx-paint-green: var(--pvx-print-2);
+  --pvx-paint-red: var(--pvx-ink-soft);
+  --pvx-pavers: var(--pvx-cut);
+  --pvx-brick: var(--pvx-cut);
+  --pvx-brick-red: var(--pvx-cut);
+  --pvx-brick-joint: var(--pvx-ink-soft);
+  --pvx-bldg-a: var(--pvx-paper);
+  --pvx-bldg-b: var(--pvx-paper);
+  --pvx-bldg-trim: var(--pvx-print-1);
+  --pvx-window: var(--pvx-paper);
+  --pvx-window-lit: var(--pvx-paper);
+  --pvx-storefront: var(--pvx-print-2);
+  --pvx-awning: var(--pvx-print-1);
+  --pvx-roof: var(--pvx-paper);
+  --pvx-roof-dk: var(--pvx-paper);
+
+  --pvx-p-asphalt: var(--pvx-road);
+  --pvx-p-concrete: var(--pvx-paper);
+  --pvx-p-concrete-2: var(--pvx-paper);
+  --pvx-p-joint: var(--pvx-ink-soft);
+  --pvx-p-grass: var(--pvx-paper);
+  --pvx-p-grass-dk: var(--pvx-paper);
+  --pvx-p-grass-lt: var(--pvx-paper);
+  --pvx-p-curb: var(--pvx-paper);
+  --pvx-p-green: var(--pvx-print-2);
+  --pvx-p-red: var(--pvx-paper);
+  --pvx-p-pavers: var(--pvx-paper);
+  --pvx-p-brick: var(--pvx-paper);
+  --pvx-p-brick-red: var(--pvx-paper);
+  --pvx-p-white: var(--pvx-pop);
+  --pvx-p-yellow: var(--pvx-pop);
+  /* Paper on the teal lane is 2.86:1; the dark ink is 4.38:1. */
+  --pvx-on-bike-white: var(--pvx-ink);
+  --pvx-on-bike-yellow: var(--pvx-ink);
+  --pvx-p-dw: var(--pvx-paper);
+  --pvx-p-dw-dome: var(--pvx-print-1);
+
+  --pvx-z-ped: var(--pvx-paper);
+  --pvx-z-bike: var(--pvx-print-2);
+  --pvx-z-transit: var(--pvx-ink-soft);
+  --pvx-z-car: var(--pvx-cut);
+  --pvx-z-sep: var(--pvx-paper);
+  --pvx-z-text: var(--pvx-ink);
+  --pvx-zt-bike: #03231f;
+  --pvx-zt-transit: var(--pvx-paper);
+  --pvx-zt-car: var(--pvx-pop);
+}
+
+/* ---- Two-ink print, dark ----------------------------------------------- */
+html[data-art='print'][data-theme='dark'] .pvx {
+  --pvx-ink: #d9f5f0;
+  --pvx-ink-soft: #7dbdb3;
+  --pvx-paper: #0c1c19;
+  --pvx-print-1: #bfeee6;
+  --pvx-cut: #1c5a51;
+  --pvx-road: #17443d;
+  --pvx-pop: #bfeee6;
+  --pvx-guide: rgba(191, 238, 230, 0.3);
+  /* Mint on the teal lane is 2.36:1; the dark paper is 5.89:1. */
+  --pvx-on-bike-white: var(--pvx-paper);
+  --pvx-on-bike-yellow: var(--pvx-paper);
+}
+
+/* High contrast (Display settings), in every style: edges, cut lines and
+   guides go to full ink. Doubled class so it beats each style's block. */
+html[data-contrast='high'] .pvx.pvx {
   --pvx-edge: var(--cw-ink);
   --pvx-glyph-stroke: var(--cw-ink);
   --pvx-cut-line: var(--cw-ink);
   --pvx-guide: var(--cw-ink-soft);
+  --pvx-dim: var(--cw-ink);
+  --pvx-text: var(--cw-ink);
+  --pvx-text-soft: var(--cw-ink-soft);
+  --pvx-text-bg: var(--cw-paper-raised);
 }
+html[data-contrast='high'][data-art='ink'] .pvx.pvx,
+html[data-contrast='high'][data-art='print'] .pvx.pvx {
+  --pvx-paper: var(--cw-paper-raised);
+  --pvx-ink: var(--cw-ink);
+}
+
+/* A box around a drawing that may be shorter than the box (the homepage's
+   before/after and Stroad/Boulevard pair): the spare space above it reads
+   as more sky (Muted) or paper (ink, print) instead of a blank band. Keep
+   in step with --pvx-sky-top and --pvx-paper. */
+.pvx-sky { background: #dfe8ea; }
+[data-theme='dark'] .pvx-sky { background: #1d262c; }
+html[data-art='ink'] .pvx-sky,
+html[data-art='print'] .pvx-sky { background: #fdfaf3; }
+html[data-art='ink'][data-theme='dark'] .pvx-sky { background: #171615; }
+html[data-art='print'][data-theme='dark'] .pvx-sky { background: #0c1c19; }
+html[data-contrast='high'][data-art] .pvx-sky { background: var(--cw-paper-raised); }
 
 .pvx {
   display: block;
@@ -187,6 +486,7 @@ html[data-contrast='high'] .pvx {
   min-height: 0;
   overflow: hidden;
   border-radius: var(--cw-radius-md);
+  background: var(--pvx-bg);
 }
 
 .pvx svg {
@@ -227,11 +527,15 @@ html[data-contrast='high'] .pvx {
 .pvx .mk-yellow { stroke: var(--pvx-p-yellow); fill: none; }
 .pvx .mk-fill-white { fill: var(--pvx-p-white); }
 .pvx .hatch { stroke: var(--pvx-p-white); stroke-width: 1.5; opacity: 0.7; }
+/* Painted lines in the slice: stroked paths, width as an attribute. */
+.pvx .mkl { fill: none; }
+/* Strip edges in the slice (ink and print only). */
+.pvx .sl-edge { fill: none; stroke: var(--pvx-ink); stroke-width: 1; }
 
 .pvx .g { stroke: var(--pvx-glyph-stroke); fill: var(--pvx-glyph-fill); stroke-width: 1.25; stroke-linejoin: round; stroke-linecap: round; }
 .pvx .g-line { stroke: var(--pvx-glyph-stroke); fill: none; stroke-width: 1.25; stroke-linecap: round; }
 .pvx .g-solid { fill: var(--pvx-glyph-stroke); stroke: none; }
-.pvx .g-canopy { fill: var(--pvx-canopy-md); fill-opacity: 0.7; stroke: var(--pvx-glyph-stroke); stroke-width: 1; }
+.pvx .g-canopy { fill: var(--pvx-canopy-plain); fill-opacity: 0.7; stroke: var(--pvx-glyph-stroke); stroke-width: 1; }
 .pvx .g-arrow { fill: var(--pvx-p-white); opacity: 0.9; }
 
 .pvx .g,
@@ -242,8 +546,61 @@ html[data-contrast='high'] .pvx {
   vector-effect: non-scaling-stroke;
 }
 
-/* Illustrated people, vehicles and plants: muted a little in dark mode so
-   they sit in the dusk palette instead of glowing. */
+/* Trees (nature.ts): branches over the crown, faint in Muted and ink,
+   solid in print; their width is in feet (the art is scaled). */
+.pvx .br { fill: none; stroke: var(--pvx-branch); stroke-width: var(--pvx-branch-w); opacity: var(--pvx-branch-a); stroke-linecap: round; }
+.pvx .sp { fill: none; stroke: var(--pvx-ink-soft); stroke-width: 0.7; vector-effect: non-scaling-stroke; }
+
+/* Drawing styles. The reader picks one in the viewer's controls; the choice
+   is a data-art attribute on <html> (absent or "muted" = Muted render, the
+   default; "ink" = Drafting ink; "print" = Two-ink print). All three are
+   drawn from the same markup: palettes are swapped here, and the few shapes
+   only one style needs carry an only-* class, so switching needs no
+   re-render and the build's markup matches the browser's.
+   CONTRACT shared by every art file, keep these names stable:
+   --pvx-ink / --pvx-paper / --pvx-accent, .only-muted / .only-ink /
+   .only-print, and .o (an outline that only Drafting ink strokes).
+   Also available: .no-muted / .no-ink / .no-print (hidden in that one
+   style), .op (an outline only Two-ink print strokes), .ow (a thin window
+   outline in ink and print), .o-in (a thin inner line only ink strokes),
+   --pvx-ink-soft, --pvx-wash, --pvx-accent-wash, --pvx-print-1 / -2,
+   --pvx-cut, and the pattern fills from fillOf() in art/core.ts. */
+.pvx .only-ink,
+.pvx .only-print,
+html[data-art='ink'] .pvx .no-ink,
+html[data-art='print'] .pvx .no-print,
+html:not([data-art='ink']):not([data-art='print']) .pvx .no-muted { display: none; }
+html[data-art='ink'] .pvx .only-muted,
+html[data-art='print'] .pvx .only-muted { display: none; }
+html[data-art='ink'] .pvx .only-ink,
+html[data-art='print'] .pvx .only-print { display: inline; }
+.pvx .o { vector-effect: non-scaling-stroke; }
+html[data-art='ink'] .pvx .o { stroke: var(--pvx-ink); stroke-width: 1.1; stroke-linejoin: round; }
+html[data-art='ink'] .pvx .o-in { stroke: var(--pvx-ink-soft); stroke-width: 0.7; }
+html[data-art='print'] .pvx .op { stroke: var(--pvx-ink); stroke-width: 1.4; }
+html[data-art='ink'] .pvx .ow { stroke: var(--pvx-ink-soft); stroke-width: 0.8; }
+html[data-art='print'] .pvx .ow { stroke: var(--pvx-print-1); stroke-width: 1.2; }
+
+/* Drafting ink: markings as thin ink lines; crosswalk bars, stall marks
+   and detectable warnings as outlined shapes; zone cells as boxes. */
+html[data-art='ink'] .pvx .mkl,
+html[data-art='ink'] .pvx .mk-white,
+html[data-art='ink'] .pvx .mk-yellow { stroke-width: 1; }
+html[data-art='ink'] .pvx .mk-fill-white,
+html[data-art='ink'] .pvx .s-dw { fill: var(--pvx-paper); stroke: var(--pvx-ink); stroke-width: 0.8; }
+html[data-art='ink'] .pvx .hatch { stroke: var(--pvx-ink); stroke-width: 1; opacity: 1; }
+html[data-art='ink'] .pvx .curb-line { stroke-width: 1.3; }
+html[data-art='ink'] .pvx .g-arrow { fill: var(--pvx-ink); opacity: 1; }
+html[data-art='ink'] .pvx rect.zone { stroke: var(--pvx-ink); stroke-width: 0.9; }
+html[data-art='ink'] .pvx .zp { fill: var(--pvx-paper); }
+/* Two-ink print: the walk and separator cells are paper, so outline them. */
+html[data-art='print'] .pvx rect.zone--ped,
+html[data-art='print'] .pvx rect.zone--hatch { stroke: var(--pvx-ink); stroke-width: 1.2; }
+html[data-art='print'] .pvx .sl-edge { stroke-width: 1.4; }
+html[data-art='print'] .pvx .curb-line { stroke: var(--pvx-print-1); }
+
+/* Illustrated people, vehicles and plants (no filter in any style now;
+   the figures carry their own dark-mode colors). */
 .pvx .art { filter: var(--pvx-art-filter); }
 
 /* Simplified view: the plain outline symbols replace the illustrations, and
@@ -256,13 +613,13 @@ html[data-view='simple'] .pvx .art-plain,
 html[data-view='simple'] .pvx .art--slice { display: inline; }
 
 .pvx .t { fill: var(--pvx-text); }
-.pvx .t-soft { fill: var(--cw-ink-soft); }
+.pvx .t-soft { fill: var(--pvx-text-soft); }
 .pvx .t-bg { fill: var(--pvx-text-bg); opacity: 0.92; }
 .pvx .leader { stroke: var(--cw-ink-faint); stroke-width: 1; fill: none; }
-.pvx .dim { stroke: var(--cw-ink-soft); stroke-width: 1; fill: none; }
+.pvx .dim { stroke: var(--pvx-dim); stroke-width: 1; fill: none; }
 .pvx .guide { stroke: var(--pvx-guide); stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
 .pvx .dim--tick { stroke-width: 1.25; }
-.pvx .dim-arrow { fill: var(--cw-ink-soft); }
+.pvx .dim-arrow { fill: var(--pvx-dim); }
 .pvx .t--label { font-weight: 600; }
 .pvx .t--num { font-weight: 700; }
 
@@ -273,9 +630,13 @@ html[data-view='simple'] .pvx .art--slice { display: inline; }
 .pvx .zone--car { fill: var(--pvx-z-car); }
 .pvx .zone--sep { fill: var(--pvx-z-sep); }
 .pvx .zt { fill: var(--pvx-z-text); }
+.pvx .zt--ped { fill: var(--pvx-zt-ped, var(--pvx-z-text)); }
+.pvx .zt--bike { fill: var(--pvx-zt-bike, var(--pvx-z-text)); }
+.pvx .zt--transit { fill: var(--pvx-zt-transit, var(--pvx-z-text)); }
+.pvx .zt--car { fill: var(--pvx-zt-car, var(--pvx-z-text)); }
 
 .pvx .propline { stroke: var(--pvx-cut-line); stroke-width: 1; stroke-dasharray: 8 3 2 3; fill: none; }
-.pvx .cutline { stroke: var(--cw-ink); stroke-width: 1.25; stroke-dasharray: 6 4; fill: none; }
+.pvx .cutline { stroke: var(--pvx-text); stroke-width: 1.25; stroke-dasharray: 6 4; fill: none; }
 
 .pvx .hl { fill: var(--pvx-highlight-fill); stroke: var(--pvx-highlight); stroke-width: 2.5; }
 .pvx .hl-ring { fill: none; stroke: var(--pvx-highlight); stroke-width: 2.5; }

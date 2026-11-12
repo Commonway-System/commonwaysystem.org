@@ -1,16 +1,18 @@
 <script lang="ts">
   import { onDestroy, onMount, tick } from 'svelte'
   import { goto } from '$app/navigation'
-  import type { Annotations, Change, CompareTarget, ConfigEntry, ConfigId, Units, ViewerData, ViewSpec } from '$lib/viewer/types'
+  import type { Annotations, ArtStyle, Change, CompareTarget, ConfigEntry, ConfigId, Units, ViewerData, ViewSpec } from '$lib/viewer/types'
   import { CONFIG_LABELS, CONFIG_SHORT_LABELS } from '$lib/viewer/types'
   import { diffEntries } from '$lib/viewer/geometry'
   import {
+    artStyle,
     configIds,
     defaultCompare,
     defaultConfig,
     facetApplies,
     facetDefaults,
     ladderIds,
+    loadArtStyle,
     loadUnits,
     parseOptionTarget,
     readUrlState,
@@ -208,6 +210,7 @@
 
   onMount(() => {
     loadUnits()
+    loadArtStyle()
     if (import.meta.env.DEV) {
       for (const f of data?.facets ?? []) {
         if (RESERVED_PARAMS.includes(f.id))
@@ -431,6 +434,8 @@
             onannotation={(key, on) => { annotations = { ...annotations, [key]: on } }}
             units={$units}
             onunits={(u: Units) => units.set(u)}
+            art={$artStyle}
+            onart={(a: ArtStyle) => artStyle.set(a)}
             {retrofit}
             {cuts}
             {cut}

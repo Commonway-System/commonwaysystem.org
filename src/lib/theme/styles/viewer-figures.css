@@ -1,0 +1,178 @@
+/* Pattern viewer figure palette: people, vehicles and street furniture, per
+   drawing style (see "Drawing styles" in viewer.css for the contract).
+   Drawn by src/lib/viewer/art/people.ts, vehicles.ts and items.ts, which use
+   only these tokens (plus shadow and the surface tokens for pavement paint).
+
+   Muted render (default): quiet full color. People are gray silhouettes in
+   three tones; their gear is the extreme tone (darkest in light mode,
+   lightest in dark) so a rider reads apart from the bike. Cars are plain
+   sand, slate, stone and taupe bodies.
+   Drafting ink: people and gear are solid ink, vehicles and furniture are
+   paper with an ink outline (.o), glass is a light wash.
+   Two-ink print: people, vehicles and furniture are solid ink, glass is
+   paper, lamps the accent. Top views use car-top, because the lanes under
+   them are the dark ink too.
+   Dark mode values are chosen to look right unfiltered: silhouettes are
+   light against the dark sky. */
+
+.pvx {
+  --pvx-fig-a: #3a3f45;
+  --pvx-fig-b: #5f666e;
+  --pvx-fig-c: #858b92;
+  --pvx-fig-gear: #212428;
+  /* The thin ring that keeps a head apart from the shoulders in top views. */
+  --pvx-fig-sep: rgba(0, 0, 0, 0.28);
+
+  --pvx-car-a: #c8c2b4;
+  --pvx-car-b: #6f7b87;
+  --pvx-car-c: #d2cec4;
+  --pvx-car-d: #8c8579;
+  --pvx-car-low: rgba(0, 0, 0, 0.13);
+  --pvx-car-glass: #2e353c;
+  --pvx-tire: #232528;
+  --pvx-lamp-front: #f1e6c4;
+  --pvx-lamp-rear: #a8483e;
+  --pvx-bus-body: #cfcbc1;
+  --pvx-bus-stripe: #4d7f75;
+  --pvx-truck-box: #c4bfb3;
+  --pvx-veh-line: rgba(0, 0, 0, 0.18);
+  /* car-top and car-top-glass are left unset here: top views fall back to
+     the front-view tokens. */
+
+  --pvx-furn-metal: #4a4f55;
+  --pvx-furn-wood: #9a7c5e;
+  --pvx-furn-slat: #7e644b;
+  --pvx-furn-lens: #f1e6c4;
+  --pvx-furn-band: #d9b444;
+  --pvx-furn-sign: #f1efe9;
+  --pvx-furn-sign-ink: #2b2f33;
+  --pvx-furn-glass: rgba(138, 153, 163, 0.5);
+  --pvx-furn-roof: #5d6268;
+  --pvx-furn-concrete: var(--pvx-concrete);
+  --pvx-furn-concrete-dk: var(--pvx-concrete-shade);
+  --pvx-furn-curb: var(--pvx-p-curb);
+  --pvx-furn-joint: var(--pvx-p-joint);
+}
+
+[data-theme='dark'] .pvx {
+  --pvx-fig-a: #cdd1d5;
+  --pvx-fig-b: #a7adb3;
+  --pvx-fig-c: #858c93;
+  --pvx-fig-gear: #eceef0;
+  --pvx-fig-sep: rgba(0, 0, 0, 0.4);
+
+  --pvx-car-a: #a19c90;
+  --pvx-car-b: #5d6975;
+  --pvx-car-c: #b9b5ac;
+  --pvx-car-d: #756e63;
+  --pvx-car-low: rgba(0, 0, 0, 0.22);
+  --pvx-car-glass: #14181c;
+  --pvx-tire: #0b0c0d;
+  --pvx-lamp-front: #f1e6c4;
+  --pvx-lamp-rear: #c2564a;
+  --pvx-bus-body: #aaa79f;
+  --pvx-bus-stripe: #3f6d64;
+  --pvx-truck-box: #b4b1a9;
+  --pvx-veh-line: rgba(0, 0, 0, 0.28);
+
+  --pvx-furn-metal: #9aa0a6;
+  --pvx-furn-wood: #8a6f55;
+  --pvx-furn-slat: #6c5642;
+  --pvx-furn-lens: #f1e6c4;
+  --pvx-furn-band: #c9a53c;
+  --pvx-furn-sign: #d4d1c9;
+  --pvx-furn-sign-ink: #1b1d1f;
+  --pvx-furn-glass: rgba(120, 134, 145, 0.45);
+  --pvx-furn-roof: #7b8187;
+}
+
+/* Drafting ink, light and dark: everything is ink and paper, so the dark
+   theme follows from the ink and paper tokens without its own values. */
+html[data-art='ink'] .pvx,
+html[data-art='ink'][data-theme='dark'] .pvx {
+  --pvx-fig-a: var(--pvx-ink);
+  --pvx-fig-b: var(--pvx-ink);
+  --pvx-fig-c: var(--pvx-ink);
+  --pvx-fig-gear: var(--pvx-ink);
+  --pvx-fig-sep: var(--pvx-paper);
+
+  --pvx-car-a: var(--pvx-paper);
+  --pvx-car-b: var(--pvx-paper);
+  --pvx-car-c: var(--pvx-paper);
+  --pvx-car-d: var(--pvx-paper);
+  --pvx-car-low: transparent;
+  --pvx-car-glass: color-mix(in srgb, var(--pvx-ink) 13%, var(--pvx-paper));
+  --pvx-tire: var(--pvx-ink);
+  --pvx-lamp-front: var(--pvx-paper);
+  --pvx-lamp-rear: color-mix(in srgb, var(--pvx-ink) 13%, var(--pvx-paper));
+  --pvx-bus-body: var(--pvx-paper);
+  --pvx-bus-stripe: var(--pvx-ink);
+  --pvx-truck-box: var(--pvx-paper);
+  --pvx-veh-line: var(--pvx-ink);
+
+  --pvx-furn-metal: var(--pvx-ink);
+  --pvx-furn-wood: var(--pvx-ink);
+  --pvx-furn-slat: var(--pvx-paper);
+  --pvx-furn-lens: var(--pvx-paper);
+  --pvx-furn-band: var(--pvx-paper);
+  --pvx-furn-sign: var(--pvx-paper);
+  --pvx-furn-sign-ink: var(--pvx-ink);
+  --pvx-furn-glass: color-mix(in srgb, var(--pvx-ink) 13%, transparent);
+  --pvx-furn-roof: var(--pvx-ink);
+  --pvx-furn-concrete: var(--pvx-paper);
+  --pvx-furn-concrete-dk: transparent;
+  --pvx-furn-curb: var(--pvx-paper);
+  --pvx-furn-joint: var(--pvx-ink);
+}
+
+/* Two-ink print, light: dark ink shapes; top-view vehicles are paper with
+   ink glass so they show on the dark lanes. */
+html[data-art='print'] .pvx {
+  --pvx-fig-a: var(--pvx-ink);
+  --pvx-fig-b: var(--pvx-ink);
+  --pvx-fig-c: var(--pvx-ink);
+  --pvx-fig-gear: var(--pvx-ink);
+  --pvx-fig-sep: var(--pvx-paper);
+
+  --pvx-car-a: var(--pvx-ink);
+  --pvx-car-b: var(--pvx-ink);
+  --pvx-car-c: var(--pvx-ink);
+  --pvx-car-d: var(--pvx-ink);
+  --pvx-car-low: transparent;
+  --pvx-car-glass: var(--pvx-paper);
+  --pvx-car-top: var(--pvx-paper);
+  --pvx-car-top-glass: var(--pvx-ink);
+  --pvx-tire: var(--pvx-ink);
+  --pvx-lamp-front: var(--pvx-accent);
+  --pvx-lamp-rear: var(--pvx-accent);
+  --pvx-bus-body: var(--pvx-ink);
+  --pvx-bus-stripe: var(--pvx-accent);
+  --pvx-truck-box: var(--pvx-ink);
+  --pvx-veh-line: var(--pvx-paper);
+
+  --pvx-furn-metal: var(--pvx-ink);
+  --pvx-furn-wood: var(--pvx-ink);
+  --pvx-furn-slat: var(--pvx-paper);
+  --pvx-furn-lens: var(--pvx-accent);
+  --pvx-furn-band: var(--pvx-accent);
+  --pvx-furn-sign: var(--pvx-paper);
+  --pvx-furn-sign-ink: var(--pvx-ink);
+  --pvx-furn-glass: var(--pvx-accent);
+  --pvx-furn-roof: var(--pvx-ink);
+  --pvx-furn-concrete: var(--pvx-ink);
+  --pvx-furn-concrete-dk: var(--pvx-ink);
+  --pvx-furn-curb: var(--pvx-paper);
+  --pvx-furn-joint: var(--pvx-ink);
+}
+
+/* Two-ink print, dark: the ink is the light mint, so the same mapping holds;
+   top-view vehicles take the light ink with dark glass. */
+html[data-art='print'][data-theme='dark'] .pvx {
+  --pvx-car-top: var(--pvx-ink);
+  --pvx-car-top-glass: var(--pvx-paper);
+}
+
+/* Top-view people and riders get a thin paper edge in Two-ink print, where
+   they can cross a lane that is the same dark ink as they are. */
+.pvx .po { vector-effect: non-scaling-stroke; }
+html[data-art='print'] .pvx .po { stroke: var(--pvx-paper); stroke-width: 0.8; }

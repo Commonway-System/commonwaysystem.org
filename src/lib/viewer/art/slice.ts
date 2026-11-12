@@ -8,7 +8,7 @@
 import { barrierRuns, blocksDriveway, crossing, drivewaySpan, isBrick, markingOf, onCrosswalk, onWalkway, parkingBarred, sideStrips, STALL_LENGTH, surfaceOf, WARNING_DEPTH } from '../geometry'
 import type { FrontageType, ItemType, Segment, StreetFeature } from '../types'
 import type { Ids } from './core'
-import { brickJoints, makeStamps, place, r2, rect, rng, seedOf } from './core'
+import { artScale, brickJoints, makeStamps, onBikePaint, overlay, patternDefs, place, r2, rect, rng, seedOf } from './core'
 import { barrierTop, bikeLaneSymbol, laneArrow, sharrow, streetItemTop } from './items'
 import { crownRadius, shrubTop } from './nature'
 import type { CyclistVariant, PedestrianVariant } from './people'
@@ -65,7 +65,31 @@ function speckles(x0: number, x1: number, y0: number, y1: number, S: number, see
   const tones = ['', '']
   for (let i = 0; i < n; i++)
     tones[i % 2] += `<circle cx="${Math.round(x0 + r() * (x1 - x0))}" cy="${Math.round(y0 + r() * (y1 - y0))}" r="${Math.max(1, Math.round(S * (0.18 + r() * 0.2)))}"/>`
-  return `<g style="fill:var(--pvx-p-grass-dk)">${tones[0]}</g><g style="fill:var(--pvx-p-grass-lt)">${tones[1]}</g>`
+  return `<g class="only-muted"><g style="fill:var(--pvx-p-grass-dk)">${tones[0]}</g><g style="fill:var(--pvx-p-grass-lt)">${tones[1]}</g></g>`
+}
+
+/**
+ * Planting seen from above in the styles without hue: stipple in Drafting
+ * ink, teal halftone in Two-ink print (Muted shows the speckles instead).
+ */
+function planted(ids: Ids, x: number, y: number, w: number, h: number): string {
+  return overlay(ids, 'ink', 'stipple', x, y, w, h) + overlay(ids, 'print', 'ht-t2', x, y, w, h)
+}
+
+/**
+ * What a surface's hue says, said again by pattern for ink and print: a red
+ * surface (transit lane, Dutch cycle track) is hatched in ink and screened
+ * dark in print; brick is screened teal in print (its joints show in all three).
+ */
+function surfaceOverlay(ids: Ids, s: Segment, x: number, y: number, w: number, h: number): string {
+  const f = surfaceOf(s)
+  if (s.type === 'furnishing' || s.type === 'median' || s.type === 'curb')
+    return ''
+  if (f === 'red' || f === 'brick-red')
+    return overlay(ids, 'ink', 'hatch', x, y, w, h) + overlay(ids, 'print', 'ht-d3', x, y, w, h)
+  if (f === 'brick')
+    return overlay(ids, 'print', 'ht-t1', x, y, w, h)
+  return ''
 }
 
 /** Interval [a, b] of `along` feet a crown covers at column center x, or null. */
@@ -111,6 +135,8 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
   const idx = (c: SliceColumn) => segments.indexOf(c.s)
   /** Driveway openings (ft along the street) on strip i's side of the street. */
   const openings = (i: number) => drivewaysBeside(features, segments, i).map(({ f }) => drivewaySpan(f))
+  // Trees and shrubs seen from above keep their halftone's screen size.
+  artScale(ids, undefined, b.S)
   let s = ''
 
   // Frontage past the property lines.
@@ -124,8 +150,9 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
         const uw = 3 * b.S
         const ux = x0 + 8 + r() * Math.max(1, x1 - x0 - 16 - uw)
         const uy = b.y + 6 + r() * Math.max(1, b.h - 12 - 2.4 * b.S)
-        s += rect(ux + 2, uy + 2, uw, 2.4 * b.S, 'shadow') + rect(ux, uy, uw, 2.4 * b.S, 'concrete')
+        s += rect(ux + 2, uy + 2, uw, 2.4 * b.S, 'shadow') + rect(ux, uy, uw, 2.4 * b.S, 'p-concrete', 'class="o"')
       }
+      s += overlay(ids, 'ink', 'hatch', x0, b.y, x1 - x0, b.h, 'opacity="0.35"') + overlay(ids, 'print', 'ht-d2', x0, b.y, x1 - x0, b.h)
       // The building's shadow falls onto the walk (light from the top left).
       s += rect(dir > 0 ? x1 : x1 - 0.9 * b.S, b.y, 0.9 * b.S, b.h, 'shadow')
     }
@@ -142,7 +169,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     }
     else {
       s += rect(x0, b.y, x1 - x0, b.h, kind === 'field' ? 'p-grass-dk' : 'p-grass')
-      s += speckles(x0, x1, b.y, y1, b.S, seedOf(seed, side, 'grass'))
+      s += speckles(x0, x1, b.y, y1, b.S, seedOf(seed, side, 'grass')) + planted(ids, x0, b.y, x1 - x0, b.h)
       if (kind === 'lawn' && x1 - x0 > 2 * b.S)
         s += place((x0 + x1) / 2, Y(b.at + L * 0.25 * dir), b.S, shrubTop(ids, Math.min(5, (x1 - x0) / b.S * 0.8), seedOf(seed, side, 'shrub')))
     }
@@ -155,7 +182,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
   for (const c of cols) {
     const t = c.s.type
     const w = c.x1 - c.x0
-    s += rect(c.x0, b.y, w, b.h, surface(c.s))
+    s += rect(c.x0, b.y, w, b.h, surface(c.s)) + surfaceOverlay(ids, c.s, c.x0, b.y, w, b.h)
     if (bricks && isBrick(c.s))
       s += rect(c.x0, b.y, w, b.h, bricks.fill)
     // A brick buffer still gets its painted chevrons, below.
@@ -176,7 +203,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       }
     }
     else if (t === 'furnishing' || t === 'median') {
-      s += speckles(c.x0, c.x1, b.y, y1, b.S, seedOf(c.s.id, 'grass'))
+      s += speckles(c.x0, c.x1, b.y, y1, b.S, seedOf(c.s.id, 'grass')) + planted(ids, c.x0, b.y, w, b.h)
       // A driveway paves a planting strip on its side as its apron, flared
       // toward the road.
       if (t === 'furnishing') {
@@ -209,7 +236,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       for (let a = Math.floor(a0 / 8) * 8; a < a0 + L + 8; a += 8) {
         if (open.some(([d0, d1]) => a + w / b.S >= d0 && a <= d1))
           continue
-        s += `<path d="M${r2(c.x0 + sm)} ${r2(Y(a) + w - sm)} L${r2(c.x1 - sm)} ${r2(Y(a) + sm)}" style="fill:none;stroke:var(--pvx-p-white);stroke-width:${r2(Math.max(1, 0.33 * b.S))}"/>`
+        s += `<path class="mkl" d="M${r2(c.x0 + sm)} ${r2(Y(a) + w - sm)} L${r2(c.x1 - sm)} ${r2(Y(a) + sm)}" stroke-width="${r2(Math.max(1, 0.33 * b.S))}" style="stroke:var(--pvx-p-white)"/>`
       }
     }
   }
@@ -243,9 +270,22 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     s += rect(x, b.y, curbW, b.h, 'p-curb') + rect(leftRaised ? x + curbW : x - 2, b.y, 2, b.h, 'shadow')
   }
 
+  // Strip edges as ink lines (Drafting ink and Two-ink print draw every
+  // edge; Muted lets the surfaces meet), except between two lanes, where
+  // the paint says it.
+  let edgesD = `M${r2(b.left)} ${r2(b.y)}v${r2(b.h)}M${r2(b.right)} ${r2(b.y)}v${r2(b.h)}`
+  for (let i = 0; i < cols.length - 1; i++) {
+    if (!(LANES.has(cols[i].s.type) && LANES.has(cols[i + 1].s.type)))
+      edgesD += `M${r2(cols[i].x1)} ${r2(b.y)}v${r2(b.h)}`
+  }
+  s += `<path class="no-muted sl-edge" d="${edgesD}"/>`
+
   // Lane markings, by the pair of strips either side of each edge.
   const mw = Math.max(0.33 * b.S, 1.4)
-  const solid = (x: number, color: string) => rect(x - mw / 2, b.y, mw, b.h, color)
+  // Painted lines are stroked paths, their width a presentation attribute,
+  // so Drafting ink can thin them to ink lines from the stylesheet.
+  const run = (x: number, ya: number, yb: number, color: string) => `<path class="mkl" d="M${r2(x)} ${r2(ya)}V${r2(yb)}" stroke-width="${r2(mw)}" style="stroke:var(--pvx-${color})"/>`
+  const solid = (x: number, color: string) => run(x, b.y, b.y + b.h, color)
   // A line broken at the given stretches along the street; with `dash`, the
   // breaks are filled with 2 ft dashes every 4 ft instead (a buffer's stripes
   // across a driveway opening).
@@ -258,10 +298,10 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       const [p, q] = [ends[k], ends[k + 1]]
       const inside = gaps.some(([g0, g1]) => (p + q) / 2 > g0 && (p + q) / 2 < g1)
       if (!inside)
-        out += rect(x - mw / 2, Y(p), mw, (q - p) * b.S, color)
+        out += run(x, Y(p), Y(q), color)
       else if (dash)
         for (let a = p; a < q; a += 4)
-          out += rect(x - mw / 2, Y(a), mw, Math.min(2, q - a) * b.S, color)
+          out += run(x, Y(a), Y(a + Math.min(2, q - a)), color)
     }
     return out
   }
@@ -286,7 +326,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
         s += solid(x - mw * 1.1, 'p-yellow') + solid(x + mw * 1.1, 'p-yellow')
       else
         for (let a2 = Math.floor(a0 / 40) * 40; a2 < a0 + L; a2 += 40)
-          s += rect(x - mw / 2, Y(a2), mw, 10 * b.S, 'p-white')
+          s += run(x, Y(a2), Y(a2 + 10), 'p-white')
     }
     else if ((lane(a.type) && !isRaisedSegment(c)) || (lane(c.type) && !isRaisedSegment(a))) {
       s += broken(lane(a.type) ? x - mw : x + mw, 'p-white', gaps)
@@ -298,7 +338,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       continue
     for (const [d0, d1] of openings(idx(c))) {
       for (const d of [d0, d1])
-        s += rect(c.x0, Y(d) - mw / 2, c.x1 - c.x0, mw, 'p-white')
+        s += `<path class="mkl" d="M${r2(c.x0)} ${r2(Y(d))}H${r2(c.x1)}" stroke-width="${r2(mw)}" style="stroke:var(--pvx-p-white)"/>`
     }
   }
 
@@ -309,10 +349,12 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
     if ((c.s.type !== 'bike-lane' && c.s.type !== 'protected-bike-lane') || c.s.direction !== 'both')
       continue
     const x = (c.x0 + c.x1) / 2
+    let dots = ''
     for (let a2 = Math.floor(a0 / BIKE_CENTER_STEP) * BIKE_CENTER_STEP; a2 < a0 + L; a2 += BIKE_CENTER_STEP) {
       if (!onCrosswalk(features, a2 - 1, a2 + BIKE_CENTER_DASH + 1))
-        s += rect(x - mw / 2, Y(a2), mw, BIKE_CENTER_DASH * b.S, 'p-yellow')
+        dots += run(x, Y(a2), Y(a2 + BIKE_CENTER_DASH), 'p-yellow')
     }
+    s += onBikePaint(surfaceOf(c.s) === 'green', dots)
   }
 
   // A driveway's conflict marking where a bike lane on its side crosses it:
@@ -324,12 +366,27 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       if (!f.conflictMarking)
         continue
       const [d0, d1] = drivewaySpan(f)
-      for (let a = d0 + CONFLICT_DASH; a < d1; a += CONFLICT_DASH + CONFLICT_GAP)
+      const gaps: [number, number][] = []
+      for (let a = d0 + CONFLICT_DASH; a < d1; a += CONFLICT_DASH + CONFLICT_GAP) {
+        gaps.push([a, Math.min(a + CONFLICT_GAP, d1)])
         s += rect(c.x0, Y(a), c.x1 - c.x0, Math.min(CONFLICT_GAP, d1 - a) * b.S, 'p-asphalt')
-      for (let a = d0; a < d1; a += 4) {
-        for (const x of [c.x0 + mw, c.x1 - 2 * mw])
-          s += rect(x, Y(a), mw, Math.min(2, d1 - a) * b.S, 'p-white')
       }
+      // The edge dots cross green dashes and asphalt gaps in turn: on-bike
+      // paint for the whole dot, then the plain paint again over each gap.
+      let onGreen = ''
+      let onGap = ''
+      for (let a = d0; a < d1; a += 4) {
+        const e = a + Math.min(2, d1 - a)
+        for (const x of [c.x0 + 1.5 * mw, c.x1 - 1.5 * mw]) {
+          onGreen += run(x, Y(a), Y(e), 'p-white')
+          for (const [g0, g1] of gaps) {
+            if (Math.min(e, g1) > Math.max(a, g0))
+              onGap += run(x, Y(Math.max(a, g0)), Y(Math.min(e, g1)), 'p-white')
+          }
+        }
+      }
+      const green = surfaceOf(c.s) === 'green'
+      s += onBikePaint(green, onGreen) + (green ? onGap : '')
     }
   }
 
@@ -356,7 +413,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       if (parkingBarred(features, segments, idx(c), a - 2, a + 2))
         continue
       for (const [x, y, w, h] of [[barX, Y(a - 2), tb, 4 * b.S], [stemX, Y(a) - tb / 2, 2.5 * b.S, tb]])
-        s += rect(x, y, w, h, 'p-white') + (bricks && isBrick(c.s) ? rect(x, y, w, h, bricks.fill) : '')
+        s += `<rect class="mk-fill-white" x="${r2(x)}" y="${r2(y)}" width="${r2(w)}" height="${r2(h)}"/>` + (bricks && isBrick(c.s) ? rect(x, y, w, h, bricks.fill) : '')
     }
   })
 
@@ -382,7 +439,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
         const x0 = Math.max(x, cols[i].x0 + 0.5 * b.S)
         const x1 = Math.min(x + 2 * b.S, cols[i].x1 - 0.5 * b.S)
         if (x1 - x0 > 0.4 * b.S)
-          s += rect(x0, Y(f.at - len / 2), x1 - x0, len * b.S, 'p-white')
+          s += `<rect class="mk-fill-white" x="${r2(x0)}" y="${r2(Y(f.at - len / 2))}" width="${r2(x1 - x0)}" height="${r2(len * b.S)}"/>`
       }
     }
     // Detectable warnings: yellow truncated domes, 2 ft deep, at each edge
@@ -391,7 +448,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
       const c = cols[i]
       const d = Math.min(WARNING_DEPTH * b.S, c.x1 - c.x0)
       const x0 = edge === 'end' ? c.x1 - d : c.x0
-      s += rect(x0, Y(f.at - len / 2), d, len * b.S, 'p-dw')
+      s += `<rect class="s-dw" x="${r2(x0)}" y="${r2(Y(f.at - len / 2))}" width="${r2(d)}" height="${r2(len * b.S)}"/>`
       const step = Math.max(0.5 * b.S, 4)
       for (let dx = step / 2; dx < d; dx += step) {
         for (let dy = step / 2; dy < len * b.S; dy += step)
@@ -521,7 +578,7 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
           if (mark === 'sharrow')
             users += place(x, Y(g), b.S, sharrow(toward))
           else
-            users += place(x, Y(g + (toward ? -2.6 : 2.6)), b.S, bikeLaneSymbol(toward)) + place(x, Y(g + (toward ? 3.2 : -3.2)), b.S, laneArrow(4.2, toward))
+            users += onBikePaint(surfaceOf(c.s) === 'green', place(x, Y(g + (toward ? -2.6 : 2.6)), b.S, bikeLaneSymbol(toward)) + place(x, Y(g + (toward ? 3.2 : -3.2)), b.S, laneArrow(4.2, toward)))
         }
       }
       if (c.s.direction === 'both') {
@@ -537,6 +594,6 @@ export function slice(ids: Ids, cols: SliceColumn[], b: SliceBox, frontage: { le
 
   // Vehicles and people first, so crowns pass over them; the slice stays drawn in Simplified view (it is already a plan diagram).
   const art = `<g class="art art--slice">${stamps.defs()}${users}${itemsMarkup}</g>`
-  return `<defs><clipPath id="${clip}"><rect x="0" y="${r2(b.y)}" width="${r2(b.w)}" height="${r2(b.h)}"/></clipPath></defs><g clip-path="url(#${clip})">${s}${art}</g>`
+  return `<defs><clipPath id="${clip}"><rect x="0" y="${r2(b.y)}" width="${r2(b.w)}" height="${r2(b.h)}"/></clipPath></defs>${patternDefs(ids)}<g clip-path="url(#${clip})">${s}${art}</g>`
     + `<rect x="0.5" y="${r2(b.y)}" width="${r2(b.w - 1)}" height="${r2(b.h)}" style="fill:none;stroke:var(--pvx-cut-line);stroke-width:1"/>`
 }

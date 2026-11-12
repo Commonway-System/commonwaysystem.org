@@ -1,21 +1,30 @@
 // Street furniture and pavement markings. Feet, origin at the ground point
 // (front views) or the item's center (top views). Top views run along the
 // street on the y axis.
+//
+// Furniture colors are figure-palette tokens (furn-*, viewer-figures.css), so
+// each drawing style restyles them: quiet metal and wood in Muted render,
+// paper shapes with an ink outline (class "o") or solid ink in Drafting ink,
+// solid dark ink in Two-ink print. Pavement markings keep the surface
+// palette's paint tokens (p-white), which belong to the street, not the figures.
 
 import type { ItemType } from '../types'
 import type { Ids } from './core'
 import { ellipse, facing, limb, path, r2, rect } from './core'
 import { shrub, shrubTop, tree, treeTop } from './nature'
 
+/** Drafting ink outlines shapes that carry this class. */
+const O = 'class="o"'
+
 /** `toward` is +1 if the arm reaches right (toward the street), -1 if left. */
 export function streetLight(toward: 1 | -1): string {
   const t = toward
   let s = ellipse(0, 0, 0.6, 0.1, 'shadow')
-  s += path('M-0.22 0 L-0.12 -16.8 L0.12 -16.8 L0.22 0 Z', 'pole')
-  s += rect(-0.34, -0.7, 0.68, 0.7, 'pole', 'rx="0.08"')
-  s += `<path d="M0 -16.6 Q0 -17.5 ${r2(t * 1.1)} -17.5 L${r2(t * 3.9)} -17.5" style="fill:none;stroke:var(--pvx-pole);stroke-width:0.17;stroke-linecap:round"/>`
-  s += path(`M${r2(t * 3.2)} -17.7 L${r2(t * 5)} -17.7 Q${r2(t * 5.25)} -17.45 ${r2(t * 4.85)} -17.25 L${r2(t * 3.4)} -17.25 Z`, 'pole')
-  s += rect(Math.min(t * 3.5, t * 4.7), -17.3, 1.2, 0.1, '#fff6d0')
+  s += path('M-0.22 0 L-0.12 -16.8 L0.12 -16.8 L0.22 0 Z', 'furn-metal')
+  s += rect(-0.34, -0.7, 0.68, 0.7, 'furn-metal', 'rx="0.08"')
+  s += `<path d="M0 -16.6 Q0 -17.5 ${r2(t * 1.1)} -17.5 L${r2(t * 3.9)} -17.5" style="fill:none;stroke:var(--pvx-furn-metal);stroke-width:0.17;stroke-linecap:round"/>`
+  s += path(`M${r2(t * 3.2)} -17.7 L${r2(t * 5)} -17.7 Q${r2(t * 5.25)} -17.45 ${r2(t * 4.85)} -17.25 L${r2(t * 3.4)} -17.25 Z`, 'furn-metal')
+  s += rect(Math.min(t * 3.5, t * 4.7), -17.3, 1.2, 0.1, 'furn-lens')
   return s
 }
 
@@ -23,33 +32,33 @@ export function streetLight(toward: 1 | -1): string {
 export const STREET_LIGHT_REACH = 5.25
 
 export function streetLightTop(toward: 1 | -1): string {
-  return `<circle cx="0" cy="0" r="0.35" style="fill:var(--pvx-pole)"/>`
-    + limb([[0, 0], [toward * 4.6, 0]], 'pole', 0.18)
-    + rect(Math.min(toward * 3.4, toward * 5.1), -0.45, 1.7, 0.9, 'pole', 'rx="0.3"')
+  return `<circle cx="0" cy="0" r="0.35" style="fill:var(--pvx-furn-metal)"/>`
+    + limb([[0, 0], [toward * 4.6, 0]], 'furn-metal', 0.18)
+    + rect(Math.min(toward * 3.4, toward * 5.1), -0.45, 1.7, 0.9, 'furn-metal', 'rx="0.3"')
 }
 
 /** A precast concrete separator, 1.7 ft wide at the base and 2.25 ft tall. */
 export function barrier(): string {
   return ellipse(0, 0, 1, 0.1, 'shadow')
-    + path('M-0.85 0 L-0.75 -0.3 L-0.35 -2.1 Q-0.3 -2.25 -0.15 -2.25 L0.15 -2.25 Q0.3 -2.25 0.35 -2.1 L0.75 -0.3 L0.85 0 Z', 'concrete')
-    + path('M0.05 -2.25 L0.15 -2.25 Q0.3 -2.25 0.35 -2.1 L0.75 -0.3 L0.85 0 L0.2 0 Z', 'concrete-shade')
+    + path('M-0.85 0 L-0.75 -0.3 L-0.35 -2.1 Q-0.3 -2.25 -0.15 -2.25 L0.15 -2.25 Q0.3 -2.25 0.35 -2.1 L0.75 -0.3 L0.85 0 Z', 'furn-concrete', O)
+    + path('M0.05 -2.25 L0.15 -2.25 Q0.3 -2.25 0.35 -2.1 L0.75 -0.3 L0.85 0 L0.2 0 Z', 'furn-concrete-dk')
 }
 
 /** A low post marking the property line on lawn frontages. */
 export function fencePost(): string {
-  return rect(-0.18, -3.2, 0.36, 3.2, 'concrete-shade', 'rx="0.05"') + rect(-0.24, -3.35, 0.48, 0.2, 'concrete')
+  return rect(-0.18, -3.2, 0.36, 3.2, 'furn-concrete', `rx="0.05" ${O}`) + rect(-0.24, -3.35, 0.48, 0.2, 'furn-concrete', O)
 }
 
 /** A precast separator from above, as a run `len` feet long with joints every 10 ft. */
 export function barrierTop(len: number): string {
-  let s = rect(-0.55, -len / 2 + 0.3, 1.7, len, 'shadow') + rect(-0.85, -len / 2, 1.7, len, 'p-curb')
+  let s = rect(-0.55, -len / 2 + 0.3, 1.7, len, 'shadow') + rect(-0.85, -len / 2, 1.7, len, 'furn-curb', O)
   for (let y = -len / 2 + 10; y < len / 2; y += 10)
-    s += rect(-0.85, y, 1.7, 0.08, 'p-joint')
+    s += rect(-0.85, y, 1.7, 0.08, 'furn-joint')
   return s
 }
 
-const METAL = '#5d6266'
-const WOOD = '#a87b4f'
+const METAL = 'furn-metal'
+const WOOD = 'furn-wood'
 
 /** A bench seen end-on (it runs along the street): seat 1.5 ft up, back to 2.9 ft. */
 export function bench(): string {
@@ -61,13 +70,13 @@ export function bench(): string {
 export function benchTop(): string {
   let s = rect(-0.5, -2.3, 1.6, 5, 'shadow', 'rx="0.15"') + rect(-0.8, -2.5, 1.6, 5, WOOD, 'rx="0.15"')
   for (let i = 1; i < 4; i++)
-    s += rect(-0.8 + i * 0.4, -2.5, 0.05, 5, '#8a6340')
+    s += rect(-0.8 + i * 0.4, -2.5, 0.05, 5, 'furn-slat')
   return s
 }
 
 /** An inverted-U bike rack, 3 ft tall, seen face-on. */
 export function bikeRack(): string {
-  return ellipse(0, 0, 1.2, 0.08, 'shadow') + `<path d="M-0.95 0 V-2.4 Q-0.95 -3 0 -3 Q0.95 -3 0.95 -2.4 V0" style="fill:none;stroke:${METAL};stroke-width:0.16;stroke-linecap:round"/>`
+  return ellipse(0, 0, 1.2, 0.08, 'shadow') + `<path d="M-0.95 0 V-2.4 Q-0.95 -3 0 -3 Q0.95 -3 0.95 -2.4 V0" style="fill:none;stroke:var(--pvx-${METAL});stroke-width:0.16;stroke-linecap:round"/>`
 }
 
 export function bikeRackTop(): string {
@@ -76,21 +85,21 @@ export function bikeRackTop(): string {
 
 /** A bollard, 3.3 ft tall, with a reflective band. */
 export function bollard(): string {
-  return ellipse(0, 0, 0.5, 0.08, 'shadow') + rect(-0.35, -3.3, 0.7, 3.3, '#4b5055', 'rx="0.3"')
-    + rect(-0.35, -2.75, 0.7, 0.3, '#f2c14e') + rect(0.05, -3.3, 0.3, 3.3, 'rgba(0,0,0,0.15)', 'rx="0.15"')
+  return ellipse(0, 0, 0.5, 0.08, 'shadow') + rect(-0.35, -3.3, 0.7, 3.3, METAL, 'rx="0.3"')
+    + rect(-0.35, -2.75, 0.7, 0.3, 'furn-band')
 }
 
 export function bollardTop(): string {
-  return `<circle cx="0.2" cy="0.2" r="0.35" style="fill:var(--pvx-shadow)"/><circle cx="0" cy="0" r="0.35" style="fill:#4b5055"/>`
+  return `<circle cx="0.2" cy="0.2" r="0.35" style="fill:var(--pvx-shadow)"/><circle cx="0" cy="0" r="0.35" style="fill:var(--pvx-${METAL})"/>`
 }
 
 /** A concrete planter, 3 ft square and 2 ft tall, with a shrub. */
 export function planter(ids: Ids, seed: number): string {
-  return rect(-1.5, -2, 3, 2, 'concrete') + rect(0.3, -2, 1.2, 2, 'concrete-shade') + `<g transform="translate(0 -1.9)">${shrub(ids, 2.6, 2.2, seed)}</g>`
+  return rect(-1.5, -2, 3, 2, 'furn-concrete', O) + rect(0.3, -2, 1.2, 2, 'furn-concrete-dk') + `<g transform="translate(0 -1.9)">${shrub(ids, 2.6, 2.2, seed)}</g>`
 }
 
 export function planterTop(ids: Ids, seed: number): string {
-  return rect(-1.2, -1.2, 3, 3, 'shadow') + rect(-1.5, -1.5, 3, 3, 'concrete') + shrubTop(ids, 2.4, seed)
+  return rect(-1.2, -1.2, 3, 3, 'shadow') + rect(-1.5, -1.5, 3, 3, 'furn-concrete', O) + shrubTop(ids, 2.4, seed)
 }
 
 /** A bus shelter seen end-on: roof at 8.5 ft over a glass back wall and a bench. */
@@ -98,34 +107,34 @@ export function transitShelter(toward: 1 | -1): string {
   const back = -toward * 2.3
   return ellipse(0, 0, 2.8, 0.12, 'shadow')
     + rect(Math.min(back, back - toward * 0.1), -8.2, 0.1, 8.2, METAL)
-    + rect(back - (toward > 0 ? 0 : 0.15), -7.6, 0.15, 7.2, 'glass', 'opacity="0.55"')
+    + rect(back - (toward > 0 ? 0 : 0.15), -7.6, 0.15, 7.2, 'furn-glass')
     + limb([[toward * 2.4, 0], [toward * 2.4, -8.3]], METAL, 0.12)
     + path(`M${-2.8} -8.2 L2.8 -8.6 L2.8 -8.3 L-2.8 -7.9 Z`, METAL)
     + `<g transform="translate(${back + toward * 0.8} 0) scale(0.9)">${bench()}</g>`
 }
 
 export function transitShelterTop(): string {
-  return rect(-2.4, -5.6, 5.6, 12, 'shadow') + rect(-2.8, -6, 5.6, 12, '#6e7378', 'opacity="0.85"') + '<rect x="-2.8" y="-6" width="5.6" height="12" style="fill:none;stroke:#3a3e42;stroke-width:0.12"/>'
+  return rect(-2.4, -5.6, 5.6, 12, 'shadow') + rect(-2.8, -6, 5.6, 12, 'furn-roof', 'opacity="0.85"') + '<rect x="-2.8" y="-6" width="5.6" height="12" style="fill:none;stroke:var(--pvx-furn-metal);stroke-width:0.12"/>'
 }
 
 /** A post-mounted sign, plate 2 ft square at 7 ft, seen face-on. */
 export function sign(): string {
   return ellipse(0, 0, 0.4, 0.06, 'shadow') + rect(-0.08, -8, 0.16, 8, METAL)
-    + rect(-1, -9.6, 2, 2, '#f4f4f2', 'rx="0.12"') + `<rect x="-0.9" y="-9.5" width="1.8" height="1.8" rx="0.08" style="fill:none;stroke:#1d1d1d;stroke-width:0.1"/>`
-    + rect(-0.6, -9.0, 1.2, 0.18, '#1d1d1d') + rect(-0.6, -8.55, 1.2, 0.18, '#1d1d1d')
+    + rect(-1, -9.6, 2, 2, 'furn-sign', `rx="0.12" ${O}`) + `<rect x="-0.9" y="-9.5" width="1.8" height="1.8" rx="0.08" style="fill:none;stroke:var(--pvx-furn-sign-ink);stroke-width:0.1"/>`
+    + rect(-0.6, -9.0, 1.2, 0.18, 'furn-sign-ink') + rect(-0.6, -8.55, 1.2, 0.18, 'furn-sign-ink')
 }
 
 export function signTop(): string {
-  return `<circle cx="0" cy="0" r="0.12" style="fill:${METAL}"/>` + rect(-1, -0.06, 2, 0.12, '#1d1d1d')
+  return `<circle cx="0" cy="0" r="0.12" style="fill:var(--pvx-${METAL})"/>` + rect(-1, -0.06, 2, 0.12, 'furn-sign-ink')
 }
 
 /** A wheel stop: a low concrete block 6 ft long, 0.5 ft tall, seen end-on. */
 export function curbStop(): string {
-  return path('M-0.4 0 L-0.3 -0.5 L0.3 -0.5 L0.4 0 Z', 'concrete')
+  return path('M-0.4 0 L-0.3 -0.5 L0.3 -0.5 L0.4 0 Z', 'furn-concrete', O)
 }
 
 export function curbStopTop(): string {
-  return rect(-3, -0.25, 6, 0.5, 'p-curb') + rect(-3, 0.25, 6, 0.1, 'shadow')
+  return rect(-3, -0.25, 6, 0.5, 'furn-curb', O) + rect(-3, 0.25, 6, 0.1, 'shadow')
 }
 
 /**

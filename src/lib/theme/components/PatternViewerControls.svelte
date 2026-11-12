@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { Annotations, CompareTarget, ConfigId, Facet, Units } from '$lib/viewer/types'
+  import { ART_STYLES } from '$lib/viewer/state'
+  import type { Annotations, ArtStyle, CompareTarget, ConfigId, Facet, Units } from '$lib/viewer/types'
   import { untrack } from 'svelte'
   import { CONFIG_COMPACT_LABELS, CONFIG_SHORT_LABELS } from '$lib/viewer/types'
   import Icon from './Icon.svelte'
@@ -35,6 +36,8 @@
     onannotation: (key: keyof Annotations, on: boolean) => void
     units: Units
     onunits: (u: Units) => void
+    art: ArtStyle
+    onart: (a: ArtStyle) => void
     /** Retrofit pages: Before/After instead of the ladder. */
     retrofit?: boolean
     /** Cross-section cut points, when the configuration offers more than one. */
@@ -66,6 +69,8 @@
     onannotation,
     units,
     onunits,
+    art,
+    onart,
     retrofit = false,
     cuts = [],
     cut,
@@ -321,6 +326,17 @@
         <input type="radio" name="{idPrefix}-units" value="m" checked={units === 'm'} onchange={() => onunits('m')} />
         <span>m</span>
       </label>
+    </span>
+    <span class="pvc__pick">
+      <span class="pvc__pick-label" id="{idPrefix}-art-label">Style</span>
+      <span class="pvc__units" role="radiogroup" aria-labelledby="{idPrefix}-art-label">
+        {#each ART_STYLES as s (s.id)}
+          <label class="pvc__unit">
+            <input type="radio" name="{idPrefix}-art" value={s.id} aria-label={s.label} checked={art === s.id} onchange={() => onart(s.id)} />
+            <span title={s.label}>{s.short}</span>
+          </label>
+        {/each}
+      </span>
     </span>
   </fieldset>
 </div>
@@ -763,6 +779,11 @@
     accent-color: var(--cw-primary);
   }
 
+  .pvc__pick {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
   .pvc__units {
     display: inline-flex;
     border: 1px solid var(--cw-hairline-strong);

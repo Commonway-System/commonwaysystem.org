@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import type { CompareTarget, ConfigEntry, ConfigId, Facet, Units, ViewerData } from './types.js'
+import type { ArtStyle, CompareTarget, ConfigEntry, ConfigId, Facet, Units, ViewerData } from './types.js'
 import { REFERENCES, RETROFIT_STATES, RUNGS } from './types.js'
 
 // ---------------------------------------------------------------------------
@@ -25,6 +25,42 @@ export function loadUnits() {
   units.subscribe((u) => {
     try {
       localStorage.setItem(UNITS_KEY, u)
+    }
+    catch {}
+  })
+}
+
+// ---------------------------------------------------------------------------
+// Drawing style: a reader preference like Units, never written to the URL.
+// Mirrored on <html data-art> (set before first paint by src/app.html).
+
+const ART_KEY = 'commonway-viewer-art'
+
+export const ART_STYLES: { id: ArtStyle, label: string, short: string }[] = [
+  { id: 'muted', label: 'Muted render', short: 'Muted' },
+  { id: 'ink', label: 'Drafting ink', short: 'Ink' },
+  { id: 'print', label: 'Two-ink print', short: 'Print' },
+]
+
+export const artStyle = writable<ArtStyle>('muted')
+
+let artLoaded = false
+
+/** Read the saved choice once, on the client, and keep <html data-art> in step. */
+export function loadArtStyle() {
+  if (artLoaded)
+    return
+  artLoaded = true
+  try {
+    const saved = localStorage.getItem(ART_KEY)
+    if (saved === 'muted' || saved === 'ink' || saved === 'print')
+      artStyle.set(saved)
+  }
+  catch {}
+  artStyle.subscribe((a) => {
+    document.documentElement.dataset.art = a
+    try {
+      localStorage.setItem(ART_KEY, a)
     }
     catch {}
   })

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import type { CyclistVariant, Measure, PedestrianVariant, SceneBox, SceneColumn, SliceColumn, VehicleVariant } from '$lib/viewer/art'
-  import { CROSSING_POOL, CROSSING_WIDTH, cyclist, frontage, groundCut, isRaisedSegment, surfaceY, laneVehicle, makeIds, measureText, measureWith, PEDESTRIAN_POOL, PEDESTRIAN_WIDTH, pedestrian, pedestrianSide, place, plainCyclist, plainItem, plainPedestrian, plainPedestrianSide, plainVehicle, rng, seedOf, sky, slice, streetItem, vehicle } from '$lib/viewer/art'
+  import { artScale, CROSSING_POOL, CROSSING_WIDTH, cyclist, fillOf, frontage, groundCut, isRaisedSegment, surfaceY, laneVehicle, makeIds, measureText, measureWith, PEDESTRIAN_POOL, PEDESTRIAN_WIDTH, pedestrian, pedestrianSide, place, plainCyclist, plainItem, plainPedestrian, plainPedestrianSide, plainVehicle, rng, seedOf, sky, slice, streetItem, vehicle } from '$lib/viewer/art'
   import { crossing, drivewaysAt, isBrick, onCrosswalk, parkingBarred, spread, WARNING_DEPTH, widthsAt } from '$lib/viewer/geometry'
   import { layoutAnnotations } from '$lib/viewer/section-layout'
   import { formatLength } from '$lib/viewer/state'
@@ -235,9 +235,13 @@
   // the layout, so the prerendered page and the browser agree.
   const art = $derived.by(() => {
     if (!L)
-      return { scene: '', objects: '', plain: '', slice: '' }
+      return { scene: '', objects: '', plain: '', slice: '', hatch: '' }
     const ids = makeIds(uid)
     const { b, cols, gs } = L
+    // Patterns inside art drawn in feet keep their screen size at these scales.
+    artScale(ids, gs, L.scale)
+    // Drafting ink hatches the zone band's separators (its defs go out with the sky's).
+    const hatch = fillOf(ids, 'hatch')
     const sceneCols: SceneColumn[] = cols
     const roadMid = (L.left + L.right) / 2
     let scene = sky(ids, b, seedOf('sky', L.total))
@@ -347,7 +351,7 @@
     const sliceArt = L.sliceH && config
       ? slice(ids, sliceCols, { w: b.w, left: L.left, right: L.right, y: L.sliceY, h: L.sliceH, S: L.scale, at: section?.at ?? 0 }, L.front, config.features ?? [], seedOf('slice', L.total), config.segments)
       : ''
-    return { scene, objects, plain, slice: sliceArt }
+    return { scene, objects, plain, slice: sliceArt, hatch }
   })
 </script>
 
@@ -443,9 +447,9 @@
           {#each A.band as r, i (i)}
             {#if r.zone === 'sep'}
               <pattern id="{uid}-hz{i}" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <rect class="zone zone--{r.right ?? r.left ?? 'car'}" width="7" height="7" />
+                <rect class="zp zone--{r.right ?? r.left ?? 'car'}" width="7" height="7" />
                 <!-- Same zone on both sides (a median between lanes): stripe it with a neutral. -->
-                <rect class="zone zone--{r.left === r.right || !r.left ? 'sep' : r.left}" width="3.5" height="7" />
+                <rect class="zp zone--{r.left === r.right || !r.left ? 'sep' : r.left}" width="3.5" height="7" />
               </pattern>
             {/if}
           {/each}
@@ -453,10 +457,11 @@
         {#each A.band as r, i (i)}
           {#if r.zone === 'sep'}
             <rect class="zone zone--hatch" x={r.x0} y={yb} width={r.x1 - r.x0} height={A.bandH} style="fill:url(#{uid}-hz{i})" />
+            <rect class="only-ink" x={r.x0} y={yb} width={r.x1 - r.x0} height={A.bandH} style="fill:{art.hatch}" />
           {:else}
             <rect class="zone zone--{r.zone}" x={r.x0} y={yb} width={r.x1 - r.x0} height={A.bandH} />
             {#if r.text}
-              <text class="zt" x={(r.x0 + r.x1) / 2} y={yb + A.bandH / 2 + A.font * 0.36} text-anchor="middle" font-size={A.font} font-weight="700" letter-spacing="0.12em">{r.text}</text>
+              <text class="zt zt--{r.zone}" x={(r.x0 + r.x1) / 2} y={yb + A.bandH / 2 + A.font * 0.36} text-anchor="middle" font-size={A.font} font-weight="700" letter-spacing="0.12em">{r.text}</text>
             {/if}
           {/if}
         {/each}

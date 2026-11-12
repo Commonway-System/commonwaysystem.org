@@ -1,69 +1,97 @@
 // Trees, shrubs and clouds. Feet, origin at the ground point (front views:
 // y up is negative; top views: centered on the trunk).
+//
+// One crown serves all three drawing styles (see "Drawing styles" in
+// viewer.css): a single scalloped outline, drawn once in <defs> and reused.
+// Muted render fills it in two greens, the lighter copy shifted up and left
+// so a darker shade is left at the lower right; Drafting ink strokes the
+// outline over a see-through paper fill and shows the shifted copy as a thin
+// inner line; Two-ink print fills it teal and lets a halftone crescent show
+// through at the lower right. Branches are drawn over the crown, faint in
+// Muted and ink, solid in print.
 
-import type { Ids } from './core'
-import { ellipse, limb, paint, path, r2, rect, rng } from './core'
-
-/** Tenth-of-a-foot rounding for crown circles: invisible at drawing scale, and it keeps the markup small. */
-const r1 = (n: number): number => Math.round(n * 10) / 10
+import type { Ids, PatternSpace } from './core'
+import { ellipse, fillOf, path, patternDefs, r2, rng } from './core'
 
 /**
- * A lumpy crown: a union of seeded circles, shaded with light from the top
- * left. `flat` draws the same silhouette in one paint (background shapes,
- * cast shadows) without the clip path or shading.
+ * A scalloped closed outline: `n` arcs through seeded points on an ellipse,
+ * each bulging outward. Light markup (one path) for a soft, leafy edge.
+ */
+export function scallop(cx: number, cy: number, rx: number, ry: number, n: number, seed: number, jit = 0.1, bulge = 0.62): string {
+  const r = rng(seed)
+  const pts: [number, number][] = []
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2 + (r() - 0.5) * 0.25
+    const k = 1 + (r() - 0.5) * 2 * jit
+    pts.push([r2(cx + Math.cos(a) * rx * k), r2(cy + Math.sin(a) * ry * k)])
+  }
+  let d = `M${pts[0][0]} ${pts[0][1]}`
+  for (let i = 1; i <= n; i++) {
+    const p = pts[i % n]
+    const q = pts[i - 1]
+    const rad = r2(Math.hypot(p[0] - q[0], p[1] - q[1]) * bulge)
+    d += `A${rad} ${rad} 0 0 1 ${p[0]} ${p[1]}`
+  }
+  return `${d}Z`
+}
+
+/** Scallops for a crown of this size: more for big trees, never under 7. */
+const bumps = (rx: number): number => Math.max(7, Math.min(14, Math.round(7 + rx * 0.9)))
+
+/**
+ * The crown itself, in `space` ('front' for elevations, 'top' for plan
+ * views, so its halftone keeps its screen size). `cast` adds the soft drop
+ * shadow a top view throws (light from the top left; Muted only, since the
+ * shadow token is clear in the other styles).
+ */
+function crown(ids: Ids, cx: number, cy: number, rx: number, ry: number, seed: number, space: PatternSpace, cast: boolean): string {
+  const p = ids.next('cr')
+  const c = ids.next('cc')
+  let s = `<defs><path id="${p}" d="${scallop(cx, cy, rx, ry, bumps(rx), seed)}" vector-effect="non-scaling-stroke"/><clipPath id="${c}"><use href="#${p}"/></clipPath></defs>`
+  // Top views are stamped (drawn once, placed with <use>), and stylesheet
+  // selectors don't reach inside a nested <use>: so what differs by style
+  // here is driven by inherited custom properties, not classes.
+  const line = cast ? 'top' : 'front'
+  if (cast)
+    s += `<use href="#${p}" transform="translate(${r2(rx * 0.16)} ${r2(ry * 0.2)})" style="fill:var(--pvx-shadow)"/>`
+  s += `<g style="opacity:var(--pvx-canopy-a)"><use href="#${p}" style="fill:var(--pvx-canopy-dk);stroke:var(--pvx-crown-${line});stroke-width:var(--pvx-crown-${line}-w)"/>`
+  s += `<use href="#${p}" style="fill:${fillOf(ids, 'ht-d3', space)};display:var(--pvx-d-print)"/>`
+  s += `<g clip-path="url(#${c})"><use href="#${p}" transform="translate(${r2(-rx * 0.16)} ${r2(-ry * 0.22)})" style="fill:var(--pvx-canopy-md);stroke:var(--pvx-crown-in);stroke-width:0.7"/>`
+  s += `<ellipse cx="${r2(cx - rx * 0.3)}" cy="${r2(cy - ry * 0.38)}" rx="${r2(rx * 0.36)}" ry="${r2(ry * 0.26)}" style="fill:var(--pvx-canopy-lt);opacity:0.45;display:var(--pvx-d-muted)"/></g></g>`
+  return s + patternDefs(ids, space)
+}
+
+/**
+ * A crown shape. With `flat` it's one path in a single paint ('shadow' for
+ * a cast shadow, or a palette token), otherwise the full styled crown.
+ * Kept for callers that want a crown without a trunk.
  */
 export function canopy(ids: Ids, cx: number, cy: number, rx: number, ry: number, seed: number, flat?: 'shadow' | string): string {
-  const r = rng(seed)
-  const rb = Math.min(rx, ry) * 0.38
-  let c = ''
-  const n = Math.round(9 + (rx * ry) / 4)
-  for (let i = 0; i < n; i++) {
-    const a = r() * Math.PI * 2
-    const d = Math.sqrt(r())
-    c += `<circle cx="${r1(cx + Math.cos(a) * d * (rx - rb))}" cy="${r1(cy + Math.sin(a) * d * (ry - rb))}" r="${r1(rb * (0.75 + r() * 0.5))}"/>`
-  }
-  const m = Math.round(10 + rx * 1.2)
-  for (let i = 0; i < m; i++) {
-    const a = (i / m) * Math.PI * 2 + r() * 0.3
-    c += `<circle cx="${r1(cx + Math.cos(a) * (rx - rb * 0.7))}" cy="${r1(cy + Math.sin(a) * (ry - rb * 0.7))}" r="${r1(rb * (0.55 + r() * 0.4))}"/>`
-  }
-  // Overlapping translucent circles would darken where they overlap, so a
-  // shadow is drawn solid and faded as one group.
-  if (flat === 'shadow')
-    return `<g style="fill:#000;opacity:var(--pvx-shadow-a)">${c}</g>`
   if (flat)
-    return `<g style="fill:${paint(flat)}">${c}</g>`
-
-  const id = ids.next('cp')
-  let s = `<defs><clipPath id="${id}">${c}</clipPath></defs><g clip-path="url(#${id})">`
-  s += rect(cx - rx - 2, cy - ry - 2, 2 * rx + 4, 2 * ry + 4, 'canopy-md')
-  s += ellipse(cx + rx * 0.35, cy + ry * 0.5, rx * 1.05, ry * 0.8, 'canopy-dk', 'opacity="0.6"')
-  s += ellipse(cx - rx * 0.32, cy - ry * 0.38, rx * 0.55, ry * 0.45, 'canopy-lt', 'opacity="0.3"')
-  for (let i = 0; i < 8; i++) {
-    const a = 3.4 + r() * 1.9
-    const d = 0.35 + r() * 0.55
-    s += `<circle cx="${r1(cx + Math.cos(a) * d * rx)}" cy="${r1(cy + Math.sin(a) * d * ry)}" r="${r1(rb * (0.15 + r() * 0.2))}" style="fill:var(--pvx-canopy-lt);opacity:0.35"/>`
-  }
-  // Leaf speckle: a fixed count keeps the markup light (the page-weight budget
-  // is about 60 KB per drawing).
-  for (let i = 0; i < 18; i++) {
-    const a = r() * Math.PI * 2
-    const d = Math.sqrt(r())
-    s += `<circle cx="${r1(cx + Math.cos(a) * d * rx)}" cy="${r1(cy + Math.sin(a) * d * ry)}" r="${r1(rb * (0.1 + r() * 0.12))}" style="fill:var(--pvx-${i % 2 ? 'canopy-dk' : 'canopy-lt'});opacity:0.45"/>`
-  }
-  return `${s}</g>`
+    return path(scallop(cx, cy, rx, ry, bumps(rx), seed), flat)
+  return crown(ids, cx, cy, rx, ry, seed, 'front', false)
 }
+
+/**
+ * Branch strokes, as [x0, y0, x1, y1] in a unit space where the crown's
+ * center is (0, -196), its radii 84 by 76, and the trunk ends at -124.
+ */
+const BRANCHES = [[0, -112, -34, -188], [0, -124, 30, -198], [0, -100, 0, -222], [-17, -150, -52, -168], [14, -160, 50, -172], [0, -172, -20, -228], [0, -184, 22, -236], [-26, -170, -40, -214], [22, -180, 44, -214]]
 
 /** A street tree in elevation, `h` feet tall (22 ft is a typical mature street tree). */
 export function tree(ids: Ids, h: number, seed: number): string {
   const cy = -h * 0.66
   const rx = h * 0.34
   const ry = h * 0.3
+  // Half the trees are mirrored, so a row doesn't repeat one silhouette.
+  const kx = (rx / 84) * (seed % 2 ? -1 : 1)
+  const ky = -cy / 196
+  const X = (x: number) => r2(x * kx)
+  const Y = (y: number) => r2(y * ky)
   let s = ellipse(0, 0, 1.6, 0.2, 'shadow')
-  s += limb([[0, -h * 0.42], [-1.6, cy + ry * 0.3], [-2.6, cy - ry * 0.1]], 'trunk', 0.32)
-  s += limb([[0, -h * 0.45], [1.4, cy + ry * 0.15], [2.2, cy - ry * 0.25]], 'trunk', 0.28)
-  s += path(`M-0.42 0 Q-0.3 ${r2(-h * 0.2)} -0.22 ${r2(-h * 0.5)} L0.22 ${r2(-h * 0.5)} Q0.3 ${r2(-h * 0.2)} 0.42 0 Z`, 'trunk')
-  return s + canopy(ids, 0, cy, rx, ry, seed)
+  s += path(`M${X(-4.5)} 0L${X(-2.6)} ${Y(-124)}L${X(2.6)} ${Y(-124)}L${X(4.5)} 0Z`, 'trunk', 'class="o"')
+  s += crown(ids, 0, cy, rx, ry, seed, 'front', false)
+  return `${s}<path class="br" d="${BRANCHES.map(([a, b, c, d]) => `M${X(a)} ${Y(b)}L${X(c)} ${Y(d)}`).join('')}"/>`
 }
 
 /** Crown radius in feet of tree(h), for drawing the same tree from above. */
@@ -72,29 +100,37 @@ export const crownRadius = (h: number): number => h * 0.34
 /** The same tree from above: crown with its cast shadow (light from the top left). */
 export function treeTop(ids: Ids, h: number, seed: number): string {
   const rr = crownRadius(h)
-  return canopy(ids, rr * 0.19, rr * 0.19, rr, rr, seed, 'shadow') + canopy(ids, 0, 0, rr, rr, seed)
+  const r = rng(seed)
+  const a0 = r() * Math.PI
+  let spokes = ''
+  for (let i = 0; i < 9; i++) {
+    const a = a0 + (i / 9) * Math.PI * 2
+    spokes += `M0 0L${r2(Math.cos(a) * rr * 0.78)} ${r2(Math.sin(a) * rr * 0.78)}`
+  }
+  // Drafting ink shows the branches as spokes under the see-through crown;
+  // ink and print mark the trunk with a dot.
+  return crown(ids, 0, 0, rr, rr, seed, 'top', true)
+    + `<path d="${spokes}" vector-effect="non-scaling-stroke" style="fill:none;stroke:var(--pvx-ink-soft);stroke-width:0.7;display:var(--pvx-d-ink)"/><circle r="${r2(rr * 0.05)}" style="fill:var(--pvx-ink);display:var(--pvx-d-no-muted)"/>`
 }
 
 /** A shrub in elevation, `w` wide and `h` tall. */
 export function shrub(ids: Ids, w: number, h: number, seed: number): string {
-  return ellipse(0, 0, w * 0.55, 0.15, 'shadow') + canopy(ids, 0, -h * 0.5, w / 2, h / 2, seed)
+  return ellipse(0, 0, w * 0.55, 0.15, 'shadow') + crown(ids, 0, -h * 0.5, w / 2, h / 2, seed, 'front', false)
 }
 
 /** A shrub from above. */
 export function shrubTop(ids: Ids, w: number, seed: number): string {
-  return canopy(ids, w * 0.16, w * 0.16, w / 2, w / 2, seed, 'shadow') + canopy(ids, 0, 0, w / 2, w / 2, seed)
+  return crown(ids, 0, 0, w / 2, w / 2, seed, 'top', true)
 }
 
-/** A flat-bottomed cloud `w` px wide, centered on its base line. Pixel space, not feet. */
+/**
+ * A flat cloud `w` px wide, centered on its base line: two rounded pills.
+ * Pixel space, not feet. Muted render only (and never in Simplified view).
+ */
 export function cloud(w: number, seed: number): string {
   const r = rng(seed)
-  let c = ''
-  const n = 4 + Math.floor(r() * 3)
-  for (let i = 0; i < n; i++) {
-    const t = (i + 0.5) / n
-    const rad = w * (0.12 + r() * 0.1) * (1 - Math.abs(t - 0.5) * 0.9)
-    c += `<circle cx="${r2((t - 0.5) * w * 0.8)}" cy="${r2(-rad * 0.7)}" r="${r2(rad)}"/>`
-  }
-  c += `<rect x="${r2(-w * 0.45)}" y="${r2(-w * 0.09)}" width="${r2(w * 0.9)}" height="${r2(w * 0.09)}" rx="${r2(w * 0.045)}"/>`
-  return `<g class="pvx-cloud" style="fill:var(--pvx-cloud);opacity:var(--pvx-cloud-a)">${c}</g>`
+  const h = Math.max(8, w * 0.1)
+  const tw = w * (0.45 + r() * 0.2)
+  const tx = -w / 2 + w * (0.12 + r() * 0.3)
+  return `<g class="pvx-cloud only-muted" style="fill:var(--pvx-cloud);opacity:var(--pvx-cloud-a)"><rect x="${r2(-w / 2)}" y="${r2(-h)}" width="${r2(w)}" height="${r2(h)}" rx="${r2(h / 2)}"/><rect x="${r2(tx)}" y="${r2(-h * 1.8)}" width="${r2(tw)}" height="${r2(h)}" rx="${r2(h / 2)}"/></g>`
 }

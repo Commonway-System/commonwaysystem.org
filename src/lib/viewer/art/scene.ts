@@ -7,7 +7,7 @@
 import { isBrick, levelOf, surfaceOf } from '../geometry'
 import type { FrontageType, Segment } from '../types'
 import type { Ids } from './core'
-import { ellipse, place, r2, rect, rng, seedOf } from './core'
+import { ellipse, fillOf, overlay, patternDefs, place, r2, rect, rng, seedOf } from './core'
 import { fencePost, streetLight } from './items'
 import { cloud, shrub } from './nature'
 import { car } from './vehicles'
@@ -96,7 +96,12 @@ export const edgeStripW = (b: { S: number }) => Math.max(1.2 * b.S, 5)
 
 // ---------------------------------------------------------------------------
 
-/** Sky gradient and a few clouds from the top of the drawing down to the road. */
+/**
+ * The sky from the top of the drawing down to the road: a gradient with a
+ * few flat clouds in Muted render, plain paper in Drafting ink (its sky
+ * tokens are the paper), and in Two-ink print a halftone sun and a faint
+ * halftone band behind the street.
+ */
 export function sky(ids: Ids, b: SceneBox, seed: number): string {
   const id = ids.next('sky')
   let s = `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--pvx-sky-top)"/><stop offset="1" style="stop-color:var(--pvx-sky-bottom)"/></linearGradient></defs>`
@@ -108,30 +113,32 @@ export function sky(ids: Ids, b: SceneBox, seed: number): string {
     const cw = Math.max(48, Math.min(b.w * 0.2, 200)) * (0.7 + r() * 0.6)
     s += `<g transform="translate(${r2((i + 0.2 + r() * 0.6) * (b.w / n))} ${r2(span * (0.1 + r() * 0.22) + cw * 0.15)})">${cloud(cw, seed + i)}</g>`
   }
-  return s
+  const sun = Math.max(18, Math.min(64, span * 0.2, b.w * 0.07))
+  const band = span * 0.42
+  s += `<g class="only-print"><circle cx="${r2(b.w * 0.62)}" cy="${r2(span * 0.08 + sun)}" r="${r2(sun)}" style="fill:${fillOf(ids, 'ht-t2')}"/>`
+  s += rect(0, span - band, b.w, band, fillOf(ids, 'ht-t1'), 'opacity="0.35"') + '</g>'
+  return s + patternDefs(ids)
 }
 
-/** Patterns for soil, gravel and asphalt texture; returns their ids. */
-function textures(ids: Ids, S: number): { defs: string, soil: string, gravel: string, brick: string } {
-  const soil = ids.next('soil')
-  const gravel = ids.next('gravel')
+/** Brick ends seen in section, as a pattern of joints; returns its id. */
+function brickEnds(ids: Ids, S: number): { defs: string, brick: string } {
   const brick = ids.next('brick')
-  // Brick ends seen in section: a joint every brick width (4 in), never under 4 px.
+  // A joint every brick width (4 in), never under 4 px.
   const bw = Math.max(S / 3, 4)
-  const defs = `<defs><pattern id="${soil}" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r="0.9" style="fill:var(--pvx-soil-dot)"/><circle cx="6.5" cy="7" r="0.7" style="fill:var(--pvx-soil-dot)"/><circle cx="7" cy="1.5" r="0.5" style="fill:var(--pvx-soil-dot)"/></pattern>`
-    + `<pattern id="${gravel}" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" style="fill:var(--pvx-gravel-dot)"/><circle cx="4.5" cy="4" r="0.8" style="fill:var(--pvx-gravel-dot)"/></pattern>`
-    + `<pattern id="${brick}" width="${r2(bw)}" height="40" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="0.8" height="40" style="fill:var(--pvx-brick-joint)"/></pattern></defs>`
-  return { defs, soil: `url(#${soil})`, gravel: `url(#${gravel})`, brick: `url(#${brick})` }
+  return { defs: `<defs><pattern id="${brick}" width="${r2(bw)}" height="40" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="0.8" height="40" style="fill:var(--pvx-brick-joint)"/></pattern></defs>`, brick: `url(#${brick})` }
 }
 
 /**
  * The cut through the ground: soil body edge to edge, then each strip's own
  * build-up (concrete slab on gravel for walks, asphalt on a base course for
- * the road, mulch and groundcover over a root zone for planted strips),
- * curbs at every raised edge, and the ground profile line on top.
+ * the road, a planting pit for planted strips), curbs at every raised edge,
+ * and the ground profile line on top. One markup for all three drawing
+ * styles: Muted shows quiet strata; Drafting ink turns every layer to ink
+ * (poché) with a thin paper line under each slab and hatched pits; Two-ink
+ * print fills the cut in solid green that ends in halftone rows.
  */
 export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
-  const t = textures(ids, b.S)
+  const t = brickEnds(ids, b.S)
   const top = b.road - b.curbH
   const esW = edgeStripW(b)
   // Sloped edges, found first: a slope inside a strip shortens that strip's slab.
@@ -143,12 +150,19 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
   const insetL = (i: number) => (edges[i - 1]?.within === 'right' && surfaceY(cols[i], b) < surfaceY(cols[i - 1], b) ? esW : 0)
   const insetR = (i: number) => (edges[i]?.within === 'left' && surfaceY(cols[i], b) < surfaceY(cols[i + 1], b) ? esW : 0)
   let s = t.defs
-  s += rect(0, top, b.w, b.cutBottom - top, 'soil') + rect(0, top, b.w, b.cutBottom - top, t.soil)
+  s += rect(0, top, b.w, b.cutBottom - top, 'soil')
 
   const slabT = Math.max(0.4 * b.S, 3)
   const walkBase = Math.max(0.5 * b.S, 3)
   const asphaltT = Math.max(0.35 * b.S, 2.5)
   const roadBase = Math.max(0.8 * b.S, 5)
+  // Drafting ink's thin paper line under each slab, gathered into one path.
+  let slab = ''
+  const slabLine = (x0: number, x1: number, y: number) => {
+    if (x1 - x0 > 4)
+      slab += `M${r2(x0 + 1.5)} ${r2(y)}H${r2(x1 - 1.5)}`
+  }
+  let pits = ''
   cols.forEach((c, ci) => {
     const y = surfaceY(c, b)
     const w = c.x1 - c.x0
@@ -157,40 +171,49 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
       const [yl, yr] = apronY(ci)
       s += `<path d="M${r2(c.x0)} ${r2(yl + slabT)} L${r2(c.x1)} ${r2(yr + slabT)} L${r2(c.x1)} ${r2(yr + slabT + walkBase)} L${r2(c.x0)} ${r2(yl + slabT + walkBase)} Z" style="fill:var(--pvx-gravel)"/>`
       s += `<path d="M${r2(c.x0)} ${r2(yl)} L${r2(c.x1)} ${r2(yr)} L${r2(c.x1)} ${r2(yr + slabT)} L${r2(c.x0)} ${r2(yl + slabT)} Z" style="fill:var(--pvx-concrete)"/>`
+      slab += `M${r2(c.x0 + 1.5)} ${r2(yl + slabT)}L${r2(c.x1 - 1.5)} ${r2(yr + slabT)}`
     }
     else if (isPlanted(c.s)) {
-      const trees = (c.s.items ?? []).some(i => i.type === 'tree')
-      if (trees)
-        s += ellipse(c.x0 + w / 2, y + (b.cutBottom - y) * 0.45, w * 0.42, (b.cutBottom - y) * 0.35, 'root', 'opacity="0.45"')
-      s += rect(c.x0, y, w, Math.max(0.25 * b.S, 2), c.s.type === 'median' && !trees ? 'grass' : 'mulch')
+      // The planting pit: dark soil in Muted, hatched in ink, halftone in print.
+      const inset = Math.min(4, w * 0.1)
+      const depth = (b.cutBottom - y) * 0.72
+      const [px, pw] = [c.x0 + inset, w - 2 * inset]
+      s += rect(px, y, pw, depth, 'pit')
+      pits += overlay(ids, 'ink', 'hatch', px, y, pw, depth) + overlay(ids, 'print', 'ht-c2', px, y, pw, depth)
+      s += rect(c.x0, y - 1, w, Math.max(0.2 * b.S, 2), 'turf')
+      // Groundcover: a mound or two.
+      const n = Math.max(1, Math.min(3, Math.round(w / (2.2 * b.S))))
+      const rx = Math.min(w / (n * 2.6), 1.3 * b.gs)
       const r = rng(seedOf(c.s.id, 'tufts'))
-      const n = Math.max(2, Math.round(w / 6))
       for (let i = 0; i < n; i++) {
-        const tx = c.x0 + ((i + 0.5) * w) / n + (r() - 0.5) * Math.min(4, w / n / 2)
-        const th = (0.5 + r() * 0.6) * b.gs
-        const hw = 0.35 * b.gs
-        s += `<path d="M${r2(tx - hw)} ${r2(y)} L${r2(tx - hw * 0.3)} ${r2(y - th)} L${r2(tx)} ${r2(y - th * 0.5)} L${r2(tx + hw * 0.35)} ${r2(y - th * 0.9)} L${r2(tx + hw)} ${r2(y)} Z" style="fill:var(--pvx-${i % 2 ? 'grass' : 'grass-dk'})"/>`
+        const k = rx * (0.8 + r() * 0.3)
+        s += ellipse(c.x0 + ((i + 0.5) * w) / n, y - 0.5, k, k * 0.55, 'groundcover', 'class="o"')
       }
     }
     else if (surfaceOf(c.s) === 'concrete' || surfaceOf(c.s) === 'pavers' || isBrick(c.s)) {
       // Brick and pavers sit on a sand and gravel bed like a walk's slab.
       const x0 = c.x0 + insetL(ci)
       const sw = w - insetL(ci) - insetR(ci)
-      s += rect(x0, y + slabT, sw, walkBase, 'gravel') + rect(x0, y + slabT, sw, walkBase, t.gravel)
+      s += rect(x0, y + slabT, sw, walkBase, 'gravel')
       s += rect(x0, y, sw, slabT, surfacePaint(c.s)) + rect(x0, y + slabT - 1, sw, 1, 'concrete-shade')
       if (isBrick(c.s))
         s += rect(x0, y, sw, slabT, t.brick)
+      slabLine(x0, x0 + sw, y + slabT)
     }
     else {
-      s += rect(c.x0, y + asphaltT, w, roadBase, 'base') + rect(c.x0, y + asphaltT, w, roadBase, t.gravel)
+      s += rect(c.x0, y + asphaltT, w, roadBase, 'base')
       s += rect(c.x0, y, w, asphaltT, surfacePaint(c.s))
+      slabLine(c.x0, c.x1, y + asphaltT)
     }
     // Every buffer shows its two white edge stripes in section.
     if (c.s.type === 'buffer') {
       const lw = Math.max(2, 0.33 * b.S)
-      s += rect(c.x0 + 1, y - 0.5, lw, 1.5, 'p-white') + rect(c.x1 - 1 - lw, y - 0.5, lw, 1.5, 'p-white')
+      s += rect(c.x0 + 1, y - 0.5, lw, 1.5, 'cut-mark') + rect(c.x1 - 1 - lw, y - 0.5, lw, 1.5, 'cut-mark')
     }
   })
+  if (slab)
+    s += `<path class="only-ink" d="${slab}" style="fill:none;stroke:var(--pvx-paper);stroke-width:0.8"/>`
+  s += pits
 
   // Curbs: a concrete section at every edge between two heights, from the
   // higher surface down into the base; a sloped edge strip where a raised
@@ -217,7 +240,7 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
       const yHigh = Math.min(ya, yc)
       const yLow = Math.max(ya, yc)
       const deep = yLow + Math.max(0.6 * b.S, 4)
-      s += `<path d="M${r2(xLowEnd)} ${r2(yLow)} L${r2(xHighEnd)} ${r2(yHigh)} L${r2(xHighEnd)} ${r2(deep)} L${r2(xLowEnd)} ${r2(deep)} Z" style="fill:var(--pvx-concrete);stroke:var(--pvx-cut-line);stroke-width:0.75"/>`
+      s += `<path d="M${r2(xLowEnd)} ${r2(yLow)} L${r2(xHighEnd)} ${r2(yHigh)} L${r2(xHighEnd)} ${r2(deep)} L${r2(xLowEnd)} ${r2(deep)} Z" style="fill:var(--pvx-curb);stroke:var(--pvx-cut-line);stroke-width:0.75"/>`
       if (e.within === 'left')
         bevelR.add(i)
       else
@@ -225,11 +248,12 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
       continue
     }
     const x = ya < yc ? a.x1 - curbW : c.x0
-    s += `<path d="M${r2(x)} ${r2(Math.min(ya, yc))} L${r2(x + curbW)} ${r2(Math.min(ya, yc))} L${r2(x + curbW)} ${r2(curbDeep)} L${r2(x)} ${r2(curbDeep)} Z" style="fill:var(--pvx-concrete);stroke:var(--pvx-cut-line);stroke-width:0.75"/>`
+    s += `<path d="M${r2(x)} ${r2(Math.min(ya, yc))} L${r2(x + curbW)} ${r2(Math.min(ya, yc))} L${r2(x + curbW)} ${r2(curbDeep)} L${r2(x)} ${r2(curbDeep)} Z" style="fill:var(--pvx-curb);stroke:var(--pvx-cut-line);stroke-width:0.75"/>`
   }
 
   // Ground profile line (sloping across each edge strip), then a fade into
-  // the page at the bottom of the cut.
+  // the page at the bottom of the cut (Muted and ink), or rows of halftone
+  // (print).
   let d = `M0 ${r2(top)} L${r2(b.left)} ${r2(top)}`
   cols.forEach((c, i) => {
     const [yl, yr] = isApron(c.s) ? apronY(i) : [surfaceY(c, b), surfaceY(c, b)]
@@ -239,9 +263,14 @@ export function groundCut(ids: Ids, cols: SceneColumn[], b: SceneBox): string {
   s += `<path d="${d}" style="fill:none;stroke:var(--pvx-cut-line);stroke-width:1"/>`
   const fade = ids.next('fade')
   const fh = Math.min(16, (b.cutBottom - top) * 0.6)
-  s += `<defs><linearGradient id="${fade}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--cw-paper-raised);stop-opacity:0"/><stop offset="1" style="stop-color:var(--cw-paper-raised);stop-opacity:1"/></linearGradient></defs>`
-  s += rect(0, b.cutBottom - fh, b.w, fh, `url(#${fade})`)
-  return s
+  s += `<defs><linearGradient id="${fade}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--pvx-paper);stop-opacity:0"/><stop offset="1" style="stop-color:var(--pvx-paper);stop-opacity:1"/></linearGradient></defs>`
+  s += rect(0, b.cutBottom - fh, b.w, fh, `url(#${fade})`, 'class="no-print"')
+  const rh = Math.max(3, Math.min(7, (b.cutBottom - top) * 0.2))
+  const y0 = b.cutBottom - 3 * rh
+  s += `<g class="only-print">${rect(0, y0, b.w, 3 * rh + 1, 'paper')}`
+  s += (['ht-c3', 'ht-c2', 'ht-c1'] as const).map((p, k) => rect(0, y0 + k * rh, b.w, rh, fillOf(ids, p))).join('')
+  s += '</g>'
+  return s + patternDefs(ids)
 }
 
 // ---------------------------------------------------------------------------
@@ -265,8 +294,9 @@ export function frontage(ids: Ids, kind: FrontageType, side: 'left' | 'right', b
   if (kind === 'buildings') {
     const fl = 12 * b.gs
     const color = side === 'left' ? 'bldg-a' : 'bldg-b'
-    s += rect(a, 0, w, top, color)
-    s += rect(a, top, w, b.cutBottom - top, color) + rect(a, top, w, b.cutBottom - top, 'shadow')
+    // An elevation: filled in Muted, outlined in Drafting ink, screened in
+    // halftone with a solid band at the top in Two-ink print.
+    s += rect(a, 0, w, top, color, 'class="o"') + overlay(ids, 'print', 'ht-d2', a, 0, w, top)
     const floors = Math.ceil(top / fl)
     for (let k = 1; k <= floors; k++) {
       const yb = top - k * fl
@@ -280,12 +310,12 @@ export function frontage(ids: Ids, kind: FrontageType, side: 'left' | 'right', b
       for (let i = 0; i < nW; i++) {
         const wx = a + 4 + i * ((w - 8) / nW) + ((w - 8) / nW - ww) / 2
         const wy = yb + fl * 0.3
-        s += rect(wx, wy, ww, wh, seedOf(seed, k, i) % 3 === 0 ? 'window-lit' : 'window') + rect(wx, wy + wh, ww, 2, 'bldg-trim')
+        s += rect(wx, wy, ww, wh, seedOf(seed, k, i) % 3 === 0 ? 'window-lit' : 'window', 'class="ow"') + rect(wx, wy + wh, ww, 2, 'bldg-trim', 'class="no-ink"')
       }
     }
     // Storefront glass and mullions, a base course, and an awning over the walk.
     const sf = top - 10 * b.gs
-    s += rect(a + 3, sf, w - 6, 10 * b.gs, 'glass') + rect(a + 3, sf, w - 6, 10 * b.gs, 'shadow')
+    s += rect(a + 3, sf, w - 6, 10 * b.gs, 'storefront', 'class="ow"')
     for (let i = 1; i < 3; i++)
       s += rect(a + 3 + (i * (w - 6)) / 3 - 1, sf, 2, 10 * b.gs, 'bldg-trim')
     s += rect(a, top - 0.6 * b.gs, w, 0.6 * b.gs, 'bldg-trim')
@@ -294,9 +324,9 @@ export function frontage(ids: Ids, kind: FrontageType, side: 'left' | 'right', b
     if (next?.type === 'sidewalk') {
       const reach = Math.min(3.5, next.width * 0.6) * b.S
       const ay = top - 9 * b.gs
-      awning = `<path d="M${r2(face)} ${r2(ay - 1.6 * b.gs)} L${r2(face + dir * reach)} ${r2(ay)} L${r2(face + dir * reach)} ${r2(ay + 0.6 * b.gs)} L${r2(face)} ${r2(ay + 0.6 * b.gs)} Z" style="fill:var(--pvx-awning)"/>`
+      awning = `<path d="M${r2(face)} ${r2(ay - 1.6 * b.gs)} L${r2(face + dir * reach)} ${r2(ay)} L${r2(face + dir * reach)} ${r2(ay + 0.6 * b.gs)} L${r2(face)} ${r2(ay + 0.6 * b.gs)} Z" class="o" style="fill:var(--pvx-awning)"/>`
     }
-    return `<defs><clipPath id="${clip}"><rect x="${r2(a)}" y="0" width="${r2(w)}" height="${r2(b.cutBottom)}"/></clipPath></defs><g clip-path="url(#${clip})">${s}</g>${awning}`
+    return `<defs><clipPath id="${clip}"><rect x="${r2(a)}" y="0" width="${r2(w)}" height="${r2(top)}"/></clipPath></defs><g clip-path="url(#${clip})">${s}</g>${awning}${patternDefs(ids)}`
   }
 
   if (kind === 'parking-lot') {
@@ -307,19 +337,19 @@ export function frontage(ids: Ids, kind: FrontageType, side: 'left' | 'right', b
     s += place(a + w * (side === 'left' ? 0.15 : 0.85), top - 1, b.gs, streetLight(side === 'left' ? 1 : -1))
   }
   else if (kind === 'field') {
-    s += rect(a, top - 2, w, 4, 'grass-dk')
+    s += rect(a, top - 2, w, 4, 'turf')
     const r = rng(seed)
     const n = Math.max(3, Math.round(w / 8))
     for (let i = 0; i < n; i++) {
       const tx = a + ((i + 0.5) * w) / n
       const th = (1.2 + r() * 1.2) * b.gs
-      s += `<path d="M${r2(tx - 0.25 * b.gs)} ${r2(top)} L${r2(tx - 0.5 * b.gs)} ${r2(top - th)} L${r2(tx)} ${r2(top - th * 0.4)} L${r2(tx + 0.45 * b.gs)} ${r2(top - th * 0.9)} L${r2(tx + 0.3 * b.gs)} ${r2(top)} Z" style="fill:var(--pvx-${i % 2 ? 'grass' : 'grass-dk'})"/>`
+      s += `<path d="M${r2(tx - 0.25 * b.gs)} ${r2(top)} L${r2(tx - 0.5 * b.gs)} ${r2(top - th)} L${r2(tx)} ${r2(top - th * 0.4)} L${r2(tx + 0.45 * b.gs)} ${r2(top - th * 0.9)} L${r2(tx + 0.3 * b.gs)} ${r2(top)} Z" class="o" style="fill:var(--pvx-${i % 2 ? 'grass' : 'grass-dk'})"/>`
     }
     // A fence post at the property line (its wire runs along the street, out of the cut).
     s += place(face - dir * 0.3 * b.gs, top, b.gs, fencePost())
   }
   else {
-    s += rect(a, top - 2, w, 4, 'grass')
+    s += rect(a, top - 2, w, 4, 'turf')
     const sw = Math.min(5, (w / b.gs) * 0.8)
     if (sw > 1.5)
       s += place(a + w / 2 - dir * 0.1 * w, top - 1, b.gs, shrub(ids, sw, sw * 0.8, seed))

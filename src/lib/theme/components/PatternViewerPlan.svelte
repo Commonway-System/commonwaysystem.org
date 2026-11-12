@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import { APRON_FLARE, barrierTop, bikeLaneSymbol, brickJoints, CONFLICT_DASH, CONFLICT_GAP, drivewaysBeside, laneArrow, makeIds, makeStamps, seedOf, sharrow, streetItemTop } from '$lib/viewer/art'
-  import { barrierRuns, blocksDriveway, breakpoints, crossing, drivewaySpan, FEATURE_LABELS, isBrick, isRaised, levelOf, onWalkway, parkingBarred, WARNING_DEPTH, STALL_LENGTH, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
+  import { APRON_FLARE, artScale, barrierTop, bikeLaneSymbol, brickJoints, CONFLICT_DASH, CONFLICT_GAP, drivewaysBeside, fillOf, laneArrow, makeIds, ON_BIKE_STYLE, onBikePaint, makeStamps, patternDefs, seedOf, sharrow, streetItemTop } from '$lib/viewer/art'
+  import { barrierRuns, blocksDriveway, surfaceOf, breakpoints, crossing, drivewaySpan, FEATURE_LABELS, isBrick, isRaised, levelOf, onWalkway, parkingBarred, WARNING_DEPTH, STALL_LENGTH, markingOf, OVERRIDE_LABELS, segmentLabel, spread, widthsAt } from '$lib/viewer/geometry'
   import { formatLength } from '$lib/viewer/state'
   import type { RendererProps, Segment, StreetConfig, StreetFeature } from '$lib/viewer/types'
 
@@ -156,7 +156,7 @@
     // Driveway openings (ft along the street) on a strip's side of the street.
     const features = config.features ?? []
     const openings = (idx: number) => drivewaysBeside(features, config.segments, idx).map(({ f }) => drivewaySpan(f))
-    const markings = runs.flatMap(({ i, j, k0, k1 }) => {
+    const markings: { d: string, cls: string, dash: string, style?: string }[] = runs.flatMap(({ i, j, k0, k1 }) => {
       const s = config.segments[i]
       const next = config.segments[j]
       const pair = (a: Segment['type'], b: Segment['type']) => (s.type === a && next.type === b) || (s.type === b && next.type === a)
@@ -214,7 +214,7 @@
     // directions (NACTO's Urban Bikeway Design Guide): 2 ft dots every 6 ft.
     for (const b of bands) {
       if (isBike(b.s.type) && b.s.direction === 'both')
-        markings.push({ d: xs.map((x, k) => `${k ? 'L' : 'M'} ${X(x)} ${(at[k][b.i].top + at[k][b.i].bottom) / 2}`).join(' '), cls: 'mk-yellow', dash: `${2 * scale} ${4 * scale}` })
+        markings.push({ d: xs.map((x, k) => `${k ? 'L' : 'M'} ${X(x)} ${(at[k][b.i].top + at[k][b.i].bottom) / 2}`).join(' '), cls: 'mk-yellow', dash: `${2 * scale} ${4 * scale}`, style: surfaceOf(b.s) === 'green' ? ON_BIKE_STYLE : undefined })
     }
 
     // A crosswalk paves every planting strip it crosses (a curb extension's,
@@ -257,7 +257,7 @@
       for (let a = d0 + CONFLICT_DASH; a < d1; a += CONFLICT_DASH + CONFLICT_GAP)
         gaps.push({ x: X(a), w: Math.min(CONFLICT_GAP, d1 - a) * scale })
       const inset = Math.max(1.2, 0.4 * scale)
-      return [{ key: `${b.s.id}-${f.id}`, gaps, top: band.top, bottom: band.bottom, x0: X(d0), x1: X(d1), lines: [band.top + inset, band.bottom - inset] }]
+      return [{ key: `${b.s.id}-${f.id}`, gaps, top: band.top, bottom: band.bottom, x0: X(d0), x1: X(d1), lines: [band.top + inset, band.bottom - inset], green: surfaceOf(b.s) === 'green' }]
     }))
 
     // Parking stalls: a white T at each stall line, on the edge nearest the
@@ -298,7 +298,7 @@
         // No bike lane symbol on a driveway's conflict marking.
         if (bh < 6 || (isBike(b.s.type) && drivewaysBeside(features, config.segments, b.i).some(({ f }) => ft >= drivewaySpan(f)[0] - 6 && ft <= drivewaySpan(f)[1] + 6)))
           continue
-        out.push({ x: X(ft), y: (band.top + band.bottom) / 2, size: Math.min(bh * 0.32, 9), dir: b.s.direction ?? 'outbound', key: `${b.s.id}-${ft}`, bike: isBike(b.s.type), marking: markingOf(b.s), bh })
+        out.push({ x: X(ft), y: (band.top + band.bottom) / 2, size: Math.min(bh * 0.32, 9), dir: b.s.direction ?? 'outbound', key: `${b.s.id}-${ft}`, bike: isBike(b.s.type), green: surfaceOf(b.s) === 'green', marking: markingOf(b.s), bh })
       }
       return out
     })
@@ -337,6 +337,12 @@
     // its y axis, so each piece is turned 90 degrees: the street runs left to
     // right here. Arms and open sides reach toward the middle of the street.
     const ids = makeIds(uid)
+    artScale(ids, undefined, scale)
+    // Hue said again by pattern in the drawing styles without it: planting
+    // is stippled (ink) or screened teal (print); a red surface is hatched
+    // (ink) or screened dark (print); brick is screened teal (print).
+    const pat = { stipple: fillOf(ids, 'stipple'), green: fillOf(ids, 'ht-t2'), hatch: fillOf(ids, 'hatch'), dark: fillOf(ids, 'ht-d3'), brick: fillOf(ids, 'ht-t1') }
+    const patDefs = patternDefs(ids)
     const stamps = makeStamps(ids)
     const mid = (streetTop + streetBottom) / 2
     const turn = (x: number, y: number, inner: string) => `<g transform="translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(90) scale(${scale.toFixed(3)})">${inner}</g>`
@@ -364,8 +370,8 @@
     for (const a of arrows.filter(a => a.dir === 'both' && a.bike && a.marking === 'bike-symbol')) {
       const q = a.bh / 4
       const ahead = 3.2 * scale
-      art += turn(a.x + ahead * 0.8, a.y - q, bikeLaneSymbol(true)) + turn(a.x - ahead, a.y - q, laneArrow(4.2, true))
-      art += turn(a.x - ahead * 0.8, a.y + q, bikeLaneSymbol(false)) + turn(a.x + ahead, a.y + q, laneArrow(4.2, false))
+      art += onBikePaint(a.green, turn(a.x + ahead * 0.8, a.y - q, bikeLaneSymbol(true)) + turn(a.x - ahead, a.y - q, laneArrow(4.2, true))
+        + turn(a.x - ahead * 0.8, a.y + q, bikeLaneSymbol(false)) + turn(a.x + ahead, a.y + q, laneArrow(4.2, false)))
     }
     for (const a of arrows.filter(a => a.dir !== 'both' && (a.bike || a.marking === 'sharrow'))) {
       const toward = a.dir === 'inbound'
@@ -373,7 +379,7 @@
       if (a.marking === 'sharrow')
         art += turn(a.x, a.y, sharrow(toward))
       else if (a.marking === 'bike-symbol')
-        art += turn(a.x - ahead * 0.8, a.y, bikeLaneSymbol(toward)) + turn(a.x + ahead, a.y, laneArrow(4.2, toward))
+        art += onBikePaint(a.green, turn(a.x - ahead * 0.8, a.y, bikeLaneSymbol(toward)) + turn(a.x + ahead, a.y, laneArrow(4.2, toward)))
     }
     art = stamps.defs() + art
     const bricks = config.segments.some(isBrick) ? brickJoints(ids, Math.max(scale, 3), true) : undefined
@@ -439,7 +445,7 @@
 
     /** Whether a stretch of strip i overlaps a driveway opening on its side. */
     const inOpening = (idx: number, a: number, b2: number) => openings(idx).some(([d0, d1]) => b2 >= d0 && a <= d1)
-    return { m, font, scale, length, X, x0, inOpening, bricks, walks, aprons, conflicts, openingLines, openingAsphalt, stalls, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' ? !(a.bike && a.marking === 'bike-symbol') : !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
+    return { pat, patDefs, m, font, scale, length, X, x0, inOpening, bricks, walks, aprons, conflicts, openingLines, openingAsphalt, stalls, markRows, markBadges, bands, markings, arrows: arrows.filter(a => a.marking !== 'sharrow' && (a.dir === 'both' ? !(a.bike && a.marking === 'bike-symbol') : !a.bike)), feats, overrides, marks, markX, segBadges, badgeY, streetTop, streetBottom, sections, barFt, art, joints }
   })
 
   function defaultLength(f: StreetFeature): number {
@@ -479,6 +485,15 @@
       <g clip-path="url(#pvx-street-{entry.id})">
         {#each P.bands as b (b.s.id)}
           <polygon class="s-{b.s.type}{b.s.surface && b.s.type !== 'furnishing' && b.s.type !== 'median' ? ` sf-${b.s.surface}` : ''}" points={b.points} />
+          {#if b.s.type === 'furnishing' || b.s.type === 'median'}
+            <polygon class="only-ink" points={b.points} style="fill:{P.pat.stipple}" />
+            <polygon class="only-print" points={b.points} style="fill:{P.pat.green}" />
+          {:else if surfaceOf(b.s) === 'red' || surfaceOf(b.s) === 'brick-red'}
+            <polygon class="only-ink" points={b.points} style="fill:{P.pat.hatch}" />
+            <polygon class="only-print" points={b.points} style="fill:{P.pat.dark}" />
+          {:else if surfaceOf(b.s) === 'brick'}
+            <polygon class="only-print" points={b.points} style="fill:{P.pat.brick}" />
+          {/if}
           {#if P.bricks && isBrick(b.s)}
             <polygon points={b.points} style="fill:{P.bricks.fill}" />
           {/if}
@@ -509,13 +524,21 @@
           {#each cf.gaps as g, k (k)}
             <rect class="s-travel-lane" x={g.x} y={cf.top} width={g.w} height={cf.bottom - cf.top} />
           {/each}
+          <!-- Edge dots: on-bike paint along the whole line, then the plain
+               paint again over each asphalt gap, kept in step with the dots. -->
           {#each cf.lines as ly, k (k)}
-            <path class="mk-white" stroke-width="1.5" stroke-dasharray="{2 * P.scale} {2 * P.scale}" d="M {cf.x0} {ly} H {cf.x1}" />
+            <path class="mk-white" style={cf.green ? ON_BIKE_STYLE : undefined} stroke-width="1.5" stroke-dasharray="{2 * P.scale} {2 * P.scale}" d="M {cf.x0} {ly} H {cf.x1}" />
+            {#if cf.green}
+              {#each cf.gaps as g, j (j)}
+                <path class="mk-white" stroke-width="1.5" stroke-dasharray="{2 * P.scale} {2 * P.scale}" stroke-dashoffset={(g.x - cf.x0) % (4 * P.scale)} d="M {g.x} {ly} H {g.x + g.w}" />
+              {/each}
+            {/if}
           {/each}
         {/each}
         {#if P.bricks}
           <g aria-hidden="true">{@html P.bricks.def}</g>
         {/if}
+        <g aria-hidden="true">{@html P.patDefs}</g>
         {#each P.stalls as st (st.key)}
           {#each [st.bar, st.stem] as q, k (k)}
             <rect class="mk-fill-white" x={q.x} y={q.y} width={q.w} height={q.h} />
@@ -529,7 +552,7 @@
         {/each}
 
         {#each P.markings as mk, k (k)}
-          <path class={mk.cls} d={mk.d} stroke-dasharray={mk.dash || undefined} stroke-width={mk.cls.startsWith('mk') ? 1.5 : undefined} />
+          <path class={mk.cls} d={mk.d} style={mk.style} stroke-dasharray={mk.dash || undefined} stroke-width={mk.cls.startsWith('mk') ? 1.5 : undefined} />
         {/each}
 
         {#each P.arrows as a (a.key)}

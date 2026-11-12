@@ -51,9 +51,9 @@ export function shade(hex: string, k: number): string {
 
 /**
  * A paint value: a palette token name ("soil" becomes var(--pvx-soil)), or a
- * literal #hex / rgba() / url(#id) passed through. Fixed hexes are only for
- * things whose color is part of what they are (skin, clothing, car bodies,
- * lamps), never for anything that must follow the theme.
+ * literal #hex / rgba() / url(#id) passed through. Art uses token names
+ * only: every color has to follow the theme and the reader's drawing style
+ * (Muted render, Drafting ink, Two-ink print), which are palette swaps.
  */
 export function paint(v: string): string {
   return /^(?:#|rgb|url|var)/.test(v) ? v : `var(--pvx-${v})`
@@ -155,3 +155,117 @@ export function brickJoints(ids: Ids, S: number, turned = false): { def: string,
   const def = `<defs><pattern id="${id}" width="${r2(2 * bw)}" height="${r2(bl)}" patternUnits="userSpaceOnUse"${turned ? ' patternTransform="rotate(90)"' : ''}><g style="fill:var(--pvx-brick-joint)">${lines}</g></pattern></defs>`
   return { def, fill: `url(#${id})` }
 }
+
+// ---------------------------------------------------------------------------
+// Drawing-style patterns. The three drawing styles (Muted render, Drafting
+// ink, Two-ink print; see "Drawing styles" in viewer.css) share one markup,
+// so the hatches, stipple and halftone dots that only ink or print shows are
+// laid over a shape as an extra element with an only-ink / only-print class,
+// filled with one of these patterns. Each drawing gets its own copy (two
+// drawings can share a page), made on first use: fillOf() hands back the
+// url, patternDefs() the <defs> still to be written out.
+//
+// Dot and line sizes are screen pixels, so halftone stays legible on a phone.
+// Art drawn in feet and scaled (trees, shrubs) asks for the 'front' or 'top'
+// space, whose patterns are scaled back down by the pixels-per-foot the
+// renderer registered with artScale(); 'px' is for art drawn in pixels.
+
+/** Names of the shared patterns. */
+export type PatternName =
+  /** Drafting ink: 45-degree ink hatch (tree pits, red surfaces, roofs, separators). */
+  | 'hatch'
+  /** Drafting ink: fine stipple (planting seen from above). */
+  | 'stipple'
+  /** Two-ink print: light and medium halftone in the second ink (teal). */
+  | 'ht-t1' | 'ht-t2'
+  /** Two-ink print: light, medium and dense halftone in the first ink (dark green). */
+  | 'ht-d1' | 'ht-d2' | 'ht-d3'
+  /** Two-ink print: halftone rows in the ground cut's color, light to dense. */
+  | 'ht-c1' | 'ht-c2' | 'ht-c3'
+
+export type PatternSpace = 'px' | 'front' | 'top'
+
+const dots = (r: number, fill: string, sp = 6) => ({ size: sp, rot: 45, body: `<circle cx="${sp / 2}" cy="${sp / 2}" r="${r}" style="fill:var(--pvx-${fill})"/>` })
+const PATTERNS: Record<PatternName, { size: number, rot: number, body: string }> = {
+  'hatch': { size: 5, rot: 45, body: '<path d="M0 0V5" style="stroke:var(--pvx-ink);stroke-width:0.8"/>' },
+  'stipple': { size: 7, rot: 30, body: '<circle cx="2" cy="2" r="0.8" style="fill:var(--pvx-ink-soft)"/>' },
+  'ht-t1': dots(1.3, 'print-2'),
+  'ht-t2': dots(2, 'print-2'),
+  'ht-d1': dots(1, 'print-1'),
+  'ht-d2': dots(1.7, 'print-1'),
+  'ht-d3': dots(2.5, 'print-1'),
+  'ht-c1': dots(1.2, 'cut'),
+  'ht-c2': dots(1.8, 'cut'),
+  'ht-c3': dots(2.6, 'cut'),
+}
+
+interface PatternLib {
+  made: Map<string, string>
+  pending: Record<PatternSpace, string>
+  scale: Record<PatternSpace, number>
+}
+const libs = new WeakMap<Ids, PatternLib>()
+function libOf(ids: Ids): PatternLib {
+  let l = libs.get(ids)
+  if (!l) {
+    l = { made: new Map(), pending: { px: '', front: '', top: '' }, scale: { px: 1, front: 10, top: 10 } }
+    libs.set(ids, l)
+  }
+  return l
+}
+
+/**
+ * Registers the pixels per foot this drawing uses for standing objects
+ * (`front`: trees and shrubs in the cross-section) and for art seen from
+ * above (`top`: the slice and the Top down view), so patterns inside that
+ * art keep their screen size. Call before drawing them.
+ */
+export function artScale(ids: Ids, front?: number, top?: number): void {
+  const l = libOf(ids)
+  if (front)
+    l.scale.front = front
+  if (top)
+    l.scale.top = top
+}
+
+/** A pattern fill (`url(#id)`) for this drawing, made on first use. */
+export function fillOf(ids: Ids, name: PatternName, space: PatternSpace = 'px'): string {
+  const l = libOf(ids)
+  const key = `${space}|${name}`
+  let id = l.made.get(key)
+  if (!id) {
+    id = ids.next('pt')
+    l.made.set(key, id)
+    const p = PATTERNS[name]
+    const k = space === 'px' ? '' : `scale(${+(1 / l.scale[space]).toFixed(4)}) `
+    l.pending[space] += `<pattern id="${id}" width="${p.size}" height="${p.size}" patternUnits="userSpaceOnUse" patternTransform="${k}rotate(${p.rot})">${p.body}</pattern>`
+  }
+  return `url(#${id})`
+}
+
+/**
+ * The pattern defs made since the last call, for one space. Each art piece
+ * writes out its own space's patterns, so a pattern never sits inside a
+ * layer another style or Simplified view hides from the art that uses it.
+ */
+export function patternDefs(ids: Ids, space: PatternSpace = 'px'): string {
+  const l = libOf(ids)
+  const out = l.pending[space]
+  l.pending[space] = ''
+  return out ? `<defs>${out}</defs>` : ''
+}
+
+/** A rectangle shown only in one drawing style, filled with a pattern. */
+export const overlay = (ids: Ids, style: 'ink' | 'print', name: PatternName, x: number, y: number, w: number, h: number, extra = ''): string =>
+  `<rect class="only-${style}" x="${r2(x)}" y="${r2(y)}" width="${r2(Math.max(w, 0))}" height="${r2(Math.max(h, 0))}" style="fill:${fillOf(ids, name)}"${extra ? ` ${extra}` : ''}/>`
+
+/**
+ * Paint drawn on a green bike lane (the symbol, its arrow, a two-way lane's
+ * center dots, a conflict marking's edge dots). Inside this group the white
+ * and yellow paint tokens take the palette's on-bike values, which only
+ * Two-ink print sets apart: paper-colored paint on its teal lane was under
+ * 3:1, so there it is drawn in the dark ink instead.
+ */
+export const ON_BIKE_STYLE = '--pvx-p-white:var(--pvx-on-bike-white);--pvx-p-yellow:var(--pvx-on-bike-yellow)'
+export const onBikePaint = (green: boolean, inner: string): string =>
+  green && inner ? `<g style="${ON_BIKE_STYLE}">${inner}</g>` : inner

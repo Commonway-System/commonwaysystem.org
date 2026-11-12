@@ -33,6 +33,26 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    date: "2026.11.11",
+    changes: [
+      { type: "new", area: "site",
+        summary: "The Pattern viewer now offers three drawing styles, Muted, Ink and Print, chosen with a new Style control next to Units.",
+        details: "Muted render is quiet full color and the default. Drafting ink is an architect's section drawing in one color on paper, with surfaces told apart by hatching and dots. Two-ink print is a screen-print look in the brand's two greens, shaded with halftone dots. The choice is kept in your browser only, applies to every drawing on the site including the homepage, and is never put in the page address." },
+      { type: "improved", area: "site",
+        summary: "People, vehicles and trees in the Pattern viewer are redrawn as gray silhouettes, plain vehicles and single-crown trees, and the drawings are lighter to load.",
+        details: "Collector Default's cross-section fell from about 12.4 KB to 9.2 KB compressed in a development measurement." },
+      { type: "removed", area: "site",
+        summary: "The earlier full-color illustrated look of the Pattern viewer, approved October 17, 2026, is gone.",
+        details: "Muted render replaces it as the default." },
+      { type: "note",
+        summary: "What was checked for the three drawing styles: no accessibility violations in automated scans, and not yet a screen reader or real touch devices.",
+        details: "Axe (WCAG 2.0 to 2.2 Level A and AA plus best practice) found no violations on seven pages (a Collector Default cross-section, its Top down view and a crosswalk cut with parking, Boulevard, the road diet Retrofit Strategy, the homepage and How to Read a Pattern), each style in light and dark at 1280 and 375 px wide (84 scans), with no hydration warnings. The site's click-through check had no failures. Simplified view and high contrast were looked at once per style, and forced colors once per style in Chrome's emulation. Not checked: a real Windows high-contrast session, a screen reader, real touch devices, Text size settings with the new control, and drawings no page places yet (bus, cargo and child cyclists, benches, shelters)." },
+      { type: "note",
+        summary: "Known limitation: in Drafting ink and Two-ink print, a red transit lane or cycle track is told apart only by pattern in the top-down views, and only by its label in the cross-section.",
+        details: "In Two-ink print, paint on a teal bike lane (bike symbols, arrows and dotted markings) is drawn in the dark ink, which measures 4.38:1 in light mode and 5.89:1 in dark; paper-colored paint there would have been under the 3:1 minimum for graphics. Recorded in the Accessibility Policy and the Brand Guide." },
+    ],
+  },
+  {
     date: "2026.11.10",
     changes: [
       { type: "fixed", area: "site",

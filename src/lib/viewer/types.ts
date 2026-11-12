@@ -443,6 +443,9 @@ export interface ViewerData {
 
 export type Units = 'ft' | 'm'
 
+/** Drawing style, a reader preference; switched by CSS on html[data-art]. */
+export type ArtStyle = 'muted' | 'ink' | 'print'
+
 export interface Annotations {
   labels: boolean
   dimensions: boolean
